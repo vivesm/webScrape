@@ -27,7 +27,7 @@ pip install -r requirements.txt
 Run the script with the desired options:
 
 ```bash
-python BasicScraper_v3.py --base_url <URL> [options]
+python webScrape.py.py --base_url <URL> [options]
 ```
 
 ### Command-Line Arguments
@@ -43,17 +43,17 @@ python BasicScraper_v3.py --base_url <URL> [options]
 
 1. Scrape all links from a specific URL and save as PDFs:
    ```bash
-   python BasicScraper_v3.py --base_url https://docs.workato.com/getting-started/what-is-workato.html --output_format pdf
+   python webScrape.py.py --base_url https://docs.workato.com/getting-started/what-is-workato.html --output_format pdf
    ```
 
 2. Test mode (process only the first link):
    ```bash
-   python BasicScraper_v3.py --test --base_url https://example.com
+   python webScrape.py.py --test --base_url https://example.com
    ```
 
 3. Add a 2-second delay between processing links:
    ```bash
-   python BasicScraper_v3.py --base_url https://example.com --delay 2
+   python webScrape.py.py --base_url https://example.com --delay 2
    ```
 
 ## Output
