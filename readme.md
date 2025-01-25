@@ -1,4 +1,4 @@
-# BasicScraper
+# webScrape
 
 BasicScraper is a Python-based web scraping tool that dynamically fetches web page links, downloads content as PDFs or text files, and handles cookie banners. The script uses Pyppeteer for headless browser automation and supports concurrency and delay configurations.
 
