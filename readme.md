@@ -1,93 +1,69 @@
+# BasicScraper
 
-# Links to PDF Scraper
+BasicScraper is a Python-based web scraping tool that dynamically fetches web page links, downloads content as PDFs or text files, and handles cookie banners. The script uses Pyppeteer for headless browser automation and supports concurrency and delay configurations.
 
-This project scrapes a website (help.okta.com website) collects all links from three levels of pages starting from a base URL, and saves each page as a PDF. The script uses a combination of `requests`, `BeautifulSoup` for scraping, and `Pyppeteer` for rendering pages as PDFs in a headless browser.
+## Features
 
----
+- Extracts links dynamically from a given URL.
+- Saves content in **PDF** or **text** format.
+- Handles cookie banners automatically (if supported).
+- Skips re-downloading files that already exist.
+- Configurable delays between processing each link.
+- Test mode to process only the first link.
 
-## 🎯 **Features**
+## Requirements
 
-- 🔗 Scrapes links from the `help.okta.com` domain.
-- 🧭 Follows three levels of links starting from a base URL.
-- 📄 Renders each page as a PDF using a headless browser (`Pyppeteer`).
-- 📂 Saves PDFs in a specified directory.
+- Python 3.7+
+- Virtual environment recommended.
 
----
-
-## 🛠 **Prerequisites**
-
-> **🖼 Canvas View: Prerequisites**  
-> You need the following libraries installed to run the script:
-
-```bash
-pip install requests beautifulsoup4 pyppeteer
-```
-
----
-
-## 🚀 **Usage**
-
-1. **Clone this repository** or download the script.
-2. **Edit the script** if you need to change the base URL or output directory.
-3. **Run the script**:
+### Install Dependencies
 
 ```bash
-python script_name.py
+pip install -r requirements.txt
 ```
 
----
+## Usage
 
-### 📂 **Example**
+Run the script with the desired options:
 
 ```bash
-$ python scraper.py
-Rendering: https://help.okta.com/wf/en-us/content/topics/workflows/execute/flow-api-endpoint.htm
-Saved PDF: js_rendered_pdfs/page_1.pdf
-Rendering: https://help.okta.com/wf/en-us/content/topics/workflows/execute/flow-api-endpoint.htm#additional-topic
-Saved PDF: js_rendered_pdfs/page_2.pdf
-...
+python BasicScraper_v3.py --base_url <URL> [options]
 ```
 
----
+### Command-Line Arguments
 
-## 📦 **Directory Structure**
+| Argument         | Description                                      | Default                                       |
+|------------------|--------------------------------------------------|-----------------------------------------------|
+| `--base_url`     | The URL to scrape links from.                   | `https://docs.workato.com/projects.html`     |
+| `--output_format`| Output format for files (`pdf` or `text`).      | `pdf`                                        |
+| `--test`         | Process only the first link (test mode).        | Disabled                                     |
+| `--delay`        | Delay (in seconds) between processing links.    | `1.0`                                        |
 
-```
-📂 js_rendered_pdfs
- ┣ 📜 page_1.pdf
- ┣ 📜 page_2.pdf
- ┗ 📜 ...
-```
+### Example Usage
 
----
+1. Scrape all links from a specific URL and save as PDFs:
+   ```bash
+   python BasicScraper_v3.py --base_url https://docs.workato.com/getting-started/what-is-workato.html --output_format pdf
+   ```
 
-## 📑 **Functions**
+2. Test mode (process only the first link):
+   ```bash
+   python BasicScraper_v3.py --test --base_url https://example.com
+   ```
 
-> **🖼 Canvas View: Function Overview**  
->
-> ### `get_links(url)`
-> - **Purpose:** Fetches all links from the given URL.
-> - **Filters:** Only includes links from the `help.okta.com` domain.
->
-> ### `save_as_pdf(page_url, output_path)`
-> - **Purpose:** Launches a headless browser using `Pyppeteer`.
-> - **Functionality:** Renders the given URL as a PDF and saves it to the specified path.
->
-> ### `scrape_3_levels()`
-> - **Purpose:** 
->   - Scrapes links from the base URL, second-level links, and third-level links.
->   - Saves each collected page as a PDF in the output directory.
+3. Add a 2-second delay between processing links:
+   ```bash
+   python BasicScraper_v3.py --base_url https://example.com --delay 2
+   ```
 
----
+## Output
 
-## 📜 **License**
+All files are saved in the `output/` directory. Files are named based on the last part of the URL, sanitized for safe filenames.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+## Contributing
 
----
+Contributions are welcome! Please fork the repository, make changes, and submit a pull request.
 
-## 💡 **Contributions**
+## License
 
-For any issues or suggestions, feel free to open an issue or pull request.
-
----
+This project is licensed under the MIT License.
