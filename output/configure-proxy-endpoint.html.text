@@ -1,0 +1,281 @@
+Configure a new API proxy endpoint | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API endpoints
+API proxy endpoints
+#
+Configure a new API proxy endpoint
+Complete the following steps to configure a new API proxy endpoint:
+Prerequisites
+Step 1: Create the endpoint
+Step 2: View the proxy endpoint
+Step 3: Configure the schema
+#
+Prerequisites
+Before creating a new API proxy endpoint, ensure that you complete the following prerequisites:
+Create an HTTP connection
+to enable Workato to forward requests to the external API.
+Create an API proxy collection
+to organize related endpoints.
+Review the
+endpoint path guidelines
+to ensure consistent and valid path configurations.
+#
+Create the endpoint
+Complete the following steps to create a proxy endpoint:
+1
+Go to
+Platform > API platform > API collections
+in the Orchestrate platform and select the API proxy collection for which you plan to create the new endpoint.
+2
+Select
++ New endpoint
+.
+Select
++ New endpoint
+3
+Fill in the following fields:
+HTTP method
+Use the
+HTTP method
+drop-down menu to specify the method for the endpoint.
+Endpoint name
+Enter a descriptive name for the proxy endpoint.
+Endpoint path
+Define a path to append to both proxy and target base URLs, which can include
+path parameters
+. Ensure that the path follows the
+endpoint path guidelines
+.
+Request timeout
+Enter the
+Request timeout
+duration to set the time allowed for a request to complete. The value must be between 1 and 30 seconds, with 30 seconds as the maximum and default value.
+4
+Select
+Add endpoint
+. The new proxy endpoint appears on the API collection page.
+5
+Click
+•••
+(ellipsis) next to the endpoint to rename, activate, or delete it.
+#
+View the proxy endpoint
+Select an API endpoint in the API collection overview to view its details. You can also download these details in the
+OpenAPI 2.0 specification
+from the API collection overview.
+A
+proxy-based endpoint
+includes the following tabs:
+The
+Details
+tab summarizes settings from the following components in the proxy workflow:
+View a proxy-based endpoint's
+Details
+tab
+New API proxy request trigger
+Defines the schema for incoming requests, including the content type, query parameters, body, headers, and the expected response schema.
+Forward request to target action
+By default, all proxy endpoints forward requests to the target API. If needed, you can
+transform incoming request data
+, such as headers, query parameters, and the request body, before forwarding it to the target API endpoint. Refer to the
+API proxy transformation
+guide to learn how to transform requests.
+Return response action
+Configures the response sent to the client, including the content type, headers, HTTP status codes, and body. You can also
+transform the response
+by modifying its data before sending it to the client.
+If you created an endpoint manually or chose
+Manual configuration
+when creating the collection, you must configure the schema and headers. For more information, refer to
+Configure the schema
+.
+If you imported an OpenAPI specification when you created the collection, the schema and headers for each endpoint are preconfigured.
+The
+Target URL
+section displays the address that requests to the proxy endpoint are forwarded to. You can modify the target URL by modifying the associated HTTP connection in the API proxy collection settings.
+The
+Test request
+tab enables you to
+test the proxy endpoint
+by sending sample requests and reviewing responses.
+View a proxy-based endpoint's
+Test
+tab
+This tab includes the following sections:
+Parameters
+Lists the required query parameters, headers, and request body for the endpoint.
+Responses
+Displays the expected HTTP status codes and response schema for the client.
+The
+Settings
+tab allows you to update proxy endpoint details. For example, you can adjust the request timeout for specific API requirements or rename an endpoint for better organization.
+View a proxy-based endpoint's
+Settings
+tab
+You can make changes directly in this tab and click
+Save
+to apply them.
+#
+Configure the schema
+IMPORT OPENAPI SPEC FOR AUTOMATIC SETUP
+To automatically configure the endpoint schema, select
+Import OpenAPI specification
+when
+creating a new API proxy collection
+. Workato will populate the schema for each endpoint in the collection.
+If you created an endpoint manually or selected
+Manual configuration
+when setting up the API proxy collection, configure the schema and headers in the
+New API proxy request
+trigger.
+Complete the following steps to configure the schema:
+1
+Open the
+New API proxy request
+trigger from your proxy workflow.
+2
+Expand the
+Request
+section and configure the following fields:
+Request body
+Define the schema for the body of incoming requests. This applies to HTTP methods like POST, PUT, or PATCH. You can either paste a sample JSON payload or add fields manually.
+Request query parameters
+Describe one or more request query parameters.
+Request headers
+Add any required headers to the request.
+3
+Expand the
+Response schema
+section and configure the following fields:
+Response content type
+Required.
+Specify the format of the response, such as JSON or XML.
+Response headers
+Specify any headers that you plan to include in the HTTP response.
+Responses
+Required.
+Specify at least one
+HTTP status code
+, such as
+200 - OK
+, and describe the expected response body schema. Click
+Use JSON
+to paste or upload example JSON output, or manually define fields in the response body.
+4
+Click
+Save
+to apply your changes.
+Your schema configuration is complete. To learn how to test your new proxy endpoint, see
+Test a proxy endpoint
+.
+←
+API proxy endpoints
+Apply API proxy transformations
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Prerequisites
+Create the endpoint
+View the proxy endpoint
+Configure the schema
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

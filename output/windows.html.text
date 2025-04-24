@@ -1,0 +1,209 @@
+On-prem agent installation using Windows package | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem group
+Add an agent
+#
+On-premise agent installation using Windows package
+This page provides steps on how to install an On-premise (On-prem) agent for a Windows operating system (OS).
+#
+Prerequisites
+You must
+create an On-prem group
+before you can you can add an On-prem agent.
+#
+Create an On-prem agent with Windows
+Complete the following steps to create an On-prem agent with Windows:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Tools > On-prem groups
+and select the group where you plan to add an agent.
+3
+Click
+Add agent
+. The Add agent dialog opens.
+4
+Provide an
+Agent name
+, use the
+Operating system
+drop-down menu to select
+Windows
+, and then click
+Next
+.
+Select Windows as your operating system
+5
+Click
+Download installer
+, then click
+Next
+. This downloads the required Windows package as an executable file to your machine.
+The agent download installs into
+C:\Program Files\Workato Agent
+, creates a Workato group in the Start menu, and installs a Windows service called
+WorkatoAgent
+by default.
+Click Download agent package
+6
+Go to the Windows installer (
+C:\Program Files\Workato Agent
+) and launch it.
+7
+Copy and paste the
+Activation command
+from Workato when prompted. The code is valid for one hour. Click
+Regenerate code
+to generate a new code if it expires.
+Copy and paste the Activation command
+ACTIVATE AFTER INSTALLATION
+You can choose to activate OPA after the installation wizard is done.
+To do so, run the
+activate.cmd
+script in the bin folder where the OPA is installed.
+If you're using a proxy, you must add the
+-proxy-host=<host-ip-address> -proxy-port=<port number>
+parameters to the activation command shown in the wizard.
+Run the
+activate
+script with the
+-help
+parameter to display the full list of accepted input properties.
+ALLOW TRAFFIC TO WORKATO FROM YOUR SERVER
+You must allow traffic to Workato from your server. Refer to
+security allowlists
+for steps on how to add Workato to your allowlist.
+You can also choose to activate your agent at a later point by running the
+activation.cmd
+script from the
+bin
+folder in your agent installation directory.
+8
+Return to your Workato On-prem window and click
+Next
+.
+9
+Click
+Test agent
+to confirm that your on-prem agent is working as expected.
+Test the on-prem agent
+10
+Click
+Done
+to complete the installation.
+PRIVATE KEY
+Workato does not have access to your private key file,
+cert.key
+, in the OPA
+conf
+folder. Ensure you protect this file from unauthorized access.
+←
+Add an agent
+Linux DEB package
+→
+Last updated:
+3/18/2025, 1:39:27 AM
+On this page
+Prerequisites
+Create an On-prem agent with Windows
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

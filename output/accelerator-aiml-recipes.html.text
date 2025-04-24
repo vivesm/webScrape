@@ -1,0 +1,175 @@
+AIML accelerator- recipes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+AIML
+#
+AIML accelerator recipes
+The recipes in this accelerator are organized in the following folders:
+Functions
+Bootstrap
+AWS SageMaker
+AWS S3
+API Endpoint recipes
+#
+Functions
+AIML | FUNC-005 | CSV Validator
+This recipe defines the validation logic. The AIML SDK actions use this logic to validate the data against predefined configurations in the
+AIML | Data Fields
+lookup table.
+#
+Bootstrap
+AIML| REC-009 | Load Model Schema
+Use this recipe to automatically load your schema into the
+AIML Data Fields
+lookup table. Inspect the lookup table after using this recipe to ensure that the recipe loaded the correct datatype and validation rules.
+AIML | FUNC-012 | Get Workato Data Type
+This recipe works as a support recipe for
+AIML | REC-009 | Load Model Schema
+. It identifies the schema's data type.
+#
+AWS SageMaker
+AIML | FUNC-003 | Get Sagemaker Prediction
+Calls the Sagemaker InvokeEndpoint function to generate predictions. See
+Sagemaker documentation
+for more information.
+AIML | FUNC-011 | Train ML Model Sagemaker
+Calls Sagemaker CreateAutoMLJob endpoint to create a new AutoML training job. See the
+CreateAutoMLJob documentation
+for details.
+#
+AWS S3
+AIML | FUNC-004 | Stage Training Data in S3
+The recipe connects with S3 to get the source and target data.
+#
+Endpoint recipes
+AIML | API-001 | Stage Training Data
+Stage the training data from the source to a target location while validating it against the rules you define in the
+AIML | Data Fields
+lookup table.
+AIML | API-002 | Get Prediction
+Pass new, unseen feature data to the trained model to generate a prediction. The accelerator validates the data against the rules you define in the
+AIML | Data Fields
+lookup table and then passes it to the ML platform to return the prediction data.
+AIML | API-002 | Train ML Model
+This recipe trains a new ML model. This recipe takes the ML Model configuration, source, and target training data location from the
+AIML | Model Profile
+lookup table. It reads the data from the source, validates it, and then passes it to the
+ML Model
+to train a machine learning model.
+AIML | API-008 | Get Model Identifiers and Schema
+Reads the
+Data Fields
+and
+Model Identifier
+defined in the lookup tables and loads them in the actions.
+←
+Get predictions
+Assets
+→
+Last updated:
+12/28/2022, 5:28:45 AM
+On this page
+Functions
+Bootstrap
+AWS SageMaker
+AWS S3
+Endpoint recipes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

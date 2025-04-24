@@ -1,0 +1,251 @@
+Linux DEBパッケージを使用したオンプレミスエージェントのインストール | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+オンプレミス接続
+オンプレミスグループ
+グループへのエージェントの追加
+#
+DEB Linuxパッケージを使用したオンプレミスエージェントのインストール
+このガイドでは、DebianやUbuntuなどのオペレーティングシステムに対して、DEB Linuxパッケージを使用してオンプレミスエージェントをインストールする方法について説明します。
+TIP
+これらのコマンドを実行するためには、
+sudo
+権限が必要です。
+#
+ステップ1：オンプレミスエージェントのインストール
+1
+新しいリポジトリ情報をAPTの設定ファイルに追加します：
+echo
+'deb https://workato-public.s3.amazonaws.com/DAA34553/repo/deb stable main'
+>
+/etc/apt/sources.list.d/workato.list
+2
+WorkatoのGPG公開鍵をaptの信頼済みキーに追加します：
+%
+wget
+-qO
+-
+'https://workato-public.s3.amazonaws.com/DAA34553/repo/archive.key'
+|
+sudo
+apt-key
+add
+-
+3
+新しいリポジトリが準備されました。以下のコマンドを使用してパッケージキャッシュを更新します：
+%
+sudo
+apt-get
+update
+Hit:1 jammy InRelease
+Get:2 jammy-updates InRelease
+[
+109
+kB
+]
+Get:3 jammy-backports InRelease
+[
+99.8
+kB
+]
+Hit:4 https://workato-public.s3.amazonaws.com/repo/deb stable InRelease
+Get:5 jammy-security InRelease
+[
+110
+kB
+]
+Get:6 jammy-updates/main amd64 Packages
+[
+277
+kB
+]
+Get:7 jammy-updates/universe amd64 Packages
+[
+116
+kB
+]
+Get:8 jammy-updates/universe Translation-en
+[
+40.1
+kB
+]
+Get:9 jammy-updates/universe amd64 c-n-f Metadata
+[
+2344
+B
+]
+Get:10 jammy-security/universe amd64 c-n-f Metadata
+[
+1128
+B
+]
+Fetched
+756
+kB
+in
+1s
+(
+1107
+kB/s
+)
+Reading package lists
+..
+. Done
+4
+workatoを検索します。結果には、異なる
+データセンター
+を使用しているエージェントが表示されます。データセンターの場所に一致するエージェントを選択してください：
+%
+sudo
+apt-cache
+search workato
+workato-agent - workato-agent
+5
+以下のコマンドを使用してエージェントをインストールします：
+%
+sudo
+apt
+install
+workato-agent
+#
+ステップ2：オンプレミスエージェントのアクティベート
+1
+オンプレミスグループページを開き、「
+新しいエージェントを追加
+」をクリックします。意味のあるエージェント名を入力し、エージェントのインストールに使用するオペレーティングシステム（OS）を選択します。
+オペレーティングシステムを選択
+2
+エンドユーザーライセンス契約
+を読み、同意します。
+利用規約に同意
+3
+以下のアクティベーションコマンドを実行すると、エージェントパッケージ内にエージェントキーと証明書が自動的に作成されます。アクティベーションコードの有効期間は1時間です。
+Workatoへのトラフィックがサーバーから許可されていることに注意してください - 詳細は
+こちら
+を参照してください。
+<install_home>
+ディレクトリに移動し、ウィザードから表示されるコマンドをコピーして実行します。
+プロキシを使用する場合
+プロキシを使用している場合、ウィザードに表示されるアクティベーションコマンドに
+--proxy-host=<ホストIPアドレス> --proxy-port=<ポート番号>
+パラメータを追加する必要があります。
+アクティベート
+#
+ステップ3：オンプレミスエージェントの実行
+1
+エージェントサービスをバックグラウンドで起動するには、次のコマンドを使用します：
+systemctl start workato-agent.service
+2
+エージェントをシステム起動時に自動的に起動するには、次のコマンドを使用します：
+systemctl
+enable
+workato-agent.service
+3
+Setup Now
+をクリックしてWorkatoのエージェントウィザードを開き、
+Test agent
+ステップに進んでエージェントがWorkatoに接続できるかどうかを確認します：
+←
+グループへのエージェントの追加
+Linux RPM パッケージ
+→
+Last updated:
+2025/2/25 9:03:23
+On this page
+ステップ1：オンプレミスエージェントのインストール
+ステップ2：オンプレミスエージェントのアクティベート
+ステップ3：オンプレミスエージェントの実行
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

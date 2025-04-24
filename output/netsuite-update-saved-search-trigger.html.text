@@ -1,0 +1,162 @@
+Workatoコネクター - NetSuite - 更新されたレコード | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+NetSuite
+#
+NetSuiteトリガー - オブジェクトトリガーの新規/更新された保存済み検索結果
+オブジェクトの新規/更新された保存済み検索結果
+トリガーは、保存済み検索の条件を満たす新規および更新されたレコードを取得します。
+例えば、業界タイプが
+ハードウェア
+の顧客レコードを取得する保存済み検索の場合、レシピは業界タイプが
+ハードウェア
+の新規または更新された顧客のトリガーイベントを取得することができます。既存の顧客を業界タイプが
+ハードウェア
+に更新すると、レシピは
+From
+フィールドに設定されたレシピの要件を満たす
+Date created
+の値を持つすべてのレコードのトリガーイベントを取得します。
+サポートが限られています
+APIの制限により、Workatoは
+一部のレコードタイプ
+をサポートしていません。
+1
+トリガーが正常に動作するようにするには、保存済み検索で
+Internal ID
+と
+Date created
+を結果の列として設定します。
+保存済み検索ページに移動して編集します。
+新規/更新されたトリガーのために保存済み検索にInternal IDとLast modifiedの列を追加
+2
+Results
+ページの
+Columns
+セクションに移動します。
+もしまだ追加されていない場合、2つのフィールドを列のリストに追加します。
+新規トリガーのために保存済み検索にInternal IDとDate createdの列を追加
+3
+保存済み検索の結果に
+Dashboard
+列がある場合は、削除します。
+この列がトリガーにエラーを発生させます。
+保存済み検索からDashboard列を削除
+4
+トリガーを設定します。
+この設定は
+新規保存済み検索結果
+と似ています:
+取得する保存済み検索のオブジェクトタイプを選択します。この例では、顧客オブジェクトを選択しました。
+新しいレコードを監視するための保存済み検索を選択します。
+From
+フィールドに日付と時刻を指定します。レシピはこの
+From
+日付より後に作成されたレコードのみを取得します。したがって、保存済み検索の条件を満たす既存のレコードは、
+Date created
+の値が
+From
+の値よりも後の場合にのみレシピが処理します。
+新規/更新された保存済み検索結果トリガーの設定
+←
+新規レコード検索 トリガー
+オブジェクトの追加
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

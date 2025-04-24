@@ -1,0 +1,250 @@
+Workato connectors - On-prem files | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+On-prem Files
+This connector lets you integrate with files within a secure network. These files typically are behind a corporate firewall and cannot be accessed directly. To create a connection to on-prem files, you
+must
+use an
+On-prem agent
+.
+Workato's
+On-prem files
+connector allows you to securely connect to those on-premises files and build automation around them.
+#
+How to connect to on-prem files on Workato
+Before creating a connection for this connector, make sure you go through an
+on-prem agent setup
+and create a profile for
+on-prem files
+.
+When setting up connection directly in workato using cloud profile
+You don't have to edit on-prem config file, set up all properties directly in workato as shown below.
+WARNING
+Ensure proper access control for the agent process to allow access only to specific files and folders.
+Additionally, you can restrict access to this on-prem connection using dedicated
+privileges
+(opens new window)
+.
+On-prem files connection using on-prem agent
+Field
+Description
+Connection name
+Give this On-prem files connection a unique name that identifies which On-prem files instance it is connected to.
+Is this app in a private network?
+Select the on-prem group that you setup earlier.
+On-prem connection profile
+Name of the profile you wish to connect to. This should be defined in your
+config.yml
+file in your On-prem agent.
+Base
+If you have selected on-prem group that supports setting up connection details directly in workato you will specify base path here.
+#
+Working with the On-prem files connector
+#
+Relative path
+Relative path is a way to specify the location of a file or folder based on the location of another folder. This is different from absolute path where you specify the full location of a file.
+When setting up connection directly in workato using cloud profile
+You don't have to edit on-prem config file, set up base path directly in workato. Please skip below configuration.
+File or folder path in the on-prem files connector are all relative paths. It is relative to the base path you define in the connection
+profile
+of your
+config.yml
+file. Let's take a look at an example.
+Here, we have a profile with the base path defined as the
+/Users/admin/projects
+folder using the
+base
+property.
+files
+:
+projects
+:
+base
+:
+/Users/admin/projects
+Now, if you wish to point to a file in this sub-folder
+/Users/admin/projects/engineering/2018_roadmap.csv
+, you will have to use the relative path
+/engineering/2018_roadmap.csv
+. When used in a download file action, it will look like this.
+Download content from file path
+Similarly, to point to a sub-folder
+/Users/admin/projects/marketing/users
+, use the relative path
+/marketing/users
+.
+Move file to a folder using folder path
+#
+Naming pattern
+Frequently, you may have a log of multiple files with a naming convention. These names typically either includes an incremental count to represent the versions or timestamp to represent the effective date of the contents. Defining a naming pattern allows you to filter files based on these naming conventions. Workato uses the
+?
+and
+*
+symbols to represent any single character or multiple characters respectively.
+#
+Single character wildcard
+?
+The
+?
+symbol is used to represent any character once. For example,
+Report_draft_?.pdf
+can be used to represent
+Report_draft_1.pdf
+,
+Report_draft_2.pdf
+and
+Report_draft_3.pdf
+.
+#
+Multiple character wildcard
+*
+The
+*
+symbol is used to represent any zero or more characters. For example,
+Report_draft*.pdf
+can be used to represent
+Report_draft.pdf
+,
+Report_draft_1.pdf
+,
+Report_draft_2.pdf
+and
+Report_draft_3.pdf
+.
+#
+Using naming pattern in a recipe
+Let's look at an example of a marketing manager who needs to work with a folder that contains a few type of information series of webinar.
+📂 Marketing
+📂 ProductHour
+📄 Attendees_2018_11_29.csv
+📄 Attendees_2018_11_15.csv
+📄 Attendees_2018_11_01.csv
+📋 Poll_responses_2018_11_29.txt
+📋 Poll_responses_2018_11_15.txt
+📋 Poll_responses_2018_11_01.txt
+📊 Slides_2018_11_29.pptx
+📊 Slides_2018_11_15.pptx
+📊 Slides_2018_11_01.pptx
+Based on each use case, files from this folder can be filtered in a number of ways.
+Use case
+Naming pattern
+Usage
+Trigger on CSV lines in Attendees information
+Attendees*.csv
+Filter Attendees CSV files in a trigger
+List only Poll responses files from November
+Poll_responses_2018_11_??.txt
+Filter Poll responses from November
+Trigger on new Presentation slides in 2018
+Slides_2018*.pptx
+Filter Presentation slides
+←
+Execute command-line script action
+New file trigger
+→
+Last updated:
+6/29/2023, 9:22:29 AM
+On this page
+How to connect to on-prem files on Workato
+Working with the On-prem files connector
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

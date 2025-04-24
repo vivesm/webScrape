@@ -1,0 +1,169 @@
+Memory optimization best practices | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+#
+Memory optimization best practices
+Every recipe job runs in a container that has finite memory allocation. Sometimes, actions in a recipe can cause the container to run out of memory. This leads to a
+Temporary job dispatch failure
+error. Here are some common recipe design issues with recommended solutions.
+#
+Repeat actions with large batches
+Working with large batches in a single job can help to decrease total processing time. This is a very common design pattern than is employed in numerous production recipes. However, it can quickly lead to a heavy memory footprint if these batches are not handled appropriately.
+Problematic pattern
+A common mistake is to loop through a large batch and process them individually. To make things worse, it is very common to require multiple steps in each iteration. For example, when looping through a batch of employee records, your recipe logic may require you to search for an existing record, before updating or creating a new record. This can lead to very high memory utilization.
+#
+Solution: Pair batch actions
+Batch processing can drastically reduce the cost of working with large batches of records. It also has the benefit of increasing total throughput. Here are some recommended steps:
+Use batch upsert actions instead of doing search-update-create in a loop. (for example,
+SQL Server upsert rows action
+)
+If there is a size mismatch between source and destination batch sizes,
+repeat in batches
+instead of repeating individually.
+#
+Loading large files into memory
+To avoid running into memory issues while transferring large files, Workato actions use
+streaming capability
+. This allows a job to transfer large files without consuming memory when running a job.
+Problematic pattern
+A common use case is to check the file size using the
+bytesize
+formula
+. This is
+not recommended
+, as it forces the action to download the entire file into memory to calculate the size of the file.
+#
+Solution: Use file metadata output
+All file streaming actions contain additional information about the file in the output datatree. These datapills can be used to determine metadata such as file size without overloading memory. For example, you can use the
+size
+datapill from the
+Amazon S3
+Download file
+action
+.
+Amazon S3 - Download file action
+#
+Other recommendations
+Use file streaming wherever possible, especially if the file is over 100 MB.
+Use
+JDBC Export action
+to transfer large query result set
+#
+Unnecessary use of Collections
+Collections
+is an in-memory database. This tool allows you to join datasets across various sources before loading into a data warehouse. However, overusing Collections in your recipe can lead to memory issues.
+Problematic pattern
+A common mistake is to use Collections to parse a CSV file. While Collections may seem like the right choice, it is not efficient. In fact, this approach requires additional steps to query the data.
+#
+Solution: CSV Parser
+Use CSV Parser to achieve the same outcome without incurring additional costs.
+←
+APIM/webhook errors
+Infinite loops
+→
+Last updated:
+7/2/2021, 10:09:23 AM
+On this page
+Repeat actions with large batches
+Loading large files into memory
+Unnecessary use of Collections
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

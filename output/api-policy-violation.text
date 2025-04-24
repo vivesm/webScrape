@@ -1,0 +1,159 @@
+RecipeOps - API policy quota violation trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API governance
+RecipeOps
+#
+RecipeOps - API policy quota violation trigger
+This trigger monitors API usage for the workspace. A trigger event occurs each time an access profile exceeds a policy quota threshold. For policies with longer quota intervals, duplicate events occur if the same threshold is exceeded every 30 days.
+Learn more about our
+API access policies
+.
+#
+Trigger behavior
+For each workspace, this trigger captures instances when a unique access profile exceeds the following policy request thresholds:
+80% of quota
+90% of quota
+100% of quota
+RECIPEOPS BEHAVIOR
+The 30-day reference only affects policies with a quota interval longer than 30 days. For example, with a policy of 1,000 requests and a 90-day interval, the system triggers an event if you reach 800 requests (80% threshold) in the first month. If there are no new requests in the following month and the usage still stands at 800 requests (80%), a second event triggers. For longer quota intervals, every 30 days, a trigger event is created when hitting the same threshold.
+#
+Input
+This trigger doesn't require any input.
+#
+Output
+Field name
+Description
+Event message
+Your API policy has reached X% of its usage quota.
+API policy ID
+The unique identifier of the API policy.
+API policy name
+The name of the API policy.
+Usage quota
+The total number of API calls that can be made within a specific longer time period, typically 30 days.
+Quota time interval
+The duration of the time period for the usage quota, such as 30 days.
+Client ID
+The unique identifier of the client.
+Client name
+The name of the client associated with the event.
+Access profile ID
+The unique identifier of the access profile.
+Access profile name
+The name of the access profile.
+#
+Resources
+RecipeOps overview
+RecipeOps actions
+RecipeOps triggers
+←
+Concurrency threshold exceeded
+API policy rate limit violation trigger
+→
+Last updated:
+7/18/2024, 7:50:18 PM
+On this page
+Trigger behavior
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

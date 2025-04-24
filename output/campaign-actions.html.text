@@ -1,0 +1,155 @@
+Workato connectors - LinkedIn - Campaign actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+LinkedIn
+#
+LinkedIn Action - Retrieve list of campaigns by status
+Use this action to retrieve all campaigns in your LinkedIn Campaign manager. You can also filter by status.
+Retrieve list of campaigns by status
+#
+Input fields
+Input field
+Description
+Advertising account
+The advertising account where the form comes from. You can't map a datapill to this field.
+Statuses
+Select one or more campaign statuses.
+Page token
+Provide the page token returned in the output of the previous request to get the next set of results.
+Page size
+The number of records returned for each page. Defaults to 100.
+#
+Output fields
+The output of this action contains all information relevant to campaigns based on the statuses you've selected.
+#
+LinkedIn Action - Get campaign details by ID
+This is normally used with the
+Retrieve list of campaigns by status
+action. Use this with a repeat action to pull specific details about each campaign.
+Get campaign details by ID
+#
+Input fields
+Input field
+Description
+Advertising account
+The advertising account where the form is coming from. You can't map a datapill to this field.
+Campaign ID
+Provide the ID of the campaign. This is different from the campaign URN and should be a simple numeric ID. For example, this value must be in this format
+157877906
+instead of
+urn:li:sponsoredCampaign:157877906
+.
+#
+Output fields
+The output of this action contains detailed information about this specific campaign.
+←
+Search lead gen form responses
+MailChimp
+→
+Last updated:
+4/8/2024, 2:31:02 AM
+On this page
+Input fields
+Output fields
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

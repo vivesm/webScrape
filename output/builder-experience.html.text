@@ -1,0 +1,160 @@
+ワークフローアプリ - ビルダーの体験 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workflow Apps
+#
+ビルダーの体験
+このセクションでは、アプリケーションを構成する概念と機能について詳しく説明します。このガイドの
+動作方法
+セクションで紹介されたトピックを拡張します。
+#
+データテーブルとワークフローアプリコネクタ
+各アプリケーションには、関連する情報を格納する専用の
+データテーブル
+があります。たとえば、PTOリクエストアプリケーションには、対応するPTOリクエストデータテーブルがあります。PTOリクエストデータテーブルに含まれる情報がPTOリクエストアプリケーションの基礎となります。
+ワークフローアプリコネクタ
+を使用すると、アプリケーションをワークフローに統合することができます。
+たとえば、
+新しいリクエストトリガー
+を使用して、フォームがアプリで送信された後にワークフローを開始したり、
+ユーザーにタスクを割り当てるアクション
+を使用して、カスタムページを使用してタスクのレビュー/承認を行ったりすることができます。
+#
+アプリの表示と設定
+アプリの設定は、
+アプリ
+タブでプロジェクトレベルで利用できます。
+このタブでは、ワークフローアプリの基盤となるアセットの包括的な表示が提供されます。これには、
+ページ
+、
+データテーブル
+、および自動化（レシピ）が含まれます。
+このインターフェースでは、アセットとアプリの間の接続を確立したり、アプリのアクセスを管理したりするなど、アプリを操作するために必要なすべてのツールが提供されます。
+アプリケーションの設定方法については、
+アプリの設定ガイド
+を参照してください。
+#
+ページ
+ページ
+は、WYSIWYG（what-you-see-is-what-you-get）インターフェースを使用して実装されたアプリケーションのUI画面です。
+ページ
+を使用すると、アプリケーションの以下の側面をカスタマイズできます。
+リクエストの送信方法
+アプリケーションの設定 > 作成ページ
+の設定で、ユーザーがリクエストを送信する方法をカスタマイズできます。
+リクエストのレビュー方法
+ワークフローアプリコネクタ
+の
+ユーザーにタスクを割り当てる
+アクションで、ユーザーがページを使用してリクエストをレビューする方法をカスタマイズできます。
+追加の情報
+新しいリクエストトリガー
+を使用して、アプリでフォームが送信された後にワークフローを開始します。
+ユーザーにタスクを割り当てるアクション
+を使用して、
+カスタムページ
+を使用してタスクのレビュー/承認を行います。
+←
+SAML認証
+アプリの設定
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+データテーブルとワークフローアプリコネクタ
+アプリの表示と設定
+ページ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

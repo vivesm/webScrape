@@ -1,0 +1,398 @@
+Workato connectors - Google Docs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Google Docs
+Google Docs
+(opens new window)
+is a cloud-based word processor that enables users to create, edit, and collaborate on documents in real-time. It integrates seamlessly with Google Workspace and offers features like commenting, version history, and smart editing tools to enhance productivity.
+#
+Prerequisites
+To establish a Google Docs connection, you must complete the following prerequisite steps:
+Enable the Google Docs API
+Create a service account
+Generate a service account key
+Share Google Docs with the service account
+Configure OAuth 2.0 for authorization
+After you complete these prerequisites, proceed to
+connect to Google Docs on Workato
+.
+#
+Enable the Google Docs API
+Complete the following steps to enable the Google Docs API:
+1
+Sign in to your
+Google Cloud Console
+(opens new window)
+.
+2
+Navigate to
+APIs & Services > Library
+.
+3
+Search for
+Google Docs API
+.
+4
+Click
+Enable
+to activate the API for your project.
+#
+Create a service account
+Complete the following steps to create a service account:
+1
+Go to
+IAM & Admin > Service Accounts
+in the Google Cloud Console.
+2
+Click
+Create Service Account
+.
+3
+Enter a name, ID, and description for the service account.
+4
+Click
+Create and continue
+.
+5
+Assign the required roles such as
+Editor
+or
+Owner
+, based on permissions required.
+6
+Click
+Done
+.
+#
+Generate a service account key
+Complete the following steps to generate a service account key:
+1
+In
+IAM & Admin > Service Accounts
+, select the newly created service account.
+2
+Navigate to the
+Keys
+tab.
+3
+Click
+Add key > Create new key
+.
+4
+Choose
+JSON
+as the format and click
+Create
+.
+5
+Download the JSON key file and store it securely.
+#
+Share Google Docs with the service account
+Complete the following steps to share a Google Doc with the service account:
+1
+Open Google Docs and select the document you plan to integrate.
+2
+Click
+Share
+and enter the service account email.
+3
+Assign the appropriate permissions.
+4
+Click
+Send
+.
+#
+Configure OAuth 2.0 for authorization
+Complete the following steps in the Google Cloud Console to authorize Google Docs for Workato:
+Configure the OAuth consent screen
+Authorize the service account
+#
+Configure the OAuth consent screen
+Complete the following steps to configure the OAuth consent screen:
+1
+In Google Cloud Console, go to
+APIs & Services > OAuth consent screen
+.
+2
+Click
+Get started
+.
+3
+Enter
+Workato
+(the name of the app asking for consent) in the
+App name
+field.
+4
+Enter an email in the
+User support email
+field.
+5
+Click
+Next
+.
+6
+Select
+External
+as the
+Audience
+. Learn more about
+user types
+(opens new window)
+.
+7
+Click
+Next
+.
+8
+Enter an email address in the
+Contact information
+section.
+9
+Select the checkbox to agree to
+Google API Services User Data Policy
+(opens new window)
+and click
+Continue
+.
+10
+Click
+Create
+.
+11
+Click the
+Data access
+tab and select
+Add or Remove Scopes
+.
+12
+Select the necessary scopes, such as:
+https://www.googleapis.com/auth/documents
+https://www.googleapis.com/auth/documents.readonly
+13
+Click
+Save
+.
+#
+Authorize the service account
+Complete the following steps to authorize the service account:
+1
+Go to
+Security > Access and data control > API Controls
+.
+2
+Under
+Domain-wide Delegation
+, click
+Manage Domain Wide Delegation
+.
+3
+Click
+Add new
+.
+4
+Enter the
+Client ID
+from the service account JSON file.
+5
+Add the necessary scopes from the previous step.
+6
+Click
+Authorize
+.
+#
+How to connect to Google Docs
+The Google Docs connector supports the following authentication methods:
+Service account
+OAuth 2.0
+#
+Service account
+Service account connection
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Google Docs
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your service account email address in the
+Service account email
+field.
+6
+Enter your
+private key
+from the downloaded JSON in the
+Private key
+field.
+7
+Click
+Sign in with Google
+.
+#
+OAuth 2.0
+OAuth 2.0 connection
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Google Docs
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your application's client ID in the
+Client ID
+field.
+You can find your client ID by signing in to your
+Google Developers Console
+(opens new window)
+account. After signing in, click
+Credentials
+to show your OAuth 2.0 client IDs. Alternatively, you can create OAuth 2.0 credentials by selecting
+Create credentials > OAuth client ID
+. Use
+https://www.workato.com/oauth/callback
+as the redirect URI when registering your OAuth client.
+Learn more
+(opens new window)
+.
+6
+Provide the client secret in the
+Client secret
+field. Use the same instructions as the client ID to retrieve the client secret.
+7
+Click
+Sign in with Google
+.
+←
+Get report action
+Create document action
+→
+Last updated:
+3/24/2025, 4:58:23 PM
+On this page
+Prerequisites
+How to connect to Google Docs
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

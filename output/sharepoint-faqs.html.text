@@ -1,0 +1,158 @@
+SharePoint FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SharePoint
+#
+SharePoint FAQs
+Get answers to frequently asked questions about Sharepoint.
+What is SharePoint and how does it integrate with Workato?
+SharePoint is a web-based collaboration, document management, and storage system that integrates with Microsoft Office. You can
+integrate SharePoint with Workato
+to build integrations and automations.
+Do I need an Azure account to connect SharePoint to Workato?
+Yes. You must have an
+Azure account
+to connect SharePoint to Workato. Your Azure account is used to set up API permissions and application registration through the Azure portal.
+What do I have to do to register the Workato app in SharePoint?
+Basic steps to register the Workato app in SharePoint include:
+Log into the Azure portal.
+Create a new app registration.
+Configure API permissions.
+Generate a client secret.
+Refer to
+How to connect to SharePoint on Workato
+for detailed instructions.
+How do I configure the SharePoint connection in Workato?
+Complete the following steps to
+configure the SharePoint connection
+in Workato.
+1
+Navigate to a project in Workato.
+2
+Create a new connection.
+3
+Search for Microsoft SharePoint.
+4
+Enter the required fields, such as the Client ID and the Client Secret obtained from the Azure portal.
+What are the required fields for setting up a SharePoint connector in Workato?
+Required fields for setting up the
+SharePoint connector
+include:
+Subdomain
+Application/Client ID
+Client Secret
+How do I link my SharePoint account to Workato?
+Link your SharePoint account to Workato by selecting the option to link your account during the connection setup and entering your SharePoint credentials in the pop-up window. Refer to
+Configure SharePoint connection in Workato the SharePoint
+for more information.
+How can I verify if my SharePoint connection is successfully established in Workato?
+Workato displays a successful connection message after your
+connection setup
+is complete and you have entered your SharePoint credentials. You can verify the connection by accessing SharePoint data through the connector in your Workato recipe.
+SharePoint successfully connected to Workato
+←
+Upload file in library action
+Shopify
+→
+Last updated:
+7/25/2024, 5:12:40 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

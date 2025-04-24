@@ -1,0 +1,160 @@
+Workato connectors - Intacct - Create vendor action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Intacct
+#
+Intacct - Create vendor action
+This action creates a new vendor in your Intacct instance.
+Create vendor action
+#
+Input
+Input field
+Description
+Vendor ID
+The ID of the vendor. Required if numbering sequence is not enabled.
+Name
+Name of the vendor to be created.
+Display contact
+The display name of the vendor to be created.
+Status
+Status of the vendor.
+Contact info
+The primary contact of the vendor. If left blank, display contact will be used.
+Pay to
+The contact to whom payment is to be made.
+Return to
+The contact to whom return is to be made.
+Contact list info
+Contact list information pertaining to the vendor.
+Vendor contacts
+Vendor contacts information.
+Vendor email templates
+Email templates applicable to the vendor.
+Vendor account locations
+Vendor account locations information.
+File payment service
+Enable direct payments to this vendor using a bank file.
+Vendor bank file payment details
+The values you provide are validated if File payment service is set to Bank file.
+Visibility
+Visibility type of the vendor to be created.
+In addition to the above, we also support the addition of "
+display contact
+information under the list of optional fields available.
+#
+Output
+Input field
+Description
+Vendor ID
+The ID of the vendor created.
+Record no
+Record number attached to the vendor.
+←
+New/updated vendor trigger
+Update vendor action
+→
+Last updated:
+8/17/2022, 11:27:58 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

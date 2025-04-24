@@ -1,0 +1,704 @@
+Create or update Jira issues from new PagerDuty incidents use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+DevOps and IT
+#
+Create or update Jira issues from new PagerDuty incidents recipe
+This use case guides you through connecting
+PagerDuty
+and
+Jira
+to create a powerful automation.
+#
+What does this recipe do?
+This recipe synchronizes new incidents from PagerDuty to Jira. If a matching issue exists in Jira, the recipe adds a comment with details from the PagerDuty incident. If no corresponding Jira issue is found, the recipe creates a new one.
+flowchart TD
+subgraph Configuration[" "]
+direction TB
+subgraph NewIncident[&nbsp PagerDuty New incident trigger &nbsp]
+t1(Trigger) --- setup1(setup)
+end
+subgraph SearchIssues[&nbsp Jira Search issues action &nbsp]
+Action1(Action) --- setup2(setup)
+end
+subgraph CreateComment[&nbsp Jira Create comment action &nbsp]
+Action2(Action) --- setup4(setup)
+end
+subgraph UpdateIssue[&nbsp Jira Update issue action &nbsp]
+Action3(Action) --- setup5(setup)
+end
+subgraph CreateIssue[&nbsp Jira Create issue action &nbsp]
+Action4[Action] --- setup7[setup]
+end
+subgraph CreateComment2[&nbsp Jira Create comment action &nbsp]
+Action5[Action] --- setup8[setup]
+end
+end
+CreateRecipe([Create recipe]) -- Configure your recipe --> Configuration --> Workflow([Automated workflow])
+NewIncident --> SearchIssues --> CreateComment --> UpdateIssue --> CreateIssue --> CreateComment2
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class t1,setup1,setup2,setup3,setup4,setup5,setup6,setup7,setup8,Action1,Action2,Action3,Action4,Action5,CreateRecipe,Workflow,x,xx,y,yy WorkatoTeal
+class NewIncident,SearchIssues,CreateComment,UpdateIssue,CreateIssue,CreateComment2 SubgraphDash
+#
+Create your recipe
+Complete the following steps to create a recipe that synchronizes new incidents from PagerDuty to Jira:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for PagerDuty and Jira:
+Create a PagerDuty connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+PagerDuty
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+PagerDuty connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your API key in the
+API key
+field.
+To create a new API key in PagerDuty, go to
+Integrations > API Access Keys
+and click
++ Create New API Key
+. Don't select the
+Read-only API Key
+checkbox because this connector requires both read and write permissions.
+Alternatively, to create an API user token that provides the same permissions as your user account, go to
+My Profile > User Settings
+and click
+Create API User Token
+.
+6
+Click
+Connect
+.
+Create a Jira connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Jira
+on the
+New connection
+page.
+3
+Enter a name for your Jira connection in the
+Connection name
+field.
+Jira connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Select your
+Connection type
+.
+6
+Use the
+Auth type
+drop-down menu to select your authentication method. Supported options include
+Basic
+,
+API token
+,
+OAuth 2.0
+, and
+Personal access token
+.
+7
+Provide your
+Host name
+. For example, if your Jira URL is
+https://acme.atlassian.net
+, your host name is
+acme.atlassian.net
+.
+8
+Click
+Connect
+.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+9
+Click
+Select an app and trigger event
+.
+10
+Set up your PagerDuty New incident trigger.
+1
+Search for
+PagerDuty
+and select it as your app.
+Choose PagerDuty
+2
+Select the
+New incident
+trigger.
+Select the New incident trigger
+3
+Select the PagerDuty connection you created in the preceding steps.
+4
+Optional. Specify how frequently the recipe should check for new events in the
+Trigger poll interval
+field. This field defaults to five minutes if left blank.
+5
+Optional. Use the
+When first started, this recipe should pick up events from
+field to specify the date and time from which the recipe should retrieve incidents. Leave this field blank to retrieve incidents created after the recipe starts. After you run or test this recipe, you can't change this value. Learn more about this
+input field
+.
+Configure the New incident trigger
+6
+Click
+Save
+.
+Step summary
+This trigger monitors PagerDuty for new incidents. The trigger checks for new incidents at a set interval and retrieves incidents created since the recipe started or from a specified time.
+11
+Click
++ Add step
+and select
+Action in app
+.
+Click
+Add step > Add action in app
+12
+Set up your Jira Search issues batch action.
+1
+Search for
+Jira
+and select it as your app.
+Choose Jira
+2
+Select the
+Search issues
+action.
+Select the Search issues batch action
+3
+Map the PagerDuty
+Summary
+Step 1
+datapill to the
+Summary
+field.
+Map the Summary datapill
+4
+Click
+Save
+.
+Step summary
+This step searches for a Jira issue with a summary that matches the PagerDuty incident's summary.
+13
+Click
++ Add step
+and select
+IF condition
+.
+Click
+Add step > IF condition
+How do IF conditions work?
+An
+IF condition
+enables you to make decisions based on specific conditions. You can control your recipe workflow by executing different actions depending on whether a condition you specify is present or not present (true or false).
+flowchart TD
+A([Search issues in Jira]) --> B(Does a Jira issue exist \n for the PagerDuty incident?)
+B -->|Yes| C(Add a comment to and update \n the corresponding Jira issue)
+B ---->|No| E(Create new Jira issue)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+class E WorkatoPink
+14
+Set up your IF condition.
+1
+Map the Jira
+Key
+Step 2
+datapill to
+Data field
+.
+2
+Select
+is present
+in the
+Condition
+field.
+Configure your IF condition
+3
+Click
+Save
+.
+Step summary
+This step checks whether the
+Search issues
+action found a Jira issue with a summary matching the new PagerDuty incident.
+15
+Click
+Select an app and action
+.
+16
+Set up your Jira Create comment action.
+1
+Search for
+Jira
+and select it as your app.
+Choose Jira
+2
+Select the
+Create comment
+action.
+Select the Create comment action
+3
+Map the Jira
+Key
+Step 2
+datapill to the
+Issue ID or key
+field.
+Map the Key datapill
+4
+Add the following text to the
+Comment text
+field:
+New incident triggered in PagerDuty for this issue
+Summary:
+Incident number:
+Service:
+Status:
+Urgency:
+Link to PagerDuty:
+5
+Map the relevant PagerDuty datapills to each line in the
+Comment text
+field:
+Summary
+Step 1
+Incident number
+Step 1
+Summary
+Step 1
+(nested under the
+Service
+object)
+Status
+Step 1
+Urgency
+Step 1
+Html URL
+Step 1
+Map datapills to the Comment text field
+6
+Click
+Save
+.
+Step summary
+This step adds a comment to the matched Jira issue with the relevant details from PagerDuty.
+17
+Click
++ Add step
+and select
+Action in app
+.
+18
+Set up your Jira Update issue action.
+1
+Search for
+Jira
+and select it as your app.
+Choose Jira
+2
+Select the
+Update issue
+action.
+Select the Update issue action
+3
+Map the Jira
+Key
+Step 2
+datapill to the
+Issue ID or key
+field.
+Map the Key datapill
+4
+Use the
+Sample project issue type
+drop-down menu to select the issue type in your Jira project that you plan to update. This field retrieves custom fields specific to your project and issue type.
+For example, in a Jira project named
+Incident Management
+, select the
+Incident
+issue type.
+Select a sample project issue type
+5
+Switch the
+Priority name
+field to
+formula mode
+and perform the following actions:
+1
+Map the PagerDuty
+Urgency
+Step 1
+datapill.
+2
+Append the
+.capitalize
+formula
+.
+Configure the Priority name field
+6
+Click
+Save
+.
+Step summary
+This final step in the IF condition updates the Jira issue's priority to match the PagerDuty incident. You can configure additional fields in this action to further update the issue.
+19
+Click
++ Add step
+and select
+ELSE IF condition
+.
+Click
+Add step > ELSE IF condition
+20
+Set up your ELSE IF condition.
+1
+Map the Jira
+Key
+Step 2
+datapill to
+Data field
+.
+2
+Select
+is not present
+in the
+Condition
+field.
+3
+Click
++
+(plus) and select
+AND
+to add a second condition.
+4
+Map the PagerDuty
+Status
+Step 1
+datapill to
+Data field
+.
+5
+Select
+does not equal
+in the
+Condition
+field.
+6
+Type
+resolved
+in the
+Value
+field.
+Configure your ELSE IF condition
+7
+Click
+Save
+.
+Step summary
+This step sets up an ELSE IF condition to check if there is no matching Jira issue for the PagerDuty incident and if the incident isn't resolved. The AND condition ensures that the recipe doesn't sync resolved PagerDuty incidents to Jira as new active issues.
+21
+Click
+Select an app and action
+.
+22
+Set up your Jira Create issue action.
+1
+Search for
+Jira
+and select it as your app.
+Choose Jira
+2
+Select the
+Create issue
+action.
+Select the Create issue action
+3
+Use the
+Project issue type
+drop-down menu to select the project and issue type.
+For example, in a Jira project named
+Incident Management
+, select the
+Incident
+issue type.
+4
+Map the PagerDuty
+Summary
+Step 1
+datapill to the
+Summary
+field.
+5
+Add the following text to the
+Description
+field:
+Incident type:
+Status:
+Urgency:
+Last status change at:
+6
+Map the relevant PagerDuty datapills to each line in the
+Description
+field:
+Type
+Step 1
+Status
+Step 1
+Urgency
+Step 1
+Last status change at
+Step 1
+7
+Switch the
+Priority name
+field to
+formula mode
+and perform the following actions:
+1
+Map the PagerDuty
+Urgency
+Step 1
+datapill.
+2
+Append the
+.capitalize
+formula
+.
+Configure the Priority name field
+8
+Click
+Save
+.
+Step summary
+If no matching Jira issue exists for the PagerDuty incident and the incident isn't resolved, this step creates a new Jira issue with the incident issue type and syncs details from PagerDuty.
+23
+Click
++ Add step
+and select
+Action in app
+.
+24
+Set up your Jira Create comment action.
+1
+Search for
+Jira
+and select it as your app.
+Choose Jira
+2
+Select the
+Create comment
+action.
+Select the Create comment action
+3
+Map the Jira
+Key
+Step 7
+datapill to the
+Issue ID or key
+field. This field identifies the Jira issue where the new comment should be added.
+4
+Add the following text to the
+Comment text
+field:
+New incident triggered in PagerDuty for this issue
+Summary:
+Incident number:
+Service:
+Status:
+Urgency:
+Link to PagerDuty:
+5
+Map the relevant PagerDuty datapills to each line in the
+Comment text
+field:
+Summary
+Step 1
+Incident number
+Step 1
+Summary
+Step 1
+(nested under the
+Service
+object)
+Status
+Step 1
+Urgency
+Step 1
+Html URL
+Step 1
+6
+Click
+Save
+.
+Step summary
+This final step in the recipe adds a comment to the new Jira issue with the relevant details from PagerDuty.
+Your
+Create or update Jira issues from new PagerDuty incidents
+recipe is ready to test and implement.
+Example recipe configuration.
+Create or update Jira issues from new PagerDuty incidents
+recipe
+←
+Provision Jira and Okta users for new employees in Workday
+Upload a CSV of Active Directory entries to an SFTP server
+→
+Last updated:
+1/17/2025, 6:16:43 PM
+On this page
+What does this recipe do?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

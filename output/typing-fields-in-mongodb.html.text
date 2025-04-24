@@ -1,0 +1,161 @@
+Workato Connectors - Data Typing Limitations in MongoDB | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+MongoDB Atlas
+#
+Data Typing Limitations In MongoDB
+When using MongoDB actions, you may encounter unexpected behavior when it comes to typing inserted data. In this guide, we'll explain what's happening and provide you with some workarounds.
+#
+Applicable Actions
+This guide applies to the following actions:
+Insert documents
+Replicate documents
+#
+Integers Inserted As Doubles
+If using a JSON sample to generate a schema for insertion into a collection, you may notice
+integer
+values are translated to
+number
+types. When data is inserted into MongoDB, the
+number
+type will be transformed into a
+double
+.
+The root cause is that JSON doesn't distinguish integers from floating point numbers. For example:
+1
+is equivalent to
+1.0
+To ensure fields are loaded as
+integers
+, manually add the field using the
+Add new field
+option in the schema editor.
+#
+Decimals Inserted As Doubles
+The default behavior for MongoDB is to type decimal values like
+123.45
+as
+double
+.
+If you want data to be typed as
+Decimal128
+, you'll need to modify the field in MongoDB after it's been inserted.
+#
+Resources
+MongoDB Atlas
+Delete documents action
+Insert documents action
+Replicate documents action
+Search documents action
+Update documents action
+←
+Using custom filter queries
+MySQL
+→
+Last updated:
+1/11/2022, 5:21:18 PM
+On this page
+Applicable Actions
+Integers Inserted As Doubles
+Decimals Inserted As Doubles
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

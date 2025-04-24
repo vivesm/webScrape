@@ -1,0 +1,561 @@
+SDK - CLI コマンドリファレンス | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+CLI
+リファレンス
+#
+CLI コマンドリファレンス
+SDK gem のインストール後に CLI で使用できるコマンドについて詳しく説明します。
+#
+workato
+Workato gem の基礎的なコマンド。
+workato help
+と同等の動作をします。
+#
+使用方法
+$ workato
+#
+出力
+Workato gem で利用可能なコマンドについての説明。
+#
+workato edit
+暗号化ファイルを作成または編集します。
+#
+使用方法
+$ workato edit <PATH>
+#
+入力
+入力
+説明
+EDITOR
+ファイル編集に使用するエディター。例:
+nano
+PATH
+作成または更新するファイルへのパス。ドット表記で指定します。
+#
+オプション
+オプション
+説明
+--key、-k
+暗号化キーまたは復号キーのパス。
+指定されない場合は、デフォルトで
+master.key
+が使用されます。
+master.key
+ファイルが存在せず、オプションも指定されない場合は、新しい
+master.key
+ファイルが作成されます。
+#
+結果
+暗号化ファイルが作成または更新されます。
+master.key
+ファイルが存在せず、オプションも指定されなかった場合は、
+master.key
+ファイルが作成されます。
+#
+例
+Windows の場合:
+$ set EDITOR=notepad
+$ workato edit settings.yaml.enc
+Mac の場合:
+$ EDITOR="nano" workato edit settings.yaml.enc
+#
+workato exec
+コネクター内の特定の lambda 関数をテスト用に実行します。
+#
+使用方法
+$ workato exec <PATH> <OPTIONS>
+#
+入力
+入力
+説明
+PATH
+実行する lambda 関数のパス。ドット表記で指定します。たとえば、
+actions.search_customers.execute
+は、
+search_customers
+アクションおよび execute の lambda 関数に対応します。また、
+actions.search_customers
+というパスを使用することでアクション全体をシミュレートすることもできます。
+#
+オプション
+オプション
+説明
+-c または --connector
+実行する
+connector.rb
+ファイルのパス。指定されない場合は、デフォルトで
+connector.rb
+が使用されます。
+-s または --settings
+認証情報を格納している
+settings.yaml
+ファイルのパス。指定されない場合は、デフォルトで
+settings.yaml.enc
+、その次に
+settings.yaml
+が使用されます。
+-n または --connection
+settings.yaml
+ファイル内のコネクション名。複数の認証情報セットが存在する場合にのみ必要となります。
+-i または --input
+入力を格納している JSON ファイルのパス。
+execute
+、
+webhook_notification
+、または
+poll
+の lambda 関数で使用されます。
+--closure
+クロージャを格納している JSON ファイルのパス。初回ポーリング後のポーリングをシミュレートするために
+poll
+の lambda 関数で使用されます。
+-a または --args
+メソッドまたはピックリストの引数を格納している JSON ファイルのパス。
+methods
+または
+pick_lists
+の lambda 関数の呼び出しをシミュレートするために使用されます。引数が想定されているにもかかわらず指定されなかった場合は、エラーが発生する可能性があります。
+--extended-input-schema および --extended-output-schema
+extended_input_schema
+および
+extended_output_schema
+を格納している JSON ファイルのパス。
+execute
+、
+webhook_notification
+、または
+poll
+の lambda 関数で使用されます。
+--config-fields
+config_fields
+のデータを格納している JSON ファイルのパス。
+object_definitions
+、
+input_fields
+、または
+output_fields
+の lambda 関数で使用されます。
+--webhook-headers
+受信 Webhook のヘッダーデータを格納している JSON ファイルのパス。
+webhook_notification
+の lambda 関数で使用されます。
+--webhook-params
+受信 Webhook のパラメータデータを格納している JSON ファイルのパス。
+webhook_notification
+の lambda 関数で使用されます。
+--webhook-payload
+受信 Webhook のペイロードデータを格納している JSON ファイルのパス。
+webhook_notification
+の lambda 関数で使用されます。
+--webhook-url
+Webhook の URL を格納しているファイルのパス。
+webhook_subscribe
+の lambda 関数で使用されます。
+-o または --output
+lambda 関数の出力を保存するファイルのパス。
+--oauth2-code
+acquire
+の lambda 関数の呼び出しに使用される Oauth2 コード。
+--redirect-url
+refresh
+の lambda 関数の呼び出しに使用されるリダイレクト URL。
+--refresh-token
+refresh
+の lambda 関数の呼び出しに使用される更新トークン。
+--verbose
+コマンドを詳細モードで実行する場合は、このオプションを指定してください。このオプションにより、HTTP リクエストやリクエストペイロードがすべて表示されるようになります。レスポンスの本文は表示されませんが、
+byebug
+を利用して検査できます。
+--debug
+最後に発生したエラーだけでなく、スタックトレース全体からエラーを表示する場合は、このオプションを指定してください。
+#
+結果
+lambda 関数の出力。
+#
+例
+特定のメソッドを呼び出します。
+$ workato exec methods.sample_method --args='input/sample_method_input.json'
+test の lambda 関数を呼び出します。コネクターと設定をすべて指定しています。
+workato exec test --connector='zoominfo.rb' --settings='settings.yaml' --connection='My Valid Connection' --verbose
+特定のアクションを呼び出し、それに入力を渡します。
+$ workato exec actions.search_customers.execute --input='input/search_customer_input.json' --verbose
+特定のポーリングトリガーを起動し、それに入力を渡します。クロージャで
+can_poll_more
+が
+true
+に設定されている場合、このコマンドは一連のレコードをページネーションするトリガーをシミュレートします。
+$ workato exec triggers.new_updated_customers.poll --input='input/new_updated_customers_input.json' --verbose
+特定のポーリングトリガーを起動し、それに入力を渡します。出力は、そのポーリングの単一ページです。このコマンドは単一のトリガーポーリングをシミュレートし、最初のページのみを返します。
+$ workato exec triggers.new_updated_customers.poll_page --input='input/new_updated_customers_input.json' --verbose
+#
+workato generate
+指定された JSON または CSV に基づいて Workato スキーマを生成します。あるいは、指定されたコネクターに基づいてテストを生成します。
+#
+使用方法
+$ workato generate<SUBCOMMAND>
+#
+入力
+入力
+説明
+SUBCOMMAND
+どのアセットを生成するかという指定。`schema` または `test`。
+#
+workato generate schema
+指定された JSON または CSV ファイルを受け取り、それをコネクターで使用する Workato スキーマに変換します。
+#
+使用方法
+$ workato generate schema<OPTIONS>
+#
+オプション
+オプション
+説明
+--json
+Workato スキーマに変換する JSON ファイルのパス
+--csv
+Workato スキーマに変換する CSV ファイルのパス
+--col-sep
+指定された CSV ファイル内の列区切り文字。デフォルトはカンマです。使用できる値はカンマ、スペース、タブ、コロン、セミコロン、パイプです。
+--api-email
+必須。コネクターのプッシュ先となるワークスペースの API メール。これは、ターゲットワークスペースの
+[Account settings] ページ
+で確認できます。指定されない場合は、環境変数
+WORKATO_API_EMAIL
+が使用されます。
+--API-TOKEN
+必須。コネクターのプッシュ先となるワークスペースの API メール。これは、ターゲットワークスペースの
+[Account settings] ページ
+で確認できます。指定されない場合は、環境変数
+WORKATO_API_TOKEN
+が使用されます
+#
+例
+JSON ペイロードのサンプルを Workato スキーマに変換
+$ workato generate schema --json='fixtures/actions/search_customers/input.json'
+パイプで区切られた CSV ファイルを Workato スキーマに変換
+$ workato generate schema --csv='fixtures/actions/report/input.csv' --col-sep=pipe
+#
+workato generate test
+指定されたコネクターを受け取り、特定の機能に対する RSpec テストを生成します。
+#
+使用方法
+$ workato generate test <OPTIONS>
+#
+オプション
+オプション
+説明
+-c または --connector
+実行する connector.rb ファイルのパス。指定されなかった場合は、デフォルトで connector.rb に設定されます。
+-a または --action
+生成されるテストの対象となる特定のアクションの名前。指定されない場合、すべての機能のテストが生成されます。
+-t または --trigger
+生成されるテストの対象となる特定のトリガーの名前。指定されない場合、すべての機能のテストが生成されます。
+-p または --pick-list
+生成されるテストの対象となる特定のピックリストの名前。指定されない場合、すべての機能のテストが生成されます。
+-o または --object-definition
+生成されるテストの対象となる特定の object_definition の名前。指定されない場合、すべての機能のテストが生成されます。
+-m または --method
+生成されるテストの対象となる特定のメソッドの名前。指定されない場合、すべての機能のテストが生成されます。
+#
+入力
+入力
+説明
+#
+例
+コネクターのすべての機能を対象としたスケルトンテストを生成
+$ workato generate test
+特定のアクションを対象としたスケルトンテストを生成
+$ workato generate test action=get_customers
+#
+workato help
+指定された SDK gem のコマンドのヘルプを表示します。
+#
+使用方法
+$ workato help <COMMAND>
+#
+入力
+入力
+説明
+COMMAND
+ヘルプを表示したいコマンド。例:
+edit
+#
+出力
+指定された SDK gem コマンドの詳細なヘルプ。
+#
+例
+$ workato help edit
+Usage:
+workato edit PATH
+Options:
+-k, [--key=KEY] # Path to file with encrypt/decrypt key. NOTE: key from WORKATO_CONNECTOR_MASTER_KEY has higher priority
+[--verbose], [--no-verbose]
+Edit encrypted file, e.g. settings.yaml.enc
+#
+workato new
+選択したディレクトリに新しいコネクタープロジェクトを作成します。
+新しいコネクタープロジェクトを作成する際は、HTTP モックの動作に
+secure
+と
+simple
+のどちらを選択するか尋ねられます。
+Please select default HTTP mocking behavior suitable for your project?
+1 - secure. Cause an error to be raised for any unknown requests, all request recordings are encrypted.
+To record a new cassette you need set VCR_RECORD_MODE environment variable
+Example: VCR_RECORD_MODE=once bundle exec rspec spec/actions/test_action_spec.rb
+2 - simple. Record new interaction if it is a new request, requests are stored as plain text and expose secret tokens.
+secure
+を選択すると、単体テスト用に作成される VCR 記録が暗号化されるので、
+こちらが推奨されます
+。この場合は、環境変数
+VCR_RECORD_MODE
+を設定する必要もあります。
+#
+使用方法
+$ workato new <PATH>
+#
+入力
+入力
+説明
+PATH
+コネクタープロジェクトの作成場所となるパス。
+#
+結果
+新しいコネクタープロジェクトが生成されます。
+#
+例
+$ workato new ~/Desktop/my-new-connector
+#
+workato oauth2
+TIP
+workato oauth2
+コマンドを実行するには、SDK Gem version 0.1.2以上が必要です。
+このコマンドは、Oauth2 認証コード付与フローを、適用可能なコネクターに実装するために使用します。適用可能なコネクターは、コネクションハッシュに`type:'oauth2` が含まれているものです。詳細については、こちらに掲載されている
+Okta の有用な記事
+を参照してください。
+#
+使用方法
+$ workato oauth2 <OPTIONS>
+#
+オプション
+オプション
+説明
+-c または --connector
+コネクターのソースコードのパス。指定されない場合は、デフォルトで
+connector.rb
+が使用されます。
+-s または --settings
+認証情報を格納している
+settings.yaml
+ファイルのパス。指定されない場合は、デフォルトで
+settings.yaml.enc
+、その次に
+settings.yaml
+が使用されます。
+-n または --connection
+settings.yaml
+ファイル内のコネクション名。複数の認証情報セットが存在する場合にのみ必要となります。
+--key、-k
+暗号化キーまたは復号キーのパス。
+指定されない場合は、デフォルトで
+master.key
+が使用されます。
+master.key
+ファイルが存在せず、オプションも指定されない場合は、新しい
+master.key
+ファイルが作成されます。
+--port
+デフォルトでは、SDK Gem は OAuth コールバックを受信するために使用する Web サーバーを "http://localhost:45555/oauth/callback" で起動します。このオプションは、そのポートを変更するために使用します。
+たとえば、--port='3010' を指定すると、Web サーバーは "http://localhost:3010/oauth/callback" で起動します。
+このオプションは、OAuth アプリが特定のリダイレクト URI に設定されている場合に役立ちます。
+--ip
+既定の IP アドレスを上書きすることができます。デフォルトでは "127.0.0.1" になります。
+--https、--no-https
+自己署名証明書を利用する Web サーバーを起動します。Oauth アプリが "https://" を接頭辞とするリダイレクト URI を要求する場合に必要となります。
+--verbose
+コマンドを詳細モードで実行する場合は、このオプションを指定してください。このオプションにより、HTTP リクエストやリクエストペイロードがすべて表示されるようになります。レスポンスの本文は表示されませんが、
+byebug
+を利用して検査できます。
+#
+結果
+Workato 上で OAuth2 認証コード付与フローをエミュレートします。適用可能なコネクターは、コネクションハッシュに`type:'oauth2` が含まれているものです。詳細については、こちらに掲載されている
+Okta の有用な記事
+を参照してください。
+#
+例
+#
+$ workato oauth2
+#
+workato push
+TIP
+Workato Gem バージョン0.2.0より前では、
+workato push
+コマンドを実行するには Workato ワークスペースにターゲットフォルダーが必要でした。その後、この仕様は修正され、ワークスペースのホームフォルダーがデフォルトで使用されるようになりました。
+選択した Workato フォルダーに新しいコネクタープロジェクトを作成します。
+#
+使用方法
+$ workato push <OPTIONS>
+#
+オプション
+オプション
+説明
+--api-email
+必須。コネクターのプッシュ先となるワークスペースの API メール。これは、ターゲットワークスペースの
+[Account settings] ページ
+で確認できます。指定されない場合は、環境変数
+WORKATO_API_EMAIL
+が使用されます。
+--API-TOKEN
+必須。コネクターのプッシュ先となるワークスペースの API メール。これは、ターゲットワークスペースの
+[Account settings] ページ
+で確認できます。指定されない場合は、環境変数
+WORKATO_API_TOKEN
+が使用されます
+--folder
+コネクターのプッシュ先となる Workato ワークスペース内のフォルダーの ID。デフォルトではワークスペースのホームフォルダーが想定されていますが、任意のフォルダーを使用できます。
+フォルダー ID は、フォルダーを表示するときの URL に含まれています。たとえば、URL が
+https://app.workato.com/?fid=106070#assets
+の場合、フォルダー ID は
+106070
+です。
+-t または --title
+コネクターのタイトル。指定されない場合は、デフォルトでコネクターコード内の title キーが使用されます。
+-d または --description
+コネクターの説明のパス。Markdown ファイルまたはプレーンテキストファイルを使用できます。指定されない場合は、デフォルトで
+README.md
+が使用されます。
+-l または --logo
+コネクターのロゴの
+png
+または
+jpeg
+へのリンク。指定されない場合は、デフォルトで
+logo.png
+が使用されます。
+-n または --notes
+今回アップロードするバージョンに添付されるバージョンノート。
+-c または --connector
+コネクターのソースコードのパス。指定されない場合は、デフォルトで
+connector.rb
+が使用されます。
+--environment
+コネクターコードをプッシュするためのデータセンター固有の URL。定義されない場合、デフォルトで環境変数 WORKATO_BASE_URL が使用されます。
+例: 'https://app.workato.com'、'https://app.eu.workato.com'
+#
+結果
+コネクターが Workato ワークスペースの指定されたフォルダーへプッシュされます。
+#
+例
+$ workato push
+←
+よくある質問 (FAQ)
+RSpec リファレンス
+→
+Last updated:
+2023/12/20 23:22:08
+On this page
+workato
+workato edit
+workato exec
+workato generate
+workato generate schema
+workato generate test
+workato help
+workato new
+workato oauth2
+workato push
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,246 @@
+概念 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+はじめに
+#
+概念
+Workato を使用するために知っておく必要がある主要な概念および用語について説明します。
+#
+レシピ
+レシピは、ユーザーにより作成される自動化されたワークフローです。複数のアプリをつなぐことが可能であり、たとえば Salesforce の新しいアカウントを新しい組織として Zendesk に移動できます。各レシピは、1つのトリガーと、トリガーイベントの受信時に実行される1つまたは複数のアクションから構成されます。
+開始されると、レシピは自動的にバックグラウンドで実行され、トリガーイベントを探し、レシピアクションを実行します。停止されると、レシピはトリガーイベントを探すことを止めます。
+ただし再度開始されると、レシピは停止以降に発生したすべてのトリガーイベントを受信します。つまり、停止は一時停止のように機能します。
+レシピの可視性はパブリックまたはプライベートに設定できます。パブリックに設定すると、Workato のメンバーは誰でもこのレシピを見ることができ、自分で使用するためにコピーを作成できます。
+すべてのレシピは識別用の一意の ID を持ち、この ID はレシピの URL で確認できます。以下の例では、レシピ ID は
+47969
+です。
+レシピ ID はレシピページの URL で確認可能
+上記のレシピには、1つのトリガーと1つのアクションが含まれます。トリガーは
+New Salesforce account
+です。このトリガーは、Salesforce で新しいアカウントが作成されるたびに実行されます。アクションである
+Create Zendesk organization
+は、トリガーイベントが発生する (Salesforce で新しいアカウントが作成される) たびに、Zendesk に新しい組織を作成します。
+Automation Institute
+Workato の Automation Institute で、実践的な入門を体験してください。このコースを修了すると「Automation Pro」の認定を取得できます。詳細については、
+こちら
+(opens new window)
+を参照してください
+#
+トリガー
+トリガーは、レシピに記述されたアクションを実行するために、どのイベントをリッスンするかを決定します。
+トリガーイベントは、アプリ (Salesforce や JIRA) で特定のイベント (新しい連絡先の作成や既存のチケットの更新) が発生したときや、ファイルに新しい行が追加されたとき、またはスケジュールに従って (特定の時間や間隔で) 発生します。
+Workato は、利用可能な API に応じて、トリガーイベントをリアルタイムで受信するか、アプリをポーリングして定期的にイベントの発生を確認することができます。
+トリガーの詳細とその使用方法については、
+こちら
+を参照してください。
+#
+ステップとアクション
+レシピステップは、トリガーイベントが発生するたびに実行されます。レシピには少なくとも1つのステップが必要です。レシピに対する最も基本的なステップは、Zendesk 内に組織を作成するアクションなどのアクションです。
+Workato のステップには、アクション、条件付きアクション、リストアクション、他のレシピを呼び出すアクション、try/catch などがあります。
+レシピステップの詳細については
+こちら
+を、またアクションの詳細については
+こちら
+を参照してください。
+#
+データツリーとデータピル
+動画ガイド : データツリー、データマッピング、データ型
+トリガーも含め、すべてのステップはレシピにデータを取り込みます。たとえば、new employee in Workday トリガーは従業員データを取り込みます。このデータは、レシピ内で
+データツリー
+として提供されます。
+個々のデータ項目はデータピルと呼ばれます。データピルは以降のステップで使用できます。データピルの詳細については、
+こちら
+を参照してください。
+以下は、
+New Salesforce account
+トリガーに対する出力データツリーです。このデータツリーには、Workato で認識されており、トリガーイベントが発生するたびに使用可能なすべての変数が含まれます。
+New Salesforce account トリガーの出力データツリー
+たとえば、スクリーンショットに示したように、新しい Salesforce アカウントが作成されるたびに、この特定の新しい Salesforce アカウントに対して以下の値を取得できます。
+Account description,
+Account fax,
+Account ID,
+Account name,
+Account number,
+Account phone,
+Account rating,
+Account site,
+Account source,
+etc.
+これらの値は、次の項で説明する入力項目に渡すことにより、レシピの以降のステップで使用できます。
+#
+入力項目と項目のマッピング
+トリガーとアクションには入力項目があります。トリガーやアクションは入力項目に従って、カスタマイズされたワークフローを実行するように設計されています。入力項目は変数 (データピル) または定数を取ることができます。
+入力項目への変数 (データピル) または定数の挿入を、項目のマッピングと呼びます。項目のマッピングの詳細については、
+こちら
+を参照してください。
+以下は、
+Create Zendesk organization
+アクションの展開ビューです。このビューには、[
+Name
+] と [
+Notes
+] の2つの入力項目があります。
+Create Zendesk organization アクションの入力項目
+#
+変数のマッピング
+変数 [
+Account name
+] が [
+Name
+] 入力項目にマッピングされています。つまり、作成されるすべての Salesforce 新規アカウントに対して、Salesforce アカウントのアカウント名が、作成される Zendesk 組織の組織名として使用されます。たとえば、
+Sattei Winery
+という名前の Salesforce のアカウントを作成すると、
+Sattei Winery
+という名前の Zendesk 組織が作成されます。
+変数がマッピングされた入力項目
+#
+定数のマッピング
+一方、入力項目 [
+Notes
+] には、定数 (「Synced over from Salesforce」というテキスト) がマッピングされています。これは、Workato を介して新規作成されるすべての Zendesk 組織の [
+Notes
+] フィールドに、「Synced over from Salesforce」というテキストが常に入力されることを意味します。
+定数がマッピングされた入力項目
+以下は、上記のマッピングにより作成される新しい Zendesk 組織の例です。
+新規作成された Zendesk 組織 Sattei Winery
+#
+コネクション
+レシピがアクションやトリガーを介してアプリとやり取りするには、アプリを操作することが許可されている必要があります。この許可を
+コネクション
+と呼びます。コネクションは1つのレシピにのみ結び付けられているわけではありません。1つのコネクションを複数のレシピで使用することが可能です。アプリコネクションの詳細については、
+こちら
+を参照してください。
+レシピビューでの Salesforce と Zendesk コネクション
+#
+ジョブ
+トリガーイベントが発生するたびに、レシピ内のアクションが実行されます。レシピを通した、各トリガーイベントのフロー全体を
+ジョブ
+と呼びます。ジョブは、成功する場合も (アクションが正しく実行された場合)、エラーになる場合も (アクションの結果エラーが発生した場合) もあります。エラーが発生すると、それ以降のアクションは実行されません。ジョブの詳細については、
+こちら
+を参照してください。
+#
+ジョブレポート
+ジョブレポートには、レシピにより処理されたすべてのトリガーイベントの大まかな概要が示されます。レシピを通した、各トリガーイベントのフロー全体をジョブと呼びます。
+ジョブレポートには、処理された日時やジョブ ID などの情報が含まれます。このジョブレポートページから、ジョブをクリックすることにより、さらに詳細な情報を表示できます。
+ジョブレポートの詳細については、
+こちら
+を参照してください。
+ジョブレポートページ
+#
+ジョブの詳細
+ジョブの詳細ページには、レシピにより処理されている単一のトリガーイベントのステップごとの入力と出力の詳細が表示されます。各ステップに渡されるデータ、および各ステップの実行後に返される結果の出力を確認できるため、このページはレシピのトラブルシューティングに役立ちます。ジョブの詳細については、
+こちら
+を参照してください。
+Send email アクションの詳細を示すジョブの詳細ページ
+←
+Workatoとは
+初めてのレシピの作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+レシピ
+トリガー
+ステップとアクション
+データツリーとデータピル
+入力項目と項目のマッピング
+変数のマッピング
+定数のマッピング
+コネクション
+ジョブ
+ジョブレポート
+ジョブの詳細
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

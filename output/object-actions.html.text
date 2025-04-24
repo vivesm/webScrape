@@ -1,0 +1,232 @@
+Workato connectors - Coupa Object actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Coupa
+#
+Coupa - Object actions
+Workato offers various object actions for interacting with Coupa. In Workato, objects include entities such as invoices, expenses, and suppliers. We support a wide range of
+Coupa objects
+. When using actions in Workato that reference objects, you can specify the object you plan to work with later on.
+Workato offers the following object actions:
+Create object
+Update object
+Search object
+Get object by ID
+Get remit to addresses by object ID
+Add file attachment on object
+#
+Input fields for create/update actions
+This step performs the selected action on the object you select. For example, select the
+Create object
+action and select
+Invoice
+as your object to create an invoice in Coupa when the step is executed in a recipe.
+Selecting an object in the Coupa connector in the create/update object action
+After you select an object, all relevant fields for that object are displayed. For example, if you choose the
+Create object
+action and select
+Contract
+as your object, the action populates with all the contract-related fields for you to complete. Use datapills from previous steps to create objects based on the data in your workflow.
+AUGMENT INCOMPLETE SCHEMA WITH OVERRIDES
+Workato infers the schema of a Coupa object based on the first response payload it receives. This response payload may not include all available fields, resulting in an incomplete schema. If you notice that any fields are missing from the input schema or that the schema is inaccurate, you can use the
+Add/override fields
+feature to add the missing fields or override the inferred schema.
+"Add/override fields" can be enabled from within the list of optional fields
+Required fields always appear in the recipe configuration. Be sure to fill them in to prevent errors. You can also find custom fields defined in your Coupa instance in the additional fields tab.
+#
+List input fields
+Some Coupa object actions in Workato can accept list input lines. This is often the case in invoices and purchase orders when generating a list of invoice or purchase order lines. Workato provides a quick and easy way to generate these lists. When working with actions earlier in your recipe that generate list outputs, easily map them using the list input fields. Learn more about
+list inputs
+.
+#
+Create object
+This action creates an object you specify, such as a purchase order or an invoice. The dynamically generated input fields display all the required input fields to create this object successfully. Optional input fields may be hidden in the fields tab.
+A good practice would be to create custom fields in Coupa to store the ID of the record in the application the data is coming from. For example, any new supplier created in Coupa through an integration pulling data from NetSuite should have a custom field to store the NetSuite ID of that same supplier. Another subsequent action would be to update the NetSuite record with the Coupa internal ID of that same action. This makes future recipes and integrations easier by explicitly defining this relationship between records in applications.
+#
+Update object
+This action updates a specific object in Coupa. One required input field is the specific Coupa internal ID of that object. This lets Coupa know which object you plan to update. All other fields are dynamically generated.
+If your recipe does not have the internal ID of this invoice in Coupa, use the
+Search object
+action. The
+Search object
+action allows you to search for a specific object in Coupa based on other fields, such as
+Invoice number
+for invoices and
+Purchase order number
+for purchase orders. Use the ID datapill from the
+Search object
+output to update your object.
+#
+Output fields for create/update actions
+Each create/update object action executes an action on a single object in Coupa. This action in Workato retrieves all object-related information included custom fields. You can then use the output datapills in subsequent steps in your recipe.
+#
+Input fields for search/retrieval actions
+This action performs a search in Coupa when the step is executed. It receives input and returns objects in a list of objects that match those returns.
+After you select an object, all relevant fields for that object are displayed. Workato supports different relevant fields for you to search using the
+Search object
+action. All other search/retrieval actions require using the internal Coupa object ID.
+#
+Search object
+This action searches for objects in Coupa based on certain fields you determine. Common fields available include the Coupa internal ID and the numbers and name associated with the object. For example, you can search invoices based on invoice numbers or suppliers based on supplier name. This is useful when you plan to update these objects but don't have their Coupa internal ID on hand.
+This action can return
+multiple
+object records. The Workato connector allows you to search in two ways.
+Search type
+Description
+Fields
+Search for records using a predefined set of filters. First, choose the object type and then the relevant fields will be shown to you.
+Query
+Search for records using a free-form query. Learn more in the
+Coupa documentation
+(opens new window)
+Search by standard fields or write your own Coupa query
+#
+Get object by ID
+This action retrieves a specific object in Coupa. Define the type of object you are looking for and the internal ID. The object returned would be similar to the results of the
+Search object
+action.
+This action returns only a
+single
+unique record.
+#
+Get remit to addresses by object ID
+This action allows you to select an object and an associated internal Coupa ID with that object to retrieve their remit-to addresses. This is the address which you will send payment to. The output for this action comes in the form of a list of addresses for that specified object. We currently only support this action for Suppliers.
+#
+Output fields for search/retrieval actions
+Each search/retrieval action except the
+Get object by ID
+action returns a list of objects that match your search criteria. Use this action to search for objects in Coupa that could be related to common objects in other applications.
+#
+Input fields for Add file attachment on object action
+The
+Add file attachment on object
+action allows you to create file attachments on various objects in Coupa. When configuring the action, you must first define the object for which you want to create an attachment in Coupa. You may do so by manually selecting the object type or mapping a datapill. You must also provide the internal Coupa ID of the object and the attachment contents. We currently support adding file attachments for
+Contracts
+,
+Purchase Orders
+,
+Requisitions
+,
+Invoices
+.
+ATTACHMENT NAME
+The attachment name is optional and a generic attachment name will be generated by Coupa if none is supplied. We recommend that you give a meaningful name to your attachments.
+Action configuration example
+Where it shows up in Coupa
+#
+Output fields for Add file attachment on object action
+The action returns the location of the attachment created in Coupa. This location cannot be used directly as a URL.
+#
+List of triggers and actions
+Workato currently supports the following Coupa triggers and actions. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.
+Introduction
+Object triggers
+Purchase order actions
+Supplier actions
+Integration actions
+←
+OAuth connection setup
+Object triggers
+→
+Last updated:
+7/2/2024, 5:11:51 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

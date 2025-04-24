@@ -1,0 +1,128 @@
+Workatoコネクター - Deputy - 従業員の関連付けアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Deputy
+#
+Deputy - 従業員の関連付けアクション
+このアクションでは、既存の従業員の職場および/または従業員契約と従業員を関連付けることができます。
+従業員の関連付けアクション
+#
+入力フィールド
+従業員
+アイテムを関連付ける従業員。Deputyインスタンスの利用可能な従業員リストから選択するか、従業員IDを手動で入力できます。
+従業員の職場
+従業員に関連付ける従業員の職場。Deputyインスタンスの利用可能な職場リストから選択するか、職場IDを手動で入力できます。
+従業員の契約
+従業員に関連付ける従業員の契約。Deputyインスタンスの利用可能な契約リストから選択するか、契約IDを手動で入力できます。
+オプションのフィールドです。
+職場を主要として設定する
+true/1に設定すると、新しく関連付けられた職場を主要な職場にします。デフォルトはfalse/0です。
+オプションのフィールドです。
+#
+出力
+このアクションの出力は、関連付けられた従業員オブジェクトに関する情報を含むデータツリーです。
+←
+リソースの更新アクション
+従業員の関連付け解除アクション
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力フィールド
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

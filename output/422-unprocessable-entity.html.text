@@ -1,0 +1,132 @@
+Troubleshooting - 422 Unprocessable Entity | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+General error codes
+#
+422 Unprocessable entity
+The
+422 Unprocessable entity
+indicates that the action could not be processed properly due to invalid data provided. This occurs when there is a data conflict. For example, if you are trying to create a new user and the user email already exists, the server will return a
+422 Unprocessable entity
+.
+Example of 422 Unprocessable entity
+#
+Solution
+Verify that the input data provided is valid.
+For a
+Create record
+action, check if there is already a record with a unique key (
+email
+,
+ID
+).
+For an
+Update record
+action, check if the record exists. Otherwise, create a record.
+Check that all reference IDs are valid. For example, when assigning a Salesforce lead to a sales rep, there must be an existing sales rep.
+Check if the field is required. If so, the field cannot be blank.
+←
+404 Not found
+Webhook Gateway limits
+→
+Last updated:
+3/29/2023, 2:00:59 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

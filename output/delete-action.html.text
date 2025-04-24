@@ -1,0 +1,151 @@
+Workato connectors - SMB delete resource action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SMB
+#
+SMB - Delete resource action
+This action deletes a file or folder you specify in your SMB network location.
+#
+Input
+Input field
+Description
+Resource to delete
+Provide the full path of the folder or file to delete, for example:
+/folder1/folder2
+Include files in sub-folders?
+Select whether to also delete files in sub-folders.
+#
+Output
+Output field
+Description
+Path
+The name of the deleted file or folder, including the file name and extension, for example:
+/folder1/folder2/filename.csv
+.
+Kind
+Indicates whether this item is a folder.
+Size
+The size of the deleted resource.
+Attributes
+Attributes attached to the deleted resource.
+Name
+The name of the deleted resource.
+Directory
+The complete path of the deleted resource, for example:
+/folder1/folder2/
+.
+Creation time
+The time the resource was deleted.
+Change time
+The time the resource was last changed.
+Access time
+The time the resource was accessed.
+←
+Create folder action
+Download file action
+→
+Last updated:
+3/25/2025, 10:57:24 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

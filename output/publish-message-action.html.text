@@ -1,0 +1,170 @@
+Workato connectors - SNS Publish message action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Amazon SNS
+#
+Publish message action
+This action publishes a message to a specified topic.
+#
+Input
+Field
+Description
+Topic Name
+Select the message topic from the picklist.
+Subject
+Provide a subject tile for this message.
+Message format
+Select the message format. If you want to send different messages for each transport protocol, select
+JSON
+. Otherwise, select
+Raw
+to send the same message to all transport protocols. Learn more
+here
+(opens new window)
+.
+Message
+For
+Raw
+message format, provide the message here.
+For
+JSON
+message format, you must first define the message schema. Next, provide the message contain in the input field. Learn more
+here
+.
+Message attributes schema
+Define your message attribute schema. The
+Name
+,
+Type
+, and
+Value
+are required fields in a message attribute item. See
+message attributes
+(opens new window)
+.
+#
+Configure message schema
+If you want to send different messages for each transport protocol, you will have to define the message schema.
+Learn more
+here
+(opens new window)
+.
+Sample message schema
+Input field generated
+Define message schema with JSON snippet
+Message schema input field
+#
+Output
+Field
+Description
+Message ID
+The message ID.
+←
+New message trigger
+Amazon SQS
+→
+Last updated:
+2/18/2021, 10:10:10 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

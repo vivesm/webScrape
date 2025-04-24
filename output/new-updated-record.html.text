@@ -1,0 +1,158 @@
+Workato connectors - Hive - New/updated action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Hive
+#
+Hive - New/updated record trigger (real-time)
+The
+New/updated record
+trigger monitors changes in a Hive action or project and runs when a new action or project is created or an existing action or project is updated.
+#
+Input
+Input field
+Description
+Object
+Select a Hive object, such as
+Project
+or
+Action
+.
+Trigger events
+Select one or more events that trigger this action.
+Trigger when specific fields are updated
+Select the event that triggers when a specific field updates. If left blank, the trigger runs when any field updates.
+Projects
+Select one or more projects where Workato monitors for updates. Alternatively, enter project IDs as a comma-separated string.
+#
+Output
+Output field
+Description
+Trigger event
+The event that triggered the action, such as
+New project
+or
+Updated action
+.
+Object type
+The type of Hive object, such as
+Action
+or
+Project
+.
+Record
+The record data based on the selected object. This Includes fields such as
+ID
+,
+Name
+,
+Created at
+, and other relevant attributes.
+←
+Connection setup
+Update record action
+→
+Last updated:
+2/26/2025, 9:11:27 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

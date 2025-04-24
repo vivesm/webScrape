@@ -1,0 +1,197 @@
+Workato connectors - Python snippets by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Python snippets by Workato
+The Python snippets by Workato connector allows you to write and execute custom
+Python
+(opens new window)
+code in your recipes.
+Python is a popular programming language used for web applications, data pipelines, and machine learning.
+Workato's Python snippets by Workato connector enables you to perform the following tasks:
+Transform data, such as converting date formats.
+Convert file formats, such as CSV to JSON.
+Process large datasets by breaking batches into smaller chunks, such as splitting 5,000 records into chunks of 500 to prevent API timeouts.
+Learn more about
+executing Python code
+.
+#
+Use cases
+Use Python to automate complex workflows, process data, and enhance integrations across your business applications. The Python snippets by Workato connector provides flexibility and control to generate reports, transform datasets, and script custom automations. Explore our
+use cases
+to discover how you can improve automation with Python:
+Export Workday workers to a CSV file
+with Python and upload the file to Google Drive.
+#
+Supported features
+Runtime version
+Libraries
+#
+Runtime version
+The Python snippets by Workato connector runs on Python 3.9 or later.
+#
+Libraries
+The connector supports the
+standard libraries included in Python 3.9 or later
+(opens new window)
+and the following additional libraries:
+bcrypt
+lxml
+msgpack
+msoffcrypto
+NumPy
+openpyxl
+pandas
+pypdf
+Pytz
+pyxlsb
+requests
+xlrd
+Additional libraries aren't currently supported.
+#
+Limitations
+The following limitations apply when using the Python snippets by Workato connector:
+PDF files processed with the pypdf library must not exceed
+35MB
+.
+Scripts cannot exceed
+1MB
+. Larger scripts may cause memory issues.
+Code snippets have a total memory limit of
+256MB
+, including libraries, temporary memory, and inputs.
+CSV files processed with the Pandas library must not exceed
+20MB
+. This limit accounts for Pandas’ temporary storage requirements.
+Excel files processed with the Pandas library must not exceed
+5MB
+. Uncompressing Excel files requires additional memory.
+Actions terminate if they run for more than
+90 seconds
+.
+User-provided
+libraries
+are not supported.
+#
+Actions
+The Python snippets by Workato connector supports the following action:
+Execute Python code
+#
+Connecting to Workato
+The Python snippets by Workato connector doesn't require setup configuration. Search for
+Python
+in the
+App
+tab and click the icon to get started.
+←
+New/updated row trigger
+Execute Python code
+→
+Last updated:
+3/6/2025, 12:34:39 AM
+On this page
+Use cases
+Supported features
+Limitations
+Actions
+Connecting to Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

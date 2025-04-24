@@ -1,0 +1,826 @@
+アクティビティ監査ログ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの管理
+管理者ダッシュボード
+#
+アクティビティ監査ログ
+この機能を使用できるユーザー
+アクティビティ監査ログ
+はアドオン機能です。詳細については、カスタマーサクセスマネージャーまでお問い合わせください。
+プロジェクトの大小にかかわらず、あらゆる統合プロジェクトにとって、ユーザー管理は必須です。プロジェクトのチームが大きくなり、より複雑になるにつれ、Workato ワークスペース内での制御とアクティビティの可視化が不可欠になります。
+アクティビティ監査ログ
+では、特定の期間にアカウント内のユーザーにより加えられた変更を確認できます。
+このガイドでは、以下の項目について説明します。
+アクティビティ監査ログの基本情報
+アクティビティ監査ログの表示
+アクティビティ監査ログのストリーミング
+ログに含まれるユーザーアクティビティ
+#
+基本情報
+アクティビティ監査ログとは
+アクティビティ監査ログの用途
+ログの保持期間
+アクティビティ監査ログ機能の入手方法
+アクティビティ監査ログを表示できるユーザー
+#
+アクティビティ監査ログとは
+アクティビティ監査ログは、Workato の管理者が、アカウント内での変更を包括的に追跡するためのシンプルで強力なインターフェイスを提供します。このような変更には、ログインや招待、レシピの変更とイベントなどのユーザーアクティビティが含まれます。
+#
+アクティビティ監査ログの用途
+アクティビティ監査ログを使用することにより、アカウントに加えられた変更をすばやく特定し、その影響を分析できます。
+たとえば、新しい従業員を受け入れるための業務に不可欠なレシピの計画外の停止が発生したとします。アクティビティ監査ログを使用して、レシピがいつ停止し、どのユーザーにより停止されたかを確認できます。
+#
+アクティビティ監査ログ機能の入手方法
+アクティビティ監査ログはアドオン機能です。詳細については、Workato のカスタマーサクセスマネージャーまでお問い合わせください。
+#
+ログに含まれるアクティビティ
+アクティビティ監査ログに含まれるアクティビティの包括的なリストについては、
+「アクティビティリファレンス」セクション
+を参照してください。
+#
+ログの保持期間
+デフォルトでは、アクティビティ監査ログはイベントから
+1年間
+保持されます。保持期間の延長については、Workato のカスタマーサクセスマネージャーまでお問い合わせください。
+また、
+監査ログのストリーミング
+機能を使用して、選択した送信先にログデータを複製することもできます。
+#
+アクティビティ監査ログを表示できるユーザー
+有効にすると、以下のユーザーがアクティビティ監査ログを表示できます。
+アカウント所有者
+Admin
+ロールのユーザー
+Activity audit
+権限を持つユーザー
+#
+アクティビティ監査ログの表示
+必要なアクセス権
+を持つユーザーは、
+[Dashboard] > [Activity audit]
+に移動することにより、アクティビティ監査ログを表示できます。
+ページ上部のフィルターを使用して、選択した条件に基づいてログをフィルタリングできます。たとえば、特定のユーザーのアクティビティを表示するには、
+[All users]
+をクリックし、メニューからユーザーを選択します。
+#
+アクティビティ監査ログのストリーミング
+必要なログが保持されるように、
+監査ログのストリーミング
+機能を使用することをお勧めします。
+この機能を設定すると、監査ログデータが選択した送信先にストリーミングされます。詳細については、
+監査ログのストリーミング
+に関するガイドを参照してください。
+#
+アクティビティリファレンス
+このセクションでは、アクティビティ監査ログに含まれるアクティビティの名前と説明を示します。アクティビティは、アカウント、コネクションなどのカテゴリー別にグループ化されています。
+#
+アカウントアクティビティ
+ユーザーログイン、パスワードやメールアドレスの変更、アカウント設定の変更など、
+Workato アカウント
+に関連するアクティビティ。
+アクティビティ
+説明
+ユーザーログイン
+ユーザーが SSO により、またはパスワードを使用してログインしました。
+例を参照
+。
+ユーザーログイン失敗
+ユーザーログインの試みが失敗しました。アクティビティを選択すると、ユーザーが SSO とパスワードのどちらによりログインしていたのかを確認できます。
+例を参照
+。
+ユーザーログアウト
+ユーザーが Workato からログアウトしました。
+パスワードの変更
+ユーザーが
+[Account Settings] > [Change password]
+でパスワードを変更しました。
+ユーザーチームの切り替え
+ユーザーが別のチームアカウントに切り替えました。ユーザーの切り替え後のアカウントの監査ログには、これは
+ユーザーログイン
+と表示されます。アクティビティを選択すると、詳細セクションに
+アクティビティ
+属性の値が表示されます。
+switch_team
+という値は、ユーザーが別のチームに切り替えたことを示します。
+アカウントメールアドレスの更新
+ユーザーが
+[Account Settings] > [Account]
+で
+[Account email]
+フィールドを変更して、メールアドレスを更新しました。
+ユーザー名の更新
+ユーザーが
+[Account Settings] > [Profile]
+で
+[Username]
+フィールドを変更して、ユーザー名を更新しました。
+パスワードリセットの要求
+ユーザーがログイン時に
+[Forgot password?]
+をクリックして、パスワードのリセットを要求しました。次の画面では、メールアドレスを入力して
+[Reset password]
+をクリックすることにより、ユーザーはパスワードをリセットすることを確定します。
+委任管理者の追加
+ユーザーが
+[Account Settings] > [Delegated administrator]
+で、別の Workato ユーザーに委任管理アクセス権を付与しました。
+委任管理者パスワードの更新
+ユーザーが
+[Account Settings] > [Change password] > [Delegated administrator password]
+で新しいパスワードで更新して、委任管理者のパスワードを変更しました。
+委任管理者の削除
+ユーザーが
+[Account Settings] > [Delegated administrator]
+で、別の Workato ユーザーから委任管理アクセス権を削除しました。
+2要素認証の有効化
+ユーザーが
+[Account Settings] > [Two-Factor Authentication]
+で、2要素認証を有効化しました。
+2要素認証の無効化
+ユーザーが
+[Account Settings] > [Two-Factor Authentication]
+で
+[Disable Two-Factor Authentication]
+をクリックして、2要素認証を無効化しました。
+2要素認証の回復コードの表示
+ユーザーが
+[Account Settings] > [Two-Factor Authentication]
+で
+[View recovery codes]
+をクリックして、2要素認証の回復コードを表示しました。
+API キーのリフレッシュ
+ユーザーが
+[Account Settings] > [API key]
+で
+[Refresh key]
+をクリックして、Workato プラットフォーム API への接続に使用する API キーをリフレッシュしました。
+エラー通知メールアドレスの更新
+ユーザーが
+[Account Settings] > [Jobs settings]
+で
+[Error notifications]
+フィールドにメールアドレスを入力して、Workato からエラー通知を受け取るメールアドレスのリストを更新しました。
+エラー通知の調整
+ユーザーが
+[Account Settings] > [Jobs settings]
+で
+[Error notification throttling]
+チェックボックスを切り替えて、通知の調整を有効化または無効化しました。
+監査ログのストリーミング
+ユーザーが
+[Account Settings] > [Audit log streaming]
+で
+[Enable audit log streaming]
+トグルを切り替えて、監査ログのストリーミングを有効化または無効化しました。
+監査ログのストリーミングデータの包含
+ユーザーが
+[Account Settings] > [Audit log streaming]
+で
+[Include in stream]
+の下の1つまたは複数のオプションを選択または選択解除して、監査ログのストリーミングの内容を更新しました。
+監査ログのストリーミング先の更新
+ユーザーが
+[Account Settings] > [Audit log streaming] > [Audit stream destination]
+で、ストリーミングされた監査ログの送信先を更新しました。
+#
+ユーザーログインの例
+#
+ユーザーログイン失敗の例
+#
+チームアクティビティ
+コラボレータの招待、ロール、メンバーの変更など、
+Workato のチーム
+に関連するアクティビティ。
+アクティビティ
+説明
+招待の作成
+ユーザーが
+[Tools] > [Teams]
+で
+[Invite collaborator]
+をクリックして、コラボレータを招待しました。
+例を参照
+。
+招待の受諾
+ユーザーが招待メールの
+[Accept invite]
+ボタンをクリックして、チームへの参加の招待を受諾しました。
+例を参照
+。
+招待の変更
+ユーザーが
+[Team] > [Pending invitations] タブ
+で、招待を変更しました。
+招待のキャンセル
+ユーザーが
+[Team] > [Pending invitations] タブ
+で
+[Delete]
+ボタンをクリックして、コラボレータに送信された招待をキャンセルしました。
+メンバーの更新
+ユーザーが
+[Team] > [Collaborators] タブ
+で
+[Edit]
+ボタンをクリックして、チームメンバーを更新しました (ロールの変更など)。
+メンバーの削除
+ユーザーが
+[Team] > [Collaborators] タブ
+で
+[Delete]
+ボタンをクリックして、チームメンバーを削除しました。
+ロールの作成
+ユーザーが
+[Team] > [Roles] タブ
+で
+[Add new role]
+をクリックして、新しいカスタムロールを追加しました。
+ロールの更新
+ユーザーが
+[Team] > [Roles] タブ
+で、カスタムロールのリスト内のカスタムロールの
+[Edit]
+ボタンをクリックして、カスタムロールを更新しました。
+ロールの削除
+ユーザーが
+[Team] > [Roles] タブ
+で
+[Delete]
+ボタンをクリックして、カスタムロールを削除しました。
+#
+招待の作成の例
+#
+招待の受諾の例
+#
+レシピアクティビティ
+レシピ
+に関連するアクティビティ。
+アクティビティ
+説明
+開始
+ユーザーが
+[Recipe details]
+ページで
+[Start recipe]
+ボタンをクリックして、レシピを開始しました。
+停止
+ユーザーが
+[Recipe details]
+ページで
+[Stop recipe]
+ボタンをクリックして、レシピを停止しました。
+例を参照
+。
+作成
+ユーザーが
+[Recipes]
+ページで
+[Create a new recipe]
+ボタンをクリックして、新しいレシピを作成しました。
+更新
+ユーザーが
+[Recipe details]
+ページでレシピを編集し、保存して、レシピを変更しました。
+名前の変更
+ユーザーがレシピタイトルをクリックし、編集し、保存して、レシピの名前を変更しました。
+移動
+ユーザーが
+[Recipes]
+ページからレシピをドラッグアンドドロップして、レシピを1つのフォルダーから別のフォルダーへと移動しました。
+複製/コピー
+ユーザーが
+[Recipes]
+ページで
+[...] > [Clone recipe]
+をクリックするか、
+[Recipe details]
+ページで
+[Copy]
+ボタンをクリックして、レシピを複製しました。
+アクセススコープの更新
+ユーザーが
+[Recipe details] > [Settings] タブ
+で
+[Is this a public recipe]
+設定を切り替えて、レシピのアクセススコープ (パブリックまたはプライベート) を更新しました。
+削除
+ユーザーが
+[Recipes]
+ページで
+[...] > [Delete recipe]
+をクリックするか、
+[Recipe details]
+ページで
+[Delete]
+ボタンをクリックして、レシピを削除しました。
+#
+レシピの停止の例
+#
+コネクションアクティビティ
+コネクション
+に関連するアクティビティ。
+アクティビティ
+説明
+コネクションの作成
+ユーザーが
+[App connections]
+ページで
+[Create a new connection]
+ボタンをクリックして、新しいコネクションを作成しました。
+コネクションの更新
+ユーザーが
+[App connections] ページ
+または
+[Recipe details] > [Connections] タブ
+で、コネクションを切断してからその設定を変更して、既存のコネクションを更新しました。
+コネクションの接続
+ユーザーが
+[Connection settings]
+ページで、コネクションにアカウントを接続するか、コネクションに対する資格情報を指定しました。
+コネクションの切断
+ユーザーが
+[Connection settings]
+ページで
+[Disconnect]
+ボタンをクリックして、コネクションを切断しました。
+例を参照
+。
+コネクションの削除
+ユーザーが
+[App connections]
+でコネクションを選択してから
+[Delete connection]
+をクリックして、コネクションを削除しました。
+#
+コネクションの切断の例
+#
+フォルダーアクティビティ
+フォルダー
+に関連するアクティビティ。
+アクティビティ
+説明
+フォルダーの作成
+ユーザーが
+[Recipes]
+ページで
+[+ Create new folder]
+をクリックして、新しいフォルダーを作成しました。
+例を参照
+。
+フォルダーの削除
+ユーザーがフォルダーの歯車ボタンをクリックし、メニューから
+[Delete]
+を選択して、フォルダーを削除しました。
+例を参照
+。
+フォルダー名の変更
+ユーザーがフォルダーの歯車ボタンをクリックし、メニューから
+[Rename]
+を選択して、フォルダーの名前を変更しました。
+フォルダーの移動
+ユーザーが
+[Recipes]
+ページでフォルダーを移動先にドラッグアンドドロップして、フォルダーを移動しました。
+#
+フォルダーの作成の例
+#
+フォルダーの削除の例
+#
+パッケージアクティビティ
+レシピのライフサイクル管理
+のマニフェストとパッケージに関連するアクティビティ。
+アクティビティ
+説明
+マニフェストの作成
+ユーザーが
+[Tools] > [Recipe lifecycle management]
+で
+[Create new manifest]
+をクリックして、新しいマニフェストを作成しました。
+マニフェストの更新
+ユーザーが
+[Tools] > [Recipe lifecycle management] > [Export] タブ
+でマニフェストを選択し、
+[Edit manifest]
+ボタンをクリックして、既存のマニフェストを更新しました。
+マニフェストの削除
+ユーザーが
+[Tools] > [Recipe lifecycle management] > [Export] タブ
+でマニフェストを選択し、
+[...] > [Delete manifest]
+ボタンをクリックして、マニフェストを削除しました。
+パッケージのエクスポート
+ユーザーが
+[Recipe lifecycle management]
+ページでマニフェストを作成し、ビルドし、
+.zip
+ファイルにパッケージ化して、パッケージをエクスポートしました。
+パッケージのインポート
+ユーザーが
+[Tools] > [Recipe lifecycle management] > [Imports] タブ
+で
+[Import package to a new folder]
+をクリックして、パッケージをインポートしました。
+#
+コネクター SDK アクティビティ
+コネクター SDK
+に関連するアクティビティ。
+アクティビティ
+説明
+カスタムコネクターの作成
+ユーザーが
+[Tools] > [Connector SDK]
+で
+[Create connector]
+をクリックして、新しいコネクターを作成しました。
+カスタムコネクターの更新
+ユーザーが
+[Tools] > [Connector SDK]
+でコネクターを選択し、そのソースコードを変更して、コネクターを更新しました。
+カスタムコネクターのリリース
+ユーザーが
+[Tools] > [Connector SDK]
+でコネクターを選択し、
+[Release latest version]
+をクリックして、最新のコネクターの変更の新しいバージョンをリリースしました。
+カスタムコネクターの削除
+ユーザーが
+[Tools] > [Connector SDK]
+でコネクターを選択し、
+[Delete]
+をクリックして、コネクターを削除しました。
+#
+共通データモデルアクティビティ
+共通データモデル
+に関連するアクティビティ。
+アクティビティ
+説明
+共通データモデルの作成
+ユーザーが
+[Tools] > [Common data models]
+で
+[Create a new data model]
+をクリックして、新しいデータモデルを作成しました。
+共通データモデルの更新
+ユーザーが
+[Tools] > [Common data models]
+でデータモデルを選択し、変更して、データモデルを更新しました。
+共通データモデルの削除
+ユーザーが
+[Tools] > [Common data models]
+でデータモデルを選択し、
+[Delete data model]
+をクリックして、データモデルを削除しました。
+#
+Lookup table アクティビティ
+Lookup table
+に関連するアクティビティ。
+アクティビティ
+説明
+Lookup table の作成
+ユーザーが
+[Tools] > [Lookup table]
+で
+[Create a new lookup table]
+をクリックして、新しい Lookup table を作成しました。
+Lookup table の更新
+ユーザーが
+[Tools] > [Lookup table]
+で Lookup table を選択し、変更して、Lookup table を更新しました。
+Lookup table の削除
+ユーザーが
+[Tools] > [Lookup table]
+で Lookup table を選択し、
+[Delete table]
+をクリックして、Lookup table を削除しました。
+Lookup table の切り詰め
+すべての行が削除されました。
+行の追加
+新しい行が追加されました。
+行の更新
+行が更新されました。
+行の削除
+行が削除されました。
+CSV のインポート
+CSV を使用して行がインポートされました。
+CSV のエクスポート
+Lookup table が CSV としてエクスポートされました。
+#
+メッセージテンプレートアクティビティ
+メッセージテンプレート
+に関連するアクティビティ。
+アクティビティ
+説明
+メッセージテンプレートの作成
+ユーザーが
+[Tools] > [Message templates]
+で
+[Create a new template]
+をクリックして、新しいメッセージテンプレートを作成しました。
+メッセージテンプレートの更新
+ユーザーが
+[Tools] > [Message templates]
+でメッセージテンプレートを選択し、変更して、メッセージテンプレートを更新しました。
+メッセージテンプレートの削除
+ユーザーが
+[Tools] > [Message templates]
+でメッセージテンプレートを選択し、
+[Delete template]
+をクリックして、メッセージテンプレートを削除しました。
+#
+プロパティアクティビティ
+アカウントのプロパティ
+に関連するアクティビティ。
+アクティビティ
+説明
+プロパティの作成
+ユーザーが
+[Tools] > [Properties]
+で
+[Add new property]
+をクリックして、新しいプロパティを作成しました。
+プロパティの更新
+ユーザーが
+[Tools] > [Properties]
+でプロパティに対する
+[Edit]
+ボタンをクリックし、プロパティを変更して、プロパティを更新しました。
+プロパティの削除
+ユーザーが
+[Tools] > [Properties]
+でプロパティに対する
+[Delete]
+ボタンをクリックして、プロパティを削除しました。
+#
+Pub/Sub トピックアクティビティ
+Pub/Sub トピック
+に関連するアクティビティ。
+アクティビティ
+説明
+Pub/Sub トピックの作成
+ユーザーが
+[Tools] > [Pub/Sub topics]
+で
+[Create a new topic]
+をクリックして、新しい Pub/Sub トピックを作成しました。
+Pub/Sub トピックの更新
+ユーザーが
+[Tools] > [Pub/Sub topics]
+でトピックを選択し、変更して、Pub/Sub トピックを更新しました。
+#
+API コレクションアクティビティ
+API コレクション
+に関連するアクティビティ。
+アクティビティ
+説明
+API コレクションの作成
+ユーザーが
+[Tools] > [API platform] > [API Collections] タブ
+で
+[Add a new API collection]
+をクリックして、新しい API コレクションを作成しました。
+API コレクションの更新
+ユーザーが
+[Tools] > [API platform] > [API Collections] タブ
+でコレクションに対する
+[...] > [Edit collection]
+をクリックし、コレクションを変更して、API コレクションを更新しました。
+API コレクションの削除
+ユーザーが
+[Tools] > [API platform] > [API Collections] タブ
+でコレクションに対する
+[...] > [Delete collection]
+をクリックして、API コレクションを削除しました。
+#
+API エンドポイントアクティビティ
+API エンドポイント
+に関連するアクティビティ。
+アクティビティ
+説明
+API エンドポイントの作成
+ユーザーが
+[Tools] > [API platform] > [API Collections] タブ
+でリストから API コレクションを選択し、
+[Create a new endpoint]
+をクリックして、新しい API エンドポイントを作成しました。
+API エンドポイントの更新
+ユーザーが
+[Tools] > [API platform] > [API Collections] タブ
+でリストから API コレクションを選択し、エンドポイントに対する
+[...] > [Edit endpoint]
+をクリックし、エンドポイントを変更して、API エンドポイントを更新しました。
+API エンドポイントの削除
+ユーザーが
+[Tools] > [API platform] > [API Collections] タブ
+でリストから API コレクションを選択し、エンドポイントに対する
+[...] > [Delete endpoint]
+をクリックして、API エンドポイントを削除しました。
+API エンドポイントのアクティブ化
+ユーザーが
+[Tools] > [API platform] > [API Collections] タブ
+でリストから API コレクションを選択し、コレクションから API エンドポイントを選択し、トグルをクリックしてアクティブ化しました。
+API エンドポイントの非アクティブ化
+ユーザーが
+[Tools] > [API platform] > [API Collections] タブ
+でリストから API コレクションを選択し、コレクションから API エンドポイントを選択し、トグルをクリックして非アクティブ化しました。
+#
+API カスタマーアクティビティ
+API カスタマー
+に関連するアクティビティ。
+アクティビティ
+説明
+API カスタマーの作成
+ユーザーが
+[Tools] > [API platform] > [Clients] タブ
+で
+[Add new client]
+をクリックして、新しい API カスタマーを作成しました。
+API カスタマーの更新
+ユーザーが
+[Tools] > [API platform] > [Clients] タブ
+でカスタマーに対する
+[...] > [Edit client]
+をクリックし、カスタマーを変更して、API カスタマーを更新しました。
+API カスタマーの削除
+ユーザーが
+[Tools] > [API platform] > [Clients] タブ
+でカスタマーに対する
+[...] > [Delete client]
+をクリックして、API カスタマーを削除しました。
+#
+API アクセスプロファイルアクティビティ
+API アクセスプロファイル
+に関連するアクティビティ。
+アクティビティ
+説明
+API アクセスプロファイルの作成
+ユーザーが
+[Tools] > [API platform] > [Clients] タブ
+でリストからクライアントを選択し、
+[Create access profile]
+をクリックして、新しい API アクセスプロファイルを作成しました。
+API アクセスプロファイルの更新
+ユーザーが
+[Tools] > [API platform] > [Clients] タブ
+でリストからクライアントを選択し、アクセスプロファイルに対する
+[...] > [Edit access profile]
+をクリックし、アクセスプロファイルを変更して、API アクセスプロファイルを更新しました。
+API アクセスプロファイルの削除
+ユーザーが
+[Tools] > [API platform] > [Clients] タブ
+でリストからクライアントを選択し、アクセスプロファイルに対する
+[...] > [Delete access profile]
+をクリックして、API アクセスプロファイルを削除しました。
+API アクセスプロファイルトークンのリフレッシュ
+ユーザーが
+[Tools] > [API platform] > [Clients] タブ
+でリストからクライアントを選択し、
+[Refresh]
+をクリックして、API アクセスプロファイルに関連付けられている API トークンをリフレッシュしました。
+#
+API ポリシーアクティビティ
+API ポリシー
+に関連するアクティビティ。
+アクティビティ
+説明
+API ポリシーの作成
+ユーザーが
+[Tools] > [API platform] > [Policies] タブ
+で
+[Create new policy]
+をクリックして、新しい API ポリシーを作成しました。
+API ポリシーの更新
+ユーザーが
+[Tools] > [API platform] > [Policies] タブ
+でリストからポリシーを選択し、ポリシーに対する
+[...] > [Edit policy]
+をクリックし、ポリシーを変更して、API ポリシーを更新しました。
+API ポリシーの削除
+ユーザーが
+[Tools] > [API platform] > [Policies] タブ
+でリストからポリシーを選択し、ポリシーに対する
+[...] > [Delete policy]
+をクリックし、ポリシーを変更して、API ポリシーを削除しました。
+←
+アセットの使用状況を把握
+ログ - 表示
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+基本情報
+アクティビティ監査ログの表示
+アクティビティ監査ログのストリーミング
+アクティビティリファレンス
+アカウントアクティビティ
+チームアクティビティ
+レシピアクティビティ
+コネクションアクティビティ
+フォルダーアクティビティ
+パッケージアクティビティ
+コネクター SDK アクティビティ
+共通データモデルアクティビティ
+Lookup table アクティビティ
+メッセージテンプレートアクティビティ
+プロパティアクティビティ
+Pub/Sub トピックアクティビティ
+API コレクションアクティビティ
+API エンドポイントアクティビティ
+API カスタマーアクティビティ
+API アクセスプロファイルアクティビティ
+API ポリシーアクティビティ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

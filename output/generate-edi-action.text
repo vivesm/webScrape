@@ -1,0 +1,175 @@
+Generate EDI action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+EDI tools by Workato
+#
+Generate EDI action
+The generate EDI action allows you to create an EDI document.
+Generate EDI action configuration
+To use this action, you must provide the necessary data for the EDI document. There are two ways to do this, and the action setup depends on the method you choose.
+Set up using transaction type
+Set up using a sample document
+#
+Input fields
+Input field
+Description
+EDI standard
+Specify the EDI standard of your document. The following choices are available: EDIFACT, HL7, and X12.
+Setup via EDI sample
+Select whether you plan to generate a document based on the EDI transaction type or by providing a sample.
+Standard subset/version
+Specify the version of the EDI standard you plan to use. This field is available after you select the EDI standard and when the
+Setup via EDI sample
+field is set to
+No
+.
+Transaction type
+Specify the transaction type. This is available after you select the subset/version.
+Groups
+Provide the necessary field values to generate the EDI document. Consult with your trade partner's guidelines as their requirements may differ from default ones. Keep in mind that required segments are marked with a red asterisk. The schema is populated after the transaction type is selected. Click
+Show optional fields
+to view additional fields.
+Sample EDI document
+Provide a sample EDI document to populate the JSON sample. This field is used only during recipe design time, so datapills should not be mapped to this field.
+Transaction JSON
+JSON generated from the sample EDI document. Edit this field and add datapills to generate the actual EDI document.
+#
+Set up using transaction type
+To use this method, you must choose a specific transaction type and then fill in the fields necessary for the specific document.
+1
+Choose
+No
+in the
+Setup via EDI sample
+option
+2
+Choose the specific version of the EDI standard and the transaction type in the corresponding fields
+3
+Workato populates the
+Groups
+section based on the transaction type
+4
+Fill in the fields that are necessary for your transaction.
+#
+Set up using a sample document
+To use this method, you must provide a sample EDI document that is transformed into a JSON document with all the field descriptions. This option is convenient if you plan to alter only a small amount of fields each time.
+1
+Choose
+Yes
+in the
+Setup via EDI sample
+option.
+2
+Paste a sample EDI document in the corresponding field.
+3
+Wait until the
+Transaction JSON
+field is populated.
+4
+Alter the JSON using datapills.
+←
+How to use EDI tools by Workato
+Parse EDI action
+→
+Last updated:
+10/18/2024, 12:23:02 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

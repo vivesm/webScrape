@@ -1,0 +1,149 @@
+Test automation - Test cases overview | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+After you create your recipe
+Test Automation
+#
+Test cases overview
+Test cases are available at the recipe level.
+To view the list of test cases, choose a recipe and navigate to the
+Test cases
+interface. This interface displays a table containing all test cases created for this recipe.
+#
+What is a test case?
+A test case is a set of mock data and checks for specific steps of a particular recipe.
+You can create multiple test cases for any recipe you plan to test.
+A test case defines:
+What steps should use mock (simulated) data and the mock data that should be used.
+What step output data must be checked and the expected result of the check.
+For each test case, you can add a unique name and provide a description of the purpose of the test case.
+List of test cases
+Each test case contains the following data columns:
+Name
+The name of the test case. We recommend using a descriptive name that helps you identify the test.
+Modified on
+The date the test case was most recently modified.
+Last run
+The status of the most recent run.
+Passed/Failed
+The result of the most recent run.
+Never active
+The test case was never run.
+Last run recipe version
+The version of the recipe that was used to run the test case.
+Last run date
+The date of the most recent run.
+Case summary
+The number of checks and mocked steps.
+Description
+The description of the test.
+Additionally, click the
+...
+(ellipsis) to access the action menu. From here, you can perform the following actions:
+Delete a test case
+Clone (duplicate) a test case
+←
+Test Automation
+Create a test case
+→
+Last updated:
+9/20/2023, 5:12:15 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

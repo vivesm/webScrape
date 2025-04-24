@@ -1,0 +1,179 @@
+Workato connectors - Oracle Fusion Cloud | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Oracle Fusion Cloud
+#
+Oracle Fusion Cloud - Actions
+#
+Create Record Action
+The "create record" action in Oracle Fusion Cloud connector is used to create a new record of a specific object type. For example, creating a new receivable invoice for a specific customer account.
+Upon setting up the connection and choosing the specific object, all attributes and child objects of the specific objects show up as the input fields. Upon passing all required fields and adding lists or manual entries to the required child objects, a specific record can be created easily by running the recipe.
+Adding main attributes under Receivable Invoice
+Passing a list that creates Invoice lines child object and its attributes under Receivable Invoice
+#
+Get Record Action
+Get record action allows user to fetch a specific record based on a unique internal ID of the record. For example, to fetch a Product, the Inventory item ID of the specific product needs to be passed in the recipe. Upon choosing the object, the required field automatically shows up.
+Get product in Oracle Fusion Cloud
+The "Expand" field allows users to choose the specific depth of related child and grandchild objects to retrieve. By default, the response will include the record and its child objects, but not the grandchild objects. To enable specific grandchild objects, use the "Expand" field and select the specific objects. For example, under the "Receivable credit memo" object, the user can choose to include "attachments" (grandchild object) of each "credit memo lines" (child object)
+Expand field under Receivables credit memo
+#
+Search Records Action
+The Oracle Fusion Cloud connector has two search actions - Search records and Search records using advanced query.
+Search records action allows users to search by specifying values to the attributes directly in the inputs. Users can use "And" or "Or" to combine the attributes provided into an expression. And operation returns matching records only if all attributes are matched, while Or returns records with at least one match with the attributes.
+For example, here we are using "And" search operation and searching for Invoices with currency as "USD" and Invoice amount of "30000"
+Invoice search using Search records action
+Users can also define the limit and the offset to effectively paginate through when there are a large set of records returned.
+Similar to Get record action, here user can define the objects to expand on using Expand input.
+#
+Search Records Using Advanced Query Action
+Search records using advanced query action allows users to define Query, Fields and Finder inputs directly to query and fetch specific records.
+Query : Define the where clause of the search, similar to SQL statements. Click
+here
+(opens new window)
+to learn more.
+Finder : Allows users to search and pull records that are based on a specific criteria. Finders are predefined queries associated with a resource that can be used. Click
+here
+(opens new window)
+to learn more.
+In addition to the query setup, the action also provides additional features such as -
+Fields : Allows users to explicitly specify the fields that they want to see as part of the output. This is useful to ensure that payload size is minimized while pulling large sets of records by ensuring only specific required fields are pulled per record.
+Limit & Offset - Allows for paginating across large record sets
+Order by - Allows users to order the records fetched by a specific attribute in ascending or descending order format. It follows field:order-format, and one can order by multiple fields by separating them with a comma.
+Receivables customer workspace activities search using advanced query action
+Receivables customer account activities search using advanced query action - Output
+#
+Update Record Action
+Update record allows users to update an existing record associated with an object. To update record, select the specific object first, which populates all the input fields that can be updated. The primary key record associated with the object is highlighted which identifies the specific record to be updated.
+For example, to update an existing receivables invoice, Choose "Receivables invoice" under object and enter the "Customer transaction ID", which uniquely identifies the Invoice that needs to be updated. To find out the transaction ID, users can search records and use query filters to get the required record and then pass the transaction ID as a datapill from that action to this input.
+Receivables invoices update action
+Update action allows for updating the main objects as well as their child objects. To update a specific child object, provide both the ID of the main object as well as the ID of the child objects to update both simultaneously. For example, to update specific Invoice lines child object under Invoices, the Line number ID needs to be provided.
+Invoices child object update
+#
+Upsert Record Action
+Upsert record allows users to either add a new record or update an existing record associated with an object. This is useful when an array of records are passed into specific action and the records maybe already present or needs to be newly created. The rule of thumb here is the when the specific primary key (Example, Invoice ID for Invoice) is present, the record is updated, while when there is no primary key field, the record is inserted as new record.
+Receivables invoice object upsert
+Same approach applies for child objects, and when primary key attributes of the specific child object is present, then child object is updated, while if it is not present, it is inserted to an existing or new record, depending on the parent object setup.
+Hence, we can achieve insert or update for any object level through this action.
+Some sample scenarios where upsert record action is very useful -
+Append one or more new invoice lines to an existing invoice
+Update a specific invoice line in an existing invoice
+Update an existing invoice with new currency rates
+Insert or update products extracted from a Google sheet based on whether inventory item ID is present or not
+#
+Delete Record Action
+Delete record action allows users to delete an existing record. Similar to Get, Update and Upsert actions, once the object is chosen, the primary key associated with specific record needs to be provided to delete the specific record.
+Receivables invoice object delete
+←
+General setup
+Triggers
+→
+Last updated:
+4/25/2024, 5:58:27 PM
+On this page
+Create Record Action
+Get Record Action
+Search Records Action
+Search Records Using Advanced Query Action
+Update Record Action
+Upsert Record Action
+Delete Record Action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

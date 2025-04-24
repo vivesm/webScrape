@@ -1,0 +1,248 @@
+Workato connectors - OpenAPI - Connection setup | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+OpenAPI
+#
+Setting Up The OpenAPI Connector
+In this guide, we'll walk you through installing and setting up an OpenAPI connector in your Workato account.
+NOTE
+Refer to the
+Using OpenAPI connector to create custom connectors guide
+if you want to fully customize your connector.
+#
+Requirements
+To set up an OpenAPI connection, you'll need:
+Privileges in Workato that allow you to create connections.
+A Swagger file that
+:
+Conforms to the OpenAPI v2 or v3
+specifications
+(opens new window)
+Is valid JSON or YAML
+Note
+: We recommend using the connector with
+RESTful APIs
+(opens new window)
+for the best experience. Refer to the
+Limitations section in the OpenAPI overview
+for more info.
+#
+Step 1: Install The Connector
+The first step is to install the connector in your Workato account:
+1
+Open
+the connector in the community library
+(opens new window)
+.
+2
+Click
+Install connector
+.
+3
+Click
+Release latest version
+.
+#
+Step 2: Configure The Connection In Workato
+Step 2.1: Provide The OpenAPI Document
+Step 2.2: Define The Authentication Settings
+Step 2.3: Define Server And Testing URLs
+Step 2.4: Customize The Interface
+#
+Step 2.1: Provide The OpenAPI Document
+In this step, you'll provide the Swagger file containing the API definition.
+How you accomplish this is dependent on whether the file is publicly accessible on the internet:
+My file is publicly accessible
+If the Swagger file is publicly accessible:
+1
+Select
+Document URL
+as the
+OpenAPI document source
+.
+2
+In the
+Document URL
+field, paste the document URL to the file.
+Note
+: Files are only downloaded and parsed at recipe design time. When recipes are run - or when OpenAPI actions are executed - the file won't be downloaded.
+My file is not publicly accessible
+If the Swagger file isn't hosted or isn't publicly accessible, you can copy and paste the file into Workato:
+1
+Select
+Download content
+as the
+OpenAPI document source
+.
+2
+In the
+Document content
+field, paste the contents of the file.
+#
+Step 2.2: Define The Authentication Settings
+Next, you'll define the authentication method for the connection. Learn more about the supported authentication methods
+in the OpenAPI overview guide
+.
+Select the method you're using from the
+Authentication Method
+menu.
+#
+Step 2.3: Define Server And Testing URLs
+Next, you'll define the server and testing URLs for the connector:
+Server URL
+: Enter the URL to the application's target host or service, including the
+https://
+. This is the base URL for requests sent by the connector. For example:
+https://api.example.com
+Relative endpoint paths from the
+API definition
+will be appended to this URL to construct the full endpoint URL.
+Test Request URL
+: Enter the relative path of an API endpoint that Workato can use to verify the connection. This path will be appended to the
+Server URL
+to construct a full endpoint URL for testing. For example:
+/user/profile
+Connections are successful when the API responds with a
+2XX
+status code.
+For example: A
+Server URL
+of
+https://api.example.com
+and a
+Test Request URL
+of
+/users/profile
+creates a full request URL of:
+https://api.example.com/users/profile
+#
+Step 2.4: Customize The Interface
+The OpenAPI connector automatically generates the user interface based on the content of the provided
+Swagger file
+. The following elements can be customized to improve the user experience:
+Object names
+Object hints
+Field names
+Field hints
+Links to external documentation
+API operation grouping
+Fields to ignore
+Check out the
+Customizing OpenAPI user interfaces guide
+for more info and examples.
+#
+Step 3: Test The Connection
+When finished configuring the connection, click
+Connect
+to save and test the connection.
+←
+Authentication
+New/updated record trigger
+→
+Last updated:
+2/14/2025, 12:09:01 AM
+On this page
+Requirements
+Step 1: Install The Connector
+Step 2: Configure The Connection In Workato
+Step 3: Test The Connection
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

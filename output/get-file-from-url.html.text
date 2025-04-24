@@ -1,0 +1,157 @@
+File tools by Workato - Get file from URL action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+File tools by Workato
+#
+Get file from URL action
+The
+Get file from URL
+action retrieves file contents from a specified URL. It supports both text and binary files. Use
+file streaming
+for files larger than 1024 MB.
+SEE AN EXAMPLE
+Refer to the
+PlanGrid and Microsoft SharePoint use case
+for an example of how this action is used in a recipe.
+Get file from URL action
+#
+Input fields
+Field
+Description
+URL
+Specify the URL where the file is located. The URL must be publicly accessible.
+Base64 encoding
+Select
+Yes
+when the downstream action expects a Base64 encoded value.
+Include line breaks?
+Select
+No
+to remove line breaks from the file content. Defaults to
+Yes
+if left blank.
+Enable file streaming?
+Select
+Yes
+when the file you plan to download is larger than 200 MB.
+Encoding of the file content
+Specify the encoding of the file to set it explicitly. Defaults to
+UTF-8
+if left blank.
+#
+Output fields
+Field
+Description
+File contents
+The contents of the file.
+Size
+The size of the file in bytes.
+←
+Compress files
+Transform image file
+→
+Last updated:
+1/6/2025, 4:11:55 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,157 @@
+Workato connectors - Gong | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Gong
+Gong
+(opens new window)
+is a revenue intelligence platform that captures your customer interactions across phone, web conferencing, and email, understands what was said in these interactions, and delivers insights. Use the trigger from the Gong connector to run the recipe each time an event occurs in Gong, and the actions to add calls and media, and search for call data.
+#
+API version
+The Gong connector uses the
+Gong API v2
+(opens new window)
+.
+#
+How to connect to Gong on Workato
+Workato uses OAuth 2.0 to connect with Gong. To establish a connection, click
+Connect
+, provide your Gong login credentials when prompted, and click
+Allow
+to provision access to Workato.
+You must have the Technical administrator permission in
+Gong.io
+(opens new window)
+.
+Gong Technical administrator permission
+You can select granular scopes for which to grant Workato access from the multiselect list under advanced settings during connection setup. Note that by default, Workato asks for all scopes. Workato always request for the scope
+api:users:read
+. Detailed information regarding which scopes are needed can be found in
+Gong's API
+(opens new window)
+for each specific endpoint.
+Gong scopes selection
+#
+Supported triggers and actions
+New call (real-time)
+Add call
+Add call media
+Create content share engagement event
+Create content view event
+Create custom action event
+Get call by id
+Search aggregated user data
+Search call scorecards
+Search call transcripts
+Search calls
+Search users
+←
+Download attachment action
+New call (real-time)
+→
+Last updated:
+2/10/2025, 4:53:51 PM
+On this page
+API version
+How to connect to Gong on Workato
+Supported triggers and actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

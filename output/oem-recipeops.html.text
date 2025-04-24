@@ -1,0 +1,136 @@
+顧客使用量の管理 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+#
+Embedded RecipeOps
+RecipeOps コネクターを使用すると、アクティブなレシピおよびアカウント関連のアクティビティの監視と管理を行うレシピを作成できます。監視と運用を自動化する際には、RecipeOps を使って顧客とレシピの数の増減に対応し、人的作業に依存することのリスクとコストを排除することが重要です。
+現時点では、ほとんどのアクションとトリガーは Workato アカウントへの個々のコネクションによってこの機能に対応しています。ただし、Embedded の特定のトリガーとアクションは、すべての顧客アカウントにまたがってイベントを監視するため、コネクションを1つずつ確立する必要はありません。
+#
+Customer threshold reached
+パートナーは、
+Customer threshold reached
+トリガーを使用することで、タスクのしきい値に達した際にすべての顧客のイベントをほぼリアルタイムに取得できます。これには、顧客がタスクベースの料金プランを利用している必要があります。プラン設定については Workato の担当者にまでお問い合わせください。
+このトリガーの使用を開始するには、RecipeOps コネクションをセットアップして、[
+Whose account are you managing?
+] の項目で [My account] を選択します。
+このトリガーは、顧客がプランの上限 (2 万件のタスクのうち10%、20%、30% など) に応じて10% の使用量のしきい値に達したときに、イベントを受信します。その後、パートナーは、レシピロジックを使って最適なアプローチを選択できます。たとえば以下のような選択肢が考えられます。
+全レシピを停止する
+パートナー自身や顧客に通知を送信する
+その情報を外部のログ記録システムに記録する
+Customer threshold reached トリガーのレシピ例
+アクション
+方法
+注意事項
+上限に達したら全レシピを停止する
+ロジックフィルターを使用して100% を除外し、API を使用して全レシピを一覧表示および停止する
+レシピのリストの表示 API
+レシピの停止 API
+(opens new window)
+上記の API はアクションとしても実装される予定です。
+顧客に通知する
+出力から取得された項目を埋め込んでメッセージを作成し、それを顧客のメールアドレスに送信する
+メッセージテンプレートや Sendgrid、またはその他のアプリを使用するか、メッセージをメール本文に直接作成します。
+パートナーのチームに通知する
+出力から取得された項目を埋め込んでメッセージを作成し、それを指定された Slack チャネルに送信する
+また、これを使用してメッセージを分析プラットフォームやログ記録プラットフォームに直接送信して、そこからルーティングさせることもできます。
+←
+適用
+プライベート・コミュニティ
+→
+Last updated:
+2024/1/12 16:26:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

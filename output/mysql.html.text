@@ -1,0 +1,503 @@
+Workato connectors - MySQL | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+MySQL
+MySQL
+(opens new window)
+is an open-source relational database management system hosted either in the cloud or on-premise.
+#
+Supported editions
+All editions of MySQL are supported.
+#
+How to connect to MySQL on Workato
+The MySQL connector uses basic authentication to authenticate with MySQL.
+Field
+Description
+Connection name
+Give this MySQL connection a unique name that identifies which MySQL instance it is connected to.
+On-prem secure agent
+Choose an on-premise agent if your database is running in a network that does not allow direct connection. Before attempting to connect, make sure you have an active on-premise agent. Refer to the
+On-premise agent
+guide for more information.
+Username
+Username to connect to MySQL.
+Password
+Password to connect to MySQL.
+Host
+URL of your hosted server.
+Port
+Port number that your server is running on, typically
+3306
+.
+Database
+Name of the MySQL database you wish to connect to.
+Advanced Settings
+Contains advanced connection settings such as improved datetime handling and ability to set database timezone.
+#
+Improved datetime handling
+The MySQL connector now has the option to utilize improved handling of datetime, datetime2, and datetimeoffset datatype. This can be enabled in the connection settings of each MySQL connection. This defaults to
+Yes
+for all new connections and defaults to UTC timezones. Change this to the local timezone of your database if needed. This affects all actions that
+insert rows
+into MySQL.
+WARNING
+There are various timezone settings in MySQL. If no changes are made, your MySQL
+system
+timezone should be the same as your
+global
+timezone and set to UTC.
+Configure this in the setting of your MySQL connection
+Summary of behavior
+Datatype
+Workato input
+Improved datetime handling set to false/unselected
+Improved datetime handling set to true
+date
+Time with no TZ
+Workato workspace timezone assumed. Converted to UTC before insertion
+No TZ assumed. Inserted as is
+date
+Time with TZ
+Converted to UTC before insertion
+Converted to database timezone in connection setting timezone before insertion
+datetime
+Time with no TZ
+Workato workspace timezone assumed. Converted to UTC before insertion.
+No TZ assumed. Inserted as is
+datetime
+Time with TZ
+Converted to UTC before insertion.
+Converted to database timezone in connection setting timezone before insertion
+timestamp
+Time with no TZ
+Workato workspace timezone assumed. Converted to UTC before insertion with +00:00 tz
+No TZ assumed. Inserted as is
+timestamp
+Time with TZ
+Converted to UTC before insertion
+Converted to database timezone in connection setting timezone before insertion
+Note
+When using the calendar datepicker for date/datetime/timestamp fields, times are defined using your Workato workspace timezone.
+#
+Permissions required to connect
+At minimum, the database user account must be granted
+SELECT
+permission to the database specified in the
+connection
+.
+If we are trying to connect to a named database (
+HR_PROD
+) in a MySQL instance, using a new database user
+workato
+, the following example queries can be used.
+First, create a new user dedicated to integration use cases with Workato.
+CREATE
+USER
+'workato'
+IDENTIFIED
+BY
+'password'
+;
+This allows the user to have login access to the MySQL instance. However, this user will not have access to any tables.
+The next step is to grant access to all tables in
+HR_PROD
+. In this example, we only wish to grant
+SELECT
+permissions.
+GRANT
+SELECT
+ON
+`
+HR_PROD
+`
+.
+*
+TO
+'workato'
+;
+Finally, check that this user has the necessary permissions. Run a query to see all grants.
+SHOW
+GRANTS
+FOR
+'workato'
+;
+This should return the following minimum permission to create a MySQL connection on Workato.
++---------------------------------------------------------------------+
+| Grants for workato@% |
++---------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'workato'@'%' IDENTIFIED BY PASSWORD <secret> |
+| GRANT SELECT ON `HR_PROD`.* TO 'workato'@'%' |
++---------------------------------------------------------------------+
+2 rows in set (0.24 sec)
+#
+Working with the MySQL connector
+#
+Table, view, and stored procedure
+The MySQL connector works with all tables, views, and stored procedures. These are available in pick lists in each trigger/action or you can provide the exact name.
+Select a table/view from pick list
+Provide exact table/view name in a text field
+Case sensitivity of the name of a table/view depends on your database implementation. The underlying OS that your database is hosted determines if you need to provide exact table/view names. Typically, database, and table names are case insensitive in Windows.
+#
+Single row vs batch of rows
+MySQL connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size.
+Batch trigger inputs
+Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
+Single row output
+However, a trigger that processes rows in batches will output them as an array of rows. The
+Rows
+datapill indicates that the output is a list containing data for each row in that batch.
+Batch trigger output
+As a result, the output of batch triggers/actions needs to be handled differently. This
+recipe
+(opens new window)
+uses a batch trigger for new rows in the
+users
+table. The output of the trigger is used in a Salesforce bulk update action that requires mapping the
+Rows
+datapill into the source list.
+Using batch trigger output
+#
+WHERE condition
+This input field is used to filter and identify rows to perform an action on. It is used in multiple triggers and actions in the following ways:
+filter rows to be picked up in triggers
+filter rows in
+Select rows
+action
+filter rows to be deleted in
+Delete rows
+action
+TIP
+Examples below showcase how to use WHERE conditions directly with user input. For added security, use WHERE conditions with parameters to prevent SQL injection.
+Learn more
+This clause will be used as a
+WHERE
+statement in each request. This should follow basic SQL syntax. Refer to this
+MySQL documentation
+(opens new window)
+for a full list of rules for writing MySQL statements.
+#
+Operators
+Operator
+Description
+Example
+=
+Equal
+WHERE ID = 445
+!=
+<>
+Not equal
+WHERE ID <> 445
+>
+>=
+Greater than
+Greater than or equal to
+WHERE PRICE > 10000
+<
+<=
+Less than
+Less than or equal to
+WHERE PRICE > 10000
+IN(...)
+List of values
+WHERE ID IN(445, 600, 783)
+LIKE
+Pattern matching with wildcard characters (
+%
+and
+_
+)
+WHERE EMAIL LIKE '%@workato.com'
+BETWEEN
+Retrieve values with a range
+WHERE ID BETWEEN 445 AND 783
+IS NULL
+IS NOT NULL
+NULL values check
+Non-NULL values check
+WHERE NAME IS NOT NULL
+#
+Simple statements
+String values must be enclosed in single quotes (
+''
+) and columns used must exist in the table.
+A simple
+WHERE
+condition to filter rows based on values in a single column looks like this.
+username
+=
+'someone'
+If used in a
+Select rows
+action, this
+WHERE
+condition will return all rows that have the value 'someone' in the
+username
+column. Just remember to wrap datapills with single quotes in your inputs.
+Using datapills in
+WHERE
+condition
+Backticks (
+``
+) in
+WHERE
+statements are for tables and columns identifiers. This is required when the identifier is a MySQL reserved keyword or contains special characters.
+`
+username
+`
+=
+'someone'
+In a recipe, remember to add backticks to the column identifiers.
+Using datapills in
+WHERE
+condition backticks
+Double quotes (
+""
+) can also be used for string values but is less commonly accepted in other databases. For this reason, single quotes are used more widely than double quotes.
+MySQL also expects
+DATE
+and
+DATETIME
+values to be single quoted.
+created_date
+>
+'2018-03-01'
+and
+country
+=
+'USA'
+In a recipe, remember to use the appropriate quotes for each value.
+Using datapills in
+WHERE
+condition with mixed column types
+#
+Complex statements
+Your
+WHERE
+condition can also contain subqueries. The following query can be used on the
+users
+table.
+id
+in
+(
+select
+id
+from
+user
+where
+created_time
+<
+'2020-05-06'
+)
+When used in a
+Delete rows
+action, this will delete all rows in the
+users
+table where at least one associated row in the
+tickets
+table has a value of 2 in the
+priority
+column.
+Using datapills in
+WHERE
+condition with subquery
+#
+Using Parameters
+Parameters are used in conjunction with
+WHERE
+conditions to add an additional layer of security against SQL injection. To use parameters in your
+WHERE
+conditions, you will first need to declare bind variables in your input. Bind parameters must be declared in the form
+:bind_variable
+where the variable name is preceded with a
+:
+. After this is done, declare the parameter in the section directly below using the exact name you have given.
+TIP
+Bind variables should only be used in place of column values and not column names.
+WHERE
+condition with bind variable
+You can provide as many bind variables as you'd like and each one should have a unique name. We distinguish bind variables from column names and static values by ignoring any
+:
+inside single quotes (
+'
+), double quotes (
+"
+) and square brackets (
+[]
+).
+#
+Unique key
+In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table.
+As such, the values in the selected column must be unique. Typically, this column is the
+primary key
+of the table (for example,
+ID
+).
+When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
+Let's use a simple example to illustrate this behavior. We have a
+New row
+trigger that processed rows from a table. The
+unique key
+configured for this trigger is
+ID
+. The last row processed has
+100
+as it's
+ID
+value. In the next poll, the trigger will use
+ID >= 101
+as the condition to look for new rows.
+Performance of a trigger can be improved if the column selected to be used as the
+unique key
+is indexed.
+#
+Sort column
+This is required for
+New/updated row triggers
+. Values in this selected column are used to identify updated rows.
+When a row is updated, the
+Unique key
+value remains the same. However, it should have it's
+Sort column
+updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected
+Unique key
+column. When a change in the
+Sort column
+value is observed, an updated row event will be recorded and processed by the trigger.
+Let's use a simple example to illustrate this behavior. We have a
+New/updated row
+trigger that processed rows from a table. The
+Unique key
+and
+Sort column
+configured for this trigger is
+ID
+and
+UPDATED_AT
+respectively. The last row processed by the trigger has
+ID
+value of
+100
+and
+UPDATED_AT
+value of
+2018-05-09 16:00:00.000000
+. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
+UPDATED_AT > '2018-05-09 16:00:00.000000'
+ID > 100 AND UPDATED_AT = '2018-05-09 16:00:00.000000'
+For MySQL, only
+datetime
+and
+timestamp
+column types can be used.
+←
+Data typing limitations
+Select actions
+→
+Last updated:
+2/26/2025, 9:17:11 PM
+On this page
+Supported editions
+How to connect to MySQL on Workato
+Working with the MySQL connector
+Using Parameters
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

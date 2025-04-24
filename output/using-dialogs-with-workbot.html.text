@@ -1,0 +1,333 @@
+Workbot でのダイアログの使用 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Slack
+Workbot インターフェイスの設計
+#
+Workbot でのダイアログの使用
+Workbot を使用して、
+Slack ダイアログ
+(opens new window)
+を呼び出すことができます。これは、対話形式で情報を引き出すことが可能な Slack の優れた機能です。
+たとえば GitHub でチケットをオープンするためにユーザーから情報を収集するダイアログを表示できます。
+#
+概念
+ダイアログワークフローを作成するには、以下の3つの大まかな機能を実行するための3つのレシピが必要になります。
+ダイアログの表示レシピのトリガー
+トリガーされると、このレシピ内のアクションが、ダイアログを表示する2つ目のレシピを
+トリガー
+します。このレシピを
+トリガーレシピ
+と呼びます。
+ダイアログの表示
+トリガーされると、このレシピ内のアクションがダイアログを
+表示
+します。
+アクションの実行
+ダイアログが表示されると、このレシピ内のアクションが後続のアクションを
+実行
+します。
+レシピの観点から見ると、最初のレシピが
+トリガーレシピ
+をトリガーし、このレシピが
+アクションの実行
+レシピをトリガーします。
+これは、ダイアログの呼び出しには
+Trigger ID
+が必要なためです。この ID は、Slack でのボタンまたはメニューオプションのクリックイベントによってのみ生成されます。
+実際のダイアログを確認するには、次の単純なレシピを参照してください。
+トリガーレシピ
+(opens new window)
+、
+ダイアログの表示
+(opens new window)
+、および
+アクションの実行
+(opens new window)
+。
+#
+ダイアログの表示レシピのトリガー
+ダイアログの表示レシピをトリガーするには、
+Post command reply
+または
+Post message
+Workbot アクションのいずれかを使用します。
+どちらの Workbot アクションを選択したかにかかわらず、以下の2つの方法でダイアログの表示レシピをトリガーできます。
+#
+1. ボタン
+[
+Submit button command
+] (ボタンの押下コマンド) フィールドが特に重要です。このコマンドが、ダイアログを表示するレシピ (
+トリガーレシピ
+) をトリガーします。
+#
+2. メニューオプション
+[
+Submit menu option command
+] (メニューオプションの送信コマンド) フィールドが特に重要です。このコマンドが、ダイアログを表示するレシピ (
+トリガーレシピ
+) をトリガーします。
+Slack でボタンまたはメニューオプションをクリックすると、ダイアログの呼び出しに必要なパラメータである
+Trigger ID
+を持つイベントがトリガーされます。
+上記の例では、ボタンとメニューオプションのどちらも、Workbot コマンド
+collect issue details
+(問題の詳細の収集) を送信します。
+#
+ダイアログの表示
+このレシピ内のダイアログを呼び出すべきダイアログとして設定するには、
+トリガーレシピ
+内のボタンの押下コマンドまたはメニューオプションの送信コマンドを、このダイアログの表示レシピ内の
+Post command
+トリガーにマッピングする必要があります。
+ダイアログの表示
+レシピでは、Workbot の
+Post command
+トリガーを使用して、
+トリガーレシピ
+のボタンまたはメニューオプションからのコマンドを受け取ります。
+この
+ダイアログの表示
+レシピ
+(opens new window)
+の例では、ボタンの押下コマンドとメニューオプションの送信コマンドである
+collect issue details
+が、
+Post dialog
+トリガーである
+collect issue details
+と同じです。
+#
+ダイアログの表示の設定
+ダイアログの表示を設定するには、
+Post dialog
+アクションを使用します。
+以下の表に、
+Post dialog
+アクションで指定可能な項目を示します。
+項目
+説明
+設定
+Trigger ID
+ボタンの押下またはメニューオプションの送信によりトリガーされるイベントの ID。
+Post command
+トリガーからの
+Trigger ID
+ピルを使用します。
+Callback ID
+ダイアログの識別子。最大長は255文字。
+トリガーレシピで定義されている [
+Submit button command
+] (ボタンの押下コマンド) または [
+Submit menu option command
+] (メニューオプションの送信コマンド) からのコマンド入力値を渡します。
+トリガーレシピのパラメータ名が、ダイアログを
+表示
+するレシピのコマンド入力項目と一致していることを確認します。
+Dialog title
+呼び出されるダイアログのタイトル。最大長は24文字。
+ダイアログの目的を説明するものにします。
+例 チケットの作成
+Submit button label
+ダイアログの [
+Submit
+] ボタンに表示するテキストラベル。1語のみ入力可能。
+空白のままにすると、デフォルトの [
+Submit
+] になります。デフォルトでは、すべてのダイアログに [
+Cancel
+] ボタンが表示されます。
+Submit button command
+Slack ユーザーがダイアログで [
+Submit
+] ボタンをクリックしたときに実行される Workbot コマンド。
+実行するレシピの
+Post command
+トリガーと一致する Workbot コマンドを使用します。
+Dialog form fields
+[
+Submit button command
+] (ボタンの押下コマンド) 入力項目でコマンドを選択すると、この項目は
+自動的に
+生成されます。最大5フィールド。
+ダイアログに表示されるフィールドを定義します。
+ダイアログに対するヒント、エラーハンドリング、ピックリストオプションなどを含めるように変更します。
+"name" 値は上記の [
+Submit button command
+] (ボタンの押下コマンド) から実行されたレシピのコマンド入力項目と一致している必要があるため変更しないでください。
+ダイアログの表示
+レシピ
+からの JSON の例を参照してください。
+[
+Submit button command
+] (ボタンの押下コマンド) 項目が特に重要です。このコマンドが、アクションを実行するレシピ (アクションの実行レシピ) をトリガーします。
+#
+アクションの実行
+このレシピをダイアログによって実行されるレシピとして設定するには、
+ダイアログの表示
+レシピ内のボタンの押下コマンドを、このレシピ内の
+Post command
+トリガーにマッピングする必要があります。
+最後のレシピ (後続のアクションを実行する役割を持つ) は、Workbot の
+Post command
+トリガーを使用して、
+ダイアログの表示
+レシピのボタンの押下コマンドからのコマンドを受け取ります。
+この例では、
+ダイアログの表示
+レシピ
+(opens new window)
+のボタンの押下コマンドである
+github new issue
+が、
+アクションの実行
+レシピ
+(opens new window)
+の
+Post command
+トリガーである
+github new issue
+と同じです。
+#
+ダイアログ使用時の一般的な落とし穴
+ダイアログでは複数のレシピを使用するため、最初はいくつかの問題が発生することがあります。以下は、ダイアログの使用時に一般的に見られる落とし穴です。
+#
+1. 複数のレシピで同じ Post command トリガーの単語の組み合わせが使用されている
+レシピ内の Post command トリガーの
+アプリケーション
+、
+アクション
+、
+アクションデータ
+の3つの組み合わせが、Workato アカウント内で重複しないようにしてください。いずれのボタンの押下コマンドまたはメニューオプションの送信コマンドも、1つのレシピにのみマッピングできます。
+たとえば、上記のレシピは、Workato アカウント内で、Post command トリガーとして
+github report bug
+を使用する唯一のレシピでなければなりません。
+#
+2. ボタンの押下コマンドまたはメニューオプションの送信コマンドが正しくマッピングされていない
+レシピの
+ボタンの押下コマンド
+と
+メニューオプションの送信コマンド
+が、2つ目 (または3つ目) のレシピの Post command トリガーに正しくマッピングされるようにしてください。
+#
+3. ダイアログフォームフィールドとその後にトリガーされるレシピのコマンド入力項目が正しくマッピングされていない
+ダイアログの表示
+レシピのダイアログフォームフィールド名を、その後にトリガーされるレシピのコマンド入力項目と一致させてください。
+#
+使ってみましょう
+これらのサンプル
+トリガーレシピ
+(opens new window)
+、
+ダイアログの表示
+(opens new window)
+レシピ、および
+アクションの実行
+(opens new window)
+レシピを追加し、Slack から呼び出して、試してみてください。
+←
+モーダルの Block kit
+ダイナミックメニュー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+概念
+ダイアログ使用時の一般的な落とし穴
+使ってみましょう
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

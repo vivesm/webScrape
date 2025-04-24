@@ -1,0 +1,346 @@
+Workato コネクター - Jira | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Jira
+Jira
+(opens new window)
+を使用すると、ユーザーはあらゆるソフトウェアのリリースを簡単に整理し、計画できるようになります。開発チームは、ソフトウェアをリリースする際に実施する「計画」、「追跡」、「リリース」、「報告」などの重要な手順を示して、ユーザーをガイドできるようになります。
+これに Workato を組み合わせれば、Jira と他部門が使用する各種の課題追跡システム (Zendesk、ServiceNow、Salesforce の
+Desk.com
+(opens new window)
+など) との間で、プロジェクトや課題の同期を保つことができます。
+#
+API バージョン
+Jira コネクターは、
+Jira Cloud REST API V2
+(opens new window)
+を使用します。
+#
+サポートされるエディションおよびバージョン
+Jira コネクターは、7.x 以降の Jira クラウドインスタンスと Jira オンプレミスインスタンスに対応しています。
+#
+Workato での Jira への接続方法
+Jira に接続する方法には、
+API トークン
+と
+パスワードによる基本認証
+の2通りがあります。
+2018年12月1日より、Atlassian は Jira でのパスワードによる基本認証を非推奨として、
+API トークン
+を使用するよう促しています (クラウド版のみ)。オンプレミスの Jira は影響を受けません。
+Workato への接続には API トークンを使用することを強くお勧めします。
+#
+API トークン
+API トークンは、Jira での主要な認証方法です。オンプレミスの Jira では、パスワードによる基本認証のみを使用できます。
+Connection name
+この Jira コネクションに対して、接続先の Jira インスタンスを識別する一意の名前を付けます。
+Host name
+Jira へのログインに使用される Jira インスタンスの完全な URL。
+API token authentication?
+API トークンを使用して認証する場合は、[Yes] に設定します。この場合は、メールアドレスと API トークンを指定する必要があります。パスワードによる基本認証を使用して認証する場合は、[No] に設定します。
+Email
+Workato にリンクする Jira アカウントのメールアドレス。
+API token
+Atlassian アカウントから API トークンを作成するには、以下の手順を実行します。
+https://id.atlassian.com/manage-profile/security/api-tokens
+(opens new window)
+に移動します。
+[Create API token] をクリックします。
+API トークンにラベルを追加します。
+[Copy to clipboard] を使用し、Workato の Jira コネクションに戻って、API トークンをこのフィールドに貼り付けます。
+Is this app in a private network?
+オンプレミスの Jira インスタンスに接続する場合は、
+オンプレミスエージェント
+(opens new window)
+を設定します。オンプレミスアクセス機能が使用できるかどうかは、サブスクライブしている Workato プランによって決まります。
+#
+パスワードによる基本認証
+パスワードによる基本認証も Jira の認証に使用できます。
+2018年12月1日より、Atlassian は Jira でのパスワードによる基本認証を非推奨として、
+API トークン
+を使用するよう促しています (クラウド版のみ)。オンプレミスの Jira は影響を受けません。
+Connection name
+この Jira コネクションに対して、接続先の Jira インスタンスを識別する一意の名前を付けます。
+Host name
+Jira へのログインに使用される Jira インスタンスの完全な URL。
+API token authentication?
+パスワードによる基本認証を使用して認証する場合は、[No] に設定します。この場合は、ユーザー名とパスワードを指定する必要があります。API トークンを使用して認証する場合は、[Yes] に設定します。
+Username
+Jira に接続するためのユーザー名。
+Password
+Jira に接続するためのパスワード。
+Is this app in a private network?
+オンプレミスの Jira インスタンスに接続する場合は、
+オンプレミスエージェント
+(opens new window)
+を設定します。オンプレミスアクセス機能が使用できるかどうかは、サブスクライブしている Workato プランによって決まります。
+#
+接続に必要なロールと権限
+Jira インスタンスにログインするためのアクセス権がある Jira ユーザーは、自身の資格情報を使用して Workato に接続できます。しかし、統合のためには (Jira の管理者グローバル権限を持つ) 別のユーザーを作成することをお勧めします。
+#
+プロジェクト権限
+Jira コネクションは Jira プロジェクト内のプロジェクト権限スキームに従います。そのため、関連する Jira オブジェクトに対して目的のアクションを実行するのに十分な権限が、Jira アカウントに付与されている必要があります。
+ユーザーにプロジェクト内のオブジェクトへのアクセス権を与える主な方法は、以下の3つです。
+ピープル
+課題セキュリティスキーム
+権限スキーム
+#
+ピープル
+以下の2通りの方法を使用して、ユーザーを
+プロジェクトに追加できます
+(opens new window)
+(
+[Project Settings] → [People]
+より)。
+特定のユーザーを検索して選択し、ユーザーのプロジェクトロールを指定する。
+ユーザー Jan Donyada のプロジェクトロールの選択
+プロジェクトロールを使用して、ユーザーを機能に関するロールに関連付けることができます。たとえば、ソフトウェア開発の課題をクローズする前に、すべての課題について QA 担当者によるテストを行う必要がある組織の場合は、以下のようにします。
+「QA」という名前のプロジェクトロールを作成します。
+「Software Development」という名前の権限スキームを作成します。このスキームでは、「QA」ロールに「Close issue」権限を割り当てます。
+「Software Development」権限スキームをすべてのソフトウェア開発プロジェクトに関連付けます。
+それぞれのソフトウェア開発プロジェクトで、QA エンジニアを追加し、「QA」プロジェクトロールを割り当てます。
+グループを検索して、そのグループのプロジェクトロールを指定する。
+Jira Administrators グループに対するプロジェクトロールの選択
+1つの「グループ」は複数のメンバーで構成されます。グループはプロジェクトロールと似ていますが、主な違いは、グループのメンバーシップはグローバルであり、プロジェクトロールのメンバーシップはプロジェクト固有である点です。また、グループのメンバーシップを変更できるのは Jira 管理者のみですが、プロジェクトロールのメンバーシップはプロジェクト管理者が変更できます。
+#
+課題セキュリティスキーム
+課題セキュリティスキーム
+(opens new window)
+は、各プロジェクトに対して作成および追加でき、どのユーザーがプロジェクトの課題を表示して編集できるかを制御できます。
+1つのスキームには複数のセキュリティレベルを設定でき、ユーザーまたはユーザーグループをそれぞれのセキュリティレベルに割り当てることができます。これにより、適切なセキュリティレベルを割り当てられたユーザーのみが課題を表示できるようになります。
+プロジェクトに課題セキュリティスキームが定義されている場合、リンクしている Jira アカウントは、そのセキュリティスキーム内で適切なセキュリティレベルのメンバーになる必要があります。一般に、セキュリティレベルは以下のようなメンバーで構成されます。
+個々のユーザー
+グループ
+プロジェクトロール
+「Reporter」、「Project Lead」、「Current Assignee」などの課題ロール
+「Anyone」(たとえば、匿名のアクセスを許可する場合)
+以下の例では、課題セキュリティスキームに定義されているセキュリティレベルが1つあり、このレベルでは特定のユーザー、グループ、プロジェクトロールのみに対してアクセスを許可しています。
+「Top-secret」セキュリティレベルの定義により、ユーザー「Jan Donyada」、「Jira Administrators」グループのユーザー、「QA」プロジェクトロールを持つユーザーのみが課題にアクセスできる
+#
+権限スキーム
+プロジェクトの権限は
+権限スキーム
+内で作成され、Jira 管理者によって個々のプロジェクトに割り当てられます。
+権限は、課題の作成、課題の編集、課題の割り当てといった個別のアクションに対して付与できます。権限を確認するには、
+[Project Settings] → [Permissions]
+を選択します。
+それぞれの権限は、以下の項目に対して付与できます。
+プロジェクトロール
+アプリケーション (JIRA、JIRA サービスデスクユーザーなど)
+グループ
+#
+1. プロジェクトロール
+プロジェクトに関連付けられた権限スキームにおいて、特定のアクションについてロール固有の権限が定義されている場合、リンクしている Jira アカウントが Workato レシピでこれらのアクションを使用する権限を取得するには、そのアカウントにも同一のロールが割り当てられている
+必要があります
+。
+たとえば、以下のプロジェクト権限スキームでは、「QA」ロールのみが「Close Issues」アクションの実行を許可されています。
+このため、Workato レシピで「Close issue」アクションを実行する必要がある場合は、リンクしている Jira アカウントにもロール「QA」を割り当てることにより、そのアクションの実行権限を与える必要があります。
+#
+2. アプリケーションアクセス
+アプリケーションアクセスの設定により、どのユーザーがどの製品にアクセスできるかを制御できます。サイトで使用している製品が1つのみの場合 (たとえば、Confluence のみ、または Jira のみのインスタンスを使用している場合)、ユーザーにはサインアップ時にその製品へのアクセス権が自動的に付与されます。
+Workato レシピで特定のアクションを Jira Software インスタンスに対してのみ実行する必要がある場合は、該当するアクションに対して
+[Jira Software]
+を選択する必要があります。
+Jira Software のユーザーのみが課題を割り当てることができる
+同様に、Workato レシピで特定のアクションを Confluence インスタンスに対してのみ実行する必要がある場合は、該当するアクションに対して
+[Confluence]
+を選択してください。
+Workato レシピで、特定のアクションを Jira Software と Confluence の両方に対して実行する場合は、該当するアクションに対して
+[Any logged in user]
+を選択する必要があります。
+Jira Software または Confluence のどちらかにログインしているすべてのユーザーが、課題を割り当てることができる
+#
+3. グループ
+プロジェクトに関連付けられた権限スキームにおいて、特定のアクションについてグループ固有の権限が定義されている場合、リンクしている Jira アカウントが Workato レシピでこれらのアクションを使用する権限を取得するには、そのアカウントが該当するグループのメンバーになっている
+必要があります
+。
+Jira Administrators グループがスプリントの管理を許可されている
+#
+サポートされる Jira アクションとその実行に必要な権限
+#
+アップロード/ダウンロードアクション
+添付ファイルのアップロードとダウンロードのアクションを使用するには、権限設定ページの
+[Attachment Permissions]
+タブで、リンクしている Jira アカウントに権限を与える必要があります。
+#
+コメントのトリガーとアクション
+コメント
+に関連するトリガーとアクションを使用するには、権限設定ページの
+[Comments Permissions]
+タブで、リンクしている Jira アカウントに権限を与える必要があります。
+#
+課題のトリガーとアクション
+課題
+に関連するトリガーとアクションを使用するには、権限設定ページの
+[Issues Permissions]
+タブで、リンクしている Jira アカウントに権限を与える必要があります。
+JIRA ユーザーが上記の方法のいずれを使用してもオブジェクトにアクセスできない場合は、JIRA プロジェクトからオブジェクトを取得できず、「403 - Forbidden」エラーが返されます。
+プロジェクトの権限の管理方法に関する総合的なガイドについては、
+Jira の権限に関するガイド
+(opens new window)
+を参照してください。
+ユーザーが特定のプロジェクト、課題タイプ、またはフィールドにアクセスしたり、これらの項目に対してアクションを実行したりできない理由をトラブルシューティングによって調べる場合は、
+Jira 権限ヘルパー
+(opens new window)
+を使用できます。
+#
+Jira 権限ヘルパー
+Jira 権限ヘルパーを使用して、ユーザーが特定のプロジェクトやフィールドを表示/編集できない理由を調べることができます。
+この機能を利用するには、Jira インスタンスに対する Jira 管理者アクセス権が必要です。詳細については、
+Jira の権限ヘルパーに関するガイド
+(opens new window)
+を参照してください。
+#
+Jira リアルタイムトリガーの使用
+Jira リアルタイムトリガーを使用するには、接続する Jira インスタンスにまず Webhook を登録する必要があります。Jira インスタンスに Webhook を登録するには、Jira 管理者グローバル権限が必要です。
+リンクしている Jira アカウントに
+Jira 管理者グローバル権限
+がある場合は、Workato レシピ (Jira リアルタイムトリガーを含むもの) が初めて開始されたとき、Workato が Jira インスタンスに Webhook を自動的に登録します。
+Jira 管理者とグローバル権限についての詳細は、
+Jira のグローバル権限に関するガイド
+(opens new window)
+を参照してください。
+リンクしている Jira アカウントに
+Jira 管理者グローバル権限
+がない場合は、Webhook を登録する権限が得られないため、登録のために
+Jira 管理者グローバル権限
+を持つユーザーによる支援が必要となります。この場合でも Jira リアルタイムトリガーを実行することはできますが、代わりに
+HTTP Webhook トリガー
+(opens new window)
+を使用する必要があります。
+#
+Jira 管理者としての Webhook トリガーの登録
+グローバル権限を持つ Jira 管理者であれば、HTTP Webhook トリガーを使うレシピに向けて Webhook を使用したい同じ組織の Jira インスタンスユーザーのために、その Webhook を登録できます。
+この登録は Jira 管理コンソールから実行できます。Jira 管理コンソールを使用して Webhook を登録する方法についての詳細は、
+Webhook の登録
+(opens new window)
+に関する Jira ガイドを参照してください。
+#
+手順
+Jira 管理コンソールを開き、[System] → [Webhooks] ([Advanced] セクション内) の順に選択します。
+Webhook の概要ページに Webhook のリストが表示される
+ページの右上隅の [Create a webhook] をクリックします。これにより、Webhook フォームが開きます。
+Jira Webhook を登録するためのフォーム
+表示されるフォームに、新規 Webhook の詳細を以下のように入力します。
+Webhook の名前を入力します
+ステータスを
+[Enabled]
+に設定します
+[URL] に、Jira ユーザーが自分のレシピに使用する HTTP Webhook トリガーのターゲット URL を貼り付けます。
+Jira ユーザーのレシピの HTTP「Webhook を介した新規イベント」トリガーから URL を取得する
+最後に、リッスンする Jira イベントのボックスにチェックマークを付けて、
+[Create]
+をクリックします。
+イベントすべてのリストと、イベントの設定方法については、
+利用可能な Jira Webhook イベント
+(opens new window)
+に関する Jira のドキュメントを参照してください。
+←
+クエリー結果のエクスポート
+課題の作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+サポートされるエディションおよびバージョン
+Workato での Jira への接続方法
+接続に必要なロールと権限
+Jira 権限ヘルパー
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

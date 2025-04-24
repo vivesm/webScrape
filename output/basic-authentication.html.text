@@ -1,0 +1,407 @@
+How to ガイド - 認証 - 基本認証 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+API 認証
+#
+How to ガイド - 基本認証
+一般的に、基本認証ではリクエストを行う際にユーザー名とパスワードの組み合わせが必要とされます。コネクション項目の定義には、それら2つの項目を含めるようにしてください。
+#
+サンプルコネクター - ClickTime
+{
+title
+:
+'ClickTime'
+,
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+'username'
+,
+optional
+:
+true
+,
+hint
+:
+'Your email used for login'
+}
+,
+{
+name
+:
+'password'
+,
+control_type
+:
+'password'
+,
+}
+]
+,
+authorization
+:
+{
+type
+:
+'basic_auth'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+user
+(
+connection
+[
+'username'
+]
+)
+password
+(
+connection
+[
+'password'
+]
+)
+end
+}
+,
+base_uri
+:
+lambda
+do
+|
+connection
+|
+"https://app.clicktime.com"
+end
+}
+,
+test
+:
+lambda
+do
+|
+connection
+|
+get
+(
+"/api/1.3/session"
+)
+end
+#More connector code here
+}
+このコネクターのコード全体は
+こちら
+(opens new window)
+で確認できます。
+ClickTime API については
+こちら
+(opens new window)
+で確認できます。
+#
+ステップ1 - コネクション項目の定義
+この部分では、コネクションの確立を試みるユーザーに向けて表示すべき項目を Workato に指示します。基本認証では、コネクションの確立にエンドユーザーのユーザー名 (
+username
+) とパスワード (
+password
+) が必要となります。
+ユーザーからの情報
+説明
+username
+このコネクションの認証を行う個人のユーザー名。
+password
+このコネクションの認証を行う個人のパスワード。
+この指示は
+fields
+キーの中で行われます。このキーはハッシュの配列を受け入れ、その配列内の各ハッシュが、それぞれ個別の入力項目に対応しています。
+fields
+:
+[
+{
+name
+:
+'username'
+,
+optional
+:
+true
+,
+hint
+:
+'Your email used for login'
+}
+,
+{
+name
+:
+'password'
+,
+control_type
+:
+'password'
+,
+}
+]
+,
+TIP
+項目を定義する際は、少なくとも
+name
+キーを指定する必要があります。
+optional
+、
+hint
+、
+control_type
+といった追加的な属性を指定すると、その項目のほかの要素をカスタマイズできます。クライアントシークレットのような機密情報に対しては、必ず
+control_type
+を
+password
+として使用してください。
+Workato 内の入力項目を定義する方法について、詳しくは
+こちら
+を参照してください。
+#
+ステップ2 - 認証の定義
+この部分では、入力項目から受け取った値をコネクションの確立にどう利用するかについて Workato に指示します。これは、
+authorization
+キーを通じて処理されます。このキー内では、まず認証の種類 (
+type
+) を定義します。基本認証の場合は、
+basic_auth
+を使用します。
+authorization
+:
+{
+type
+:
+'basic_auth'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+user
+(
+connection
+[
+'username'
+]
+)
+password
+(
+connection
+[
+'password'
+]
+)
+end
+}
+#
+ステップ3 - 以降の HTTP リクエストに対する資格情報の適用
+次に、このコネクターのユーザーから受け取るユーザー名とパスワードの使用方法を Workato に指示する必要があります。これは
+apply
+キー内で行われます。このキーでは収集されたユーザー名とパスワードを、引数
+connection
+を通じて参照できます。
+apply
+キー内に記述したすべての命令は、コネクションの確立後にこのコネクターが送信する HTTP リクエストすべてに適用されます。
+この例では、受け取ったユーザー名 (
+connection['username']
+) を、あらゆるリクエストの
+user
+フィールドに追加するように定義しています。同様に、受け取ったパスワード (
+connection['password']
+) も、あらゆるリクエストの
+password
+フィールドに追加するように定義しています。
+#
+ステップ4 - API のベース URI の設定
+この部分では、API のベース URL を Workato に指示します。このキーは任意ですが、これを利用すると、コネクターのほかの部分で HTTP リクエストを定義する際に相対パスのみを入力できるようになります。
+base_uri
+の設定方法については、
+こちら
+を参照してください。
+base_uri
+:
+lambda
+do
+|
+connection
+|
+"https://app.clicktime.com"
+end
+TIP
+この lambda 関数では引数
+connection
+にもアクセスできます。これは、API のベース URI がユーザーのインスタンスに基づいて変化する場合に特に便利です。引数
+connection
+には次の形式でアクセスできます。
+base_uri
+:
+lambda
+do
+|
+connection
+|
+"https://
+#{
+connection
+[
+'domain'
+]
+}
+.com/api"
+end
+#
+ステップ5 - コネクションのテスト
+エンドユーザーから収集する必要のある項目と、それらの項目からの入力をどう利用するかを定義したので、次はこのコネクションをテストする手段が必要です。これは
+test
+キー内で扱われます。このキーは
+connection
+の定義の外部にあるルートレベルのキーであることに注意してください。
+test
+:
+lambda
+do
+|
+connection
+|
+get
+(
+"/api/1.3/session"
+)
+end
+このキー内ではエンドポイントを指定する必要があります。このエンドポイントは、直前に受け取った新しい資格情報を使ってサンプルリクエストを送信するために利用されます。HTTP レスポンスとして200 OK を受け取った場合、接続は成功となります。上記の例では、エンドポイント
+/api/1.3/session
+に
+GET
+リクエストを送信し、入力されたユーザー名とパスワードが有効であればレスポンスとして200 OK を受け取ることが期待されています。
+#
+コネクションの SDK リファレンス
+connection
+キー内で使用可能なキーとそのパラメータについての詳細は、
+SDK リファレンス
+を確認してください。
+←
+API 認証
+API キー認証
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サンプルコネクター - ClickTime
+ステップ1 - コネクション項目の定義
+ステップ2 - 認証の定義
+ステップ3 - 以降の HTTP リクエストに対する資格情報の適用
+ステップ4 - API のベース URI の設定
+ステップ5 - コネクションのテスト
+コネクションの SDK リファレンス
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

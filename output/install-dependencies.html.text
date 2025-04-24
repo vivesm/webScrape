@@ -1,0 +1,310 @@
+Workato universal connectors - SOAP prerequisites | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+SOAP
+#
+Install SOAP connector and dependencies
+To install the SOAP connector and its dependencies, complete the following steps:
+Step 1: Set up an on-prem agent (OPA)
+Step 2: Install the OPA extension
+Step 3: Install the SOAP connector
+After you install these dependencies, you can
+set up the connection
+.
+#
+Step 1: Set up an on-prem agent (OPA)
+Set up an on-prem agent (OPA)
+. You can use either a
+cloud profile
+or
+connection profile
+, but note that in both cases, you must be able to manually edit the
+config.yml
+on the machine where the OPA is installed.
+If you have already set up an OPA, proceed to
+Step 2
+.
+#
+Step 2: Install the OPA extension
+After setting up the on-prem agent, complete the following steps to install the OPA extension:
+Step 2.1: Locate the on-prem agent
+Step 2.2: Install the Java Development Kit (JDK)
+Step 2.3: Download the SOAP extension package
+Step 2.4: Configure the OPA and the extension
+Step 2.5: Restart the OPA
+#
+Step 2.1: Locate the on-prem agent
+Locate the OPA directory on your filesystem. Typical locations are:
+Unix-like operating systems:
+/opt/workato
+Windows:
+C:\Program Files\Workato Agent
+macOS:
+Location varies.
+$
+ls
+/opt/workato
+bin conf jre lib lib_ext
+The rest of this guide refers to this path as
+$OPA
+.
+#
+Step 2.2: Install the Java Development Kit (JDK)
+First, check if the JDK is already installed. It must be version 17 or later. Typical locations are:
+Linux:
+/usr/lib/java
+Ubuntu:
+/usr/share/java/
+Windows:
+C:\Program Files\Java\jdk-<release>
+macOS:
+Location varies based on distribution. Example:
+/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
+$
+ls
+/usr/lib/java
+bin conf include jmods legal lib release
+Ensure that the JDK installation is actually a JDK and not just a JRE, as this is required by Apache CXF. You can confirm this by checking for the
+javac
+binary:
+$
+ls
+/usr/lib/java/bin/java*
+bin/java bin/javac bin/javadoc bin/javap
+If version 17+ of the JDK is not already installed, pick one of the many
+JDK distributions
+(opens new window)
+and follow the installation instructions.
+After installing the JDK, confirm the installation by listing the JDK folder:
+$
+ls
+/path/to/jdk
+bin conf include jmods legal lib release
+#
+Step 2.3: Download the SOAP extension package
+The SOAP extension consists of two JAR files, packaged up and available for download at this URL:
+https://workato-opa-extensions.s3.amazonaws.com/soap-extensions/soap-extension-latest.zip
+(opens new window)
+The following commands download and extract the package, moving the JAR files into the
+$OPA/ext
+folder. Note that
+$OPA
+represents the directory where the
+on-prem agent is installed
+.
+$
+curl
+-o
+soap-extension.zip https://workato-opa-extensions.s3.amazonaws.com/soap-extensions/soap-extension-latest.zip
+$
+unzip
+soap-extension.zip
+-d
+$OPA
+/ext
+Confirm that both of the SOAP extension files are present in
+$OPA/ext
+:
+$
+ls
+$OPA
+/ext
+|
+grep
+soap_extension
+soap_extension.jar
+soap_extension_client.jar
+INSTALLING AN OLDER VERSION
+If you need to install an older version of the SOAP extension, download the package from
+this directory
+(opens new window)
+.
+#
+Step 2.4: Configure the OPA and the extension
+The OPA configuration file is
+$OPA/conf/config.yml
+. To use the SOAP extension, you must update the configuration file according to the following instructions. This step applies whether the OPA is configured using a
+cloud profile
+or a
+connection profile
+.
+1
+Set the
+classpath
+to the path of the folder where the SOAP extension JAR files are located (typically
+$OPA/ext
+, with
+$OPA
+representing the directory where the
+on-prem agent is installed
+):
+server
+:
+classpath
+:
+/opt/workato/ext
+2
+Register the SOAP extension:
+extensions
+:
+soap
+:
+controllerClass
+:
+com.workato.extension.soap.ExtensionController
+3
+Make sure the OPA can find the JDK. By default, the SOAP extension will check for a JDK at the following locations:
+JDK_HOME
+environment variable
+jdk.home
+system property
+Alternatively, set the JDK path explicitly:
+extensions
+:
+soap
+:
+controllerClass
+:
+com.workato.extension.soap.ExtensionController
+jdkHome
+:
+/path/to/jdk
+#
+Step 2.5: Restart the OPA
+Follow the instructions in the OPA documentation on how to
+stop
+and
+restart
+the OPA.
+#
+Step 3: Install the SOAP connector
+After you set up the OPA and SOAP extension, you can install the SOAP connector:
+1
+Log in in your Workato account.
+2
+Open
+the connector in the community library
+(opens new window)
+.
+3
+Select
+Install
+.
+4
+Select
+Release connector
+.
+FURTHER READING
+Connection setup
+SOAP authentication
+Execute operation action
+←
+SOAP
+Connection setup
+→
+Last updated:
+10/10/2023, 2:13:38 PM
+On this page
+Step 1: Set up an on-prem agent (OPA)
+Step 2: Install the OPA extension
+Step 3: Install the SOAP connector
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

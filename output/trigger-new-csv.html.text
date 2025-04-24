@@ -1,0 +1,257 @@
+Workato コネクター - Box - New CSV file in directory | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Box
+#
+Box トリガー - New CSV file in directory
+新しい CSV ファイルが指定されたフォルダーに追加されるとトリガーし、CSV の行をバッチで処理します。このトリガーでは、同じファイルを新たにアップロードしても、処理は行われません。選択したフォルダーで、5分ごとに CSV ファイルをチェックします。CSV の行は、デフォルトで100行のバッチ単位で処理されます。最大のバッチ単位は50,000行です。
+#
+入力項目
+項目名
+説明
+When first started, this recipe should pick up events from
+レシピを開始して最初に取得するファイルは、ここで指定した時刻以降に作成されたファイルとなります。空白のままにした場合、デフォルトで1時間前以降に作成されたファイルが取得されます。レシピが実行またはテストされた後で、値を変更することはできません。詳細については、
+こちら
+を参照してください。
+Folder
+このフォルダー内の新しい CSV ファイルを監視します。ピックリストから選択するか、フォルダー ID を入力します。
+Include sub-folders?
+[Yes] の場合、サブフォルダー内の新しい CSV ファイルも対象となります。
+Sample CSV file / Field names
+ここで選択した CSV ファイルについては、Workato がそのファイル内のデータ列を認識できます。選択されていないファイルについては、列名を手動で切り替えて指定します。
+Column delimiter
+各 CSV 行内で、列の値を区切るために使用する文字です。
+Contains header row?
+最初の CSV 行が列名を含むヘッダー行である場合は、[Yes] に設定します。 そうすると、最初の行は CSV データとして処理されません。
+Batch size
+バッチあたりの CSV 行の数。Workato では、CSV 行を1行ずつ読み取るのではなく、一度にバッチ単位で読み取り、スループットを向上させています。バッチサイズを調整して、スループットを最適化してください。バッチ処理の詳細については、
+こちら
+を参照してください。
+Expected encoding
+CSV ファイルで期待されるエンコーディング。
+#
+出力項目
+項目名
+説明
+ID
+ファイルの ID。
+Name
+ファイル名。
+Type
+このオブジェクトのタイプ。この場合は
+file
+です。
+Description
+ファイルの説明。
+Size
+ファイルサイズ。
+Shared link
+- URL
+ファイルを表示するための共有リンクの URL。
+- Download URL
+ファイルをダウンロードするための共有リンクの URL。
+Created at
+ファイルの作成日時。
+Modified at
+ファイルの変更日時。
+Trashed at
+ファイルがごみ箱に入れられる日時。
+Purged at
+ファイルが完全に削除される日時。
+Content created at
+ファイルのコンテンツの作成日時。
+Content modified at
+ファイルのコンテンツの変更日時。
+Sequence ID
+このオブジェクトのフォルダー階層内での位置。
+Etag
+このオブジェクトのエンティティタグ。
+Sha 1
+このオブジェクトの SHA-1 ハッシュ値。
+Parent
+ファイルの親フォルダーについての詳細が含まれます。
+- ID
+親フォルダーの ID。
+- Name
+親フォルダーの名前。
+- Type
+オブジェクトのタイプ。この場合は
+folder
+です。
+- Sequence ID
+このオブジェクトのフォルダー階層内での位置。
+- Etag
+このオブジェクトのエンティティタグ。
+Path
+ファイルパス。
+Path collection
+このファイルが属しているすべてのパスの詳細が含まれます。
+- Total count
+ファイルパスの数。
+- Entries
+ファイルパスエントリ。
+-- ID
+ファイルパスの ID。
+-- Name
+ファイルパス。
+-- Type
+ファイルパスのタイプ。
+-- Sequence ID
+このオブジェクトのフォルダー階層内での位置。
+-- Etag
+このオブジェクトのエンティティタグ。
+-- List size
+この
+Entries
+リスト内の項目の数。
+Created by
+このファイルを作成したユーザーについての詳細が含まれます。
+- ID
+ユーザーの ID。
+- Name
+ユーザーの名前。
+- Type
+ユーザーのタイプ。
+- Login
+ユーザーのログインメールアドレス。
+Modified by
+このファイルを変更したユーザーについての詳細が含まれます。
+- ID
+ユーザーの ID。
+- Name
+ユーザーの名前。
+- Type
+ユーザーのタイプ。
+- Login
+ユーザーのログインメールアドレス。
+Owned by
+このファイルを所有するユーザーについての詳細が含まれます。
+- ID
+ユーザーの ID。
+- Name
+ユーザーの名前。
+- Type
+ユーザーのタイプ。
+- Login
+ユーザーのログインメールアドレス。
+Item status
+このファイルのステータス (アクティブなど)。
+First
+これが CSV 行の最初のバッチであるかどうかを示します。
+Last
+これが CSV 行の最後のバッチであるかどうかを示します。
+Rows
+これは
+リストデータピル
+で、CSV 行のリストを表しています。
+- Columns
+CSV 列と CSV データを表すすべてのデータピルが含まれます。
+- Row
+この行の行番号。
+- List size
+行の合計数。
+←
+ファイルの追加 トリガー
+ファイルまたはフォルダーを検索
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,244 @@
+Google Workspace アクション - Add object | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Workspace
+#
+Google Workspace - Add record (レコードの追加) アクション
+Add record アクションは、Google Workspace にオブジェクトを追加します。このアクションを設定するには、まず追加できるオブジェクトのリストからオブジェクトを選択する必要があります。そうすると、そのオブジェクトに関連したさらなる項目が表示されます。
+#
+Add a User (ユーザーの追加)
+Google Workspace にユーザーを追加します。
+#
+入力項目
+項目名
+説明
+Name
+ユーザーの名前。ユーザーの姓と名の両方が含まれます。
+Generate Password
+ランダム化されたパスワードを生成するには [yes] を選択します。そうでない場合は、カスタムパスワードの項目にカスタムパスワードを入力します。
+Primary email
+ユーザーのプライマリメール ID
+Organizational unit
+新しい組織部門名を入力するか、リストから選択します。
+Custom fields schema
+ユーザー作成時に渡すことができるカスタムフィールドを追加するために設定します。
+以上の主な入力項目のほかにも、利用可能なオプションの項目が多数あり、好みに応じて追加することができます。
+#
+出力項目
+追加したユーザーオブジェクトに関連する出力項目が表示されます。ユーザーオブジェクトに付加したカスタムフィールドがある場合は、それらも出力項目に含まれます。データピルは、Google Workspace 内に作成したばかりのユーザーのデータに対応します。
+#
+Add a User Alias (ユーザーエイリアスの追加)
+Google Workspace 内のユーザーに対してエイリアスのメールアドレスを追加します。
+#
+入力項目
+項目名
+説明
+Email address
+ユーザーのプライマリメールアドレス/エイリアスメールアドレスまたは固有のユーザー ID
+Alias
+ユーザーのエイリアスメールアドレス
+#
+出力項目
+追加したユーザーエイリアスオブジェクトに関連する出力項目が表示されます。これには、ユーザーのユーザー ID、ユーザーエイリアス、およびプライマリメールアドレスが含まれます。
+#
+Add a Group (グループの追加)
+Google Workspace にグループを追加します。
+#
+入力項目
+項目名
+説明
+Group email
+追加するグループのメールアドレス
+Description
+グループについての説明
+Group display name
+グループの表示名
+#
+出力項目
+追加したグループオブジェクトに関連する出力項目が表示されます。データピルは、Google Workspace 内に作成したばかりのグループのデータに対応します。
+#
+Add an organizational unit (組織部門の追加)
+Google Workspace に組織部門を追加します。
+#
+入力項目
+項目名
+説明
+Organizational unit name
+組織部門の名前
+Parent organizational unit
+親組織部門の名前。部門を選択するか、現在の部門を親として使用します。
+Block inheritance
+親組織部門の設定を継承するかどうかを選択するオプション
+#
+出力項目
+追加した組織部門オブジェクトに関連する出力項目が表示されます。データピルは、Google Workspace 内に作成したばかりの組織部門のデータに対応します。
+#
+Add a member to a group (グループへのメンバーの追加)
+Google Workspace のグループにメンバーを追加します。
+#
+入力項目
+項目名
+説明
+Group email address
+グループのメールアドレス/グループエイリアス/固有のグループ ID
+Member email
+このグループにメンバーとして追加されるユーザーまたは別のグループのメールアドレス
+Mail delivery preferences
+メール配信の頻度を選択するか、メール配信を無効にするオプション
+Group member role
+グループメンバーのタイプを選択するオプション。マネージャー、メンバー、またはオーナーから選択できます。
+#
+出力項目
+追加したメンバーオブジェクトに関連する出力項目が表示されます。データピルは、Google Workspace 内に作成したばかりのメンバーのデータに対応します。
+#
+Add a role assignment
+Google Workspace 内のユーザーにロールの割り当てを追加します。
+#
+入力項目
+項目名
+説明
+Role ID
+ロールを選択するオプション
+Scope type
+スコープを選択するオプション。カスタムレベルまたは組織部門レベルを選択できます。
+Assign to
+ロールが割り当てられるユーザーを選択するオプション
+#
+出力項目
+追加したロール割り当てオブジェクトに関連する出力項目が表示されます。データピルは、Google Workspace 内に作成したばかりのロール割り当てのデータに対応します。
+#
+Add verification code
+Google Workspace 内のユーザーのメールアドレスに確認コードを追加します。
+#
+入力項目
+ユーザーのメールアドレス。
+#
+出力項目
+出力項目はコード追加後の成功レスポンスのみです。
+#
+Add a license (ライセンスの追加)
+Google Workspace 内のユーザーに製品ライセンスを追加します。
+#
+入力項目
+項目名
+説明
+Product ID
+ユーザーがライセンスを必要とする製品の名前
+SKU to update
+製品 SKU の一意の識別番号
+Email ID
+ライセンスを必要としているユーザーのメール ID
+#
+出力項目
+追加したライセンスオブジェクトに関連する出力項目が表示されます。データピルは、Google Workspace 内に作成したばかりのライセンスのデータに対応します。
+←
+新規ユーザーイベント トリガー
+レコードの削除
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Add a User (ユーザーの追加)
+Add a User Alias (ユーザーエイリアスの追加)
+Add a Group (グループの追加)
+Add an organizational unit (組織部門の追加)
+Add a member to a group (グループへのメンバーの追加)
+Add a role assignment
+Add verification code
+Add a license (ライセンスの追加)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

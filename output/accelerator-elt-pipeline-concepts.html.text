@@ -1,0 +1,145 @@
+SnowflakeのELTパイプラインの概念 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+ELT パイプライン - Snowflake
+#
+ELTパイプラインの概念
+以下の概念は、
+SnowflakeのELTパイプラインアクセラレータ
+の基本的なロジックを形成しています。
+ELT
+パイプライン
+ソース
+ステージング
+ターゲット
+データウェアハウス
+#
+ELT
+このアクセラレータは、ELT（抽出、ロード、変換）アプローチを採用しています。ELTでは、Workatoはソースアプリケーションからデータを抽出し、データレイクまたはデータウェアハウスにロードし、必要な変換をデータに対して行います。このアクセラレータは、初期フェーズでの抽出と変換（ET）の制約を取り除くことで、データを複雑なロジックなしでクエリと分析に利用できるようにします。データレイクは非構造化データのサポートと、徹底的なデータ分析のための柔軟性を提供します。また、ユーザーはデータパイプラインを継続的に構築することができます。データレイク、クラウドストレージ、モダンなデータウェアハウスの分析は、よりシンプルなアーキテクチャを提供します。これらのフレームワークは、ワークロードに基づいて自動的にスケーリングするため、余分な管理を削除します。このアプローチにより、総合的な初期コストが低下し、高速な抽出とロード、より柔軟性のあるデータ処理、および低いメンテナンスコストが実現されます。
+#
+パイプライン
+ELTのコンテキストでは、パイプラインはスケジューリングとバルクバッチ処理の機能を使用して、ソースからターゲットへデータを抽出するためのフレームワークです。ソース、ステージング、およびターゲットのコネクタは、パイプライン内でデータの作成、維持、抽出、ステージング、およびロードのための基本的なアクションとトリガーを提供します。使用するコネクタはさまざまです。バルクアクションとストリーミングアクションを使用し、コスト効果の高いクラウドストレージとモダンなクラウドデータウェアハウスを組み合わせることで、パイプラインの効率を向上させることができます。パイプラインは、その頻度に応じて1つまたは複数の
+ジョブ
+を持つことができます。
+#
+ソース
+Workatoの幅広いSAASおよびオンプレミスエージェント（OPA）コネクタは、API、レシピ、またはSQLまたはOSファイル転送コマンドを使用して、ソースアプリケーションからデータを抽出するさまざまなオプションを提供します。通常、ソースはトランザクション型のSAAS、オンプレミスデータベース、ファイルシステム（CSVおよびJSON形式）、およびウェブログです。
+各ソースシステムには独自のニュアンスと課題があります。このアクセラレータでは、Salesforceを含む一部のソースコネクタは、バルクアクションを提供しています。
+#
+ステージング
+ステージングは、データレイクに構造やクエリの最適化なしでデータをダンプする、コスト効果の高いストレージソリューションです。ステージングは、生データをデータウェアハウスにロードする前の一部のマイナートランスフォーメーションを含む中間ステップです。ステージングテーブルはエフェメラルまたは永続的なものであり、パイプラインのさまざまなステージで使用することができます。必要に応じて永続的なテーブルを冷蔵庫ストレージにアーカイブすることもできます。このアクセラレータでは、生データのステージングエリアとしてS3とSnowflakeの内部ファイルシステムを使用しています。
+#
+ターゲット
+ターゲットテーブルは、パイプラインの一部であり、ソーステーブルの洗練されたバージョンが挿入、更新、またはマージされる最終的な宛先です。これらのテーブルは、ソースから派生したテーブルのクレンジング、再構築、および統合バージョンとして使用します。データをさらなる分析と変換のために、ビジネスルールを適用してデータを変換、構造化、および最適化します。
+#
+データウェアハウス
+データウェアハウスは、最適化されたストレージ、変換、および分析エンジンです。最終的なバージョンの広範なテーブルまたはスタースキーマモデルが適用される前に、中間テーブルのクレンジング、統合、および再構築の複数のイテレーションがあります。
+ほとんどのデータウェアハウスは、高度にスケーラブルなカラムベースのデータベース上に構築されており、内部の効率的なI/O、データ圧縮、およびマルチノード処理を使用して大規模なデータセット上で変換を実行することができます。Workatoは、このアクセラレータのデータウェアハウスとしてSnowflakeを使用しています。
+←
+ELT パイプライン - Snowflake
+設計
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+ELT
+パイプライン
+ソース
+ステージング
+ターゲット
+データウェアハウス
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

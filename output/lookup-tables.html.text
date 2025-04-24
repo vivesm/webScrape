@@ -1,0 +1,947 @@
+Workato埋め込みAPI - ルックアップテーブル | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workato Embedded API
+リソース
+#
+ルックアップテーブル
+以下のエンドポイントを使用して、
+ルックアップテーブル
+をプログラムで管理します。
+#
+クイックリファレンス
+タイプ
+リソース
+説明
+GET
+/api/managed_users/:managed_user_id/lookup_tables
+テーブルの一覧を取得します。
+GET
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/lookup
+行を検索します。
+GET
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows
+行の一覧を取得します。
+GET
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows/:row_id
+行を取得します。
+POST
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows
+行を追加します。
+POST
+/api/managed_users/:managed_user_id/lookup_tables
+新しいルックアップテーブルを作成します。
+POST
+/api/managed_users/:managed_user_id/lookup_tables/batch_delete
+ルックアップテーブルを一括で削除します。
+PUT
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows/:row_id
+行を更新します。
+DELETE
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows/:row_id
+行を削除します。
+GET
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows/:row_id
+行を取得します。
+#
+ルックアップテーブルの一覧
+顧客アカウントに属するルックアップテーブルの一覧を返します。
+Workatoは、レスポンスにルックアップテーブルが所属するプロジェクトの
+project_id
+を含めます。
+GET /api/managed_users/:managed_user_id/lookup_tables
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+Workato埋め込み顧客アカウントID/外部ID。
+外部IDはEで始まる必要があります（例：EA2300）および結果のIDはURLエンコードする必要があります。
+#
+クエリパラメータ
+名前
+タイプ
+説明
+page
+integer
+ページ番号。デフォルトは1です。
+per_page
+integer
+ページサイズ。デフォルトは100です（最大100）。
+#
+サンプルリクエスト
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/157/lookup_tables'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+レスポンス
+{
+"result"
+:
+[
+{
+"id"
+:
+1315
+,
+"name"
+:
+"lookup_table4"
+,
+"schema"
+:
+"[{\"control_type\":\"text\",\"label\":\"code\",\"name\":\"col1\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"name\",\"name\":\"col2\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"col3\",\"name\":\"col3\",\"type\":\"string\",\"sticky\":false},{\"control_type\":\"text\",\"label\":\"col4\",\"name\":\"col4\",\"type\":\"string\",\"sticky\":false},{\"control_type\":\"text\",\"label\":\"col5\",\"name\":\"col5\",\"type\":\"string\",\"sticky\":false}]"
+,
+"created_at"
+:
+"2022-05-20T11:54:26.934-07:00"
+,
+"updated_at"
+:
+"2022-05-20T11:54:26.934-07:00"
+,
+"project_id"
+:
+"523144"
+}
+]
+}
+#
+行を検索する
+ルックアップテーブルで指定された条件に一致する最初の行を検索します。検索に失敗した場合は404を返します。
+GET /api/managed_users/:managed_user_id/lookup_tables/:lookup_table_id/lookup
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+Workato埋め込み顧客アカウントID/外部ID。
+外部IDはEで始まる必要があります（例：EA2300）および結果のIDはURLエンコードする必要があります。
+lookup_table_id
+integer
+必須
+ルックアップテーブルのID
+#
+クエリパラメータ
+名前
+タイプ
+説明
+by[
+<col name>
+]
+string
+必須
+検索条件。列名は次のようにフォーマットします：
+by[<col name>]
+。複数の列で一致させる場合は、複数のパラメータを指定します。詳細はサンプルリクエストを参照してください。
+#
+サンプルリクエスト
+curl
+-X
+GET https://www.workato.com/api/managed_users/157/lookup_tables/1296/rows/942?by
+[
+code
+]
+=
+US
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+#
+レスポンス
+{
+"id"
+:
+942
+,
+"data"
+:
+{
+"code"
+:
+"US"
+,
+"name"
+:
+"United States"
+,
+"col3"
+:
+null
+,
+"col4"
+:
+null
+,
+"col5"
+:
+null
+}
+,
+"created_at"
+:
+"2022-05-20T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2022-05-20T11:50:40.986-07:00"
+}
+#
+行の一覧を取得する
+ルックアップテーブルから行の一覧を返します。フィルタリングとページネーションをサポートしています。
+GET /api/managed_users/:managed_user_id/lookup_tables/:lookup_table_id/lookup
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+Workato Embeddedの顧客アカウントID/外部ID。
+外部IDはEで始まる必要があり、結果のIDはURLエンコードする必要があります。
+lookup_table_id
+integer
+必須
+ルックアップテーブルのID
+#
+クエリパラメータ
+名前
+タイプ
+説明
+page
+integer
+ページ番号。デフォルトは1です。
+per_page
+integer
+ページサイズ。デフォルトは500です（最大は1000）。
+by[
+<col name>
+]
+string
+フィルタ条件。列名は次のように指定する必要があります：
+by[<col name>]
+。複数の列で一致させる場合は、複数のパラメータを指定します。詳細については、サンプルリクエストを参照してください。指定しない場合、すべての行が返されます。
+#
+サンプルリクエスト
+#
+リクエスト1：行の一覧表示
+curl
+-X
+GET https://www.workato.com/api/managed_users/157/lookup_tables/1296/rows
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+#
+リクエスト2：フィルタして行の一覧表示
+curl
+-X
+GET https://www.workato.com/api/managed_users/157/lookup_tables/1296/rows?by
+[
+code
+]
+=
+US
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+#
+レスポンス
+#
+レスポンス1：行の一覧表示
+{
+"result"
+:
+[
+{
+"id"
+:
+941
+,
+"data"
+:
+{
+"code"
+:
+"IND"
+,
+"name"
+:
+"India"
+,
+"col3"
+:
+null
+,
+"col4"
+:
+null
+,
+"col5"
+:
+null
+}
+,
+"created_at"
+:
+"2022-06-15T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2022-06-15T11:50:40.986-07:00"
+}
+,
+{
+"id"
+:
+942
+,
+"data"
+:
+{
+"code"
+:
+"US"
+,
+"name"
+:
+"United States"
+,
+"col3"
+:
+null
+,
+"col4"
+:
+null
+,
+"col5"
+:
+null
+}
+,
+"created_at"
+:
+"2022-05-20T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2022-05-20T11:50:40.986-07:00"
+}
+]
+}
+#
+レスポンス2：フィルタして行の一覧表示
+{
+"result"
+:
+[
+{
+"id"
+:
+942
+,
+"data"
+:
+{
+"code"
+:
+"US"
+,
+"name"
+:
+"United States"
+,
+"col3"
+:
+null
+,
+"col4"
+:
+null
+,
+"col5"
+:
+null
+}
+,
+"created_at"
+:
+"2022-05-20T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2022-05-20T11:50:40.986-07:00"
+}
+]
+}
+#
+行の取得
+ルックアップテーブルから行を取得します。
+GET /api/managed_users/:managed_user_id/lookup_tables/:lookup_table_id/rows/:row_id
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+Workato Embeddedの顧客アカウントID/外部ID。
+外部IDはEで始まる必要があり、結果のIDはURLエンコードする必要があります。
+lookup_table_id
+integer
+必須
+ルックアップテーブルのID
+row_id
+integer
+必須
+行のID
+#
+サンプルリクエスト
+curl
+-X
+GET https://www.workato.com/api/managed_users/157/lookup_tables/1296/rows/942
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+#
+レスポンス
+{
+"id"
+:
+942
+,
+"data"
+:
+{
+"code"
+:
+"US"
+,
+"name"
+:
+"United States"
+,
+"col3"
+:
+null
+,
+"col4"
+:
+null
+,
+"col5"
+:
+null
+}
+,
+"created_at"
+:
+"2022-05-20T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2022-05-20T11:50:40.986-07:00"
+}
+#
+行の追加
+ルックアップテーブルに行を追加します。
+POST /api/managed_users/:managed_user_id/lookup_tables/:lookup_table_id/rows
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+Workato Embeddedの顧客アカウントID/外部ID。
+外部IDはEで始まる必要があり、結果のIDはURLエンコードする必要があります。
+lookup_table_id
+integer
+必須
+ルックアップテーブルのID
+#
+ペイロード
+名前
+タイプ
+説明
+data
+Hash
+必須
+新しい行のデータを含むハッシュ。
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/managed_users/157/lookup_tables/1296/rows
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{ "data": { "name": "United States", "code": "USA" }}'
+#
+レスポンス
+{
+"id"
+:
+942
+,
+"data"
+:
+{
+"code"
+:
+"USA"
+,
+"name"
+:
+"United States"
+,
+"col3"
+:
+null
+,
+"col4"
+:
+null
+,
+"col5"
+:
+null
+}
+,
+"created_at"
+:
+"2022-05-20T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2022-05-20T11:50:32.986-07:00"
+}
+#
+新しいルックアップテーブルの作成
+新しいルックアップテーブルを作成します。
+#
+lookupテーブル
+あなたの要件に応じて、ルックアップテーブルをワークスペース全体で利用可能にするか、特定のプロジェクトに制限することができます。
+POST /api/managed_users/:managed_user_id/lookup_tables
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+Workato Embeddedの顧客アカウントID/外部ID。
+外部IDはEで始まる必要があり、結果のIDはURLエンコードする必要があります。
+#
+ペイロード
+名前
+タイプ
+説明
+name
+string
+必須
+新しいルックアップテーブルの名前を指定します。
+project_id
+integer
+オプション
+ルックアップテーブルを特定のプロジェクトにスコープするために
+project_id
+を指定します。
+project_id
+を指定しない場合、ルックアップテーブルのスコープはグローバルです。
+ワークスペース内のプロジェクトのリストを取得するには、
+list projects
+APIを使用してください。
+schema
+hash
+必須
+ルックアップテーブルの構造を決定するために、スキーマを提供し、テーブルの各列の名前を指定します。例:
+[{ "label": "Name" }]
+。
+ルックアップテーブルは最大10列までサポートしています。
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/managed_users/121/lookup_tables
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"lookup_table": {
+"name": "Contacts",
+"project_id": 4321,
+"schema": [{ "label": "ID" }, { "label": "Name" }, {"label": "CSM"}, {"label": "Email"}, {"label": "Phone number"}, {"label": "Priority"}, {"label": "Tier"}, {"label": "Notes"}, {"label": "Created at"}, {"label": "Updated at"}]
+}
+}'
+#
+レスポンス
+{
+"id"
+:
+2372
+,
+"name"
+:
+"Contacts"
+,
+"schema"
+:
+"[{\"control_type\":\"text\",\"label\":\"ID\",\"name\":\"col1\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"Name\",\"name\":\"col2\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"CSM\",\"name\":\"col3\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"Email\",\"name\":\"col4\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"Phone number\",\"name\":\"col5\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"Priority\",\"name\":\"col6\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"Tier\",\"name\":\"col7\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"Notes\",\"name\":\"col8\",\"type\":\"string\",\"sticky\":true},{\"control_type\":\"text\",\"label\":\"Created at\",\"name\":\"col9\",\"type\":\"string\",\"sticky\":false},{\"control_type\":\"text\",\"label\":\"Updated at\",\"name\":\"col10\",\"type\":\"string\",\"sticky\":false}]"
+,
+"project_id"
+:
+4321
+,
+"created_at"
+:
+"2023-09-11T11:31:35.335-07:00"
+,
+"updated_at"
+:
+"2023-09-11T11:31:35.335-07:00"
+}
+#
+バッチでルックアップテーブルを削除する
+このエンドポイントを使用して、ルックアップテーブルをバッチで削除します。
+POST /api/managed_users/:managed_user_id/lookup_tables/batch_delete
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+Workato Embeddedの顧客アカウントID/外部ID。
+外部IDはEで始まる必要があり、結果のIDはURLエンコードする必要があります。
+#
+ペイロード
+名前
+タイプ
+説明
+ids
+hash
+必須
+削除するルックアップテーブルのIDを含めます。
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/managed_users/121/lookup_tables/batch_delete
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{ "ids": [1234, 1235, 1236] }'
+#
+レスポンス
+{
+"data"
+:
+{
+"deleted"
+:
+[
+1234
+,
+1235
+,
+1236
+]
+}
+,
+"errors"
+:
+[
+]
+}
+#
+行を更新する
+ルックアップテーブルの行を更新します。
+PUT /api/managed_users/:managed_user_id/lookup_tables/:lookup_table_id/rows/:row_id
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+Workato Embeddedの顧客アカウントID/外部ID。
+外部IDはEで始まる必要があり、結果のIDはURLエンコードする必要があります。
+lookup_table_id
+integer
+必須
+ルックアップテーブルのID
+row_id
+integer
+必須
+行のID
+#
+ペイロード
+名前
+タイプ
+説明
+data
+Hash
+必須
+更新された行のデータを含むハッシュ。提供された列のみが更新されます。
+#
+サンプルリクエスト
+curl
+-X
+PUT https://www.workato.com/api/managed_users/157/lookup_tables/1296/rows/942
+\
+-H
+'Authorization: Bbearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{ "data": { "code": "US" }}'
+#
+レスポンス
+{
+"id"
+:
+942
+,
+"data"
+:
+{
+"code"
+:
+"US"
+,
+"name"
+:
+"United States"
+,
+"col3"
+:
+null
+,
+"col4"
+:
+null
+,
+"col5"
+:
+null
+}
+,
+"created_at"
+:
+"2022-05-20T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2022-05-20T11:50:40.986-07:00"
+}
+#
+行の削除
+ルックアップテーブルから行を削除します
+DELETE /api/managed_users/:managed_user_id/lookup_tables/:lookup_table_id/rows/:row_id
+#
+URLパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+required
+Workato Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+lookup_table_id
+integer
+required
+ルックアップテーブルのID
+row_id
+integer
+required
+行のID
+#
+サンプルリクエスト
+curl
+-X
+DELETE https://www.workato.com/api/managed_users/157/lookup_tables/1296/rows/942
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+#
+レスポンス
+{
+"success"
+:
+true
+}
+←
+フォルダーの作成
+カスタマーアカウントの管理
+→
+Last updated:
+2024/4/25 17:58:27
+On this page
+ルックアップテーブルの一覧
+行を検索する
+行の一覧を取得する
+行の取得
+行の追加
+新しいルックアップテーブルの作成
+バッチでルックアップテーブルを削除する
+行を更新する
+行の削除
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

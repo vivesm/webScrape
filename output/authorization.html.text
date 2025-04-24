@@ -1,0 +1,1486 @@
+SDK リファレンス - authorization | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+SDK リファレンス
+コネクターで使用する キー
+#
+SDK リファレンス -
+authorization
+このセクションでは、
+authorization
+ハッシュ内で使用できるすべてのキーを列挙します。一部のキーは、特定のタイプの認証でのみ使用されます。ユーザーが [Connect] をクリックすると、Workato はその直後に
+authorization
+ハッシュ内のコードを実行します。
+authorization
+ハッシュには、コネクターが認証パラメータを取得および使用するための指示すべてが格納されています。これは、将来のリクエストにおいて API キーをどこに配置するかなど、簡単な指示であることもあります。あるいは、一連の HTTP リクエストを実行してアクセストークンを取得するなど、はるかに複雑な指示であることもあります。
+#
+構造
+authorization
+:
+{
+type
+:
+String
+,
+client_id
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+client_secret
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+authorization_url
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+token_url
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+acquire
+:
+lambda
+do
+|
+connection
+,
+auth_code
+,
+redirect_uri
+,
+verifier
+|
+Hash
+or
+Array
+end
+,
+apply
+:
+lambda
+do
+|
+connection
+,
+access_token
+|
+# see apply documentation for more information
+end
+,
+refresh_on
+:
+Array
+,
+detect_on
+:
+Array
+,
+refresh
+:
+lambda
+do
+|
+connection
+,
+refresh_token
+|
+Hash
+or
+Array
+end
+,
+pkce
+:
+lambda
+do
+|
+verifier
+,
+challenge
+|
+Hash
+end
+,
+selected
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+options
+:
+Hash
+}
+#
+type
+属性
+説明
+キー
+type
+型
+String
+必須
+必須です。
+説明
+このコネクターで利用する認証のタイプを表します。
+期待される出力
+次のうちいずれか1つです。
+"basic_auth" - 基本認証に使用。
+"api_key" - API キー認証に使用。
+"oauth2" - OAuth 2.0
+認証コード付与フロー
+にのみ使用。OAuth のその他のバリエーションには "custom_auth" を使用します。
+"custom_auth" - 自由形式の認証。マルチステップ、JWT、または非標準の認証方法には、これを使用します。
+"multi" - これを使用すると、複数の認証方法を一度に定義できます。
+#
+client_id
+属性
+説明
+キー
+client_id
+型
+lambda 関数
+必須
+type
+が "oauth2" の場合は必須。それ以外の場合は無視されます。
+説明
+認証 URL リクエストとトークン URL リクエストで使用する client_id を定義します。
+使用可能な引数
+connection
+-
+Connection
+で定義されたユーザーによる入力を表すハッシュ
+期待される出力
+String
+、たとえば
+#{connection['client_id']}
+#
+client_secret
+属性
+説明
+キー
+client_secret
+型
+lambda 関数
+必須
+type
+が "oauth2" で、かつ
+acquire
+が定義されていない場合は、必須。それ以外の場合は無視されます。
+説明
+トークン URL リクエストで使用する client_secret を定義します。
+使用可能な引数
+connection
+-
+Connection
+で定義されたユーザーによる入力を表すハッシュ
+期待される出力
+String
+、たとえば
+#{connection['client_secret']}
+#
+authorization_url
+属性
+説明
+キー
+authorization_url
+型
+lambda 関数
+必須
+type
+が "oauth2" の場合は必須。それ以外の場合は無視されます。
+説明
+OAuth 2.0認証コード付与フローでユーザーが送り出される認証 URL を表します。
+使用可能な引数
+connection
+-
+Connection
+で定義されたユーザーによる入力を表すハッシュ
+期待される出力
+String
+たとえば
+"https://podio.com/oauth/authorize"
+または
+"#{connection['domain']}/oauth/authorize"
+Workato は、以下のような標準的な OAuth 2.0パラメータを認証 URL に自動的に付加します。
+response_type
+Workato は、デフォルトでこの値を
+code
+に設定します。
+state
+CSRF 攻撃対策のための推測されにくい状態値。
+redirect_uri
+https://www.workato.com/oauth/callback
+にセットされます。改めて設定する必要はありません。
+認証 URL には、スコープを含めることも選択できます。
+#
+token_url
+属性
+説明
+キー
+token_url
+型
+lambda 関数
+必須
+type
+が "oauth2" で、かつ
+acquire
+が定義されていない場合は、必須。それ以外の場合は無視されます。
+説明
+access_token を取得するために使用するトークン URL を表します。
+使用可能な引数
+connection
+-
+Connection
+で定義されたユーザーによる入力を表すハッシュ
+期待される出力
+String
+すなわち
+"https://podio.com/oauth/token"
+または
+"#{connection['domain']}/oauth/token"
+Workato は、以下のような標準的な OAuth 2.0パラメータをトークン URL に自動的に付加します。
+grant_type
+常に
+authorization_code
+に設定されます。
+code
+認証 URL のコールバックから取得した認証コード。
+redirect_uri
+https://www.workato.com/oauth/callback
+(opens new window)
+にセットされます。改めて設定する必要はありません。
+client_id
+lambda 関数
+client_id
+が存在していれば、そこから推測されます。
+client_secret
+lambda 関数
+client_secret
+が存在していれば、そこから推測されます。
+#
+acquire
+属性
+説明
+キー
+acquire
+型
+lambda 関数
+必須
+type
+が "custom_auth" の場合は必須。
+type
+が "oauth2" の場合はオプション。
+それ以外の場合は無視されます。
+説明
+type
+が "custom_auth" の場合、lambda 関数
+acquire
+は
+refresh_on
+または
+detect_on
+がトリガーされたときにのみ実行されます。
+type
+が "oauth2" の場合、lambda 関数
+acquire
+は Workato が authorization_url からのコールバックを受け取った後に実行されます。
+使用可能な引数
+connection
+-
+Connection
+で定義されたユーザーによる入力を表すハッシュ
+auth_code
+-
+type
+が "oauth2" の場合にのみ該当します。認証 URL のコールバックから取得した auth_code を表す文字列です。
+redirect_uri
+- ご利用中の Workato のデータセンターに基づいて、適切なリダイレクト URI を提供します。たとえば、米国のデータセンターであれば
+https://www.workato.com/oauth/callback
+のようになります。
+verifier
+- PKCE 認証でのみ使用されます。これを通して、lambda 関数
+pkce
+内で定義されている verifier にアクセスできます。
+期待される出力
+変数 - 下の例を参照してください。
+例 - acquire: - type: "oauth2"
+type
+が "oauth2" として指定されている場合、
+acquire
+ブロックは出力としてハッシュの配列を期待します。この配列には、次の値が順序どおりに含まれていなければなりません。
+トークン
+トークンは、
+access_token
+と
+refresh_token
+という正確なキー名でハッシュ内に含められている必要があります。API が他のキー (
+id_access
+や
+id_refresh
+など) を含むトークンを返す場合は、それらのトークンをこの箇所でマッピングできます。
+Owner ID
+これは上書きの検出に使用される、省略可能な値です (使用しない場合は nil を代入します)。
+その他の値
+ここでオプションのハッシュを提供して、元の connection ハッシュに取り込むことができます。
+acquire
+:
+lambda
+do
+|
+connection
+,
+auth_code
+|
+response
+=
+post
+(
+"https://login.mypurecloud.com/oauth/token"
+)
+.
+payload
+(
+grant_type
+:
+"authorization_code"
+,
+code
+:
+auth_code
+,
+redirect_uri
+:
+"https://www.workato.com/oauth/callback"
+)
+[
+{
+# This hash is for your tokens
+access_token
+:
+response
+[
+"access_token"
+]
+,
+refresh_token
+:
+response
+[
+"refresh_token"
+]
+,
+}
+,
+# This hash is for your Owner ID. It is optional
+nil
+,
+# This is for any other value you want to append to your connection object which you can reference later on.
+{
+instance_id
+:
+nil
+}
+]
+end
+,
+例 - acquire: - type: "custom_auth"
+type
+が "custom_auth" として指定されている場合、lambda 関数
+acquire
+は出力として単一のハッシュを期待します。Workato は後で、その出力を元の
+connection
+ハッシュに取り込みます。
+authorization
+:
+{
+acquire
+:
+lambda
+do
+|
+connection
+|
+{
+authtoken
+:
+get
+(
+'https://accounts.zoho.com/apiauthtoken/nb/create'
+)
+}
+end
+,
+refresh_on
+:
+401
+元の
+connection
+ハッシュ:
+{
+"email"
+:
+"
+[email protected]
+"
+,
+# Given by User
+"password"
+:
+"pinkfloyd"
+# Given by User
+}
+ユーザーが [Connect] ボタンをクリックすると、Workato は
+connection
+ハッシュを使用して lambda 関数
+test
+を呼び出します。lambda 関数
+test
+がエラーコード
+401
+などで失敗すると、Workato は
+acquire
+ブロックを実行します。
+acquire
+ブロックが実行された後、
+connection
+ハッシュは次のようになります。
+{
+"email"
+:
+"
+[email protected]
+"
+,
+# Given by User
+"password"
+:
+"pinkfloyd"
+# Given by User
+"authtoken"
+:
+"SAMPLE_TOKEN"
+}
+その後、Workato は新しい
+connection
+ハッシュを使用して lambda 関数
+test
+の呼び出しを再試行します。lambda 関数
+test
+が成功すると、コネクションは
+Successful
+として表示されます。
+Workato が
+acquire
+を実行するのは、システムによって
+refresh_on
+がトリガーされたときのみです。これは、
+connection
+ハッシュには有効なトークンが含まれている場合があるためです。例:
+ユーザーが、
+authtoken
+値を持つ有効なコネクションから接続を解除する場合
+ユーザーが
+[Connect]
+をクリックし、Workato が新しいトークンではなくこの
+authtoken
+の使用を試みる場合
+#
+apply
+属性
+説明
+キー
+apply
+型
+lambda 関数
+必須
+必須です。
+説明
+このコネクターの後続の HTTP リクエストに Workato が追加すべき認証パラメータを定義します。
+使用可能な引数
+connection
+-
+Connection
+で定義されたユーザーによる入力を表すハッシュ
+access_token
+-
+type
+が "oauth2" の場合にのみ該当します。トークン URL または
+acquire
+ブロックから受け取った
+access_token
+を表します。
+例 - apply
+apply
+ブロックの lambda 関数の出力は、あらゆるリクエストに認証パラメータを付加するための複数のコマンドにできます。使用できる一般的なメソッドの例を以下に示します:
+apply
+:
+lambda
+do
+|
+connection
+|
+# Adds in URL parameters passed as a hash object
+# i.e. authtoken=[connection['authtoken']]
+params
+(
+authtoken
+:
+connection
+[
+'authtoken'
+]
+)
+#Adds in payload fields (PATCH, POST, PUT only) passed as hash
+payload
+(
+grant_type
+:
+"authorization_code"
+,
+client_id
+:
+connection
+[
+"client_id"
+]
+,
+client_secret
+:
+connection
+[
+"client_secret"
+]
+,
+code
+:
+auth_code
+)
+# Adds in headers into every request passed as a hash.
+# The variable access_token can be retrieved from input prompts defined in the 'fields' schema earlier or a return from the acquire block
+# i.e. Authorization : Bearer [given access token]
+headers
+(
+"Authorization"
+:
+"Bearer
+#{
+connection
+[
+"access_token"
+]
+}
+"
+)
+# Used in conjunction with password function
+# i.e. sends the input as username and password in HTTP authentication
+user
+(
+connection
+[
+"username"
+]
+)
+password
+(
+connection
+[
+"username"
+]
+)
+end
+次に挙げるのは、lambda 関数
+apply
+内で呼び出せる特別な変数です。
+current_url
+現在の URL に関わる照合を可能にし、適切な認証を適用します。
+apply: lambda do |_connection, access_token|
+if current_url.include?('
+https://developer.api.autodesk.com/cost/
+(opens new window)
+')
+headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/json')
+else
+headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/vnd.api+json')
+end
+end
+current_verb
+現在の HTTP 動詞に関わる照合を可能にし、適切な認証を適用します。
+apply: lambda do |_connection, access_token|
+if current_verb.include?('GET')
+headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/json')
+else
+headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/vnd.api+json')
+end
+end
+#
+refresh_on
+これは各種のシグナルからなる省略可能な配列です。それぞれのシグナルは、システムが資格情報を再取得しなければならないタイミングを示しています。エラーレスポンス (400、401、500...) を受信すると、SDK フレームワークはこの各種シグナルのリストを確認します。そして一致が見つかると、再認証をトリガーするために、
+type: oauth2
+のコネクションでは lambda 関数
+refresh
+が実行され、
+type: custom_auth
+のコネクションでは
+acquire
+ブロックが実行されます。
+属性
+説明
+キー
+refresh_on
+型
+Array
+必須
+必須ではありません。定義されていない場合は、デフォルトですべてのエラーに対して資格情報の再取得が1回試みられます。
+説明
+認証の資格情報をリフレッシュするタイミングを Workato に指示します。HTTP レスポンスコードとの一致を調べるための整数、またはレスポンス本文で一致を調べるための正規表現からなる配列を受け付けます。
+期待される出力
+整数または文字列の配列 -
+[ 401, /Unauthorized/ ]
+例 - `refresh_on`:
+この例では、監視対象の「シグナル」を定義する複数のやり方を示します。
+401
+レスポンスステータスコード
+"Unauthorized"
+レスポンスの本文またはタイトルの全体と一致する正確な文字列
+/Unauthorized/
+レスポンスの本文またはタイトルと一致する正規表現
+refresh_on
+:
+[
+401
+,
+'Unauthorized'
+,
+/Unauthorized/
+,
+/Invalid Ticket Id/
+]
+#
+detect_on
+API によっては、
+401
+のような明示的なレスポンスステータスコードによってエラーを通知しないものがあります。代わりに、そうした API は
+200
+(見せかけの成功レスポンス) を返し、ペイロードでエラーを通知します。
+そのような API の場合、Workato はエラー (有効期限切れの資格情報、不正なリクエストなど) を拾わず、レスポンスコード
+200
+を理由として、成功したリクエストとして扱います。しかし、シグナルとの一致があると、エラーを発生させます。一致が見つかる場合、次の2通りのことが起こる可能性があります。
+refresh_on
+のシグナルにも一致がある場合があります。その際は、システムがエラーを発生させるのではなく、再認証がトリガーされ、
+acquire
+ブロックが実行されます。それから、
+detect_on
+がレスポンスコード
+200
+の背後に隠れているエラーを照合し、システムが資格情報を更新しなければならないことを突き止めます。
+refresh_on
+で定義されているシグナルとの一致がない場合、システムはエラーを発生させます。
+属性
+説明
+キー
+detect_on
+型
+Array
+必須
+必須ではありません。
+説明
+リクエストへのレスポンスに含まれるシグナルによってエラーを発生させるタイミングを Workato に指示します。HTTP レスポンスコードとの一致を調べるための整数、またはレスポンス本文で一致を調べるための正規表現からなる配列を受け付けます。
+期待される出力
+整数または文字列の配列 -
+[ 401, /Unauthorized/ ]
+例 - detect_on
+この例では、
+detect_on
+の監視対象の「シグナル」を定義する複数のやり方を示します。
+"sample error message"
+レスポンスの本文またはタイトルの全体と一致する正確な文字列
+/^\{"response":\{"error".+$/
+レスポンスの本文またはタイトルと一致する正規表現
+detect_on
+:
+[
+"sample error message"
+,
+/^\{"response":\{"error".+$/
+]
+#
+refresh
+この lambda 関数は
+type: "oauth2"
+のコネクションにのみ適用されます。
+多くの場合、API は一定時間が経過した後、アクセストークンを失効させます。その場合、システムはリフレッシュトークンを使って、新しいアクセストークンを取得します。通常、リフレッシュトークンは期限切れになりません。
+すべての API がリフレッシュトークンの資格情報を発行するわけではありません。このような要件については、提供者に確認してください。
+属性
+説明
+キー
+refresh
+型
+lambda 関数
+必須
+必須ではありませんが設定を推奨。
+type: oauth2
+のコネクションにのみ有効です。
+説明
+この関数は、何らかの API リクエストで 2XX 以外のレスポンスを受け取った場合、または
+refresh_on
+シグナルがトリガーされた場合に実行されます。新たなアクセストークンを取得するために使用されます。これが定義されていない場合、Workato は、標準の OAuth 2.0リフレッシュメカニズムの利用を可能な限り試みるか、または
+acquire
+lambda 関数を再実行しようとします。
+使用可能な引数
+connection
+-
+Connection
+で定義されたユーザーによる入力を表すハッシュ
+refresh_token
+- トークン URL または
+acquire
+ブロックから受け取った
+refresh_token
+を表します。
+期待される出力
+アクセストークンとリフレッシュトークンのセットを表すハッシュ。下の例を参照してください。
+例 - refresh
+type:
+が "oauth2" として指定されている場合、
+refresh
+ブロックは出力としてハッシュを期待します。このハッシュには、
+access_token
+(アクセストークン) のキーが含まれている必要があります。また、システムが新しいリフレッシュトークンを作成する場合、
+refresh_token
+(リフレッシュトークン) のキーも含まれている必要があります。
+たとえば、リフレッシュトークン URL からのレスポンスが次のようなものであるとします。
+{
+"access_token"
+:
+"new_access_token"
+,
+"refresh_token"
+:
+"new_refresh_token"
+}
+その場合は、API コールのための HTTP リクエストを次のようなやり方で設定します。
+refresh
+:
+lambda
+do
+|
+connection
+,
+refresh_token
+|
+url
+=
+"https://
+#{
+connection
+[
+'custom_domain'
+]
+.
+presence
+||
+'go.trackvia.com'
+}
+"
+response
+=
+post
+(
+"
+#{
+url
+}
+/oauth/token"
+)
+.
+payload
+(
+client_id
+:
+connection
+[
+'client_id'
+]
+,
+client_secret
+:
+connection
+[
+'client_secret'
+]
+,
+grant_type
+:
+'refresh_token'
+,
+refresh_token
+:
+refresh_token
+)
+.
+request_format_www_form_urlencoded
+end
+,
+あるいは、connection ハッシュを上書きしたり、それに新しい値を追加したりするハッシュの配列を返すには、次のようなコードを実装します。
+refresh
+:
+lambda
+do
+|
+connection
+,
+refresh_token
+|
+url
+=
+"https://
+#{
+connection
+[
+'custom_domain'
+]
+.
+presence
+||
+'go.trackvia.com'
+}
+"
+response
+=
+post
+(
+"
+#{
+url
+}
+/oauth/token"
+)
+.
+payload
+(
+client_id
+:
+connection
+[
+'client_id'
+]
+,
+client_secret
+:
+connection
+[
+'client_secret'
+]
+,
+grant_type
+:
+'refresh_token'
+,
+refresh_token
+:
+refresh_token
+)
+.
+request_format_www_form_urlencoded
+[
+{
+# This hash is for your tokens
+access_token
+:
+response
+[
+"access_token"
+]
+,
+refresh_token
+:
+response
+[
+"refresh_token"
+]
+}
+,
+{
+user_key
+:
+user_key
+# Will be merged into connection hash
+}
+]
+end
+,
+#
+pkce
+この lambda 関数は、
+type: "oauth2"
+のコネクションにのみ適用され、PKCE 認証を利用した OAuth2 認証コード付与が必要な場合にのみ必要となります。この lambda 関数を利用すると、code_verifier、code_challenge、code_challenge_method といった PKCE 用のパラメータを定義することができます。
+属性
+説明
+キー
+pkce
+型
+lambda 関数
+必須
+必須ではありません。PKCE を利用した認証コード付与の場合のみ必要となります。
+説明
+この lambda 関数を利用すると、PKCE フローのための各種パラメータを設定できます。この関数は
+verifier
+と
+challenge
+という2つの引数を受け取ります。
+verifier
+は128文字からなる推測されにくい文字列です。
+challenge
+は URL セーフな文字列であり、verifier の SHA256 です。より短い、またはより長い verifier が必要な場合は、独自の verifier を用意して利用することもできます。
+使用可能な引数
+verifier
+- 128文字からなる推測されにくい文字列。
+challenge
+-
+verifier
+の SHA256。
+期待される出力
+verifier
+、
+challenge
+、
+challenge_method
+という3つの属性を格納するハッシュ。
+PKCE を利用した認証コード付与フローの作成について、詳しくはこちらを参照してください。
+#
+selected
+この lambda 関数は
+type: "multi"
+のコネクションにのみ適用されます。
+この lambda 関数は、
+type: "multi"
+を定義する場合に使用し、元の入力項目のうちどの入力が正しい認証タイプに対応するかを示します。この関数は、
+options
+の宣言と併せて使用してください。
+selected
+が定義されていないにもかかわらず
+type: "multi"
+は定義されている場合、Workato は内部名
+name: "auth_type"
+を持つ任意の入力をデフォルトで利用します。
+属性
+説明
+キー
+selected
+型
+lambda 関数
+必須
+必須ではありません。
+type: "multi"
+のコネクションの場合に必要となります。
+説明
+この関数は
+fields
+で与えられた入力に基づいて Workato によって実行され、ハッシュ
+options
+内で定義されたキーの1つに一致する文字列を返します。デフォルトでは、内部名として
+auth_type
+を持つ項目が利用されます。
+使用可能な引数
+connection
+-
+Connection
+で定義されたユーザーによる入力を表すハッシュ
+期待される出力
+ハッシュ
+options
+内で定義されたキーのいずれかに一致する文字列。
+#
+options
+この lambda 関数は
+type: "multi"
+のコネクションにのみ適用されます。
+このハッシュは、複数の認証タイプをサポートするコネクターを計画している場合に対応して、複数の認証フローの定義を格納します。
+属性
+説明
+キー
+options
+型
+ハッシュ
+必須
+必須ではありません。
+type: "multi"
+のコネクションの場合に必要となります。
+説明
+「マルチ」認証フローコネクターに含まれるさまざまな認証タイプの定義を格納するハッシュ。
+入れ子になった認証の定義のスキーマ
+認証の定義が入れ子になっている以下のようなスキーマについて考えてみましょう。
+options
+:
+{
+[
+unique_option_name
+]
+:
+{
+type
+:
+String
+,
+fields
+:
+Array
+,
+client_id
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+client_secret
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+authorization_url
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+token_url
+:
+lambda
+do
+|
+connection
+|
+String
+end
+,
+acquire
+:
+lambda
+do
+|
+connection
+,
+auth_code
+|
+Hash
+or
+Array
+end
+,
+apply
+:
+lambda
+do
+|
+connection
+,
+access_token
+|
+# see apply documentation for more information
+end
+,
+refresh_on
+:
+Array
+,
+detect_on
+:
+Array
+,
+refresh
+:
+lambda
+do
+|
+connection
+,
+refresh_token
+|
+Hash
+or
+Array
+end
+,
+}
+,
+[
+Another_unique_option_name
+]
+:
+{
+...
+}
+}
+ハッシュ
+options
+内では、認証フローのための要素として、次の2つを定義する必要があります。
+その認証フローに対して一意なキー。
+認証フローのメカニズム。完全に新規の
+authorization
+ハッシュと同様のもの。
+次の例について考えてみましょう。
+fields
+:
+[
+{
+name
+:
+"auth_type"
+,
+control_type
+:
+"select"
+,
+pick_list
+:
+[
+[
+"OAuth2"
+,
+"stripe_oauth2"
+]
+,
+[
+"API Key"
+,
+"stripe_api_key"
+]
+]
+,
+default
+:
+"api_key"
+,
+extends_schema
+:
+true
+}
+]
+,
+authorization
+:
+{
+type
+:
+"multi"
+,
+selected
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+"auth_type"
+]
+end
+,
+options
+:
+{
+stripe_oauth2
+:
+{
+type
+:
+"oauth2"
+,
+fields
+:
+[
+{
+name
+:
+'authorization_url'
+}
+,
+{
+name
+:
+'token_url'
+}
+,
+{
+name
+:
+'client_id'
+}
+,
+{
+name
+:
+'client_secret'
+}
+,
+]
+,
+authorization_url
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+'authorization_url'
+]
+end
+,
+token_url
+:
+lambda
+do
+"https://api.stripe.com/accessToken"
+end
+,
+apply
+:
+lambda
+do
+|
+_
+,
+access_token
+|
+headers
+(
+"Authorization"
+:
+"OAuth2
+#{
+access_token
+}
+"
+)
+end
+,
+}
+,
+stripe_api_key
+:
+{
+type
+:
+"custom_auth"
+,
+fields
+:
+[
+{
+name
+:
+"api_key"
+,
+}
+]
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+headers
+(
+"Authorization"
+:
+"Bearer"
++
+" "
++
+connection
+[
+"api_key"
+]
+)
+end
+}
+}
+,
+}
+,
+ここでは、
+stripe_oauth2
+および
+stripe_api_key
+という2つの認証フローを定義しています。これらのキーは lambda 関数
+selected
+の出力にマッチする限り、どのようなものにもできます。それぞれのフロー内では、そのハッシュに含まれる lambda 関数すべてを確認したり、定義したりできます。
+stripe_oauth2
+オプションでは、認証フローの
+type
+を
+oauth2
+として定義しているほか、
+authorization_url
+、
+token_url
+、および
+apply
+ブロックを定義しています。
+ここでの大きな違いは、各認証フローの内部で追加の
+fields
+キーを定義できることです。これを定義すると、選択された認証方法に基づく入力項目が追加されます。それらの項目は、Workato によって自動的に追加されます。
+←
+コネクション
+テスト
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+構造
+type
+client_id
+client_secret
+authorization_url
+token_url
+acquire
+apply
+refresh_on
+detect_on
+refresh
+pkce
+selected
+options
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

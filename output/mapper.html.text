@@ -1,0 +1,136 @@
+Workato connectors - Mapper by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Mapper by Workato
+The Mapper connector is a way for users to interact with schemas defined in the
+common data model
+.
+The Mapper connector's
+Map to object
+action is typically used as a temporary step to store data in a predefined structure before publishing the data somewhere for a subscriber to consume, or before moving the data to another application. It would typically be used with the
+JMS connector
+or
+Workato Event streams
+.
+#
+How to connect to the Mapper connector on Workato
+There is no connection required to use the Mapper connector, as schemas are stored in the Workato account for recipes to interact with.
+#
+Working with the Mapper connector
+In order to work with the JMS connector, users have to have a
+common data model
+to work with.
+#
+Using the map to object action
+To use the action, simply select the schema you wish to interact with. The selected schema will create the input fields for the action. Fill in these input fields to populate the schema with the data you wish to populate it with.
+The configured action utilizing a pre-defined schema
+←
+Upsert tokens action
+Microsoft Dynamics 365
+→
+Last updated:
+2/13/2024, 1:10:22 AM
+On this page
+How to connect to the Mapper connector on Workato
+Working with the Mapper connector
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

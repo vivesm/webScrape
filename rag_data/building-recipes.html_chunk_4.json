@@ -1,0 +1,20 @@
+{
+  "text": " a single execution.\nExample꞉ If an order value is above $1,000, assign it to a priority sales team, otherwise, route\nit normally.\nAn IF condition lets you make decisions based on specific conditions. You can control your\nrecipe workflow by executing di\u0000erent actions depending on whether a condition you\nspecify is true or false.\nAssign an order/docs Search Workato Docs\n\n--- Page 3 ---\nIf  Y e s\nIf  N oIs the order value higher than $1000?\nAssign the order to\na priority sales team\nProcess the order normally\nError Handling\nYour recipe must handle errors e\u0000ectively to prevent failures from stopping the entire\nrecipe. Make a plan for how your recipe should handle the following types of errors꞉\nMissing or invalid data, such as an empty field.\nDuplicate records.\nAPI failures, such as server disruption to a connected app.\nFor example, if the issue is a temporary API failure, the recipe can retry the action a\nconfigurable number of times before logging an error.",
+  "metadata": {
+    "source": "building-recipes.html.pdf",
+    "file_path": "output/building-recipes.html.pdf",
+    "title": "--- Page 1 ---",
+    "date": "2025-04-22",
+    "creator": "Chromium",
+    "producer": "Skia/PDF m71",
+    "creationdate": "D:20250423021054+00'00'",
+    "moddate": "D:20250423021054+00'00'",
+    "doc_id": "9d6229a5",
+    "chunk_id": "9d6229a5_4",
+    "chunk_index": 4,
+    "total_chunks": 8,
+    "file_name": "building-recipes.html.pdf",
+    "file_type": "pdf",
+    "processing_date": "2025-04-23T22:03:16.389632"
+  }
+}

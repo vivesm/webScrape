@@ -1,0 +1,333 @@
+Agentic | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+Agentic
+Agentic is a low-code, no-code platform that enables you to rapidly build and manage powerful AI agents that take action and orchestrate workflows dynamically.
+This platform approach enables you to customize and manage purpose-specific AI agents that understand your intent and context to perform the following actions:
+Retrieve relevant information
+from various knowledge bases.
+Take action
+on apps and data securely with governance.
+Orchestrate workflows
+end-to-end dynamically.
+Collaborate
+with other AI agents and humans to execute complex workflows.
+#
+Agentic capabilities
+The term agentic derives from the concept of agency, which refers to the ability to act independently and make informed choices. Genies are agents that you can build in Agent Studio. Your genies use the knowledge base and skill sets you configure to manage tasks and workflows.
+#
+Agentic learning ability
+Your genie uses a large language model (LLM) and a detailed prompt to learn new information. The knowledge base recipes and skills recipes that you configure continuously learn from new inputs and adapt to handle dynamic situations effectively.
+For example, an IT support genie assists employees who reports losing their connection to a critical app. Within minutes, multiple users report the same issue, suggesting a potential system outage or server disruption. The IT genie adapts by relying on the following learning framework:
+Identify patterns
+: Your genie uses an LLM to recognize the spike in lost connection reports as a system-wide issue rather than an isolated incident.
+Proactive escalation
+: Your genie automatically notifies the IT team about the pattern, including key details such as the app affected, the number of users impacted, and the timeframe of the reports.
+Provide updates
+: Your genie shares progress updates with users as the IT team investigates, such as estimated resolution times or alternative workarounds, based on real-time information.
+Logging insights
+: Your genie stores data from the incident, including affected regions and user feedback, for post-resolution analysis and future improvements.
+#
+Identity provider user access
+You can add users to the Agentic platform through your external identity provider (IdP). This enables you to authenticate user accounts for Agentic access. You must configure a SAML-based SSO through your IdP before you can provide a user with access to Agentic. Agentic adds users when they sign in through your IdP for the first time. Multiple IdPs are supported. The steps in this section use Okta as an example.
+Complete the following steps to configure your IdP:
+1
+Sign in to your
+Okta
+(opens new window)
+account.
+2
+Navigate to
+Applications > Applications
+and click
+Create App Integration
+.
+Add application in Okta
+Refer to the
+Okta documentation
+(opens new window)
+for more information.
+3
+Select
+SAML 2.0
+as the
+Sign-in method
+.
+Create a new application in Okta
+4
+Go to the
+General settings
+tab an enter unique
+App name
+. For example,
+Workato Agentic
+.
+5
+Click
+Next
+.
+6
+Copy and paste your Workato
+Single Sign-On URL
+into the corresponding field in Okta.
+Access your Workato Single sign-on URL for Agentic
+Complete the following steps to access your Workato Single sign-on URL for Agentic:
+1
+Go to Workato and use the platform drop-down menu to select
+Agentic
+. The
+Your genies
+page displays by default.
+Switch to Agentic
+2
+Click
+User access
+in the sidebar. The
+User access
+page displays by default.
+3
+Click the
+Settings
+tab.
+User access > Settings
+4
+Go to the
+Create a SAML application in your IdP
+section.
+5
+Copy the
+Single sign-on URL
+and paste it into your IdP. This enables your IdP users to access Agentic through SSO. The
+Create a SAML application in your IdP
+section also provides your
+Service provider (SP) entity ID
+, if required by your IdP.
+7
+Select
+Use this for Recipient URL and Destination URL
+in Okta.
+8
+Enter your
+Audience URI (SP Entity ID)
+. In the following examples, you would replace
+pNrVf5N2mTZWL1JiMAHwsm
+with your Workspace
+unique_id
+in Okta.
+9
+Set
+Name ID format
+to
+EmailAddress
+.
+10
+Go to the
+Attribute Statements
+section and add the following attributes:
+Name
+Value
+workato_app_user_name
+user.displayName
+workato_app_user_groups
+appuser.workato_app_user_groups
+The resulting attribute statements should look like this:
+Add Attribute Statements to your App
+11
+Click
+Next
+, use the
+App type
+drop-down menu to choose
+This is an internal app that we have created
+, and then click
+Finish
+.
+12
+Go to
+Directory > People
+> and add one or more users. You must complete the verification steps for each user.
+13
+Go to
+Applications > My App > Assignments
+.
+14
+Click
+Assign > Assign to People
+and add one or more users for
+My App
+.
+15
+Go to
+Applications
+, click
+My App > Sign On
+, and copy the Metadata URL. For example:
+https://trial-3773304.okta.com/app/exkm071656tPupBo8891/sso/saml/metadata
+16
+Go to Workato and use the platform drop-down menu to select
+Agentic
+. The
+Your genies
+page displays by default.
+Switch to Agentic
+17
+Click
+User access
+in the sidebar. The
+User access
+page displays by default.
+18
+Click the
+Settings
+tab.
+User access > Settings
+19
+Go to the
+Provide metadata from your identity provider (IdP)
+section.
+20
+Locate the
+Do you have your identity provider metadata URL?
+field and select
+Yes
+or
+No
+depending on whether you have access to your IdP metadata URL.
+1
+Provide your metadata URL in the
+Metadata URL
+field.
+Provide your metadata URL
+1
+Provide your IdP SSO URL in the
+Identity provider single sign-on URL
+field.
+Provide your IdP information
+2
+Provide the unique identifier of your IdP in the
+Identity provider issuer
+field.
+3
+Provide the IdP X.509 certificate your IdP uses for request validations in the
+X.509 certificate
+field.
+21
+Click
+Save changes
+.
+#
+Agentic roles and permissions
+Workspace owners have access to Agentic by default. Agentic permissions are defined as all or nothing. This means that any workspace collaborators with permission to access Agentic can perform all actions on all genies within the workspace. Agentic permissions are defined within the Orchestrate
+Workspace admin > Collaborators > Collaborator roles
+. The workspace owner must specify the Admin role when assigning access to collaborators.
+Defined system roles for each collaborator per environment are in development.
+←
+Classify a document action
+Agent Studio
+→
+Last updated:
+4/10/2025, 4:05:04 PM
+On this page
+Agentic capabilities
+Agentic learning ability
+Identity provider user access
+Agentic roles and permissions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

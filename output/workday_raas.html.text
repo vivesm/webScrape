@@ -1,0 +1,146 @@
+Workato コネクター - Workday RaaS | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Workday
+#
+Workday RaaS
+Workday Reports-as-a-Service (RaaS) は、レポートを Web サービスとして公開する機能です。Web サービスを有効にするには、これらのレポートを
+Advanced
+タイプのレポートとして設定する必要があります。
+#
+カスタムレポートの設定
+カスタムレポート (Advanced タイプ) は、プログラムで使用する Web サービスとして公開できます。Workato はこの Web サービスを使用して、レポートの実行を自動化したり、Workday のレポートデータを他のアプリケーションに統合したりします。
+#
+レポートの URL の確認方法
+[Actions] > [Web Service] > [View URLs] から URL を確認します。
+レポートの URL の表示
+JSON
+を右クリックし、[Copy URL] を選択します。
+RaaS JSON URL のコピー
+JSON エンドポイントの例
+https://wd2-impl-services1.workday.com/ccx/service/customreport2/workato/workato/Investors?format=json&Worker_Type!WID=d588c41a446c11de98360015c5e6daf6&Base_Pay=0
+#
+フィルターパラメータ
+プロンプトはリクエストパラメータのように動作します。UI には、実際のレポートを生成する前の入力項目として表示されます。
+Workday UI の RaaS プロンプト
+REST エンドポイントとして、これらのプロンプトはリクエストパラメータとして渡されます。そのためには、レポートタイプとプロンプトを設定する必要があります。プロンプトのフィルターを定義することもできます。
+#
+レポートタイプ
+Advanced タイプになっていない場合は切り替えます。RaaS で使用できるのは、Advanced カスタムレポートのみです。
+Advanced レポートの使用
+#
+プロンプトの追加
+Web サービス対応レポートに必要なすべてのデフォルトのプロンプトを追加します。必要に応じてプロンプトを追加します。
+RaaS プロンプトの追加
+この例では、「Base Pay」が「Prompt #1」として [Prompt Qualifier] に割り当てられ、フィルターで使用されます。
+#
+フィルターの追加
+ロジックを適用してプロンプトの値をフィルタリングします。
+プロンプトの値を使用して、レポートの列の値と比較します。たとえば、プロンプトのパラメータ「Base Pay」を「Prompt #1」として割り当てます。
+RaaS フィルターの追加
+レポートの生成時に「Base Pay」パラメータが確認されます。値が指定されている場合、指定された値よりも大きい「Base Pay」を持つレコードのみがレポートに含まれます。
+←
+カスタムオブジェクトの作成/更新
+Workday REST
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+カスタムレポートの設定
+フィルターパラメータ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

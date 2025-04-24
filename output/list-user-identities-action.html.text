@@ -1,0 +1,163 @@
+Workato connectors - Zendesk list user identities action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Zendesk
+#
+Zendesk - List user identities action
+User identity is something that can be used to identify an individual. For example, an email address or a phone number.
+This action selects a specific user and returns a list of user identities. It retrieves the user through a search by user ID. Only records in your Zendesk instance that matches the criteria will be returned.
+List user identities action
+#
+Input fields
+Input field
+Description
+User ID
+The unique Zendesk ID of the user.
+#
+Output fields
+The output of this action contains the full set of user identities from the selected user.
+Output field
+Description
+ID
+Unique Zendesk user identity ID. This is automatically assigned when the user identity is created.
+User ID
+Unique Zendesk User ID. This is automatically assigned when the user is created.
+Type
+The type of user identity. Some possible values are
+email
+,
+phone_number
+,
+sdk
+etc.
+Value
+The value of the user identity. It is stored as a
+string
+.
+Verified
+Is
+True
+if the identity has been verified, otherwise it will display
+False
+.
+Primary
+Is
+True
+if the identity is marked as the primary identity, otherwise it will display
+False
+. For more information on primary user identity, please see the Zendesk documentation on this
+topic
+(opens new window)
+.
+Created at
+The time the identity was created.
+Updated at
+The time the identity was last updated.
+List size
+The size of the list, corresponding to the number of user identities retrieved.
+←
+Get user details by ID
+Search organizations
+→
+Last updated:
+7/2/2021, 10:09:23 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

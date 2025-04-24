@@ -1,0 +1,138 @@
+開発者プログラム | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+(opens new window)
+#
+はじめに
+ここでは、現在まだ Workato でサポートされていないアプリケーションへのカスタムコネクターを構築するために必要な SDK ドキュメントを示します。Workato で優れたコネクターを構築するには、技術的な側面だけでなく、そのコネクターの使用者に提供するユーザーエクスペリエンスも考慮する必要があります。
+Workato は、コーディングを必要とせずに、だれもがエンタープライズレベルの統合を実行できるという原理のもとで構築されています。したがって、プラットフォーム上の各コネクターは、機能性と使いやすさのバランスを取ることを目指します。このドキュメントは、自分自身のチーム向けにコネクターを開発している場合、サードパーティの開発者が Workato のリストに掲載されることを目的にコネクターを開発している場合のどちらにも役立ちます。
+#
+カスタムコネクターとは
+コネクターにより、Workato は、一連の
+トリガー
+や
+アクション
+を通して単一のアプリケーションとやり取りすることができます。トリガーは、接続したいアプリケーションで発生するイベントを監視し、
+レシピ
+と呼ばれるアクションのワークフローを開始します。アクションは、ターゲットアプリケーションで事前定義された特定の操作を実行します。
+SDK で構築されたコネクターは、
+カスタムコネクター
+と呼ばれます。これらのコネクターにはデフォルトで、コネクターの所有者のみに表示され、所有者のみが使用可能なスコープがあります。コネクターが構築され、準備が整うと、さまざまなレベルで他者とこれを共有できるようになります。
+#
+開始する前に
+Workato には、汎用的な HTTP コネクターや、統合でのニーズがあまり複雑ではない場合のカスタムアクションなど、求める目的を達成するのに役立つその他多くの機能があります。詳細については、
+こちら
+を参照してください。
+カスタムコネクターが必要であると判断した場合は、
+開発者ポータル
+(opens new window)
+にチェックインして、探しているアプリケーションへのカスタムコネクターが提供されていないかどうか確認します。Workato の頼りになるサポートチームが、Workato のメイン Web サイトでのチャットを通じて、弊社のカスタマーサクセスチームが作成したプライベートなカスタムコネクターの検索をお手伝いすることも可能です。
+さらに、SDK のドキュメントは、これらのカスタムコネクターをインストールする場合や、必要に応じてそれらをそのまま使い続ける場合にも役立ちます。
+#
+ドキュメントのフォーマット
+このセクションでは、SDK について知っておく必要のあることすべてをリストし、ガイド、ウォークスルー、ユーザーが構築したコネクターの例も示します。下の各リンクを使用して目的のセクションまでスキップすることもできますが、今後役に立つどの機能も見逃すことのないよう、示された順序でドキュメントを読み進めることをお勧めします。
+このドキュメントでは、例示する際は、デフォルトで JSON を使用します。接続する予定の API で異なるデータフォーマットが使用されている場合は、そのデータフォーマットの処理方法について確認することを強くお勧めします。
+←
+アクティビティ監査ログの参照
+Platform quick start
+→
+Last updated:
+2025/4/8 18:16:04
+On this page
+カスタムコネクターとは
+開始する前に
+ドキュメントのフォーマット
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

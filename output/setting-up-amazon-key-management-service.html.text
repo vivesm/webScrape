@@ -1,0 +1,407 @@
+Enterprise Key Management - Amazon Key Management Service (KMS) を Workato EKM に接続する | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+暗号キーの管理
+エンタープライズキーの管理
+#
+Amazon Key Management Service (KMS) を Workato EKM に接続する
+Amazon Key Management Service (KMS) を使用して、
+Workato Enterprise Key Management (EKM)
+と連携することで、独自の暗号化キーを Workato に持ち込むことができます。コンプライアンスとセキュリティ要件を満たすだけでなく、AWS KMS で詳細なアクティビティログを表示し、データがいつ、どこでアクセスされたかを把握することができます。
+このガイドでは、AWS KMS でキーを作成し、Workato で EKM を設定する手順を説明します。
+#
+前提条件
+このガイドのタスクを実行するには、以下が必要です。
+Workato で以下を準備する:
+Enterprise Key Management
+機能が有効なアカウント
+キー管理
+権限を持つ
+ユーザーロール
+Amazon Web Services (AWS) で以下を準備する:
+AWS KMS でキーを作成および更新するための権限。詳細は
+AWS KMS ドキュメント
+(opens new window)
+を参照してください。
+#
+ステップ 1: キーの作成と設定
+ステップ 1.1: Workato キーポリシーの取得
+ステップ 1.2: AWS でキーの設定
+ステップ 1.3: 自動ローテーションの有効化
+#
+ステップ 1.1: Workato キーポリシーの取得
+1
+まだログインしていない場合は、Workato アカウントにサインインします。
+2
+設定 > キー管理
+に移動します。
+3
+データの暗号化方法
+フィールドで、ドロップダウンから
+AWS KMS キー
+を選択します。
+4
+ステップ 1
+をクリックして開きます:
+このページを手元に置いておいて、次のステップを完了するために必要です。
+#
+ステップ 1.2: AWS でキーの設定
+注意
+このチュートリアルでは新しいキーの作成方法を説明しますが、既存のキーを使用することもできます。
+1
+AWS Management Console にサインインし、
+KMS コンソール
+(opens new window)
+を開きます。
+2
+ナビゲーションペインで
+顧客管理キー
+をクリックします。
+3
+顧客管理キー
+ページで、
+キーの作成
+をクリックします。
+4
+ステップ 1 - キーの設定
+ページで:
+1
+以下のフィールドを設定します:
+キータイプ
+:
+対称
+を選択します。このキータイプについての詳細は、
+AWS KMS ドキュメント
+(opens new window)
+を参照してください。
+詳細オプション > キーの材料の起源
+:
+KMS
+を選択します。
+2
+次へ
+をクリックします。
+5
+ステップ 2 - ラベルの追加
+ページで:
+1
+エイリアス
+フィールドにキーの表示名を入力します。
+2
+必要に応じて他のフィールドを設定します。
+3
+次へ
+をクリックします。
+6
+AWS の残りのステップを進めながら、必要に応じてフィールドを設定します。次のページに進むには
+次へ
+をクリックします。
+7
+ステップ 5 - レビュー
+ページに到達したら:
+1
+ステップ 1.1
+で開いた Workato アカウント設定ページが表示されているタブに移動します。
+2
+キーへのアクセス許可
+フィールドの内容をコピーします。
+3
+AWS で、
+キーポリシー
+フィールドのデフォルトポリシーの
+Statement
+プロパティにコンテンツを貼り付けます。
+注意
+:
+Statement
+プロパティに複数のオブジェクトがある場合は、最後のオブジェクト以外の後ろにカンマ（
+,
+）を追加する必要があります。
+複数の Statement オブジェクトを持つキーポリシー
+{
+"Id"
+:
+"key-consolepolicy-3"
+,
+"Version"
+:
+"2012-10-17"
+,
+"Statement"
+:
+[
+{
+"Sid"
+:
+"Enable IAM User Permissions"
+,
+"Effect"
+:
+"Allow"
+,
+"Principal"
+:
+{
+"AWS"
+:
+"arn:aws:iam::TODO-ACCOUNTID:root"
+}
+,
+"Action"
+:
+"kms:*"
+,
+"Resource"
+:
+"*"
+}
+,
+/* Comma before next object */
+{
+"Sid"
+:
+"Allow use of the key"
+,
+"Effect"
+:
+"Allow"
+,
+"Principal"
+:
+{
+"AWS"
+:
+"arn:aws:iam::TODO - ACCOUNTID:role/Workato_EKM"
+}
+,
+"Action"
+:
+[
+"kms:Encrypt"
+,
+"kms:Decrypt"
+]
+,
+"Resource"
+:
+"*"
+}
+]
+}
+それ以外の場合、キーポリシーは次のようになる必要があります。
+単一のStatementオブジェクトを持つキーポリシー
+{
+"Id"
+:
+"key-consolepolicy-3"
+,
+"Version"
+:
+"2012-10-17"
+,
+"Statement"
+:
+[
+{
+"Sid"
+:
+"Allow use of the key"
+,
+"Effect"
+:
+"Allow"
+,
+"Principal"
+:
+{
+"AWS"
+:
+"arn:aws:iam::TODO - ACCOUNTID:role/Workato_EKM"
+}
+,
+"Action"
+:
+[
+"kms:Encrypt"
+,
+"kms:Decrypt"
+]
+,
+"Resource"
+:
+"*"
+}
+]
+}
+4
+Finish
+をクリックしてキーを作成します。
+#
+ステップ1.3：自動回転を有効にする
+注意
+自動キーの回転
+(opens new window)
+を有効にすることは必須ではありませんが、ベストプラクティスとしておすすめします。
+1
+顧客管理キー
+ページに移動します。
+2
+リストで作成したキーを見つけ、クリックして開きます。
+3
+キーの回転
+タブをクリックします。
+4
+このKMSキーを毎年自動的に回転する
+ボックスをチェックします：
+5
+保存
+をクリックします。
+#
+ステップ2：Workatoにキーを追加する
+ステップ2.1：AWSでキーのARNを取得する
+ステップ2.2：Workatoでキーを設定する
+#
+ステップ2.1：AWSでキーのARNを取得する
+1
+顧客管理キー
+ページに移動していない場合は、そこに移動し、作成したキーをクリックして詳細ページを開きます。
+2
+キーの詳細ページで、
+一般設定
+セクションと
+ARN
+フィールドを見つけます：
+3
+ARNをコピーして手元に保管しておきます。次のステップを完了するために必要です。
+#
+ステップ2.2：Workatoでキーを設定する
+1
+Workatoアカウント設定ページが開いているタブに移動します。
+2
+ARNを
+キーARN
+フィールドに貼り付けます。
+3
+キーを更新
+をクリックします。
+キーの検証エラーのトラブルシューティング
+キーを更新
+をクリックした後にエラーが発生した場合は、次のことを確認してください。
+AWS KMSでキーポリシーを正しく追加しましたか。
+キーポリシー
+が正しいJSONであり、
+Statement
+プロパティに含まれていることを確認してください。
+Workatoに正しいキーARNを貼り付けましたか。
+キーARN
+に余分なスペースや文字が含まれていないことを確認し、正しい値をWorkatoに貼り付けたことを確認してください。
+AWS KMSに障害はありませんか。
+キーポリシーとARNが正しいことを確認した場合、KMSの障害がないかを確認するために
+AWSヘルスダッシュボード
+(opens new window)
+をチェックしてください。
+←
+エンタープライズキーの管理
+カスタムキーの使用
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+前提条件
+ステップ 1: キーの作成と設定
+ステップ2：Workatoにキーを追加する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,285 @@
+Workflow apps - Public submission forms | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Builder experience
+Pages
+#
+Public submission forms
+Workflow apps enables you to create public submission forms. This allows you to collect submissions and requests from users that don't have a Workflow apps account. This feature is useful in scenarios where you plan to share the link with a broader audience outside of your app users. For example, you can host a publicly available form on your website, send a link to a form through email, or collect submissions from a broad audience outside your organization.
+Public form
+#
+Use cases
+The following use cases provide examples of how you can use this feature to address your business objectives.
+#
+Intake requests from unauthenticated users
+Share request forms that unauthenticated users can access and fill out without signing in. This is particularly useful for collecting information from external stakeholders, customers, or prospective employees. For example, you can use public forms to complete pre-hiring processes. Additionally, you can
+prefill form content
+, allowing users to review and confirm pre-populated information.
+New client intake form
+#
+Collect reports from unauthenticated users
+Share report submission forms with unauthenticated users. This can be useful for providing external partners or customers access to forms. For example, you can use public forms to allow unauthenticated users to report issues they have encountered using your service.
+Report issues form
+#
+How it works
+SAVE DATA TO A TABLE ACTION
+To use this feature, your page must have a button configured with the
+Save data to a table
+action. Without this configuration, your pages can't capture user submissions.
+Learn more about
+button
+actions.
+You can create public links for your Workflow apps instantly with one click from the
+App interface
+. Each page can have one public link, which facilitates anonymous user submissions.
+When an end-user submits the form, their input is saved to columns in your app's data table. This information is displayed in the
+Apps portal
+as a request from an anonymous user and is available in the recipe editor as a datapill. You can use this datapill to configure trigger conditions or other conditional logic to control how your workflow responds to requests from anonymous users.
+Submissions from unauthenticated users are displayed as requests from Anonymous users
+Submissions from unauthenticated users are available in output of the Workflow apps New request trigger in the User name datapill
+#
+Enable public links
+Complete the following steps to enable this functionality for one or more pages:
+1
+Select a Workflow app and click
+Manage public links
+or
+{N}
+Public links
+next to the app name.
+Create a public link
+2
+In the
++ Add page
+drop-down, select the page for which you plan to create a public link.
+3
+Optional. Select the
+Enable CAPTCHA
+checkbox to add a user verification step, helping prevent spam and bot submissions.
+4
+Copy the link.
+5
+Click
+Done
+.
+#
+Manage public links
+You can manage public links directly from the main
+App interface
+in Workflow apps. The interface displays the total number of public links you have at all times, regardless of whether they are currently active or inactive. This allows you to keep track of all your public links efficiently.
+Enable links and revoke access
+Manage your links with the following actions:
+Enable or revoke access
+: Revoke access to public links at any time. This action preserves the link structure but prevents users from accessing your page. This is useful if you must update your forms or workflow and plan to prevent form submission during the maintenance window.
+Enable CAPTCHA
+: Enhance security and ensure the validity of form submissions. This protects your infrastructure from overuse and bot activity by requiring users to complete a CAPTCHA for every submission attempt. This helps prevent automated abuse of your public forms.
+Embed forms
+: Embed publicly accessible forms and pages within your application.
+Regenerate
+: Generate a new link instantly. When you generate a new link, the previous link becomes invalid.
+Delete
+: Permanently delete the link. When you try to delete a link, Workato displays a prompt confirming deletion.
+#
+Malware scanning for uploaded files
+Workato performs malware scanning for all files uploaded through public submission forms. When you upload a file through a public form, submission is blocked until scanning completes. If file scanning detects malware, Workato displays an error message and dismisses the file.
+Malware scanning
+#
+Use in recipes
+When anonymous users fill out forms using public links without authenticating, Workato captures this data in datapills for use in recipe steps. This data is available in the recipe editor in the output of the
+Workflow apps New request
+trigger. For example, the
+Guest user
+datapill is a boolean (true/false) value that indicates if the submission was made by an anonymous user. This enables you to set trigger conditions and other conditional logic to handle submissions from anonymous users differently than how you handle requests from authenticated users.
+#
+Save user data
+COMPATIBILITY
+Saving user data in system columns is available exclusively for anonymous user submissions and is compatible only with the
+Short text
+and
+Email
+component types.
+Additionally, this feature doesn't work if there are columns in your data table that are set as
+required
+.
+Additionally, public forms can capture user data, such as user names and email addresses, for use in recipe steps. To achieve this, you must configure your pages to save this data to system columns during the page design stage. This makes the values available in the output of the
+Workflow apps New request
+trigger as
+User name
+and
+User email
+datapills.
+Complete the following steps to save user names and email addresses to system columns:
+1
+In the
+Save user input to data column
+field, select one of the
+System data
+columns, such as
+User name
+or
+User email
+.
+Save the user name and email to system columns for use in recipe steps
+2
+Click
+Save
+.
+#
+Set a trigger condition
+Complete the following steps to create a trigger condition to ensure your recipe only responds to submissions from anonymous users.
+1
+Edit your
+New request in {App name}
+recipe.
+2
+Configure the trigger condition
+1
+Click the
+Set trigger condition
+toggle.
+2
+Map the
+Guest user | Step 1
+datapill to the
+Trigger data
+field.
+3
+Select
+is true
+from the
+Condition
+drop-down menu.
+Set up a trigger condition to process only events from anonymous users
+3
+Click
+Save
+.
+#
+Limitations
+Public links and anonymous form submission are not compatible with
+Dashboard
+pages.
+Additionally, this functionality does not support the following
+component
+. If the following component is included on a page, public links to this page still work and the page renders properly, but the component doesn't function as expected.
+Drop-downs with
+recipes as a data source
+: The drop-down component doesn't trigger a recipe job or load data.
+Further limitations can apply depending on your pricing plan and contract. Contact your Customer Success Manager to learn more.
+←
+Drop-downs with recipe data source
+Workflow apps connector
+→
+Last updated:
+4/16/2025, 4:19:52 PM
+On this page
+Use cases
+Intake requests from unauthenticated users
+Collect reports from unauthenticated users
+How it works
+Enable public links
+Manage public links
+Malware scanning for uploaded files
+Use in recipes
+Save user data
+Set a trigger condition
+Limitations
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

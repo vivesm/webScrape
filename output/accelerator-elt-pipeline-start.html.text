@@ -1,0 +1,135 @@
+ELT Pipeline for Snowflake accelerator- connect | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+ELT Pipeline - Snowflake
+#
+Start
+PREREQUISITES
+Before you begin, ensure you have completed the following tasks:
+Install the asset package
+Connect your applications
+Set up your lookup tables
+Set up your OPA and OPG
+Set up your custom OAuth profile
+#
+Add the ELT Bot to the notification channel
+You must add the ELT Pipeline Workbot you created in
+Setting up a Custom OAuth Profile for Workbot
+to the Slack notification channel you configured in the account properties. To add the ELT Pipeline Workbot to the channel, mention the bot in the channel with
+@bot-name
+.
+#
+Start recipes
+You must start the recipes in this accelerator in a specific order. This order depends on the recipes' parent folder. Start all recipes in each folder before proceeding to the next folder. The folder order is as follows:
+04 Functions
+03 Data Load
+01 UI
+02 Controller
+←
+Configure
+Recipes
+→
+Last updated:
+1/2/2023, 11:02:37 PM
+On this page
+Add the ELT Bot to the notification channel
+Start recipes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

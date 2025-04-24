@@ -1,0 +1,162 @@
+Freshservice - Create onboarding request action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Freshservice
+#
+Freshservice - Create onboarding request action
+This action creates an employee onboarding request in Freshservice.
+#
+Input
+Input field
+Description
+Reporting manager
+Select the reporting manager from the drop-down menu.
+Employee first name (preferred)
+Provide the first name of the employee.
+Employee last name
+Provide the last name of the employee.
+Start date
+Provide the start date of the employee.
+Job title
+Provide the job title held by the employee.
+Department
+Select a value from the drop-down menu or provide a custom value of the department of the employee.
+Location
+Select a value from the drop-down menu or provide a custom value of the location of the employee.
+Mobile device election
+Select a value from the drop-down menu or provide a custom value.
+#
+Output
+Output field
+Description
+Onboarding request ID
+A unique identifier assigned to the onboarding request.
+Created at
+The timestamp when the onboarding request was created.
+Updated at
+The timestamp when the onboarding request was last updated.
+Status
+The current status of the onboarding request.
+Subject
+The title or subject of the onboarding request.
+Ticket ID
+A unique identifier linked to the onboarding ticket.
+HR manager
+This object contains the details of the HR manager, such as name and email.
+Field
+Returns the fields provided in request.
+Reporting manager
+This object contains the details of the reporting manager, such as name, ID, phone, and email.
+Department
+The object contains the department details such as name and description.
+Location
+This object contains the details of the location.
+←
+Create incident action
+Create requester action
+→
+Last updated:
+3/17/2025, 12:26:03 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

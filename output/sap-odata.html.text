@@ -1,0 +1,210 @@
+Workato connectors - SAP OData | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+SAP OData Connector
+Microsoft provides Open Data Protocol (OData) to facilitate data exchange over the Internet. This specification is approved by both the International Organization for Standardization (ISO) and the International Electrotechnical Commission (IEC), and adheres to REST (Representational State Transfer) architecture, which in turn relies on the HTTP protocol. SAP has integrated OData support into SAP NetWeaver Gateway. SAP NetWeaver includes tools for designing, implementing, deploying, and testing OData services.
+You can use the SAP OData connector to connect to SAP On-premise (SAP Business Suite applications, including SAP BW and SAP BW/4HANA), SAP S/4HANA Cloud, Private Edition, and the SAP S/4HANA Cloud, Public Edition instance. This connector allows you to work with the hundreds of OData APIs out-of-the-box, enabling interaction with data sources that include purchase orders, requisitions, invoices, and products. This connector is also compatible with all available custom OData services to set up on your instance.
+#
+API version
+Standard actions in this connector support the SAP API Business Hub family of OData APIs and custom OData services that use the
+V2
+(opens new window)
+and
+V4
+(opens new window)
+specifications. The SAP OData connector supports various
+authentication types
+to secure communication between systems.
+#
+Triggers & Actions
+This connector supports the following triggers and actions:
+New object
+Updated object
+Create object
+Update object
+Search object
+Delete object
+Upsert object
+Get object details by ID
+Custom action
+Extract bulk data
+#
+Supported object types
+The available object types depends on your selected service. The service you provide in the action or trigger configuration will dictate what objects show in the
+Object
+drop-down.
+WARNING
+The service you provide must be enabled for the communication user you have given in your connection. You enable new services by creating new Communication Arrangements in S/4HANA that link communication users to communication scenarios.
+For example, providing the
+API_PRODUCT_SRV
+service in the
+Service
+input field will allow you to select all object types defined for that service.
+Selecting a specific object will then cause more input fields specific to that object to appear. You can then start mapping datapills to these objects.
+#
+Working with related records
+When retrieving or mutating records in SAP OData services, you may want to interact with both the record as well as records related to it. For example a customer record as well as it's related addresses. To do so, you can utilize the
+related records
+input field that is present in every action. This input field is a multiselect tree drop-down that allows you to select related children records, and even grandchildren records.
+After selecting this input, new input fields will be shown (for create/update actions) and new output fields (for triggers, search and get actions). This allows you to minimize job execution time and reduce recipe complexity.
+#
+Enable the catalog service
+Workato provides users with the choice to either select OData services from a drop-down menu or manually enter the service name when creating an action.
+OData catalog service
+Consider the following for enablement of this feature in Workato:
+To enable this feature on SAP On-Premise Business Suite applications through OAuth2.0 authentication, add scope
+/IWFND/SG_MED_CATALOG_0002
+for OData v2 or
+/IWFND/OV4:CONFIG
+for OData v4 in the Workato connection field
+Scopes
+additionally (comma separated) and in transaction code
+SOAUTH2
+while
+provisioning scopes
+to the OAuth2.0 Client ID.
+To enable this feature on SAP S/4HANA Cloud,
+assign communication scenario
+(opens new window)
+SAP_COM_0449
+to the communication user.
+KNOWN LIMITATION
+The catalog service is not supported if you are using OAuth BTP authentication to connect with SAP S/4HANA Cloud, Public Edition.
+#
+Additional capabilities
+SAP OData provides additional support for the following capabilities:
+Create, Update, Delete, Get, Query, and Replace operations on the selected entity.
+Query options for:
+$expand
+(select navigation properties),
+$select
+(select required fields in response),
+$filter
+,
+$orderby
+,
+$top
+, and
+$skip
+.
+OData endpoints consumption.
+Pagination.
+OData APIs protected using OAuth Authorization Code Grant, OAuth 2.0 SAML Bearer Assertion, Client Certificate-Based, and Basic Authentication.
+Connection capabilities to any SAP on-premise application, including those behind a corporate firewall, using
+On-prem agent
+.
+←
+Troubleshooting
+Connection setup
+→
+Last updated:
+3/20/2025, 4:24:42 AM
+On this page
+SAP OData Connector
+API version
+Triggers & Actions
+Supported object types
+Working with related records
+Enable the catalog service
+Additional capabilities
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

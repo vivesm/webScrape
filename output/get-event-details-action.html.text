@@ -1,0 +1,188 @@
+Egnyte connector - Get event details action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Egnyte
+#
+Get event details action
+The
+Get event details
+action allows you to fetch the details of an Egnyte event.
+Get event details action
+#
+Input
+Input field
+Description
+Event object URI
+The unique address for the event object. You can find this value in the trigger output
+object detail
+parameter. For example
+https://example.egnyte.com/pubapi/v1/fs/Shared/Egnyte%20Reports
+#
+Output
+Output field
+Description
+Name
+The name of the event. For example:
+Egnyte Reports
+.
+Last modified
+The timestamp when the event was last modified.
+Uploaded
+The timestamp when the item was uploaded. For example:
+2024-02-26T23:06:36.538000+00:00
+.
+Count
+The count of items within the folder. For example:
+7
+.
+Offset
+The offset used for pagination.
+Path
+The path to the event folder or file. For example:
+/Shared/Egnyte Reports
+.
+Folder ID
+The ID of the folder. For example:
+c5fb09ef-6232-4b42-ab28-0f9da5449110
+.
+Total count
+The total count of items within the folder. For example:
+11
+.
+Parent ID
+The ID of the parent folder. For example:
+890acb4a-7039-422a-b282-de8211b82447
+.
+Is folder
+Indicates if the item is a folder or not. Values are
+true
+or
+false
+.
+Public links
+The type of public links allowed. For example:
+files_folders
+.
+Restrict move delete
+Indicates if moving or deleting is restricted or not. Values are
+true
+or
+false
+.
+Allow links
+Indicates if linking is allowed or not. Values are
+true
+or
+false
+.
+Folders
+A nested object detailing subfolders, including subfolder names, last modified dates, uploaded timestamps, path, folder ID, and parent ID.
+←
+Download file from selected folder action
+Get object details action
+→
+Last updated:
+3/1/2024, 11:00:51 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

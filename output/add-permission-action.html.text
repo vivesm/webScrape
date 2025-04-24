@@ -1,0 +1,160 @@
+Workato connectors - OneDrive - Add permission action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+OneDrive
+#
+OneDrive - Add permission action
+The
+Add permission
+action adds permission to a file or folder for specified recipients in Microsoft OneDrive.
+#
+Input
+Input fields
+Description
+File/folder
+Provide the file or folder ID. For example,
+01G65C3RKY7QJD67NCMVAYKVFGW3KBGK75
+.
+Role
+Specify the type of permission. Allowed values include
+read
+or
+write
+.
+Recipients
+Input a list datapill to provide an array of recipient email addresses. Only one of these values is required.
+Message
+A plain text formatted message that is included in the sharing invitation. The maximum length is
+2000
+characters.
+Require sign in
+Specifies whether the recipient of the invitation is required to sign-in to view the shared item.
+Send invitation
+Select
+Yes
+to send a sharing link to recipients. Choose
+No
+to grant permissions directly without notifications.
+#
+Output
+Output fields
+Description
+Roles
+An array of roles granted.
+Granted to identities
+Information about the users to whom the permission is granted.
+Granted to
+Information about the user to whom the permission is granted.
+Link
+Information about the sharing link, including scope and type.
+Invitation
+Information about the invitation sent, including email and sign-in requirement.
+←
+New or updated file trigger
+Create folder action
+→
+Last updated:
+1/16/2025, 3:49:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

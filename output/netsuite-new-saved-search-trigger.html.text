@@ -1,0 +1,191 @@
+Workato connectors - NetSuite - New saved search | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite trigger - New saved search trigger
+The
+New saved search
+trigger retrieves new records that meet the criteria of the saved search.
+For example, consider a saved search that fetches customer records with an industry type of
+Hardware
+. A recipe can pick up the trigger event when new customers with this industry type are added. If you update existing customers to the
+Hardware
+industry type, the trigger picks up records where the
+Date created
+value meets the criteria set in the
+When first started, this recipe should pick up events from
+field.
+#
+Configure your NetSuite saved search
+LIMITED SUPPORT
+Due to API limitations, Workato doesn't support certain NetSuite record types. Refer to
+Unsupported records in NetSuite
+for more information.
+Complete the following steps to configure your saved search in NetSuite:
+1
+Configure the columns
+Internal ID
+and
+Date created
+as result columns in the saved search to ensure the trigger works.
+2
+Navigate to the saved search page and edit it.
+Edit the saved search
+3
+Click the
+Results
+tab, navigate to the
+Columns
+section, and add the two fields to the list of columns if they are not already present.
+Add Internal ID and Date created columns in saved search for New trigger
+4
+Remove the
+Dashboard
+column from the saved search results if present. This column causes the trigger to return an error.
+Remove Dashboard column in saved search
+#
+Configure your New saved search trigger
+The configuration for this trigger is similar to the
+New/updated saved search trigger
+configuration.
+Complete the following steps to configure your trigger:
+1
+Use the calendar modal to select the date from which your recipe should begin to monitor events in the
+When first started, this recipe should pick up events from
+field. The recipe only retrieves records created after this date. When an existing record meets the saved search criteria, the recipe processes it only if it has a
+Date created
+value later than this value.
+Configure the new saved search results trigger
+2
+Select the
+Record type
+you plan to monitor.
+3
+Select the
+Saved search
+you plan to monitor for new records.
+SAVED SEARCH MISSING
+Complete the following checks if your saved search is missing from the
+Saved search
+drop-down menu:
+Ensure that the transaction (record) permission in the integration role is present.
+Ensure that the saved search is public or shared.
+Refresh your NetSuite connection to ensure that the trigger is pulling the most recent information.
+4
+Select the
+Record list
+you plan to retrieve in the trigger output.
+5
+Select the data you plan to use in the recipe in the input
+Fields
+. You can enter multiple values. All fields are returned if left blank.
+←
+New and updated records batch trigger
+New custom records in a saved search trigger (batch)
+→
+Last updated:
+8/27/2024, 10:50:12 PM
+On this page
+Configure your NetSuite saved search
+Configure your New saved search trigger
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

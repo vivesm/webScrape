@@ -1,0 +1,168 @@
+On-prem Agent - Monitoring | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem agent
+#
+On-prem Agent monitoring
+Starting with on-prem agent version
+2.14.0
+, you can monitor agents by gathering data and system metrics. This helps you resolve issues due to unstable connections and other technical issues. If the on-prem Agent becomes unstable, on-prem Agent Monitoring helps you find the root cause and re-establish robust and reliable connections. Run the agent with the monitoring option on, and gather additional information regarding agent performance.
+You can view the report online, save it to view offline, or export it as a PDF. You can also run a heap dump.
+After you complete your monitoring tasks, disable the monitoring option and restart the agent.
+#
+Set up On-prem Agent monitoring
+1
+Stop the on-prem agent.
+2
+Start the on-prem agent in monitoring mode and launch a local web server to host the report:
+./bin/run.sh
+--monitoring
+=
+true --mgmt-listen
+=
+127.0
+.0.1:8080
+You can use different port settings.
+3
+Start running recipes, just like for normal agent activity, to gather the metrics.
+4
+In your web browser, navigate to
+http://127.0.0.1:8080/monitoring
+to see the report UI.
+Sample monitoring report
+5
+Examine the report, find the root cause(s) of problems with your on-prem agent, and fix it.
+6
+Stop the agent.
+7
+Restart the agent with monitoring mode disabled:
+./bin/run.sh
+--monitoring
+=
+false
+#
+Viewing the report
+Online report
+In your web browser, navigate to
+http://127.0.0.1:8080/monitoring
+to see the report UI.
+PDF report
+To download the monitoring report in PDF format, click the
+PDF
+link at the top of the report.
+Offline archive report
+To download the offline archive report, expand the right-hand side menu in the monitoring report UI, and click
+Download archive of data
+.
+Heap dump report
+To download the heap dump report, expand the right-hand side menu in the monitoring report UI, and click
+Download Heap Dump
+.
+←
+Logging
+Extensions
+→
+Last updated:
+5/30/2023, 8:29:01 PM
+On this page
+Set up On-prem Agent monitoring
+Viewing the report
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

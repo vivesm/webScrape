@@ -1,0 +1,296 @@
+Workato connectors - Google Workspace | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Google Workspace
+Google Workspace
+(opens new window)
+, formerly known as G Suite, is a collection of cloud computing, productivity, and collaboration tools developed by Google.
+Workato enables you to add, delete, update, fetch, or search for objects, such as users, groups, or roles. For example, when onboarding new employees, you can use the Google Workspace connector to automatically add their details to Google Workspace.
+#
+API version
+The Google Workspace connector uses the
+Google Admin SDK
+(opens new window)
+to connect to admin services.
+#
+How to connect to Google Workspace
+The Google Workspace connector supports the following authentication methods:
+OAuth 2.0
+Service account
+SERVICE ACCOUNT AUTHENTICATION
+You can use a service account to authenticate without a personal user account. For consistent use, Workato recommends service account authentication.
+#
+OAuth 2.0 authentication
+Complete the following steps to connect to Google Workspace using OAuth 2.0 authentication:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Google Workspace
+as your connection.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Select
+OAuth 2.0
+in the
+Authentication type
+drop-down menu.
+6
+Optional. Expand the
+Advanced settings
+section and select OAuth 2.0 scopes to request for your connection.
+In addition to your selected scopes, Workato requests the following scopes by default:
+Description
+Scope requested
+View and manage the provisioning of users on your domain
+admin.directory.user
+View and manage organization units on your domain
+admin.directory.orgunit
+View and manage the provisioning of domains for your customers
+admin.directory.domain
+View and manage the provisioning of user schemas on your domain
+admin.directory.userschema
+View and manage the provisioning of groups on your domain
+admin.directory.group
+View and manage group subscriptions on your domain
+admin.directory.group.member
+View and manage data transfers between users in your organization
+admin.datatransfer
+Manage your mobile devices by performing administrative tasks
+admin.directory.device.mobile.action
+View audit reports for your G Suite domain
+admin.reports.audit.readonly
+View usage reports for your G Suite domain
+admin.reports.usage.readonly
+Manage delegated admin roles for your domain
+admin.directory.rolemanagement
+Manage data access permissions for users on your domain
+admin.directory.user.security
+Refer to Google's
+Directory API scopes
+(opens new window)
+or
+OAuth 2.0 Scopes for Google APIs
+(opens new window)
+guide for more information about scopes.
+7
+Click
+Sign in with Google
+.
+Connect to Google Workspace
+8
+Sign in with your Google account. Your Google account must have admin privileges to make organization-wide changes in Google Workspace.
+9
+Click
+Allow
+to enable Workato to access your Google account.
+Enable Workato to access your Google account
+#
+Service account authentication
+A Google service account is a specialized Google account associated with a Google Cloud Project (GCP) that can run API requests on your behalf.
+Service accounts provide the following benefits:
+Continuous operation:
+Service accounts ensure that operations continue even if individual user permissions change.
+Dedicated permissions:
+Service accounts can only access projects that you share with them.
+Dedicated API quotas:
+You can manage a service account's API quotas through GCP and request quota increases directly from Google.
+Refer to the
+Google service account documentation
+(opens new window)
+to learn more about service accounts.
+Input field
+Description
+Connection name
+Provide a name that identifies the Google Workspace instance where Workato is connected.
+Location
+Select the location where you plan to store your connection.
+Authentication type
+Select
+Service account
+as your authentication type.
+GCP project service account email
+Enter the service account's email address.
+Private key
+Enter the private key obtainable from the downloadable JSON. Include both the
+-----BEGIN PRIVATE KEY-----
+to
+-----END PRIVATE KEY-----\n
+.
+User email
+Enter the email address of the user account to impersonate. Workato performs actions on behalf of the impersonated email through the authenticated service account.
+#
+Set up a Google service account
+Complete the following steps to set up a Google service account:
+1
+Create a service account
+(opens new window)
+in your GCP project.
+2
+Go to
+IAM & Admin > Service accounts
+. Ensure your dashboard is scoped to the project that contains your service account.
+Check the scope of your dashboard.
+3
+Click the
+Email
+of the service account you intend to use.
+Click the
+Email
+of the service account you intend to use.
+4
+Copy the service account's
+Email
+and save it to configure your connection later.
+Copy the account's
+Email
+.
+5
+Go to the
+KEYS
+tab.
+6
+Generate a private key
+(opens new window)
+and download it in JSON format. You can only download the key once.
+7
+Open the JSON file, then copy the entire private key from
+-----BEGIN PRIVATE KEY-----
+to
+-----END PRIVATE KEY-----\n
+(inclusive) and save it to configure your connection later.
+Enable the Google Workspace API, then return to Workato to finish setting up your connection.
+REQUIRED SCOPES FOR SERVICE ACCOUNT AUTHENTICATION
+To successfully connect to Google Workspace using a service account, the following permissions are required:
+admin.directory.user
+admin.directory.orgunit
+admin.directory.domain
+admin.directory.group
+admin.directory.group.member
+admin.datatransfer
+admin.directory.device.mobile.action
+admin.directory.userschema
+admin.reports.audit.readonly
+admin.reports.usage.readonly
+admin.directory.rolemanagement
+admin.directory.user.security
+The service account impersonates the user based on the email input provided during the connection setup after authentication is complete.
+←
+Translate text action
+New admin activity event trigger
+→
+Last updated:
+4/11/2025, 9:03:48 PM
+On this page
+API version
+How to connect to Google Workspace
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

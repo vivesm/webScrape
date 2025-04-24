@@ -1,0 +1,238 @@
+Managed File Transfer (MFT) Capabilities | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+#
+Managed File Transfer (MFT) Capabilities
+Workato's Managed File Transfer (MFT) capabilities offer a secure, automated, and scalable solution for transferring files across systems. These capabilities ensure reliable, compliant, and efficient file transfers. The following key features support these capabilities:
+Automated file transfers:
+Automate file transfers based on schedules, recurring intervals, or specific events, such as file uploads or condition changes, to streamline operations.
+Secure file transfers:
+Use encryption and secure protocols (FTPS, SFTP, HTTPS) to protect data and prevent unauthorized access during file transfers.
+Centralized monitoring:
+Monitor, manage, and track file transfers in real time through dashboards and reports, providing visibility into performance and status.
+Reliability and error handling:
+Ensure consistent transfers with automatic retries and error notifications to minimize disruptions from network failures.
+Audit and compliance:
+Maintain detailed logs and audit trails to help meet regulatory requirements, such as HIPAA, GDPR, and PCI DSS.
+#
+Workato FileStorage
+Workato FileStorage provides an in-house file storage solution that stores and manages files within the Workato platform. It integrates with recipes to support file transfer workflows. The following capabilities enable FileStorage to enhance Managed File Transfer (MFT) processes:
+Centralized storage:
+Store files in a secure, centralized repository, which enables you to access and organize files efficiently for transfers.
+Scalability:
+Support large file volumes. You can store, retrieve, and transfer files quickly as demands increase.
+Secure transfers:
+Transfer files securely between internal and external systems. Use protocols such as SFTP, FTPS, and HTTPS to protect data.
+Automated transfers:
+Trigger file transfers based on certain conditions, such as when a file is added or modified. You can automate file movement to eliminate manual work.
+Cross-platform file syncs:
+Sync files with external cloud storage solutions such as AWS S3 and Google Cloud Storage. You can connect with on-premises systems and services such as Google Drive, Box, SFTP, and FTPS.
+Data enrichment:
+Enrich or transform files before transfers. This allows you to add metadata, update fields with external data, or apply custom modifications to meet recipient system requirements.
+Workato FileStorage embeds into business workflows and supports complex file transfers across teams and systems.
+Refer to the
+FileStorage
+section for more information.
+#
+Transfer scheduling and pre/post processing
+Workato's Managed File Transfer (MFT) capabilities provide flexible, automated bulk file transfers with configurable pre- and post-processing operations. The following transfer types and operations support diverse file transfer needs:
+Real-time or event-based transfers:
+Initiate transfers when a system creates, updates, or modifies files, or when files meet specific conditions, such as file movement or content change. This enables you to transfer files between systems in real-time.
+Scheduled transfers:
+Set up recurring transfers based on a predefined schedule, such as daily, weekly, or monthly. Use cron expressions to define custom timing.
+On-demand or manual transfers:
+Trigger ad hoc transfers at any time. You can execute file transfers immediately in response to specific needs.
+Pre-processing and post-processing operations:
+Validate, transform, or modify files before and after transfers. Configure these operations to ensure proper file handling across systems.
+#
+File tools for automation
+Workato's File tools extend Managed File Transfer (MFT) capabilities by optimizing file transfers, transformations, and automations. The following features support automated file operations:
+File compression and decompression:
+Compress multiple files into a ZIP archive to reduce storage and optimize network usage. You can extract ZIP files to access and process their contents.
+File transformation:
+Convert file formats to meet system requirements. This allows you to parse or transform CSV, XML, and JSON files into compatible formats for seamless data exchange.
+Automated file retrieval:
+Download files from external URLs or remote servers. Pull files into workflows automatically to initiate downstream processes.
+Refer to the
+File tools by Workato
+section for more information.
+#
+Encryption and key management
+Workato ensures secure file storage and transfers by using encryption and robust key management. The following capabilities protect data across all transfer stages:
+Data encryption at rest:
+Uses AES-256 encryption to secure stored files.
+Data encryption in transit:
+Supports TLS 1.2+ encryption to ensure secure data transfers.
+Key management:
+Integrates with enterprise key management systems (KMS) to provide secure encryption key handling.
+Decryption support:
+Automatically decrypts incoming encrypted files based on predefined policies.
+File integrity verification:
+Uses hashing mechanisms (SHA-256) to ensure files remain unaltered during transfers.
+#
+PGP encryption and decryption
+Workato MFT tools support PGP (Pretty Good Privacy) encryption and decryption to secure file transfers. The following capabilities protect file confidentiality and authenticity:
+Encryption before transfer:
+Encrypt files using a recipient’s PGP public key before sending.
+Decryption after receipt:
+Decrypt incoming files using a PGP private key after receiving.
+PGP signing:
+Sign files to verify sender authenticity and ensure data integrity.
+PGP key management:
+Generate, store, and distribute PGP keys using built-in key management tools.
+Automated workflows:
+Encrypt and decrypt files automatically as part of pre- and post-processing rules.
+Refer to the
+PGP encryption
+section for more information.
+#
+Monitoring and troubleshooting
+Workato MFT capabilities provide real-time monitoring and detailed reporting to track file transfers and diagnose issues. The following features support operational visibility and troubleshooting:
+Job reporting dashboards:
+Monitor file transfers in real time. Track process execution, view success and failure statuses, and identify issues quickly.
+Workato Insights integration:
+Build custom reports and dashboards to analyze file transfer performance, detect failures, and uncover trends.
+#
+Retries and error handling
+Workato retry mechanisms detect errors and resolve failures to maintain reliable file transfers during execution. The following capabilities support error recovery and process continuity:
+Automatic retries for transient errors:
+Retry failed transfers automatically when temporary issues occur, such as network disruptions or rate limits. Configure retry attempts and intervals as needed. Refer to the
+auto-retry
+documentation for more information.
+Custom retry logic:
+Define retry conditions based on error codes or responses. This enables you to control retry behavior to match specific error-handling requirements.
+Error monitoring and notifications
+: Monitors errors and triggers retries or skips steps. You can send custom email alerts with detailed error information to alert teams and drive prompt resolution.
+Refer to the
+Error handling and monitoring
+section for more information.
+#
+Compliance and auditing
+Workato ensures secure and compliant Managed File Transfer (MFT) operations with built-in compliance and auditing features:
+Compliance certifications:
+Workato meets industry standards such as PCI-DSS, ISO 27001 & 27701, SOC 1/2, and HIPAA. These certifications support secure file transfers in regulated industries. Refer to the
+Security compliance certifications
+section to learn more.
+Data retention:
+Workato retains file transfer job data for 30 to 90 days, depending on the plan. This ensures data availability for review, recovery, or reprocessing. Refer to the
+Data retention policies
+section for more information.
+Audit logs:
+Activity logs track all platform actions, including user activity and system events. Workato stores these logs for up to one year to support compliance and detailed tracking. Refer to the
+Activity audit log
+section for more information.
+←
+SQL Collection by Workato FAQs
+File tools by Workato
+→
+Last updated:
+4/11/2025, 9:10:57 PM
+On this page
+Workato FileStorage
+Transfer scheduling and pre/post processing
+File tools for automation
+Encryption and key management
+PGP encryption and decryption
+Monitoring and troubleshooting
+Retries and error handling
+Compliance and auditing
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

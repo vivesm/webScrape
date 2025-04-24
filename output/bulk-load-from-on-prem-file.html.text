@@ -1,0 +1,205 @@
+Workato connectors - Bulk Load From On-prem File | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SQL Server
+#
+SQL Server - Bulk load from on-prem file
+This action efficiently loads an on-prem CSV data file into a specific table in SQL Server. The source CSV data file should be accessible by the
+On-prem Files
+connector.
+OPA required
+This action requires a connection using Workato on-prem agent. Find out more about on-prem connectivity
+here
+.
+#
+Input
+Field
+Description
+Table name
+The name of the target table to load the data. The table schema should be identical to the schema of the input CSV file.
+File URL
+The
+on-prem file url
+that references a CSV file located in the on-prem agent.
+Allow partial inserts on error?
+If
+No
+, then no data is inserted if an error occurs. If
+Yes
+, then all the data up to the point of the errored row is inserted. Defaults to
+No
+.
+#
+Advanced configuration
+Field
+Default
+Description
+First row number
+1
+The first row where your data begins. This is 1-based index. If your data contains a header row, set this to 2 to skip the header row.
+Field quote
+double-quote
+The quote character for the source CSV.
+Field terminator
+Tab character
+The field terminator for the source CSV.
+Batch size
+10,000
+Sets the number of rows in each transaction. Rows will be gradually inserted across multiple transactions, batch by batch. Advanced users can customize this to control memory usage and optimize loads.
+Insert in a single batch?
+No
+If set to Yes, then all rows are inserted in a single batch and
+Batch size
+is ignored.
+Last row number
+0
+Zero-indexed last row number, represented as an offset from the actual last row of the CSV file. Use this to omit rows from being loaded.
+Fire triggers
+No
+Indicate if triggers on the table should be fired after the data has been loaded successfully.
+Keep null values
+Yes
+Indicate how to treat empty values in the file. If
+No
+, default values will be inserted. If
+Yes
+,
+NULL
+values are inserted.
+Data file type
+char
+Defines the character encoding for the data file.
+#
+Output
+Field
+Description
+Destination table
+Name of the table where the rows were inserted.
+Rows parsed
+Number of rows read from source file
+Rows loaded
+Number of rows loaded
+Status
+Loaded
+- all rows loaded successfully
+Load failed
+- Unsuccessful load, and nothing was loaded
+Partially loaded
+- Unsuccessful load, and some rows were loaded
+Timeout
+- Execution timed out (24 hour timeout)
+First error line
+First row where the error occurred, if any
+First error character
+The index of the character where the error occurred, if any
+First error column name
+The name of the column for the field where the error occurred, if any
+←
+Replicate Action
+Run Custom SQL Action
+→
+Last updated:
+11/5/2024, 6:21:40 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

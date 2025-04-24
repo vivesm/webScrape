@@ -1,0 +1,206 @@
+オンプレミスエージェント - オンプレミスエージェントの実行 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+オンプレミス接続
+オンプレミスエージェント
+#
+オンプレミスエージェントの実行
+オンプレミスエージェントでは、ネットワーク内で実行されているエージェントと、Workato の
+オンプレミスグループダッシュボード
+(opens new window)
+との間に有効な接続が必要です。
+この接続は一時的に無効にしなければならないことがあります。たとえば、オンプレミスエージェントを再起動したり、
+アップグレード
+したりする場合です。
+#
+オンプレミスエージェントの無効化
+オンプレミスエージェントを無効にするには、[
+Disable agent
+] を選択します。
+オンプレミスエージェントを一時的に無効化
+#
+オンプレミスエージェントとの接続の再確立
+Workato にオンプレミスエージェントを再接続するには、以下の手順を実行する必要があります。ご使用のネットワークのオペレーティングシステムに応じた手順に従ってください。
+#
+Linux 64ビットおよび Mac OS X での実行
+オンプレミスエージェントが Linux または Mac OS にインストールされている場合は、以下の bash スクリプトを使用してオンプレミスエージェントを実行します。
+sh
+<
+INSTALL_HOME
+>
+/bin/run.sh
+SSH を介してサーバーにアクセスし、シェルセッションから独立してバックグラウンドでエージェントを実行する場合は、最後に nohup コマンド (
+&
+) を追加できます。出力がログに記録されるように、
+> file_name
+コマンドを追加することもできます。
+sh
+<
+INSTALL_HOME
+>
+/bin/run.sh
+>
+opa_output.txt
+&
+OPA ログの詳細度は、設定に応じて異なります。詳細については、
+こちら
+を参照してください。
+#
+Windows 64ビットでの実行
+オンプレミスエージェントが Windows にインストールされている場合は、Windows コンソールアプリケーションまたは
+Windows サービス
+としてエージェントを実行します。
+スタートメニューで [
+Workato
+]、[
+Run Agent (console)
+] の順に選択し、オンプレミスエージェントをコンソールモードで実行します。
+または、[
+Run Agent (console)
+] ショートカットを選択して、エージェントが指定された証明書を使用して Workato に正常に接続するようにすることもできます。
+#
+Windows サービスの使用
+インストーラーにより、エージェント (
+WorkatoAgent
+) は自動的に Windows サービスとして登録されます。ただし、エージェントは自動的に開始されません。サービス設定 (
+[コントロールパネル] → [システムとセキュリティ] → [管理ツール] → [サービス] → [WorkatoAgent]
+) に移動して、サービスの自動開始を設定してください。
+#
+ログファイルの参照
+オンプレミスエージェントが Windows サービスとして実行されている場合、ログファイルは
+%SYSTEMROOT%\System32\LogFiles\Workato
+で確認できます。スタートメニューの
+Workato
+グループには、Workato ログディレクトリへのショートカットもあります。
+OPA ログの詳細度は、設定に応じて異なります。詳細については、
+こちら
+を参照してください。
+#
+ログファイルの保存場所の変更
+ログファイルの保存場所を変更するには、スタートメニューの [
+Workato
+]、[
+Service Wrapper Configuration
+] の順に選択します。[
+Logging
+] タブに移動すると、
+Log path
+を変更できます。
+#
+オンプレミスエージェントの再接続
+接続の再確立を終了するには、オンプレミスグループダッシュボードを開き、オンプレミスエージェントに接続します。
+手順
+説明
+エージェントの有効化
+Workato のオンプレミスグループダッシュボードで、[
+Enable agent
+] を選択します。
+接続の確立
+Workato は、接続を確立するためのリクエストをオンプレミスエージェントに送信します。接続が正常に確立されると、ステータスは [
+Active
+] に戻ります。
+←
+エージェントの設定
+エージェントの停止
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+オンプレミスエージェントの無効化
+オンプレミスエージェントとの接続の再確立
+Windows 64ビットでの実行
+オンプレミスエージェントの再接続
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

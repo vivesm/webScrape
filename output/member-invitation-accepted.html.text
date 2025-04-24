@@ -1,0 +1,157 @@
+RecipeOps - Member invitation accepted trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+RecipeOps by Workato
+#
+RecipeOps - Member invitation accepted trigger
+This trigger monitors for accepted member invitations in the workspace.
+#
+Input
+Field
+Description
+Invitations to monitor
+Select invitations to monitor for acceptance.
+#
+Output
+Field
+Description
+Invitation ID
+The ID of the invitation.
+User ID
+The workspace ID where the invitation was accepted.
+Email
+The email of the user who accepted the invitation.
+Name
+The name of the user who accepted the invitation.
+Role
+The name of the collaborator role assigned to the user who accepted the invitation.
+Invitation sent at
+The time the invitation was sent.
+Joined at
+The time the user accepted the invitation.
+Team
+Details about the team the user joined.
+This field has some additional sub-fields:
+Field
+Description
+Team ID
+The team's ID.
+Team name
+The team's name.
+Owner ID
+The ID of the user who owns the team.
+#
+Resources
+RecipeOps overview
+RecipeOps actions
+RecipeOps triggers
+←
+Job failed
+New deployment submitted for review
+→
+Last updated:
+10/16/2024, 8:58:34 PM
+On this page
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

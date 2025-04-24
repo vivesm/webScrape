@@ -1,0 +1,237 @@
+Workato connectors - SAP Ariba | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+SAP Ariba
+SAP Ariba
+(opens new window)
+is a leading procurement and supply chain management solution. It provides a platform for managing procurement, sourcing, supplier collaboration, and financial supply chain processes, enhancing operational efficiency and transparency. This connector enables seamless integration between SAP Ariba and other applications for automated workflows.
+#
+Prerequisites
+Before using the SAP Ariba connector in Workato, ensure you have an active SAP Ariba account with appropriate permissions to access APIs.
+#
+Request API enablement
+Complete the following steps to request API enablement as user with developer or organization admin privileges:
+1
+Sign in to the
+SAP Ariba Developer Portal
+.
+2
+Click
+Manage
+from the navigation menu.
+3
+Click
+Applications
+.
+4
+Search for the application you plan to have enabled.
+5
+Click
+Actions > Request API Access
+.
+6
+Select the API name in the
+API Names
+drop-down. This is the API that you plan to access when using this application.
+7
+Enter the realm name in the
+Realm Name
+field. This is the site for which you plan to have the application enabled.
+8
+Enter the ANID in the
+ANID
+field.
+9
+Select the radio button corresponding to the
+realm type
+. Available options include production or test.
+10
+Click
+Submit
+.
+#
+Approve an API enablement request
+Complete the following steps to approve the API enablement request.
+The following steps must be taken by a user with the organization admin privilege:
+1
+Click
+Manage
+in the left navigation menu.
+2
+Click
+Applications
+.
+3
+Search for the application.
+4
+Click
+Approve
+.
+WAITING PERIOD FOR API ENABLEMENT
+It can take 12 hours for SAP to enable the API. When ready, the application's Client ID is listed under the
+Account Settings > API Management
+section within your Ariba account.
+Refer to the
+SAP Business Accelerator
+(opens new window)
+Hub for the API list and reference documents.
+#
+Connection setup
+Establishing a connection to SAP Ariba in Workato consists of the following steps:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+SAP Ariba
+as your connection in the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Select an
+Application
+from the drop-down menu.
+6
+Provide the
+Client ID
+generated from the SAP Ariba Developer Portal.
+7
+Provide the
+Client Secret
+generated from the SAP Ariba Developer Portal. This, along with the Client ID, is used to authenticate API requests securely.
+8
+Enter the
+API Key
+generated from the SAP Ariba Developer Portal. It is required to authorize API calls and link them to your account.
+9
+Enter the unique realm identifier for your SAP Ariba environment in the
+x-realm
+field. This ensures API requests are routed to the correct instance of your SAP Ariba setup.
+10
+Enter the Ariba Network ID (
+ANID
+) associated with your organization. This unique identifier is used to establish communication and link your organization within the Ariba Network.
+11
+Click
+Connect
+.
+Connect to SAP Ariba in Workato
+←
+Upload PBIX file action
+List objects action
+→
+Last updated:
+12/20/2024, 4:16:45 PM
+On this page
+Prerequisites
+Connection setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

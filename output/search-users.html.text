@@ -1,0 +1,171 @@
+Workato connector - Gong - Search users | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Gong
+#
+Gong Connector - Search users
+This action will search users in Gong. It searches for users in Gong via their Gong internal IDs.
+#
+Input
+Field
+Description
+User IDs
+List of users to be filtered. If not supplied, all users are returned.
+#
+Output
+User specific output fields will be dynamically rendered base on the users returned. A sample response structure is below.
+Field
+Description
+Users
+A list of following fields for each user
+Active
+Field indicating whether the user is currently active.
+Created
+Datetime when the user was created.
+Email address
+Email address of the user.
+Email alias
+List of email aliases of the user.
+First name
+First name of user.
+Last name
+Last name of user.
+Title
+Title of the user.
+ID
+UUID of the user.
+Manager ID
+UUID of the manager.
+Personal meeting urls
+List of personal meeting urls of the user.
+Meeting consent page url
+Meeting consent page url of the user.
+Extension
+Extension of the phone number of the user.
+Phone number
+User's phone number.
+Settings
+Object containing the relevant settings of a user's gong account.
+List Size
+The list size of the call transcripts.
+List Index
+An index for each item in the list of call transcripts.
+Records
+Metadata of the response
+Current page number
+Necessary for repeat requests to ensure pagination.
+Current page size
+Number of records on the current page.
+Cursor
+UUID necessary for pagination.
+Total Records
+Total number of records that can be queried.
+←
+Search calls
+Google BigQuery
+→
+Last updated:
+8/15/2022, 9:31:44 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

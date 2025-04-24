@@ -1,0 +1,141 @@
+Workato connectors - Workday scheduled report using WQL trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Workday
+#
+Scheduled report using WQL trigger
+#
+What is WQL?
+Workday Query Language (WQL) is a SQL-like query language offering higher-performing Workday data querying capabilities. Since WQL is SQL-like, you may construct the query manually within Workday, or convert an existing report to WQL using the "Convert report to WQL" option.
+#
+WQL vs. RaaS
+Both Workday Report-as-a-Service (RaaS) and WQL support retrieval of large volumes of information. However, unlike Workday RaaS which returns the result one-shot, WQL supports pagination. This provides both data retrieval flexibility and performance improvements.
+#
+Inputs
+Scheduled report using WQL
+Input field
+Description
+Report WQL
+required
+Provide WQL of the report from the Convert Report to WQL action in Workday. Otherwise, construct the WQL manually in Workday.
+Count
+Set the count of the objects to be retrieved in a single batch/page, up to 1000. Minimum is 200. If left blank, defaults to 200.
+Report columns
+Override the default report schema with your own custom report schema.
+#
+Outputs
+The output of this action is presented as an array. Each element in this array corresponds to a row in the report. Similarly, each column in your report will be rendered as a field in the report output array.
+If you configured a custom schema in
+Report columns
+, the custom report columns will be reflected as datapills.
+←
+Scheduled report trigger
+Call operation action
+→
+Last updated:
+8/8/2023, 4:32:41 PM
+On this page
+What is WQL?
+WQL vs. RaaS
+Inputs
+Outputs
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

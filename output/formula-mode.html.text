@@ -1,0 +1,151 @@
+formula モード | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+レシピデータの変更
+#
+formula モード
+formula を使用するには formula モードにする必要があります。formula モードは項目レベルで切り替える必要があり、これはほとんどの入力項目でサポートされています。
+テキストモードから formula モードに切り替えるには、入力項目の右上にある [
+formula
+] をクリックします。これにより背景色が変わり、formula モードになっていることがわかります。左側の型アイコンも
+fx
+に変わります。
+formula モードが
+fx
+という記号で表示されている
+入力項目が formula モードに切り替わると、文字列入力項目のアイコンが文字列型から
+formulas
+型に変わります。
+formula モードでは、formula エディタに、データの変換や操作に使用できるホワイトリストで許可された formula が表示されます。また、formula の使用方法に関するヘルプも表示されます。
+#
+表示される formula をデータ型でフィルタリングする
+formula エディタでは、データピルの型に固有の formula が表示されます。各データピルの型については、
+こちらの記事
+を参照してください。
+formula モードで入力項目に文字列型のデータピルをドロップすると、文字列に適用できる formula がエディタに表示されます。
+formula エディタに文字列 formula の一覧が表示されている
+#
+formula のヒントと構文
+formula を選択すると、その詳細な説明が表示されます。説明には、この formula の使用方法と使用例が記載されています。
+split formula の詳細説明とヒント
+#
+テキストモードと formula モードの違い
+テキストモードでは、テキストとピルを簡単に入力項目にマッピングでき、出力されるテキストは指定したとおりの形になります。一方、formula モードでは、テキストを明示的に整形する必要があります。
+Salesforce で新規のリードにメールを送るレシピの例を使って説明しましょう。「Madison Diaz」というリードが作成されたときに、次のようなメールを送信する場合を考えます。
+Hi Madison,
+Thanks for joining our mailing list! We're excited to have you!
+テキストモードの場合、[
+Message
+] は次のような形にするだけです。
+テキストモードのメール。
+サンプルレシピ
+(opens new window)
+formula モードの場合、次のような正しい文字列構文にする必要があります。
+formula モードのメール。
+サンプルレシピ
+(opens new window)
+←
+List操作
+formula への条件の追加
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+表示される formula をデータ型でフィルタリングする
+formula のヒントと構文
+テキストモードと formula モードの違い
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

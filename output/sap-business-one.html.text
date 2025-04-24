@@ -1,0 +1,238 @@
+Workato connectors - SAP Business One | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+SAP Business One
+SAP Business One
+(opens new window)
+is an enterprise resource planning (ERP) solution designed for small and medium-sized businesses. It centralizes key business functions such as financial management, sales, inventory, and customer relationship management, enabling streamlined operations and improved decision-making.
+This connector supports connecting through on-premise agents to support the SAP Business One deployment behind the company firewall.
+#
+Prerequisites
+To establish a connection to SAP Business One you must have the following:
+SAP Business One Version 10.0 or above.
+Alternatively
+, this connector is compatible with older versions of SAP Business One starting at version 9.1 and above if the instance uses SAP HANA as the underlying database.
+An active SAP Business One user account.
+Additionally, to use this connector, the SAP Business One Service Layer must be installed and set up in SAP Business One.
+#
+User accounts
+You can create user accounts in SAP Business One by navigating to
+Administration > Setup >General > Users
+.
+Refer to the official
+SAP help documentation
+(opens new window)
+for detailed steps on creating user accounts.
+User accounts
+#
+Connection setup
+Establishing a connection to SAP Business One in Workato consists of the following steps:
+Step 1: Connect to SAP on-premise systems
+Step 2: Complete setup in Workato
+#
+Step 1: Connect to SAP on-premise systems
+Complete the following steps to connect to the SAP On-premise system using an
+On-premise agent
+:
+1
+Navigate to the OPA installation file structure that allows you to grant agent access to
+HTTP resources
+.
+2
+Navigate to the
+config
+directory and configure your
+config.yml
+file.
+3
+For development environments, you can test your connection by maintaining the following entry in the
+config.yml
+file located in the OPA installation directory
+conf
+folder:
+http
+:
+trustAll
+:
+true
+verifyHost
+:
+false
+4
+Alternatively, if you plan to connect to the SAP on-premise systems without an on-prem agent, then you can allow traffic from Workato by allowlisting these
+IP addresses
+(opens new window)
+for HTTPS port in the inbound rules of the SAP server's firewall.
+#
+Step 2: Complete setup in Workato
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+SAP Business One
+as your connection in the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Select a
+Connection type
+from the drop-down. Choose an on-premise agent if your SAP instance is running in a network that does not allow direct connection.
+Before you connect, ensure you have an active on-premise agent. Refer to the On-premise agent guide
+(on-premise agent guide)
+(opens new window)
+for more information.
+If you select
+Cloud
+, requests are sent directly from Workato's servers.
+6
+Provide a
+Server name
+. This can be either a DNS name or an IP address. If present, this describes a direct connection to the SAP host. It can be in the format
+xx.xx.xx.xx
+. If you choose to provide an IP address, use the IP address of the SAP Business One application you are directly connecting to.
+7
+Provide the SAP Business One service layer port in the
+Port
+field. This is typically
+50000
+.
+8
+Provide the Company database in the SAP Business One application that you plan to connect with in the
+Company DB
+field.
+9
+Supply the provisioned SAP user's name in the
+User name
+field.
+10
+Enter your SAP user password in the
+Password
+field.
+11
+Click
+Connect
+.
+Connection setup
+←
+Search objects action
+New/updated record trigger
+→
+Last updated:
+12/19/2024, 4:17:25 PM
+On this page
+Prerequisites
+User accounts
+Connection setup
+Step 1: Connect to SAP on-premise systems
+Step 2: Complete setup in Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,1088 @@
+Workato コネクター - OpenAPI のデフォルトのコネクション項目についてのリファレンス | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+ユニバーサルコネクター
+OpenAPI
+#
+OpenAPI のデフォルトのコネクション項目についてのリファレンス
+OpenAPI コネクターを使用してカスタムコネクターを作成
+する場合、コネクションの設定時にエンドユーザーに表示される項目は、コネクターの作成者が制御します。
+このガイドは、
+ユニバーサル OpenAPI コネクター
+のデフォルトのコネクション項目についてのリファレンスです。
+#
+項目リファレンスドキュメント
+このガイドでは、OpenAPI コネクターの各コネクション項目に、それぞれ独自のセクションが割り当てられています。各セクションには次の情報が含まれています。
+説明
+項目の説明
+UI 名
+Workato で表示される項目名。例 :
+Authentication ｍethod
+ソースコード名
+コネクターのソースコード内でのフィールド名。例 :
+auth_method
+必須
+項目が必須であるかどうか
+#
+必須項目
+コネクション項目はカスタマイズ可能ですが、
+カスタム OpenAPI コネクター
+を正しく設定するには、
+connection.fields
+または
+adjust_connection
+に以下の項目が指定されている必要があります。
+Authentication ｍethod
+(
+auth_method
+)
+Basic auth user
+(
+basic_auth_user
+)
+*
+Document content
+(
+definition_content
+)
+*
+OpenAPI document source
+(
+definition_mode
+)
+Document URL
+(
+definition_url
+)
+*
+Header authorization
+(
+auth_headers
+)
+*
+OAuth2 authorization URL
+(
+authorization_url
+)
+*
+OAuth2 token URL
+(
+token_url
+)
+*
+Client ID
+(
+client_id
+)
+*
+Client Secret
+(
+client_secret
+)
+*
+Username
+(
+username
+)
+*
+Password
+(
+username
+)
+*
+Query param authorization
+(
+query_params
+)
+*
+Server URL
+(
+base_url
+)
+*
+は、その項目が別の項目に依存していることを示しています。詳細については、その項目のドキュメントを参照してください。
+#
+Allow Long Field Hints
+No
+に設定すると、オブジェクトヒントが1段落に切り詰められます。デフォルトは
+No
+です。
+UI 名
+Allow long field hints
+ソースコード名
+advanced.allow_multi_paragraph_hint
+必須
+いいえ
+#
+Authentication Method
+これは
+必須項目
+です。
+コネクションが使用する認証方法です。
+この項目の値により、認証のためにユーザーが指定する必要があるその他の値が決まります。
+none
+(その他の入力は不要)
+basic
+(
+Basic auth user
+および
+Basic auth password
+を参照)
+header
+(
+Header authorization
+を参照)
+query
+(
+Query param authorization
+を参照)
+oauth2_client_credentials
+(
+OAuth2 token URL
+、
+How does the API require credentials to be sent to request a token?
+、
+Client ID
+、
+Client Secret
+および
+Scopes
+を参照)
+oauth2_authorization_code
+(
+OAuth2 authorization URL
+、
+OAuth2 token URL
+、
+How does the API require credentials to be sent to request a token?
+、
+Client ID
+、
+Client Secret
+および
+Scopes
+を参照)
+oauth2_resource_owner_password
+(
+OAuth2 token URL
+、
+Client ID
+、
+Client Secret
+、
+Username
+、
+Password
+および
+Scopes
+を参照)
+サポートされている認証方法の詳細については、
+「OpenAPI コネクターの認証」ガイド
+を参照してください。
+UI 名
+Authentication ｍethod
+ソースコード名
+auth_method
+必須
+はい
+#
+Basic Auth User
+これは
+必須項目
+です。
+アプリケーションのユーザー名またはアカウント名。
+UI 名
+Basic auth user
+ソースコード名
+basic_auth_user
+必須
+Authentication ｍethod
+が
+basic
+に設定されている場合は必須。
+#
+Basic Auth Password
+ユーザーのパスワード。ユーザーパスワードの代わりに、アカウント設定から取得した API キーまたは API トークンを使用することもできます。
+この情報は秘密にしておく必要があります。
+UI 名
+Basic auth password
+ソースコード名
+basic_auth_password
+必須
+いいえ
+#
+Schema Depth Limit
+入出力スキーマの記述に含まれる、入れ子になった項目の最大深度を定義します。
+UI 名
+Schema depth limit
+ソースコード名
+advanced.max_schema_depth
+必須
+いいえ
+入れ子になった項目の制限
+入出力スキーマ内に入れ子になった項目が多すぎると、コネクターを使用するのが難しくなる場合があります。
+たとえば、
+company
+(会社) オブジェクトが別の
+company
+オブジェクトである
+parentCompany
+(親会社) というプロパティを持ち、その親会社がさらに別の
+parentCompany
+を持つといった場合があります。
+Schema depth limit
+と
+Schema recursion limit
+を使うことで、このような入れ子が無限に続くのを防ぐことができます。
+#
+Schema Recursion Limit
+入出力スキーマの記述に含まれる再帰的スキーマ定義の最大深度を定義します。
+UI 名
+Schema recursion limit
+ソースコード名
+advanced.max_recursion_depth
+必須
+いいえ
+入れ子になった項目の制限
+入出力スキーマ内に入れ子になった項目が多すぎると、コネクターを使用するのが難しくなる場合があります。
+たとえば、
+company
+(会社) オブジェクトが別の
+company
+オブジェクトである
+parentCompany
+(親会社) というプロパティを持ち、その親会社がさらに別の
+parentCompany
+を持つといった場合があります。
+Schema depth limit
+と
+Schema recursion limit
+を使うことで、このような入れ子が無限に続くのを防ぐことができます。
+#
+Document content
+これは
+必須項目
+です。
+OpenAPI ドキュメントの内容です。フォーマットは JSON または YAML です。OpenAPI v2 および v3 をサポートします。
+UI 名
+Document content
+ソースコード名
+definition_content
+必須
+OpenAPI document source
+が
+content
+に設定されている場合は必須。
+#
+Documentation Links
+アプリケーションドキュメント、ユーザーガイド、または企業 Web サイトへのリンクです。このドキュメントリンクは、コネクターのトリガーまたはアクションのヘルプテキストで提供されます。
+UI 名
+Documentation link
+ソースコード名
+advanced.documentation_href
+必須
+いいえ
+#
+OpenAPI Document Source
+これは
+必須項目
+です。
+OpenAPI ドキュメントが、コネクターにどのように提供されるかを定義します。推奨されるのは、URL からロードする方法です。それ以外に、ファイル内容をコピーして貼り付ける方法もあります。
+この項目の値により、ユーザーが指定する必要があるその他の値が決まります。以下のいずれかである必要があります。
+url
+(
+Document URL
+を参照)
+content
+(
+Document content
+を参照)
+UI 名
+OpenAPI document source
+ソースコード名
+definition_mode
+必須
+はい
+#
+Document URL
+これは
+必須項目
+です。
+この URL は、常にパブリックにアクセス可能である必要があります。将来的にドキュメント自体が変更された場合は、それが Workato レシピエディターに自動的に表示されます。このドキュメントは JSON 形式または YAML 形式である必要があります。OpenAPI v2 および v3 をサポートします。
+UI 名
+Document URL
+ソースコード名
+definition_url
+必須
+OpenAPI document source
+が
+url
+に設定されている場合は必須。
+#
+External Documentation Links
+これが定義されていると、オブジェクト項目の説明を、API リファレンスやドキュメントなどの外部 Web サイトにリンクさせることが可能になります。
+詳細と例については、
+「OpenAPI ユーザーインターフェイスのカスタマイズ」ガイド
+を参照してください。
+UI 名
+External documentation links
+ソースコード名
+advanced.external_links
+必須
+いいえ
+#
+Filter API Endpoints
+エンドポイントをフィルタリングするための規則を定義します。
+UI 名
+Filter API endpoints
+ソースコード名
+advanced.endpoint_filter_rules
+必須
+いいえ
+#
+サンプル
+{
+...
+"advanced"
+=>
+{
+"endpoint_filter_rules"
+=>
+[
+{
+"type"
+=>
+"include"
+,
+"operation_id"
+=>
+"createPet"
+}
+,
+...
+]
+}
+...
+}
+API エンドポイントのフィルター規則
+フィルター規則として
+include (一致)
+や
+exclude (除外)
+を使うことができます。
+また、HTTP メソッド (
+http_method
+)、タグ (
+tag
+)、操作 ID (
+operation_id
+)、URL パス (
+Path
+) に基づくフィルタリングも可能です。
+#
+Header Authorization
+API リクエストに追加するヘッダーのリストです。
+通常のユーザー名とパスワード/API キーに加えてヘッダーを必要とするアプリケーションの場合、またはリクエスト内で送信されるヘッダーをカスタマイズしたい場合に使用します。ヘッダー認証は、生成済みのトークンの利用準備が整っている場合に使用できます。
+例:
+API-Key: 1234567890
+X-API-Token: abc123
+UI 名
+Header authorization
+ソースコード名
+auth_headers
+必須
+Authentication ｍethod
+が
+header
+に設定されている場合は必須。
+#
+Ignore Request Fields
+コネクターで無視すべき特定の要求項目を定義します。
+詳細と例については、
+「OpenAPI ユーザーインターフェイスのカスタマイズ」ガイド
+を参照してください。
+UI 名
+Ignore specific request fields
+ソースコード名
+advanced.ignore_request_fields
+必須
+いいえ
+#
+OAuth2 Authorization URL
+[Connect] ボタンをクリックしたときに Workato がユーザーをリダイレクトする URL。これにより、多くの場合は接続先アプリのログイン画面が表示されます。
+この情報は、接続先アプリの API ドキュメントの「認証」セクションなどで公開されているものです。
+UI 名
+OAuth2 authorization URL
+ソースコード名
+authorization_url
+必須
+Authentication ｍethod
+が
+oauth2_client_credentials
+または
+oauth2_authorization_code
+または
+oauth2_resource_owner_password
+に設定されている場合は必須。
+#
+OAuth2 Token URL
+Workato が認証トークンを取得する URL。この認証トークンは、アプリとそのデータへのアクセス権限を証明するために使用されます。
+この情報は、接続先アプリの API ドキュメントの「認証」セクションなどで公開されているものです。
+UI 名
+OAuth2 token URL
+ソースコード名
+token_url
+必須
+Authentication ｍethod
+が
+oauth2_client_credentials
+または
+oauth2_authorization_code
+または
+oauth2_resource_owner_password
+に設定されている場合は必須。
+#
+OAuth2 Token Request Mode
+クライアント ID とシークレットをトークンリクエストの本文で送信するか、それとも base64 エンコードした文字列としてヘッダー内で送信するかを指定します。
+UI 名
+How does the API require credentials to be sent to request a token?
+ソースコード名
+access_token_request_mode
+必須
+Authentication ｍethod
+が
+oauth2_client_credentials
+または
+oauth2_authorization_code
+に設定されている場合は必須。
+#
+OAuth2 Client ID
+Workato に関連付けられている、OAuth アプリの公開 ID です。
+これはたいてい、接続先アプリのアカウントの [設定] や [統合] (またはそれと同等の) ページにあり、秘密にしておくべきものです。
+UI 名
+Client ID
+ソースコード名
+client_id
+必須
+Authentication ｍethod
+が
+oauth2_client_credentials
+または
+oauth2_authorization_code
+または
+oauth2_resource_owner_password
+に設定されている場合は必須。
+#
+OAuth2 Client Secret
+接続先アプリケーションがクライアント ID と併せて検証する、対応する秘密鍵です。
+これはたいてい、接続先アプリのアカウントの [設定] や [統合] (またはそれと同等の) ページにあり、秘密にしておくべきものです。
+UI 名
+Client Secret
+ソースコード名
+client_secret
+必須
+Authentication ｍethod
+が
+oauth2_client_credentials
+または
+oauth2_authorization_code
+または
+oauth2_resource_owner_password
+に設定されている場合は必須。
+#
+OAuth2 User
+アプリケーションのユーザー名またはアカウント名。
+UI 名
+Username
+ソースコード名
+username
+必須
+Authentication ｍethod
+が
+oauth2_resource_owner_password
+に設定されている場合は必須。
+#
+OAuth2 Password
+ユーザーのパスワード。ユーザーパスワードの代わりに、アカウント設定から取得した API キーまたは API トークンを使用することもできます。
+UI 名
+Password
+ソースコード名
+username
+必須
+Authentication ｍethod
+が
+oauth2_resource_owner_password
+に設定されている場合は必須。
+#
+OAuth2 Scopes
+スコープとは接続先アプリにリクエストできる権限です。
+これはたいてい、接続先アプリのアカウントの [設定] や [統合] (またはそれと同等の) ページで見つかります。
+UI 名
+Scopes
+ソースコード名
+scopes
+必須
+Authentication ｍethod
+が
+oauth2_client_credentials
+または
+oauth2_authorization_code
+または
+oauth2_resource_owner_password
+に設定されている場合は必須。
+#
+Object Hint
+コネクターでオブジェクトヒントの表示に使用すべき、OpenAPI ドキュメント内のフィールドを定義します。
+デフォルトの実装
+では、ユーザーは
+summary
+フィールドと
+description
+フィールドのいずれかを選択できます。
+サンプル OpenAPI ドキュメントに含まれる、以下のオブジェクトを例に取ります。
+summary
+の場合は、オブジェクトヒントとして
+Update an existing pet
+が使用されます。
+description
+の場合は、オブジェクトヒントとして
+Update an existing pet by Id
+が使用されます。
+{
+"paths"
+:
+{
+"/pet"
+:
+{
+"put"
+:
+{
+"tags"
+:
+[
+"pet"
+]
+,
+"summary"
+:
+"Update an existing pet"
+,
+"description"
+:
+"Update an existing pet by Id"
+,
+"operationId"
+:
+"updatePet"
+,
+"requestBody"
+:
+{
+"description"
+:
+"Update an existent pet in the store"
+,
+"content"
+:
+{
+...
+}
+,
+"required"
+:
+true
+}
+}
+}
+}
+}
+詳細と例については、
+「OpenAPI ユーザーインターフェイスのカスタマイズ」ガイド
+を参照してください。
+UI 名
+Object hint
+ソースコード名
+advanced.object_hint_field
+必須
+いいえ
+#
+Object Hint Substitutions
+オブジェクトヒントに対する置換リストを定義します。オブジェクトヒントフィールドの値を変更し、オブジェクトピッカーのユーザーエクスペリエンスを向上させるために有用です。
+置換オブジェクトには以下のプロパティが含まれます。
+pattern
+: 正規表現文字列。オプションとして、キャプチャーグループが含まれることもあります。
+replacement
+:
+pattern
+の出現箇所すべてを置き換える文字列値。この値には、
+pattern
+の以下のキャプチャーグループに対する後方参照が含まれる場合もあります。
+\d
+形式。ここで、
+d
+はグループ
+番号
+を表します。例 :
+\1
+\k
+。ここで、
+n
+はグループ
+名
+を表します。例 :
+\object
+二重引用符で囲まれた文字列の場合は、どちらの後方参照の前にも追加のバックスラッシュ (
+\
+) を挿入する必要があります。
+注
+:
+$&
+などの特別なマッチング変数は、置き換えにおける現在のマッチを参照しません。
+詳細と例については、
+「OpenAPI インターフェイスのカスタマイズ」ガイド
+を参照してください。
+UI 名
+Object hint substitutions
+ソースコード名
+advanced.object_hint_substitutions
+必須
+いいえ
+#
+Object Name
+コネクターでオブジェクト名の表示に使用すべき、OpenAPI ドキュメント内のフィールドを定義します。
+デフォルトの実装
+では、ユーザーは
+summary
+フィールドと
+operation_id
+フィールドのいずれかを選択できます。
+サンプル OpenAPI ドキュメントに含まれる、以下のオブジェクトを例に取ります。
+summary
+の場合は、オブジェクト名として
+Update an existing pet
+が使用されます。
+operation_id
+の場合は、オブジェクト名として
+updatePet
+が使用されます。
+{
+"paths"
+:
+{
+"/pet"
+:
+{
+"put"
+:
+{
+"tags"
+:
+[
+"pet"
+]
+,
+"summary"
+:
+"Update an existing pet"
+,
+"description"
+:
+"Update an existing pet by Id"
+,
+"operationId"
+:
+"updatePet"
+,
+"requestBody"
+:
+{
+"description"
+:
+"Update an existent pet in the store"
+,
+"content"
+:
+{
+...
+}
+,
+"required"
+:
+true
+}
+}
+}
+}
+}
+詳細と例については、
+「OpenAPI ユーザーインターフェイスのカスタマイズ」ガイド
+を参照してください。
+UI 名
+Object name field
+ソースコード名
+advanced.object_label_field
+必須
+いいえ
+#
+Object Name Substitutions
+オブジェクト名に対する置換リストを定義します。オブジェクト名の値を変更し、オブジェクトピッカーのユーザーエクスペリエンスを向上させるために有用です。
+置換オブジェクトには以下のプロパティが含まれます。
+pattern
+: 正規表現文字列。オプションとして、キャプチャーグループが含まれることもあります。
+replacement
+:
+pattern
+の出現箇所すべてを置き換える文字列値。この値には、
+pattern
+の以下のキャプチャーグループに対する後方参照が含まれる場合もあります。
+\d
+形式。ここで、
+d
+はグループ
+番号
+を表します。例 :
+\1
+\k
+。ここで、
+n
+はグループ
+名
+を表します。例 :
+\object
+二重引用符で囲まれた文字列の場合は、どちらの後方参照の前にも追加のバックスラッシュ (
+\
+) を挿入する必要があります。
+注
+:
+$&
+などの特別なマッチング変数は、置き換えにおける現在のマッチを参照しません。
+詳細と例については、
+「OpenAPI インターフェイスのカスタマイズ」ガイド
+を参照してください。
+UI 名
+Object name substitutions
+ソースコード名
+advanced.object_name_substitutions
+必須
+いいえ
+#
+Operation ID Substitutions For Grouping
+エンドポイント操作を分類するためのルールを定義します。
+詳細と例については、
+「OpenAPI ユーザーインターフェイスのカスタマイズ」ガイド
+を参照してください。
+UI 名
+Operation ID substitutions for endpoint grouping
+ソースコード名
+advanced.operation_id_substitution_for_grouping
+必須
+いいえ
+#
+Operation Name Field
+Execute API operation
+アクション
+のピックリスト内の操作名に使用するフィールドを定義します。デフォルトは
+object name field
+です。
+UI 名
+Operation name field
+ソースコード名
+advanced.execute_operation_label_field
+必須
+いいえ
+#
+Query Param Authorization
+API リクエストに追加するクエリーパラメータのリストです。
+例:
+api_key: 1234567890
+token: abc123
+UI 名
+Query param authorization
+ソースコード名
+query_params
+必須
+Authentication ｍethod
+が
+query
+に設定されている場合は必須。
+#
+Record ID Field Name
+オブジェクトの一意の ID 値を格納するフィールドの名前を定義します。
+UI 名
+Record ID field name
+ソースコード名
+advanced.record_id_field_name
+必須
+いいえ
+#
+Static Object Names
+オブジェクトと操作のわかりやすい名前のリストを定義します。
+詳細と例については、
+「OpenAPI ユーザーインターフェイスのカスタマイズ」ガイド
+を参照してください。
+UI 名
+静的なオブジェクト名
+ソースコード名
+advanced.object_label_map
+必須
+OpenAPI ドキュメントが個々の API エンドポイントに対するわかりやすい名前を提供していない場合にのみ必要になります。
+#
+サンプル
+{
+...
+"advanced"
+=>
+{
+"object_label_map"
+=>
+[
+{
+"operation_id"
+=>
+"createPet"
+,
+"label"
+=>
+"Create a new Pet"
+}
+,
+...
+]
+}
+...
+}
+Object_label_map の構文
+object_label_map
+は、次のような書式を使って記述できます。
+operation_id
+と
+label
+を持つオブジェクトの配列を指定します。上記の例ではこの構文を使用しています。
+キー (操作 ID 用) と値 (表示名/ラベル) を持つオブジェクトを指定します。
+#
+Server URL
+これは
+必須項目
+です。
+ターゲットホストまたはサービスの URL です。OpenAPI ドキュメントからの相対エンドポイントパスがこの URL に追加され、完全なエンドポイント URL が作成されます。
+注
+: この項目の値をハードコードする場合、つまりエンドユーザーがコネクターの設定時にこの値を指定せずに済むようにする場合は、以下の2つのメソッドで項目を指定する必要があります。
+adjust_connection
+:
+methods
+:
+{
+adjust_connection
+:
+lambda
+do
+|
+connection
+|
+connection
+.
+merge
+(
+{
+'definition_mode'
+=>
+'url'
+,
+'definition_url'
+=>
+'http://calendly.github.io/redoc/openapi.yaml'
+,
+'base_url'
+=>
+'https://petstore.swagger.io/v2/'
+,
+'documentation_href'
+=>
+'http://redocly.github.io/redoc'
+}
+)
+end
+[
+...
+]
+}
+base_uri
+:
+base_uri
+:
+lambda
+do
+|
+connection
+|
+'https://petstore.swagger.io/v2/'
+end
+UI 名
+Server URL
+ソースコード名
+base_url
+必須
+はい
+#
+Test Request URL
+コネクターが接続をテストするために使用する、API エンドポイントの相対パスです。
+UI 名
+Test endpoint path
+ソースコード名
+advanced.test_endpoint
+必須
+いいえ
+#
+Use HTTP Method Semantics For Grouping
+HTTP メソッドを
+API 操作のグループ化
+に使用すべきかどうかを示します。
+Swagger ファイル内のエンドポイントが
+RESTガイドライン
+(opens new window)
+に従っていない場合以外は、このフィールドは有効にすべきです。
+UI 名
+Use HTTP method semantics for grouping operations
+ソースコード名
+advanced.use_operation_names_for_grouping
+必須
+いいえ
+←
+ソースコードのアップグレード
+GraphQL
+→
+Last updated:
+2025/4/5 19:32:10
+On this page
+項目リファレンスドキュメント
+必須項目
+Allow Long Field Hints
+Authentication Method
+Basic Auth User
+Basic Auth Password
+Schema Depth Limit
+Schema Recursion Limit
+Document content
+Documentation Links
+OpenAPI Document Source
+Document URL
+External Documentation Links
+Filter API Endpoints
+Header Authorization
+Ignore Request Fields
+OAuth2 Authorization URL
+OAuth2 Token URL
+OAuth2 Token Request Mode
+OAuth2 Client ID
+OAuth2 Client Secret
+OAuth2 User
+OAuth2 Password
+OAuth2 Scopes
+Object Hint
+Object Hint Substitutions
+Object Name
+Object Name Substitutions
+Operation ID Substitutions For Grouping
+Operation Name Field
+Query Param Authorization
+Record ID Field Name
+Static Object Names
+Server URL
+Test Request URL
+Use HTTP Method Semantics For Grouping
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

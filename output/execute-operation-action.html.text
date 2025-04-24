@@ -1,0 +1,135 @@
+Workato connector - SOAP - Execute operation action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+SOAP
+#
+SOAP - Execute operation action
+The SOAP connector has a single action:
+Execute operation
+. This action can be used to run any web service operation defined in the SOAP connection's WSDL document.
+#
+Input fields
+Example input fields for the SOAP execute operation action
+Binding
+Bindings define the protocol and message format for a set of operations. When you select the
+Execute operation
+action, Workato populates the list of bindings.
+Operation
+Operations correspond to the specific methods or functions you're calling on the remote web service. When you select the binding, Workato populates the list of operations.
+Parameters
+Parameters are specific to each operation. When you select the operation, Workato populates the list of parameters you can work with. Select
+Show
+to see the parameters.
+#
+Output fields
+The output fields are determined by the operation you selected in the input. To use output fields in downstream steps, map in the relevant datapill from the datatree.
+Example output fields for the SOAP execute operation action
+←
+Authentication
+Custom connectors
+→
+Last updated:
+7/24/2023, 8:45:02 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

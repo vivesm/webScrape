@@ -1,0 +1,154 @@
+Workato Embeddedの使用状況メトリクス | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+管理コンソール
+#
+使用状況メトリクス
+使用状況メトリクス
+タブでは、Workato Embeddedのパートナーは、すべての顧客アカウントで使用される顧客、接続、およびレシピの全体像を把握し、製品の健全性についての概要を提供します。ダッシュボードには、製品の使用状況に関連する統計とメトリクスが表示され、お客様が最も使用しているアプリと統合に関する洞察が得られます。
+使用状況メトリクスタブ
+使用状況メトリクス
+タブには、4つの異なるセクションがあります。各セクションでは、異なる使用状況メトリクスに関する情報が提供されます。
+#
+タスク
+機能の利用可能性
+タスクの使用状況は2020年10月1日以降に利用可能です。
+使用状況メトリクス: タスク
+このセクションでは、カレンダー月ごとのすべての顧客アカウントのタスク数が表示されます。
+タスク
+とは、レシピが計算リソースを必要とするアクションを実行するたびに発生する作業の単位です。各月をホバーすると、その月のタスク数が表示されます。
+グラフの右側のセクションには、過去12か月間で最も使用量の多い上位3つの顧客が表示されます。
+プログラムで使用データを取得する
+埋め込み顧客のタスクデータをプログラムで取得するには、
+Get monthly usage
+APIを使用してください。
+#
+接続
+使用状況メトリクス: 接続
+このセクションでは、すべての顧客アカウントでの総接続数が表示されます。ここでの接続とは、顧客アカウントで正常に認証されたアプリの接続を指します。この数には、アクティブなレシピに含まれていない接続も含まれます。この数には、Workato Embeddedの管理者アカウントで作成された接続は含まれません。
+グラフは過去6か月間の接続数のトレンドを表示し、以下のセクションでは、最も人気のある10のアプリの数がリストされます。ここに表示されるアプリは、
+Workato Embedded Private Community
+で提供するレシピとソリューションのタイプに影響を与える可能性があります。また、お客様の最も人気のあるユースケースについての洞察も提供します。
+#
+顧客
+使用状況メトリクス: 顧客
+このセクションでは、過去6か月間の顧客数の合計とその数のトレンドが表示されます。この数には、サブスクリプションが期限切れになった顧客も含まれます。この計算から顧客を削除するには、
+顧客アカウントを削除
+してください。
+個々の顧客に関する詳細情報は、名前を選択して
+顧客情報ページ
+にアクセスすることで確認できます。
+#
+レシピ
+使用状況メトリクス: レシピ
+このセクションでは、顧客アカウント内のすべてのアクティブなレシピの数が表示されます。このメトリックは重要です。なぜなら、顧客アカウント内の各アクティブなレシピは、成功した統合に対応しているからです。上のグラフは、過去6か月間の顧客アカウント全体でのアクティブなレシピのトレンドを表示します。
+おすすめのレシピ
+セクションでは、お客様がおすすめのレシピをクローンした回数が表示されます。ダッシュボードには、最もクローンされた上位5つのレシピが表示されます。
+おすすめのレシピ
+のドキュメントで、お客様コミュニティでのレシピのプロモーションについて詳しく説明しています。
+←
+共有コネクタ
+監査ログのストリーミング
+→
+Last updated:
+2025/4/9 3:16:38
+On this page
+タスク
+接続
+顧客
+レシピ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

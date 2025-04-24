@@ -1,0 +1,169 @@
+Workato connectors - ADP Workforce Now Scheduled Worker Search Trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+ADP Workforce Now
+#
+ADP Workforce Now - Scheduled Worker Search Trigger
+#
+Scheduled worker search
+This trigger picks up entries that match a specified search filter. Entries are processed as a list of a specified batch size. It checks for entries based on the specified schedule.
+Scheduled worker search
+Input field
+Description
+Role code
+Select the type of worker to filter for this trigger. Available options are:
+- Employee
+- Manager
+- Practitioner
+- Administrator
+- Supervisor
+Trigger on
+Select the type of schedule -
+Specific interval
+or
+Specific date/time
+Schedule settings (
+Specific interval
+)
+Every
+Select the interval between each search. Select one of these options:
+- 5 minutes
+- 15 minutes
+- 30 minutes
+- 45 minutes
+- One hour
+- One day
+- One week
+- 30 days
+Start at
+Date and time to begin the first search. Leave blank to begin immediately when the recipe is first started.
+Schedule settings (
+Specific date/time
+)
+Timezone
+Choose the timezone for the schedule to be set in.
+Hour
+Configure the hour of the day to run the search.
+Minute
+Configure the minute of the hour to run the search.
+Days of the week
+Select 'Yes' for each of the days you wish to run the search.
+Batch size
+Configure the batch size of the list of entries in each individual job. This defaults to
+100
+. Maximum batch size is
+100
+.
+#
+Output fields
+The output of this trigger is a list of workers. The attributes of each worker is based on the worker object in your ADP Workforce Now instance. All custom fields are supported.
+Workers output fields
+←
+Connection setup
+AI by Workato
+→
+Last updated:
+12/9/2019, 5:21:57 PM
+On this page
+Scheduled worker search
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

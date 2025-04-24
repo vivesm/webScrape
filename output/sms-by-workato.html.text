@@ -1,0 +1,153 @@
+SMS by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+SMS by Workato
+DEPRECATION NOTICE
+Workato will deprecate the SMS by Workato connector on
+February 1, 2025
+.
+After this date, SMS by Workato will no longer be available for selection when building or editing recipes. However, all existing recipes that use SMS by Workato will continue to work for the foreseeable future as long as you don't remove or edit any existing SMS by Workato actions.
+The end-of-support date for this feature will be announced in the future.
+SMS by Workato is designed to allow users to easily send SMS for low volume use cases around critical recipe alerts, debugging, or testing. You can use this connector to quickly build proof of concepts before migrating to a production-ready SMS service provider.
+FEATURE AVAILABILITY
+SMS by Workato is only available in US and SG data centers. All messages sent are appended with
+- via workato.com
+and the recipient sees the sender as "Workato". Therefore, for production use cases, Workato recommends using other SMS providers such as Twilio or Vonage.
+#
+Send SMS action
+#
+Input
+Output
+Description
+Phone
+Enter a US or SG phone number prepended with '+' and the country code. For example: +16505551212.
+Message
+The message you plan to send, limited to 142 GSM-7 characters (or 52 UCS-2 characters). You can use this
+segment calculator
+(opens new window)
+to check your message length.
+#
+Output
+Output
+Description
+Remaining calls
+The number of remaining calls Workato can execute out of the overall daily limit (25 calls).
+Consumed calls
+The number of actions completed out of the overall daily limit (25 calls).
+Reset time
+The time the daily limit resets.
+#
+Limits
+SMS by Workato is subject to the following rate limits:
+25 SMS for each workspace in a 24-hour period
+If you exceed this rate limit, Workato throws an error and fails the job. If you need to send SMS at scale we recommend using your own SMS provider like Twilio or Vonage. To help you keep track of your usage, Workato supplies output datapills corresponding to your current consumed calls and reset time for the limits.
+←
+Upload file action
+Snowflake
+→
+Last updated:
+11/13/2024, 5:23:22 AM
+On this page
+Send SMS action
+Limits
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

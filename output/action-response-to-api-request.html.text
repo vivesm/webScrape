@@ -1,0 +1,167 @@
+API レシピ - API リクエストに対する応答アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+API プラットフォーム
+API レシピ
+#
+API レシピ - API リクエストに対する応答アクション
+このアクションを使用すると、レシピ内の特定のアクションに対して、
+API レシピのエンドポイント
+が、どのように応答するかを定義できます。
+このアクションを使用する際は、次の点に注意してください。
+このアクションによりレシピのジョブは終了します。
+このアクションが正常に実行された時点で、現在のジョブは終了します。これより後のステップは、すべて無視されます。
+アクションのデータは HTTP レスポンスの形で返されます。
+#
+要件
+このアクションを使用するには、以下のことが必要になります。
+API プラットフォーム
+機能を利用できる。
+このオプションが
+[Tools]
+メニューに表示されない場合は、カスタマーサクセスマネージャーまでお問い合わせください。
+#
+入力
+このアクションのフィールドは、API リクエストに対するエンドポイントの応答方法を定義します。
+項目
+説明
+Response
+応答の種類を定義します。このメニューに表示されるオプションは、レシピ内の新規 API リクエストトリガーで定義された応答によって決まります。
+Response headers
+応答で使用されるヘッダーを定義します。レシピの新規 API リクエストトリガーで定義されている場合にのみ、表示されます。
+Response body
+応答で使用される本文のスキーマを定義します。レシピの新規 API リクエストトリガーで定義されている場合にのみ、表示されます。
+#
+出力
+項目
+説明
+Context
+API リクエストに関するメタデータです。
+この項目には、以下の補足項目もあります。
+項目
+説明
+Calling IP address
+このレシピを REST エンドポイントとして呼び出しているクライアントの IP アドレス。
+Access profile
+リクエストの実行に使用されたアクセスプロファイルに関する詳細。
+API client
+リクエストの実行に使用された API クライアントに関する詳細が含まれます。
+JWT claims
+JWT トークンが使用されている場合にのみ使用できます。リクエストの認証に使用された JWT クレームに関する詳細が含まれます。
+Request headers
+エンドポイントに対して定義されているリクエストヘッダーに関する詳細です。エンドポイントに定義されるリクエストヘッダーごとにデータピルが作成されます。
+Request parameters
+エンドポイントの
+要求スキーマ
+に対して定義されているプロパティに関する詳細です。プロパティごとにデータピルが作成されます。
+#
+その他のリソース
+API プラットフォーム
+API レシピ
+API レシピの作成
+新規 API リクエストトリガー
+←
+トリガー
+パフォーマンス
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+要件
+入力
+出力
+その他のリソース
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

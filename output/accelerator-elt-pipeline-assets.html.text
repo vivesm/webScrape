@@ -1,0 +1,188 @@
+SnowflakeアクセラレータのELTパイプライン-アセット | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+ELT パイプライン - Snowflake
+#
+SnowflakeアクセラレータのELTパイプライン-アセット
+#
+インストールファイル
+このアクセラレータのアセットには、以下のファイルとそのコンポーネントが含まれています：
+ELT_Pipeline_for_MS_Teams.zip
+は、Microsoft TeamsでELTパイプラインボットを実装する場合にインポートする必要のあるコアアセットパッケージです。
+ELT_Pipeline_for_Slack.zip
+は、SlackでELTパイプラインボットを実装する場合にインポートする必要のあるコアアセットパッケージです。
+#
+ELT_Pipeline_for_MS_Teams.zip
+Microsoft TeamsでELTパイプラインボットを実装するために、このコアアセットパッケージをインポートする必要があります。
+このパッケージには、以下のコンポーネントが含まれています：
+13のレシピ
+3つがアクティブ
+10つが呼び出し可能
+7つのルックアップテーブル
+ELT | ユーザーアクセス
+ELT | システム
+ELT | オブジェクト
+ELT | JOBテーブル
+ELT | エラーログ
+ELT | 制御テーブル | メイン
+ELT | 制御テーブル | 子
+10のプロパティ
+elt.user_section_text
+elt.user_button1_url
+elt.user_button1_label
+elt.snowflake_url
+elt.msteams_notification_channel
+elt.s3bucketregion
+elt.s3bucketname
+elt.bot_app_id
+elt.aws_secret_key
+elt.aws_key_id
+elt.admin_guide
+9つの接続
+ELT | CON | Snowflake（JDBC経由）
+ELT | CON | Snowflake
+ELT | CON | SQL Server（JDBC経由）
+ELT | CON | SQL Server
+ELT | CON | SFパートナーアカウント
+ELT | CON | S3
+ELT | CON | PostgreSQL（JDBC経由）
+ELT | CON | オンプレミスファイル
+ELT | CON | ELT Workbot for Microsoft Teams
+#
+ELT_Pipeline_for_Slack.zip
+SlackでELTパイプラインボットを実装するために、このコアアセットパッケージをインポートする必要があります。
+このパッケージには、以下のコンポーネントが含まれています：
+13のレシピ
+3つがアクティブ
+10つが呼び出し可能
+7つのルックアップテーブル
+ELT | ユーザーアクセス
+ELT | システム
+ELT | オブジェクト
+ELT | JOBテーブル
+ELT | エラーログ
+ELT | 制御テーブル | メイン
+ELT | 制御テーブル | 子
+10のプロパティ
+elt.user_section_text
+elt.user_button1_url
+elt.user_button1_label
+elt.snowflake_url
+elt.slack_notification_channel
+elt.s3bucketregion
+elt.s3bucketname
+elt.bot_app_id
+elt.aws_secret_key
+elt.aws_key_id
+elt.admin_guide
+9つの接続
+ELT | CON | Snowflake（JDBC経由）
+ELT | CON | Snowflake
+ELT | CON | SQL Server（JDBC経由）
+ELT | CON | SQL Server
+ELT | CON | SFパートナーアカウント
+ELT | CON | S3
+ELT | CON | PostgreSQL（JDBC経由）
+ELT | CON | オンプレミスファイル
+ELT | CON | ELT Workbot for Slack
+←
+パイプラインのタイムゾーン
+ルックアップテーブル
+→
+Last updated:
+2024/2/22 23:17:11
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,158 @@
+Callable Recipes - Return Response From Recipe Action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Callable recipes
+#
+Callable recipes - Return response from recipe action
+THIS ACTION IS DEPRECATED
+This action is deprecated and applies only to legacy callable recipes with the
+New call for recipe trigger
+. If you use this action with any other trigger, an error occurs.
+Existing recipes that use this action continue to function indefinitely. For new recipes, use the
+Recipe functions - Return data from a recipe function
+action. Refer to the
+Recipe functions FAQ
+for more information.
+This action responds to the recipe call with a status confirmation together with any data. This action will respond with a data format defined in the
+New call for recipe
+trigger.
+Return response from recipe action
+#
+Input fields
+Input field
+Description
+Response type
+Select a response (
+Success
+or
+Error
+) according to the recipe logic.
+Reply/Response
+Depending on the response type, a relevant input field will be displayed for mapping.
+Content type
+If you select
+Raw response
+in the trigger, define the response data type here.
+Error message
+If you chose an
+Error
+response type, provide an appropriate error message here.
+If you are using a REST-enabled recipe, these input fields will also be relevant.
+Input field
+Description
+Error code
+If you chose an
+Error
+response type, choose a HTTP error code to respond with.
+Custom error response?
+Select
+Yes
+to send content of
+Error message
+input as the response body.
+←
+Callable Recipe Trigger
+Call Recipe Actions
+→
+Last updated:
+12/19/2024, 5:43:58 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

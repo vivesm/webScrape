@@ -1,0 +1,256 @@
+Workato connectors - Glean | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Glean
+Glean
+(opens new window)
+is an AI-driven platform that consolidates company data, personalizes information retrieval based on user context, and streamlines the search process to enhance productivity.
+#
+Prerequisites
+To connect to Glean in Workato, ensure you have the following:
+An active Glean instance
+Appropriate permissions to access Glean APIs.
+If you do not have a Glean account with the required permissions, contact your app administrator.
+#
+Create an API Token
+Complete the following steps to
+create an API token
+(opens new window)
+in the Glean admin console:
+1
+Sign in to Glean with an admin account.
+2
+Click on the wrench icon in the navigation bar to open the
+Admin console
+.
+3
+Go to
+Setup
+and select
+API Tokens
+.
+4
+Go to the
+Client Tokens
+or
+Indexing tokens
+tab, depending on which API you are using. This tab contains token metadata. The token itself isn't visible yet.
+5
+Click
+Add New Token
+to create a new token.
+6
+Define the token's
+Description
+,
+Permissions
+,
+Scopes
+, and
+Expires
+fields, then click
+Save
+.
+The Glean token's definition fields
+7
+Copy and save the token for use in Workato. The newly created token is only visible once after its creation and you can't retrieve it later.
+#
+Connection Setup
+Workato supports the following authentication methods to connect to Glean:
+Client API Token
+Indexing API Token
+#
+Client API Token
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Glean
+as your connection in the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Glean connection fields
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the
+Client API Token
+for your Glean account.
+6
+Enter the
+Subdomain
+for your Glean account.
+7
+Click
+Connect
+.
+#
+Indexing API Token
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Glean
+as your connection in the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Glean connection fields
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the
+Indexing API Token
+for your Glean account.
+6
+Enter the
+Subdomain
+for your Glean account.
+7
+Enter the
+Data source
+of your Glean account.
+8
+Enter the
+Username
+of your Glean account. If you are using a global token, enter the email address of the associated user.
+9
+Click
+Connect
+.
+#
+Actions
+The Glean connector supports the following actions:
+Create record
+Delete record
+Execute operation
+Get record details by ID
+Search records
+Update record
+Glean Actions
+←
+Update ticket action
+Create record action
+→
+Last updated:
+2/18/2025, 7:18:39 PM
+On this page
+Prerequisites
+Connection Setup
+Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

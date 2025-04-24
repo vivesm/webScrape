@@ -1,0 +1,401 @@
+Workato コネクター - Zendesk - ユーザー項目 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Zendesk
+#
+Zendesk - ユーザー項目
+Zendesk のユーザーには、ユーザーに関する情報を追加する各種ユーザー項目が含まれます。作成者による入力が必須の項目 (たとえば、
+Name
+) もあれば、システムによって生成される出力項目 (たとえば、
+User ID
+) もあります。
+#
+ユーザーの入力項目
+Zendesk インスタンスに新規ユーザーを登録するには、ユーザーに関する特定の情報を入力する必要があります。この情報は、
+Name
+や
+Email
+などの識別情報や権限制御などです。
+#
+ユーザーのデフォルト入力項目
+Zendesk の事前設定のユーザー項目は基本情報を収集します。デフォルトでは、
+Name
+のみが必須として設定されています。
+入力項目
+説明
+Name
+ユーザーの名前。
+Role
+ユーザーのロール。可能な値は、
+End-user
+、
+Agent
+、または
+Administrator
+です。
+Email
+ユーザーのロールが
+Agent
+として指定されている場合は必須です。ユーザーのプライマリメールアドレス。
+Organization ID
+ユーザーのオーガナイゼーションの一意の Zendesk ID。
+External ID
+別のシステムから取得した一意の識別子。
+Signature
+Agent
+ユーザーと
+Administrator
+ユーザーの場合のみ。ユーザーの署名。
+Phone
+ユーザーのメインの電話番号。
+Details
+ユーザーに関する詳細情報。
+Notes
+ユーザーに関するメモ。
+Active
+ユーザーが存在して Zendesk にアクセスできる場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Verified
+ユーザーの主要な識別情報が検証済みの場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Shared
+ユーザーが別の Zendesk サポートインスタンスからの共有ユーザーである場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Locale
+ユーザーのロケール。
+Language
+ユーザーの言語。
+Timezone
+ユーザーのタイムゾーン。
+Ticket restrictions
+どのチケットにユーザーがアクセスできるかを指定します。可能な値は、
+「organization」
+、
+「assigned」
+、
+null
+などです。
+Moderator
+フォーラムのモデレーションが可能なユーザーの場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Only private comments
+ユーザーがプライベートコメントのみ作成できる場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Tags
+このユーザーに適用されるタグ。区切り文字
+,
+を使用して、複数のタグを追加できます。
+Alias
+Agent
+ユーザーの場合のみ。エンドユーザーに表示されるエイリアス。
+Custom role ID
+Zendesk エンタープライズプランの
+Agent
+ユーザーの場合のみ。このユーザーのカスタムロール ID。
+Restricted agent
+Agent
+ユーザーの場合のみ。ユーザーに何らかの制限が適用されている場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Suspended
+Agent
+ユーザーの場合のみ。ユーザーが使用停止になっている場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Shared agent
+ユーザーが別の Zendesk サポートインスタンスからの共有エージェントである場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+#
+ユーザーのカスタム入力項目
+事前設定のユーザー項目のほかに、Zendesk ではビジネスユースケースに合うようにユーザー項目をカスタマイズできます。
+このユーザーのカスタム項目のリストを表示するには、
+[settings]
+>
+[Manage]
+の下 >
+[User Fields]
+に移動します。
+ユーザーのカスタム項目
+ユーザーのカスタム項目の例を以下に示します。
+ユーザーのカスタム項目
+項目のタイプ
+必須
+Gender
+ドロップダウン
+(
+list
+)
+はい
+Street address
+テキスト
+(
+string
+)
+いいえ
+Newsletter Subscription
+チェックボックス
+(
+boolean
+)
+はい
+#
+ユーザーの出力項目
+手動の入力項目 (たとえば、Name) もあれば、システムによって生成される項目 (たとえば、User ID) もあります。
+#
+ユーザーのデフォルト出力項目
+その設定に応じて、
+null
+になったりデフォルト値に設定されたりする項目があります。
+出力項目
+説明
+Name
+ユーザーの名前。
+Role
+ユーザーのロール。可能な値は、
+End-user
+、
+Agent
+、または
+Administrator
+です。
+Email
+ユーザーのプライマリメールアドレス。
+Organization ID
+ユーザーのオーガナイゼーションの一意の Zendesk ID。ユーザーが複数のオーガナイゼーションメンバーシップを持っている場合は、デフォルトのオーガナイゼーションが表示されます。
+External ID
+別のシステムから取得した一意の識別子。
+Signature
+ユーザーの署名。
+Phone
+ユーザーのメインの電話番号。
+Details
+ユーザーに関する詳細情報。
+Notes
+ユーザーに関するメモ。
+Active
+デフォルトで
+True
+に設定されます。ユーザーが削除された場合は
+False
+が表示されます。
+Verified
+ユーザーの主要な識別情報が検証済みであれば
+True
+、そうでなければ
+False
+が表示されます。
+Shared
+ユーザーが別の Zendesk サポートインスタンスからの共有ユーザーである場合は
+True
+、そうでない場合は
+False
+が表示されます。
+Locale
+ユーザーのロケール。
+Language
+ユーザーの言語。
+int
+として表示されます。
+Timezone
+ユーザーのタイムゾーン。
+Ticket restrictions
+どのチケットにユーザーがアクセスできるかを指定します。
+Moderator
+フォーラムのモデレーションが可能なユーザーの場合は
+True
+、そうでない場合は
+False
+が表示されます。
+Only private comments
+ユーザーがプライベートコメントのみ作成できる場合は
+True
+、そうでない場合は
+False
+が表示されます。
+Tags
+このユーザーに適用されるタグ。
+Tags list
+このユーザーに適用できるタグの事前定義のリスト。
+ID
+ユーザーの一意の Zendesk ID。これは、ユーザーの作成時に自動的に割り当てられます。
+URL
+このユーザーの API URL。
+Date created
+ユーザーが作成された日時。
+Date updated
+ユーザーが最後に更新された日時。
+Last login date
+ユーザーが最後にログインした日時。
+Alias
+エンドユーザーに表示されるエイリアス。
+Custom role ID
+このユーザーのカスタムロール ID。
+Restricted agent
+ユーザーに何らかの制限が適用されている場合は
+True
+、そうでない場合は
+False
+が表示されます。
+Suspended
+ユーザーが使用停止になっている場合は
+True
+、そうでない場合は
+False
+が表示されます。
+Shared agent
+ユーザーが別の Zendesk サポートインスタンスからの共有エージェントである場合は
+True
+、そうでない場合は
+False
+が表示されます。
+#
+ユーザーのカスタム出力項目
+ユーザーのカスタム項目を設定した場合は、対応する出力を取得できます。ユーザーのカスタム出力項目の例を以下に示します。
+ユーザーのカスタム項目
+項目のタイプ
+出力
+Gender
+ドロップダウン
+(
+list
+)
+Male
+Street address
+テキスト
+(
+string
+)
+Waters Park Drive
+Newsletter Subscription
+チェックボックス
+(
+boolean
+)
+False
+←
+チケット項目
+オーガナイゼーション項目
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+ユーザーの入力項目
+ユーザーの出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

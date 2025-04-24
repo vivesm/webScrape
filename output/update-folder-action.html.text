@@ -1,0 +1,231 @@
+Workato connectors - Wrike update folder action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Update folder action
+Folders are one of the main ways to organize and manage information on Wrike.
+This action updates a specific folder in Wrike. You can change the folder name, add, or modify the title and description, as well as modify sharing users.
+Update folder action
+#
+Input fields
+Input field
+Description
+Folder
+Select a folder to update. To use folder ID, toggle "Enter a folder ID".
+Title
+The new title of the folder.
+Description
+The description of the folder.
+Users to share the folder with
+Select users to share this folder with. You can define users with a source list or manually input their user ID.
+Remove users from sharing of folder
+Select the users to remove from sharing this folder. You can define users with a source list or manually input their user ID.
+Remove parent folders/projects
+Select the parent folders to remove. You cannot remove the
+Root folder
+or the
+Recycle bin
+. You can define folders with a source list or manually input the folder ID.
+Add parent folders/projects
+Select parent folders/projects to add. You can define folders/projects with a source list or manually input the folders/projects ID.
+Restore
+Select
+Yes
+to restore folder from recycle bin, otherwise select
+No
+.
+Custom field
+Provide data for the custom fields.
+Project
+Wrike projects are folders with additional properties. For more information, see the
+Create project action
+.
+Status
+The status of the task.
+Add owner ID
+Select users to add as project owners.
+Remove owner ID
+Select users to remove as project owners.
+Start date
+The date this project was started.
+End date
+The date this project will end.
+#
+Output fields
+Output field
+Description
+Folder ID
+The ID of the folder.
+Account ID
+The ID of the account.
+Title
+The title of the folder.
+Updated date
+The date this folder was updated.
+Created date
+The date this folder was created.
+Description
+The description of the folder. Will be blank if not specified.
+Users who share the folder
+The list of users who share the folder.
+User ID
+The ID of the user who shares this folder.
+List size
+The size of the list, corresponding to the number of users retrieved.
+Parent folder
+The list of parent folders of this folder.
+Folder ID
+The folder ID of the parent folder.
+List size
+The size of the list, corresponding to the number of parent folders retrieved.
+Child folder
+The list of child folders of this folder.
+Folder ID
+The folder ID of the child folder.
+List size
+The size of the list, corresponding to the number of child folders retrieved.
+Super parent folder
+The list of super parent folder to this folder.
+Folder ID
+The folder ID of the super parent folder.
+List size
+The size of the list, corresponding to the number of super parent folders retrieved.
+Scope
+The scope of the folder.
+Has attachments
+Indicates if the folder has attachments.
+Permalink
+The link to open the folder in a web workspace. This is only accessible if the user has the appropriate access.
+Workflow ID
+The ID of the folder workflow.
+Metadata
+The metadata of this folder. The metadata list size corresponds to the number of metadata entries retrieved.
+Project
+The project properties of this folder.
+Author
+The author who created the project.
+Owner ID
+The list of IDs of project owners.
+User ID
+The user ID of the project owner.
+List size
+The size of the list, corresponding to the number of project owners retrieved.
+Status
+The status of the project.
+Start date
+The date this project was started.
+End date
+The date this project was ended.
+Created date
+The date this project was created.
+Completed date
+The date this project was completed.
+Custom fields
+Includes data from custom fields.
+←
+Update attachment action
+Update project action
+→
+Last updated:
+7/2/2021, 8:18:31 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

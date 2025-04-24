@@ -1,0 +1,187 @@
+Embedded ベンダー API | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+CX オプション
+#
+Embedded
+Embedded は、Embedded パートナーの顧客に、使用している製品から直接統合を構築して管理するための最高のエンドユーザーエクスペリエンスを提供します。Embedded により、Workato プラットフォームのすべてのページと要素を、パートナーのプラットフォーム UI に組み込まれた iFrame 内に埋め込むことが可能になります。
+ACME ERP で IFrame に埋め込まれた Embedded
+パートナーは、社内で統合や自動化のソリューションを構築する代わりに、統合と自動化の分野の専門家である Workato によって構築および管理されるプラットフォームを埋め込むことができるようになります。Embedded モデルを使用することで、パートナーは、統合分野での Workato の経験と、最新かつスケーラブルな方法で統合を構築、実行、管理するのに必要なツールのすべてを手に入れることができます。
+以降では、Embedded のさまざまな機能について説明します。実装の詳細については、
+こちら
+を参照してください。
+Workato 提供のコネクションウィジェットを製品に埋め込んで、顧客がアプリケーションの認証に使用できるようにしたい場合は、
+埋め込みコネクションウィジェット
+のドキュメントを参照してください。
+#
+主な利点
+パートナーには、以下の利点があります。
+顧客が独自の統合を構築できるようにする一方で、パートナーはカスタマーサクセスチームによる顧客アカウントの管理が必要かどうかを完全に制御できる
+顧客はパートナーの製品から、パートナー独自の UI に埋め込まれた Workato へと驚くほどシームレスに遷移
+すべての顧客が、350以上のすぐに使えるコネクター、700以上のコミュニティコネクター、100,000のレシピからなるライブラリを含む、Workato プラットフォームのすべての機能を使用可能
+Workato が直接顧客向けに作成したすべてのツールを自由に使えるため、パートナーのチームは自社の顧客に提供するコア機能の開発とイノベーションに集中して、統合プラットフォーム機能の作成と管理は Workato に任せることができます。
+#
+機能
+#
+ナビゲーション
+Embedded パートナーとして最初に検討する必要があるのは、ナビゲーションです。アプリで適切なナビゲーションエクスペリエンスを提供することで、顧客は自分にとって最も重要で関連性の高い機能すべてにアクセスできるようになります。
+下のスクリーンショット (緑色が Workato iFrame の部分) に示すように、Workato 製品のナビゲーションは左端のメニューで行います。この例では、パートナーはダッシュボード、レシピ、アプリ接続、コミュニティのページを実装するよう選択しています。これは Workato のナビゲーションバーに似ています。また、Lookup table やアカウントプロパティなどのツールへのリンクも表示しています。
+ナビゲーションと Workato IFrame
+Embedded パートナーは、適切なページにリンクする Workato パス (/recipes など) を指定するだけで、このエクスペリエンスを完全にカスタマイズできます。顧客はロールやプランに基づいて権限を付与されているページにのみアクセスできることに注意してください。
+#
+ディープリンク
+Embedded のシナリオでは、Embedded パートナーの URL は常に Workato URL にマッピングされます。このマッピングにより、ベンダー URL にアクセスすると常に適切な IFrame URL が開き、ブラウザー URL を共有したり、後で使用するためにブックマークしておいたりできるようになっています。
+下の図では、ベンダーが提供している URL は
+https://acme-erp.com/integration
+です。この URL に Workato パスが追加されて、適切なページにユーザーを転送します。
+Embedded パートナー URL と Workato パス
+#
+新規タブ、戻る、進む
+戻るボタンと進むボタンによるブラウザーナビゲーションでは、正しい Embedded パートナーページと IFrame ページが読み込まれます。ベンダー URL とパスで新規のタブを開いた場合も、正しいページが表示されます。
+Embedded パートナー URL と Workato パス
+#
+リダイレクト
+顧客がアプリにログインしたまま
+workato.com
+(opens new window)
+にアクセスしようとしても、問題ありません。すぐに、指定された URL のパートナーサイトに戻されます。ACME の例では、
+https://acme-erp.com/integration
+にリダイレクトされます。
+#
+カスタマイズ
+Embedded パートナーは、シームレスなユーザーインターフェイスを提供するために、ブランディングや設定のニーズに合わせて Embedded をカスタマイズすることができます。
+以下の設定可能な属性は、Embedded パートナーによって指定されます。
+オリジンとパスの接頭辞
+ナビゲーションおよびリンク用
+主なブランディングカラー
+CTA、タブ、強調表示などに適用
+マウスポイント時の色
+マウスカーソルを合わせた状態に適用
+フォント
+すべてのテキストに適用
+Iframe の属性
+適切なページレンダリングのための margin (外部余白)、padding (内部余白)
+レシピエディターの配色
+レシピエディターのトップバーのすべての色
+#
+ブラウザーサポート
+現在、Embedded は、以下のブラウザーを含む最新のモダンブラウザーに対応しています。
+Google Chrome
+Apple Safari
+Microsoft Edge
+Mozilla Firefox
+Internet Explorer*
+* Workato サイトでは、2020年10月時点で IE11 がサポートされていますが、このたび Embedded でのサポートを終了することに決定いたしました。新しい Microsoft Edge ブラウザーは現在多くの企業により導入されています。Microsoft は、2020年の終わりまでにサポート終了を予定しており、次回の Windows のメジャーアップデートには、すべてのユーザー向けに Edge が含まれるようになります。
+#
+クロスサイトトラッキング
+ブラウザーのトラッキング保護機構により、Workato IFrame のコンテンツの読み込みがブロックされることがあります。このため、ブラウザーの設定で、サードパーティコンテキストでのクッキー (Cookie) によるアクセスを許可する必要があります。
+[Allow all cookies] を選択して、Workato IFrame の読み込みを許可する
+Google Chrome :
+すべてのクッキーを有効にします。Google Chrome は、デフォルトではシークレットモードでサードパーティクッキーをブロックします。シークレットモードで Workato IFrame を読み込むには、Chrome の [設定] > [プライバシーとセキュリティ] > [Cookie と他のサイトデータ] で [Cookie をすべて受け入れる] を選択します。
+Apple Safari :
+[Settings] > [Privacy] で [Prevent cross site tracking] を無効にします。
+←
+実装
+実装
+→
+Last updated:
+2024/1/12 16:26:53
+On this page
+主な利点
+機能
+ブラウザーサポート
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

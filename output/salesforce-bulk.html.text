@@ -1,0 +1,304 @@
+Salesforce のバッチ操作 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Salesforce
+#
+Salesforce のバルク操作
+Salesforce はデータを一括で読み込む機能をサポートしています。Workato は、Bulk V1.0と
+Bulk API 2.0
+(opens new window)
+の両方を利用して、CSV ファイルから Salesforce へのデータの一括読み込みをサポートしています。サポートされている操作は以下のとおりです。
+CSV ファイルを通じてオブジェクトをバルク作成
+CSV ファイルを通じてオブジェクトをバルク更新
+CSV ファイルを通じてオブジェクトをバルクアップサート
+CSV ファイルを通じて Salesforce 内のオブジェクトのバルクジョブを再試行
+SOQL クエリーを使ってレコードをバルク検索
+ユーザーには、可能な限り Bulk API v2.0のアクションを使用することが推奨されています。Bulk API v2.0のアクションはより効率的であり、レコードをより効果的かつ速やかに一括処理するのに役立つためです。このような特性は多くの場合、Salesforce 組織の Bulk API 制限に対する負担を軽減することにつながります。
+Workato は、オブジェクトをバッチ単位で作成または更新する同期型の
+バッチ処理
+(バッチあたりの最大サイズは2000件) もサポートしています。
+TIP
+Salesforce のバルク操作は、すべて非同期型の操作です。バルクジョブは Salesforce に送信され、レシピはその後、5分ごとに結果を問い合わせます。そのため、Workato が結果の問い合わせを継続できるように、レシピをテストではなく
+開始する
+必要があることに注意してください。
+#
+権限が必要
+あらゆるバルク操作を正常に動作させるには、接続している Salesforce ユーザーのアカウントに
+Manage Data Integrations
+、
+View Setup and Configuration
+、および
+API Enabled
+という権限が必要です。これらの権限を有効にするには、システム管理者である必要があることに注意してください。詳細については、こちらの
+ドキュメント
+(opens new window)
+を参照してください。
+#
+CSV ファイルを通じてオブジェクトをバルク作成/更新/アップサート
+これらのバルクアクションには4つの主なセクション/コンポーネントがあります。
+CSV ファイルを通じたバルク作成 Salesforce アクションの各セクション
+アクションのセクション
+説明
+CSV file input
+Salesforce のバルク読み込みデータを格納している CSV ファイルのスキーマを定義します。
+Salesforce object to create/update/upsert
+書き込み先となる Salesforce オブジェクトを定義します。これにはアップサート操作のための
+Primary key
+(通常は外部 ID) が含まれます。
+リレーション項目
+CSV データ列が Salesforce オブジェクトの各項目にどのように対応するかを記述します。多態的な列に対応するにはリレーション項目を利用する必要があることに注意してください。
+Advanced configuration
+Salesforce のバルクジョブあたりのサイズを定義します。このアクションを同期型にするか非同期型にするかを定義します。
+では、各セクションを詳しく見ていきましょう。
+#
+CSV file input
+このセクションでは、Salesforce のバルク読み込みデータを格納している CSV ファイルのスキーマを定義します。そうすることで、Workato はユーザーの CSV ファイルからデータを読み取って抽出し、それを Salesforce に正確に移動できるようになります。
+入力項目
+説明
+File content
+CSV ファイルのコンテンツをここに入力します。これは多くの場合、
+ファイルのダウンロード
+アクションまたは
+新規ファイル
+トリガーからのデータピルです。
+Column separator
+CSV ファイルの区切り文字を指定します。カンマ、タブ、パイプ、またはスペースを使用できます。
+Contains header line?
+入力する CSV ファイルのコンテンツにヘッダー行が含まれるかどうかを指定します。これにより、最初の行の処理をスキップするかどうかを Workato に指示できます。そうすることで、ヘッダー行がデータとして誤って処理されてしまうのを防ぐことができます。
+Column names
+CSV ファイル内のデータ列の名前を指定します。これは、
+CSV から Salesforce の項目への対応付け
+セクションにおいて、Salesforce への対応付けに利用できる CSV データを生成するために使われます。
+このセクションの設定が済むと、以下の画面のようになるはずです。
+Salesforce のバルクアクション - 設定済みの [CSV file input] セクション
+この例では、以下のような CSV ファイルサンプルを使用しました。
+external_id,last_name,value
+"a0K1h000003fXSS","Minnes","54"
+"a0K1h000003fehx","Lecompte","12"
+"a0K1h000003fjnv","Fester","28"
+#
+Salesforce object to create/update/upsert
+作成/更新操作の場合は、書き込みを行う Salesforce オブジェクトを選択します。
+Salesforce のバルク作成アクション - 設定済みの Salesforce オブジェクトセクション
+アップサート操作の場合は、書き込みを行う Salesforce オブジェクトと、そのオブジェクトの主キーを選択します。Salesforce における主キーとは、各レコードの一意な識別子です。バルクアップサートアクションの実行のためには、Salesforce オブジェクトに
+External ID
+(外部 ID) 項目が必要です。
+External ID
+(外部 ID) 項目は、「外部 ID」属性を持つカスタム項目です。これには Salesforce の外部のシステムから見て一意なレコード識別子が収められています。外部 ID 項目はカスタムテキスト、数値、またはメール項目である必要があります。
+Salesforce のバルクアップサートアクション - 設定済みの Salesforce オブジェクトセクション
+アップサート用の Bulk API では、バルクアップサート操作に他の項目 (内部レコード ID など) を使用することも認められています。ただし、その項目は
+インデックス付き
+でなければならないことに注意してください。インデックス付き項目を使用するには、[Primary key] を切り替えてテキスト入力を受け付けるようにし、その項目の API 名を入力します。
+外部 ID の使用時と、その他のインデックス付き項目の使用時の動作には、以下のような違いがあります。
+入力値
+外部 ID
+インデックス付き項目
+一致が見つかった場合
+レコードを更新
+レコードを更新
+一致が見つからなかった場合
+レコードを作成
+MALFORMED_ID:Id in upsert is not valid
+エラー
+値がない場合
+MISSING_ARGUMENT:External_ID__c not specified
+エラー
+レコードを作成
+#
+リレーション項目の対応付け
+Salesforce 内のオブジェクトの多くは、他のオブジェクトに関連付けられています。たとえば、「取引先」は「取引先責任者」の親オブジェクトです。ユーザーはリレーションを表現することで、CSV ファイルに含まれる関連オブジェクトへの参照を追加することができます。
+また、リレーション項目は、列の多態的な対応付けを可能にするためにも利用されます。Workato は対応付けを自動的に推論することができないため、これらの指定は手動で行う必要があります。
+オブジェクトによっては、自身に対するリレーションを持っている場合もあります。たとえば、取引先責任者オブジェクトの「上司」の項目は、別の取引先責任者に対する参照となっています。
+設定が行われない場合、このセクションでは Salesforce へのデータの対応付けが一切行われません。
+Salesforce に書き込みたい項目のそれぞれに対して、CSV ファイルのどの列からデータを取得すべきかを選択してください。このアクションでは、CSV ファイルのデータを Salesforce にストリーミングするため、formula モードによるデータピルやデータの変換は利用できません。
+Salesforce のバルクアップサートアクション - 項目の対応付けセクション
+CSV ヘッダー内のリレーション項目について、詳しくは
+こちら
+(opens new window)
+を参照してください。
+#
+Advanced configuration
+このセクションでは、このアクションを同期型にするか非同期型にするかを定義します。同期型の場合、Workato は Salesforce がバルクジョブ処理を完了するのを待ってから次のレシピアクションに移行します。非同期型の場合、Workato は CSV ファイルのコンテンツを Salesforce に単にアップロードするだけで、Salesforce のバルクジョブ処理の完了を待たずに次のレシピアクションに移行します。
+また、ユーザーは CSV ファイルのチャンクのサイズを Salesforce のバルクジョブごとに定義することもできます。このサイズは、デフォルトでは10 MB に設定されます。
+#
+出力データツリーについての説明
+バルク操作の出力データツリーには、以下のようなものが含まれています。
+Salesforce のバルク操作の出力データツリー
+出力データピル
+説明
+All records successfully processed?
+Salesforce のすべてのバルクジョブにおいて、あらゆる CSV 行が正常に処理された場合、true になります。Salesforce のすべてのバルクジョブにおいて、いずれかの CSV 行で失敗があった場合、false になります。
+Number of records failed
+Salesforce で正常に処理できなかった CSV 行の総数。
+Number of retried records
+Salesforce で処理が再試行された CSV 行の総数。再試行アクションの場合にのみ意味を持ちます。
+Number of records processed
+Salesforce で処理された CSV 行の総数 (失敗と成功の合計)。
+CSV content with failed records
+当初の API リクエストで正常に処理できなかった CSV 行を含む CSV ファイルのコンテンツ。この CSV ファイルには **sf__Error** と **sf__Id** という2つの列が追加されます。詳細については、
+Salesforce のドキュメント
+を参照してください。
+Salesforce bulk jobs
+CSV ファイルのサイズが大きい場合、Workato は Salesforce API のサイズ制限に従うために、その CSV ファイルを複数のチャンクに分割し、別々の Salesforce バルクジョブとして処理します。
+このリストに含まれるそれぞれのバルクジョブは、以下のようなデータを持つことになります。
+Job ID
+作成された Salesforce バルクジョブの Salesforce 内部 ID
+Number of records failed
+Salesforce で正常に処理できなかったレコードの数。
+Number of records processed
+Salesforce によって処理されたレコードの総数 (すなわち CSV ファイルの行数からヘッダー行を除いた数)。
+List size
+Salesforce のバルクジョブが合計でいくつ作成されたかを表す合成フィールド。
+一括ジョブすべての結果の集計は、データツリーの最上部に見つかります。
+Salesforce のバルク操作の出力データツリー - バルクジョブすべての結果の集計
+Salesforce のバルクジョブすべてのリストは、データツリーの最下部に見つかります。
+Salesforce のバルク操作の出力データツリー - バルクジョブのリスト
+#
+CSV ファイルに含まれる失敗したレコードについてバルクジョブを再試行
+再試行アクションには、
+CSV content with failed records
+という1つの入力項目があり、これには以前の Salesforce バルク操作アクションに由来する
+CSV content with failed records
+というデータピルの入力が想定されています。この CSV コンテンツを受け取ることで、Workato はユーザーが前に行った設定 (CSV ファイルの構成、書き込み先となる Salesforce オブジェクト、CSV データから Salesforce 項目への対応付け) を理解します。
+再試行アクションは同期型です。したがって、Salesforce が自身に送られてきたすべての CSV 行の処理を完了しない限り、レシピが次のアクションへと続行することはありません。
+設定済みの Salesforce のバルク再試行アクション
+#
+サンプルレシピ
+CSV ファイルを通じたバルク作成アクションとバルクジョブ再試行アクションを使用したサンプルレシピを見てみましょう。
+サンプルレシピ - Salesforce の CSV ファイルを通じたバルクアップサート。
+サンプルレシピ
+(opens new window)
+S3 トリガーは S3 バケットにドロップされる新しい CSV ファイルを監視しています。そして、このレシピでは
+CSV ファイルを通じたオブジェクトのバルク作成
+Salesforce アクションを利用して、CSV ファイルから Salesforce へとデータをストリーミングしています。この作成操作の完全な成功が達成できなかった場合、すなわち、少なくとも1つの CSV 行が Salesforce に正常に書き込まれなかった場合は、
+CSV ファイルを通じた Salesforce のオブジェクトバルクジョブの再試行
+アクションを使用して、失敗した CSV 行を Salesforce に再度書き込むことを試みます。
+CSV ファイルを通じたオブジェクトのバルク作成
+Salesforce アクションと
+CSV ファイルを通じた Salesforce のオブジェクトバルクジョブの再試行
+Salesforce アクションは、大容量のファイルを扱うことができます。数 GB を超える大きな CSV ファイルの場合、Workato はそのファイルを Salesforce の Bulk API のサイズ制限に収まるサイズに分割し、複数の Salesforce バルクジョブを作成します。
+この例では以下のような CSV ファイルを使用します。
+external_id,billing_country,phone,account_number
+"a0K1h000003fXSS","United States of America","123 456 789","54"
+"a0K1h000003fehx","Canada","650 894 345","12"
+"a0K1h000003fjnv","Japan","103 948 414","28"
+次に示すのは、設定済みのバルク作成アクションです。
+設定済みの Salesforce のバルクアップサートアクション
+続いて、このレシピは Salesforce で正常に処理できなかったレコードがあるかどうかをチェックします。処理の失敗の原因は多くあり、たとえば次のようなものが挙げられます。
+データの誤り
+他の誰か/別のプロセスが編集中であったため、レコードがロックされていた
+ネットワークの問題
+失敗したレコードの有無をチェックする If 条件
+失敗したレコードがあった場合、
+All records successfully processed?
+が
+false
+となり、レシピは再試行アクションの実行へと進みます。
+設定済みのバルク処理の再試行アクション
+←
+SOQL の使用
+バッチ操作
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+権限が必要
+CSV ファイルを通じてオブジェクトをバルク作成/更新/アップサート
+出力データツリーについての説明
+CSV ファイルに含まれる失敗したレコードについてバルクジョブを再試行
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

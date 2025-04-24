@@ -1,0 +1,425 @@
+Workato connectors - Salesforce - real-time triggers | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+Salesforce Real-time triggers
+Workato offers real-time capabilities for 3 Salesforce triggers:
+New Object
+New/Updated Object
+New Outbound message
+These real-time triggers are powered by
+Salesforce flows
+(opens new window)
+. Via these flows, Salesforce monitors records for certain changes and notifies Workato immediately via an outbound message when these changes occur. These outbound messages will be received and processed by a Workato recipe as trigger events.
+Deprecation Notice - Pertaining to Real-time triggers
+Currently, the real-time triggers configured in Workato rely on Salesforce Workflow rules. These existing Workflow rules will continue to be supported. However, we recommend all new recipes to use Salesforce Flows as Workflow Rules and Process Builder have now been
+deprecated
+(opens new window)
+by Salesforce. There is a
+migration tool
+(opens new window)
+to move your Workflow rules into Flows.
+As the outbound messages configured in Salesforce will remain the same, the process should not affect Workato recipes. Nevertheless, we recommend testing the migration in the Salesforce sandbox account first to ensure that there are no unexpected issues.
+#
+Real-time trigger permissions
+To use real-time triggers in Salesforce, flows have to be set up in your Salesforce organization. The user needs to have the access to Manage and Run Flows. You can grant it by the following steps:
+From Setup, enter Profiles in the Quick Find box.
+Click Edit for the user profile for which you want to give flow access.
+Under General User Permissions, select Manage Flows and Run Flows.
+General User Permissions - profile setup
+#
+Choosing the right trigger
+While all 3 triggers will be triggered on the outbound messages sent to Workato from Salesforce, there are some differences that you should note:
+New & New/Updated Object
+New Outbound Message
+Backup polling enabled
+Yes, the recipe will pick up all changes to the selected Object
+No, the recipe will only trigger when it receives an Outbound message
+Related Objects field
+Yes
+No
+SOQL WHERE clause
+Yes
+No
+Configure fields on the outbound message
+No, Workato automatically picks up all fields or those specified in the
+'Fields' input field
+.
+Yes, all fields that are sent in the outbound message must be specified in when setting it up in Salesforce. See
+below
+for more.
+Unique endpoint URL (per recipe)
+No, the URL isn't unique for each recipe. Recipes that use the same connection and object share a unique URL. Only one recipe triggers.
+Yes, the URL is unique for each recipe. Each recipe uses a distinct name to generate a unique URL. All recipes trigger independently.
+Complex Salesforce flow Consideration
+Not recommended, as the recipe will not adhere to any additional logic in the flow configured on Salesforce and will lead to inconsistencies due to backup polling.
+Recommended, as no backup polling is present for the trigger, and jobs will be created only for the events where there is an outbound message.
+What is Backup Polling?
+It is a mechanism in place by Workato, that polls Salesforce for the relevant object in the recipe every 6 hours. Workato then checks to ensure that the necessary jobs have been created. In the case of missing events, Workato creates the jobs at that point.
+#
+New & New/Updated Object (Real-time)
+The 'New Object' and 'New/Updated Object' are used in a similar way as the generic
+polling triggers
+(opens new window)
+, but help with various use cases with real-time needs such as point-of-sale or inventory and fulfillment use cases. Rather than wait polling duration for the Workato recipe to poll for changes, an Outbound message is configured and used to trigger the recipe.
+Choosing between Real-time and Polling triggers
+We recommend users who do not have a need for real-time use cases to select the polling triggers due to the ease of setup and identical behavior, with only a maximum delay of the duration of polling interval (as low as 5 minutes).
+The 'New Object' will trigger in real time upon receipt of the outbound message that a record of the selected object has been
+created
+. This is shown in the example
+below
+, where the outbound message will be sent whenever the record is created in Salesforce.
+Similarly, the 'New/Updated Object' trigger will trigger when a record of the selected object has been either
+created or updated
+. The flow setup needs to be modified to account for this. We change the start of the flow to ensure that it is done for either create or update. Additionally, Workato also looks at the
+LastModifiedDate
+field on the record to ensure consistency.
+If any records need to be filtered out from all the Outbound message events the Workato recipe is receiving, you should use the SOQL where clause field on the trigger or the
+trigger conditions
+to do so.
+Additionally, you can directly configure the flow to filter events that lead an outbound message to be sent. Note that this will lead to backup polling behaving erroneously and is not recommended for the New and New/Updated Object triggers.
+With these 2 triggers, Workato guarantees delivery through the use of a 6-hourly backup poll where all the new/updated changes to the object will be picked up even if Salesforce fails to deliver an Outbound message. This means that all record changes will be picked up by the Workato recipe if not filtered out with a SOQL condition or a trigger condition.
+#
+Setup
+To set up these triggers, we need to:
+Create a Workato recipe with a Salesforce real-time trigger, and copy the generated endpoint URL from the trigger.
+Configure an outbound message in Salesforce
+with the endpoint URL from the trigger.
+Create a Salesforce flow to monitor events we're interested in and send outbound messages when the relevant event occurs.
+Activate the flow.
+Add trigger conditions in the recipe, if desired.
+Start the recipe.
+In the following sections, we provide a detailed walkthrough to setup the real-time triggers:
+New object trigger
+New/updated object trigger
+New outbound message trigger
+#
+Configure a new outbound message in Salesforce
+All the triggers require the creation of outbound message that we will then use in the flows. We first describe the steps necessary to configure an outbound message correctly.
+1
+You will need the webhook URL from any of the triggers before we begin the setup in Salesforce.
+2
+Go to your Salesforce organization and select
+Setup
+.
+Go to Setup > Process Automation > Workflow Actions > Outbound Messages
+to create a new Outbound Message.
+Alternatively search for Outbound Messages in the sidebar in Salesforce Setup.
+In your Salesforce organization, go to Setup > Process Automation > Workflow Actions > Outbound Messages
+3
+Click on the New Outbound Message and select the object for which you wish to receive information.
+Create New Outbound Message and select relevant object
+4
+Configure the Outbound Message giving it a unique name, entering the Webhook URL endpoint (from Workato), and selecting the relevant fields.
+Configure Outbound Message by entering the relevant information and selecting the requisite fields.
+Note that for
+New and New/Updated Object
+trigger in Workato, the fields obtained will be based on the
+setup in Workato
+and not the fields configured in the corresponding Outbound Message. For
+New Outbound Message
+trigger in Workato, the fields will be based on the configuration done during
+setup in Salesforce
+.
+#
+New object (Real-time)
+We go through the setup for the
+New object
+real-time trigger below. We will be setting up a real-time trigger for new accounts in Salesforce.
+1
+Select the trigger,
+New Object (Real-time)
+in Workato. You will be prompted to connect to your Salesforce account.
+2
+Select the specific object you wish to monitor in Salesforce. In this case, we'll select Account.
+Upon selecting an object, the trigger will provide you with an endpoint URL to setup a Salesforce flow with. This URL will tell Salesforce to send real-time events about newly created accounts to this Workato recipe. Copy this URL to the clipboard for use in creating the Salesforce outbound message.
+Workato generates endpoint URL for Salesforce flow
+Making changes to object or connection in the trigger
+This endpoint URL is unique to the Salesforce organization connected to the trigger and the Salesforce object you've selected. You will need to regenerate this endpoint URL again if you decide to change Salesforce connection or the Salesforce object monitored.
+3
+Use the endpoint URL generated and configure a
+new outbound message in Salesforce
+. Note that this outbound message should select Account as the object.
+4
+Go to your Salesforce organization and select
+Setup
+. Go to
+Setup > Process Automation > Flows
+and select
+New Flow
+to create a new Salesforce flow. This will bring you into the Salesforce flow setup wizard.
+In your Salesforce organization, go to Setup > Process Automation > Flows and select New Flow
+5
+In the setup wizard, select Record-Triggered Flow.
+Select Record-Triggered Flow in Salesforce
+6
+In the next step of the setup wizard, select the same Salesforce object you have selected in the recipe. This will be Account in our case.
+In
+Configure Trigger
+select
+A record is created
+.
+Do not set any entry conditions as this will conflict with the backup polling mechanism in place.
+In
+Optimize the Flow for
+select
+Actions and Related Records
+.
+Setup the Salesforce flow to be triggered when record is created
+7
+In the Flow Builder view click on the
++
+icon and select
+Action
+.
+Within the
+Action
+setup view click on Outbound Message and select the Outbound Message that you have configured earlier (in this case Account Outbound Message).
+Save the newly created flow.
+Add Outbound Message as action in Salesforce flow
+8
+Upon saving the Salesforce flow you will be prompted to give the it a label and an API Name.
+Save the Salesforce flow
+9
+Activate the flow in Flow Builder.
+Activate the flow in Flow Builder
+10
+Return to Workato and start the recipe. To test that the recipe is working, create a new Account. Check that the recipe picks up the trigger event immediately to verify that the Salesforce flow is working.
+If the trigger event is indeed picked up immediately, this means that your Salesforce flow and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created records in Salesforce and process them as trigger events immediately. If your workflow requires additional logic to filter out certain records, add trigger conditions.
+#
+New/Updated object (Real-time)
+We go through the setup for the
+New and updated object
+real-time trigger below. We will be setting up a real-time trigger for new and updated leads in Salesforce.
+1
+Select the trigger,
+New/Updated Object (Real-time)
+in Workato. You will be prompted to connect to your Salesforce account.
+2
+Select the specific object you wish to monitor in Salesforce. In this case, we'll select Lead.
+Upon selecting an object, the trigger will provide you with an endpoint URL to setup a Salesforce flow with. This URL will tell Salesforce to send real-time events about newly created accounts to this Workato recipe. Copy this URL to the clipboard for use in creating the Salesforce outbound message.
+Workato generates endpoint URL for Salesforce flow
+Making changes to object or connection in the trigger
+This endpoint URL is unique to the Salesforce organization connected to the trigger and the Salesforce object you've selected. You will need to regenerate this endpoint URL again if you decide to change Salesforce connection or the Salesforce object monitored.
+3
+Use the endpoint URL generated and configure a
+new outbound message in Salesforce
+. Note that this outbound message should select Lead as the object.
+4
+Go to your Salesforce organization and select
+Setup
+. Go to
+Setup > Process Automation > Flows
+and select
+New Flow
+to create a new Salesforce flow. This will bring you into the Salesforce flow setup wizard.
+In your Salesforce organization, go to Setup > Process Automation > Flows and select New Flow
+5
+In the setup wizard, select Record-Triggered Flow.
+Select Record-Triggered Flow in Salesforce
+6
+In the next step of the setup wizard, select the same Salesforce object you have selected in the recipe. This will be Lead in our case.
+In
+Configure Trigger
+select
+A record is created or updated
+.
+Do not set any entry conditions as this will conflict with the backup polling mechanism in place.
+In
+Optimize the Flow for
+select
+Actions and Related Records
+.
+Setup the Salesforce flow to be triggered when record is created or updated
+7
+In the Flow Builder view click on the
++
+icon and select
+Action
+.
+Within the
+Action
+setup view click on Outbound Message and select the Outbound Message that you have configured earlier (in this case NewUpdatedLead Outbound Message).
+Save the newly created flow.
+Add Outbound Message as action in Salesforce flow
+8
+Upon saving the Salesforce flow you will be prompted to give the it a label and an API Name.
+Save the Salesforce flow
+9
+Activate the flow in Flow Builder.
+Activate the flow in Flow Builder
+10
+Return to Workato and start the recipe. To test that the recipe is working, create updated an existing Lead. Check that the recipe picks up the trigger event immediately to verify that the Salesforce flow is working.
+If the trigger event is indeed picked up immediately, this means that your Salesforce flow and Workato trigger has been set up properly. While the recipe is running, it should monitor newly created records in Salesforce and process them as trigger events immediately. If your workflow requires additional logic to filter out certain records, add trigger conditions.
+#
+New Outbound message (Real-time)
+The
+New Outbound message
+trigger can be used like a Webhook trigger, where a recipe is triggered only when an Outbound message is received from Salesforce.
+The output of the trigger is all fields from the object specified in the outbound message.
+Using Outbound Message Trigger
+We recommend using this trigger when you wish to configure more complex Salesforce flows. This allows for greater flexibility and control for which Outbound Messages are sent to Workato and the can be easily incorporated into the design of pre-existing workflow automation.
+To configure the trigger, give a unique name in the
+Outbound message name
+field and select a Salesforce object. The recipe will generate a URL unique to the Salesforce connection, the object selected and the name provided.
+Use this URL when setting up the outbound message in the
+Endpoint URL
+field.
+Outbound message in Workato setup
+All fields required in subsequent steps in the recipe should be specified in the outbound message. In the screenshot above, the selected fields in the Contact that are required are:
+ContactId
+,
+FullName
+etc. This will provide the output that Workato eventually receives in the trigger.
+New Outbound message final output
+The steps to set up the Outbound Message in Salesforce are as described
+above
+. Do note that you will have to select the set of fields you wish to use in your recipe during the configuration of the Outbound Message. If you select a field in Workato but not in the configuration of the Outbound Message you are likely to run into errors during recipe execution.
+#
+Always on
+Since the
+New Outbound message trigger
+does not guarantee delivery through backup polling, please ensure that the recipe is always turned on if you expect to receive events.
+This works in the same way as a webhook trigger. The recipe cannot receive events when it is stopped. It may miss events if the recipe is stopped for an extended period of time (>24h).
+#
+Outbound messages information
+While it's easy to create and configure outbound messages, this Salesforce feature has a limit. If an outbound message cannot be delivered to the endpoint, it will only retry sending the message within 24 hours in an exponential interval up to 2 hours maximum between retries (see
+documentation
+(opens new window)
+).
+Note
+You can't build an audit trail using outbound messages. While each message should be delivered at least once, it might be delivered more than once.
+Also, it might not be delivered at all if delivery cannot be done within 24 hours. Finally, as noted above, the source object might change after a notification is sent but before it is delivered, so the endpoint will only receive the latest data, not any intermediate changes.
+To view existing outbound messages, from
+Setup
+, enter
+Outbound Messages
+in the
+Quick Find box
+, then select it in the Salesforce user interface.
+Click New Outbound Message to define a new outbound message.
+Click View Message Delivery Status to track the status of an outbound message.
+Select an existing outbound message to view details about it or view workflow rules and approval processes that use it.
+#
+Setup FAQ
+1. I've setup the Salesforce flow to have filters to limit the number of records sent to Workato for the New Object and New/Updated Object triggers. How will backup polling work under this setting?
+Since backup polling checks for all New or New/Updated objects it will not respect the filters specified in the flow. This will lead to new jobs being created corresponding to events that might have been filtered out in the flow. To prevent this we recommend using trigger filters or SOQL conditions.
+2. I've a high volume use case to monitor events happening within Salesforce. What is the recommended approach?
+For high volume use cases we recommend using Platform events trigger or the Pushtopic trigger as these utilize the Salesforce Streaming API which is more durable (allows for events to be accessed for 24 hrs in the event queue).
+←
+Triggers/Actions in Salesforce
+Change Data Capture trigger
+→
+Last updated:
+4/11/2025, 3:33:11 PM
+On this page
+Real-time trigger permissions
+Choosing the right trigger
+New & New/Updated Object (Real-time)
+Setup
+Configure a new outbound message in Salesforce
+New object (Real-time)
+New/Updated object (Real-time)
+New Outbound message (Real-time)
+Setup FAQ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

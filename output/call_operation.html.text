@@ -1,0 +1,277 @@
+Workato コネクター - Workday - Call operation | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Workday
+#
+Call operation (操作の呼び出し)
+このアクションは、Workday Web Services (WWS) を使用して、接続された Workday インスタンスで SOAP ベースの操作を実行します。
+すべての操作は
+Workday Web Services Directory
+(opens new window)
+で確認できます。
+#
+入力 (簡易)
+Workday インスタンスで実行する操作を定義します。
+操作で送信するデータを入力します。表示される入力項目は、選択した操作のタイプによって異なります。
+Operation
+実行を計画する Workday Web Services の操作の名前。
+まずは操作を選択する必要があります。これにより、Workato で残りの入力項目を決定できます。
+Fields with attributes
+属性を割り当てる必要のある項目を選択します。
+これらの属性は、選択した項目の XML タグの一部になります。
+属性を持つ項目が少なくとも1つある操作の場合
+のみ
+表示されます。
+Fields with multiple values
+操作データで繰り返される項目を選択します。
+繰り返し項目が少なくとも1つある操作の場合
+のみ
+表示されます。
+#
+Operation
+[Maintain Contact Information] の選択
+Workday Web Services のすべての操作の完全なリストが表示されます。目的の操作を見つけるには、キーワードを使用してフィルタリングし、一致する候補のリストを絞り込みます。
+この例では、
+Maintain Contact Information
+(opens new window)
+操作を検索します。ここでは、従業員のメールアドレスが変更されたときに Workday レコードのメールアドレスを更新するレシピを作成します。
+#
+Fields with attributes
+[Email Address Data] を選択して属性値を含める
+既存のメールアドレスを上書きせずに新しいメールアドレスを特定の連絡先に追加する場合は、
+[Email address data]
+項目の
+[Do_Not_Replace_All]
+属性を
+false
+に設定できます。
+Maintain Contact Information Data/Worker.../Email Address Data
+を選択します。これにより、
+[Do_Not_Replace_All]
+を含め、
+[Email address data]
+項目に割り当て可能なすべての属性が生成されます。
+#
+Fields with multiple values
+[Email Address Data] 項目を選択して繰り返されるようにする
+ユースケースに複数のメールアドレスが含まれる場合、1回の操作で複数のメールアドレスを送信する必要があります。
+Maintain Contact Information Data/Worker.../Email Address Data
+を選択します。これにより、
+[Email address data]
+がリスト型の入力項目に変更されます。以降の操作では、このリストを使用して1つ以上のメールアドレスをマッピングできます。
+#
+参照項目のカスタマイズ
+参照項目の値はそれぞれ、
+customization:value
+構文を使用してカスタマイズできます。これを使用して項目タイプをカスタマイズできます。たとえば、
+Worker_Reference
+は通常 WID を使用して参照されます。従業員 ID を使用して参照されるようにするには、「
+Employee_ID:21012
+」と入力できます。これにより、項目タイプが WID から従業員 ID に変更され、使用する値は21012になります。
+カンマ、スペース、コロンを含む値はすべて
+<!--no_split-->
+構文で囲み、これらの文字が区切り文字として使用されないようにしてください。たとえば、
+<!--no_split-->value1,value2<!--no_split-->
+のように使用します。
+#
+入力 (ユーザー定義のペイロード)
+ユーザー定義のペイロードへの切り替え
+Workday に送信される XML ペイロードをカスタマイズする場合は、ユーザー定義のペイロードに対する Workday コネクターのサポートを利用できます。このアプローチは、Workato のデフォルトの XML タグを上書きします。
+以下の手順に従ってください。
+実行する操作を選択します。
+Switch to user defined payload
+入力項目を使用して、ユーザー定義のペイロードを有効にします。リクエストの生の XML ペイロードを直接編集するためのテキスト領域を公開するには、このオプションを
+true
+に設定します。
+このオプションを有効にする前に、以前にマッピングされたデータピルを再マッピングする必要があります。ユーザー定義のペイロードがオフになると、Workato でサポートされないカスタム項目の値は失われます。
+Workato の外部で生成されたカスタムペイロードを貼り付ける場合は、
+Header
+項目とその補足項目を削除することを忘れないでください。Workato は選択されたコネクションに基づいて関連する値を挿入します。
+有効なカスタム XML ペイロードの例を以下に示します。
+<
+env:
+Envelope
+xmlns:
+xsd
+=
+"
+http://www.w3.org/2001/XMLSchema
+"
+xmlns:
+xsi
+=
+"
+http://www.w3.org/2001/XMLSchema-instance
+"
+xmlns:
+wsdl
+=
+"
+urn:com.workday/bsvc
+"
+xmlns:
+env
+=
+"
+http://schemas.xmlsoap.org/soap/envelope/
+"
+>
+<!-->Header portion is removed<-->
+<
+env:
+Body
+>
+<
+wsdl:
+Get_Workers_Request
+>
+<
+wsdl:
+Request_References
+>
+<
+wsdl:
+Worker_Reference
+>
+<
+ID
+wsdl:
+type
+=
+"
+Employee_ID
+"
+>
+12345
+</
+ID
+>
+</
+wsdl:
+Worker_Reference
+>
+</
+wsdl:
+Request_References
+>
+</
+wsdl:
+Get_Workers_Request
+>
+</
+env:
+Body
+>
+</
+env:
+Envelope
+>
+#
+出力
+選択した操作の項目と属性の完全なセットが出力データツリーに表示されます。
+←
+特定の時間に実行するレポート トリガー
+カスタムオブジェクトの取得
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力 (簡易)
+入力 (ユーザー定義のペイロード)
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,155 @@
+GraphQL - カスタムアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+ユニバーサルコネクター
+GraphQL
+#
+GraphQL - カスタムアクション
+このアクションは、任意のカスタムGraphQL操作を実行するために使用できます。
+これは、既存のGraphQLクエリやミューテーションをレシピで再利用したい場合に便利です。
+また、以下のようなGraphQLクエリ言語の高度な機能も使用できます。
+変数
+フラグメント
+インラインフラグメント
+ディレクティブ
+エイリアス
+複数の操作ドキュメント
+これらの機能についての詳細は、
+GraphQLドキュメント
+(opens new window)
+を参照してください。
+#
+入力フィールド
+最低限、
+GraphQLドキュメント
+を提供する必要があります。これは有効なGraphQLクエリまたはミューテーションである必要があります。
+以下の例では、GraphQLドキュメントは特定のIDを持つレコードの詳細を取得する単純なクエリです。このIDはクエリ内でハードコードされています。
+シンプルなカスタムクエリ
+IDをハードコードする代わりに、レシピのデータピルを使用してIDを注入することができます。
+レコードIDは、ステップ2の出力からの
+Role Id
+データピルによって設定されます。
+データピルを使用したカスタムクエリ
+また、GraphQLドキュメント内で変数を定義し、ユーザーに値を入力フィールドを介して提供させることもできます。
+例えば、
+$role_id
+変数の値を提供するために
+Role ID
+を入力します。
+変数を使用したカスタムクエリ
+もしGraphQLドキュメントに複数のクエリが含まれている場合、実行する操作を選択する必要があります。
+以下のドキュメントには、
+RoleWithTags
+と
+RoleWithoutTags
+というクエリが含まれており、
+実行する操作
+は
+Role without tags
+に設定されています。
+複数のクエリを含むカスタムクエリ
+#
+出力フィールド
+出力フィールドはクエリ内で言及されたフィールドによって決まります。これらを後続のステップで使用するには、データツリーから関連するデータピルにマッピングします。
+GraphQLカスタムアクションの出力フィールドの例
+←
+レコードの変更アクション
+SOAP
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

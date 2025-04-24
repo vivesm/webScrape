@@ -1,0 +1,151 @@
+Workato connectors - Amazon SQS - Receive messages action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Amazon SQS
+#
+Amazon SQS - Receive Messages Action
+This action allows you to pull up to 10 messages from a chosen SQS queue. This comes in handy with recipes where you need to pull messages midway through a recipe.
+#
+Input fields
+Field name
+Description
+Queue
+The queue to pull messages from.
+Select attributes
+A list of attributes that need to be returned along with each message.
+Max number of messages
+The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.
+Visibility timeout
+The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request. Maximum allowed is 12 hours.
+Learn more about visibility timeout
+.
+Wait time (seconds)
+Value (in seconds) must be between 0 to 20. The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than WaitTimeSeconds. If no messages are available and the wait time expires, the call returns successfully with an empty list of messages.
+#
+Output fields
+The output to this action is a list of messages.
+Field name
+Description
+Request ID
+The unique id of the request.
+MD5 of message attributes
+MD5 hash of message attribute
+MD5 of message body
+MD5 hash of message body
+MD5 of message system attributes
+MD5 hash of message system attribute
+Message ID
+The unique id of the message.
+Message body
+The message's contents.
+Sequence number
+This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message.
+←
+Send message action
+Delete message action
+→
+Last updated:
+2/25/2022, 2:24:34 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

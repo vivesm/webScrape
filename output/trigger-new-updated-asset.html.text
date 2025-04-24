@@ -1,0 +1,186 @@
+Workato connectors - Bynder - New asset created | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Bynder
+#
+Bynder Trigger - New/updated asset in Bynder
+Triggers when a new asset is added to the Bynder account or existing asset in the Bynder account is updated. Trigger will pick up new assets created from the time recipe has started. Checks for new assets every 5 minutes.
+Bynder allows an asset to be updated by having multiple versions. You can update the original file in Bynder while keeping all the metaproperties, tags and other information the asset is tagged with as well as any attached additional files and manual derivatives.
+Follow the tutorial
+here
+(opens new window)
+to add a new version of the asset.
+This trigger supports
+Trigger conditions
+, which can filter incoming trigger events.
+The trigger event contains only metadata about the file, however, such as file name and size. To retrieve content of the file, use the
+Download asset in Bynder
+action.
+#
+Output fields
+Field name
+Description
+Copyright
+Label for the copyright.
+Description
+Description of asset.
+ID
+ID of the asset.
+Extension
+File extension type
+Type
+Type of this asset. Possible values are
+image
+,
+document
+,
+audio
+,
+video
+,
+3d
+.
+User Created
+User who created the asset
+Date Created
+Date/time the asset is created
+IdHash
+Hashed Id of the asset
+isPublic
+Indicates whether or not the response should only contain assets marked as public.
+Width
+Width of an image asset
+Height
+Height of an image asset
+Orientation
+Possible values include
+square
+,
+portrait
+,
+landscape
+.
+Archive
+Indicates whether or not the response should only contain archived assets. When 0, no filtering happens.
+Date Modified
+Date/time the asset is modified
+Date Published
+Date/time the asset is published
+File Size
+Size of file
+Brand Id
+Id of the brand
+Name
+Name of the asset
+Watermarked
+Indicates whether or not the asset is watermarked. When 0, the asset is not watermarked.
+Limited
+Indicates whether or not the asset is hidden for users who do not have the permission to access. When 0, the asset is not labeled Limited Use.
+Thumbnails
+Preview of the asset
+←
+New asset trigger
+Search records action
+→
+Last updated:
+7/14/2021, 8:13:49 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

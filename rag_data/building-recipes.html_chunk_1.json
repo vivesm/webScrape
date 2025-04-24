@@ -1,0 +1,20 @@
+{
+  "text": "or potential issues to\navoid failures.\nConsiderations for recipe design\nA recipe follows a structured flow that defines when it runs, what actions it takes, how data\nmoves, and how errors are managed. Each component is interconnected, and understanding\nthese relationships helps you design recipes that are e\u0000icient, reliable, and maintainable.\nA recipe typically uses the following components꞉\nTrigger꞉ Defines when the recipe starts running.\nAction꞉ Specifies what tasks the recipe performs.\nData flow꞉ Controls what data moves between apps.\nLogic and conditions꞉ Determines how di\u0000erent scenarios, such as missing targeted data\nare handled.\nError handling꞉ Ensures the recipe can recover from failures.\nDefine a clear triggerBuild your first recipe with this video guide/docs Search Workato Docs\n\n--- Page 2 ---\nEvery recipe starts with a trigger. A trigger listens for an event in an application and starts\nthe recipe when the specified conditions are met.",
+  "metadata": {
+    "source": "building-recipes.html.pdf",
+    "file_path": "output/building-recipes.html.pdf",
+    "title": "--- Page 1 ---",
+    "date": "2025-04-22",
+    "creator": "Chromium",
+    "producer": "Skia/PDF m71",
+    "creationdate": "D:20250423021054+00'00'",
+    "moddate": "D:20250423021054+00'00'",
+    "doc_id": "9d6229a5",
+    "chunk_id": "9d6229a5_1",
+    "chunk_index": 1,
+    "total_chunks": 8,
+    "file_name": "building-recipes.html.pdf",
+    "file_type": "pdf",
+    "processing_date": "2025-04-23T22:03:16.389380"
+  }
+}

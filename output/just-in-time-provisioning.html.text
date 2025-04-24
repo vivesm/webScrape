@@ -1,0 +1,341 @@
+Team - Just in time provisioning | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Workspace collaborators
+Enforce SSO with SAML
+#
+Team collaboration - Just in time provisioning
+Just-in-Time (JIT) provisioning eliminates the need for workspace admins to create Workato user accounts in advance on behalf of team members. When an employee signs up for a new Workato account using SAML SSO, they are automatically added to the organization's workspace.
+Employee Email already Registered?
+If an employee has an existing Workato account, Workato automatically adds them to the organization's workspace.
+#
+How to Enable JIT provisioning
+You can enable SAML Just-In-Time provisioning in
+Workspace admin
+>
+Settings
+>
+Authentication & provisioning
+.
+Enable SAML Just-In-Time provisioning
+#
+Customize JIT provisioning
+You can customize JIT provisioning to relay user-specific information to Workato. Workato takes SAML attributes (for example,
+workato_role
+) and applies it to the provisioned Workato user. This enables you to provision new users with the appropriate information according to your workflow.
+Workato supports the following attributes:
+workato_email
+,
+workato_full_name
+, and
+workato_role
+. If you do not configure these attributes, a default value is used.
+Workato user field
+SAML attribute
+Default value
+User email
+workato_email
+SAML
+NameID
+(in email format)
+User name
+workato_full_name
+Part of SAML
+Name
+User team role
+workato_role
+Operator
+Learn more about
+Workato workspace roles
+.
+#
+Why customize JIT provisioning
+Outside of the
+Workato system roles
+(
+Admin
+,
+Analyst
+, and
+Operator
+), you can configure custom roles with specific access to folders, or permissions to edit connections and recipes. This gives you more control to enforce security policies for Workato users within your organization.
+Also, this eliminates the need to manually provision Workato users with the
+appropriate access privileges
+. This leads to reduced operations cost and smoother onboarding.
+#
+How to customize JIT provisioning
+To assign user information during JIT provisioning, you first need complete the basic setup:
+Enable
+SAML based SSO
+Enable
+SAML Just-in-Time provisioning
+in Workato
+Configure the SAML attribute
+on the SAML provider's application page.
+(Optional) Create
+custom roles
+in Workato to enforce custom privileges. For example,
+mktg_ops
+role with only access to the Marketing folder within your workspace.
+#
+Configure Custom Attribute on SAML provider
+Let's configure the SAML attributes for
+workato_role
+on Okta.
+1
+Navigate to
+Directory > Profile Editor
+.
+2
+Select your Workato SAML App profile.
+3
+Select
+Add attribute
+.
+4
+Fill in the
+attribute
+details.
+Field
+Description
+Variable name
+Give this attribute a descriptive name. In this example, we will use
+workato_role
+. This is case-sensitive.
+Attribute members
+For each attribute, use a descriptive
+Display name
+and provide Workato-specific values.
+The
+Value
+corresponds to
+Workato Roles
+. In addition to custom roles, it is recommended that you also list out the default roles:
+Admin
+,
+Analyst
+,
+Operator
+. This is case-sensitive.
+ENVIRONMENTS
+If your organization uses environments, you can configure attribute statements to assign environment-specific roles as well. Simply add the additional attributes with the variable name set to
+workato_role_test
+for the
+TEST
+environment and
+workato_role_prod
+for the
+PROD
+environment. The default
+workato_role
+attribute maps to the
+DEV
+environment.
+5
+Locate the Workato
+SAML app
+.
+6
+Select
+SAML settings > edit
+.
+7
+Skip to
+Configure SAML
+.
+8
+Locate
+App attribute statement
+.
+Field
+Description
+Name
+Use
+workato_role
+. This is case-sensitive.
+The
+Name
+is a Workato specific keyword. See
+which fields are accepted
+.
+Value
+Use
+appuser.workato_role
+.
+The
+value
+is the
+attribute you have just configured
+.
+Attribute Values for Different SAMLs
+Each SAML uses a different syntax.
+SAML application
+Value
+Okta
+appuser.<attribute_name>
+Onelogin
+appuser.<attribute_name>
+Microsoft Entra ID
+user.<attribute_name>
+Google IDP
+<attribute_name>
+9
+Remember to save!
+Lastly,
+assign custom roles in your SAML application
+.
+#
+Assign roles for workspace members
+Let's assign custom SAML attributes for Workato on Okta.
+1
+When an employee is onboarded with Okta, select a value for
+workato_role
+.
+2
+Alternatively, for existing Okta users, assign
+workato_role
+on their profile page. This only applies if this Okta user
+does not have
+an existing Workato account.
+3
+Now, when a user logs in to Workato
+using SSO
+, the identity provider passes
+workato_role
+for this new user. For a new hire in the Marketing department, the provisioned Workato user is configured with the custom role
+mktg_ops
+.
+#
+JIT provisioning for users with access to multiple workspaces
+In some situations, you may have one or more users that require access to multiple workspaces. For example, consider a scenario where your organization has separate Finance, Legal, and HR workspaces and you have one dedicated user who acts as a builder for all three workspaces. In this situation, the process of enabling JIT provisioning is the same, but Workato automatically adds an extra layer of security to prevent unauthorized access to your organization's workspaces.
+When you enable JIT provisioning for users and then give them access to multiple workspaces, Workato follows this typical flow.
+1
+Your organization's Workato administrator assigns the user access to the Workato application in your identity provider. This workspace, named Finance, is the first Workato workspace within your organization that the user has joined.
+2
+The user signs up for a new Workato account using SAML SSO with your organization's authentication provider.
+3
+Workato automatically creates an account for the user, using your organization's identity provider.
+4
+The user joins the Finance workspace.
+5
+Your organization's Workato administrator assigns the user to the HR Workspace in your identity provider, which they have never used before.
+6
+Because they already have an account created with JIT provisioning, Workato does not prompt the user to create an account again.
+Instead, Workato prompts the user to verify their identity using the email address associated with their account.
+7
+After the user verifies their identity, they can join the HR workspace.
+8
+The user can switch between the Finance and HR workspaces, as necessary.
+←
+Logging In
+Sync roles with SAML
+→
+Last updated:
+10/24/2024, 5:02:28 PM
+On this page
+How to Enable JIT provisioning
+Customize JIT provisioning
+Why customize JIT provisioning
+How to customize JIT provisioning
+Configure Custom Attribute on SAML provider
+Assign roles for workspace members
+JIT provisioning for users with access to multiple workspaces
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

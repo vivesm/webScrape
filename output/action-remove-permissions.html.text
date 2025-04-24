@@ -1,0 +1,141 @@
+Workato connectors - Google Drive - Remove file permission action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Drive
+#
+Google Drive - Remove file permission action
+This action removes a permission associated with a given file in Google Drive. Permission details include the file's ownership and whether the file is shared with additional users, groups, or domains, or is accessible to anyone.
+Google Drive Remove file permission action
+#
+Input
+Input field
+Description
+File
+The file with the permission you plan to remove. Select a file or enter its ID. To find the file ID, right-click the file and select
+Share > Copy link
+. For example, if the URL is
+https://drive.google.com/file/d/123nyR2IjW_Rq84d3qEYRoq1/view
+, the file ID is
+123nyR2IjW_Rq84d3qEYRoq1
+.
+Alternatively, you can find the file ID in the output of other Google Drive triggers and actions.
+Permission
+The permission you plan to remove. Select a permission or enter its ID. The permission ID can be obtained from the
+List permissions
+action.
+#
+Output
+Output field
+Description
+Success
+True
+if the permission was successfully removed.
+←
+List file permissions action
+Rename or move file/folder action
+→
+Last updated:
+3/10/2025, 6:11:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

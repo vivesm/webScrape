@@ -1,0 +1,154 @@
+Troubleshooting - Undefined method for nil:NILClass | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Solution articles
+#
+Undefined method for nil:NILClass
+Troubleshoot undefined method error under 3 min
+The
+Undefined method for nil:NILClass
+occurs when you attempt to use a formula on a blank datapill. This indicates that the datapill was not provided any value at runtime.
+Example of Undefined method for nil:NILClass
+#
+Solution
+Since the value of a datapill at runtime is unknown beforehand, Workato recommends building recipes that are responsive to such situations.
+Add the
+&
+safe navigation operator to your formula. For example:
+[Datapill]&.capitalize
+This operator first checks if the datapill has a valid value. If the datapill is valid, it performs the specified formula. Otherwise, it skips the formula and return
+null
+. This solution prevents the
+Undefined method for nil:NILClass
+error from stopping your recipes.
+Example of using the safe navigation operator with the
+.capitalize
+formula
+Learn more about the
+safe navigation operator
+.
+#
+Why does this error occur?
+This occurs when the value of the datapill is
+null
+at runtime. It can happen if your
+Get
+action returns records with missing fields,
+Search
+actions that return no results, or a SQL query that returns 0 rows.
+In this example recipe, step 3 (Update lead in Marketo) uses a formula on a datapill from a previous step. If the output from step 2 has missing values, the datapill will not contain any value when the recipe runs.
+Example of Undefined method for nil:NILClass
+Since the
+capitalize
+formula does not apply to a datapill with no value, the job fails with the following error message:
+Error calculating input for field 'company':
+Formula received a nil value:
+undefined method `capitalize' for nil:NilClass
+←
+Bamboo HR 403 trigger error
+Column does not exist
+→
+Last updated:
+11/4/2022, 3:00:48 AM
+On this page
+Solution
+Why does this error occur?
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

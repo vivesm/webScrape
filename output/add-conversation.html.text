@@ -1,0 +1,192 @@
+Workato connectors - Intercom Add conversation note action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Intercom
+#
+Intercom - Add conversation note action
+The
+Add conversation note
+action allows you to add a conversation note in Intercom.
+Intercom - Add conversation note action
+#
+Input
+Conversation ID
+Input the unique identifier of the conversation where you plan to add a note.
+Admin
+Specify the admin user within Intercom responsible for adding the note.
+Body
+Write the content of the note you plan to add to the conversation.
+#
+Output
+Type
+The entity type for the action.
+ID
+The unique identifier for the newly added conversation note.
+Created at
+The timestamp when the conversation note was created.
+Updated at
+The timestamp when the conversation note was last updated.
+User
+Type
+The entity type related to the user.
+ID
+The unique identifier for the user associated with the note.
+Assignee
+Type
+The entity type for the assignee of the conversation note.
+ID
+The unique identifier for the assignee of the conversation note.
+Conversation message
+Type
+The entity type for the message.
+ID
+The unique identifier for the conversation message.
+Subject
+The subject of the conversation message.
+Body
+The body text of the conversation message.
+Author
+Type
+The entity type for the author.
+ID
+The unique identifier for the author of the message.
+Open
+Indicates whether the conversation is currently open.
+Read
+Indicates whether the conversation has been marked as read.
+Conversation parts
+Type
+The entity type for conversation parts.
+Conversation parts
+Type
+The entity type for each part of the conversation.
+ID
+The unique identifier for each part of the conversation.
+Part type
+The type of conversation part.
+Body
+The content of the conversation part.
+Created at
+The timestamp when the conversation part was created.
+Updated at
+The timestamp when the conversation part was last updated.
+Notified at
+The timestamp when notifications were sent for the conversation part.
+Author
+Type
+The entity type for the author of the conversation part.
+ID
+The unique identifier for the author of the part.
+List size
+The total number of conversation parts associated with the conversation.
+List index
+The index of the particular conversation part within the list of parts.
+←
+Updated user trigger
+Archive users action
+→
+Last updated:
+4/22/2024, 5:48:05 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

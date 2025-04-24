@@ -1,0 +1,684 @@
+How-to Guides - 認証 - マルチ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+API 認証
+#
+How-to Guide - 複数の認証フローの構築方法
+コネクタがサポートするさまざまなユースケースに応じて、複数の認証方法を構築する必要がある場合があります。たとえば、
+実行時接続
+のユーザー偽装をサポートする場合は、OAuth2 Authorization Code Grantを選択し、データ統合のユースケースをサポートする場合はAPIキーまたはクライアント資格情報を選択します。
+これを実現するために、WorkatoのConnector SDKを使用して、コネクタ内で分離された認証フローを定義することができます。
+TIP
+このガイドでは、Workatoでサポートされている他の認証形式の基本的な知識を持っていることを前提としています。
+OAuth2
+や
+APIキー
+など、Workatoでの他の基本的な認証形式について理解していることを確認してください。これらを参照します。
+#
+サンプルコネクタ - Stripe
+このコネクタについて詳しくは、
+Stripe API 認証
+(opens new window)
+のドキュメントを参照してください。
+{
+title
+:
+'Stripe'
+,
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+"auth_type"
+,
+control_type
+:
+"select"
+,
+pick_list
+:
+[
+[
+"OAuth2"
+,
+"stripe_oauth2"
+]
+,
+[
+"APIキー"
+,
+"stripe_api_key"
+]
+]
+,
+extends_schema
+:
+true
+}
+]
+,
+authorization
+:
+{
+type
+:
+"multi"
+,
+selected
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+"auth_type"
+]
+end
+,
+options
+:
+{
+stripe_oauth2
+:
+{
+type
+:
+"oauth2"
+,
+fields
+:
+[
+{
+name
+:
+'client_id'
+}
+,
+{
+name
+:
+'client_secret'
+}
+,
+]
+,
+authorization_url
+:
+lambda
+do
+|
+connection
+|
+"https://connect.stripe.com/oauth/authorize?scope=read_write"
+end
+,
+token_url
+:
+lambda
+do
+"https://connect.stripe.com/oauth/token"
+end
+,
+apply
+:
+lambda
+do
+|
+_
+,
+access_token
+|
+headers
+(
+"Authorization"
+:
+"Bearer
+#{
+access_token
+}
+"
+)
+end
+,
+}
+,
+stripe_api_key
+:
+{
+type
+:
+"custom_auth"
+,
+fields
+:
+[
+{
+name
+:
+"api_key"
+,
+}
+]
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+headers
+(
+"Authorization"
+:
+"Bearer
+#{
+connection
+[
+'api_key'
+]
+}
+"
+)
+end
+}
+}
+,
+}
+,
+base_uri
+:
+lambda
+do
+"https://api.stripe.com/"
+end
+}
+,
+test
+:
+lambda
+do
+|
+connection
+|
+get
+(
+'/v1/customers'
+,
+limit
+:
+1
+)
+end
+,
+#More connector code here
+}
+#
+ステップ 1 - 共通の接続フィールドを定義する
+コネクタの複数の認証フローを計画する際には、すべての認証フローで共通するフィールドを決定することから始めます。これはAPIのベースURLやターゲットのコネクタ環境などです。最低限、各接続シナリオをサポートする認証タイプを選択するためのフィールドを割り当てる必要があります。
+このディスカッションで使用する例であるStripeでは、認証タイプのみが共通の接続フィールドとして存在します。
+認証タイプ
+定義されたピックリストからの認証タイプ。
+次の重要な属性を持っています。
+スキーマ属性
+extends_schema: true
+は、このフィールドの値が変更されたときにWorkatoが接続スキーマを再評価することを示します。
+ピックリストの値
+stripe_oauth2
+と
+stripe_api_key
+は、後続のコネクタ定義で重要です。
+これは、
+fields
+キーで行われます。このキーはハッシュの配列を受け入れます。この配列の各ハッシュは、個別の入力フィールドに対応します。
+fields
+:
+[
+{
+name
+:
+"auth_type"
+,
+label
+:
+"認証タイプ"
+,
+control_type
+:
+"select"
+,
+pick_list
+:
+[
+[
+"OAuth2"
+,
+"stripe_oauth2"
+]
+,
+[
+"APIキー"
+,
+"stripe_api_key"
+]
+]
+,
+extends_schema
+:
+true
+}
+]
+#
+ステップ 2 - 選択された認証フローへのパスを定義する
+このコンポーネントは、入力フィールドから受け取った値に対してWorkatoに何を行うか、およびどの認証フローを使用するかを伝えます。これは
+authorization
+キーを介して実装されます。まず、認証の
+type
+を
+"multi"
+として定義します。
+authorization
+:
+{
+type
+:
+"multi"
+,
+selected
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+"auth_type"
+]
+end
+,
+}
+,
+#
+ステップ 3 - 複数の認証フローを定義する
+コネクタのすべてのフローを含む
+options
+ハッシュ内に複数の認証フローを定義します。これは、
+selected
+ラムダを使用して
+connection
+引数を受け取ることで実装されます。これにより、
+fields
+で定義されたすべての接続入力を参照し、出力として文字列値を期待します。
+authorization
+:
+{
+type
+:
+"multi"
+,
+selected
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+"auth_type"
+]
+end
+,
+options
+:
+{
+stripe_oauth2
+:
+{
+type
+:
+"oauth2"
+,
+fields
+:
+[
+{
+name
+:
+'client_id'
+}
+,
+{
+name
+:
+'client_secret'
+}
+,
+]
+,
+authorization_url
+:
+lambda
+do
+|
+connection
+|
+"https://connect.stripe.com/oauth/authorize?scope=read_write"
+end
+,
+token_url
+:
+lambda
+do
+"https://connect.stripe.com/oauth/token"
+end
+,
+apply
+:
+lambda
+do
+|
+_
+,
+access_token
+|
+headers
+(
+"Authorization"
+:
+"Bearer
+#{
+access_token
+}
+"
+)
+end
+,
+}
+,
+stripe_api_key
+:
+{
+type
+:
+"custom_auth"
+,
+fields
+:
+[
+{
+name
+:
+"api_key"
+,
+}
+]
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+headers
+(
+"Authorization"
+:
+"Bearer
+#{
+connection
+[
+'api_key'
+]
+}
+"
+)
+end
+}
+}
+,
+}
+,
+options
+ハッシュ内の各キーは、
+selected
+ラムダの可能な出力値に正確に対応する必要があります。この場合、
+selected
+の結果値は
+stripe_oauth2
+または
+stripe_api_key
+のいずれかであることがわかります。なぜなら、これらは
+auth_type
+入力フィールドで定義した唯一の2つのオプションだからです。これは、
+options
+ハッシュで定義したキーと完全に一致しています。
+各キー内で、
+type
+、
+apply
+、
+acquire
+などの認証フローのさらなる属性を定義することができます。これにより、既存のユースケースに基づいた特定の認証フローを構築することができます。また、各オプション内にネストされた
+fields
+配列として追加のキーを定義して、特定のフィールドの認証フローをサポートすることもできます。
+この例では、OAuth2のために
+client_id
+と
+client_secret
+のフィールドを定義し、APIキー認証のために
+api_key
+のフィールドを定義しています。また、
+stripe_oauth2
+ハッシュ内にOAuth2フローに必要なすべてのキーを定義し、
+stripe_api_key
+ハッシュ内にAPIキー認証に必要なすべてのキーを定義しています。
+他の認証形式
+すべての認証形式の詳細については、
+適切なガイド
+を参照してください。マルチ認証は、任意の数とタイプの認証フローをサポートすることができます。
+#
+ステップ4 - APIのベースURIの設定
+APIのベースURIは、APIのベースURLをWorkatoに指示します。このキーはオプションですが、HTTPリクエストを通じてコネクタの定義の残りの部分で相対パスのみを提供することができます。
+ベースURI
+の設定方法を学びましょう。
+base_uri
+:
+lambda
+do
+"https://api.stripe.com/"
+end
+TIP
+このラムダ関数は
+connection
+引数にアクセスできます。これは、ベースURIがユーザーのインスタンスによって変化する場合に非常に便利です。
+connection
+引数には、次の形式でアクセスできます。
+base_uri
+:
+lambda
+do
+|
+connection
+|
+#ここにコードを記述
+end
+さらに、ベースURIが認証タイプによって変化する場合は、次の例に示すように、動的に変更するために
+IF-ELSE
+構造を実装することもできます。
+base_uri
+:
+lambda
+do
+|
+connection
+|
+if
+connection
+[
+'auth_type'
+]
+==
+"stripe_oauth2"
+"https://api.stripe.com/"
+else
+"https://www.stripe.com/api"
+end
+end
+#
+ステップ5 - 接続のテスト
+各認証オプションのフィールドとフローを定義した後、新しい接続をテストする必要があります。
+test
+キーを使用します。
+test
+:
+lambda
+do
+|
+connection
+|
+get
+(
+'/customers'
+,
+limit
+:
+1
+)
+end
+,
+test
+キーは、ユーザーからの新しい資格情報を使用してサンプルリクエストを送信するためのエンドポイントを提供します。成功した接続は
+200 OK HTTP
+レスポンスを受け取ります。前述の例では、有効なAPIキーがある場合、
+/api/channels
+エンドポイントへの
+GET
+リクエストは
+200
+のレスポンスを返します。
+#
+Connections SDKリファレンス
+connection
+キー内の利用可能なキーとそのパラメータについての詳細は、
+SDKリファレンス
+を参照してください。
+←
+オンプレミスとのセキュアな接続の使用
+さまざまなデータ形式
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+サンプルコネクタ - Stripe
+ステップ 1 - 共通の接続フィールドを定義する
+ステップ 2 - 選択された認証フローへのパスを定義する
+ステップ 3 - 複数の認証フローを定義する
+ステップ4 - APIのベースURIの設定
+ステップ5 - 接続のテスト
+Connections SDKリファレンス
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

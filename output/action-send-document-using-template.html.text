@@ -1,0 +1,168 @@
+Workato connectors - Docusign - Send document using a template action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Docusign
+#
+Docusign - Send document using a template action
+The
+Send document using a template
+action sends a document based on a template that you configure.
+#
+Input
+Input field
+Description
+Template
+The template used for reusing envelopes.
+Email subject
+The subject line of the email message sent to all recipients. The line is limited to 100 characters, including any merged fields. The line, which is not truncated, causes an error if it's longer than 100 characters.
+Message
+This optional element holds the body of the email message sent to all envelope recipients. Maximum length is 10,000 characters.
+Documents
+The URL of the document source files, including the file extension. Supported file formats are .csv, .doc, .jpg, .pdf, .png, .txt, and .xls.
+Document status
+The status of the document (
+Send
+or
+Draft
+)
+#
+Output
+Output field
+Description
+Envelope ID
+The ID assigned to the envelope for tracking and managing the document lifecycle.
+URI
+The unique identifier of the template.
+Status date time
+The date and time the status was generated.
+Status
+The current state of the envelope, including the recipient's progress within that envelope. For example,
+Created
+,
+Sent
+,
+Delivered
+,
+Signed
+,
+Completed
+,
+Declined
+,
+Voided
+,
+Deleted
+, or
+All
+.
+ADDITIONAL OUTPUT FIELDS
+This trigger provides a data tree with attributes and values for the specified object. Additional fields depend on the properties you select.
+←
+New recipient event trigger
+Download document action
+→
+Last updated:
+3/20/2025, 4:54:29 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

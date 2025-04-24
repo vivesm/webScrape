@@ -1,0 +1,224 @@
+Workato connectors - SAP action - Call BAPI | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP RFC
+#
+SAP action: Call BAPI
+Use this action to run BAPIs (Business Application Programming Interfaces) in an SAP system.
+LIST OF BAPIs
+Beginning with OPA version 24.1, we offer a catalog of BAPIs organized by Business Objects. This makes it easy to navigate and select the appropriate BAPI by browsing through the relevant Business Objects. You must enter the BAPI names manually when creating a recipe using the call BAPI action if you are using an older version.
+Call BAPI action
+Business Objects catalog
+BAPI catalog
+Previously, you could invoke BAPIs using our
+Call remote function module action
+. However, this approach is limited when calling BAPIs: Even when a BAPI operation in the SAP system failed, Workato considered the action successful because the call itself succeeded. This meant that you had to include conditional logic ("if" steps) in your recipes to identify errors based on the response from SAP.
+Conversely, the
+Call BAPI
+action leverages the standardized error message structure present in BAPIs to raise errors when a BAPI execution encounters issues automatically. It also highlights the
+validation errors
+detected by the SAP system and returns them to Workato. This eliminates the need to build recipe steps to check the SAP system for errors, streamlining recipe logic.
+The Call BAPI action (right) reduces recipe steps and streamlines logic
+Use this action with our existing
+Begin transaction
+and
+End transaction
+actions to run multiple RFMs in a single logical unit of work. This allows you to commit (or roll back) the entire sequence at the end of the transaction.
+REMOTE FUNCTION CALLS FOR BAPIS AND RFMS
+Remote function calls enable you to run both BAPIs and RFMs (Remote-Enabled Function Modules) within a SAP system. BAPIs are distinct from RFMs in the following ways:
+BAPIs are standardized interfaces to SAP business objects, while RFMs are less standardized and can be multi-step processes.
+In BAPIs, error messages or warnings are presented in a structured and clear manner within the response, unlike RFMs.
+BAPIs generally don't perform immediate commits to an SAP system. This allows you to make a series of actions within a single transaction. You can commit these changes to the SAP system collectively or roll them back if errors occur.
+See
+How to run BAPIs in a transaction
+for the example flow.
+#
+Input fields
+BAPI description
+Give this step a human-readable description, which will show up in the recipe step. This input does not affect the BAPI execution. For example,
+Create sales order
+.
+BAPI name
+Provide the exact name of the BAPI you plan to use. This input is case-sensitive.
+Transaction ID
+Provide the transaction ID from the output of the
+Begin transaction
+action. If this is mapped,
+Force auto commit
+is disabled.
+Force auto-commit
+Some BAPIs do not commit the changes by default. Select
+Yes
+if you plan to force the RFM to commit using the RFC
+BAPI_TRANSACTION_COMMIT
+. If the RFM fails, the RFC
+BAPI_TRANSACTION_ROLLBACK
+is invoked. Select
+No
+if you plan to let the RFM commit on its own. If
+BAPI_TRANSACTION_COMMIT
+is not called within the RFM code, data is not committed to the database.
+Timeout
+Configure the timeout for this call to up to 30 minutes. If you select 30 minutes, you cannot run this RFC in a transaction.
+#
+Validation errors
+If the following return types are included in the response, Workato raises an error:
+Return type
+Description
+A
+Termination message (abort)
+E
+Error message
+#
+How to run BAPIs in a transaction
+Some BAPIs may need you to execute a
+BAPI_TRANSACTION_COMMIT
+to commit the work into your SAP application. You can do so using the
+Force auto commit
+input or by running the BAPI in a transaction.
+1
+Add a
+Begin transaction
+action where you plan your sequence of BAPIs to start.
+2
+Add one or more BAPIs using the
+Call BAPI
+action. Map the output datapill
+Transaction ID
+from the
+Begin transaction
+action to the
+Transaction ID
+field. Configure other fields as necessary.
+3
+Add an
+End transaction
+action at the end of your desired sequence of BAPI calls. Map the output datapill
+Transaction ID
+from the
+Begin transaction
+action to the
+Transaction ID
+input field and select
+Commit work
+to save this entire sequence to your SAP application when the job execution reaches this step.
+4
+Wrap the
+Call BAPI
+action in a
+Monitor for errors
+block. This allows you to add an
+End transaction
+action with
+Roll back changes
+selected, enabling you to roll back the transaction if any of the steps face errors when you run your recipe.
+←
+Configure the Workato SAP connector
+Run RFC action
+→
+Last updated:
+2/26/2025, 9:00:26 PM
+On this page
+Input fields
+Validation errors
+How to run BAPIs in a transaction
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

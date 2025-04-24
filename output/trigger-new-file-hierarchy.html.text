@@ -1,0 +1,252 @@
+Workato コネクター - Google Drive トリガー - New file or folder in folder hierarchy | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Drive
+#
+Google ドライブトリガー - New file or folder in folder hierarchy (フォルダー階層内の新規ファイルまたはフォルダー)
+このトリガーは、指定されたフォルダーとそのサブフォルダー内で新規作成されたファイルまたはフォルダーを定期的に確認します。新規のファイルまたはフォルダーは、それぞれ新しいジョブを生成します。このトリガーを使用すると、フォルダーのファミリーをリッスンできます。
+このトリガーは
+ストリーミング
+に対応しているため、Google ドライブから Workato 内のその他のストリーミング対応コネクターに大量のデータを送信できます。
+#
+入力項目
+項目名
+説明
+Folder
+ファイル/フォルダーの新規作成の監視を受けるフォルダー。サブフォルダーも監視されます。ピックリストからフォルダーを選択するか、フォルダー ID を直接入力します。
+Chunk size (KB)
+デフォルトは1,024 KB です。これは、Google ドライブから下流のアプリケーションにデータを送信する際のチャンクサイズです。下流のアプリケーションもストリーミングに対応している場合にのみ有効となります。
+#
+出力項目
+Google Drive API では、
+folder
+(フォルダー) と
+file
+(ファイル) という言葉は区別なく用いられます。厳密に言えば、
+folder
+は特殊な
+file
+です。そのため、項目名または項目の説明に
+file
+と記載されている場合、それは
+folder
+にも適用されます。
+項目名
+説明
+Is folder
+これがフォルダーかどうかを示します。
+Is google file
+これが Google ファイル (Google スプレッドシート、Google ドキュメント、Google スライドなど) であるかどうかを示します。
+Is other file
+これが Google 以外のファイル (csv、pdf、docx など) であるかどうかを示します。
+File contents
+ファイルの完全なコンテンツ。これは
+ストリーミングオブジェクト
+です。
+ID
+ファイルの ID。
+Name
+ファイルまたはフォルダーの名前。
+Mime type
+Google のドキュメント
+(opens new window)
+に記載されている、このファイルの MIME タイプ。
+Description
+ファイルの簡単な説明。
+Starred
+ユーザーがファイルに星を付けたかどうかを示します。
+Trashed
+ファイルが (ごみ箱に明示的に入れられた、または親フォルダーがごみ箱に入れられたことにより) ごみ箱に入れられているかどうかを示します。所有者のみがファイルをごみ箱に入れることができ、その他のユーザーは所有者のごみ箱内のファイルを表示することはできません。
+Explicitly trashed
+ファイルが親フォルダーから再帰的にごみ箱に入れられた (たとえば、親フォルダー全体がごみ箱に入れられた) のではなく明示的にごみ箱に入れられたかどうかを示します。
+Parents
+ファイルを含んでいる親フォルダーのリスト。
+- ID
+ファイルを含んでいる親フォルダーの ID。
+- List size
+ファイルを含んでいる親フォルダーの数。
+Version
+単調に増加していく、ファイルのバージョン番号。これには、ユーザーの目に見えないものも含め、サーバー上のファイルに対して行われたあらゆる変更が反映されます。
+Web content link
+ファイルのコンテンツをブラウザーでダウンロードするためのリンク。これはドライブ内のバイナリコンテンツを持つファイルでのみ使用できます。
+Web view link
+ブラウザー内の適切な Google エディターまたはビューアーでファイルを開くためのリンク。
+Icon link
+ファイルのアイコンへの静的な、認証されていないリンク。
+Thumbnail link
+ファイルのサムネイル (存在する場合) への有効期間の短いリンク。有効期間は通常数時間です。リクエスト元のアプリがファイルのコンテンツにアクセスできる場合にのみ提供されます。
+Viewed by me
+ファイルがこのユーザーによって表示されたかどうかを示します。
+Viewed by me time
+ファイルがこのユーザーによって最後に表示された時刻 (RFC 3339の日時形式) です。
+Created time
+ファイルが作成された時刻 (RFC 3339の日時形式) です。
+Modified time
+ファイルが任意のユーザーによって最後に変更された時刻 (RFC 3339の日時形式) です。
+Modified by me time
+ファイルがこのユーザーによって最後に変更された時刻 (RFC 3339の日時形式) です。
+Sharing user
+リクエスト元のユーザーとファイルを共有しているユーザー (存在する場合) です。
+- Display name
+このユーザーの名前 (表示可能なプレーンテキスト形式)。
+- Email address
+このユーザーのメールアドレス。これは、ユーザーが自分のメールアドレスをリクエスト元ユーザーに表示可能にしていない場合など、特定の状況では存在しない場合があります。
+- Permission ID
+権限のリソースで表示されるユーザーの ID。
+- Photo link
+ユーザーのプロフィール写真 (存在する場合) へのリンク。
+- Me
+このユーザーがリクエスト元ユーザーであるかどうかを示します。
+Owners
+ファイルの所有者のリストです。現在では、複数名が所有者になれるのは特定のレガシーなファイルのみです。チームドライブのファイルでは提供されません。
+- Display name
+このユーザーの名前 (表示可能なプレーンテキスト形式)。
+- Email address
+このユーザーのメールアドレス。これは、ユーザーが自分のメールアドレスをリクエスト元ユーザーに表示可能にしていない場合など、特定の状況では存在しない場合があります。
+- Permission ID
+権限のリソースで表示されるユーザーの ID。
+- Photo link
+ユーザーのプロフィール写真 (存在する場合) へのリンク。
+- Me
+このユーザーがリクエスト元ユーザーであるかどうかを示します。
+- List size
+このリスト内の所有者の数。
+Last modifying user
+ファイルを最後に変更したユーザー。
+- Display name
+このユーザーの名前 (表示可能なプレーンテキスト形式)。
+- Email address
+このユーザーのメールアドレス。これは、ユーザーが自分のメールアドレスをリクエスト元ユーザーに表示可能にしていない場合など、特定の状況では存在しない場合があります。
+- Permission ID
+権限のリソースで表示されるユーザーの ID。
+- Photo link
+ユーザーのプロフィール写真 (存在する場合) へのリンク。
+- Me
+このユーザーがリクエスト元ユーザーであるかどうかを示します。
+Shared
+このファイルが共有されているかどうかを示します。チームドライブのファイルでは提供されません。
+Owned by me
+このユーザーがファイルを所有しているかどうかを示します。チームドライブのファイルでは提供されません。
+Viewers can copy content
+廃止されました。
+Writers can share
+書き込み権限のみを持つユーザーがファイルの権限を変更できるかどうかを示します。チームドライブのファイルでは提供されません。
+Original filename
+利用できる場合は、アップロードされたコンテンツの元のファイル名を示します。そうでない場合は、[Name] フィールドの元の値が使用されます。これはドライブ内のバイナリコンテンツを持つファイルでのみ使用できます。
+Full file extension
+[Name] フィールドから抽出された完全なファイル拡張子です。連結された複数の拡張子 ("tar.gz" など) が含まれる場合があります。これはドライブ内のバイナリコンテンツを持つファイルでのみ使用できます。これは、[Name] フィールドの変更時に自動的に更新されますが、新しい名前に有効な拡張子が含まれない場合でも消去されません。
+File extension
+Full file extension の最終要素です。これはドライブ内のバイナリコンテンツを持つファイルでのみ使用できます。
+MD5 checksum
+ファイルのコンテンツの MD5 チェックサム値。これはドライブ内のバイナリコンテンツを持つファイルでのみ使用できます。
+Size
+ファイルのコンテンツのサイズ (バイト単位)。これはドライブ内のバイナリコンテンツを持つファイルでのみ使用できます。
+Quota byte used
+ファイルによって使用されるストレージ割り当ての値 (バイト単位)。これには、最新リビジョンと、keepForever が有効にされている場合は以前のリビジョンが含まれます。
+Head revision ID
+ファイルの最新リビジョンの ID。これは現時点ではドライブ内のバイナリコンテンツを持つファイルでのみ使用できます。
+←
+新規ファイル・フォルダー
+フォルダーの作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

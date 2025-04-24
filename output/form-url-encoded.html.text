@@ -1,0 +1,333 @@
+How to ガイド - URL エンコードフォーム | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+さまざまなデータ形式の処理
+#
+How to ガイド - URL エンコードフォーム
+このリクエスト形式は、カスタムコネクターコード内の任意のキー (
+execute
+、
+acquire
+、
+fields
+など) で宣言できます。
+#
+サンプルコードスニペット
+例として、
+HubSpot API
+(opens new window)
+の Submit data to a form エンドポイントを使用してみましょう。このエンドポイントは、URL エンドコード形式のフォームデータを受け入れます。
+cURL の例は、次のようになります。
+curl
+\
+https://forms.hubspot.com/uploads/form/v2/12345/67890
+\
+-X
+POST
+\
+-H
+'Content-Type: application/x-www-form-urlencoded'
+\
+-d
+'firstname=TestContact&lastname=FormSub&
+[email protected]
+&newcustomproperty=testing&hs_context=%7B%22hutk%22%3A%2260c2ccdfe4892f0fa0593940b12c11aa%22%2C%22ipAddress%22%3A%22192.168.1.12%22%2C%22pageUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fcontact%2F%22%2C%22pageName%22%3A%22Contact%2BUs%22%2C%22redirectUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fthank-you%2F%22%7D'
+この cURL コマンドは、Workato で複製できます。
+{
+title
+:
+"HubSpot"
+,
+connection
+:
+{
+# Some code here
+}
+,
+test
+:
+{
+# Some code here
+}
+,
+actions
+:
+{
+submit_form
+:
+{
+input_fields
+:
+lambda
+do
+[
+{
+name
+:
+"portal_id"
+,
+type
+:
+"string"
+}
+,
+{
+name
+:
+"form_guid"
+,
+type
+:
+"string"
+}
+,
+{
+name
+:
+"hutk"
+,
+type
+:
+"string"
+}
+,
+{
+name
+:
+"ipAddress"
+,
+type
+:
+"string"
+}
+,
+{
+name
+:
+"pageUrl"
+,
+type
+:
+"string"
+}
+,
+{
+name
+:
+"pageName"
+,
+type
+:
+"string"
+}
+,
+{
+name
+:
+"redirectUrl"
+,
+type
+:
+"string"
+}
+]
+end
+,
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+post
+(
+"https://forms.hubspot.com/uploads/form/v2/
+#{
+input
+[
+'portal_id'
+]
+}
+/
+#{
+input
+[
+'form_guid'
+]
+}
+"
+)
+.
+request_body
+(
+input
+.
+reject
+{
+|
+k
+,
+v
+|
+k
+==
+'portal_id'
+||
+k
+==
+'form_guid'
+}
+)
+.
+request_format_www_form_urlencoded
+end
+}
+,
+output_fields
+:
+{
+...
+}
+}
+,
+triggers
+:
+{
+# Some code here
+}
+,
+object_definitions
+:
+{
+# Some code here
+}
+,
+pick_lists
+:
+{
+# Some code here
+}
+,
+methods
+:
+{
+# Some code here
+}
+#
+コンポーネント
+cURL
+Workato
+curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST
+post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")
+-H 'Content-Type: application/x-www-form-urlencoded'
+.request_format_www_form_urlencoded
+-d '{data}'
+.request_body(input.reject { |k,v| k == 'portal_id' || k == 'form_guid' })
+←
+XML データ形式
+複合データ型
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サンプルコードスニペット
+コンポーネント
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

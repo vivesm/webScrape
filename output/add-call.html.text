@@ -1,0 +1,167 @@
+Workato connector - Gong - Add call | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Gong
+#
+Gong Connector - Add call
+This action will add call in Gong. To add a call, you will either need to provide a media download URL which Gong can download the file from or use the
+Add call media
+action after this to upload call media. Audio or video file in the media download URL must be a maximum of
+1.5 GB
+.
+#
+Input
+The set of input fields is as below.
+Field
+Description
+Client unique ID
+A call's unique identifier in the PBX or the recording system. Gong uses this identifier to prevent repeated attempts to upload the same recording.
+Actual start
+The date and time the call actually started.
+Primary user
+The Gong internal user ID of the team member who hosted the call.
+Parties
+A list of the call's participants. A party must be provided for the primaryUser.
+Direction
+Whether the call is inbound (someone called the company), outbound (a rep dialed someone outside the company), or a conference call.
+Workspace
+Select the workspace to add the call to.
+Meeting URL
+The URL of the conference call by which users join the meeting.
+Title
+The title of the call. This title is available in the Gong system for indexing and search.
+Purpose
+The purpose of the call. This optional field is a free text of up to 255 characters.
+Scheduled start
+The date and time the call was scheduled to begin.
+Scheduled end
+The date and time the call was scheduled to end.
+Duration
+The actual call duration in seconds.
+Disposition
+The disposition of the call. The disposition is free text of up to 255 characters.
+Media download URL
+The URL from which Gong can download the media file. The URL must be unique, the audio or video file must be a maximum of 1.5GB. You can either provide a friendly URL or add call media directly using the add call media action.
+Context
+A list of links to external systems such as CRM, Telephony System, Case Management, etc.
+Speakers timeline
+Describe the segments of time where individual parties were speaking.
+Custom data
+Optional metadata associated with the call (represented as text). Gong stores this metadata and it can be used for troubleshooting.
+#
+Output
+Field
+Description
+Call ID
+Unique ID of the Call added to Gong
+Request ID
+UUID that is created to ensure the call is created only once.
+←
+New call (real-time)
+Add call media
+→
+Last updated:
+10/4/2023, 6:53:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

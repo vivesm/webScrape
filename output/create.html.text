@@ -1,0 +1,175 @@
+Workato コネクター - ServiceNow Create record アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+ServiceNow
+#
+ServiceNow - Create record (レコードの作成) アクション
+#
+Create record (レコードの作成)
+このアクションは、ServiceNow インスタンス内の任意のテーブルに単一のレコードを作成します。
+レコードの作成アクション
+#
+入力項目
+入力項目
+説明
+Table
+レコードの作成先のテーブルを選択します。
+New record values
+作成するレコードの列ごとにデータを指定します。
+#
+出力項目
+このアクションの出力には、選択したテーブルから取得される列がすべて含まれています。すべてのデフォルトおよびカスタムの列がサポートされます。出力項目は、ピックリストからテーブルを選択するか、完全なテーブル名を入力することで、テーブルを指定した後にのみ表示されます。
+出力項目
+#
+Create record using a template (テンプレートを使用したレコードの作成)
+このアクションは、新規作成したレコードにテンプレートを適用することで、ServiceNow インスタンス内の任意のテーブルに単一のレコードを作成します。
+テンプレートが選択されたら、新規レコードに追加のデータピルをマッピングできます。テンプレートの値はマッピングの上から適用されます。このアクションで、テンプレートの値を保持するか、上書きするかを選択できます。
+テンプレートを使用したレコードの作成アクション
+#
+入力項目
+入力項目
+説明
+Table
+レコードの作成先のテーブルを選択します。
+Template
+選択されたテーブルに関連付けられたテンプレートを選択します。
+Override template
+[New record values]
+に入力されたデータでデフォルトのテンプレートの値を上書きするかどうかを選択します。
+New record values
+作成するレコードの列ごとにデータを指定します。
+#
+出力項目
+このアクションの出力には、選択したテーブルから取得される列がすべて含まれています。すべてのデフォルトおよびカスタムの列がサポートされます。出力項目は、ピックリストからテーブルを選択するか、完全なテーブル名を入力することで、テーブルを指定した後にのみ表示されます。
+また、このレコードに適用されたテンプレートの Sys ID も出力に含められます。
+出力項目
+#
+入力項目の定義
+#
+Table
+レコードの作成先のテーブルを選択します。このためには、ピックリストからテーブルを選択するか、入力項目をテキストモードに切り替えて完全なテーブル名を入力します。
+接続されるユーザーに、選択されたテーブルに対する
+十分なアクセス制御
+があることを確認してください。
+#
+Template
+新規作成されたレコードに適用されるテンプレートを選択します。このためには、ピックリストからテンプレートを選択するか、または入力項目をテキストモードに切り替えてテンプレートの Sys ID を入力します。このテンプレートは選択されたテーブルに関連付けられている必要があります。
+接続されるユーザーに、選択されたテンプレートに対する
+十分なアクセス制御
+があることを確認してください。
+#
+Override template
+新規作成されたレコードに自動的に適用される、事前定義されたテンプレートの値を上書きするかどうかを選択できます。
+[Yes]
+を選択すると、テンプレートのデフォルト値の代わりに、列に入力されるデータが適用されます。デフォルトでは、この項目は
+[No]
+に設定されています。
+#
+New record values
+選択したテーブルの新規レコードに対して入力する必要のあるすべての列にデータを指定します。このためには、前のトリガーまたはアクションから対応する列にデータピルをマッピングします。
+←
+レコードの検索
+レコードの更新
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Create record (レコードの作成)
+Create record using a template (テンプレートを使用したレコードの作成)
+入力項目の定義
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

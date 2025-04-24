@@ -1,0 +1,154 @@
+OpenAI - Moderate Text Action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+OpenAI
+#
+Moderate text
+Use this action to check if the input text violates OpenAI's content policy. Learn more about their policy
+here
+(opens new window)
+.
+The action allows users to filter, moderate, and classify text content based on specific criteria. This API can be used in a variety of use cases, such as:
+Content moderation:
+Companies can use the action to automatically filter out inappropriate or offensive content from user-generated content on their platforms, such as social media platforms or forums.
+Customer service:
+Use this action to automatically classify and route customer inquiries or complaints to the appropriate department or agent based on the content of the message.
+Sentiment monitoring:
+Users can use the moderate text action to monitor social media and other online platforms for mentions of their brand and automatically classify them based on sentiment, allowing them to quickly respond to negative comments or customer complaints.
+Moderate text action
+#
+Input
+Field
+Description
+Input
+The input text to classify. You can choose to input a list of relevant text to classify as well.
+Model
+Select the OpenAI model to which you would like to send the text for moderation. Defaults to text-moderation-latest which will be automatically upgraded by OpenAI over time. If you use text-moderation-stable, OpenAI will provide advanced notice before updating the model. The accuracy of text-moderation-stable may be slightly lower than for text-moderation-latest.
+#
+Output
+Field
+Description
+ID
+Unique identified for the request sent to OpenAI.
+Model
+The model used for text moderation.
+Results
+Categories
+Contains a dictionary of per-category binary usage policies violation flags. For each category, the value is true if the model flags the corresponding category as violated, false otherwise.
+Category scores
+Contains a dictionary of per-category raw scores output by the model, denoting the model's confidence that the input violates the OpenAI's policy for the category. The value is between 0 and 1, where higher values denote higher confidence. The scores should not be interpreted as probabilities.
+Flagged
+True if the model classifies the content as violating OpenAI's usage policies, false otherwise.
+Best score
+The highest score within the various categories which could be violated.
+Best category
+The category which corresponds to the highest score for the possible violation.
+←
+Translate recording action
+Oracle
+→
+Last updated:
+6/20/2023, 4:11:40 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

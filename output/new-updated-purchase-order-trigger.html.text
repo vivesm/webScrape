@@ -1,0 +1,128 @@
+Workatoコネクター - Intacct - 新規/更新された発注トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Intacct
+#
+Intacct - 新規/更新された発注トリガー
+このトリガーは、Sage Intacctインスタンス内の新規/更新された発注レコードを取得します。
+新規/更新された発注トリガー
+#
+入力
+入力フィールド
+説明
+このレシピを最初に開始したとき、イベントを取得する時刻
+指定された時刻からトリガーイベントを取得します。空白の場合、レシピを最初に開始した時刻の1時間前からデフォルトで設定されます。レシピが実行またはテストされた後は値を変更できません。
+[オプション]
+トリガーポーリング間隔
+新しい/更新されたイベントをチェックする頻度です。空白の場合、デフォルトで5分に設定されます。許可される最小値は5分です。
+#
+出力
+このアクションの出力は、発注オブジェクトに関する情報を含むデータツリーです。
+発注オブジェクトについて詳しくはこちら
+(opens new window)
+.
+←
+新規/更新されたプロジェクトタスクトリガー
+新規/更新されたベンダートリガー
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

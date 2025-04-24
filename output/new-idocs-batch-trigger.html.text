@@ -1,0 +1,175 @@
+Workato connectors - SAP - New IDocs batch trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP RFC
+#
+New IDocs batch trigger
+The
+New IDoc batch
+trigger allows you to listen to outbound IDocs from SAP in real time. You can use this trigger to process multiple IDocs in a single job. Note that the
+New IDoc batch
+trigger is only compatible with OPA v23.0 and higher.
+To fully leverage this feature, configure the SAP system partner profile to enable sending multiple IDocs in one transaction. This allows you to process IDocs in batches and improve your IDocs transfer speed from system to system. IDocs batches are sent to Workato's webhooks gateway, and are subject to
+rate and memory limits
+.
+LARGE BATCH SIZES
+Configuring batch sizes larger than 1000 in SAP can result in errors.
+New IDocs batch trigger
+BEFORE YOU BEGIN
+You must
+configure IDocs in your SAP system
+before using this trigger.
+#
+How batching works with IDocs
+The New IDocs batch trigger process events based on the batch size you configure. For example:
+Example 1
+If you configure your batch size to
+5
+but ten IDocs are sent, two jobs are created with each job containing five IDocs.
+Example 2
+If you configure your batch size to
+5
+but two IDocs are sent, one job containing two IDocs is created.
+#
+Input fields
+Input field
+Description
+IDoc type
+Select the IDoc type from the target SAP system. If the IDoc type you plan to use is not available in the drop-down menu, consider configuring the IDoc in the
+WE20 dialogue in the SAP system
+before establishing a connection between Workato and SAP.
+Batch size
+Specify the number of IDocs you plan to process within a single job. The default batch size is
+100
+. Valid batch sizes range from
+1
+to
+1000
+.
+Configure batch size
+MESSAGE TYPE, BASIC TYPE AND CUSTOM EXTENSIONS
+We subscribe to one
+message type
+,
+basic type
+, and
+custom extension
+at a time. You must maintain the recipe logic to ensure that the workflow processes appropriately for different partners. For example, you can apply the condition on the
+RCVPRN
+datapill from the trigger or add the
+RCVPRT
+datapill in addition to the
+RCVPRN
+datapill.
+#
+Output fields
+The output for this trigger includes all segments and data fields for the IDocs received from the SAP system.
+←
+New IDoc trigger
+Send IDoc action
+→
+Last updated:
+4/5/2025, 5:46:45 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

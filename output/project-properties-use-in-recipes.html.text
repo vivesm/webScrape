@@ -1,0 +1,143 @@
+Project properties - use in recipes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Project properties
+#
+Use project properties in recipes
+Project properties are accessible as datapills in recipes within their
+scope
+.
+Complete the following steps to use project properties in a recipe:
+1
+Click
+Recipe data
+to expand the
+Recipe data
+menu.
+2
+Go to
+Recipe data > Properties > Project properties
+.
+3
+Map the project property datapill to the appropriate input field. For example, you can map a project property named
+admin_email
+to the
+To
+field in a Gmail action to specify the email recipient.
+Project properties are a child element of the Properties datatree
+#
+Project property scope
+Project properties are not accessible outside of the project folder you define them in. To create properties with a larger scope, use
+Environment properties
+, which are accessible from all recipes within your workspace.
+RECIPE MOVE ERROR
+If you move a recipe that uses project properties to a folder outside the project where the properties were originally defined, the recipe will display a
+Please replace invalid datapill(s)
+error message. To resolve this error, replace or remap the invalid datapill with a valid one.
+Replace invalid datapills
+←
+Manage project properties
+FAQ
+→
+Last updated:
+11/15/2024, 11:17:43 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

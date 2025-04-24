@@ -1,0 +1,280 @@
+Error handling best practices | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Best practices
+#
+Error handling and monitoring
+SUMMARY
+Error monitoring steps check action completion and allow retrying or skipping to next steps when errors occur.
+Conditional actions (
+IF
+condition steps) allow you to validate input data to prevent errors.
+Stop actions halt the recipe when issues arise, reducing unnecessary operations.
+Custom error emails send notifications with error details, including a descriptive filename attachment and relevant job and recipe URLs.
+Ensure that your recipes run smoothly by implementing effective error-handling practices. Use the
+handle errors step
+to check if an action block completed successfully. Validate your datapills with
+conditional actions
+and raise exceptions with the
+stop action
+step if the incoming data is not properly formatted. Surface useful alerts with detailed and useful information about the error.
+AUTOMATION INSTITUTE
+Take the hands-on tutorial on error handling and monitoring at Workato's Automation Institute. Complete the course to become a certified Automation Pro. Learn more
+here
+(opens new window)
+.
+#
+Error handling best practices
+This section covers best practices for building recipes that handle errors. Refer to the
+Error Handling Example
+(opens new window)
+recipe that demonstrates error handling best practices.
+Include a
+handle errors step
+.
+Validate datapills with
+Conditional actions
+.
+Raise exceptions with the
+Stop action
+.
+Configure
+custom error emails
+with information about the error that occurred.
+Example error handling recipe
+#
+Handle errors step
+Wrap all the actions within your recipe in a handle errors step to monitor for errors. This step consists of an error monitoring block and an on-error block, enabling Workato to handle all errors uniformly.
+To add a handle errors step, click
++
+Add step
+, then select
+Handle errors
+.
+Handle errors step
+Nest all recipe steps in a
+Monitor actions for error
+block. This setup allows Workato to watch these actions for errors. If any step within the block throws an error, configure the recipe to retry the failed steps up to three times.
+Alternatively, select
+Do not retry
+to proceed to the next steps immediately.
+Set up auto-retry
+If the recipe still fails after retries, it performs the steps nested in the
+On error
+block.
+MONITOR API RECIPE REQUEST TIMEOUTS
+If an
+API recipe
+includes a
+Handle errors
+step, the
+Monitoring
+block does not trigger when the API request
+times out
+, terminating the recipe job. Consequently, actions in the
+On error
+block are not executed.
+#
+On error datapills
+When you add a handle errors step to your recipe, Workato generates error-related datapills if an error occurs. This enables you to configure your recipe to handle errors differently depending on the error type, recipe step, or app causing the error.
+For example, if an error occurs with a particular app, you can use conditional actions to stop the recipe job. Alternatively, contact your app administrator for further assistance.
+Workato generates the following on error datapills:
+Datapill
+Description
+API name
+Error type
+The type of error that occurred.
+For example:
+error[type]
+and
+error[error_type]
+Error message
+A message describing the error.
+For example:
+error[message]
+,
+error[error_message]
+, and
+error[msg]
+Retry count
+The number of times Workato tried to rerun the actions in the
+handle errors
+block.
+For example:
+error[retry_count]
+and
+error[retries]
+Error UUID
+The Universally Unique Identifier (UUID) of the error. This is a 128-bit label used to identify the error. This key is optional and only displays a value if you provide the key.
+For example:
+error[uuid]
+and
+error[error_id]
+Errored step number
+The step on which the error occurred.
+For example:
+error[line_number]
+,
+error[step_number]
+, and
+error[step]
+Errored app
+The app that caused the error.
+For example:
+error[adapter]
+,
+error[app]
+, and
+error[application]
+Errored action
+The action on which the error occurred.
+For example:
+error[action]
+,
+error[action_name]
+, and
+error[operation]
+#
+Conditional actions
+Prevent errors by checking input values to key actions in your recipe, such as when writing to a destination system. Use conditional actions to validate incoming data and stop actions to end or fail a recipe job early, reducing unnecessary processing time and API calls. Add conditional actions by clicking
++
+Add step
+and then
+IF condition
+.
+IF condition
+#
+Stop job action
+Use conditional actions to validate data early in the recipe, then use the
+Stop job
+action to halt the recipe when issues are detected. This approach improves recipe efficiency and minimizes unnecessary processing or excess API calls. The following example stops the recipe when the search object step does not yield results.
+Stop job action
+#
+Custom error emails
+Configure Workato to send custom error emails when an error occurs using the
+Email by Workato - Send email
+action. We recommend attaching the error details in a file named
+errors.txt
+and including important information such as the recipe URL, job URL, and job time.
+To access the
+Recipe URL
+,
+Job URL
+, and
+Job created at
+datapills
+, expand the
+Recipe data
+menu and navigate to the
+Properties
+datatree.
+Set up custom error emails
+Map
+on error datapills
+to customize your error emails with the error type, message, and source (recipe step, action, or app).
+Map datapills into your email message to surface important error-related details
+←
+Test frequently
+Send alerts on failed jobs
+→
+Last updated:
+8/9/2024, 12:27:33 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

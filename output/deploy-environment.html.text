@@ -1,0 +1,229 @@
+Embedded Environments - Deploy environments | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Features
+Environments
+#
+Deploy assets
+You must have deployment permission to deploy a project within an environment. Refer to
+Collaborator roles and Environments
+for more information.
+The
+Deployments
+tab is only visible to collaborators that have access to more than one environment
+and
+deploying permissions in at least two environments. This allows collaborators to deploy and review deployment history when they click the
+Deployments
+tab.
+Deployments tab visible and usable
+Collaborators with access to two or more environments
+without
+deploying permissions in at least two environments can see the
+Deployments
+tab as locked. In this case, collaborators can see a lock icon and a message that they need permission to access deployments.
+Collaborators with access to only one environment cannot see the Deployments tab.
+Deployments tab not visible
+The
+Deployments
+tab also displays deployment history, providing a comprehensive view of all past deployments. This functionality is particularly useful for revisiting and redeploying a previous version of your project or recipe. You can revert your deployment to an earlier state by selecting the version you plan to revert to and re-deploying it.
+Deployment history
+To re-deploy a past deployment, click on the deployment you plan to re-deploy and click
+Deploy
+.
+Redeploy a previous deployment
+#
+Deployments workflow
+You can only deploy from Development to Test and from Development to Production.
+graph LR
+A(Development) --> B(Test)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+graph LR
+A(Development) --> B(Production)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+We recommend that you always use
+Deploy entire project
+when using Embedded Environments.
+graph LR
+X["Admin"] --> Y["Project 1"]
+X --> Z["Project 2"]
+subgraph a["Embedded Customer 1"]
+B["Development"]
+C["Test"]
+D["Production"]
+end
+B -..-> C
+B -..-> D
+Y -.RLCM..-> B
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef LightTeal fill:#e1fffc,stroke:#b3e0e1,stroke-width:2px,color:#000;
+class a LightTeal
+#
+Deploy a project
+Complete the following steps to deploy a project to an environment:
+1
+Log in to your Workato account, click
+Resources
+in the left-side navigation menu, and then click
+Projects
+.
+2
+Select the project you plan to deploy.
+3
+Click
+Deployments > Deploy project
+.
+4
+Select
+Test
+or
+Production
+as the target environment. Alternatively, you can download the package.
+Deploy to Test environment
+5
+Optional. Summarize your changes in the
+Notes
+field.
+6
+Click
+Next
+.
+7
+Select
+Deploy entire project
+or
+Customize deployment
+as the deployment type.
+DEPLOY ENTIRE PROJECT RECOMMENDATION
+We always recommend that you select
+Deploy entire project
+when using Environments.
+Select deployment type
+8
+Click
+Next
+. Environments begins to detect changes in the deployment.
+9
+Review the changes. You can click specific changes to view a side-by-side comparison of the previous version and the new version.
+Deployment comparison
+10
+Click
+Deploy
+.
+#
+Deploy a project build programmatically
+You can deploy your project programmatically. Refer to
+Understanding project deployment
+for more information.
+PROJECT-BASED PACKAGE RECOMMENDATION
+Deployments from Embedded Partners to Embedded Customers are done through
+Recipe Lifecycle Management (RLCM)
+. We recommend that you use a project-based package.
+←
+Provision Environments for Embedded customers
+Environments APIs
+→
+Last updated:
+11/4/2024, 6:09:46 PM
+On this page
+Deployments workflow
+Deploy a project
+Deploy a project build programmatically
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,160 @@
+Action and fields errors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+Design-time errors
+#
+Action and fields errors
+Ensure all actions and triggers in your Workato recipe are fully configured and contain all necessary data. Errors can occur due to several reasons:
+Empty actions
+Missing input fields
+Unavailable fields
+Invalid datapills
+This section provides guidance on identifying and resolving these common errors.
+#
+Empty actions
+Empty actions in a recipe can prevent the recipe from starting properly. Each action must have all necessary fields filled out to start correctly. Leaving an action empty means it does not have the required configuration or data to execute its function. These issues typically occur due to incomplete configuration, missing required fields, or changes to previous steps that leave subsequent actions with missing data.
+Empty action
+To resolve issues related to empty actions, review all actions in your recipe and ensure all fields are filled out.
+#
+Missing input fields
+Triggers and actions require configuration to function correctly in a recipe. For example, to update a record in Salesforce, you must provide the ID of the record. If the recipe detects a required input field without values or datapills, it raises a design-time error and does not start until the input field is filled with a value or datapill.
+Complete the following steps to identify and fix missing input fields:
+1
+Locate the error notifications that highlight the missing fields in the step details section.
+Required field error
+2
+Enter the necessary values or datapills for each required field.
+3
+Resolve the specific error to cross the item off your checklist.
+Fix missing field
+#
+Unavailable fields
+You may receive a design-time error if your recipe uses data fields that aren't available in your app. This can happen if a field in your app is deleted or renamed.
+Complete the following steps to resolve unavailable fields:
+1
+Identify the missing fields by reviewing the error notification in your recipe.
+Review error notification
+2
+Add the missing fields to your app and refresh the schema in Workato. If the fields are no longer required, remove or replace them in your recipe.
+3
+Verify that all fields in your recipe are valid and correctly configured.
+#
+Invalid datapills
+Mapping datapills from a certain step and later deleting or skipping that step can introduce errors. These changes can disrupt the following steps and prevent the recipe from starting. Datapills can become invalid when their source is missing. For example, if the trigger or action that provides the datapill is changed, or if the field is deleted from the app, the datapill becomes invalid and turns red.
+In the following example, design-time errors due to invalid datapills occur when the Salesforce trigger is changed from
+New/updated record
+to
+Deleted record
+.
+Replace invalid datapills
+←
+Unestablished connectivity
+Incorrect formulas and code actions
+→
+Last updated:
+6/5/2024, 6:25:20 PM
+On this page
+Empty actions
+Missing input fields
+Unavailable fields
+Invalid datapills
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

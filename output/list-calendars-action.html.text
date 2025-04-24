@@ -1,0 +1,170 @@
+Workato connectors - List calendars action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Outlook
+#
+List calendars action
+Use this action to retrieve all calendars from your Outlook account.
+#
+Input fields
+Field
+Description
+Shared calendar
+Provide the email address of the user who owns the shared calendar, so Workato can fetch the shared calendars. For example,
+[email protected]
+. If left blank, Workato shows your default calendars.
+Limit
+Specify the maximum number of records you plan this action to return. When left blank it returns 200 records.
+Next page link
+Specify the next page link to fetch the next batch of records.
+#
+Output fields
+Field
+Description
+ID
+The unique ID of the calendar.
+Name
+The name of the calendar.
+Color
+The color of the calendar.
+Hex color
+The hex color of the calendar.
+Is default calendar
+Indicates whether the calendar is the default calendar.
+Change key
+The change key of the calendar.
+Can share
+Indicates whether the calendar can be shared.
+Can edit
+Indicates whether the calendar can be edited.
+Allowed online meeting providers
+A list of the allowed online meeting providers.
+Default online meeting provider
+The default online meeting provider. Possible values include
+unknown
+,
+skypeForBusiness
+,
+skypeForConsumer
+, and
+teamsForBusiness
+.
+Can view private items
+Indicates whether the user can read calendar items that have been marked private.
+Is tallying responses
+Indicates whether this user calendar supports tracking of meeting responses. Only meeting invites sent from users' primary calendars support tracking of meeting responses.
+Is removable
+Indicates whether this user calendar can be deleted from the user mailbox.
+Owner
+If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user.
+Next page token
+The token for the next page of results.
+←
+Get calendar by ID action
+List all instances of an event action
+→
+Last updated:
+7/10/2024, 4:00:51 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

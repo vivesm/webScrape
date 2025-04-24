@@ -1,0 +1,197 @@
+SDK - Guide - Securing your connector project | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connector SDK
+CLI
+#
+Securing Your Connector Project
+When you build a connector locally, you bear all responsibility for securing credentials and application access. This is especially important if you push your code to git software, like GitHub.
+Sounds scary, right? It doesn't have to be!
+In this guide, we'll cover some tips that will help you mitigate risks when working with credentials or other sensitive information.
+#
+Tip 1: Always use a sandbox
+Whether you're building using the SDK gem or in Workato's cloud platform,
+never use a production environment when developing.
+We can't stress this enough.
+You could make changes that negatively impact your business or potentially expose sensitive data. For this reason, always use a sandbox environment.
+#
+Tip 2: Always use encrypted files
+To ensure credentials remain secure, use encrypted files for storage.
+The SDK gem includes a command that allows you to easily create and update encrypted files. This means you can encrypt your credentials, ensuring they can't be used or decrypted without your
+master.key
+.
+To start working with encrypted files, use the
+workato edit
+command to create the encrypted
+master.key
+file. If your project doesn't have this file, one will automatically be created the first time the command is run.
+#
+Tip 3: Always use encrypted VCR recordings
+VCR recordings are crucial for stable tests but also present a security risk. By default, VCR recordings record all aspects of your HTTP requests, such as tokens in headers and request or response data. If you decide to sync this data to the cloud, the best practice is to encrypt your VCR recordings.
+The SDK gem makes it easy to do this when you set up your connector project.
+After you run
+workato new
+, select
+secure
+at the HTTP binding prompt:
+Please
+select
+default HTTP mocking behavior suitable
+for
+your project?
+1
+- secure. Cause an error to be raised
+for
+any unknown requests, all request recordings are encrypted.
+To record a new cassette you need
+set
+VCR_RECORD_MODE environment variable
+Example:
+VCR_RECORD_MODE
+=
+once bundle
+exec
+rspec spec/actions/test_action_spec.rb
+2
+- simple. Record new interaction
+if
+it is a new request, requests are stored as plain text and expose secret tokens.
+This option also creates a
+spec_helper.rb
+file, which comes pre-loaded with your VCR configurations and encryption. To learn more about VCR,
+check out the VCR guides
+.
+#
+Tip 4: Add master.key to .gitignore
+If your project contains a
+master.key
+file -
+and we strongly recommend that it does
+- it should never pushed to your Git repository.
+To ensure you don't accidentally commit this file, add it to your project's
+.gitignore
+.
+Additionally, if you need to share the info in
+master.key
+with your teammates, ensure you're doing so securely.
+#
+Tip 5: Use repository secrets to store credentials in the cloud
+To run your RSpec tests in the cloud while securely storing your credentials, we recommend adding secrets to your repository.
+From
+GitHub's docs
+(opens new window)
+:
+Secrets are encrypted environment variables that you create in an organization, repository, or repository environment.
+Most git platforms support adding secrets to your repository, which is where we recommend storing your
+master.key
+for use during RSpec testing.
+←
+Project directory reference
+Developer API
+→
+Last updated:
+7/10/2024, 6:18:20 PM
+On this page
+Tip 1: Always use a sandbox
+Tip 2: Always use encrypted files
+Tip 3: Always use encrypted VCR recordings
+Tip 4: Add master.key to .gitignore
+Tip 5: Use repository secrets to store credentials in the cloud
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

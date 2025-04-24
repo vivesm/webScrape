@@ -1,0 +1,245 @@
+CyberArk Identity SAML role sync configuration {: #cyberark-idaptive-saml-role-sync :} | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Workspace collaborators
+Sync roles with SAML
+#
+CyberArk Identity SAML role sync configuration
+Integrate Workato with CyberArk Identity to manage SAML role synchronization and ensure that your users' roles are updated when they log in through SAML SSO.
+Set up role sync for standard Workato environments: DEV (default), PROD, and TEST, as we recommend this for consistent role management.
+#
+Prerequisites
+1
+Ensure that you have successfully configured the SAML SSO within your CyberArk Identity platform. For guidance, go to the
+CyberArk Identity SAML Documentation
+(opens new window)
+.
+2
+Ensure that you enabled
+just-in-time provisioning
+in Workato.
+3
+Ensure that you use
+SAML SSO enforcement
+for your team or organization.
+4
+Ensure that you enabled
+role syncing
+in Workato.
+Enable role sync in Workato
+#
+Configure custom user attributes in CyberArk Identity
+To set up custom user attributes for Workato environments within CyberArk Identity, follow these steps:
+1
+Log in to your CyberArk Identity admin console.
+2
+Navigate to
+Settings > Customization
+in your CyberArk Identity admin portal.
+3
+Click
+Additional Attributes
+to manage custom attributes.
+Create custom user attributes for SAML role sync
+4
+Select
+Add
+to create a new attribute.
+5
+Define the attributes for various Workato environments by adding the following:
+workato_role
+: This attribute maps to the DEV environment.
+workato_role_test
+: This attribute maps to the TEST environment.
+workato_role_prod
+: This attribute maps to the PROD environment.
+6
+Select the attribute type as
+Text
+from the drop-down menu. Repeat this for each attribute.
+7
+Ensure the
+User Editable
+box is unchecked, unless you intend for users to modify this attribute from their portal.
+8
+Click
+Add
+to save each attribute.
+9
+Configure the values for each user based on the roles you plan to assign within each Workato environment.
+Define attribute types and role values
+By completing these steps, you'll have successfully configured custom user attributes in CyberArk Identity, which can be utilized for SAML role synchronization with Workato.
+#
+Configure Workato roles in the CyberArk Identity portal
+CUSTOM ROLES IN WORKATO
+Ensure that custom roles are defined in Workato before you sync them with SAML assertions. Undefined roles default to
+Operator
+. Role names are case-sensitive.
+The following steps show you how to set up the necessary SAML response attributes for role synchronization in Workato:
+1
+Log in to CyberArk and navigate to
+Apps & Widgets > Apps
+.
+2
+Select the Workato SAML app from the list to configure it.
+3
+Click
+SAML response
+to set up the attributes that Workato receives during SSO.
+Set up SAML response attributes
+4
+Click
+Add
+to create new attribute statements.
+5
+Specify the attribute names and values based on the custom user attributes you defined earlier. Refer to the following table:
+Attribute Name
+Attribute Value
+workato_role
+LoginUser.Get('workato_role')
+workato_role_prod
+LoginUser.Get('workato_role_prod')
+workato_role_test
+LoginUser.Get('workato_role_test')
+6
+Ensure that you
+Save
+your settings to apply the changes.
+#
+Change roles in the CyberArk Identity portal
+To change a user's Workato role:
+1
+Log in to your CyberArk Identity admin console.
+2
+Select the user and the environment you plan to change.
+3
+Enter the new role value and click
+Save
+.
+Update user roles in CyberArk Identity
+The user's access privileges in Workato are updated on their next login through SAML SSO.
+You can verify the user’s updated role privileges from the
+Activity Audit
+tab on Workato.
+Confirm role updates in Workato's activity audit
+#
+Verify with the SAML tracer extension
+Use the SAML Tracer browser extension to verify the values passed in SAML assertions. You should see the
+workato_role
+,
+workato_role_test
+, and
+workato_role_prod
+attributes successfully passed.
+Check SAML assertion values with SAML tracer extension
+←
+OneLogin SAML role sync
+Automate account provisioning with SCIM 2.0
+→
+Last updated:
+1/8/2025, 5:37:34 PM
+On this page
+Prerequisites
+Configure custom user attributes in CyberArk Identity
+Configure Workato roles in the CyberArk Identity portal
+Change roles in the CyberArk Identity portal
+Verify with the SAML tracer extension
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

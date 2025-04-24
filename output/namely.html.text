@@ -1,0 +1,258 @@
+Workato connectors - Namely | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Namely
+Namely offers a modern human resources management platform. Namely provides tools to streamline onboarding, automate tasks, store new hire forms, and collect eSignatures. Depending on your plan, you can also use Namely to manage payroll and benefits.
+Review a Namely and Google Sheets example recipe
+#
+Namely and Google Sheets recipe example
+This example recipe guides you through connecting
+Namely
+and
+Google Sheets
+to Workato to create a simple yet powerful automation. This use case demonstrates how you can integrate these popular applications to enhance record-keeping, information-sharing, and efficiency within your team.
+This recipe adds the employee name to a new row in Google Sheets when you create a new employee record in Namely. This automation triggers when a new employee record is detected in your connected Namely account.
+Complete the following steps to create a recipe that adds employee names to new rows in Google Sheets when you add new employees in Namely:
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for
+Namely
+and
+Google Sheets
+.
+4
+Click
+Create > Recipe
+.
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+8
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+9
+Click
+Select an app and trigger event
+.
+10
+Search for
+Namely
+and select it as your app.
+11
+Select the
+New employee profile
+trigger.
+Select the New employee profile trigger
+12
+Click
++ Add step
+and select
+Action in app
+.
+13
+Search for
+Google Sheets
+and select it as your app.
+Choose Google Sheets as your app
+14
+Select the
+Add row
+action.
+15
+Select the spreadsheet you plan to use in your recipe from the
+Spreadsheet
+drop-down menu.
+16
+Select the sheet in which you plan to add rows from the
+Sheet
+drop-down menu. The sheet you select must have at least one header row and one data row.
+17
+Click the
+Columns Show
+button, map the
+First name
+Step 1
+datapill into the
+First name
+field, and map the
+Last name
+Step 1
+datapill into the
+Last name
+field.
+18
+Map the
+Email
+Step 1
+datapill into the
+Email
+field and the
+Title
+Step 1
+datapill into the
+Job title
+field.
+Set up Google Sheets
+19
+Click
+Save
+.
+Your recipe adds a new row containing the profile information you configured when a new employee profile is added to Namely.
+New employee information automatically added to Google Sheets
+#
+API version
+The Workato Namely connector uses Namely's REST-based API. Refer to the
+Namely API documentation
+(opens new window)
+for more information.
+#
+Connection setup
+Complete the following steps to create a Namely connection in Workato:
+1
+Provide a
+Connection name
+to identify the Namely instance Workato connects to.
+Namely connection setup
+2
+Enter the company account name you plan to connect to your Workato account in the
+Company
+field. You can find this name in your Namely URL. For example, if your URL is
+http://acme.namely.com
+, enter
+acme
+in this field.
+3
+Click
+Connect
+.
+4
+Click
+Allow
+when prompted to authorize Workato to access your Namely account.
+Authorize access for Workato
+←
+Scheduled query trigger
+New employee profile trigger
+→
+Last updated:
+1/16/2025, 9:16:49 PM
+On this page
+Namely and Google Sheets recipe example
+API version
+Connection setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

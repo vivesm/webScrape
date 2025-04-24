@@ -1,0 +1,187 @@
+Callable Recipes - Migrating To Recipe Functions And API Recipes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Callable recipes
+#
+Callable Recipes - Migrating To Recipe Functions And API Recipes
+Until now, the callable recipe type, and the
+Callable Recipes by Workato
+app have been used to create both API endpoints and reusable recipe components. With the release of a dedicated recipe type for each use case, we're encouraging users to shift toward using
+In this guide, we'll cover:
+The impact on existing callable recipes
+The new recipe types
+How the new triggers and actions compare
+#
+Impact On Existing Callable Recipes
+Effective as of
+December 3, 2021
+, new callable recipes can't be created. Existing callable recipes, however:
+Will continue to function indefinitely
+Can be called from new recipes
+There's no need to worry: Your existing callable recipes will continue to work.
+You can migrate to the new recipe types if you choose or continue to use your existing callable recipes as they are.
+#
+Converting Callable Recipes
+While there isn't a way to automatically convert existing callable recipes to the new recipe types, there isn't a need.
+Your callable recipes will continue to work as they always have.
+However, consider migrating to
+the new recipe types
+if you want to take advantage of some new features. For example: For recipes that function as API endpoints, you can now define non-standard response codes using the
+API recipe type
+.
+#
+Understanding The New Recipe Types
+All callable recipe functionality has been split into two new recipe types. Everything you could do with callable recipes you can still do with
+Recipe Functions
+and
+API Platform
+components.
+#
+Recipe Functions
+The
+Recipe Functions
+connector focuses on recipe reusability, readability, and maintenance. Recipe functions provide a simple and streamlined way to build reusable recipe components with minimum overhead.
+Using this connector's triggers and actions, you can build a workflow once and re-use it across recipes in your workspace with ease. Learn more in the
+Recipe Functions docs
+.
+#
+API Recipes
+The
+API Platform
+connector is dedicated to creating and deploying automations as API endpoints. API recipes include new features to enable you to build to the full functionality of the OpenAPI Specification, including:
+Custom request and response headers
+Multiple responses and support for all HTTP response codes
+Sending a response automatically stops the current job
+This release confirms API as a first-class citizen in the Workato ecosystem and lays the groundwork for more improvements in the future, like improved auto-documentation and the ability to automatically generate API Collections from any valid OpenAPI specification. Learn more in the
+API Platform docs
+.
+#
+Comparing Triggers And Actions
+Callable recipe triggers and actions are fully compatible with the new API Platform and Recipe Functions triggers and actions.
+Not sure where to start?
+Use the table below to find the trigger or action that replaces the callable recipe version:
+Callable Recipe trigger or action
+New trigger or action
+New call trigger (recipe component)
+Recipe Functions - New function call trigger
+New call trigger (API endpoint)
+API Platform - New API request trigger
+Call recipe action (synchronous)
+Recipe Functions - Call recipe function action (synchronous)
+Call recipe action (asynchronous)
+Recipe Functions - Call recipe action (asynchronous)
+Return data from a recipe action
+Recipe Functions - Return data from a recipe function action
+Wait for async calls action
+Recipe Functions - Wait for async calls action
+←
+Callable recipes
+Walkthrough
+→
+Last updated:
+1/18/2022, 10:25:48 PM
+On this page
+Impact On Existing Callable Recipes
+Converting Callable Recipes
+Understanding The New Recipe Types
+Comparing Triggers And Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

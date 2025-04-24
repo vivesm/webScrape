@@ -1,0 +1,150 @@
+Workato connectors - Google Speech to Text - Convert short speech to text action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Speech to Text
+#
+Google Speech to Text - Convert short speech to text action
+This action allows you to convert a short audio file (less than 1 minute) into a text transcript.
+Convert short speech to text action
+#
+Input
+Input field
+Description
+Audio content
+Accepts a content datapill, or audio content as a string. Workato automatically converts the provided audio content into base-64 format.
+Language
+Specify the language code of the audio file. Refer to
+Google Speech to Text documentation
+(opens new window)
+for more information.
+Encoding
+Specify the encoding of the audio file. Google doesn't support MP3 input. MP3 files must be converted to a
+supported encoding format
+(opens new window)
+before use in this action.
+Sample rate in Hertz
+Specify the audio file's sample rate. A valid value ranges between 8000-48000 Hz. The usual optimal rate is 16,000, but this can vary across encodings and settings. Refer to
+Google Speech to Text documentation
+(opens new window)
+for information on the best sample rate for your file.
+Enable word time offsets
+If true, the output includes a list of words, the start and end time offsets (timestamps) for those words.
+#
+Output
+Output field
+Description
+Transcript
+The extracted text transcript from the audio.
+Confidence score
+The confidence level for the entire transcription, with 0.0 as the lowest and 1.0 as the highest.
+Words
+List of words extracted from the audio. This list contains the start time, end time, and words extracted from the file.
+←
+Connection setup
+Google Text to Speech
+→
+Last updated:
+3/13/2025, 8:05:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,322 @@
+Workato connectors - NetSuite REST - Connection setup | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite REST
+#
+Connect to NetSuite REST on Workato
+The NetSuite REST connector supports OAuth 2.0 machine-to-machine (M2M) authorization. This enables Workato to securely access NetSuite without the need to store user credentials.
+Complete the following steps to set up a NetSuite REST connection.
+#
+Prerequisites
+To connect to NetSuite in Workato, ensure you have the following:
+The privilege to
+create connections
+in Workato.
+Access to a NetSuite Admin account.
+An understanding of the required NetSuite permissions.
+#
+Create an integration record in NetSuite
+Complete the following steps to create a new integration record. The integration record represents an app, platform, or tool you want to integrate with NetSuite.
+1
+Navigate to
+Setup > Integration > Manage Integrations > New
+.
+Navigate to
+Setup > Integration > Manage Integrations > New
+2
+Provide a name for the integration record in the
+Name
+field.
+3
+Clear the following checkboxes:
+TBA: Authorization flow
+Token-based authentication
+Authorization code grant
+4
+Select the
+Client credentials (machine to machine) grant
+checkbox.
+5
+Select the following scopes:
+RESTlets
+REST Web Services
+SuiteAnalytics Connect
+Create an integration record in NetSuite
+6
+Click
+Save
+.
+7
+Copy the
+Consumer key / Client ID
+and
+Consumer secret / Client secret
+and store them in a secure location. The
+Consumer key / Client ID
+is required when configuring the NetSuite REST connection in Workato.
+Copy the client credentials
+#
+Create key and certificate files
+Complete the following steps to create key and certificate files:
+1
+Open a new terminal window and use the following command to list available elliptic curves and algorithms:
+openssl ecparam
+-list_curves
+2
+Generate a private key using the
+prime256v1
+elliptic curve with this command:
+openssl ecparam
+-name
+prime256v1
+-genkey
+-noout
+-out
+private-key.pem
+3
+Create the corresponding public key from the private key:
+openssl ec
+-in
+private-key.pem
+-pubout
+-out
+public-key.pem
+4
+Self-sign the private key and generate a PEM certificate:
+openssl req
+-new
+-x509
+-key
+private-key.pem
+-out
+cert.pem
+-days
+365
+#
+Create a machine-to-machine certificate in NetSuite
+Complete the following steps to create a machine-to-machine certificate in NetSuite:
+1
+Navigate to
+Setup > Integration > OAuth 2.0 Client Credentials (M2M) Setup
+.
+2
+Click
+Create New
+. The
+Create a New Client Credentials Mapping
+dialog appears.
+3
+Configure the following fields:
+Entity
+Select the entity that uses the client credentials. Refer to our NetSuite SOAP connector documentation to learn how to
+set up an integration user
+.
+Role
+Choose the role that defines the permissions for the entity. Ensure the selected role has the necessary permissions for the integration. Refer to our NetSuite SOAP connector documentation to learn how to
+create an integration role
+.
+Application
+Select the integration record you created in the
+Create an integration record
+step.
+Certificate
+Upload the certificate you created in the
+Create key and certificate files
+step. The file should be saved on your computer as
+cert.pem
+.
+Create a new client credentials mapping
+4
+Click
+Save
+.
+5
+Copy the
+Certificate ID
+and store it in a secure location. Workato requires this value to establish the NetSuite REST connection.
+Copy the Certificate ID
+#
+Configure the Workato NetSuite REST connector
+Complete the following steps to establish a connection with NetSuite REST in Workato:
+Connect to NetSuite REST
+1
+Enter a name for your NetSuite connection in the
+Connection name
+field.
+2
+Enter the folder or project where you plan to store your NetSuite connection in the
+Location
+field.
+3
+Enter your Account ID in the
+Account ID
+field.
+To find your
+Account ID
+, sign in to NetSuite as an Administrator, navigate to
+Setup > Company > Company Information
+, and locate your account ID.
+You can also find it at the beginning of the NetSuite URL. For example, if the URL is
+https://1234567.app.netsuite.com/
+, your
+Account ID
+is
+1234567
+.
+SANDBOX ACCOUNT ID FORMAT
+You must replace underscores (
+_
+) with a hyphen (
+-
+) and capitalize letters if you are using a sandbox account. For example,
+1234567_sb1
+must be updated to
+1234567-SB1
+.
+4
+Enter the client ID you saved from the
+Create an integration record in NetSuite
+step into the
+Client ID
+field.
+5
+Enter the private key from the
+Create key and certificate files
+step into the
+EC Private Key
+field. Ensure the key is in PEM format and has a length of 256, 384, or 521 bits.
+To extract the key, open the
+private-key.pem
+file and copy the text, starting from
+-----BEGIN EC PRIVATE KEY-----
+and ending with
+-----END EC PRIVATE KEY-----
+.
+6
+Enter the certificate ID from the
+Create a machine-to-machine certificate in NetSuite
+step into the
+Certificate ID
+field.
+7
+Optional. Click
+Advanced settings > OAuth 2.0 scopes
+and select a value.
+Select OAuth 2.0 scopes and add them along with REST Web Services to define the minimum scope required for a NetSuite REST connection. You must enable the selected scopes in the corresponding integration record.
+Optional OAuth 2.0 scope settings
+8
+Click
+Connect
+.
+←
+NetSuite REST
+Create record action
+→
+Last updated:
+2/10/2025, 4:53:51 PM
+On this page
+Prerequisites
+Create an integration record in NetSuite
+Create key and certificate files
+Create a machine-to-machine certificate in NetSuite
+Configure the Workato NetSuite REST connector
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

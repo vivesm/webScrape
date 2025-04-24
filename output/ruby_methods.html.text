@@ -1,0 +1,902 @@
+SDK - Ruby メソッド | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+SDK リファレンス
+#
+使用可能な Ruby メソッド
+Workato の SDK フレームワークでコネクターを構築する際、公開されているすべての Ruby インスタンスメソッドが使用可能なわけではありません。 以下に、コネクターを構築する際に任意のブロックで使用できるホワイトリスト指定された Ruby メソッドのリストを示します。
+また、SDK の使用時に任意のブロックで使用するための個人用の再利用可能メソッドを宣言することができます。
+#
+事前定義の Ruby メソッド
+メソッド
+説明
+at
+指定の引数を使用して新しい時間オブジェクトを作成します。
+詳細については、こちらをご覧ください。
+abs
+数の絶対値を返します。
+aes_cbc_encrypt
+CBC モードでの AES 暗号化。128、192、および256ビットのキーを受け付けます。
+key128 = workato.pbkdf2_hmac_sha1("password", workato.random_bytes(8))
+workato.aes_cbc_encrypt("text_to_encrypt", key128)
+aes_cbc_decrypt
+CBC モードでの AES 復号。128、192、および256ビットのキーを受け付けます。
+workato.aes_cbc_decrypt(128, "text_to_decrypt", key128)
+aes_gcm_encrypt
+GCM モードでの AES 暗号化。128、192、および256ビットのキーを受け付けます。
+key128 = workato.pbkdf2_hmac_sha1("password", workato.random_bytes(8))
+workato.aes_gcm_encrypt("text_to_encrypt", key128, "init_vector0")
+オプションで、認証データを指定することもできます。
+key128 = workato.pbkdf2_hmac_sha1("password", workato.random_bytes(8))
+workato.aes_gcm_encrypt("text_to_encrypt", key128, "init_vector0", auth_data)
+aes_gcm_decrypt
+GCM モードでの AES 復号。128、192、および256ビットのキーを受け付けます。
+workato.aes_gcm_decrypt(encrypted_string, key128, auth_tag, "init_vector0")
+認証データを使用して暗号化した場合は、auth_token を指定する必要があります。
+workato.aes_gcm_decrypt(encrypted_string, key128, auth_tag, "init_vector0", auth_data)
+after_error_response
+HTTP 要求につなげて、失敗した要求を救済できます。
+詳細については、こちらをご覧ください
+。
+after_response
+HTTP 要求につなげて、応答ヘッダーなどを利用できます。
+詳細については、こちらをご覧ください
+。
+ago
+時間を戻します。タイムスタンプを返します。
+2.days.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-17T12:30:00.000000-07:00
+30.minutes.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-15T13:00:00.000000-07:00
+30.seconds.ago #2017-01-15T12:30:00.000000-07:00 if time now is 2017-01-15T12:30:30.000000-07:00
+詳細については、こちらをご覧ください。
+all?
+コレクションの各要素を指定したブロックに渡します。このメソッドは、ブロックが false または nil を返さない場合に true を返します。
+%w[ant bear cat].all? { |word| word.length >= 3 } #=> true
+https://apidock.com/ruby/Enumerable/all%3F
+as_string
+バイトシーケンスを指定されたエンコーディングの文字列としてデコードします。
+"0J/RgNC40LLQtdGC\n".decode_base64.as_string('utf-8')
+as_utf8
+バイトシーケンスを指定されたエンコーディングの文字列としてデコードします。
+"0J/RgNC40LLQtdGC\n".decode_base64.as_string('utf-8')
+aws.generate_signature
+AWS サービス向けの AWS V4 署名を生成し、要求を作成するための URL と署名を含むハッシュを返します。
+aws.generate_signature(
+connection: connection,
+service: "s3",
+region: connection["aws_region"],
+host: "s3.dualstack.#{connection['aws_region']}.amazonaws.com",
+method: "GET",
+path: "/demo",
+params: {
+"list-type": 2,
+"max-keys": 1000
+}.compact,
+headers: {
+Test: "hello!"
+},
+payload: {
+hello: "world"
+}.to_json
+)
+AWS 認証の詳細については、
+こちら
+をご覧ください。
+blank?
+値が null または空の文字列の場合は true を返し、それ以外の場合は false を返します。
+binary?
+値がバイナリ配列の場合、true を返します。
+beginning_of_hour
+指定されたタイムスタンプの正時のタイムスタンプを返します。
+"2017-06-01T16:56:00.000000-07:00".to_time.beginning_of_hour #2017-06-01T16:00:00.000000 +0000
+beginning_of_day
+指定されたタイムスタンプの午前0時のタイムスタンプを返します。
+"2017-06-08T22:30:10.000000-07:00".to_time.beginning_of_day #2017-06-08T00:00:00.000000 +0000
+beginning_of_week
+指定されたタイムスタンプの週の最初 (月曜日) の午前0時のタイムスタンプを返します。
+"2017-08-18T00:00:00.000000-07:00".to_time.beginning_of_week #2017-08-14T00:00:00.000000 +0000
+beginning_of_month
+指定されたタイムスタンプの月の最初の午前0時のタイムスタンプを返します。
+"2017-01-30T22:35:00.000000-07:00".to_time.beginning_of_month #2017-01-01T00:00:00.000000 +0000
+beginning_of_year
+指定されたタイムスタンプの年の最初の午前0時のタイムスタンプを返します。
+"2017-01-30T22:35:00.000000 -07:00".to_time.beginning_of_year #2017-01-01T00:00:00.000000 +0000
+bytes
+指定された文字列のバイトの配列を返します。
+"Hello".bytes # ["72","101","108","108","111"]
+bytesize
+指定された文字列の長さをバイト単位で返します。
+"Hello".bytesize # 5
+capitalize
+文字列の最初の文字を大文字にします。
+case_sensitive_headers
+HTTP メソッドにつなげることができ、大文字と小文字を区別するヘッダーを導入します。デフォルトでは、Workato は RFC 仕様どおり、ヘッダーの大文字と小文字を区別しません。
+get("https://www.example.com").case_sensitive_headers("HeLlo": "world")
+chunk
+ブロックの戻り値に基づき、項目をチャンクにまとめて列挙します。
+詳細については、こちらをご覧ください。
+chunk_while
+各チャンク要素の列挙子を作成します。チャンクの先頭はブロックで定義されます。
+詳細については、こちらをご覧ください。
+collect
+列挙内の要素ごとに一度のブロック実行の結果を含む新しい配列を返します。
+詳細については、こちらをご覧ください。
+collect_concat
+列挙内の要素ごとに一度のブロック実行の結合された結果を含む新しい配列を返します。
+詳細については、こちらをご覧ください。
+compact
+Nil 以外の値のハッシュを返します。
+詳細については、こちらをご覧ください。
+cycle
+指定した回数だけ配列を繰り返し、要素ごとに1つのブロックを呼び出します。
+詳細については、こちらをご覧ください。
+decode_base64
+Base64 アルゴリズムを使用してデコードします。
+decode_hex
+16進数をバイナリ文字列にデコードします。
+decode_url
+文字列を URL デコードします。この方式では `CGI.unescape` を使用して URL デコードを行います。
+decode_urlsafe_base64
+URL セーフの修正が盛り込まれた Base64 アルゴリズムを使用してデコードします。
+decryt
+AES-256-CBC アルゴリズムを使用して暗号化された文字列を復号します。入力は RNCryptor V3 フォーマットである必要があります。
+deep_merge
+ネストされた子ハッシュを含め、ハッシュを別のハッシュと結合します。
+詳細については、こちらをご覧ください。
+delete_at
+配列内の要素を削除します。
+詳細については、こちらをご覧ください。
+detect
+配列内の各要素をブロックに渡します。ブロックを満たす最初の要素を返します。
+詳細については、こちらをご覧ください。
+dig
+渡されるインデックスに対応する値オブジェクトを取得します。
+dig メソッドは、多くの場合、ネストされた配列やハッシュ内のレイヤーを取り除くために使用されます。たとえば、XML データフォーマットを処理する際によく dig メソッドが使用されます。
+詳細については、こちらをご覧ください。
+drop
+列挙子から最初の N 個の要素を削除し、配列内の残りの要素を返します。
+[1, 2, 3, 4, 5, 0].drop(3) #=> [4, 5, 0]
+詳細については、こちらをご覧ください。
+drop_while
+ブロックが nil または false を返す配列の最初の要素まで (この最初の要素は含まない) の要素を削除します。
+詳細については、こちらをご覧ください。
+dst?
+時刻が指定されたタイムゾーンの夏時間の範囲内である場合、true を返します。
+each
+基本的なイテレータ。
+[1, 2, 3].each { |i| puts i }
+each_byte
+指定された文字列の各バイトを指定されたブロックに渡します。ブロックが指定されていない場合は列挙子を返します。
+詳細については、こちらをご覧ください。
+each_char
+指定された文字列の各文字を指定されたブロックに渡します。ブロックが指定されていない場合は列挙子を返します。
+詳細については、こちらをご覧ください。
+each_cons
+連続する N 個の要素の各配列について、指定されたブロックを反復処理します。ブロックが指定されていない場合は、列挙子を返します。
+詳細については、こちらをご覧ください。
+each_entry
+配列を反復処理し、ブロック内の各要素を返します。
+詳細については、こちらをご覧ください。
+each_slice
+N 個の要素の各スライスについて、指定されたブロックを反復処理します。ブロックが指定されていない場合は、列挙子を返します。
+詳細については、こちらをご覧ください。
+each_with_index
+このイテレータは、インデックスを使用して値を返します。
+[1, 2, 3].each_with_index { |item, index| puts "#{index}:#{item}" }
+詳細については、こちらをご覧ください。
+each_with_object
+このイテレータは、ユーザーが定義できるオブジェクトを使用して値を返します。
+[%w(foo bar).each_with_object({}) { |str, hsh| hsh[str] = str.upcase }
+# => {'foo' => 'FOO', 'bar' => 'BAR'}
+詳細については、こちらをご覧ください。
+encode_hex
+バイナリ文字列を16進表現に変換します。
+"0J/RgNC40LLQtdGC\n".decode_base64.encode_hex
+encode_sha256
+SHA256 アルゴリズムを使用してエンコードします。
+encode_base64
+Base64 アルゴリズムを使用してエンコードします。
+encode_url
+文字列を URL エンコードします。
+'Hello World'.encode_url # 'Hello%20World'
+encode_urlsafe_base64
+URL セーフの修正が盛り込まれた Base64 アルゴリズムを使用してエンコードします。
+encode_www_form
+ハッシュを URL エンコードされたパラメータの文字列に連結します。
+{"apple" => "red green", "2" => "3"}.encode_www_form #"apple=red+green&2=3"
+ends_of_month
+月の終了を表す新しい日時を返します。
+"2017-08-18T00:00:00".to_time.end_of_month #2017-08-31 23:59:59 +0000
+ends_with?
+文字列が特定のパターンで終了する場合、true を返します。それ以外の場合は false を返します。
+"Hello!".ends_with?("!") #true
+entries
+列挙内の各項目を含む配列を返します。
+(1..7).entries #=> [1, 2, 3, 4, 5, 6, 7] { 'a'=>1, 'b'=>2, 'c'=>3 }.entries #=> [["a", 1], ["b", 2], ["c", 3]]
+詳細については、こちらをご覧ください。
+error
+ユーザー定義のエラー本体を使用して、ジョブエラーを生成します。
+error("Unable to find Account with ID: 123")
+even?
+整数が偶数の場合に true を返します。
+詳細については、こちらをご覧ください。
+except
+指定されたキーを除くすべてを含むハッシュを返します。
+{ name: "Jake", last_name: "Paul", age: "22" }.except(:name, :last_name) # { :age => "22" }
+詳細については、こちらをご覧ください。
+exclude
+フィールドに値が含まれていない場合に true を返します。大文字と小文字が区別されます。
+"Partner account".exclude?("Partner") #false
+詳細については、こちらをご覧ください。
+fetch
+指定されたキーに対して、ハッシュからの値を返します。
+詳細については、こちらをご覧ください。
+find_all
+ブロック内で示した条件を満足するハッシュまたは配列のすべての要素を含む配列を返します。
+Foo = { :abc => 1, :bad => [1,2] } Foo.find_all { |i| i[0] == :abc } # [[:abc, 1]]
+詳細については、こちらをご覧ください。
+find_index
+配列内の各要素を指定したブロックと比較し、最初に一致したもののインデックスを返します。
+(1..100).find_index { |i| i % 5 == 0 and i % 7 == 0 } #=> 34
+詳細については、こちらをご覧ください。
+first
+リスト内の最初の項目を返します。これを使用して、リスト内の最初の n 個の項目を返すこともできます。
+詳細については、こちらをご覧ください。
+flatten
+多次元配列をシンプルな配列に平坦化します。
+[[1, 2], [3, 4]].flat_map { |e| e + [100] } #=> [1, 2, 100, 3, 4, 100]
+詳細については、こちらをご覧ください。
+flat_map
+列挙内の要素ごとに一度のブロック実行の結合された結果を含む新しい配列を返します。
+[[1, 2, 3],[4,5,6]].flatten #[1, 2, 3, 4, 5, 6]
+詳細については、こちらをご覧ください。
+follow_redirection
+Workato では、デフォルトで、ほとんどの 3XX のリダイレクト HTTP コードに従っています。場合によっては、すべての応答コードのリダイレクトに従うためにこれを適用する必要があります。
+action_with_follow_redirection: {
+execute: lambda do |_connection, _input|
+get('https://run.mocky.io/v3/41abc094-6b10-41a9-8201-b15146258b12').follow_redirection.after_response do |code, body, headers|
+{
+code: code,
+body: body,
+headers: headers
+}
+end
+end
+}
+format_json
+要求を JSON フォーマットに変換し、JSON フォーマットの応答本体を期待します。
+format_map
+指定された配列の各行をフォーマットすることにより、文字列の配列を作成します。
+[[{name: 'Jake', age: 23}].format_map('Name: %{name}, Age: %{age}') #['Name: Jake, Age: 23'] [[22, 45], [33, 88]].format_map('Id: %s, Count: %s') #['Id: 22, Count: 45', 'Id: 33, Count: 88']
+詳細については、こちらをご覧ください。
+format_xml
+要求を XML フォーマットに変換し、XML フォーマットの応答本体を期待します。
+from_now
+時間を進めます。太平洋時間 (UTC-8/UTC-7) で指定された期間を加算して、formula が実行された時間のタイムスタンプを返します。
+4.months.from_now #2017-05-23T14:40:07.338328-07:00
+2.days.from_now #2017-01-05T14:40:07.338328-07:00
+30.minutes.from_now
+12.seconds.from_now
+from_xml
+XML 文字列をハッシュに変換します。
+"<?xml version="1.0" encoding="UTF-8"?>
+".from_xml # { "hash": [ "foo": [ { "@type": "integer", "content!": "1" } ] ] }
+grep
+列挙子を検索して、条件を満たすすべての要素を見つけます。
+詳細については、こちらをご覧ください。
+grep_v
+列挙子を検索して、条件を満たさないすべての要素を見つけます。
+詳細については、こちらをご覧ください。
+group_by
+配列をセットにグループ化します。
+詳細については、こちらをご覧ください。
+gsub
+パターンを値に置き換えます。大文字と小文字が区別されます。
+"Jean Marie".gsub(/J/, "M") #"Mean Marie"
+詳細については、こちらをご覧ください。
+has_key?
+指定されたキーがハッシュに存在する場合、true を返します。
+詳細については、こちらをご覧ください。
+header
+ヘッダーを要求に追加します。
+.headers(Authorization: "Bearer HTB674HJK1")
+hmac_md5
+HMAC_MD5 署名を作成します。
+"username:password:nonce".hmac_md5("key")
+hmac_sha1
+HMAC_SHA1 署名を作成します。
+"username:password:nonce".hmac_sha1("key")
+hmac_sha256
+HMAC_SHA256 署名を作成します。
+"username:password:nonce".hmac_sha256("key")
+hmac_sha512
+HMAC_SHA512 署名を作成します。
+"username:password:nonce".hmac_sha512("key")
+ignore_redirection
+要求が直ちにリダイレクトされるのを停止できます。一般には、ファイルをダウンロードするため、要求が AWS S3 などのセカンダリサイトにリダイレクトされる場合に使用されます。「Current_url」を使用する apply: キーで使用される認証をすべて取り除く必要があります。
+action_with_ignore_redirection: {
+execute: lambda do |_connection, _input|
+get('https://run.mocky.io/v3/41abc094-6b10-41a9-8201-b15146258b12').ignore_redirection.after_response do |code, body, headers|
+{
+code: code,
+body: body,
+headers: headers
+}
+end
+end
+},
+ignored
+フィールドのコンマ区切りのリストを無視します。
+object_definition["user"].ignored("id", "created_at")
+include?
+フィールドに値が含まれる場合に true を返します。それ以外の場合は false を返します。
+詳細については、こちらをご覧ください。
+inject
+演算を使用して、配列内の要素を組み合わせます。
+詳細については、こちらをご覧ください。
+insert
+要素を配列に挿入します。
+詳細については、こちらをご覧ください。
+in_time_zone
+時刻を指定されたタイムゾーンに変換します。
+"2017-09-06T18:30:15.671720-05:00".to_time.in_time_zone("America/Los_Angeles") #"2017-09-06T16:30:15.671720-07:00"
+is_a?
+クラスがオブジェクトのクラス、オブジェクトのスーパークラスのいずれか、またはオブジェクトに含まれるモジュールのいずれかの場合、true を返します。
+Workato では、現在、Array、Hash、Time、String、Integer、Float のクラスをサポートしています。
+詳細については、こちらをご覧ください。
+is_true?
+値を boolean に変換し、値が真値の場合 true を返します。
+is_not_true?
+値を boolean に変換し、値が真値でない場合 true を返します。
+iso8601
+date/date-time 変数を ISO8601 フォーマットに変換します。
+join
+配列要素を文字列に連結します。
+詳細については、こちらをご覧ください。
+jwt_encode
+RS256、RS384、RS512、HS256 のいずれかのアルゴリズムを使用して、JWT を作成します。追加で指定されるパラメータが、ヘッダー (次の例の kid) に追加されます。
+workato.jwt_encode({ name: "John Doe" }, "PEM key", 'RS256') # => "eyJhbGciO..."
+workato.jwt_encode({ name: "John Doe" }, "PEM key", 'RS512', kid: "24668") #=> "eyJ0eXAiO..."
+workato.jwt_encode({ name: "John Doe" }, "my$ecretK3y", 'HS256', kid: "24668") #=> "eyJ0eXAiO..."
+workato.jwt_encode({ name: "John Doe" }, "my$ecretK3y", 'HS256') #=> "eyJ0eXAiO..."
+last
+リスト内の最後の項目を返します。これを使用して、リスト内の最後の n 個の項目を返すこともできます。
+詳細については、こちらをご覧ください。
+ljust
+文字列を左揃えにし、指定した長さになるまで空白またはパターンを挿入します。
+" test".ljust(10, "*") # " test*****"
+詳細については、こちらをご覧ください。
+lookup
+Workato で定義した Lookup table からレコードを検索します。
+lookup('States list', 'State code': 'AZ')['State name'] #"Arizona"
+詳細については、こちらをご覧ください。
+lstrip
+文字列の先頭から空白を削除します。
+" Test ".lstrip #"Test "
+詳細については、こちらをご覧ください。
+map
+各要素でブロックを呼び出した後で、新しい配列を返します。
+md5_hexdigest
+MD5 メッセージダイジェストアルゴリズムを使用して、メッセージダイジェストを作成します。
+"hello".md5_hexdigest #5d41402abc4b2a76b9719d911017c592
+match?
+文字列にパターンが含まれる場合に true を返します。大文字と小文字が区別されます。
+"Jean Marie".match?(/Marie/) #true
+max_by
+指定されたブロックの最大値が生じる列挙内のオブジェクトを返します。
+%w(albatross dog horse).max_by { |x| x.length } # albatross
+member?
+include? のエイリアス。
+詳細については、こちらをご覧ください。
+merge
+結合されたコンテンツを含む新しいハッシュを返します。
+詳細については、こちらをご覧ください。
+minmax
+列挙内の最小値と最大値を含む2要素の配列を返します。
+a = %w(albatross dog horse)
+a.minmax #=> ["albatross", "horse"]
+a.minmax { |a, b| a.length <=> b.length }
+#=> ["dog", "albatross"]
+詳細については、こちらをご覧ください。
+minmax_by
+指定したブロックの最小値と最大値のそれぞれに対応する列挙内のオブジェクトを含む2要素の配列を返します。
+a = %w(albatross dog horse) a.minmax_by { |x| x.length } #=> ["dog", "albatross"]
+詳細については、こちらをご覧ください。
+min_by
+指定されたブロックの最小値が生じる列挙内のオブジェクトを返します。
+a = %w(albatross dog horse)
+a.min_by { |x| x.length } #=> "dog"
+詳細については、こちらをご覧ください。
+next
+列挙子内の次のオブジェクトを返し、内部位置を進めます。
+これは、多くの場合 config_fields で使用されます。ここでは、lambda 関数が実行される前に入力をチェックするガード節を追加する手段として
+next
+を使用できます。
+object_definitions: {
+document: {
+fields: lambda do |connection, config_fields, object_definitions|
+next [] if config_fields.blank?
+get("https://www.webmerge.me/api/documents/#{config_fields["document_id"]}/fields").map {
+|field| field.slice("name")
+}
+end
+}
+}
+詳細については、こちらをご覧ください。
+none?
+コレクションの各要素を指定したブロックに渡します。このメソッドは、ブロックがどの要素に対しても true を返さない場合に true を返します。
+%w{ant bear cat}.none? { |word| word.length == 5 } #=> true
+詳細については、こちらをご覧ください。
+now
+太平洋時間 (UTC-8/UTC-7) で、formula が実行された時間のタイムスタンプを返します。
+now #2017-01-23T14:04:53.365908-08:00
+now + 2.days #2017-01-25T14:04:53.365908-08:00
+odd?
+整数が奇数の場合に true を返します。
+詳細については、こちらをご覧ください。
+one?
+コレクションの各要素を指定したブロックに渡します。このメソッドは、ブロックが一度だけ true を返す場合に true を返します。
+[ nil, true, false ].one? #=> true
+詳細については、こちらをご覧ください。
+only
+コンマ区切りのフィールドのホワイトリスト。
+object_definition["user"].only("id", "name")
+ordinalize
+数値を、1st、2nd、3rd、4th など、順序列内の位置を表すために使用される序数文字列に変換します。
+"1".ordinalize # "1st"
+pack
+配列のコンテンツをバイナリシーケンスに変換します。
+詳細については、こちらをご覧ください。
+parallel
+要求の配列を受け付け、複数のスレッドでこれらを実行できます。
+batches = (0..200).map do |batch|
+post(url).headers(headers).request_body(payload)
+end
+results = parallel(batches, threads: 20)
+詳細については、こちらをご覧ください。
+parameterize
+文字列内の特殊文字を置き換えます。
+"???".parameterize #"oua"
+params
+パラメータを要求に追加します。
+.params(api_key: "HTB674HJK1")
+parse_json
+json.parse と同様に機能します。
+詳細については、こちらをご覧ください。
+parse_yaml
+YAML 文字列を解析します。true、false、nil、数値、文字列、配列、ハッシュをサポートしています。
+workato.parse_yaml("---\nfoo: bar") # => { "foo" => "bar" }
+payload
+ペイロードを要求に追加します。
+.payload(id: "345")
+pbkdf2_hmac_sha1
+パスワードとソルトを使用して、さまざまなビット長のキーを作成します。HMAC Sha1 を使用します。
+key128 = workato.pbkdf2_hmac_sha1("password", workato.random_bytes(8))
+key192 = workato.pbkdf2_hmac_sha1("password", workato.random_bytes(8), 1000, 24)
+key256 = workato.pbkdf2_hmac_sha1("password", workato.random_bytes(8), 1000, 32)
+pluck
+オブジェクトの配列から1つ以上の属性を選択します。
+[ {"id": 1, "name": "David"}, {"id": 2, "name": "Peter"} ].pluck("id")
+上記の例は、
+[1, 2]
+を返します。
+pluralize
+文字列内の単語の複数形を返します。
+詳細については、こちらをご覧ください。
+pop
+それ自体から最後の要素を削除し、その要素を返します。配列が空の場合は nil を返します。
+数値 n が指定されている場合は、最後の n 個 (またはそれ未満) の要素の配列を返し、配列からその要素を削除します。
+a = [ "a", "b", "c", "d" ]
+a.pop #=> "d"
+a.pop(2) #=> ["b", "c"]
+a #=> ["a"]
+詳細については、こちらをご覧ください。
+presence
+存在する場合、その値を返します。存在しない場合は、nil を返します。
+nil.presence #nil
+"".presence #nil
+0.presence #0
+詳細については、こちらをご覧ください。
+present?
+そのフィールドに値がある場合に true を返します。それ以外の場合は false を返します。
+nil.present? #false
+"".present? #false
+0.present? #true
+詳細については、こちらをご覧ください。
+puts
+console.log
+または
+stdout
+の ruby バージョンです。
+put
+メソッドとは異なります。
+puts メソッドを使用した出力は、コードエディターでのテストの際、コンソールログに表示されます。これをデバッグに役立てることができます。
+rand
+0 ～ 1の範囲のランダムな数。
+random_bytes
+指定した数のランダムなバイトを生成します。
+workato.random_bytes(8)
+reduce
+メソッドまたは演算子を示すブロックまたは記号により指定された二項演算を適用することで、列挙内のすべての要素を組み合わせます。
+(5..10).reduce { |sum, n| sum + n } # 45
+詳細については、こちらをご覧ください。
+reject
+ブロックが false を返す要素を選択的に返します。
+select
+に似ていますが、反対になります。
+詳細については、こちらをご覧ください。
+render_yaml
+オブジェクトを YAML 文字列に表します。
+workato.render_yaml({ "foo" => "bar" }) # => "---\nfoo: bar\n"
+response_format_json
+JSON フォーマットでの応答を期待します。
+response_format_raw
+RAW フォーマットでの応答を期待します。これは、応答としてバイナリデータ (PDF や画像など) を期待する HTTP アクションの後につなげることができます。
+例
+response_format_xml
+XML フォーマットでの応答を期待します。
+request_format_json
+要求を JSON フォーマットに変換します。
+request_format_multipart_form
+要求を multipart_form フォーマットに変換します。
+request_format_www_form_urlencoded
+要求を URL エンコードフォーマットに変換します。
+request_format_xml
+要求を XML フォーマットに変換します。
+required
+必要なフィールドのコンマ区切りのリストを作成します。
+object_definition["user"].required("id", "created_at")
+reverse
+文字列または配列の順序を反転させます。
+reverse_each
+一時的な配列を作成し、その配列を逆順に走査します。
+詳細については、こちらをご覧ください。
+rjust
+文字列を右揃えにし、指定した長さになるまで空白またはパターンを挿入します。
+"test".rjust(5) #" test"
+"test".rjust(10, "*!") #"*!*!* test"
+詳細については、こちらをご覧ください。
+round
+標準の端数処理規則で数値を端数処理します。
+11.99.round #12
+11.555.round(2) #11.56
+詳細については、こちらをご覧ください。
+rsa_sha256
+RS256 署名 (RSA キーで署名された SHA256 ハッシュ) を作成します。
+input['StringToSign'].rsa_sha256(rsa_private_key).base64
+rstrip
+文字列の末尾から空白を削除します。
+" Test ".rstrip #" Test"
+詳細については、こちらをご覧ください。
+scan
+文字列内をスキャンして一致するパターンを探します。
+"Thu, 01/23/2014".scan(/\d+/).join("-") #01-23-2014
+詳細については、こちらをご覧ください。
+select
+ブロックが true を返す要素を選択的に返します。
+詳細については、こちらをご覧ください。
+SHA1
+SHA1 暗号化アルゴリズムを使用して、指定された文字列を暗号化します。
+"abcdef".sha1.encode_base64 # "H4rBDyPFtbwRZ72oS4M+XAV6d9I="
+詳細については、こちらをご覧ください。
+singularize
+pluralize の逆。文字列内の単語の単数形を返します。
+'posts'.singularize # => "post"
+詳細については、こちらをご覧ください。
+slice
+開始インデックスと長さで定義されているとおりに、指定された文字列の部分文字列を返します。
+"Jean Marie\.slice(0,3) #"Jea"
+詳細については、こちらをご覧ください。
+slice_after
+特定の値の後で配列を切り取ります。
+["a", "b", "c"].slice_after("b").to_a # [["a", "b"], ["c"]]
+詳細については、こちらをご覧ください。
+slice_before
+特定の値の前で配列を切り取ります。
+["a", "b", "c"].slice_before("b").to_a # [["a"], ["b", "c"]]
+詳細については、こちらをご覧ください。
+slice_when
+各チャンク要素の列挙子を作成します。
+[1,2,4,9,10,11].slice_when { |i,j| i+1 != j}.to_a # [[1, 2], [4], [9, 10, 11]]
+詳細については、こちらをご覧ください。
+smart_join
+配列を文字列に連結します。空の値および nil 値は削除します。空白は連結する前に削除します。
+[nil, " ", " Hello ", " World "].smart_join(" ") #Hello World
+詳細については、こちらをご覧ください。
+sort
+ソートされた新しい配列を返す sort 関数。
+詳細については、こちらをご覧ください。
+sort_by
+それ自体を返す sort 関数。
+詳細については、こちらをご覧ください。
+split
+定義されたパターンを区切り文字として使用して、文字列を配列に分割します。
+"Split string".split() #["Split", "string"]
+"Split string".split("t") #["Spli", " s", "ring"]
+詳細については、こちらをご覧ください。
+strip
+文字列の先頭と末尾から空白を取り除きます。
+" This is an example ".strip #"This is an example"
+詳細については、こちらをご覧ください。
+strip_tags
+文字列から html タグを取り除きます。
+"
+Double bubble
+".strip_tags #"Double bubble"
+strftime
+% プレースホルダを使用して、日付または時刻をフォーマットします。
+sub
+最初に出現するパターンを値に置き換えます。
+"Mean Marie".sub(/M/, "J") #"Jean Marie"
+"Hello".sub(/[aeiou]/, "\*") #"H*llo"
+take
+配列の最初の N 個の要素を返します。
+[1, 2, 3, 4, 5, 0].take(3) #=> [1, 2, 3]
+詳細については、こちらをご覧ください。
+take_while
+ブロックが nil または false を返すまで、そのブロックに要素を渡した後、反復を停止してそれまでのすべての要素の配列を返します。
+[1, 2, 3, 4, 5, 0].take_while { |i| i < 3 } #=> [1, 2]
+詳細については、こちらをご覧ください。
+tap
+ブロックに x を生成し、x を返します。
+tap メソッドは、多くの場合、変換に使用されます。たとえば、以下の tap メソッドを使用して、webhook のペイロードを変換します。webhook のペイロードが次のフォーマットで提供されているとします。
+{
+"id" => {"value" => 1},
+"name" => {"value" => 2}
+}
+tap を使用することで、これをよりユーザーフレンドリな JSON に変換できます。
+webhook_notification: lambda do |input, payload|
+payload.tap do |output|
+output.each { |k, v| output[k] = v["value"] }
+end
+end
+最終的な JSON は次のようになります。
+{"id"=>1, "name"=>2}
+詳細については、こちらをご覧ください。
+tls_client_cert
+Workato が要求で使用する TLS キー、TLS クライアント、および中間証明書を指定できます。これを単一の要求につなげるか、一般的に apply ブロックで使用することができます。
+get("https://www.exampleapi.com").
+tls_client_cert(
+certificate: connection['ssl_client_cert'],
+key: connection['ssl_client_key'],
+passphrase: connection['ssl_key_passphrase'],
+intermediates: connection['client_intermediate_certs'] # pass array if there are multiple intermediate certs
+)
+apply: lambda do |connection|
+tls_client_cert(
+certificate: connection['ssl_client_cert'],
+key: connection['ssl_client_key'],
+passphrase: connection['ssl_key_passphrase'],
+intermediates: connection['client_intermediate_certs'] # pass array if there are multiple intermediate certs
+)
+end
+tls_server_certs
+SSL ハンドシェイクプロセスで、Workato が受け付ける TLS サーバー証明書を指定できます。これは、自己署名または信頼できないルート CA 証明書の場合に便利です。これを単一の要求につなげるか、一般的に apply ブロックで使用することができます。
+get("https://www.exampleapi.com").
+tls_server_certs(
+certificates: [connection['server_ca_cert']], #additional intermediate server certificates can be given.
+strict: false # Set to true to only allow requests from the given server CA cert.
+)
+apply: lambda do |connection|
+tls_server_certs(
+certificates: [connection['server_ca_cert']], #additional intermediate server certificates can be given.
+strict: false # Set to true to only allow requests from the given server CA cert.
+)
+end
+to_currency
+通貨文字列に変換します。
+1234567890.50.to_currency # $1,234,567,890.50
+to_currency_code
+alpha-2/3の国名コードまたは国名を ISO4217 の通貨コードに変換します。
+"India".to_currency_code #INR
+to_currency_name
+alpha-2/3の国名コードまたは国名を ISO4217 の通貨名に変換します。
+"India".to_currency_name #Rupees
+to_currency_symbol
+alpha-2/3の国名コードまたは国名を ISO4217 の通貨記号に変換します。
+"India".to_currency_symbol # ₨
+to_country_alpha2
+alpha-3 の国名コードまたは国名を alpha2 国名コードに変換します。
+"India".to_country_alpha2 #IN
+"IND".to_country_alpha2 #IN
+to_country_alpha3
+alpha-2 の国名コードまたは国名を alpha3 国名コードに変換します。
+"Australia".to_country_alpha2 #AUS
+"AU".to_country_alpha2 #AUS
+to_country_name
+alpha-2/3の国名コードまたは国名を ISO3166 の国名に変換します。
+"GB".to_country_name #United Kingdom
+"GBR".to_country_name #United Kingdom
+to_country_number
+alpha-2/3の国名コードまたは国名を ISO3166 の numeric の国名コードに変換します。
+"India".to_country_number #356
+to_date
+文字列またはタイムスタンプを日付に変換します。フォーマット可能です。
+"12/24/2014 10:30 PM".to_date(format: "MM/DD/YYYY")
+to_f
+浮動小数点数に変換します。標準の端数処理規則に基づいて、数値が切り上げまたは切り下げられます。
+45.to_f #45.0
+to_hex
+バイナリ文字列を16進表現に変換します。
+to_i
+整数に変換します。小数は常に切り捨てられます。
+45.67.to_i #45
+to_json
+ハッシュまたは配列を JSON 文字列に変換します。
+{"a" => "c d", "2" => "3"}.to_json #"{"a":"c d","2":"3"}"
+to_phone
+文字列または数値をフォーマットされた電話番号に変換します。
+5551234.to_phone # 555-1234
+1235551234.to_phone(area_code: true) # (123) 555-1234
+1235551234.to_phone(delimiter: " ") # 123 555 1234
+1235551234.to_phone(country_code: 1) # +1-123-555-1234
+to_param
+URL クエリー文字列として使用する文字列表現を返します。
+{name: 'Jake', age: '22'}.to_param #name=Jake age=22
+to_s
+文字列に変換します。
+45.67.to_s #"45.67"
+to_state_code
+州の名前をコードに変換します。
+"California".to_state_code #CA
+to_state_name
+州のコードを名前に変換します。
+"CA".to_state_name #"CALIFORNIA"
+to_time
+文字列または日付をタイムスタンプに変換します。
+"2014-11-21".to_time #2014-11-21 00:00:00 +0000
+to_xml
+ハッシュまたは配列を XML 文字列に変換します。
+{"name" => "Ken"}.to_xml(root: "user") # <user><name>Ken</name></user>
+today
+本日の日付。太平洋時間 (UTC-8/UTC-7) で、formula が実行された日付を返します。
+today #2016-07-13
+today + 2.days #2016-07-15
+transliterate
+非 ASCII 文字を ASCII 近似に置き換えます。これらが存在しない場合、置換文字はデフォルトで「?」になります。
+'Chloé'.transliterate #Chloe
+upcase
+文字列を大文字に変換します。
+"Convert to UPCASE".upcase #"CONVERT TO UPCASE"
+uniq
+配列内で一意の項目を返します。
+[1.0, 1.5, 1.0].uniq #[1.0, 1.5]
+unpack
+文字列を配列にデコードします。
+詳細については、こちらをご覧ください。
+utc
+Time をUTC タイムゾーンに変換します。
+詳細については、こちらをご覧ください。
+uuid
+UUID を作成します。要求内で一意の文字列を送信する場合に役立ちます。
+workato.uuid #c52d735a-aee4-4d44-ba1e-bcfa3734f553 => "eyJhbGciO..."
+where
+指定された条件で配列をフィルタリングします。
+while
+while loop ステートメント。
+詳細については、こちらをご覧ください。
+wday
+曜日を返します。1が月曜日になります。
+wrap
+すでに配列である場合を除き、配列内の引数をラップします。
+wrap メソッドは、多くの場合、execute ブロックで使用されます。while loop ステートメント。
+execute: lambda do |connection, input|
+More details here.
+{
+accounts: Array.wrap(get("/accounts", input)["records"])
+}
+end
+これにより、何が返されても
+accounts
+変数は常に配列となります。Workato では、使用するさまざまな API から予期しない値が返されるのを防ぐためによくこれを使用します。
+詳細については、こちらをご覧ください。
+yday
+年内通算日数を返します。
+"2016-07-19 10:45:30".to_time.yday #201
+yweek
+年内通算週数を返します。
+"2016-07-19 10:45:30".to_time.yweek #29
+zip
+配列で呼び出されるメソッドとして使用されます。引数を配列に変換した後、それ自体の要素を各引数からの対応する要素と結合します。
+詳細については、こちらをご覧ください。
+このリストは絶えず拡張されています。このリストに対する更新および追加については、ご遠慮なくお問い合わせください。
+←
+メソッド
+HTTP メソッド"
+→
+Last updated:
+2024/12/20 18:05:23
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

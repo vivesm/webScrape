@@ -1,0 +1,147 @@
+Insights - View dashboards | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Consume Insights
+#
+View dashboards
+Insights dashboards pull data in real time, automatically incorporating the latest recipe runs and job executions without requiring manual or scheduled updates.
+Dashboards are shared within the workspace, meaning you can view all dashboards in your workspace. However, the charts you can view on the dashboard depend on your collaborator role and feature access. Charts you don't have access to display the following error:
+The chart displays an error if it relies on a restricted data source
+Refer to
+How roles and privileges affect data source access
+for more information.
+#
+Use filter groups to adjust dashboard data
+Filter groups let you apply multiple filters at once across different datasets and visualizations in a dashboard. This ensures consistent filtering across all elements, letting you analyze specific data subsets without adjusting individual charts. You can also apply filter groups to specific containers to focus on certain data within them.
+For example, in a workspace usage dashboard, a filter group can narrow data to a selected time period and update all charts, tables, and graphs accordingly.
+Apply multiple filters at the workspace-level
+Dashboard-level filters
+apply to all charts, regardless of their container.
+Container-level filters
+apply only to charts in a specific container.
+Refer to
+Filter groups
+for more information.
+#
+Download a dashboard
+You can download Insights dashboards as a PNG file to share with stakeholders who don't have access to the Workato platform. This lets you share data visualizations while keeping underlying datasets and queries secure.
+Complete the following steps to download a dashboard as a PNG file:
+1
+Go to
+Platform > Insights
+.
+2
+Select the dashboard.
+3
+Click
+Download as image
+.
+Download the dashboard as an image
+←
+Filter groups
+Manage roles and privileges
+→
+Last updated:
+3/24/2025, 2:43:01 AM
+On this page
+Use filter groups to adjust dashboard data
+Download a dashboard
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

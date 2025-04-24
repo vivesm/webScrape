@@ -1,0 +1,132 @@
+IBM Db2 - Insert Rows | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+IBM Db2
+#
+IBM Db2 - Insert Rows
+This action enables you to insert multiple rows in a single step.
+#
+Insert rows
+#
+Input fields
+Table
+Required field
+Select the target table or view. You can also toggle the input to text mode, and enter the name of the table or view as text.
+Rows > Rows source list
+Required field
+The datapill is the source of the batched rows inserted into the table. Can originate from any trigger or action that generates a list datapill.
+Rows > Rows fields
+Optional field
+Dynamically-generated list of input fields, based on the columns in the target table. The Rows source list datapill provides the map for inserting data.
+#
+Output fields
+keys
+Primary Key IDs of inserted rows. If inserting into a table without primary keys, this field is empty.
+keys_count
+Number of rows with inserted primary keys.
+←
+Connection setup
+Upsert actions
+→
+Last updated:
+9/30/2022, 8:08:55 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

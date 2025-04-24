@@ -1,0 +1,297 @@
+Workato コネクター - Snowflake - Replicate Schema アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Snowflake
+#
+Snowflake - Replicate Schema (スキーマの複製) アクション
+このアクションは、データソースのスキーマを Snowflake 内のテーブルに照らして検査し、ソーススキーマと列のデータ型が一致するよう必要に応じてテーブルを変更します。
+これは通常、以下の操作を実行する前に宛先のテーブルを準備するために使用されます。
+Snowflake への
+行の複製
+(opens new window)
+Snowflake への
+外部ステージからの一括読み込み
+(opens new window)
+#
+動作の仕組み
+指定した宛先のテーブルが存在しない場合は、Snowflake 内に自動的に作成されます。
+Workato は、ソースデータのスキーマを宛先の Snowflake テーブルと比較します。
+ソースデータに存在するが宛先のテーブルには存在しない列は、DDL コマンド (
+ALTER TABLE
+) により宛先のテーブルに追加されます。
+新規の列は、指定されたデータ型に従います (
+Schema
+ソースタイプにのみ適用)。
+列は追加されるだけで、削除されることはありません。列が宛先のテーブルに存在するがソースデータには存在しない場合、アクションは実行されません。
+列の順序は、ソースデータとまったく同じになります。
+#
+入力
+#
+Table name
+Snowflake 内の宛先のテーブルを選択します。Snowflake 内の既存のテーブルのリストから選択するか、テーブル名をテキストで入力します。
+テーブル名のベストプラクティス
+テーブル名をテキストで入力する場合、テーブル名では大文字と小文字が区別され、大文字のテーブル名の使用が推奨されることに留意してください。
+テーブル名を二重引用符で囲むと大文字と小文字が区別されます (
+二重引用符で囲まれた識別子
+(opens new window)
+に関する説明を参照)。これにより、必要に応じてテーブル名で特殊文字を柔軟に使用できます。
+クエリーを簡単にするため、テーブル名には大文字を使用することをお勧めします。そうすることで、Snowflake ユーザーは大文字と小文字を区別しない引用符なしの識別子を使用してクエリーを作成できるようになります。これは、Snowflake では識別子を大文字で格納および
+解決する
+(opens new window)
+ためです。
+#
+例
+テーブル名
+Snowflake での SQL クエリー
+MyTable
+select * from MyTable; // will not work
+select * from "MyTable"; // OK
+MYTABLE
+select * from MyTable; // OK
+select * from "MYTABLE"; // OK
+#
+Source type
+ソースのデータ型 (CSV または Schema) を選択します。
+#
+CSV schema
+この項目セットは、
+[Source type]
+が
+[CSV]
+である場合に表示されます。
+CSV スキーマを使用して複製された列のデータ型は
+VARCHAR
+になります。
+項目
+説明
+CSV data
+ヘッダー行が必要な
+CSV データのデータピルを使用します。
+Column separator
+CSV データの区切り文字を選択します (デフォルト : カンマ)。
+Quote Character
+CSV のセル値を引用するために使用する文字を選択します (デフォルト : 二重引用符)。
+#
+Schema
+この項目セットは、
+[Source type]
+が
+[Schema]
+である場合に表示されます。
+スキーマ定義は、Workato の組み込みのコネクター (
+Salesforce - Get object schema アクション
+(opens new window)
+など) を使用して取得できます。
+カスタムアクション
+(opens new window)
+を使用して、互換性のある API ソースからスキーマ定義を取得することもできます。
+項目
+説明
+Schema source list
+リストデータピルを入力します。リストの入力の詳細については、
+こちら
+(opens new window)
+を参照してください。
+Column name
+テーブルで列名として使用される項目名をマッピングします。
+Column type
+テーブル内の列のデータ型として使用される項目のタイプをマッピングします。テーブル内のすべての列に
+VARCHAR
+を使用する場合は、空白のままにしてください。
+#
+オプションの入力
+#
+Column case
+#
+Upcase (推奨)
+列名は大文字にすることをお勧めします。そうすることで、Snowflake ユーザーが列の大文字と小文字を気にせずにクエリーを作成できるようになり、データのクエリー実行時のエクスペリエンスが向上します。これは、Snowflake では識別子を大文字で格納および
+解決する
+(opens new window)
+ためです。
+このアクションは、
+二重引用符で囲まれた識別子
+(opens new window)
+で列を作成するため、非標準の文字 (特殊文字、空白文字、ASCII など) を含む項目名が忠実に複製されます。
+#
+Preserve original
+[Preserve original] に設定すると、SQL クエリーでは正確な大文字と小文字を使用して列を参照する必要があります (以下の例を参照)。
+#
+例
+# Given that source data has a key "AccountId"
+# When Column_Case is "Upcase" or blank
+SELECT
+AccountId
+FROM
+mytable
+;
+// OK
+SELECT
+accountid
+FROM
+mytable
+;
+// OK
+SELECT
+"ACCOUNTID"
+FROM
+mytable
+;
+// OK
+# When Column_Case is "Preserve original"
+SELECT
+AccountId
+FROM
+mytable
+;
+// will fail
+SELECT
+accountid
+FROM
+mytable
+;
+// will fail
+SELECT
+"AccountId"
+FROM
+mytable
+;
+// OK
+注
+: これにより、
+[Exclude columns]
+および
+[Key column]
+項目で指定された列名でも大文字と小文字を区別する必要があります。
+#
+Exclude columns
+複製から除外する列を指定します (列名をそれぞれ別々の行に指定)。
+注 :
+[
+Retain column casing
+] を [
+Yes
+] に設定している場合は、この項目で正確な大文字と小文字を指定する必要があります。
+以前にテーブルを複製しており、今回特定の列を除外したい場合は、最初にテーブルを削除してから、このアクションを再度実行する必要があります。これは、このアクションが既存のテーブルから列を削除しないためです。
+#
+Key columns
+プライマリキー制約を適用するキーを指定します。
+注 :
+[
+Retain column casing
+] を [
+Yes
+] に設定している場合は、この項目で正確な大文字と小文字を指定する必要があります。
+以前にテーブルを複製しており、今回特定の列をプライマリキーとして設定したい場合は、最初にテーブルを削除してから、このアクションを再度実行する必要があります。これは、このアクションがテーブル内の既存の列を変更しないためです。
+#
+出力
+出力
+説明
+Number of columns altered
+Snowflake のテーブル内で変更された列の数を指定します。
+←
+行の複製
+新規行 トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+動作の仕組み
+入力
+オプションの入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

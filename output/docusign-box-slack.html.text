@@ -1,0 +1,630 @@
+Invite DocuSign signees to collaborate in Box and notify your team in Slack use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+Files
+#
+Invite DocuSign signees to collaborate in Box and notify your team in Slack recipe
+This use case guides you through connecting
+DocuSign
+,
+Box
+, and
+Slack
+to Workato to create a multi-application automation.
+#
+What does this recipe do?
+This recipe monitors DocuSign for newly signed documents. It checks if the email address of the individual who signed the document includes your company's email domain name, for example:
+@acme.com
+. If the email address does not contain your company's email domain name, the recipe creates a folder in Box, adds the user as a collaborator to the folder, and then creates a shared link to the folder. The recipe then sends an email to the user with the shared link and posts a message in Slack notifying you and your team that the user has been invited to collaborate.
+flowchart TD
+subgraph M[" "]
+direction TB
+subgraph D[&nbsp DocuSign New signed document &nbsp]
+direction RL
+ax(setup) --- aa(Trigger)
+classDef default fill:#b3e0e1,stroke:#51c2b9,stroke-width:1px;
+end
+subgraph S[Box Create folder action]
+L(Action) --- EW(setup)
+classDef default fill:#b3e0e1,stroke:#51c2b9,stroke-width:1px;
+end
+subgraph SS[&nbsp Box Add user as collaborator action &nbsp]
+LL(Action) --- EX(setup)
+classDef default fill:#b3e0e1,stroke:#51c2b9,stroke-width:1px;
+end
+subgraph SSS[&nbsp Box Create shared link action &nbsp]
+LLL(Action) --- EY(setup)
+classDef default fill:#b3e0e1,stroke:#51c2b9,stroke-width:1px;
+end
+subgraph R[Send email]
+RR(Action) --- EZ(setup)
+classDef default fill:#b3e0e1,stroke:#51c2b9,stroke-width:1px;
+end
+subgraph H[Slack post]
+AA(Action) --- EE(setup)
+classDef default fill:#b3e0e1,stroke:#51c2b9,stroke-width:1px;
+end
+end
+A([Create recipe]) -- Configure your recipe --> M --> B([Automated workflow])
+D --> S
+S --> SS
+SS --> SSS
+SSS --> R
+R --> H
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class D,S,SS,SSS,R,H SubgraphDash
+class A,B,ax,aa,WX,WW,WWW,L,EW,LL,EX,LLL,EY,RR,EZ,AAA,AA,EE WorkatoTeal
+#
+Create your recipe
+Complete the following steps to create a recipe that monitors DocuSign for newly signed documents, uses conditional logic to determine if the user is an employee at your company and then creates a new folder, adds the user as a collaborator to the folder, creates a shared folder link, emails the folder link to the new user, and posts a Slack message:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for DocuSign, Box, and Slack:
+Create a DocuSign connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+DocuSign
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Name
+field.
+Connect to DocuSign
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Demo
+drop-down menu to select whether the account you plan to use is a demo account.
+6
+Enter your DocuSign account ID in the
+Account ID
+field. To find your account ID: sign in to DocuSign > click
+Settings > Apps and Keys > API Account ID
+.
+7
+Enter your connect key in the
+Connect key
+field.
+8
+Click
+Connect
+.
+Create a Box connection.
+The Box connector supports both OAuth 2.0 and
+client credentials
+authentication.
+Complete the following steps to set up your Box connection using OAuth 2.0 authentication:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Box
+on the
+New connection
+page.
+3
+Provide a name that identifies which Box instance Workato is connected to in the
+Connection name
+field.
+Create your connection
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store this connection.
+5
+Use the
+Authentication type
+drop-down menu to select
+OAuth 2.0
+.
+6
+Optional. Expand
+Advanced settings
+to select
+Requested permissions (Oauth scopes)
+options.
+You can select from the following scopes:
+Read files and folders
+Read and write files and folders
+Manage app users
+Manage managed users
+Manage groups
+Manage webhooks
+Manage enterprise properties
+Manage retention policies
+Global content manager
+Admin can make calls on behalf of users
+Manage signature requests
+Manage Box Relay
+7
+Click
+Connect
+. This opens the Box sign in dialog.
+8
+Enter your Box account email address and password.
+Log in to Box
+9
+Click
+Authorize
+.
+10
+Review the requested permissions and click
+Grant access to Box
+.
+Grant access to Box
+Create a Slack connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Slack
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Name
+field.
+Slack connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Optional. Configure
+Advanced
+and
+Custom OAuth profile
+settings if required for your account type.
+6
+Click
+Connect
+.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+9
+Click
+Select an app and trigger event
+.
+10
+Set up your DocuSign trigger.
+1
+Search for
+DocuSign
+and select it as your app.
+2
+Select the
+New document event in DocuSign
+trigger.
+Select the New document event in DocuSign trigger
+3
+Use the calendar modal to select the date from which your recipe should begin to monitor events in the
+When first started, this recipe should pick up events from
+field. The trigger checks for new events every five minutes by default. Leave this field empty to fetch events from the last hour. You can't change this value after you run or test the recipe. Learn more about this
+input field
+.
+4
+Use the
+Event
+drop-down menu to select
+Signed
+as the event you plan to monitor. This field defaults to
+All
+if you do not make a selection.
+5
+Click
+Save
+.
+11
+Click
++ Add step
+and select
+IF condition
+.
+Select IF condition
+12
+Set up your doesn't contain Email IF condition.
+1
+Map the DocuSign
+Email
+Step 1
+datapill into the
+Data field
+.
+2
+Use the
+Condition
+drop-down menu to select
+doesn't contain
+.
+3
+Enter the value you plan to use for your IF condition in the
+Value
+field. For example, this use case checks if the email address in the
+Data field
+contains your company's email domain name in the
+Value
+field.
+Set up IF condition
+4
+Click
+Save
+.
+13
+Click
++ Add step
+for the
+No
+condition and select
+Add action in app
+.
+14
+Set up your Create folder Box action.
+1
+Search for
+Box
+and select it as your app.
+Choose Box as your app
+2
+Select the
+Create folder
+action.
+Select the Create folder action
+3
+Map the DocuSign
+Name
+Step 1
+datapill into the
+New folder name
+field.
+Set up the Create folder action
+4
+Select the parent folder in which you plan to add your new folder in the
+Parent folder
+field.
+5
+Click
+Save
+.
+15
+Click
++ Add step
+under your first Box action and select
+Add action in app
+.
+Click
+Add step > Add action in app
+16
+Set up your Create collaboration Box action.
+1
+Search for
+Box
+and select it as your app.
+2
+Select the
+Create collaboration
+action.
+Select the Create collaboration action
+3
+Click the
+Show
+button under
+Item
+.
+4
+Map the Box
+Type
+Step 3
+datapill into the
+Type
+field.
+5
+Map the Box
+ID
+Step 3
+datapill into the
+File or folder ID
+field.
+Map your datapills into the Item section
+6
+Expand the
+Accessible by
+section.
+7
+Enter the email address of the user in the
+Email ID of collaborator
+field.
+8
+Use the
+Role
+drop-down menu to select the role you plan to provide for the collaborator.
+Select a role for the collaborator
+9
+Click
+Save
+.
+17
+Click
++ Add step
+under your second Box action and select
+Add action in app
+.
+18
+Set up your Box Create shared link action.
+1
+Search for
+Box
+and select it as your app.
+2
+Select the
+Create folder shared link
+action.
+3
+Map the Box
+ID
+Step 3
+datapill into the
+Folder ID
+field.
+Map the Folder ID datapill
+4
+Use the
+Access
+drop-down menu to select
+Collaborators
+.
+5
+Click
+Save
+.
+19
+Click
++ Add step
+and select
+Add action in app
+.
+20
+Set up your Email by Workato action.
+1
+Search for
+Email by Workato
+and select it as your app. This app does not require connection configuration.
+Select Email by Workato as your app
+2
+Select the
+Send email
+action.
+3
+Map the DocuSign
+Email
+Step 1
+datapill into the
+To
+field. This is the email address that receives the email you send.
+Map the DocuSign Email datapill into the To field
+4
+Enter a message subject in the
+Subject
+field. For example,
+Invitation to collaborate
+.
+5
+Optional. Use the
+Email type
+drop-down menu to select the format of the email message. This field defaults to HTML.
+6
+Enter a message for the body of your email in the
+Message
+field.
+7
+Click
+Save
+.
+21
+Click
++ Add step
+and select
+Add action in app
+.
+22
+Set up your Slack action.
+1
+Search for
+Slack
+and select it as your app.
+Select Slack as your app
+2
+Select the
+Post message
+action.
+3
+Use the
+Channel
+drop-down menu to select the Slack channel in which you plan to post your message.
+4
+Enter a message for the post in the
+Basic text
+field. You can also map the DocuSign
+Name
+Step 1
+datapill into this field if you plan to include the new collaborator's name in the message automatically.
+5
+Enter an attachment title for the Slack post in the
+Attachment title
+field.
+6
+Map the Box
+URL
+Step 5
+datapill into the
+Attachment title link
+field. Attachment titles are clickable and direct users to the URL you provide when clicked.
+Map the Box URL datapill into the Attachment title link field
+7
+Enter text for the attachment in the
+Attachment text
+field. You can map the DocuSign
+Name
+Step 1
+and
+Email
+Step 1
+datapills into this field if you plan to include specific details about the new collaborator.
+8
+Click
+Save
+.
+Your
+Invite DocuSign signees to collaborate in Box and notify your team in Slack
+recipe is ready to test and implement.
+←
+Files
+Load Box CSV data to Google BigQuery with Google Cloud Storage
+→
+Last updated:
+1/17/2025, 6:16:43 PM
+On this page
+What does this recipe do?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

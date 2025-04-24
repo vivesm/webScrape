@@ -1,0 +1,165 @@
+Workato connectors - Redshift Export query result action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Redshift
+#
+Export query result action
+This action executes a SQL query and exports the results as a CSV file.
+ON-PREM PROFILE CONFIGURATION
+Remember to configure a staging area in your on-prem agent profile. Learn how to set up a staging area in the
+OPA server profile
+.
+#
+On-prem and Cloud connection input fields
+The
+Export query result
+action provides an additional input field if your connection is established through on-prem rather than using a cloud-based connection. If you have an on-prem connection, the
+Upload URL
+field displays. This field enables you to export your CSV file to a URL you specify.
+Export query result action with an on-prem connection
+Export query result action with a cloud connection
+#
+Input
+Input field
+Description
+SQL
+Enter a valid SQL query. For example:
+SELECT * FROM PUBLIC.ACCOUNTS
+.
+Column delimiter
+Choose a delimiter character. CSV files typically use a comma (
+,
+).
+Upload URL
+Export your CSV file to a URL you specify. You can generate this URL by using
+On-prem files
+or
+Amazon S3
+. This field is
+only available
+if you have an on-prem connection. Refer to our
+On-prem and Cloud connection input fields
+documentation for more information.
+#
+Output
+The output of this action contains metadata about the file export.
+Output field
+Description
+Number of rows exported
+The number of rows exported.
+Column names
+The column header names in the CSV file.
+CSV FILE CONTENT
+This action
+doesn't return the CSV file content
+.
+←
+New/updated row trigger
+Replicon
+→
+Last updated:
+11/6/2024, 9:54:42 PM
+On this page
+On-prem and Cloud connection input fields
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,227 @@
+Workato connectors - SAP OData - Actions and triggers | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP OData
+#
+Actions supported
+The SAP OData connector supports the following actions:
+Create object
+Update object
+Search object
+Delete object
+Upsert object
+Get object details by ID
+Custom action
+Extract bulk data
+Batch request
+SAP OData actions
+#
+Extract bulk data action
+Extract bulk data action has the following limitations in comparison to search object action:
+Parameters
+Search object action
+Extract bulk data action
+Request timeout
+Up to 120 seconds
+Up to 1 hour
+Response size
+Soft response size limit of up to 200MB
+Hard response size limit of 100MB
+Connection types
+All connection types are possible
+Connections that use OPA are not supported
+Job processing
+Jobs in the queue will be processed in order
+Jobs may not be processed in order
+Authentication
+Client certificate (x509) authentication is supported
+Client certificate (x509) authentication is not supported
+We recommend that you use the search object action instead of extract bulk data action and paginate the records using
+Limit
+and
+Skip token
+.
+#
+Batch request action
+This action enables customers to execute multiple CRUD (Create, Read, Update, Delete) operations in a single request, significantly improving efficiency, reliability, and cost-effectiveness.
+1
+Select the service.
+Select service
+2
+Click Add operation group.
+Add operation group
+FURTHER READING
+The uniqueness of the schema generated would be a combination of operation type and object selected for a particular service in the batch action.
+3
+Select operation type and object.
+Select operation type
+Select object
+4
+Add more operation groups to be processed in batch by repeating steps 2 and 3.
+5
+For every operation group added, there will be an extended schema created where must add operation.
+Add operation
+6
+You can add multiple operations for the same operation group with a unique operation type and object. Also, within the operation, you can add optional fields to be used for respective use-cases.
+Operations
+#
+Configure actions for OData V4 services
+To configure the action for an OData V4 API, you need to create a separate connection using the service URL corresponding to V4 and select V4 from the OData version drop-down on the connection page.
+1
+For creating an action corresponding to OData v4, navigate to the service group in the drop-down. For example, if the service URL configured in the connection is
+https://<S4host>/sap/opu/odata4/sap/api_bank/srvd_a2x/sap/bank/0003/
+, then the service group is
+api_bank
+.
+OData v4 action
+SERVICE GROUP NAME
+You can confirm the service group name in the API Business Hub documentation. Visit
+SAP's documentation
+(opens new window)
+and locate the
+Service Group Name
+in the
+Attributes
+tab.
+2
+As recommended practice, select the latest API version which can be identified based on the serial number like
+<service name>_1
+,
+<service name>_2
+, etc. Here,
+API_BANK_3
+is the latest and is corresponding to the service URL
+https://<S4host>/sap/opu/odata4/sap/api_bank/srvd_a2x/sap/bank/0003/
+.
+3
+If it is not shown in the drop-down due to the limited items we populate in the drop-down, then enter the
+Service Name
+manually. For example, if the service URL is
+https://<S4host>/sap/opu/odata4/sap/api_bank/srvd_a2x/sap/bank/0003/
+, then service name would be
+api_bank/srvd_a2x/sap/bank/0003/
+.
+Entering service name manually
+ODATA V4 API LIMITATIONS
+OData v4 API returns 100 records by default for the
+Search object
+action and the
+Extract bulk data
+action. You must adjust the
+Limit
+parameter in the action if you require a higher number of records.
+#
+Triggers supported
+The SAP OData connector supports the following triggers:
+New object - Triggers when an object is created in SAP.
+Updated object - Triggers when an object is updated in SAP.
+SAP OData triggers
+←
+OAuth BTP setup
+SAP Concur
+→
+Last updated:
+3/5/2025, 9:30:28 AM
+On this page
+Actions supported
+Triggers supported
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

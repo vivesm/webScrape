@@ -1,0 +1,633 @@
+Audit log streaming destinations | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Lifecycle & operations
+Operations hub dashboard
+Activity audit log
+#
+Audit log streaming destinations
+Before you begin, refer to our
+set up audit log streaming
+guide for instructions on enabling audit log streaming in your workspace.
+Workato supports the following audit log streaming destinations:
+Amazon S3 Bucket
+Azure Monitor
+Azure Blob Storage
+Cloud based logging services
+Google Cloud Storage Bucket
+#
+Amazon S3 Bucket
+To stream your audit logs to Amazon S3, select an existing Amazon S3 connection or create one that has a region and bucket set up. This connection must be assigned an IAM role with the following policy permissions:
+ListAllMyBuckets
+: This list permission allows Workato to list all buckets belonging to your S3 account. This permission is required even if your connection is restricted to one bucket within S3.
+PutObject
+: This write permission allows Workato to stream your activity audit logs to the bucket you specify during setup.
+Minimum permissions for audit log streaming to S3
+To ensure the audit logs are streamed successfully, confirm that your Amazon S3 connection meets the following requirements:
+The specified S3 bucket must exist.
+The region specified in the S3 connection must match the region of the selected bucket.
+The IAM role ARN (Amazon Resource Name) associated with the S3 connection must be valid.
+The IAM role must have the
+ListAllMyBuckets
+and
+PutObject
+permissions.
+Learn more about setting up an IAM role and permissions policy in our
+IAM role-based authentication
+documentation.
+IAM ROLE PERMISSIONS
+When you update your IAM role bucket permissions, you must disconnect and re-establish your S3 connection in Workato before you can continue using S3 as a streaming destination. This is a security feature designed to help you manage secure access to your resources.
+Additionally, if you plan to restrict access to a specific bucket within S3, you must configure this setting when you
+set up your S3 connection
+.
+The IAM role must be configured at the bucket level and
+not
+at the
+bucket/object
+level.
+#
+Azure Monitor
+To stream your audit logs to Azure Monitor, complete the following steps:
+1
+Create a connection to
+Azure Monitor
+that links to a log analytics workspace within your Azure tenant.
+2
+Save your Azure Monitor connection to use for streaming.
+3
+Choose
+Azure Monitor
+as your
+Destination type
+for audit log streaming and select the Azure Monitor connection you created in the preceding steps.
+4
+Enter the name of the Azure Monitor table where you plan to stream the logs. You can use an existing table or create a new one.
+5
+Select the type of events you plan to include in your audit log stream. Options are:
+Job history summary
+Job history details
+User activity audit
+API platform logs
+6
+Customize the log message
+. This field is optional.
+7
+Click
+Save
+to apply your audit log streaming settings.
+8
+Ensure your Azure Monitor Workspace receives the audit logs by querying the specified log type.
+Verify your audit logs
+#
+Azure Blob Storage
+Select an Azure Blob connection that has containers set up. The connection should have read/write access to the containers. Reference our
+Azure blob documentation
+to learn how to change role access of the Integration System User (ISU) in Microsoft Entra ID. Azure charges
+additional fees
+(opens new window)
+for every 10,000 logs streamed to Azure Blob.
+#
+Cloud based logging services
+You can use any log service provider (such as Sumo Logic, Datadog, or Splunk) as a streaming destination.
+Learn more about configuring an HTTP based log collection using
+Sumo Logic
+(opens new window)
+or
+Datadog
+(opens new window)
+.
+#
+How to use a cloud based logging service destination
+Go to the
+Destination URL
+field and enter the HTTP URL from your cloud-based logging service provider. Workato audit log streaming posts the audit log events in real-time to this URL.
+If your log service provider requires authentication to send HTTP requests, enable the
+Requires authentication
+slider, then select the
+Link your account
+button to specify an HTTP connection with your authentication information. You can create a new HTTP connection or link to an existing connection.
+Link to an HTTP connection
+SUPPORTED AUTHENTICATION METHODS FOR HTTP CONNECTIONS
+When setting up the HTTP connector for log streaming, ensure that you use one of the following authentication methods:
+Basic
+Query
+oauth2_auth_code_grant
+oauth2_client_credentials_grant
+Custom
+Note that audit log streaming to REST-based destinations is only compatible with the preceding listed authentication methods. You will not be able to successfully configure streaming if you use another authentication method.
+Validation failed
+#
+Google Cloud Storage Buckets
+You can stream your audit logs from Workato to a Google Cloud Storage Bucket. Complete the steps in the following sections to configure the log streaming connection.
+#
+Prerequisites
+You must have the following features and access:
+A Workato account with the
+Audit Log Streaming
+feature enabled
+Access to the following Google Cloud products and services:
+Cloud Logging
+Google Cloud Storage Buckets
+Roles & IAM
+API’s & Services
+Google Oauth2 playground (for troubleshooting)
+#
+Enable Google Cloud Logging API
+You must enable the following API to send logs to a Google Cloud Platform (GCP) instance. Refer to the Google documentation on how to
+enable an API
+(opens new window)
+for more information.
+Complete the following steps to enable Cloud Logging API:
+1
+Sign in to your Google Cloud Console.
+2
+Go to
+Enabled API's & Services
+.
+3
+Search for
+Cloud Logging API
+and ensure that is enabled.
+#
+Create a user account
+You must create a connection to your GCP instance using a shared user account or assign an individual with permissions to write logs to your Google Cloud Storage Bucket. This user must be in your organization’s directory with a valid email address. Use this account to authenticate the integration between Workato and GCP in the OAuth 2.0 workflow. Refer to the Google documentation on how to
+add users
+(opens new window)
+for more information.
+#
+Assign user account role permissions
+The user account you plan to use for authentication must be granted the required roles and permissions. Refer to the Google documentation on how to
+grant a role
+(opens new window)
+for more information.
+Complete the following steps to assign required permissions to your user account:
+1
+Sign in to your Google Cloud Console.
+2
+Go to
+Google Cloud Logging > Permissions > Assign Principal
+.
+3
+Select the account you created in the previous section, then assign the
+Logging Admin
+role.
+4
+Go to
+Google Cloud Buckets
+and select the bucket in which you plan to store Workato logs, or create a new bucket if necessary.
+5
+Go to
+Permissions > Assign Principal
+, select the user account, and then assign the
+Storage Object Admin
+role.
+#
+Configure an OAuth consent screen
+You must configure an OAuth consent screen before you create your OAuth application.
+Complete the following steps to configure your OAuth consent screen:
+1
+Sign in to your Google Cloud Console.
+2
+Select the
+project ID
+in which you plan to stream your activity logs.
+3
+Go to
+APIs & Services
+.
+4
+Go to the
+OAuth Consent Screen
+configuration page and select
+Credentials
+.
+5
+Go to
+Authorized domains > click Add Domain
+> and enter
+workato.com
+.
+Add the Workato domain
+6
+Select
+Scopes for Google APIs
+.
+7
+Click
+Add scope
+.
+8
+Ensure that you have the following Cloud Logging API scopes:
+.../auth/logging.admin
+.../auth/logging.read
+.../auth/logging.write
+Required API scopes
+9
+Click
+Add > Submit for verification
+.
+#
+Create an external OAuth app
+You must create an OAuth application in your GCP instance to generate a
+clientID
+and
+clientSecret
+. This enables Workato to use the Google Cloud Logging APIs you enabled in the previous section.
+Complete the following steps to create an external OAuth app:
+1
+Sign in to your Google Cloud Console.
+2
+Go to
+APIs & Services > Credentials > Create Credentials > OAuth Client ID
+.
+3
+Select
+Application Type
+, then enter a name for the app. We recommend that you name your app
+Workato - GCP Integration - US
+.
+4
+Enter the following as the authorized redirect URI:
+https://www.workato.com/oauth/callback
+.
+5
+Click
+Create
+. A
+clientID
+and
+clientSecret
+are automatically generated after your app is created. We recommend that you download the JSON file for safekeeping.
+6
+Go to
+APIs & Services > OAuth Consent Screen
+.
+7
+Use the form to register the app and include
+workato.com
+in the list of authorized domains. Note that you can use any user account for the developer contact information.
+8
+Click
+Save and Continue
+.
+#
+Create a HTTP connection with OAuth2 authorization code grant
+Complete the following steps to create an HTTP connection with OAuth2 authorization code grant:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Projects > Connections
+.
+3
+Click
+Create > Connection
+, then search for and select HTTP as your connector.
+4
+Provide a name for your connection in the
+Connection name
+field.
+5
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+6
+Use the
+Connection type
+drop-down menu to select
+Cloud
+.
+7
+Use the
+Authentication type
+drop-down menu to select
+OAuth2 authorization code grant
+.
+8
+Enter the following URL in the
+OAuth2 authorization URL field
+:
+https://accounts.google.com/o/oauth2/token
+and input the authorization URL:
+https://accounts.google.com/o/oauth2/auth?response_type=code&scope=https://www.googleapis.com/auth/cloud-platform&access_type=offline&prompt=consent
+9
+Enter the
+OAuth2 Client ID
+that you generated in the preceding section.
+10
+Enter the
+OAuth2 Client Secret
+that you generated in the preceding section.
+11
+Use the
+How does the API require credentials to be sent to request a token?
+drop-down menu to select
+Header
+.
+12
+Click
+Connect
+. An OAuth consent dialogue box opens and prompts you to authenticate your request.
+13
+Click
+Continue
+.
+14
+Enter the user account email address and password.
+15
+Select
+Allow
+to enable Workato to connect to your Google Cloud Logging instance.
+#
+Configure audit log streaming
+Complete the following steps to stream your audit logs to Google Cloud:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Workspace admin > Settings > Debug and logs > Log streaming
+.
+Go to Log streaming
+3
+Click
+Set up audit log streaming
+.
+4
+Use the
+Audit log destination
+drop-down menu to select
+Cloud based logging service
+.
+Configure your logs to stream to an external log provider
+5
+Enter the following URL as your
+Audit log destination
+:
+https://logging.googleapis.com/v2/entries:write
+.
+6
+Select the
+Requires authentication
+toggle.
+7
+Click
+Set up connection
+, then use the
+Existing connections
+drop-down menu to select the connection you set up in the preceding section.
+Select the connection from Existing connections
+8
+Go to the
+Choose events to stream
+section and select the checkboxes for the events you plan to stream.
+9
+Enter the logging message you plan to use in the
+Customize log message
+field.
+REQUIRED FORMAT
+Google Cloud Logging expects JSON payloads in a specific format. We recommend that you include the following message format in your log message. Replace the project name and the log name with your own values.
+{
+"logName"
+:
+"projects/your-project-name/logs/workato-logs"
+,
+"resource"
+:
+{
+"type"
+:
+"gce_instance"
+}
+,
+"entries"
+:
+[
+{
+"jsonPayload"
+:
+{
+"data"
+:
+{
+{
+{
+log_message
+}
+}
+}
+}
+}
+]
+}
+10
+Click
+Save
+. Your logs are now configured to flow into your default bucket.
+#
+Create a log sink to route logs to a specific GCP Bucket
+You must create a log sink to route logs to a specific GCP bucket.
+HOURLY BATCH PROCESSING FOR LOGS
+Logs are routed from the default cloud logging to the destination in hourly batches.
+Complete the following steps to create a log sink:
+1
+Sign in to your Google Cloud Console.
+2
+Go to
+Cloud Logging Explorer > Log Router > Create Sink
+.
+3
+Provide a
+Sink name
+, such as
+Workato to GCP
+, then click
+Next
+.
+Create a sink
+4
+Use the
+Select sink service
+drop-down menu to select
+Google Cloud Bucket
+.
+5
+Click
+Browse
+to locate and select the Google Cloud Bucket you plan to use, then click
+Next
+.
+6
+Choose the logs you plan to include in the router by entering the log name in the
+Inclusion filter
+field and then click
+Next
+.
+7
+Click
+Create Sink
+.
+Google Cloud Bucket details
+#
+Troubleshooting
+Complete the following steps to troubleshoot your log streaming:
+1
+Go to
+https://developers.google.com/oauthplayground/
+(opens new window)
+2
+Find and authorize
+Cloud Logging API v2
+.
+3
+Sign in using the user account credentials for your Google Cloud Bucket. This automatically generates an access token.
+4
+Configure the
+POST
+request with the following message format, replacing the names with your GCP instance values:
+{
+"logName"
+:
+"projects/your-project-name/logs/your-log-name"
+,
+"resource"
+:
+{
+"type"
+:
+"gce_instance"
+}
+,
+"entries"
+:
+[
+{
+"jsonPayload"
+:
+{
+"data"
+:
+"hello world"
+}
+}
+]
+}
+5
+Go to Google Logs Explorer and run a query to check for
+logName = {your-log-name}
+, replacing the values with the GCP information you configured.
+LOG MISSING
+If you do not see a log, the
+POST
+request may have failed. Check the error response code in your
+POST
+request to view the exact error. If you receive a permissions error, check that your user account has the required permissions.
+←
+Customize streaming logs
+Sample streaming logs
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Amazon S3 Bucket
+Azure Monitor
+Azure Blob Storage
+Cloud based logging services
+Google Cloud Storage Buckets
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

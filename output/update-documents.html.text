@@ -1,0 +1,170 @@
+Workato コネクター - MongoDB Update Documents アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+MongoDB Atlas
+#
+MongoDB Atlas - Update Documents (ドキュメントの更新) アクション
+このアクションは、
+MongoDB
+コレクション内の、オプションのカスタムクエリーと一致するドキュメントを更新します。
+#
+制限事項
+array
+項目の更新には、以下の制限事項があります。
+array
+項目の更新では、すべての値が置き換えられます。
+array
+項目の部分的な更新 (項目の追加や削除) は現在サポートされていません。
+部分的に更新するには、以下の手順を実行することをお勧めします。
+1
+ドキュメントの検索アクション
+を使用して、項目の既存の値のコピーを取得します。
+2
+項目を編集します。
+3
+このアクションを使用して項目を更新します。
+#
+入力
+項目
+説明
+Collection
+ドキュメントを更新するターゲットデータベースコレクションの名前。注 : 名前では大文字と小文字が区別されます。
+Document schema
+更新するドキュメントのスキーマを定義します。手動で項目を追加することも、
+スキーマジェネレータ
+を使用してサンプル JSON を指定することもできます。
+注 :
+integer
+および
+decimal
+のデータでは、いくつかの
+制限事項
+について認識しておく必要があります。
+Custom filter query
+ドキュメントのフィルタリングに使用される JSON クエリー。クエリーの条件に一致するドキュメントが更新されます。詳細については、
+MongoDB のカスタムフィルタークエリー
+に関するガイドを参照してください。
+#
+出力
+項目
+説明
+Collection name
+ドキュメントが更新されたターゲットデータベースコレクションの名前。
+Documents updated count
+更新されたドキュメントの合計数。
+#
+リソース
+MongoDB Atlas
+カスタムフィルタークエリーの使用
+データ型定義の制限事項
+Delete Documents (ドキュメントの削除) アクション
+Insert Documents (ドキュメントの挿入) アクション
+Search Documents (ドキュメントの検索) アクション
+Replicate Documents (ドキュメントの複製) アクション
+←
+ドキュメントの検索
+カスタムフィルタークエリーの使用
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+制限事項
+入力
+出力
+リソース
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

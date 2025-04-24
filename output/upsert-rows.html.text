@@ -1,0 +1,154 @@
+IBM Db2 - Upsert rows | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+IBM Db2 - Upsert rows
+This action enables you to perform an upsert, or a simultaneous insert or update, to either a
+single row
+, or to
+multiple rows
+.
+The action checks if input data is in the table. If present, the system performs an update. Otherwise, it adds the data as a new row (insert).
+#
+Upsert one row
+This action upserts a single row into the selected table.
+#
+Input fields
+Table
+Required field
+Select the target table/view to work with. You can also toggle the input to text mode to enter the table/view name in text.
+Columns
+Required field
+Columns in the selected table are then presented as input fields here. Map the required fields from the output datatree here to upsert a row with data from preceding trigger or actions.
+Primary key
+Required field
+Primary key value used to determine if the data is updated or inserted.<br/ ><br/ >Select a unique key column to deduplicate rows.<br/ ><br/ >When you index the selected unique key, it improves the performance of the upsert action.
+#
+Output fields
+Rows affected
+Number of upserted rows.
+#
+Upsert a batch of rows
+This action allows you to perform an upsert (i.e. insert or update) of multiple rows in a single step.
+It will check if input data exists in the table. If it is present, and update is performed. Otherwise, the data is inserted as a new row.
+#
+Input fields
+Table
+Required field
+Select the target table or view. You can also toggle the input to text mode, and enter the table or view name as text.
+Rows > Rows source list
+Required field
+The datapill that is the source of the batch of rows to insert into the table. Can originate from any trigger or action that returns a list datapill.
+Rows > Rows fields
+Optional field
+Dynamically-generated list of input fields, based on the columns in the target table. Map the data from the Rows source list datapill.
+Unique key
+Required field
+Select a unique key column to deduplicate rows.<br/ ><br/ >When you index the selected unique key, it improves the performance of the upsert action.
+#
+Output fields
+Rows affected
+Number of upserted rows.
+Last updated:
+3/29/2023, 2:00:59 PM
+On this page
+Upsert one row
+Upsert a batch of rows
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

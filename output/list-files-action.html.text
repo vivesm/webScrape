@@ -1,0 +1,146 @@
+Workato コネクター - On-prem files フォルダ内のファイルのリストアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+On-prem files
+#
+On-prem files - フォルダ内のファイルのリスト
+このアクションは、選択したフォルダ内のすべてのファイルをリストします。すべてのファイルは、ファイルパスの値に基づいてアルファベット順に単一のリストで返されます。
+サブフォルダ内のファイルを含めるよう選択することも可能です。また、このアクションはファイル名に基づいてファイルをフィルターすることもできます。
+フォルダ内のファイルのリストアクション
+#
+入力項目
+入力項目
+説明
+Folder
+リストするファイルを含んでいる親フォルダを選択します。このためには、ピックリストからフォルダを選択するか、または入力項目をテキストモードに切り替えてフォルダパスを入力します。
+これは、コネクションプロファイルで定義したベースパスからの相対パスである必要があります。相対パスについての説明は、
+こちら
+を参照してください。
+Include files in sub-folders?
+サブフォルダ内のファイルを含めるかどうか選択します。すべてのファイルがディレクトリではなく単純なリストで返されることに注意してください。ファイルは、ファイルパス順に並べられます。
+Filter files by name
+この命名パターンにマッチするファイル名のみが返されます。命名パターンの使用法については
+こちら
+を参照してください。
+#
+出力項目
+出力項目
+説明
+Files
+File path
+ファイルの相対パスです。このパスは、コネクションプロファイルで定義したベースパスからの相対パスです。相対パスについての説明は、
+こちら
+を参照してください。
+File name
+拡張子を含むファイル名。
+File size (bytes)
+ファイルコンテンツのサイズ (バイト単位)。
+Created time
+ファイルが作成された日時です。この値は OS によって設定されます。
+Last modified time
+ファイルの最終変更時間です。この値は OS によって更新されます。
+←
+フォルダの作成
+ファイルの削除
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

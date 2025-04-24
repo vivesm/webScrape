@@ -1,0 +1,187 @@
+Egnyte connector - Get object details action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Egnyte
+#
+Get object details action
+The
+Get object details
+action allows you to fetch the details of an Egnyte object.
+Get object details action
+#
+Input
+Input field
+Description
+Object
+Select the object you plant to fetch.
+#
+Output
+Output field
+Description
+Uploaded
+The timestamp when the file was uploaded. For example:
+2024-02-26T23:06:36.891999+00:00
+.
+Checksum
+The checksum of the file for verification. For example:
+c79fba1f4bf041a5ed667a0606538f27649b9a5bc7e76039fedec4
+.
+Size
+The size of the file in bytes. For example:
+448
+.
+Path
+The path to the file. For example:
+/Shared/Egnyte Reports/Folder Size/test-file.csv
+.
+Name
+The name of the file. For example:
+test-file.csv
+.
+Locked
+Indicates if the file is locked or not. Values are
+true
+or
+false
+.
+Permission
+The permission level of the file. For example:
+Owner
+.
+Is folder
+Indicates if the item is a folder or not. Values are
+true
+or
+false
+.
+Entry ID
+The ID of the file entry. For example:
+13b63eae-77a7-43ff-8ad4-05314e35fe8d
+.
+Group ID
+The ID of the group associated with the file. For example:
+d871bf95-8c07-4c61-8ec9-4f65e92b9b96
+.
+Last modified
+The timestamp when the file was last modified. For example:
+2024-02-26T23:06:36.000000+00:00
+.
+Uploaded by
+The user who uploaded the file.
+Num versions
+The number of versions of the file. For example:
+7
+.
+Parent ID
+The ID of the parent folder. For example:
+8c880bab-e6b4-41cd-949f-758182f06cca
+.
+←
+Get event details action
+Search objects batch action
+→
+Last updated:
+3/1/2024, 11:00:51 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

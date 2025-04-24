@@ -1,0 +1,145 @@
+Workato Connectors - MongoDB Delete Documents Action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+MongoDB Atlas
+#
+MongoDB Atlas - Delete Documents Action
+This action deletes documents from a
+MongoDB
+Collection that match an optional custom query.
+#
+Input
+Field
+Description
+Collection
+The name of the target database collection to delete documents from. Note: Names are case-sensitive.
+Custom filter query
+A JSON query used to filter documents. Documents that match the query's criteria will be deleted. Refer to the
+Custom Filter Queries for MongoDB guide
+for more info.
+#
+Output
+Field
+Description
+Collection name
+The name of the target database collection where documents were deleted.
+Documents deleted count
+The total number of deleted documents.
+#
+Resources
+MongoDB Atlas
+Using Custom Filter Queries
+Insert documents action
+Search documents action
+Replicate documents action
+Update documents action
+←
+Connection setup
+Insert documents
+→
+Last updated:
+1/11/2022, 5:21:18 PM
+On this page
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

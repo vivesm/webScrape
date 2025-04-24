@@ -1,0 +1,449 @@
+Projects | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+#
+Projects
+SUMMARY
+Workato projects act as repositories for integration assets such as recipes, connections, and sub-folders.
+Organize projects by use case, department, app, or process.
+You can share connections across projects.
+Admins manage permissions for creating, editing, viewing, or deleting projects.
+Watch a 2 minute video guide about Projects
+Workato projects serve as repositories for your integration assets, including recipes, connections, and sub-folders. The projects page is divided into two sections:
+Assets
+Contains
+Smart folders
+, which dynamically display all recipes, connections, and pages across your projects, providing a centralized location for managing your integration assets.
+Projects
+Displays a list of all available projects.
+SHARING CONNECTIONS
+Connections can be shared across multiple projects.
+#
+Best practices for using projects
+Managing and organizing your projects streamlines collaboration and improves navigation across teams. Follow these best practices to stay organized and optimize your workspace's productivity:
+#
+Organize projects
+Organize your projects by department, use case, or project type to create a clear, logical structure. This enables you to efficiently locate and manage related assets.
+Example of organizing by use case
+#
+Recipe lifecycle management
+When managing recipe lifecycles across workspaces, ensure the target workspace has a project available for importing the exported project. If no such project exists, create one with the same name as the exported project to maintain consistency.
+After creating the project, import the exported project. If you import into
+All projects
+, each folder is converted into a separate project.
+#
+Home assets project
+In preparation for a new permissions model, Workato no longer allows you create assets without assigning a project.
+Workato plans to convert the
+Home assets
+folder to a project with full capabilities. Workato maintains the
+folder_id
+and
+project_id
+during migration. To determine if your
+Home assets
+folder is converted to a project, use the following guidelines:
+If there is a banner indicating that the project is deprecated, Workato has not yet converted your
+Home assets
+folder to a project.
+If there is no banner indicating that the project is deprecated, Workato has already converted your
+Home assets
+folder to a project with the same capabilities as any other project.
+Home assets banner
+#
+Home assets project name
+The
+Home assets
+project name varies as follows:
+The project is named
+Home assets
+if there isn't an existing
+Home assets
+project in your workspace.
+If your workspace already contains a project named
+Home assets
+, Workato adds assets from the root folder to this project.
+Workato creates a
+Home assets (migrated)
+project to preserve project-level access for collaborators without changes.
+Home assets project
+#
+Import assets from packages
+You can no longer place assets in the
+Home assets
+folder during import. You must unpack assets into a specific project instead.
+You can use the parameter
+folder_id_for_home_assets
+in the DevAPI Import Package endpoint to specify a folder for your assets during import.
+This parameter is optional if:
+You are importing a package that does not contains root folder assets.
+Your workspace
+Home assets
+folder not converted to a
+Home assets
+project.
+This parameter is required if:
+You are importing a package that contains root folder assets.
+Your workspace
+Home assets
+folder is converted to a
+Home assets
+project.
+Refer to the following topics to learn more about using the Dev or OEM API to import packages:
+Use the Embedded API's
+Import package into a customer workspace
+endpoint to automatically move assets in the
+Home assets
+folder to selected projects.
+Use the Workato API's
+folder_id_for_home_assets
+parameter to
+Import a package into a folder
+.
+#
+Smart folders
+Smart folders allow you to view all accessible recipes and connections. You can filter the list to show active or inactive recipes, and connected or disconnected connections.
+Smart folders
+#
+Manage projects and permissions
+Admins control user permissions for creating, editing, viewing, or deleting specific projects. Assign users to a role, such as admin, analyst, or a custom role, to grant access. Refer to
+projects permissions
+for more information.
+PROJECT ACCESS
+When you grant a user access to a project, they can also access the recipes, connections, and folders within that project.
+Project access permissions enable you to perform the following actions:
+Create a project
+Move folders, recipes, and connections
+between projects
+Delete a project
+#
+Create a project
+You can create a project to organize integration assets by department or use case. Recipes and connections can be stored directly in a project or organized within folders.
+Complete the following steps to create a project:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Projects
+in the navigation bar to access your project list.
+Create project
+3
+Select
+Create project
+.
+4
+Enter a
+Project name
+.
+Enter a project name
+5
+Optional. Create a
+Project description
+.
+6
+Select a starting point for your project:
+Create a blank project
+to build from scratch.
+Start with a workflow app
+.
+7
+Click
+Create project
+. The new project appears in the
+Projects
+menu.
+#
+Create a folder
+Complete the following steps to create a new folder in the new project:
+1
+Open the project view of the specific project and click
+Create folder
+.
+Create folder
+2
+Enter a
+Folder name
+. The folder name must be unique at the same hierarchy level within its parent folder.
+Enter a folder name
+3
+Use the
+Location
+drop-down menu to select the project where you plan to create the folder.
+4
+Click
+Create folder
+. The new folder appears as a sub-folder within the project.
+#
+Assets tab
+The
+Assets
+tab allows you to filter and manage assets specific to the selected project. It provides the same filters and sub-filters as the
+Assets page
+, but only applies to assets within the current project.
+Assets tab filters
+#
+Assets page
+The
+Assets
+page provides the following filters:
+Assets page filters
+All assets
+Filter by all types of assets, including recipes, connections, and pages.
+App
+Select one or more apps. Only assets with the apps you select display in the results.
+Edited by
+Filter by the user who edited the assets. Choose
+Me
+to view assets you edited, or
+Others
+to select and view assets edited by specific collaborators within the workspace. Not all users can view assets edited by other collaborators.
+Tag
+Filter by
+tags
+to categorize assets such as recipes, connections, data tables, and pages.
+These filter options provide additional
+sub-filters
+for granular search results.
+#
+Sub-filters for assets
+The
+Assets
+page and
+Assets
+tab both provide sub-filters for managing recipes, connections, and pages.
+Filter by assets
+#
+Recipes
+The
+Recipes
+filter provides the following sub-filters:
+Sub-filter
+Description
+Status
+Filter by
+Active
+or
+Inactive
+status. All statuses are shown if no option is selected by default.
+App
+Select multiple apps to filter recipes associated with those apps.
+Recipe trigger
+Choose one trigger option from an app, as each recipe can only have a single trigger.
+Edited by
+Filter by the user who edited the recipes. Choose
+Me
+to view recipes you edited, or
+Others
+to select and view recipes edited by specific collaborators within the workspace. Not all users can view recipes edited by other collaborators.
+Tag
+Filter recipes by tags to categorize them according to specific criteria.
+#
+Connections
+The
+Connections
+filter provides the following sub-filters:
+Sub-filter
+Description
+Status
+Filter by
+Connected
+or
+Disconnected
+status. All statuses are shown if no option is selected by default.
+App
+Choose one app to filter connections associated with that app.
+Edited by
+Filter by the user who edited the connections. Choose
+Me
+to view connections you edited, or
+Others
+to select and view connections edited by specific collaborators within the workspace. Not all users can view connections edited by other collaborators.
+Tag
+Filter connections by tags to categorize them according to specific criteria.
+#
+Pages
+The
+Pages
+filter provides the following sub-filters:
+Sub-filter
+Description
+Edited by
+Filter by the user who edited the pages. Choose
+Me
+to view pages you edited, or
+Others
+to select and view pages edited by specific collaborators within the workspace. Not all users can view pages edited by other collaborators.
+Tag
+Filter pages by tags to categorize them according to specific criteria.
+#
+Enhanced search functionality
+The search functionality on the assets page offers faster, more accurate, and comprehensive search results.
+Search assets
+#
+Key search criteria
+You can quickly find assets based on various criteria. The search targets the following fields within recipes, connections, and pages:
+Asset names
+Locate assets by their names.
+Descriptions
+Search within the descriptions of recipes.
+Apps used
+Filter assets based on the applications they use in recipes and connections.
+Actions used
+Identify recipes by the actions they perform.
+SORT SEARCH RESULTS
+Search results are sorted by relevance by default. You can change the sorting order, which remains in effect until you reset the search.
+#
+Move assets
+Move folders, recipes, and connections across projects or into other folders by dragging them to the new location. Dependencies are automatically updated after the asset is moved.
+#
+Tags for assets
+Tags allow you to categorize assets such as recipes, connections, data tables, and pages for better organization across projects. You can use tags to filter and search assets based on specific attributes.
+Tags for assets
+Refer to the
+Tags for assets
+documentation for more information.
+#
+Delete a project
+PROJECTS WITH ACTIVE ASSETS CAN'T BE DELETED
+You can't delete a project with active assets.
+When you delete a project, the project is permanently removed. Connections are deleted, and recipes are moved to the trash. From the trash, you can restore recipes to a new project or location, or delete them permanently.
+Restore deleted recipe
+If you delete a connection used in other projects, it's removed from every project where it is used. This may cause recipes or workflows that rely on the connection to stop functioning due to the missing dependency.
+Choose one of the following actions to delete a project from the
+Projects
+page:
+Drag the project to the
+Trash
+folder in the
+Projects
+menu.
+Delete by dragging the project
+Click the
+...
+(ellipsis) next to the project, then click
+Delete
+.
+Click Delete
+←
+Recipe design
+Tags for assets
+→
+Last updated:
+4/22/2025, 9:16:36 PM
+On this page
+Best practices for using projects
+Organize projects
+Recipe lifecycle management
+Home assets project
+Home assets project name
+Import assets from packages
+Smart folders
+Manage projects and permissions
+Create a project
+Create a folder
+Assets tab
+Assets page
+Sub-filters for assets
+Enhanced search functionality
+Move assets
+Tags for assets
+Delete a project
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

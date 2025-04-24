@@ -1,0 +1,150 @@
+RecipeOps - API policy rate limit violation trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API governance
+RecipeOps
+#
+RecipeOps - API policy rate limit violation trigger
+Actively monitors API usage across all access profiles and generates events when an access profile exceeds its assigned rate limits. It creates trigger events every five minutes for each unique access profile that goes beyond these limits. To reduce noise, it generates only one event per access profile within this interval, even if rate limits are exceeded multiple times. For example, even if an access profile exceeds its rate limit three times within the same five-minute interval, this trigger only registers one trigger event.
+Learn more about our
+API access policies
+.
+#
+Input
+This trigger doesn't require any input.
+#
+Output
+Field name
+Description
+Event message
+The rate limits for your API policy have been exceeded
+API policy ID
+The unique identifier of the API policy.
+API policy name
+The name of the API policy.
+Rate limit
+The maximum number of API calls allowed within a specified short time interval.
+Rate limit time interval
+The time frame for the rate limit, such as a minute, hour, or day.
+Client ID
+The unique identifier of the client.
+Client name
+The name of the client associated with the event.
+Access profile ID
+The unique identifier of the access profile.
+Access profile name
+The name of the access profile.
+#
+Resources
+RecipeOps overview
+RecipeOps actions
+RecipeOps triggers
+←
+API policy quota violation trigger
+Recipe Version Management
+→
+Last updated:
+6/27/2024, 6:53:47 PM
+On this page
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

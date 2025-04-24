@@ -1,0 +1,153 @@
+Salesforce connector FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+Salesforce connector FAQs
+Get answers to frequently asked Salesforce connector questions.
+What authentication method can I use to connect to Salesforce on Workato?
+You can connect to Salesforce on Workato using either
+OAuth 2.0 or JWT authentication
+.
+How do I configure an OAuth 2.0 connection for Salesforce on Workato?
+To
+configure an OAuth 2.0 connection
+for Salesforce, you must provide a unique connection name, specify if it's a Sandbox connection, and fill in the necessary fields. You must provide your Salesforce login credentials for OAuth 2.0 authorization.
+What are the advanced settings for OAuth 2.0 Salesforce connections?
+Advanced settings for OAuth 2.0
+Salesforce connections are:
+Organization/community custom domain URL
+Requested permissions
+Verified user access configuration
+Custom OAuth profiles
+What is JWT Bearer Authentication for Salesforce?
+JWT Bearer Authentication
+allows you to create a connection without linking a specific user account. This process uses a digital certificate to sign the JWT request. You must have prior approval from the client app in Salesforce.
+How do I configure a Salesforce JWT Bearer connection on Workato?
+To
+configure a Salesforce JWT Bearer connection
+, you must:
+Create a private key and digital certificate.
+Specify the issuer, subject, and Salesforce subdomain.
+What permissions should the connected user have?
+The connected user's profile must have API enabled, and
+permissions
+to interact with both standard and custom objects. It's essential to set up API-enabled permission, standard and custom object permissions, and platform event permissions for the user's profile.
+The API-enabled permission allows access to the Salesforce API. This permission is located in
+Setup > Profiles
+.
+Standard and custom object permissions in Salesforce allow users to interact with objects in Salesforce. The connected user's profile must have permissions for reading, writing, editing, deleting, and viewing standard or custom objects. This is necessary to avoid issues when working with records.
+The connected user has the same permissions through the Workato Salesforce connector as in Salesforce.
+What is field-level security in Salesforce?
+Field-level security
+controls whether a user can see, edit, and delete specific fields on an object. This is essential for protecting sensitive data while allowing access to certain fields. Field-level security must be managed in profiles and permission sets.
+Can I connect more than one Salesforce account in a single recipe?
+Yes. You can connect up to two Salesforce accounts in a single recipe by using
+Secondary connectors
+.
+←
+Approval processes
+SAP RFC
+→
+Last updated:
+3/20/2024, 7:37:41 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

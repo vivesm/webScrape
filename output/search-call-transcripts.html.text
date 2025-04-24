@@ -1,0 +1,148 @@
+Workato コネクター - Gong - Search call transcripts | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Gong
+#
+Gong コネクター - Search call transcripts (通話記録の検索)
+このアクションは Gong で通話記録を検索します。指定された日付範囲内に発生し、指定された通話 ID を持つ通話に対する記録を表示します。
+#
+入力
+項目
+説明
+Starting date-time
+通話を検索する日付範囲の開始日。指定しないと、記録されている最も古い通話から開始されます。日付は通話が開始された日付を指します。
+Ending date-time
+通話を検索する日付範囲の終了日。Gong により記録された Web 電話会議については日付は予定されていた日付を指し、それ以外の場合は実際に開始された日付を指します。
+Call IDs
+対象とする通話 ID のリスト。指定しないと、[Starting date-time] と [Ending date-time] 間のすべての通話が返されます。1つの通話を取得するには、通話の ID を指定します。
+Workspace
+どのワークスペースに基づく通話を対象とするかを選択します。
+#
+出力
+項目
+説明
+Call Transcripts
+各通話記録に対する次の詳細情報を含むリスト
+Call ID
+集約されたユーザーのアクティビティのリスト内の各項目のインデックス。
+Transcript
+記録オブジェクトを含むリスト。各記録オブジェクトには、話者 ID、トピック、センテンスのリストなどの詳細情報が含まれます。各センテンスオブジェクトには、開始、終了、およびテキストフィールドが含まれます。
+List Size
+通話記録のリストサイズ。
+List Index
+通話記録のリスト内の各項目のインデックス。
+Records
+レスポンスのメタデータ
+Current page number
+ページネーションが行われるように、リピートリクエストに対して必要です。
+Current page size
+現在のページ上のレコードの数。
+Cursor
+ページネーションに必要な UUID。
+Total Records
+照会可能なレコードの合計数。
+←
+通話スコアカードの検索
+通話の検索
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,190 @@
+Workato connectors - Box - New folder in folder | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Box
+#
+New folder in folder
+Triggers when a new folder is added within an existing folder.
+#
+Input
+Field name
+Description
+When first started, this recipe should pick up events from
+Use the calendar to select the date you plan to begin monitoring the folder. Learn more about this
+input field
+.
+Folder
+Use the drop-down menu to choose
+Select from list
+or
+Use folder ID
+.
+#
+Output
+Field name
+Description
+Type
+The type of event trigger.
+ID
+The ID of the event.
+Sequence ID
+The ID of the event sequence.
+Etag
+This is the entity tag HTTP response header that identifies the specific version of the resource.
+Sha 1
+The hash function of the input.
+Name
+The name of the folder that triggered the event.
+Description
+A description of the folder.
+Size
+The size of the folder.
+Path collection
+The collection of folders searched for trigger events.
+Created at
+The timestamp for when the event was created. For example,
+YYYY-MM-DDT12:16:38.000000-07:00
+.
+Modified at
+The timestamp for when the event was modified. For example,
+YYYY-MM-DDT12:16:38.000000-07:00
+.
+Content created at
+The timestamp for when the content was created. For example,
+YYYY-MM-DDT09:13:42.000000-08:00
+.
+Content modified at
+The timestamp for when the content was modified.
+YYYY-MM-DDT09:13:42.000000-08:00
+.
+Created by
+The username of the person who created the folder.
+Owned by
+The username of the person who owns the folder.
+Shared link
+The link created to share the folder.
+Parent
+The parent folder or file if one exists.
+Item status
+The status of the folder, for example
+active
+.
+Synced
+The sync status of the folder. For example,
+true
+or
+false
+.
+Event type
+The type of event trigger.
+Path
+The path of the folder where the new folder was added.
+←
+CSV triggers
+New/updated sign event trigger
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

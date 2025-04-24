@@ -1,0 +1,198 @@
+Workato connectors - SMB | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+SMB
+Server Message Block (SMB) is a communication protocol used to share files. SMB relies on the TCP and IP protocols for transport. This combination allows file sharing over complex, interconnected networks, including the public Internet. The SMB server component uses TCP port 445. The SMB protocol supports both Windows and Unix operating systems. Use the Universal Naming Convention (UNC) to specify the location of resources that you plan to access with the connector.
+The SMB connector supports the following actions and triggers:
+New/updated file trigger
+Download file
+Upload file
+Create folder
+Delete resource
+Get metadata
+List directory contents
+ON-PREM AGENT VERSION
+OPA 27.0 or newer is required to use the SMB connector.
+#
+How to connect to SMB
+CLOUD PROFILES
+Refer to
+cloud profiles
+to configure the SMB connection directly in Workato cloud instead of connecting through OPA.
+Complete the following steps to set up your SMB connection using OPA:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+SMB
+as your connection on the
+New connection
+page.
+3
+Select
+API Key (Internal integration)
+in the
+Authentication
+field.
+4
+Provide a name for your SMB connection in the
+Connection name
+field.
+SMB connection setup
+5
+Select the project where you plan to store the connection from the
+Location
+drop-down menu.
+6
+Select an existing
+on-premise group
+. Workato uses agents from this group to establish a connection. Refer to the
+connection profiles documentation
+to configure an on-premise group that uses
+config.yml
+.
+7
+Enter the hostname or IP address of the server hosting SMB share in the
+Host
+field.
+8
+Enter the
+Port
+to connect to. The default port for SMB is
+445
+.
+9
+Enter the shared folder's name in the
+Share name
+field.
+10
+Optional. Enter the name of the domain to sign in to in the
+Domain name
+field.
+11
+Enter the user name of the SMB server in the
+Username
+field.
+12
+Enter the
+Password
+for the SMB server.
+13
+Click
+Connect
+to complete the setup.
+#
+Relative path
+A relative file path specifies the location of a file or folder in relation to the location of another folder. This is different from an absolute file path, which specifies the full location of a file.
+←
+Update row
+New/updated file trigger
+→
+Last updated:
+3/25/2025, 10:13:54 PM
+On this page
+How to connect to SMB
+Relative path
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

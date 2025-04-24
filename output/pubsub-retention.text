@@ -1,0 +1,121 @@
+Workato Event streams - retention period | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Event streams
+Workato Event streams
+#
+Retention period configuration
+Event topic stores messages for a specific duration defined by the topic retention period. Subscribers of the topic cannot access messages older than the retention period. So, any new recipe can access all messages, published during the retention period.
+#
+Configure the retention period
+You can change the retention period in the
+Settings
+tab.
+The retention period can be between one (1) hour (minimum) and 90 days (maximum). The default setting is seven (7) days.
+RETENTION PERIOD AND RESTARTING RECIPES
+If you stop a recipe with an Event streams trigger for a time period longer than the retention period, it cannot pick up new messages after it restarts. If you experience this issue, clone the recipe and try again.
+Topic retention settings
+←
+Topic schema
+Topic reset
+→
+Last updated:
+3/9/2024, 12:04:32 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,257 @@
+Workato connectors - SAP SuccessFactors LMS | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+SAP SuccessFactors LMS connector
+SAP SuccessFactors LMS
+(opens new window)
+is a platform designed for managing and delivering online employee training, enabling businesses to create training content and track employee progress and completion.
+#
+Prerequisites
+To establish a connection to SAP SuccessFactors LMS you must have an active sandbox or general instance.
+#
+Obtain an SAP SuccessFactors LMS sandbox instance
+Request a sandbox instance from SAP directly, which will create a sandbox instance for you. This connector only supports instances with admin accesses. Refer to
+Step 1: Generate a client secret from SAP Successfactors LMS
+to learn how to generate a client secret.
+#
+Connection setup
+#
+Supported authentication
+SAP SuccessFactors LMS supports the following authentication type:
+Client credentials-based Authentication
+, supported by SAP S/4HANA Cloud, public edition.
+#
+Client credentials-based authentication
+Establishing a connection to SAP SuccessFactors LMS in Workato consists of the following steps:
+Step 1: Generate a client secret from SAP Successfactors LMS
+Step 2: Complete setup in Workato
+#
+Step 1: Generate a client secret from SAP Successfactors LMS
+To connect to SAP SuccessFactors LMS using client credentials-based authentication, you must generate an admin-level system client secret or retrieve an existing client secret. Refer to
+SAP's documentation
+(opens new window)
+for more information on generating a client secret.
+Complete the following steps to generate a client secret from SAP SuccessFactors LMS:
+1
+Go to Learning
+Administration > System Administration Security > Administrator Management
+.
+2
+To generate a new client secret, you must either create a new administrator or select an existing administrator.
+3
+If you do not yet have an administrator to call Learning APIs, then you must create a new administrator by clicking
+Add New
+. Complete the
+Add New Admin
+form to create a new administrator.
+Contact your app administrator for assistance in obtaining the required values to complete this form.
+4
+If you have an existing administrator, you must select that administrator from the
+Administrators
+page.
+5
+Click
+Generate a new Client Secret
+to generate a new client secret. SAP SuccessFactors LMS generates a client secret, and its corresponding hash value.
+6
+Copy the newly-generated client secret value and store it in a secure place for later use in Workato.
+#
+Step 2: Complete setup in Workato
+Complete the following steps to establish your SAP SuccessFactors LMS connection in Workato using client credentials authentication.
+1
+Install the SAP SuccessFactors LMS connector from the community library
+Complete the following steps to install a connector from the
+community library
+(opens new window)
+:
+1
+Open the recipe editor and search for a connector. Alternatively, you can search for a connector in the
+community library
+(opens new window)
+.
+Search for community connectors in the recipe editor
+2
+Select the community connector you plan to install.
+3
+Click
+Install
+to install the connector from the community library.
+Click
+Install
+4
+Select
+Release connector
+. Alternatively, select
+Review code
+to review and modify the connector code before releasing it to the workspace.
+Release the connector
+5
+Summarize any changes you made to the connector, then click
+Release
+to allow workspace collaborators to use the connector in recipes.
+The
+Confirm release
+dialog
+2
+Click
+Create > Connection
+.
+3
+Search for and select
+SAP SuccessFactors LMS
+as your connection in the
+New connection
+page.
+4
+Provide a name for your connection in the
+Connection name
+field.
+5
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+6
+Provide your
+Subdomain
+. Your subdomain is provided by your SAP SuccessFactors LMS application administrator. If your SuccessFactors LMS URL is
+https://abc.successfactors.com
+, the subdomain is
+abc.successfactors.com
+.
+7
+Supply the
+Client ID
+and
+Client secret
+for your app into their corresponding fields in Workato.
+8
+Supply the
+Username
+for your app into its corresponding field in Workato. This is the
+User ID
+associated with your newly created SuccessFactors LMS instance.
+9
+Supply the
+Company ID
+for your app into its corresponding field in Workato. This is generally the same as your client ID.
+10
+Click
+Connect
+.
+Configure SAP SuccessFactors LMS connection in Workato
+#
+Supported resources
+The SAP SuccessFactors LMS connector supports all the entities associated with
+Learning administration
+present in your instance.
+←
+Worker upload action
+Assign object to user action
+→
+Last updated:
+1/28/2025, 4:51:50 PM
+On this page
+Prerequisites
+Connection setup
+Client credentials-based authentication
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

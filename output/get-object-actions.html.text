@@ -1,0 +1,250 @@
+Workato Connector - HubSpot Get Record Actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+HubSpot - Get record actions
+These actions will allow you to retrieve records by an object's ID, Email, through associations to other objects or from lists.
+Workato supports get actions for the following objects:
+Get records action
+Get owner by ID action
+Get contacts associated with a company action
+Get contacts in list action
+DEPRECATION NOTICE
+The following actions have been deprecated. You can access these HubSpot objects with the
+Get Records action
+.
+Get company by ID action
+Get contact by email action
+Get contact by VID action
+Get contacts in contact list action
+Get deal by ID action
+Get owner by email action
+#
+Get Records
+This action allows you to retrieve any object based on its ID. Furthermore, you can select the properties you plan to retrieve from it.
+Get records action
+Objects
+Select which HubSpot object to retrieve.
+View all available HubSpot objects
+Contact
+Company
+Deal
+Product
+Ticket
+Line Item
+Quote
+Custom Objects
+ID
+The ID of the record to retrieve.
+Fields to retrieve
+Only properties selected here will be returned. When left blank, only the default fields will be returned.
+#
+Get contacts associated with a company
+This action retrieves all contacts associated with a company in HubSpot in descending order when you provide the company ID. Additionally, you can select whether to retrieve the version history of fields and/or the list memberships of the contact.
+Get contacts associated with a company action
+#
+Input fields
+Input field
+Description
+Company ID
+The ID of the company that the contacts are associated to.
+Count
+The number of contacts to be returned in your request.
+Properties
+The property of the contact that's returned in the response. For example, city, street address, and more. See the
+Hubspot API Reference
+for a list of returned properties.
+Property mode
+Select whether to retrieve the current value for each contact property or to retrieve both current value and every historical value.
+Show list memberships
+Select an option to indicate whether current list members should be retrieved for the contact. The default is true.
+#
+Output fields
+Output field
+Description
+Vid
+The HubSpot ID of the contact.
+Canonical Vid
+The original HubSpot ID of the contact, maintained through merges and updates.
+Last Modified Date
+The most recent date that any property on a contact record was updated.
+ADDITIONAL OUTPUT FIELDS
+This trigger also provides a data tree with attributes and values for the specified
+Object
+. Additional fields depend on the
+Properties
+you select. Refer to HubSpot's
+Properties
+(opens new window)
+guide for more information about retrievable properties.
+#
+Get contacts in list
+This batch action retrieves all details about contacts in a specific contact list in HubSpot.
+Get contacts in list action
+#
+Input fields
+Input field
+Description
+List
+List from which you want to retrieve contacts.
+Properties
+The property of the contact that's returned in the response. For example, city, street address, and more. See the
+Hubspot API Reference
+for a list of returned properties.
+#
+Output fields
+Output field
+Description
+ID
+The HubSpot ID of the contact.
+Created at
+The timestamp when the contact was created.
+Updated at
+The timestamp when the contact was last updated.
+Archived
+Indicates if the contact has been archived.
+Last Modified Date
+The most recent date that any property on a contact record was updated.
+ADDITIONAL OUTPUT FIELDS
+This trigger also provides a data tree with attributes and values for the specified
+Object
+. Additional fields depend on the
+Properties
+you select. Refer to HubSpot's
+Properties
+(opens new window)
+guide for more information about retrievable properties.
+#
+Get owner by ID
+This action retrieves all owners in a HubSpot account that matches the ID you provide. You can select whether to retrieve archived owners in the results.
+HubSpot uses owners to
+assign
+specific users to contacts, companies, deals, tickets, or engagements. Any HubSpot user with access to contacts can be assigned as an owner, and multiple owners can be assigned to an object by creating a
+custom property
+for this purpose.
+Get owner by ID action
+#
+Input fields
+Input field
+Description
+ID
+The ID of an owner.
+Archived
+Choose **Yes** to return only results that have been archived. Default is No.
+#
+Output fields
+If the request is successful, Workato returns information about the owner that matches the ID provided so you can use its datapills in the subsequent steps. See the HubSpot
+API Reference
+to view available fields.
+←
+Add contact actions
+Search record actions
+→
+Last updated:
+3/11/2025, 5:30:16 PM
+On this page
+Get Records
+Get contacts associated with a company
+Get contacts in list
+Get owner by ID
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

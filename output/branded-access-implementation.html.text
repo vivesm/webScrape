@@ -1,0 +1,229 @@
+Embedded - Branded access SSO - JWT direct linking implementation | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Customer experience options
+Implementation
+#
+Branded access SSO - JWT direct linking implementation guide
+You can use the branded SSO implementation model to securely redirect your customers from your application to Workato. This limits login access to Workato to the partner application.
+This implementation model works by redirecting customers from your application to a Workato URL that is authenticated using a JWT (JSON Web Token) that is sent as a URL parameter.
+Within Workato, you can offer customers pre-built integrations and allow your customers to modify or build their own automations. You can use
+role-based access control
+to assign roles to your customers, defining their access to specific
+projects
+, tools, and features within Workato, including
+recipe lifecycle management
+, the
+activity audit log
+, and more.
+Additionally, you can use the
+theme editor
+to customize the Workato app to match your own branding.
+This guide consists of the following sections:
+Prerequisites
+Construct a direct link URL
+Log out of a Workato session
+#
+Prerequisites
+JSON Web Token (JWT)
+Required.
+Generate a JWT to facilitate secure access to Workato. JWTs authenticate users and provide verified access to applications and resources. As a reminder, the following information is required to generate a JWT. Learn more in our
+JWT direct linking
+guide.
+Private and public key pair
+Required.
+The JWT token must be signed using a private key generated with the RS256 algorithm. Workato uses the public key to verify the generated JWT tokens. Use the
+Update JWT signing key API
+to set the public key or provide the public key to your Workato Success Representative.
+Embedded vendor ID
+Required.
+The Embedded vendor ID is required to generate the JWT. Use the vendor ID returned by
+Update JWT signing key API
+or ask your Workato Success Representative to provide the value for this ID after you provide your public key.
+Customer workspace ID
+Required.
+The customer workspace ID is the unique ID of the Embedded customer workspace in Workato. You can obtain this value from the Workato UI or programmatically. From the UI, obtain the customer workspace ID by navigating to the
+Admin console > Customers
+and selecting the specific customer. When selected, the customer workspace ID is present in the URL. Alternatively, fetch the customer workspace ID by calling our
+get customer API
+.
+If the external ID is used instead of the Workato ID, the segment should start with the prefix
+E
+.
+Customer user ID
+Optional.
+The customer user ID is the unique ID of an individual workspace member in the customer workspace. Include the customer user ID when the user's specific role must apply to the Workato session created. Fetch the customer user ID by calling our
+get customer workspace member API
+. If the external ID is used instead of the Workato ID, the segment should start with the prefix
+E
+.
+#
+Construct a direct link URL
+To provide access to Workato for your customers from your application, construct a direct link URL and redirect them to this URL. The JWT generated in the previous step is sent as a URL parameter in this direct link URL. Workato validates the JWT to ensure its integrity and authenticity, using it to establish an authenticated session and provide verified access to Workato for your customer.
+Use the following direct link URL formats for branded access SSO implementations based on your data center:
+Workato accounts hosted in the US Data Center
+https://app.workato.com/direct_link/recipes?workato_dl_token=
+<
+jwt_token
+>
+Workato accounts hosted in the Europe Data Center
+https://app.eu.workato.com/direct_link/recipes?workato_dl_token=
+<
+jwt_token
+>
+Workato accounts hosted in the Singapore Data Center
+https://app.sg.workato.com/direct_link/recipes?workato_dl_token=
+<
+jwt_token
+>
+Workato accounts hosted in the Japan Data Center
+https://app.jp.workato.com/direct_link/recipes?workato_dl_token=
+<
+jwt_token
+>
+Workato accounts hosted in the Australia Data Center
+https://app.au.workato.com/direct_link/recipes?workato_dl_token=
+<
+jwt_token
+>
+#
+Log out of a Workato session
+When a customer is redirected to Workato, a secure Workato session is created for the customer. If the customer logs out of your application, you can also configure this implementation to log them out of the active Workato session by redirecting the customer to Workato’s sign out URL. The sign out URL varies depending on the data center you use. Refer to the following list to determine which sign out URL you should use.
+Sign out URL for accounts hosted in the US Data Center
+https://app.workato.com/users/sign_out
+Sign out URL for accounts hosted in the Europe Data Center
+https://app.eu.workato.com/users/sign_out
+Sign out URL for accounts hosted in the Singapore Data Center
+https://app.sg.workato.com/users/sign_out
+Sign out URL for accounts hosted in the Japan Data Center
+https://app.jp.workato.com/users/sign_out
+Sign out URL for accounts hosted in the Australia Data Center
+https://app.au.workato.com/users/sign_out
+#
+Sample sign out URL
+<
+a
+href
+=
+"
+https://app.workato.com/users/sign_out
+"
+@click
+=
+"
+opened = false
+"
+>
+Sign out
+</
+a
+>
+←
+JWT troubleshooting
+Embedded iframes
+→
+Last updated:
+1/9/2025, 10:56:53 PM
+On this page
+Prerequisites
+Construct a direct link URL
+Log out of a Workato session
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

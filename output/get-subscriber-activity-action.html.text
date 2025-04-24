@@ -1,0 +1,165 @@
+Workato connectors - MailChimp - Get subscriber activity action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+MailChimp
+#
+Get subscriber activity action
+This action fetches a subscriber's activity on a specific list, including opens, clicks, and unsubscribes.
+Get subscriber activity action
+#
+Input
+Input field
+Description
+List
+The list to which the subscriber you plan to fetch activity for is assigned.
+Email address
+The email address of the subscriber.
+#
+Output
+Output field
+Description
+Activity type
+The type of activity. For example
+unsub
+for unsubscribes or
+generic-signup
+for a general sign up.
+Created at timestamp
+The timestamp of when the activity was requested. For example:
+2024-01-03T20:19:26.000000+00:00
+.
+Campaign ID
+The ID of the campaign associated with the activity. This field is blank if the activity is not associated with a specific campaign.
+Campaign title
+The title of the campaign associated with the activity. This field is blank if the activity is not associated with a specific campaign.
+Is admin unsubscribed
+Indicates whether the list admin unsubscribed the contact or not. This value is
+true
+or
+false
+.
+Unsubscribe reason
+The reason the subscriber unsubscribed. For example:
+N/A (Unsubscribed by admin)
+.
+Sign up category
+The category for how the subscriber signed up. For example:
+manual_add
+.
+Email ID
+The email ID of the subscriber. For example:
+49bf743a5rm9f47cjm6d83f3a8dd9661
+.
+List ID
+The ID of the list where the activity was logged. For example:
+91930a8a88
+.
+←
+Add subscriber tags action
+Get subscriber tags action
+→
+Last updated:
+1/10/2024, 8:49:34 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

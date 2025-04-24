@@ -1,0 +1,214 @@
+Workato connectors - Wrike - Create from blueprint action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Create from blueprint action
+The
+Create from blueprint
+action creates a folder or task in Wrike from a blueprint.
+#
+Input
+Input field
+Description
+Blueprint type
+Select the type of blueprint you plan to use. Options include
+Folder
+and
+Task
+.
+Blueprint
+Select the blueprint to use. Toggle to
+Enter a blueprint ID
+to enter a blueprint ID instead.
+Folder title / Task title
+Enter a title for the created folder.
+Parent folder
+Select a parent folder to create the folder or task in. Either this field or
+Super task
+is required when you create a task. Wrike doesn't allow you to set both fields simultaneously.
+Super task
+Select a super task to create the task in. Either this field or
+Parent folder
+is required when you create a task. Wrike doesn't allow you to set both fields simultaneously.
+Title prefix
+Enter a prefix to apply to all copied tasks.
+Copy descriptions?
+Select
+Yes
+to copy descriptions from the blueprint. Defaults to
+Yes
+.
+Notify responsibles?
+Select
+Yes
+to notify responsible users. Defaults to
+Yes
+.
+Copy responsibles?
+Select
+Yes
+to copy responsible users from the blueprint. Defaults to
+Yes
+.
+Copy custom fields?
+Select
+Yes
+to copy custom fields from the blueprint. Defaults to
+Yes
+.
+Copy attachments?
+Select
+Yes
+to copy attachments from the blueprint. Defaults to
+No
+.
+Reschedule date
+Enter a reschedule date for the created folder or task.
+Reschedule mode
+Select
+Start
+or
+End
+to define how the blueprint reschedules tasks. Defaults to
+Start
+.
+Entry limit
+Set the maximum number of tasks or folders copied. Must be between
+1
+and
+250
+.
+#
+Output
+Output field
+Description
+Job ID
+Unique identifier for the blueprint job.
+Job status
+Status of the job execution.
+Job result
+Outcome of the job execution.
+Job error
+Details of any errors encountered during execution.
+Job progress
+Percentage of completion for the job.
+Total count
+Total number of items processed in the job.
+Processed count
+Number of items successfully processed.
+Type
+Type of created object, such as
+Folder
+or
+Task
+.
+←
+Create folder action
+Create project action
+→
+Last updated:
+2/26/2025, 10:21:24 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,207 @@
+Workato コネクター - Shopify - New/updated customer | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Shopify
+#
+Shopify コネクター - New/updated customer (新規/更新されたカスタマー) トリガー
+このトリガーは、Shopify の新規または更新されたカスタマーをポーリング間隔ごとにチェックします。
+各カスタマーは新規ジョブとして処理されます。
+#
+入力
+項目
+説明
+Trigger poll interval
+新規カスタマーについてポーリングする頻度。
+When first started, this recipe should pick up events from
+指定した日時以降のカスタマーを取得します。レシピが最初に開始されたときから作成されたすべてのカスタマーを取得する場合は、空のままにします。レシピが実行またはテストされた後で、値を変更することはできません。
+#
+出力
+項目
+説明
+Customer ID
+カスタマーの一意の識別子。
+First name
+カスタマーの名前 (名)。
+Last name
+カスタマーの名前 (姓)。
+Email
+カスタマーの一意のメールアドレス。
+Phone
+このカスタマーの一意の電話番号。
+Admin GraphQL API ID
+Admin GraphQL API ID。
+Marketing opt in level
+カスタマーがマーケティング資料をメールで受け取ることに同意したときに指定した、マーケティングサブスクリプションのオプトインレベル。カスタマーがメールでのマーケティングを受け入れなかった場合、このプロパティは null に設定されます。
+Accepts marketing
+カスタマーがマーケティング資料をメールで受け取ることに同意したかどうかを示します。
+Created at
+カスタマーが作成された日時。
+Updated at
+カスタマーが更新された日時。
+Orders count
+このカスタマーに関連した注文の数。
+State
+ショップに対するカスタマーのアカウントの状態。
+Total spent
+カスタマーが注文履歴全体にわたって出費した合計金額。
+Last order ID
+カスタマーが最後に行った注文の ID。
+Note
+カスタマーに関するメモ。
+Verified email
+カスタマーがメールアドレスの確認を行ったかどうかを示します。
+Multipass identifier
+マルチパスログインで使用される、カスタマーの一意の識別子。Shopify のマルチパスログインの詳細については、
+こちら
+を参照してください。
+Tax exempt
+カスタマーが注文に対する税金の支払いを免除されるかどうかを示します。true の場合、チェックアウト時に注文に税金が適用されません。false の場合、チェックアウト時に税金が適用されます。
+Tags
+ショップオーナーがカスタマーに追加したタグ。カンマ区切り値の文字列の形式になります。カスタマーには最大250個のタグを付けることができ、各タグは最大255文字にすることができます。
+Last order name
+カスタマーが最後に行った注文の名前。これは、Order リソースの name 項目と直接関係しています。
+Default address
+カスタマーのデフォルトの住所。デフォルトの住所のプロパティは以下のとおりです。
+address1
+address2
+city
+company
+country
+country_code
+country_name
+customer_id
+default
+first_name
+id
+last_name
+name
+phone
+province
+province_code
+zip
+Addresses
+カスタマーの最近更新された10件の住所のリスト。それぞれの住所のプロパティは以下のとおりです。
+address1
+address2
+city
+company
+country
+country_code
+country_name
+customer_id
+default
+first_name
+id
+last_name
+name
+phone
+province
+province_code
+zip
+Metafields
+カスタマーのメタフィールド。
+←
+新規/更新されたチェックアウト離脱
+新規/更新された注文
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

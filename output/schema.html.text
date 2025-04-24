@@ -1,0 +1,1643 @@
+SDK リファレンス - スキーマ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+SDK リファレンス
+#
+SDK リファレンス - Workato スキーマ
+以下のこのセクションでは、Workato で入出力フィールドを定義する方法を示します。これは「スキーマ」と総称されます。この情報は、入力フィールドや出力フィールド (データピル) が定義されるコネクターコード内の任意の場所に適用できます。たとえば、
+connection
+、
+actions
+、
+triggers
+、および
+object_definitions
+といった場所です。
+簡単な概要
+ユーザーフレンドリで直感的なコネクターを作成するには、Workato スキーマの使い方を理解することが不可欠です。コネクターには、使いやすくするためのさまざまな属性を追加できます。このスキーマはハッシュのシンプルな配列で、配列内の各インデックスは1つの入力フィールドまたは出力フィールドを表します。
+これらの定義は、入力フィールドと出力フィールドの両方で完全に互換性があり、一度作成したスキーマを簡単に再利用できます。
+#
+構造
+[
+{
+name
+:
+String
+,
+label
+:
+String
+,
+optional
+:
+Boolean
+,
+type
+:
+String
+,
+hint
+:
+String
+,
+of
+:
+String
+,
+properties
+:
+Array
+,
+control_type
+:
+String
+,
+toggle_hint
+:
+String
+,
+toggle_field
+:
+Hash
+,
+default
+:
+String
+,
+picklist
+:
+String
+,
+delimiter
+:
+String
+,
+sticky
+:
+Boolean
+,
+convert_input
+:
+String
+,
+convert_output
+:
+String
+,
+change_on_blur
+:
+Boolean
+,
+support_pills
+:
+Boolean
+,
+custom
+:
+Boolean
+,
+extends_schema
+:
+Boolean
+,
+list_mode
+:
+String
+,
+list_mode_toggle
+:
+Boolean
+,
+item_label
+:
+String
+,
+add_field_label
+:
+String
+,
+empty_schema_message
+:
+String
+,
+sample_data_type
+:
+String
+,
+ngIf
+:
+String
+}
+,
+{
+# Another field definition
+}
+]
+#
+属性の説明
+キー
+定義
+name
+必須。このフィールドの名前。例: id、created_at
+optional
+オプション。デフォルトは false です。入力フィールドに適用されて、レシピを実行する前にユーザーがこのフィールドに確実に値を入力するようにします。
+label
+オプション。すべてのフィールドは、フィールド名に基づくデフォルトラベルを持ちます。これを使用して、フィールドラベルのデフォルト値を変更します。
+hint
+オプション。ユーザーをガイドするための何らかのヒントを、入力フィールドの下に追加できます。ドキュメントへのリンクは、HTML 構文を使用して指定できます。
+type
+オプション。このフィールドのデータ型。デフォルト値は "string" です。以下の値を指定できます。
+- "string"
+- "integer"
+- "number"
+- "date_time"
+- "date"
+- "timestamp"
+- "boolean"
+- "object" -
+properties
+の指定が必要
+- "array" -
+of
+の指定が必要
+of
+type: "array"
+以外の場合はオプション。array とともに使用して、配列のデータ型を定義します。以下の値を指定できます。
+- "string"
+- "integer"
+- "number"
+- "date_time"
+- "date"
+- "timestamp"
+- "boolean"
+- "object" - オブジェクトの配列を示します。
+properties
+属性も指定する必要があります。
+properties
+type: "object"
+の場合、または
+type: "array"
+と
+of: "object"
+の場合以外はオプション。スキーマの配列を受け付けて、オブジェクトのプロパティを示します。
+control_type
+オプション。これは入力フィールドにのみ関係するフィールドで、レシピで公開する入力フィールドの型を指定します。デフォルトは "string" です。このスキーマを出力フィールドとして使用すると、この属性は無視されます。
+サポートされるコントロール型
+のリストを参照してください。
+toggle_hint
+オプション。これは、プライマリトグルのラベルを示します。詳細については、「
+トグルフィールド
+」を参照してください。
+toggle_field
+オプション。この入力フィールドのセカンダリトグルを示すハッシュ。詳細については、「
+トグルフィールド
+」を参照してください。
+default
+オプション。入力フィールドのデフォルト値を設定できます。
+pick_list
+オプション。control_type が :select または :multiselect の場合は、このプロパティが必要です。
+pick_lists
+キーで定義されたピックリストを参照するか、直接定義できます。ピックリストを直接定義する場合は、
+こちら
+で説明しているものと同じ2次元配列を指定してください。
+delimiter:
+control_type: "multiselect"
+以外はオプション。この区切り文字は、ユーザーが行う各入力の間で使用されます。
+sticky
+オプション。このプロパティを使用して、そのフィールドが常に入力フィールドとして表示されるようにします。デフォルトでは、オプションの入力はオプションフィールドドロップダウンの内部で非表示となります。
+sticky: true
+を指定したフィールドは、必須フィールドの横に表示されます。
+convert_input
+オプション。入力フィールドを定義するときに、これらのフィールドに渡される値は、定義された
+type
+に関係なく、文字列と見なされます。
+convert_input
+を使用すると、
+execute
+ブロックの
+input
+引数に渡される前に、これらの入力を変換できます。
+詳細についてはこちらを参照してください
+convert_output
+オプション。出力フィールドを定義するときは、各フィールドの
+name
+が
+execute
+lambda 関数の実際の出力のキーと照合されます。ただしこれは、出力の
+value
+が、その照合先フィールドに宣言された
+type
+に一致することを保証するものではありません。
+convert_output
+を使用すると、これらの入力を変換し、特定の出力フィールドに割り当てられた受信値を適切に「キャスト」することができます。
+詳細についてはこちらを参照してください
+change_on_blur
+オプション。true の場合は、各キー入力の後ではなく、ユーザーがフィールドからフォーカスを外した場合にのみ、設定フィールドと依存フィールドが値を評価します。多くの場合、このパラメータの設定は不要です。
+support_pills
+オプション。デフォルト値は true です。false の場合、そのフィールドでのデータピルのマップが許可されなくなります。多くの場合、このパラメータの設定は不要です。
+custom
+オプション。true の場合は、このフィールドがカスタムであることがユーザーに特殊なマーカーで示されます。通常は、カスタムフィールドを含む可能性があるオブジェクト定義を動的に生成する場合に使用されます。
+extends_schema
+オプション。フィールドが
+config_field
+のように動作できるようにします。
+list_mode
+オプション。
+type: "array"
+および
+of: "object"
+の場合に使用されます。Workato のデフォルトは動的リストですが、このパラメータによって、その入力フィールドを静的配列入力フィールドに設定できます。以下の値を指定できます。
+- "static" - ユーザーはこの配列の各インデックスを定義します。
+- "dynamic" - ユーザーはリストデータピルを使用して、この配列の各インデックスを動的に定義できます。
+list_mode_toggle
+オプション。
+type: "array"
+および
+of: "object"
+の場合に使用されます。ユーザーが配列を使用するときに、静的リストと動的リストを切り替えられるようにします。デフォルトは true です。list_mode_toggle: false を設定すると、ユーザーはリストモードを切り替えられなくなります。
+item_label
+オプション。
+control_type: "schema_designer"
+または
+control_type: "key_value"
+とともにのみ使用されます。これにより、モーダルポップアップに表示される項目名を設定できます。item_label: "Item Label" を設定すると、結果は以下のようになります。
+add_field_label
+オプション。
+control_type: "schema_designer"
+または
+control_type: "key_value"
+とともにのみ使用されます。これにより、追加ボタンのラベルを設定できます。add_field_label: "Custom Add Label" を設定すると、結果は以下のようになります。
+empty_schema_message
+オプション。
+control_type: "schema_designer"
+または
+control_type: "key_value"
+とともにのみ使用されます。 これにより、入力フィールドが空の場合のメッセージを設定できます。empty_schema_message: 'Custom empty schema message that allows to add field and generate schema' を設定すると、結果は以下のようになります。
+sample_data_type
+オプション。
+control_type: "schema_designer"
+とともにのみ使用されます。これにより、schema_designer 入力フィールドが受け付けるデータ型を設定できます。sample_data_type: 'csv' を設定すると、結果は以下のようになります。
+他の設定可能な入力データの型は json_input と xml です。schema_designer のデフォルトは json_input です。
+ngIf
+オプション。boolean ステートメントを定義できます。true の場合は、このフィールドが表示されます。boolean ステートメントは同じスキーマの他の入力を参照できます。たとえば、
+ngIf: 'input.object_name != "approval"'
+でルートノードが
+input
+の場合は、ドット表記によって特定のフィールドにトラバースできます。詳細については
+こちら
+をクリックしてください。
+tree_options
+オプション。
+control_type: 'tree'
+の場合のみ使用されます。
+tree
+ピックリストの動作の制御を可能にします。このキーには、使用可能な3つのキー (
+selectable_folder
+、
+multi_select
+、および
+force_selection_hierarchy
+) のいずれかを持つハッシュを指定できます。詳細については
+こちら
+を参照してください。
+#
+コントロールの型
+control_type
+キーは、ユーザーによる、定義した入力フィールドの設定方法に影響します。それぞれの入力フィールド (スキーマ配列のインデックス) に対し、
+control_type
+属性に値の1つを割り当てて外観を制御できます。
+コントロール型
+説明
+text
+シンプルなテキスト入力フィールド。formula モードオプションを使用できます。
+text-area
+ロングテキスト入力フィールド。formula モードオプションを使用できます。
+plain-text
+シンプルなテキスト入力フィールド。formula モードオプションは使用できません。
+plain-text-area
+ロングテキスト入力フィールド。formula モードオプションを使用できます。この入力フィールドは、調整アイコンを使用して拡大できます。
+number
+整数値と浮動小数点数値のいずれかを示すアイコン付きのシンプルな数字フィールド。このコントロール型では formula モードオプションを使用できます。
+url
+URL 値を示すアイコン付きのテキストフィールド。このコントロール型では formula モードオプションを使用できます。
+select
+選択可能な値の事前定義されたリストを提供するコントロール型。
+pick_list
+プロパティを含める必要があります。
+checkbox
+はい/いいえ型のシンプルな選択用インターフェイス。動的マッピングと formula モードオプションに
+トグルフィールド
+を追加することが推奨されます。
+multiselect
+select
+によく似たコントロール型ですが、追加機能として複数値を選択できます。このコントロール型では、
+pick_list
+および
+delimiter
+プロパティを指定する必要があります。.
+date
+日付値を示すコントロール型。このコントロール型では formula モードオプションを使用できます。
+date_time
+時刻値を示すコントロール型。このコントロール型では formula モードオプションを使用できます。
+phone
+電話番号を示すコントロール型。このコントロール型では formula モードオプションを使用できます。
+email
+メールアドレスを示すコントロール型。このコントロール型では formula モードオプションを使用できます。
+subdomain
+特定サイトのサブドメインを示すコントロール型。通常は接続フィールドで使用されます。
+url
+プロパティを含める必要があります。
+schema_designer
+ユーザーからスキーマ情報を収集できるようにするコントロール型。入力または出力フィールドを作成するためのレシピの設計時に、ユーザーに情報を入力してもらうようにする必要がある場合に役立ちます。これを有効にするには、
+extends_schema: true
+が必要です。
+{
+name: "schema",
+extends_schema: true,
+schema_neutral: false,
+control_type: 'schema-designer',
+label: 'Schema designer label',
+hint: 'Hint for schema designer field',
+item_label: 'button',
+add_field_label: 'Custom Add Label',
+empty_schema_message: 'Custom empty schema message that allows to <button type="button" data-action="addField">add field</button> and <button type="button" data-action="generateSchema">generate schema</button>',
+sample_data_type: 'csv' # json_input / xml
+},
+key_value
+キーと値のペアをユーザーから収集できるようにするコントロール型。URL クエリーパラメータのレシピの設計時に、ユーザーに情報を入力してもらうようにする必要がある場合に役立ちます。`properties` を定義し、キーとその値をユーザーに入力してもらいます。
+{
+name: "key_value",
+control_type: "key_value",
+label: "key_value",
+empty_list_title: "Add query parameters",
+empty_list_text: "Description for empty list",
+item_label: "Query parameter",
+type: "array",
+of: "object",
+properties: [
+{ name: "key"},
+{ name: "value"}
+]
+},
+#
+ネストされたオブジェクト
+多くの場合、API 要求から返されるデータは、シンプルな1レベルの JSON ではありません。それよりはるかに複雑な、複数レベルにネストされた JSON オブジェクトが返されることがよくあります。このセクションでは、ネストされたフィールドの定義方法を説明します。
+#
+サンプルコードスニペット
+{
+"id"
+:
+"00ub0oNGTSWTBKOLGLNR"
+,
+"status"
+:
+"STAGED"
+,
+"created"
+:
+"2013-07-02T21:36:25.344Z"
+,
+"activated"
+:
+null
+,
+"lastLogin"
+:
+"2013-07-02T21:36:25.344Z"
+,
+"profile"
+:
+{
+"firstName"
+:
+"Isaac"
+,
+"lastName"
+:
+"Brock"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"login"
+:
+"
+[email protected]
+"
+,
+"mobilePhone"
+:
+"555-415-1337"
+}
+,
+"credentials"
+:
+{
+"provider"
+:
+{
+"type"
+:
+"OKTA"
+,
+"name"
+:
+"OKTA"
+}
+}
+,
+"_links"
+:
+{
+"activate"
+:
+{
+"href"
+:
+"https://your-domain.okta.com/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+}
+}
+}
+ネストされたオブジェクトフィールド
+profile
+は
+type: :object
+で定義でき、それとともに、内部のネストされたフィールドを
+properties
+で定義できます。プロパティは (
+user
+オブジェクト内の
+fields
+のような) フィールドオブジェクトの配列でなければなりません。
+object_definitions
+:
+{
+user
+:
+{
+fields
+:
+lambda
+do
+[
+{
+name
+:
+"id"
+}
+,
+{
+name
+:
+"status"
+}
+,
+{
+name
+:
+"created"
+,
+type
+:
+:timestamp
+}
+,
+{
+name
+:
+"activated"
+,
+type
+:
+:timestamp
+}
+,
+{
+name
+:
+"lastLogin"
+,
+type
+:
+:timestamp
+}
+,
+{
+name
+:
+"profile"
+,
+type
+:
+:object
+,
+properties
+:
+[
+{
+name
+:
+"firstName"
+}
+,
+{
+name
+:
+"lastName"
+}
+,
+{
+name
+:
+"email"
+,
+control_type
+:
+:email
+}
+,
+{
+name
+:
+"login"
+,
+control_type
+:
+:email
+}
+,
+{
+name
+:
+"mobilePhone"
+,
+control_type
+:
+:phone
+}
+]
+}
+]
+end
+}
+}
+#
+ネストされた配列
+オブジェクトの配列も、ネストされたフィールドとしてよく使用されます。この種のフィールドには、同じフィールドの繰り返しオブジェクトのリストが含まれます。このようなフィールドの定義は、オブジェクトの定義と非常に似ています。例として、Asana のサンプル
+user
+オブジェクトを以下に示します。
+#
+サンプルコードスニペット
+{
+"data"
+:
+{
+"id"
+:
+12149914544379
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"name"
+:
+"Ee Shan"
+,
+"workspaces"
+:
+[
+{
+"id"
+:
+1041269201604
+,
+"name"
+:
+"Workato"
+}
+,
+{
+"id"
+:
+498346130780
+,
+"name"
+:
+"Product Documentation"
+}
+]
+}
+}
+workspaces
+配列には、
+type: :array
+と
+of: :object
+の両方を指定する必要があります。これにより、オブジェクトの配列がフィールドに含まれていることが
+object_definitions
+フレームワークに伝えられます。ネストされたオブジェクトと同様に、
+properties
+(
+workspaces
+配列内の各オブジェクトのフィールドに対応するフィールドの配列) を定義する必要があります。
+object_definitions
+:
+{
+user
+:
+{
+fields
+:
+lambda
+do
+[
+{
+name
+:
+'id'
+,
+type
+:
+:integer
+}
+,
+{
+name
+:
+'name'
+}
+,
+{
+name
+:
+'email'
+,
+control_type
+:
+:phone
+}
+,
+{
+name
+:
+'workspaces'
+,
+type
+:
+:array
+,
+of
+:
+:object
+,
+properties
+:
+[
+{
+name
+:
+'id'
+,
+label
+:
+'Workspace ID'
+,
+type
+:
+:integer
+}
+,
+{
+name
+:
+'name'
+}
+]
+}
+]
+end
+}
+}
+#
+トグルフィールドの使用
+トグルフィールドは、2種類の入力が可能な特殊な入力フィールドです。これにより、入力フィールドの柔軟性と使い勝手を高めることができます。トグルフィールドを使用すると、ユーザーは2つのコントロール型を切り替えられるようになります。
+TIP
+多くの場合、トグルフィールドはピックリストとともに使用されます。ピックリストはドロップダウンを生成するため、ユーザーが通常レシピで行うようなデータピルのマップは不可能です。トグルフィールドは、データピルの受け付けが可能なプレーンテキストフィールドへのトグルを可能にすることで、この問題を解決します。
+#
+サンプルコードスニペット
+input_fields
+:
+lambda
+do
+|
+object_definition
+,
+connection
+,
+config_fields
+|
+{
+name
+:
+"parser_id"
+,
+label
+:
+"Document Parser"
+,
+hint
+:
+"The Document Parser the file gets imported to"
+,
+control_type
+:
+:select
+,
+pick_list
+:
+"parsers"
+,
+optional
+:
+false
+,
+toggle_hint
+:
+"Select from list"
+,
+toggle_field
+:
+{
+name
+:
+"parser_id"
+,
+label
+:
+"Parser ID"
+,
+type
+:
+:string
+,
+control_type
+:
+"text"
+,
+optional
+:
+false
+,
+toggle_hint
+:
+"Use Parser ID"
+,
+hint
+:
+"Go to home page and select the required parser. If the URL is 'https://app.docparser.com/stack/ynrqkdxvaghs/overview', then 'ynrqkdxvaghs' is the ID"
+}
+}
+,
+end
+プライマリトグルフィールド
+セカンダリトグルフィールド
+入力の種類としてピックリストを使用し、より望ましいユーザーエクスペリエンスを作成することができます。ただし、これにより、アクション値のマッピングが静的に実行されるようになります。ピックリストで選択できる値は1つだけなので、このアクションを実行するすべてのレシピジョブが、選択された1つのパーサー ID 値を使用することになります。この制限を解消するには、テキストフィールドを使用する必要があります。テキストフィールドでは、入力フィールド値の動的マッピングが可能です。
+この場合は両方のフィールド型を使用できることが望ましいため、
+toggle_field
+を使用して両方の入力オプションをユーザーに提供できます。つまり、ユーザーにとってはアクションごとにパーサーを選択するのがより一般的なシナリオなので、ピックリストをプライマリトグルとして設定し、テキストフィールドをセカンダリとして設定します (ネストされた
+toggle_field
+)。
+#
+extends_schema を指定したフィールドの使用
+入力フィールドがアクションでどのような振る舞いを示すかが、そのアクションで入力フィールドに何が入力されたかによって異なる場合があります。extends_schema は、設定フィールドを使用した場合よりもさらに動的なアクションの振る舞いを指定することのできる高度な方法です。
+#
+サンプルコードスニペット
+object_definitions
+:
+schema_input
+:
+{
+fields
+:
+lambda
+do
+|
+connection
+,
+config_fields
+,
+object_definitions
+|
+input_schema
+=
+parse_json
+(
+config_fields
+.
+dig
+(
+'schema'
+)
+||
+'[]'
+)
+[
+{
+name
+:
+"schema"
+,
+extends_schema
+:
+true
+,
+schema_neutral
+:
+false
+,
+control_type
+:
+'schema-designer'
+,
+label
+:
+'Schema designer label'
+,
+hint
+:
+'Hint for schema designer field'
+,
+item_label
+:
+'button'
+,
+add_field_label
+:
+'Custom Add Label'
+,
+empty_schema_message
+:
+'Custom empty schema message that allows to <button type="button" data-action="addField">add field</button> and <button type="button" data-action="generateSchema">generate schema</button>'
+,
+sample_data_type
+:
+'csv'
+# json_input / xml
+}
+,
+if
+input_schema
+.
+present
+?
+{
+name
+:
+'data'
+,
+type
+:
+'object'
+,
+properties
+:
+input_schema
+}
+end
+]
+.
+compact
+end
+}
+上記のコードサンプルでは、control_type
+schema_designer
+とともに入力フィールドを使用しています。
+extends_schema
+を
+true
+に設定した場合は、エンドユーザーが何らかの入力を行うと、それに基づいて
+object_definitions
+ブロックがすぐに自己再評価をし、入力が
+config_fields
+として再度渡されます。この例では、入力
+schema
+は object_definition ブロックの先頭で参照されています。ユーザーが行った
+schema
+フィールドへの入力は、
+data
+入力フィールドの作成にそれを使用する
+config_field
+として参照できます。
+#
+プリミティブスカラーデータ型の配列
+Workato 入力および出力スキーマの配列は、現在、オブジェクトでのみ使用できます。プリミティブデータ型 (文字列、整数など) の配列を収集する必要がある場合は、以下のコードを使用することを検討してください。この例では、文字列の配列をターゲット API に
+["column1","column2","column3"]
+のフォーマットで送信します。これは、オブジェクトレイヤー内にラップされた
+column names
+入力フィールドの宣言を使用してオブジェクトの配列を宣言することで可能になります。
+#
+サンプルコードスニペット
+object_definitions
+:
+{
+columns
+:
+{
+fields
+:
+lambda
+do
+[
+{
+label
+:
+'String Array'
+,
+name
+:
+'array_of_strings'
+,
+type
+:
+"array"
+,
+of
+:
+"string"
+}
+]
+end
+}
+}
+#
+ngIf の使用によるフィールドの条件付き非表示または表示
+場合によっては、ユーザーの入力に応じてフィールドを非表示にしたり表示したりする必要があります。このユーザー入力は、
+input_fields
+キーまたは
+config_fields
+キーに対して行われる可能性があります。たとえば、ある
+config_field
+に対するユーザー入力に基づいて、別の
+config_field
+を表示したいとします。他の例としては、ある入力フィールドに対するユーザー入力に基づいて新しい入力フィールドを表示する場合があります。たとえば、ユーザーを作成するアクションで、1つの入力フィールドが
+assign_new_password
+である場合に、
+ngIf
+を使用して、ユーザーがその入力に
+true
+を指定したときに
+new_password
+が条件付きで表示されるようにします。
+#
+サンプルコードスニペット
+object_definitions
+:
+{
+create_user
+:
+{
+fields
+:
+lambda
+do
+|
+_connection
+,
+config_fields
+|
+[
+{
+name
+:
+'assign_new_password'
+,
+label
+:
+'Assign new password during creation'
+,
+hint
+:
+"Select <b>yes</b> to provide a password for this newly created user. If <b>no</b>, email will be sent to user to define their own password"
+,
+control_type
+:
+'checkbox'
+,
+type
+:
+'boolean'
+,
+sticky
+:
+true
+,
+}
+,
+{
+name
+:
+'password_input'
+,
+label
+:
+'Custom password'
+,
+control_type
+:
+'password'
+,
+ngIf
+:
+'input.assign_new_password == "false"'
+,
+sticky
+:
+true
+,
+hint
+:
+'Required if <b>Assign new password during creation</b> is set to <b>yes</b>. '
+\
+'Provide a password of length 8 to 100 characters.'
+}
+,
+]
+end
+}
+#
+サンプルコードスニペット
+object_definitions
+:
+{
+create_user
+:
+{
+fields
+:
+lambda
+do
+|
+_connection
+,
+config_fields
+|
+[
+{
+name
+:
+'assign_new_password'
+,
+label
+:
+'Assign new password during creation'
+,
+hint
+:
+"Select <b>yes</b> to provide a password for this newly created user. If <b>no</b>, email will be sent to user to define their own password"
+,
+control_type
+:
+'checkbox'
+,
+type
+:
+'boolean'
+,
+sticky
+:
+true
+,
+}
+,
+{
+name
+:
+'password_input'
+,
+label
+:
+'Custom password'
+,
+control_type
+:
+'password'
+,
+ngIf
+:
+'input.assign_new_password == "false"'
+,
+sticky
+:
+true
+,
+hint
+:
+'Required if <b>Assign new password during creation</b> is set to <b>yes</b>. '
+\
+'Provide a password of length 8 to 100 characters.'
+}
+,
+]
+end
+}
+}
+#
+convert_input
+と
+convert_output
+を使用した簡単な変換
+ほとんどの場合、ユーザーがアクションの入力フィールドにフィールドをマップすると、その入力フィールドに設定した実際の
+type
+や
+control_type
+に関係なく、これらの値のデータ型は
+string
+であると予期されます。
+たとえば、以下のスキーマを見てください。
+[
+{
+name: "account_id",
+control_type: "integer"
+type: "int"
+}
+]
+input
+が
+execute
+lambda に渡されるとき、依然として JSON オブジェクトには以下のような形で送られてきます。
+{
+"account_id": "123"
+}
+そのような場合は、
+convert_input
+を使用して、
+execute
+lambda に渡される前に、予想されるデータ型に入力を変換できます。
+例 :
+[
+{
+name: "account_id",
+control_type: "integer"
+type: "int",
+convert_input: "integer_conversion"
+}
+]
+convert_input
+を定義すると、
+input
+引数は
+execute
+lambda に以下のような形で渡されます。
+{
+"account_id": 123
+}
+これにより、スキーマの定義時に、予期されるデータフォーマットを設定できるようになり、データが適切なフォーマットになるように
+execute
+で不要なコードをスキップできるようにします。同じ動作は、
+convert_output
+を使用するときに、逆の場合でも見られます。その場合、
+execute
+lambda の出力値は、
+convert_output
+属性を含む出力フィールドにマップされるときに変換されます。
+#
+事前定義された
+convert_input
+値
+"integer_conversion" - 入力を integer データ型に変換
+"float_conversion" - 入力を float データ型に変換
+"date_conversion" - 入力を date データ型に変換
+"render_iso8601_timestamp" - 入力を ISO8601 標準に準拠する日付文字列に変換
+"boolean_conversion" - 入力を boolean データ型に変換
+#
+事前定義された
+convert_output
+値
+"integer_conversion" - 出力を integer/number データ型に変換
+"float_conversion" - 出力を float データ型に変換
+"date_conversion" - 出力を date データ型に変換
+"date_time_conversion" - 出力を JavaScript の Date オブジェクトの
+toJSON
+メソッドに一致するフォーマットに変換
+"boolean_conversion" - 出力を boolean データ型に変換
+TIP
+上記の変換ではニーズが満たされない場合もあります。たとえば、特定の時刻フォーマットへの変換が必要な場合や、データ構造を操作したい場合などです。そのような場合は、カスタムの
+convert_input
+関数や
+convert_output
+関数を独自に作成できます。以降でその方法を詳しく説明します。
+#
+convert_input
+と
+convert_output
+でのメソッドを使用した高度な変換
+場合によっては、特殊なフォーマットでのデータ送信が API で要求されることがあります。たとえば、date time を
+epoch
+time で送信することが API で必要とされる場合があります。多くの場合、レシピエディターのユーザーが
+epoch
+time の使用に慣れていたり、データのマッピング元の上流システムが
+epoch
+フォーマットで date time の値を提供したりすることを前提とすることはできません。そのような場合は、メソッドを
+convert_input
+とともに使用して、適切なフォーマットに入力を変換します。
+例 :
+[
+{
+name
+:
+'invoice_date'
+,
+control_type
+:
+"date_time"
+,
+convert_input
+:
+"epoch_time_conversion"
+}
+]
+対応するメソッド
+epoch_time_conversion
+:
+methods
+:
+{
+epoch_time_conversion
+:
+lambda
+do
+|
+val
+|
+val
+.
+to_time
+.
+to_i
+end
+}
+これにより、たとえば入力
+"2021-10-27T00:00:00-07:00"
+が
+1635318000
+に変換されます。
+また、カスタムの lambda を使用して、ネストされた構造上でカスタムの変換を行うこともできます。たとえば、以下のフォーマットでのペイロードの送信が API で必要とされる場合:
+{
+"data"
+:
+{
+"name"
+:
+{
+"value"
+:
+"abc123"
+}
+,
+"address"
+:
+{
+"value"
+:
+"def456"
+}
+}
+}
+対応する input_field の表現は過度にネストされる場合もあり、コネクターのユーザーにとっては面倒なものとなる可能性があります。
+前出の例で示した入力フィールド
+カスタムの lambda を使用すると、比較的フラットな構造の入力フィールドの表示が可能になり、変換が後から行われるので、コネクターのユーザーエクスペリエンスを高めることができます。
+例 :
+[
+{
+name
+:
+'data'
+,
+type
+:
+'object'
+,
+properties
+:
+[
+{
+name
+:
+"name"
+}
+,
+{
+name
+:
+"address"
+}
+]
+,
+convert_input
+:
+"key_value_conversion"
+}
+]
+対応するメソッド
+key_value_conversion
+:
+methods
+:
+{
+key_value_conversion
+:
+lambda
+do
+|
+val
+|
+# val in this case is the entire "data" object
+val
+.
+map
+do
+|
+key
+,
+value
+|
+{
+key
+=>
+{
+"value"
+=>
+value
+}
+}
+end
+.
+inject
+(
+:merge
+)
+end
+}
+結果の JSON:
+{
+"data"
+:
+{
+"name"
+:
+{
+"value"
+:
+"abc123"
+}
+,
+"address"
+:
+{
+"value"
+:
+"def456"
+}
+}
+}
+カスタムの lambda によって同じ出力を生成する入力フィールド
+さらに、
+convert_input
+と
+convert_output
+を
+arrays
+型のスキーマで呼び出すことができます。これにより、入力の配列全体に対して変換を実行できるようになります。
+例 :
+[
+{
+name
+:
+'products'
+,
+type
+:
+'array'
+,
+of
+:
+'object'
+,
+convert_input
+:
+"product_conversion"
+,
+properties
+:
+[
+{
+name
+:
+"name"
+}
+,
+{
+name
+:
+"qty"
+}
+]
+}
+]
+対応するメソッド
+string_concat_conversion
+:
+methods
+:
+{
+product_conversion
+:
+lambda
+do
+|
+val
+|
+# Render_input is called on each index of the array THEN the whole array
+if
+val
+.
+is_a
+?
+(
+Array
+)
+val
+else
+{
+val
+[
+'name'
+]
+=>
+val
+[
+'qty'
+]
+}
+end
+end
+,
+}
+ユーザーの入力例:
+{
+"products"
+:
+[
+{
+"name"
+:
+"car"
+,
+"qty"
+:
+"100"
+}
+,
+{
+"name"
+:
+"wrench"
+,
+"qty"
+:
+"10"
+}
+]
+}
+結果の JSON:
+{
+"products"
+:
+[
+"car"
+:
+"100"
+"wrench"
+:
+"10"
+]
+}
+←
+HTTP メソッド"
+CLI
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+構造
+属性の説明
+コントロールの型
+ネストされたオブジェクト
+ネストされた配列
+トグルフィールドの使用
+extends_schema を指定したフィールドの使用
+プリミティブスカラーデータ型の配列
+ngIf の使用によるフィールドの条件付き非表示または表示
+convert_input と convert_output を使用した簡単な変換
+convert_input と convert_output でのメソッドを使用した高度な変換
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

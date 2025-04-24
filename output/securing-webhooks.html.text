@@ -1,0 +1,307 @@
+Webhookイベントのセキュリティ確保 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+トリガーの作成
+#
+How-toガイド - Webhookイベントのセキュリティ確保
+Webhook署名の検証は、悪意のあるアクターがイベントのなりすましを行ったり、改ざんされたWebhookを拒否することを防ぐための推奨される方法です。通常、Webhookイベントから署名を作成し、Webhookのヘッダー内の署名と照合する多くの既知の署名検証手法があります。このガイドでは、
+HubSpotのWebhook V1署名
+(opens new window)
+を使用した簡単な例を紹介します。
+TIP
+このガイドでは、静的または動的なWebhookトリガーの作成の基礎を知っていることを前提としています。まだそうでない場合は、それらのガイドを確認してください。
+#
+サンプルコネクタ - HubSpot Webhooks
+webhook_payload_type
+:
+"raw"
+,
+# Workatoは受信Webhookに対してJSON.parseを実行しますが、生のペイロードを基に署名を計算する必要があります
+webhook_notification
+:
+lambda
+do
+|
+input
+,
+payload
+,
+extended_input_schema
+,
+extended_output_schema
+,
+headers
+,
+params
+,
+connection
+,
+webhook_subscribe_output
+|
+original_payload
+=
+payload
+client_secret
+=
+connection
+[
+'client_secret'
+]
+if
+client_secret
+.
+present
+?
+source_string
+=
+client_secret
++
+original_payload
+# クライアントシークレット+ペイロードの連結でSHA256の文字列を構築します
+v1_signature
+=
+source_string
+.
+encode_sha256
+.
+encode_hex
+end
+# 以下の条件式は、計算した署名がWebhookイベントのX-Hubspot-Signatureと一致することを検証します
+if
+(
+client_secret
+.
+present
+?
+&&
+v1_signature
+==
+headers
+[
+'X-Hubspot-Signature'
+]
+)
+# ペイロードをJSONとして解析することを忘れないでください（ペイロードは`raw`であると指定しました）
+{
+events
+:
+workato
+.
+parse_json
+(
+payload
+)
+,
+headers
+:
+headers
+,
+webhook_validated
+:
+client_secret
+.
+present
+?
+?
+true
+:
+false
+}
+end
+end
+,
+コミュニティで完全なコネクタを見る。
+(opens new window)
+#
+ステップ1 - 必要に応じてwebhook_payload_typeをrawに設定する
+WorkatoのWebhookゲートウェイは常に受信ペイロードをJSONとして解析しようとします。一部の場合では、これによりペイロードの詳細が失われ、誤った署名が作成される可能性があります。これを避けるために、
+webhook_payload_type
+キーを使用して、Workatoに
+webhook_notification
+ラムダに生のペイロードを提供するように指示することができます。
+#
+ステップ2 - Webhook署名の計算
+Webhookの真正性を検証するために、受信Webhookイベントから独自のWebhook署名を計算することも重要な部分です。これは、暗号化アルゴリズム（SHA256やHMACアルゴリズムなど）を使用して、ペイロードとあなたとWebhookプロバイダーのみが知っている秘密のキーを使用して行われることが一般的です。
+original_payload
+=
+payload
+client_secret
+=
+connection
+[
+'client_secret'
+]
+if
+client_secret
+.
+present
+?
+source_string
+=
+client_secret
++
+original_payload
+# クライアントシークレット+ペイロードの連結でSHA256の文字列を構築します
+v1_signature
+=
+source_string
+.
+encode_sha256
+.
+encode_hex
+end
+HubSpotの場合、ペイロードとクライアントシークレットから暗号化するキーを作成し、それをSHA256で暗号化します。
+#
+ステップ3 - 生成された署名とWebhookイベントで提供された署名の比較
+次のステップは、ステップ2で生成した署名とWebhookイベント内に存在する署名とを比較することです。通常、これは
+webhook_notification
+ラムダでアクセスできるWebhookイベントのヘッダーに含まれています。
+# 以下の条件式は、計算した署名がWebhookイベントのX-Hubspot-Signatureと一致することを検証します
+if
+(
+client_secret
+.
+present
+?
+&&
+v1_signature
+==
+headers
+[
+'X-Hubspot-Signature'
+]
+)
+# ペイロードをJSONとして解析することを忘れないでください（ペイロードは`raw`であると指定しました）
+{
+events
+:
+workato
+.
+parse_json
+(
+payload
+)
+,
+headers
+:
+headers
+,
+webhook_validated
+:
+client_secret
+.
+present
+?
+?
+true
+:
+false
+}
+end
+←
+ハイブリット Webhookトリガー
+ファイルストリーミング
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+サンプルコネクタ - HubSpot Webhooks
+ステップ1 - 必要に応じてwebhookpayloadtypeをrawに設定する
+ステップ2 - Webhook署名の計算
+ステップ3 - 生成された署名とWebhookイベントで提供された署名の比較
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

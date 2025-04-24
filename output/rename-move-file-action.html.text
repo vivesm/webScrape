@@ -1,0 +1,144 @@
+FileStorage connector - Rename/move file action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Workato FileStorage
+#
+FileStorage action - Rename/move file
+FILE AND DIRECTORY ACCESS
+Currently, all users in a workspace can access all FileStorage files and directories in the workspace when they use the
+FileStorage connector
+. Workato does not restrict access based on role unless the files are accessed from the
+FileStorage UI
+.
+This action allows you to rename a file or move a file to a new destination in
+Workato FileStorage
+.
+Rename/move file in FileStorage action
+#
+Input fields
+Field
+Description
+Source file path
+Choose or enter the full path of the source file you plan to move or rename (for example:
+directory1/directory2/filename
+). Note that the file must exist in the path, or the action returns an error.
+Destination directory path
+Choose or enter the directory path where you plan to move the file. To rename the file, provide the same directory path as in the source (for example:
+directory1/directory2
+).
+Destination file name
+Enter the destination file name. To move the file, you can provide either the same name or a different name for the destination file.
+#
+Output fields
+Field
+Description
+Source file path
+The complete path of the original file.
+Destination file path
+The complete path of the newly renamed or moved file.
+←
+Get lines from CSV file batch action
+Search files action
+→
+Last updated:
+1/30/2024, 1:38:00 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

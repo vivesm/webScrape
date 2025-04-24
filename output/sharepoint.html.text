@@ -1,0 +1,201 @@
+SharePoint | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+SharePoint
+SharePoint
+(opens new window)
+は、Microsoft Office に統合された Web ベースのコラボレーション、ドキュメント管理、およびストレージシステムです。
+Workato の SharePoint コネクターを使用すると、SharePoint やその他のサードパーティアプリケーションに関して、さらなる統合と自動化を構築できます。
+#
+API
+SharePoint コネクターは
+SharePoint REST API
+(opens new window)
+を使用します。
+#
+Workato での SharePoint への接続方法
+#
+SharePoint での Workato アプリの登録
+https://portal.azure.com/
+(opens new window)
+にログインします。
+[
+Azure Active Directory
+] -> [
+App Registrations
+] -> [
+New Application Registration
+] の順に選択します。
+アプリケーションに一意の名前を付け、アプリケーションのタイプに [
+Web
+] を選択し、リダイレクト URL を
+https://www.workato.com/oauth/callback
+とし、アカウントタイプを選択して、[
+Register
+] を選択します。
+前のステップで Workato のリダイレクト URI を追加しなかった場合は、新規作成されたアプリの登録に対して [
+Overview
+] を選択し、[
+Redirect URIs
+] の横にあるリンクをクリックします。
+[
+Redirect URIs
+] の下で、新しい URI
+https://www.workato.com/oauth/callback
+(opens new window)
+を追加します。[Save] をクリックします。
+左側のメニューで [
+API Permissions
+] をクリックし、次に [
+Add a permission
+] をクリックします。
+[
+SharePoint
+] オプションを選択します。
+[
+Delegated permission
+] を選択します。
+[
+AllSites
+] を展開し、[
+AllSites.Write
+] を選択してから、[
+Add permission
+] をクリックします。
+左側のメニューから、[
+Certificates & secrets
+] を選択し、次に [Client secrets] の下で [
+New client secret
+] をクリックします。
+クライアントシークレットの説明を入力し、[Expires] の値を選択して、[
+Add
+] をクリックします。
+シークレットが生成されたら、[Copy to clipboard] アイコンをクリックして、安全な場所にクライアントシークレットを保存します。
+[Overview] をクリックして [Overview] 画面に戻り、[Application (client) ID] の値をコピーします。
+#
+Workato での SharePoint コネクションの設定
+クライアント ID とクライアントシークレットを保存したら、ACC Connect で SharePoint Online 環境へのコネクションを作成できます。
+Workato にログインして、SharePoint コネクションを作成します。[
+App Connections
+] タブ -> [
+Create a new connection
+] に移動し、[Sharepoint connector] を選択します。
+必須項目に入力します。[
+Client ID
+] にはステップ13の [
+Application ID
+] を、[
+Client Secret
+] にはステップ12の [
+Client Secret
+] を使用してください。
+[
+Link your account
+] を選択して SharePoint に接続し、ポップアップウィンドウにユーザー名とパスワードを入力します。
+以下に示すように Workato でコネクションが確立されます。
+←
+ファイルの削除
+Shopify
+→
+Last updated:
+2024/7/25 17:12:40
+On this page
+API
+Workato での SharePoint への接続方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

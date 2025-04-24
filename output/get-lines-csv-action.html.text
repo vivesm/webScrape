@@ -1,0 +1,154 @@
+FileStorage connector - Get lines from CSV file action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Workato FileStorage
+#
+FileStorage action - Get lines from CSV file (batch)
+The
+Get lines from CSV file
+batch action allows you to retrieve a batch of lines from a CSV file in
+Workato FileStorage
+. This action returns 1,000 CSV lines by default and can fetch up to 50,000 records. Only files stored with a CSV column schema can be fetched.
+Get lines from CSV file in FileStorage action
+#
+Input
+Input fields
+Description
+File path
+Enter the full path of the CSV file. For example:
+samplepath/path1/file1.csv
+. The file must already exist, and only files with a CSV column schema can be fetched.
+Batch size
+Specify the number of lines to retrieve in a single fetch. This field defaults to 1,000 and can be increased to a maximum of 50,000 records. The number of records are auto-adjusted depending on size.
+Batch offset
+Specify the offset from which to start fetching records. The default offset is 0. Adjust the offset incrementally to fetch all records in manageable batches.
+#
+Output
+Output fields
+Description
+File name
+The name of the CSV file.
+File path
+The complete path of the CSV file.
+Batch size
+The number of lines retrieved per fetch.
+Batch offset
+The offset value from which the batch starts.
+#
+Schema validation
+This action validates the CSV data against the column schema set when you create or append the file, either through
+Auto infer
+or
+Set schema
+. It doesn't relax the schema when it reads the file. The action returns an error if the data includes values that don't match the schema.
+To avoid validation errors, define the schema to cover all possible data types in each column. Set the column type to string when a column may contain mixed data types, such as numbers and special characters.
+←
+Get file contents action
+Rename/move file action
+→
+Last updated:
+4/3/2025, 3:02:39 PM
+On this page
+Input
+Output
+Schema validation
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

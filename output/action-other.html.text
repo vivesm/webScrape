@@ -1,0 +1,257 @@
+Workato connectors - Other Box actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Box
+#
+Box actions
+The Box connector provides an extensive selection of actions. This page provides information on available actions for Box, including:
+#
+Add comment to file
+This action adds a comment to a file in Box. You must provide the file ID and add a message or tagged message. A tagged message allows you to use
+@mention
+in the comment text. The
+@mention
+format is:
+@[id:username]
+#
+Cancel sign request
+This action cancels an existing sign request in Box. You must provide the sign request ID.
+#
+Copy file or folder
+This action copies a file or folder to a target folder.
+#
+Create collaboration
+This action creates collaboration within groups.
+ENTERPRISE ACCOUNT REQUIRED
+You must have a Workato enterprise account to use this action. Inviting a group to collaborate does not generate a collaboration invitation email.
+#
+Create file metadata
+This action creates standard or custom file metadata. You must provide the file ID and select a metadata template. The
+Template list
+drop-down menu provides standard templates only. You can use
+Sample file ID with custom metadata
+to sample custom metadata from the file. Select
+Custom metadata name
+to type new custom metadata. You cannot create metadata that contains special characters.
+ENTERPRISE ACCOUNT REQUIRED
+You must have a Workato enterprise account to create metadata templates. You cannot create custom metadata if metadata is already present in a file.
+#
+Create file/folder shared link action
+The
+Create shared link
+action allows you to create a direct link to a file or folder in Box.
+#
+Create folder
+This action creates a new folder within a parent folder you select.
+#
+Delete file metadata
+This action deletes file metadata.
+ENTERPRISE ACCOUNT REQUIRED
+You must have a Workato enterprise account to delete metadata templates.
+#
+Download file action
+This action
+downloads the contents of a file
+. File content can be used in subsequent steps of the recipe to upload the file into other applications.
+#
+Get sign request
+This action returns information on all existing sign requests.
+#
+Get file download URL
+This action retrieves the public URL of a file from Box. You can use the public URL to download the file from Box and use it in subsequent steps of your recipe, or add it to a file storage app to upload the file into the app.
+#
+List folder items
+This actions lists files and folders within a specific folder in your Box account.
+#
+List sign requests
+This action returns all sign requests created by a specific user. If the
+sign_files
+and/or
+parent_folder
+are deleted, the sign request is not returned in the list.
+#
+New event in folder
+This action searches for files or folders in Box.
+Searches may not return newly created files or folders in Box due to time delay for indexing files and folders. Learn more about
+Box indexing time here
+(opens new window)
+. Run the searches again after certain amount of time often solves the problem.
+#
+Rename other user's file or folder
+This action allows you to rename a file or folder created by another user in your organization.
+BOX ADMIN PRIVILEGES REQUIRED
+You must have
+admin privileges in Box
+to use this action.
+The Admin scope must be enabled in Box to make calls on behalf of users and Global content managers in your Box connection settings. Admins can rename files and folders belonging to any managed user, including co-admins. Co-admins can only rename files or folders of managed users.
+#
+Rename/move file or folder
+This action renames a file, moves a file or folder to another folder, or both.
+#
+Resend sign request
+This action re-sends sign requests to all outstanding signers in the created list.
+#
+Search files action
+This action
+searches for files or folders in Box
+.
+#
+Update CSV file in Box
+This action updates a CSV file in Box.
+FILE SIZE LIMITATION
+The size of the file after appending cannot exceed 50MB.
+#
+Update file metadata
+This action updates file metadata. Only one metadata can be updated at a time. At least one metadata field must be specified.
+ENTERPRISE ACCOUNT REQUIRED
+You must have an enterprise account to update metadata templates.
+The
+Template list
+drop-down menu provides standard templates only. You can use
+Sample file ID with custom metadata
+to sample custom metadata from the file. Select
+Custom metadata name
+to type new custom metadata. You cannot update metadata that contains special characters.
+#
+Upload file contents action
+This action
+uploads a file
+to Box by providing the contents of the file. You must input the
+file ID
+to update an existing file, or input the filename to upload a new file.
+#
+Upload file from public URL to folder
+This action uploads a file to Box by providing a public URL where the file can be found. This action fails if the file name provided already exists when uploading a new file.
+FILE SIZE LIMITATION
+This action can only upload files less than 50MB in size. Use the
+Upload file using file contents
+action if you plan to upload a file larger than 50MB.
+←
+Create file/folder shared link action
+Bynder
+→
+Last updated:
+11/3/2023, 8:24:13 PM
+On this page
+Add comment to file
+Cancel sign request
+Copy file or folder
+Create collaboration
+Create file metadata
+Create file/folder shared link action
+Create folder
+Delete file metadata
+Download file action
+Get sign request
+Get file download URL
+List folder items
+List sign requests
+New event in folder
+Rename other user's file or folder
+Rename/move file or folder
+Resend sign request
+Search files action
+Update CSV file in Box
+Update file metadata
+Upload file contents action
+Upload file from public URL to folder
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

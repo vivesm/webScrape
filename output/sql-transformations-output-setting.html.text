@@ -1,0 +1,262 @@
+SQL変換 - 出力設定 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+データオーケストレーション
+データ変換
+SQL Transformations
+#
+出力設定の構成
+SQL変換後のデータの出力方法と場所を定義するために、出力設定を構成します。このセクションでは、出力をコンテンツストリームとしてストリーミングするか、FileStorageにファイルとして保存するかを選択するための手順を案内します。また、出力データのフォーマットや構造のための様々なオプションも含まれます。
+#
+前提条件
+出力設定を構成する前に、以下の手順を完了していることを確認してください：
+データソースの設定を行う
+。
+クエリを設定する
+。
+#
+出力の構成
+このセクションでは、出力タイプと出力データの追加機能を構成します。
+出力タイプ
+出力タイプを選択します。ストリーム可能なデータピルとしてコンテンツをダウンストリームのアクションに共有するには、
+Content stream
+を使用します。出力をファイルとしてFileStorageシステムに保存するには、
+FileStorage file
+オプションを使用します。
+Content stream 入力フィールド
+出力タイプとして
+Content stream
+を選択したときに、以下のフィールドを構成します：
+ファイルタイプ
+出力データのファイル形式として
+CSV
+または
+Excel
+を選択します。
+ヘッダー行を含める
+SQLからのカラム名をヘッダー行として含めるには、
+Yes
+に設定します。デフォルトは
+No
+です。
+カラムデリミタ
+CSV
+コンテンツ内のカラムを区切る文字を選択します。このオプションはファイルタイプとして
+CSV
+を選択した場合にのみ利用可能です。デフォルトは
+comma
+に設定されています。
+引用タイプ
+値の周りに引用符を使用するかどうかを選択します。このオプションはファイルタイプとして
+CSV
+を選択した場合にのみ利用可能です。デフォルトは
+必要に応じて使用
+です。
+引用文字
+出力内の値の周りに使用する引用符の種類を選択します。このオプションはファイルタイプとして
+CSV
+を選択した場合にのみ利用可能です。デフォルトは
+ダブル
+です。
+シート名
+Excelファイルのカスタムシート名を設定します。このオプションはファイルタイプとして
+Excel
+を選択した場合にのみ利用可能です。出力データは常にこの名前の最初のシートに追加されます。このフィールドはシート名が提供されない場合、デフォルトで
+Sheet 1
+になります。
+開始位置
+データの挿入を開始するセルを入力します。このオプションはファイルタイプとして
+Excel
+を選択した場合にのみ利用可能です。例えば、
+C1
+。このフィールドはデフォルトで
+A1
+です。
+FileStorage file 入力フィールド
+出力タイプとして
+FileStorage file
+を選択したときに、以下のフィールドを構成します：
+FileStorage ファイルパス
+ファイルパスの値を提供します。例えば、
+samplepath/path1/
+。
+FileStorage 出力ファイル名
+Workato FileStorage に保存するための出力ファイル名を定義します。
+ファイルタイプ
+出力データのファイル形式として
+CSV
+または
+Excel
+を選択します。
+ヘッダー行を含める
+SQLからのカラム名をヘッダー行として含めるには、
+Yes
+に設定します。デフォルトは
+No
+です。
+カラムデリミタ
+CSVコンテンツ内のカラムを区切る文字を選択します。このオプションはファイルタイプとして
+CSV
+を選択した場合にのみ利用可能です。デフォルトは
+comma
+に設定されています。
+引用タイプ
+値の周りに引用符を使用するかどうかを選択します。このオプションはファイルタイプとして
+CSV
+を選択した場合にのみ利用可能です。デフォルトは
+必要に応じて使用
+です。
+引用文字
+出力内の値の周りに使用する引用符の種類を選択します。このオプションはファイルタイプとして
+CSV
+を選択した場合にのみ利用可能です。デフォルトは
+ダブル
+です。
+シート名
+Excelファイルのカスタムシート名を設定します。このオプションはファイルタイプとして
+Excel
+を選択した場合にのみ利用可能です。出力データは常にこの名前の最初のシートに追加されます。シート名が提供されない場合、デフォルトで
+Sheet 1
+になります。
+開始位置
+データの挿入を開始するセルを入力します。このオプションはファイルタイプとして
+Excel
+を選択した場合にのみ利用可能です。例えば、
+C1
+。このフィールドはデフォルトで
+A1
+です。
+#
+出力設定の例: Workato FileStorage に出力を保存 (CSV)
+この例では、クエリの出力が特定のフォルダ
+SQL
+の下にあるファイル名
+Employee_Zipcode_SQL.csv
+で Workato FileStorage に保存されます。クエリからのカラム名がファイルのヘッダー行に含まれ、出力CSVファイルのデータは
+,
+（カンマ）がカラムデリミタとして設定されています。
+出力設定の例
+#
+出力設定の例: Workato FileStorage に出力を保存 (Excel)
+この例では、クエリの出力が特定のフォルダ
+SQL
+の下にあるファイル名
+Employee_Data.xlsx
+で Workato FileStorage に保存されます。シート名は
+EmployeeSheet
+に設定され、クエリからのカラム名がヘッダー行に含まれ、データの挿入はセル
+B2
+から開始されます。
+出力設定の例
+#
+次を読む
+出力フィールド
+使用例
+以下のユースケースでSQL変換を活用するためのステップバイステップのガイドをご覧ください：
+変更データキャプチャ
+データの検証とクレンジング
+データのエンリッチメント
+←
+クエリの設定
+出力フィールド
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+前提条件
+出力の構成
+次を読む
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

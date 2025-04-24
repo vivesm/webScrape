@@ -1,0 +1,139 @@
+Unestablished connectivity | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+Design-time errors
+#
+Unestablished connectivity
+Unestablished connectivity errors occur when your recipe cannot establish or maintain a valid connection with external apps or services. These errors prevent the recipe from starting and can occur due to incorrect credentials, permissions, or configurations.
+#
+Common causes of app connection errors
+Common reasons for app connection invalidation include:
+App credentials were changed, but you did not update the connection in Workato.
+You lack the appropriate permissions to read/write records.
+Your permissions were modified to a reduced scope.
+In these cases, reconnect the app or verify that you have the necessary permissions to resolve the issue.
+#
+Troubleshooting steps
+If you experience connection issues, ensure all connections associated with the recipe are correctly established:
+1
+Select the correct connection from the drop-down menu.
+2
+Assign a unique
+Connection name
+for easy reference in future recipes.
+3
+Choose the correct
+Authentication type
+, such as OAuth 2.0, if required.
+Establish your connection
+Even if the connection appears established, an invalid connection can prevent the recipe from starting. Review the user account to ensure that it has the required permissions and privileges.
+Review your account
+←
+Design-time errors
+Action and fields errors
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+Common causes of app connection errors
+Troubleshooting steps
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

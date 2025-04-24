@@ -1,0 +1,211 @@
+API レシピ - New API Request トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+API プラットフォーム
+API レシピ
+#
+API レシピ - New API Request (新規 API リクエスト) トリガー
+このトリガーは、新規 API リクエストを受け取ると、新しい REST API エンドポイントを作成して実行します。設定されたエンドポイントは、
+API プラットフォームの REST エンドポイント
+として、他のレシピやサードパーティのシステムから呼び出せるようになります。
+#
+要件
+このトリガーを使用するには、以下のことが必要になります。
+API プラットフォーム
+機能を利用できる。
+このオプションが
+[Tools]
+メニューに表示されない場合は、カスタマーサクセスマネージャーまでお問い合わせください。
+#
+入力
+New API request
+トリガーには、以下の2種類の入力項目があります。
+Request
+- エンドポイントに送信されるリクエストの構造を定義する項目。
+Response
+- リクエストに対してエンドポイントから送信されるレスポンスの構造を定義する項目。
+#
+[Request] 入力項目
+[Request]
+セクションの項目は、エンドポイントに送信されるリクエストの構造を定義します。
+項目
+説明
+Content type
+リクエストのデータ形式を定義します。[application/json]、[text/plain]、[multipart/form-data] のいずれかを選択します。大きい添付ファイル (最大5 GB) をアップロードするには、[multipart/form-data] を使用します。
+Request header
+リクエストヘッダーに含める必要があるパラメータを定義します。
+Request schema
+リクエスト本体に含める必要がある、予期されるスキーマを定義します。
+#
+バイナリコンテンツの処理
+マルチパート形式のデータには、画像や PDF ファイルなどのバイナリデータが含まれることがあります。これらのファイルは UTF-8エンコード形式である必要があります。Workato レシピの文字列処理は UTF-8に対応しています。
+#
+[Response] 入力項目
+[Response]
+セクションの項目は、リクエストに対してエンドポイントから送信されるレスポンスの構造を定義します。
+項目
+説明
+Content type
+レスポンスのデータ形式を定義します。空白のままにすると、デフォルトの JSON になります。
+Response header
+レスポンスヘッダーに含まれるパラメータを定義します。
+Responses
+エンドポイントに送信されたリクエストに対して可能なレスポンスを定義します。
+この項目には、以下の補足項目もあります。
+項目
+説明
+Name
+レスポンスの名前。たとえば、Unauthorized や Created などを指定できます。
+Code
+レスポンスの種類を特定する、レスポンスに関連付けられる HTTP ステータスコード。たとえば、Unauthorized レスポンスは、ステータスコード401に関連付けられています。
+Schema
+レスポンス本体の予期されるスキーマを定義します。
+#
+出力
+項目
+説明
+Context
+API リクエストに関するメタデータです。
+この項目には、以下の補足項目もあります。
+項目
+説明
+Calling job ID
+リクエストに関連するジョブの ID。
+Calling recipe ID
+レシピから呼び出された場合の、リクエストを送信したレシピの ID。
+Calling IP address
+このレシピを REST エンドポイントとして呼び出すクライアントの IP アドレス。
+Access profile
+リクエストの実行に使用されたアクセスプロファイルに関する詳細。
+API client
+リクエストの実行に使用された API クライアントに関する詳細が含まれます。
+JWT claims
+JWT トークンが使用されている場合にのみ使用できます。リクエストの認証に使用された JWT クレームに関する詳細が含まれます。
+Request
+リクエストのコンテンツタイプと本体に関する詳細が含まれます。
+この項目には、以下の補足項目もあります。
+項目
+説明
+Content type
+リクエストのコンテンツタイプが Raw の場合のみ適用されます。リクエストの
+Content-Type
+ヘッダーの値です。
+Request body (Raw)
+リクエストのコンテンツタイプが
+Raw
+の場合のみ適用されます。Raw のリクエスト本体全体です。
+Request body (JSON)
+リクエストのコンテンツタイプが
+JSON
+の場合のみ適用されます。リクエストスキーマで定義されたすべての項目を含む JSON オブジェクトです。
+#
+その他のリソース
+API プラットフォーム
+API レシピ
+API レシピの作成
+API リクエストに対するレスポンスアクション
+←
+SOAP API レシピの手順
+アクション
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+要件
+入力
+出力
+その他のリソース
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

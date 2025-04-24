@@ -1,0 +1,156 @@
+Workato connectors - Deputy - Search resources action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Deputy
+#
+Deputy - Search resources action
+This action searches for resources matching your search condition in your Deputy instance. Supported resources are:
+EmployeeAgreement
+EmployeeWorkplace
+TrainingRecord
+Search resources action
+#
+Input fields
+Resource type
+The type of resource to be retrieved.
+Search parameters
+The available fields for search will be based on the resource type selected above. Note that each additional field will be treated as an `AND` query. The supported search operations are listed below.
+#
+Supported search operations
+The complete list of available search operations is as follows. Note that the applicable list varies depending on the type of the fields added into the search condition.
+eq
+: Equal
+gt
+: Greater than
+ge
+: Greater than or equal
+lt
+: Less than
+le
+: Less than or equal
+lk
+: Like (Can put in % characters to match to a pattern)
+nk
+: Not like
+ne
+: not equal to
+in
+: In a given set of array values
+nn
+: Not in a given set of array values
+is
+: Is something other than 0 or NULL
+ns
+: Not something. Meaning either 0 or NULL
+#
+Output
+The output of this action is a list of datatree that contains information about the matching resources object.
+←
+Search employees action
+Search operational units action
+→
+Last updated:
+8/30/2022, 3:07:30 AM
+On this page
+Input fields
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

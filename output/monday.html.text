@@ -1,0 +1,184 @@
+Workato connectors - Monday | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Monday
+Monday
+(opens new window)
+provides a cloud platform for teams to build applications and manage work. It enables teams to design workflows, manage projects, and collaborate in one place to simplify business operations.
+#
+Prerequisites
+Set up a
+Monday
+(opens new window)
+account with API access before using the Monday connector in Workato. Verify that your account includes permissions to access API tokens. Follow the steps in the
+Access API tokens in Monday account
+section to retrieve your token.
+Refer to the Monday
+documentation
+(opens new window)
+for more information.
+#
+Access API tokens in Monday
+Complete the following steps to retrieve your API token from Monday:
+1
+Log in to your
+Monday
+(opens new window)
+account.
+2
+Click your profile picture.
+3
+Go to
+Administration > Connections > API
+.
+Monday API Token
+4
+Copy your personal token and store it securely. This token is required to set up your Workato connection.
+Refer to the
+Monday authentication
+(opens new window)
+documentation for more information.
+#
+Connection setup
+The Monday connector supports custom authentication to connect to Monday. Complete the following steps to set up a connection in Workato:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Monday
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the
+API v2 Token
+for your Monday account from which you saved during the preceding steps.
+6
+Click
+Connect
+.
+Monday connection setup
+#
+Actions
+Monday actions
+←
+Upload file action
+New item trigger
+→
+Last updated:
+2/19/2025, 7:07:31 PM
+On this page
+Prerequisites
+Connection setup
+Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

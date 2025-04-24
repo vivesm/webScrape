@@ -1,0 +1,739 @@
+SDK - rSpec - ガイド - テストの書き方 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+CLI
+ガイド
+#
+How-toガイド - ストリーミングトリガー/アクションのテストの書き方
+このセグメントでは、Workatoのファイルストリーミング機能を利用するアクションのテストの書き方について説明します。これを行うために、ジェネリックなファイルをURLにアップロードするコネクタの例を使用します。
+こちら
+を参照してください。
+#
+テストの生成
+各アクションごとに別々のspecファイルを作成するか、
+workato generate test
+コマンドを使用してコネクタに基づいてテストを生成することができます。これにより、必要なスタブのほとんどが含まれたspecファイルが生成されます。
+#
+サンプルのrSpecコンテンツ
+RSpec
+.
+describe
+'actions/upload_file_to_url'
+,
+:vcr
+do
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+'connector.rb'
+,
+settings
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+before
+do
+stub_const
+(
+'Workato::Connector::Sdk::Stream::Reader::DEFAULT_FRAME_SIZE'
+,
+5.
+kilobytes
+)
+end
+let
+(
+:action
+)
+{
+connector
+.
+actions
+.
+upload_file_to_url
+}
+describe
+'execute'
+do
+subject
+(
+:output
+)
+{
+action
+.
+execute
+(
+settings
+,
+input
+)
+}
+let
+(
+:input
+)
+do
+{
+"file_name"
+:
+"sample_file"
+,
+"file"
+:
+{
+"__stream__"
+:
+true
+,
+"chunks"
+:
+{
+"0"
+:
+"abcd"
+,
+"4"
+:
+"efgh"
+,
+"8"
+:
+"ijkl"
+,
+"12"
+:
+"mn"
+}
+}
+,
+"url"
+:
+"https://www.friendly_s3_url.com/upload"
+}
+end
+it
+'given simple stream'
+do
+it
+'produces a file'
+do
+is_expected
+.
+to
+include
+(
+:file_size
+)
+expect
+(
+output
+.
+file_size
+)
+.
+to eq
+(
+13
+)
+is_expected
+.
+to
+include
+(
+:file_path
+)
+is_expected
+.
+to
+include
+(
+:file_name
+)
+end
+end
+end
+end
+#
+ステップ1 - コネクタのインスタンスを定義する
+テストを開始するには、Workato SDK Gemを使用してコネクタのインスタンスを作成する必要があります。
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+'connector.rb'
+,
+settings
+)
+}
+#
+ステップ2 - 設定のインスタンスを定義する
+次に、Workato SDK Gemを使用して設定のインスタンスを作成する必要があります。これはWorkato上の接続と同義です。前述のコネクタのインスタンスもこの設定のインスタンスを使用します。
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+#
+ステップ3 - アクションを定義する
+関連するインスタンスを作成した後、
+action
+をインスタンス化して、テストの残りの部分で簡単に参照できるようにします。
+let
+(
+:action
+)
+{
+connector
+.
+actions
+.
+upload_file_to_url
+}
+#
+ステップ3 - テストを記述し、subjectとinputを定義する
+ここでは、実行したいテストの「グループ」を記述します。この場合、キーワード
+execute
+を使用します。次に、subjectを実行の結果である出力にします。最後に、
+input
+を定義します。これは単純なストリームです。
+describe
+'execute'
+do
+subject
+(
+:output
+)
+{
+action
+.
+execute
+(
+settings
+,
+input
+)
+}
+let
+(
+:input
+)
+do
+{
+"file_name"
+:
+"sample_file"
+,
+"file"
+:
+{
+# このハッシュはダウンロードファイルオブジェクトの出力であるファイルストリームをシミュレートしています
+"__stream__"
+:
+true
+,
+"chunks"
+:
+{
+"0"
+:
+"abcd"
+,
+"4"
+:
+"efgh"
+,
+"8"
+:
+"ijkl"
+,
+"12"
+:
+"mn"
+}
+}
+,
+"url"
+:
+"https://www.friendly_s3_url.com/upload"
+}
+end
+#
+ステップ4 - 各テストのアサーションを宣言する
+テストが合格または不合格になるためには、比較が宣言される必要があります。
+ここでは、
+execute
+ラムダの出力が
+file_size
+、
+file_path
+、
+file_name
+のキーを含むことを「期待」しています。さらに、
+file_size
+の値が13であることを期待しています。
+it
+'given simple stream'
+do
+it
+'produces a file'
+do
+is_expected
+.
+to
+include
+(
+:file_size
+)
+expect
+(
+output
+.
+file_size
+)
+.
+to eq
+(
+13
+)
+is_expected
+.
+to
+include
+(
+:file_path
+)
+is_expected
+.
+to
+include
+(
+:file_name
+)
+end
+end
+#
+rSpecでストリームをモックするバリエーション
+rSpecのテスト内で単純なストリームをモックするだけでなく、他のバリエーションもモックすることができます。
+各チャンクを明示的にモックする
+let
+(
+:input
+)
+do
+{
+file_name
+:
+'sample_file'
+,
+file
+:
+{
+__stream__
+:
+true
+,
+chunks
+:
+{
+0
+=>
+'abcd'
+,
+4
+=>
+'efgh'
+,
+8
+=>
+'ijkl'
+,
+12
+=>
+'mn'
+}
+}
+,
+url
+:
+'https://www.friendly_s3_url.com/upload'
+}
+end
+同じコネクタ内のダウンロードファイルアクション/トリガーに実装されたストリームを利用してモックする
+let
+(
+:input
+)
+do
+{
+file_name
+:
+'sample_file'
+,
+file
+:
+{
+__stream__
+:
+true
+,
+name
+:
+'global_stream'
+,
+input
+:
+{
+file_path
+:
+'/path/to/sample/file'
+}
+}
+,
+url
+:
+'https://www.friendly_s3_url.com/upload'
+}
+end
+モックストリームを使用して、ストリームの認証情報を含めたインライン定義を提供します。
+TIP
+このような高度なモックは、rSpecテストでのみ利用可能であり、CLIの実行では利用できません。
+let
+(
+:input
+)
+do
+{
+file_name
+:
+'sample_file'
+,
+file
+:
+{
+__stream__
+:
+true
+,
+name
+:
+'mock_advanced_stream'
+,
+input
+:
+{
+file_path
+:
+'/path/to/sample/file'
+}
+,
+settings
+:
+{
+# optional
+# ストリームモックアプリケーションへの認証リクエストを行う場合の接続設定
+# Workato::Connector::Sdk::Settings.from_fileも使用できます
+domain
+:
+'acme.egnyte.com'
+,
+api_key
+:
+'api_key'
+}
+,
+connection
+:
+{
+# optional
+# ストリームソースアプリケーションへの認証リクエストを行う場合の接続定義
+# コネクタの接続定義と同じブロックをサポートしています
+authorization
+:
+{
+type
+:
+'api_key'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+headers
+(
+api_key
+:
+connection
+[
+'api_key'
+]
+)
+end
+}
+,
+}
+,
+chunks
+:
+lambda
+do
+|
+input
+,
+_first_byte
+,
+last_byte
+,
+size
+|
+chunk
+=
+get
+(
+"/pubapi/v1/fs-content/
+#{
+file_path
+}
+"
+)
+.
+headers
+(
+"Range"
+:
+"bytes=
+#{
+starting_byte_range
+}
+-
+#{
+ending_byte_range
+}
+"
+)
+.
+response_format_raw
+[
+chunk
+,
+chunk
+.
+size
+<
+requested_byte_size
+]
+end
+}
+,
+url
+:
+'https://www.friendly_s3_url.com/upload'
+}
+end
+静的なストリームを提供してストリームをモックする
+let
+(
+:input
+)
+do
+{
+file_name
+:
+'sample_file'
+,
+file
+:
+{
+data
+:
+'1234567890'
+,
+oef
+:
+true
+}
+,
+url
+:
+'https://www.friendly_s3_url.com/upload'
+}
+end
+文字列を提供してストリームをモックする
+let
+(
+:input
+)
+do
+{
+file_name
+:
+'sample_file'
+,
+file
+:
+'qwertyuiop[]'
+,
+url
+:
+'https://www.friendly_s3_url.com/upload'
+}
+end
+←
+rSpec - テストの作成
+rSpec - CI/CD の有効化
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+テストの生成
+ステップ1 - コネクタのインスタンスを定義する
+ステップ2 - 設定のインスタンスを定義する
+ステップ3 - アクションを定義する
+ステップ3 - テストを記述し、subjectとinputを定義する
+ステップ4 - 各テストのアサーションを宣言する
+rSpecでストリームをモックするバリエーション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

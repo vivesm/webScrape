@@ -1,0 +1,93 @@
+Get started | Okta Identity Engine
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter:
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Get started
+Okta Identity Engine
+allows organizations to customize their Okta cloud components and satisfy an unlimited number of identity use cases. Instead of relying on predefined behavior for identification, authorization, and enrollment,
+Identity Engine
+offers customizable building blocks that can support dynamic, app-based user journeys.
+To access the docs from the Admin Console, click the help link on any page or the help icon next to your username. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with E for
+Identity Engine
+orgs and C for
+Classic Engine
+orgs.
+Configuration tasks
+Follow this sequence of configuration tasks to start using
+Identity Engine
+.
+Task
+Description
+User management
+Every user has a unique profile within Okta. You can manage users in groups or individually.
+CSV directory integration
+Integrate directories like Active Directory (AD) or Lightweight Directory Access Protocol (LDAP).
+Administrators
+Assign admins to maintain all aspects of the user experience in your orgs.
+Get started with app integrations
+Configure apps for your org. SSO setup docs for many apps are available from the Admin Console.
+Okta Browser Plugin
+Configure the Okta Browser Plugin so your users can automatically sign in to applications.
+Integration guides
+Configure the parameters of your app integrations, and then assign them to groups or individual users in your org.
+Sign-on policies and rules
+Set a global session policy and
+authentication policies
+.
+Identity Engine
+requires that the assurance in these policies is satisfied before the end user accesses an app.
+Multifactor authentication
+Enable the authenticators that your users must provide for verification by an application or service.
+Risk scoring
+Risk Scoring uses a risk engine that determines the likelihood of an anomalous sign-in event.
+Network Zones
+Network Zones define security perimeters around in which you can restrict or limit user access to your org.
+ThreatInsight
+ThreatInsight aggregates data across the Okta customer base and uses this data to detect malicious IP addresses that attempt credential-based attacks.
+Devices and Okta FastPass
+Deploy
+Okta Verify
+to devices, integrate
+Okta Verify
+with your EDR solution, manage the device lifecycle state, and configure
+Okta FastPass
+.
+Monitoring and reports
+Learn how Okta reports and System Log queries help you detect potential security risks and understand how users consume your apps and service.
+©
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

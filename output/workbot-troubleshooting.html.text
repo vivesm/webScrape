@@ -1,0 +1,125 @@
+Workbot for Slack のトラブルシューティング | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Slack
+#
+Workbot for Slack のトラブルシューティング
+Workbot の操作時にエラーや問題が発生することがあります。ここでは、Workbot で発生する一般的なエラーと問題およびその対処方法について説明します。
+#
+レシピの実行エラー
+Workbot は Workato のレシピを使用して、アプリのデータを取得したり (Salesforce の商談データの取得など)、アプリにデータを書き込んだりします (Salesforce での新規アカウントの作成など)。Workbot でのコマンドの実行時に予期しないエラーが発生すると、以下のメッセージが表示されます。
+レシピの実行エラーについての Workbot のエラーメッセージ
+通常は、エラーについての短い説明も表示されます。このエラーを修正するには、レシピに移動し、失敗したジョブを探し、ジョブで発生した
+エラーをデバッグする
+必要があります。
+#
+Workbot がオフライン
+レシピやコネクションがアクティブであるにもかかわらず、Workbot がオフラインになっているように見えることがあります。これは通常は一時的な状態です。メンテナンス中であるか、休憩中かもしれません。
+Workbot コネクションを再接続することで、オンラインに戻る場合もあります。Slack に再接続するのと同じ方法で再接続します。[
+Connections
+] に移動し、Workbot コネクションを選択し、切断してから再度接続します。
+[Connections] での Workbot の再接続
+←
+実行時ユーザー接続
+Workbot for MS teams
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+レシピの実行エラー
+Workbot がオフライン
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

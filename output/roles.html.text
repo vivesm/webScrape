@@ -1,0 +1,495 @@
+Embedded API - Roles | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded API
+Resources
+#
+Roles
+This API enables users to programmatically manage
+custom roles
+of their customer workspaces. To manage the custom roles in the admin team, see the article on
+platform API for custom roles
+.
+#
+Quick reference
+Type
+Resource
+Description
+GET
+/api/managed_users/:id/roles
+List custom roles in a customer workspace.
+POST
+/api/managed_users/:id/roles/:role_id/copy
+Makes a copy of a custom role in a customer workspace.
+#
+Base path
+For all the APIs above, the base path is
+/api/managed_users/:id
+where the customer ID is required in as a URL parameter.
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+#
+List custom roles
+Lists all custom roles in a customer workspace.
+OBTAIN ROLE NAMES
+Use the
+GET customer workspace member API
+to obtain a list of
+role_name
+s associated with a customer workspace.
+GET /api/managed_users/:id/roles
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+required
+Managed customer ID.
+#
+Query parameters
+Name
+Type
+Description
+per_page
+integer
+optional
+The number of custom roles to retrieve.
+page
+integer
+optional
+The page number. If the total number of custom roles exceed the page limit, subsequent records can be retrieved by calling the next page.
+role_name
+string
+optional
+The name of a custom role. Filter results by
+role_name
+.
+#
+Sample requests
+Get list of custom roles
+Filter results by role name
+#
+List custom roles
+curl
+-X
+GET https://www.workato.com/api/managed_users/123/roles
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+[
+{
+"id"
+:
+1128
+,
+"name"
+:
+"Workbot builder"
+,
+"inheritable"
+:
+false
+,
+"folder_ids"
+:
+[
+]
+,
+"created_at"
+:
+"2022-08-31T23:37:04.777-07:00"
+,
+"updated_at"
+:
+"2022-08-31T23:37:04.777-07:00"
+,
+"privileges"
+:
+{
+"Recipes"
+:
+[
+"read"
+,
+"create"
+]
+,
+"Folders"
+:
+[
+"read"
+]
+,
+"Workbot"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+,
+"delete"
+]
+}
+,
+{
+"id"
+:
+546
+,
+"name"
+:
+"Customer developer"
+,
+"inheritable"
+:
+false
+,
+"folder_ids"
+:
+[
+"1232"
+,
+"1224"
+]
+,
+"created_at"
+:
+"2020-08-14T07:23:19.599-07:00"
+,
+"updated_at"
+:
+"2020-08-14T07:23:19.599-07:00"
+,
+"privileges"
+:
+{
+"Recipes"
+:
+[
+"read"
+,
+]
+,
+"Folders"
+:
+[
+"read"
+]
+,
+"Workbot"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+]
+}
+}
+]
+#
+Filter results by role name
+curl
+-X
+GET https://www.workato.com/api/managed_users/123/roles?role_name
+=
+dev
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+[
+{
+"id"
+:
+1128
+,
+"name"
+:
+"dev"
+,
+"inheritable"
+:
+false
+,
+"folder_ids"
+:
+[
+]
+,
+"created_at"
+:
+"2022-08-31T23:37:04.777-07:00"
+,
+"updated_at"
+:
+"2022-08-31T23:37:04.777-07:00"
+,
+"privileges"
+:
+{
+"Projects"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+,
+"delete"
+]
+,
+"Folders"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+,
+"delete"
+]
+,
+"Connections"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+,
+"delete"
+]
+,
+"Recipes"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+,
+"delete"
+,
+"run"
+,
+"read_run_history"
+]
+,
+"Connection Folders"
+:
+[
+"all"
+]
+}
+}
+]
+#
+Copy a custom role
+Creates a copy of a custom role in a customer workspace with the ability to change the folders accessible by the role. The folder IDs can be obtained with the
+GET folders
+API endpoint.
+POST /api/managed_users/:id/roles/:role_id/copy
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+required
+Managed customer ID.
+role_id
+integer
+required
+The ID of the role in the customer workspace.
+#
+Payload
+Name
+Type
+Description
+name
+string
+required
+Name of the custom role.
+folder_ids
+array
+Array of folder IDs.
+#
+Sample request
+curl
+-X
+POST https://www.workato.com/api/managed_users/123/roles/490/copy
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Customer developer",
+"folder_ids": ["1232", "1224"]
+}'
+#
+Response
+{
+"id"
+:
+546
+,
+"name"
+:
+"Customer developer"
+,
+"inheritable"
+:
+false
+,
+"folder_ids"
+:
+[
+"1232"
+,
+"1224"
+]
+,
+"created_at"
+:
+"2020-08-14T07:23:19.599-07:00"
+,
+"updated_at"
+:
+"2020-08-14T07:23:19.599-07:00"
+}
+←
+Get export status
+Tag assignments
+→
+Last updated:
+2/25/2025, 9:18:59 PM
+On this page
+Base path
+List custom roles
+Copy a custom role
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

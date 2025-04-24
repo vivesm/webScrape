@@ -1,0 +1,240 @@
+Repeat for each loop | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Recipes
+Steps
+#
+Repeat for each loop
+A
+Repeat for each
+loop executes actions inside a block of steps for each item in a given list. The actions you select to repeat must use data output from the Repeat for each loop's datatree to ensure that every item in the list is processed. Actions nested under a Repeat for each block are carried out for all items in the list.
+For example, a
+Repeat for each
+block allows you to create a loop that processes each item in a list of invoice line items.
+Repeat for each
+is a type of
+Repeat control statement
+.
+To insert a Repeat for each loop into a recipe, click the
++
+(plus) button in the recipe editor to add a new step and select
+Repeat for each
+.
+Select Repeat for each
+Workato adds a block of steps to the recipe where you can configure the app and action to take for each item in a list.
+Repeat for each block
+#
+Example: Repeat for each loop
+The following example demonstrates how to use the Repeat for each loop to sync Salesforce accounts using the batch trigger to Zendesk as organizations.
+Use the Repeat for each loop to iterate through a list of Salesforce accounts.
+Example recipe
+(opens new window)
+In this example, the trigger returns a list of Salesforce accounts. Since Zendesk does not support batch actions, each Salesforce account must be added one at a time from Salesforce to Zendesk.
+The list datapill must be passed into the Repeat for each block. When the input list field is selected, only list type datapills are usable in the datatree, as shown in the following image. List datapills can be identified through their stack icon.
+Mapping a list data pill into the Repeat for each block's input list field.
+Example recipe
+(opens new window)
+CLEAR STEP OUTPUT
+When using a
+Repeat for each
+loop, set
+Clear step output
+to
+Yes
+to process data from each iteration independently. This setting is crucial when using
+IF
+conditions within the loop because it prevents previous iterations from affecting the current one.
+Refer to the
+List management documentation
+for more information.
+Datapills from the Repeat for each output datatree must be mapped to ensure that values from each list item are used when the action is repeated. For example, if the trigger fetches two Salesforce accounts, using datapills from the Repeat for each datatree ensures that the
+Create organization
+action creates a Zendesk organization with the data from the first Salesforce account on its first iteration, then with the data from the second Salesforce account on its second iteration.
+Use datapills from the Repeat for each block's datatree. This ensures values from the list being iterated through are used.
+Example recipe
+(opens new window)
+The following image displays the mapping from the Repeat for each datatree.
+Datapills are mapped from the Repeat for step's datatree.
+Example recipe
+(opens new window)
+For further Repeat for each loop examples and more information about list processing, refer to the
+list management
+(opens new window)
+documentation.
+#
+Repeat for each in batches
+Occasionally, the rate at which an upstream app or system transmits the data is faster than the rate at which a downstream app or system can receive it. You can use the
+Repeat for each in batches
+feature to process data by configuring the batch size. Large data sets are automatically parsed into smaller batches for transfer. Each item in the data set is only processed once.
+For example, you can use the Repeat for each in batches feature to
+create a batch of Salesforce leads
+from a list of leads in a CSV.
+#
+How to use
+Complete the following steps to use the Repeat for each in batches feature:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Projects
+.
+3
+Click the
+Create
+button and select
+Recipe
+to create a new recipe or click an existing recipe and select
+Edit recipe
+.
+4
+Click the
++
+(plus) button to add a new step.
+5
+Select
+Repeat for each
+.
+Select Repeat for each
+Workato adds a block of steps to the recipe and automatically selects the
+Set up list to repeat steps for each item
+step.
+Set up list to repeat steps for each item in the Repeat for each block
+6
+Enter an input list datapill in the
+Input list
+field.
+Input list
+7
+Select
+Batch of items
+from the
+Repeat mode
+drop-down menu.
+Repeat mode drop-down menu
+8
+Set the
+Batch size
+field. This defaults to
+100
+when the batch size is not specified or if the number specified is less than 1. Note that a datapill can also be entered as a batch size.
+Set batch size
+9
+You can see this reflected in the
+For each
+statement with the
+Batch
+tag.
+Repeat for each loop batch size
+Refer to
+an example recipe
+(opens new window)
+for more information.
+←
+Repeat while loop
+Call Recipe Function action
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Example: Repeat for each loop
+Repeat for each in batches
+How to use
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,163 @@
+Workato connectors - Outreach triggers | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Outreach
+#
+Outreach - Trigger
+This connector allows you to trigger recipes based on various events in your Outreach system.
+#
+Completed Sequence task
+This trigger picks up when a sequence task is completed by a user.
+Completed sequence task trigger
+#
+Input fields
+Field
+Description
+Sequence
+Select the sequence which contains the step you want to trigger off.
+Sequence step
+Select the steps from the sequence you have picked. You can select multiple steps. Leave blank to trigger on all steps.
+When first started, this recipe should pick up events from
+Sequence tasks that have completed after this time will be processed by the recipe. If left blank, the default will be set to
+one hour
+before the recipe is first started. Learn more about this
+input field
+.
+Trigger poll interval
+How frequently to check for new events. Defaults to 5 minutes if left blank. Minimum value allowed is 5 minutes.
+#
+Output fields
+Completed sequence task output
+This trigger returns various attributes about the sequence step that was just completed.
+The output also includes information about various relationships which you can use in followup actions to retrieve details about these related objects.
+#
+New and new/updated objects
+This trigger picks up whenever a new object is created or updated in Outreach depending on the trigger you have selected. By default, Workato checks every 5 minutes for events but this can be configured.
+New object trigger
+#
+Input fields
+Field
+Description
+Object
+Select the object you want this recipe to trigger jobs off.
+When first started, this recipe should pick up events from
+Objects created after this time will be processed by the recipe. If left blank, the default will be set to
+one hour
+before the recipe is first started. Learn more about this
+input field
+.
+Trigger poll interval
+How frequently to check for new events. Defaults to 5 minutes if left blank. Minimum value allowed is 5 minutes.
+#
+Output fields
+This trigger returns various attributes about the object you have selected.
+The output also includes information about various relationships which you can use in followup actions to retrieve details about these related objects.
+←
+Outreach
+Actions
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Completed Sequence task
+New and new/updated objects
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

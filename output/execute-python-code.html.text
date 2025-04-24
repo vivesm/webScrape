@@ -1,0 +1,399 @@
+Python - Execute Python Code (Python コードの実行) アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Python
+#
+Python - Execute Python Code (Python コードの実行) アクション
+このアクションは、カスタム Python スクリプトを実行します。
+#
+制限事項
+このアクションを使用する場合は、次の点に注意します。
+使用できるスクリプトは、最大
+1 MB
+です。この制限を超えるサイズのスクリプトは、たとえ動作したとしても、メモリーの問題が生じる可能性があります。
+このアクションは
+30秒
+後にタイムアウトします。
+現在、ユーザー提供のライブラリはサポートされていません。サポートされているライブラリの一覧については、「
+Python コネクターの概要
+」を参照してください。
+#
+入力
+項目名
+説明
+Name
+ステップの簡単な説明を入力します。例:
+Transform dates
+Input fields
+コードに渡す入力項目を定義します。入力を定義するときには、手作業で1つずつ項目を追加するか、JSON のサンプルを指定することができます。
+注:
+Date
+および
+datetime
+のデータは、
+string
+として渡されます。
+例を参照してください
+。
+Output fields
+データツリー
+として表示する項目を定義します。出力を定義するときには、手作業で1つずつ項目を追加するか、JSON のサンプルを指定することができます。
+Code
+カスタムの Python スクリプト。スクリプトを作成するときには、以下のことに注意してください。
+コードは
+main
+関数内に記述する必要があります。
+main
+関数のパラメータは1つしか使用できません。このパラメータは、
+入力項目
+として定義された変数を含む Python の dict である必要があります。
+例を参照してください
+。
+出力項目
+にデータを渡すために、定義した
+出力
+スキーマに一致するキーを含む辞書を
+return
+します。
+例を参照してください
+。
+このアクションには、いくつかの
+制限事項
+があります。
+#
+例
+入力および出力データを処理する
+datetime データを処理する
+#
+入力および出力データを処理する
+この例では、スクリプトで
+入力項目
+のデータにアクセスし、定義済みの
+出力項目
+に渡す方法を示します。
+アクションが以下のように構成されているとします。
+入力項目
+出力項目
+このアクションの
+入力項目
+として、以下が定義されています。
+x
+y
+z
+このアクションの
+出力項目
+として、以下が定義されています。
+shape
+dimensions
+この例の
+main
+関数のパラメータは
+input
+という名前です。これを使用して、アクションに定義された
+入力項目
+の値にアクセスします。
+結果のデータを
+出力項目
+に渡すために、出力スキーマと一致するキーの辞書を含めます。
+import
+numpy
+as
+np
+def
+main
+(
+input
+)
+:
+# # Access the values of the action's Input fields
+x
+=
+input
+[
+'x'
+]
+y
+=
+input
+[
+'y'
+]
+z
+=
+input
+[
+'z'
+]
+size
+=
+(
+x
+,
+y
+,
+z
+)
+# Create a 3D NumPy array with random integers
+my3dArray
+=
+np
+.
+random
+.
+randint
+(
+low
+=
+0
+,
+high
+=
+100
+,
+size
+=
+size
+,
+dtype
+=
+int
+)
+print
+(
+"/nRandom array/n"
+,
+my3dArray
+)
+# Keep only elements that are multiples of 5
+modified3dArray
+=
+np
+.
+where
+(
+my3dArray
+%
+5
+==
+0
+,
+my3dArray
+,
+0
+)
+print
+(
+"\Only multiples of 5\n"
+,
+modified3dArray
+)
+shape
+=
+str
+(
+modified3dArray
+.
+shape
+)
+dimensions
+=
+modified3dArray
+.
+ndim
+# Pass shape and dimension values to Output fields
+return
+{
+"shape"
+:
+shape
+,
+"dimensions"
+:
+dimensions
+}
+#
+datetime データを処理する
+この例では、Python スクリプト内の
+datetime
+データの処理方法を示します。
+Date
+型に設定された
+入力項目
+は、
+strings
+として Python コードに渡されます。データが予期したとおりフォーマットされるように、このことを考慮してコードを記述することをお勧めします。
+import
+datetime
+as
+dt
+def
+main
+(
+input
+)
+when
+=
+dt
+.
+datetime
+.
+fromisoformat
+(
+input
+[
+'when'
+]
+)
+# use datetime object when
+# ...
+# convert to custom format
+when_converted
+=
+when
+.
+strftime
+(
+"%d %b %Y %H:%M:%S"
+)
+return
+{
+"when"
+:
+when_converted
+}
+#
+出力
+[Output fields]
+のセクションで定義されたすべての項目に対して、アクションの
+出力データツリー
+内にデータピルが作成されます。
+例: 以下を
+出力項目
+として定義したとします。
+shape
+(
+integer
+)
+dimensions
+(
+integer
+)
+この場合、アクションの出力のデータツリーは、以下のように表示されます。
+└── Output
+├── shape
+(
+integer
+)
+└── dimensions
+(
+integer
+)
+出力項目にデータを渡す方法についてヘルプが必要ですか。
+例
+を参照してください。
+←
+接続方法
+Quick Base
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+制限事項
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

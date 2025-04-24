@@ -1,0 +1,188 @@
+Tableau - Search workbooks action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Tableau
+#
+Tableau - Search workbooks action
+The
+Search workbooks
+action retrieves all workbooks that match your search criteria.
+#
+Input
+Input field
+Description
+Filter
+Provide the filter conditions for the search action. Refer to Tableau's
+Filtering and Sorting
+(opens new window)
+guide for more information.
+Sort
+Provide the sorting conditions for the search action. Refer to Tableau's
+Filtering and Sorting
+(opens new window)
+guide for more information.
+Page size
+Provide the number of items to return in one response.
+Page number
+Provide the offset for paging.
+#
+Output
+Output field
+Description
+Workbook ID
+The unique identifier for the workbook.
+Name
+The name of the workbook.
+Content URL
+The URL path to access the workbook.
+Webpage URL
+The full webpage URL to access the workbook in Tableau.
+Created at
+A timestamp indicating when the workbook was created.
+Updated at
+A timestamp of the most recent update to the workbook.
+Sheet count
+The total number of sheets in the workbook.
+Has extracts
+Indicates whether the workbook contains extracted data
+Encrypt extracts
+Indicates whether the workbook extracts are encrypted.
+Default view ID
+The unique identifier for the default view within the workbook.
+Project ID
+The unique identifier for the project.
+Project name
+The name of the project.
+Project description
+A brief description of the project.
+Owner ID
+The unique identifier for the owner.
+Owner name
+The username of the owner.
+Owner email
+The email address of the owner.
+Owner full name
+The full name of the owner.
+Owner last login
+A timestamp of the owner's last login to Tableau.
+Owner site role
+The role of the owner within the Tableau site.
+Tags
+A list of tags associated with the workbook.
+Acceleration enabled
+Indicates whether data acceleration is enabled for the workbook.
+Page number
+The current page number of the paginated list.
+Page size
+The number of items per page in the paginated list.
+Total available
+The total number of available records in the dataset.
+←
+Search view action
+Talent Palette
+→
+Last updated:
+3/25/2025, 5:05:19 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

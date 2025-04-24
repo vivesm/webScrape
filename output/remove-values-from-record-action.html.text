@@ -1,0 +1,146 @@
+Data tables - Remove values from record action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Data tables
+Connector
+#
+Remove values from record action
+The
+Remove values from record
+action removes column values from a record you specify.
+#
+Input
+Input fields
+Description
+Data table
+Select the data table that contains the record you plan to remove values from. Click the link in this field's description to view the selected data table in the
+Data tables interface
+.
+Record ID
+Provide the ID of the record you plan to remove values from. You can input a
+Record ID
+datapill or enter a static value from the data table's
+Record ID
+column, which is hidden by default.
+Values to be removed
+Select the field values you plan to remove. Required fields cannot be selected as their values cannot be removed.
+#
+Output
+Output fields
+Description
+Record
+Contains information about the modified record, such as its
+Record ID
+,
+Created at
+date,
+Updated at
+timestamp, and data from any of the data table's custom columns.
+←
+Delete records action (batch)
+Search records action (batch)
+→
+Last updated:
+4/1/2025, 5:13:02 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

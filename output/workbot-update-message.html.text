@@ -1,0 +1,181 @@
+Update Workbot messages | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Slack
+Workbot actions
+#
+Updating Workbot messages
+Message updating from button, menu, and back to button again
+You can update a bot message that was posted earlier by using a post message action. This is especially useful for the use cases shown in the table below.
+Use case
+Description
+Replacing buttons or menus
+You may want to remove buttons or message menus after users have clicked on their selection (to prevent spam):
+In the example above, not only are the buttons removed in the updated message, it also displays the user's choice, followed by a 'thank you' message.
+Reduce clutter in chat
+You may also want to reduce clutter in bot conversations by 'reusing' the original bot message (by repeatedly updating the original):
+In the example above, the updating message clears the lengthy original message and prompts the user to key in another query instead.
+#
+How it works
+You can instruct Workbot to use the message contents of a
+Post message
+action to update an existing bot message.
+Each message posted in Slack has a
+Message ID
+, displayed in the output of Workbot triggers & actions.
+When a user invokes a trigger by typing a command, the trigger output will not have a message ID (since there's no message to update yet). However, if the trigger is invoked from a bot command of a message (for example, a submit button command, submit menu option command, or a dialog submission), the trigger output will contain the message ID of that message.
+Hence, the
+Message ID
+datapill can be obtained from the output of a
+Post command
+trigger or a
+Post message
+/
+Post command reply
+action.
+#
+Using Message to update
+To update a message, use its
+Message ID
+datapill in the
+Message to update
+field of a new
+Post message
+action. This field can be found under the 'Advanced' section of the action.
+The original message will be replaced by the new message defined in the
+Post message
+action, along with any interactive components like buttons or message menus.
+#
+Replacing messages containing buttons & message menus
+To replace messages containing buttons, message menus, or both, simply add an 'unmapped' button or message menu (depending on what you're replacing) in the updating post message action.
+An 'unmapped' button (or message menu) is one where the
+Submit button command
+(or
+Submit menu option command
+) does not match any command triggers of any Workbot recipes in the Workato account. This is because 'unmapped' buttons or message menus are not displayed in messages.
+Since 'blank' does not trigger any Workbot recipe, no button will be shown in the message
+#
+Common mistakes
+Updating the wrong message
+To ensure that you're updating the correct message, make sure that you use the
+Message ID
+datapill from the output step which posted the original message.
+Can't find the 'Message to update' field
+Make sure that it's checked from the 'Add/remove optional fields' list at the bottom of the post message action. After it's enabled, the field can be found in the Advanced group of the post message action.
+Message ID
+pill is empty
+Remember, when a user invokes a trigger by typing a command, the trigger output will not have a message ID (since there's no message to update yet).
+However, if the trigger is invoked from a bot command of a message (for example, a submit button command, submit menu option command, or a dialog submission), the trigger output will contain the message ID of that message.
+If you want to use a
+Message ID
+datapill from the output of a trigger, make sure that the trigger is invoked by a button / menu option click or dialog submission from a bot command of a message.
+←
+Return menu options
+Enterprise Workbots
+→
+Last updated:
+1/30/2025, 12:15:49 AM
+On this page
+How it works
+Using Message to update
+Replacing messages containing buttons & message menus
+Common mistakes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

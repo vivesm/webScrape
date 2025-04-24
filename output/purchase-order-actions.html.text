@@ -1,0 +1,137 @@
+Workato コネクター - Coupa の注文書アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Coupa
+#
+Coupa - 注文書アクション
+Workato では、Coupa の注文書のクローズやキャンセルを行うことができます。Coupa で注文書を作成、更新、または照会する場合は、
+オブジェクトアクションを使用
+し、オブジェクトを選択するように求められたら注文書を選択します。
+このアクションは、NetSuite で注文書がクローズされた場合にトリガーされるレシピへの応答としてもともと使用されてきました。これは支払後に行われます。NetSuite と Coupa の両方で注文書をクローズすることにより、データの整合性を確保できます。
+注文書固有のアクション
+Close purchase order
+Cancel purchase order
+#
+注文書アクション用の入力項目
+これらのアクションに必要な入力は、注文書の内部 Coupa ID のみです。実行されると、Coupa でその特定の注文書を見つけ、クローズまたはキャンセルします。特定の内部 Coupa ID がわからない場合は、
+search objects
+を使用して他の属性に基づいて注文書を検索し、その結果として生じる、内部 Coupa ID が含まれる出力を使用できます。
+#
+Close purchase order (注文書のクローズ)
+レシピで実行されると、このアクションはステップの入力で指定されている注文書を見つけてクローズします。
+#
+Cancel purchase order (注文書のキャンセル)
+レシピで実行されると、このアクションはステップの入力で指定されている注文書を見つけてキャンセルします。
+#
+注文書アクション用の出力項目
+キャンセルまたはクローズされると、データピルを後続のステップで使用できるように、注文書オブジェクトも返されます。
+#
+トリガーとアクションのリスト
+Workato は現在、以下のトリガーとアクションをサポートしています。それぞれの詳細については、以下のリンクをクリックしてください。リンク先にはサイドバーから移動することもできます。
+概要
+オブジェクトアクション
+オブジェクトトリガー
+サプライヤアクション
+統合アクション
+←
+オブジェクトトリガー
+サプライヤアクション
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

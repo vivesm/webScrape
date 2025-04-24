@@ -1,0 +1,208 @@
+Workato connectors - Stripe | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Stripe
+DEPRECATION NOTICE: STRIPE EXTENSIONS
+All Stripe connections created before
+December 10, 2024
+use Stripe extensions, which Stripe plans to sunset on
+January 1, 2025
+. To avoid disruptions due to this change, migrate your existing connections to
+Stripe Apps
+(opens new window)
+before this date.
+Key dates
+:
+December 10, 2024
+: All new Stripe connections in Workato will use Stripe Apps.
+January 1, 2025
+: Stripe extensions will be sunset.
+Refer to the
+Stripe Apps migration guide
+to update your existing connections and ensure a smooth transition.
+Stripe
+(opens new window)
+provides a fast and secure payment processing platform with low- and no-code configuration options. Stripe allows you to accept payments, send payouts, and automate financial processes. For example, a B2B business can use Stripe to collect one-time or recurring payments from customers.
+#
+API version
+Workato's Stripe connector uses the
+Stripe REST API v1
+(opens new window)
+. This API offers a comprehensive set of tools and functionalities that help platforms and marketplaces manage and route payments, in addition to verifying seller identities.
+#
+Connection setup
+Workato supports two methods for authenticating to Stripe:
+API key
+or
+Authorization code grant
+.
+LIMITATIONS
+Stripe allows only one connection per Stripe account and Stripe App pair. When you create a new App-based Stripe connection for the
+same Stripe account
+, it invalidates the tokens of any previously connected App-based Stripe connections for that account, making them inactive. However, if the connection is linked to a
+different Stripe account
+, existing connections remain unaffected.
+This limitation does not impact pre-existing extension-based Stripe connections in Workato, which can coexist with App-based connections.
+#
+API key
+Complete the following steps to connect Workato to Stripe using an API key:
+1
+Navigate to
+Developers dashboard > API keys
+to manage your API keys.
+2
+Provide the test mode secret key if you plan to access test mode data. Otherwise, use the live mode secret key to access actual account data.
+Refer to
+Stripe's documentation
+(opens new window)
+to learn more about API keys.
+#
+Authorization code grant
+Complete the following steps to create a Stripe connection in Workato.
+1
+Provide a
+Connection name
+that identifies which Stripe instance Workato is connected to.
+Create your connection
+2
+Use the
+Demo
+drop-down menu to select if the Stripe account you plan to use is a demo account or not.
+3
+Click
+Connect
+. Stripe's login window opens and prompts you for your credentials.
+4
+Log in to your Stripe account and approve the connection.
+#
+Locate Stripe Customer ID
+Several actions for the Stripe connector require your Customer ID. To find your Stripe Customer ID:
+1
+Log in to your Stripe account.
+2
+Click
+Customers
+in the left-side navigation menu.
+3
+Select the customer you plan to use from the
+Customers
+table.
+4
+Go to the
+Details
+section and copy the
+Customer ID
+.
+←
+Troubleshooting
+Migrate your connection to Stripe Apps
+→
+Last updated:
+12/9/2024, 7:24:01 PM
+On this page
+API version
+Connection setup
+API key
+Authorization code grant
+Locate Stripe Customer ID
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

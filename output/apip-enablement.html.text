@@ -1,0 +1,209 @@
+Embedded APIP enablement | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Features
+#
+Enabling API platform for customers
+The
+API platform
+is a tool that helps Embedded partners securely share content or microservices with their customers. It enables use cases that extend their product's functionality by building recipes triggered by API endpoints.
+The following guide covers the concepts and
+platform API endpoints
+required to programmatically enable the API platform in customer workspaces.
+PROCESS OVERVIEW
+Enabling the API platform for customers entails the following:
+Creating API endpoint recipes and collections
+Creating customers
+Importing the recipes and collections to customer workspaces
+Creating client/access profiles in customer workspaces
+Starting recipes and activating the endpoints
+#
+Creating API endpoint recipes
+Best practice
+Build and test API endpoint recipes in the Embedded partner's admin account before importing them into customer workspaces. Create the recipes in the same folder to simplify the import and export processes.
+1
+The first step in setting up an API endpoint is to create a recipe that uses the
+API platform - New API request
+trigger. Click the
+Build an API endpoint
+starting point to automatically select this trigger.
+Select Build an API endpoint recipe as the recipe starting point
+2
+Organize these recipes into one or more API Collections. Generally, an API Collection contains endpoints whose access patterns share common features, permitting you to manage them together. For example, if you have a set of Salesforce endpoints used by your sales team in recipes, you might group them together in an API Collection.
+3
+Activate and test your API endpoints. Reference our
+API endpoint management
+and
+API collection creation
+guides for detailed information on building and activating endpoints and collections.
+4
+After creating and testing your endpoints, use the
+Recipe lifecycle management
+tool to create a manifest that includes all the collections and endpoints.
+#
+Creating customers
+You can create customers in the UI of the Admin console or by using the
+Manage customers platform API
+. The customer ID is returned in the response body when using the API to create customers.
+If viewing or creating the customer in the UI of the Admin console, the customer ID is available in the URL of the customer info page.
+Obtain the customer ID in the UI in the URL
+Embedded platform API shortcuts
+Create a customer:
+POST /api/managed_users
+(opens new window)
+#
+Importing the recipes and collections to customer workspaces
+You can import recipes and collections to customer workspaces in the Workato UI or with Embedded platform APIs.
+Before importing recipes from the admin account to the customer workspace, create a folder in the customer workspace. The folder must be a top-level folder (nested one level within
+Home
+).
+Use the manifest saved in the admin workspace to export packages into customer workspaces. Exporting copies the endpoints and collections in the package into the customer workspace.
+Embedded platform API shortcuts
+Create a top-level required folder in the customer workspace:
+POST /api/managed_users/:id/folders
+Export a package from the admin workspace:
+POST /api/packages/export/:id
+Import a package into the customer workspace:
+POST /api/managed_users/:id/imports
+#
+Creating client/access profiles in customer workspaces
+API clients are groups of users who receive access to one or more API collections through an access profile. For example, members of the same organization comprise an API client and access API collections through individual access profiles. You can create API clients and access profiles in the Workato UI or by using Embedded platform APIs.
+1
+Add API clients and access profiles to your customer workspaces to enable these endpoints. Reference our
+client and access profile
+guide for detailed instructions.
+2
+Assign the collection imported in the preceding step to an access profile. Considering each customer already has an account, you may only need to create one default client and one default access profile.
+When you add more collections in the future, update the access profile to include the new collection IDs.
+Embedded platform API shortcuts
+Create an API client:
+POST /api/managed_users/:id/api_clients
+Create an access profile within the client:
+POST /api/managed_users/:id/api_clients/:api_client_id/api_access_profiles
+Update an access profile:
+PUT /api/api_access_profiles
+#
+Starting recipes and activating endpoints
+After importing recipes into the customer workspace, you must start them before activating the endpoints. After the endpoints are activated, you can call the endpoints using the API client.
+You can start recipes and activate endpoints in the Workato recipe building UI or by using Embedded platform API endpoints.
+If the Embedded partner needs to limit access to endpoints for the API client, the partner may deactivate the endpoints.
+Embedded platform API shortcuts
+Obtain recipe IDs:
+GET /api/managed_users/:id/recipes
+Start a recipe:
+PUT /api/managed_users/:managed_user_id/recipes/:recipe_id/start
+Activate an endpoint:
+PUT /api/managed_users/:id/api_endpoints/:api_endpoint_id/enable
+Disable an endpoint:
+PUT /api/managed_users/:id/api_endpoints/:api_endpoint_id/enable
+←
+Branding
+Custom OAuth profiles
+→
+Last updated:
+2/26/2025, 9:17:11 PM
+On this page
+Creating API endpoint recipes
+Creating customers
+Importing the recipes and collections to customer workspaces
+Creating client/access profiles in customer workspaces
+Starting recipes and activating endpoints
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

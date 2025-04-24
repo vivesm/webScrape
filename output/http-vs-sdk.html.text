@@ -1,0 +1,200 @@
+ユニバーサルコネクター - HTTP と SDK | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+ユニバーサルコネクター
+HTTP
+#
+HTTP と SDK
+コネクターの作成を決定したら、HTTP コネクターを使用するか Workato SDK を使用するかを判断します。Workato SDK は開発者向けであることに注意してください。開発者ではない場合は、HTTP コネクターが最適です。
+では、何が違うのでしょうか。このドキュメントでは、Workato レシピを強化するための最適なアプローチを決定できるよう、その違いを説明します。
+#
+認証
+API ではさまざまな認証メカニズムを使用します。基本認証 (ユーザー名とパスワードのペア) のように簡単なものもあれば、OAuth 2.0のように複雑なものもあります。
+HTTP
+SDK
+OAuth 2.0
+可
+可
+基本認証
+可
+可
+簡単な API キー/トークン
+可
+可
+ダイジェスト認証
+不可
+可
+多段階認証
+不可
+可
+#
+データ型
+HTTP
+SDK
+REST で JSON
+可
+可
+REST で XML
+可
+可
+URL エンコードフォーム
+可
+可
+複合データ型
+可
+可
+バイナリ
+可
+可
+#
+機能
+HTTP
+SDK
+クロージャのトリガー
+不可
+可
+更新レコードのトリガー
+必ずではない
+可
+Webhook + ポーリングのトリガー
+不可
+可
+データ変換
+不可
+可
+データの前/後処理
+不可
+可
+ページネーション
+不可
+可
+while ループ
+不可
+可
+for ループ
+可
+可
+#
+その他
+HTTP
+SDK
+共有
+可
+可
+レシピを複製して実行
+可
+不可
+再利用可能 (相互レシピ)
+不可
+可
+手動 Webhook
+可
+可
+自動 Webhook
+困難
+可
+←
+HTTP
+設定
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+認証
+データ型
+機能
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,149 @@
+Incorrect formulas and code actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+Design-time errors
+#
+Incorrect formulas and code actions
+Errors in formulas and code actions can prevent your recipe from starting or cause it to fail during execution. Ensure all formulas and code snippets in your recipe are free from syntax and logical errors.
+#
+Incorrect formulas
+While not every formula issue stops a recipe from starting, those with syntax or surface-level errors are detected before the recipe can run. Other issues may appear during execution.
+Formula error
+The following are common formula errors that you may encounter:
+Typographical errors.
+Incorrect spacing between formulas and operators, such as having two whitespaces instead of one.
+Using incorrect symbols, such as curly braces
+{ }
+instead of square brackets
+[ ]
+.
+Symbols copied from word processors such as OpenOffice and Microsoft Word may be formatted differently and cause recognition issues in the Workato formula editor.
+To resolve incorrect formulas, review each formula for correct syntax, spelling, and proper spacing. Ensure that all symbols and operators are formatted correctly and recognized by the Workato formula editor.
+#
+Incorrect code actions and SQL statements
+Workato offers various actions that use different code languages, including:
+Execute Python code
+Execute Ruby code
+Execute JavaScript code
+Transform XML using XSLT
+Query lists in Collection
+Run custom SQL in JDBC source
+Actions that use code languages
+Incorrect code in these actions can prevent your recipe from starting. Ensure your code is error-free before starting the recipe. Some errors may be caught immediately, while others may only appear during execution when the code is run. Ensure to check and test your code when using these actions.
+Complete the following steps to resolve issues with incorrect code actions and SQL statements:
+1
+Check your code for syntax and logical errors.
+2
+Test each code action separately in a controlled environment to ensure it functions correctly.
+3
+Use SQL management tools to validate your SQL queries and scripts before implementing them in the recipe.
+Ensuring that your code actions and SQL statements are free of errors prevents issues that can stop your recipe from running or cause it to fail during execution.
+←
+Action and fields errors
+On-prem Agent errors
+→
+Last updated:
+6/5/2024, 6:25:20 PM
+On this page
+Incorrect formulas
+Incorrect code actions and SQL statements
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

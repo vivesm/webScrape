@@ -1,0 +1,226 @@
+Workato connector - Shopify - New/updated abandoned checkout | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Shopify
+#
+Shopify - New/updated abandoned checkout
+This trigger checks for new or updated abandoned checkouts in Shopify on every poll interval.
+Each checkout is processed as a separate job.
+CHECKOUT RESOURCE DEPRECATION NOTICE
+As of Shopify API version
+2024-04
+, the Checkout resource is deprecated and will be sunset on April 1, 2025. Refer to the
+Shopify developer changelog
+(opens new window)
+for more information.
+#
+Input
+Field
+Description
+Trigger poll interval
+Set the frequency at which Workato checks for new or updated abandoned checkouts.
+When first started, this recipe should pick up events from
+Get abandoned checkouts since the given date/time. Leave empty to get all orders created from time when recipe is first started. After a recipe has been run or tested, this value cannot be changed. Learn more about this
+input field
+.
+Checkout status
+Choose from
+Open
+,
+Archived
+. Defaults to
+Open
+#
+Output
+Field
+Description
+Abandoned checkout URL
+The recovery URL that's sent to a customer so they can recover their checkout.
+Total duties
+The total duties of the checkout in presentment currency.
+Checkout ID
+The ID for the checkout.
+Billing address
+The mailing address associated with the payment method.
+Note
+The text of an optional note that a shop owner can attach to the order.
+Note attributes
+Additional information on order.
+Buyer accepts marketing
+Whether the customer consented to receive email updates from the shop.
+Cancel reason
+The reason for the abandoned checkout.
+Cart token
+The ID for the cart that's attached to the checkout.
+Closed at
+The date and time when the checkout was closed. If the checkout was not closed, then this value is null.
+Created at
+The date and time when the checkout was created.
+Completed at
+The date and time when the checkout was completed. For abandoned checkouts, this value is always null.
+Currency
+The three-letter code of the shop's default currency at the time of checkout.
+Line items
+A list of line items, each containing information about an item in the checkout.
+Customer
+Information about the customer.
+Discount codes
+Discount codes applied to the checkout. Returns an empty array when no codes are applied.
+Gateway
+The payment gateway used by the checkout. For abandoned checkouts, this value is always null.
+Source identifier
+The ID for the source.
+Email
+The customer's email address.
+Landing site
+The URL for the page where the customer entered the shop.
+ID
+The ID for the checkout.
+Referring site
+For example,
+http://www.example.com
+Shipping lines
+Information about the chosen shipping method.
+Source URL
+The URL of the source.
+Source name
+Where the checkout originated. Valid values: web, pos, iphone, android
+Total price
+The sum of line item prices, all discounts, shipping costs, and taxes for the checkout in presentment currency.
+Subtotal price
+The price of the checkout in presentment currency before shipping and taxes.
+Price
+The price of the item in presentment currency.
+Total weight
+The sum of all the weights in grams of the line items in the checkout.
+Token
+A unique ID for a checkout.
+Total discounts
+The total amount of discounts to be applied in presentment currency.
+Total line items price
+The sum of the prices of all line items in the checkout in presentment currency.
+Total tax
+The sum of all the taxes applied to the checkout in presentment currency.
+Taxes included
+Whether taxes are included in the price.
+Tax lines
+A list of tax line objects, each of which details a tax applied to the item. Each tax line includes:
+- Title
+- Price
+- Price set
+- Rate
+Shipping address
+The mailing address where the order will be shipped to.
+Source
+The channel where the checkout originated.
+Date updated
+The date and time when this checkout was last updated.
+←
+New product variant
+New/updated customer
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

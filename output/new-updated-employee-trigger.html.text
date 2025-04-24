@@ -1,0 +1,218 @@
+UKG Pro - New/updated employee trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+UKG Pro
+#
+UKG Pro - New/updated employee trigger
+The
+New/updated employee
+trigger monitors UKG Pro for newly created or updated employees.
+#
+Input
+Input field
+Description
+Poll interval
+Select the interval at which to check for newly created or updated employees.
+#
+Output
+Output field
+Description
+First name
+The employee’s given name.
+Last name
+The employee’s surname or family name.
+Preferred name
+The name the employee prefers to be addressed by.
+Email address
+The primary work email address of the employee.
+Country code
+The country associated with the employee.
+Language code
+The preferred language of the employee.
+Employee number
+A unique identifier assigned to the employee within the organization.
+Employee ID
+The system-generated unique identifier for the employee in UKG Pro.
+Person ID
+A unique identifier for a person. This ID is used when an individual may have multiple employee records.
+User integration key
+A key used for integration purposes to track the employee across systems.
+Company name
+The legal or business name of the company the employee belongs to.
+Company ID
+A unique identifier assigned to the company in UKG Pro.
+Supervisor ID
+The unique identifier of the employee's direct supervisor.
+Salary or hourly
+Specifies whether the employee is salaried or paid hourly.
+Full time or part time
+Indicates whether the employee is a full-time or part-time worker.
+Is active
+Specifies whether the employee is currently active in the system.
+Work location
+The primary location where the employee works.
+Job code
+A unique code representing the employee’s job role.
+Project code
+The project associated with the employee, if applicable.
+Org level 1 code
+A code representing the first organizational level, such as a division or department.
+Org level 2 code
+A code representing the second organizational level, such as a sub-department.
+Org level 3 code
+A code representing the third organizational level.
+Org level 4 code
+A code representing the fourth organizational level.
+Middle name
+The employee’s middle name, if applicable.
+Work phone
+The employee’s work contact number.
+Home phone
+The employee’s personal contact number.
+Employee address 1
+The primary address line for the employee.
+Employee address 2
+Additional address details, such as the employee's apartment or suite number.
+City
+The city where the employee resides.
+State
+The state or province of the employee’s residence.
+Zip code
+The postal or ZIP code of the employee’s address.
+Termination date
+The date the employee was terminated, if applicable.
+Hire date
+The date the employee was hired by the company.
+Supervisor name
+The full name of the employee’s direct supervisor.
+Prefix
+An optional title such as Mr., Ms., or Dr.
+Suffix
+A suffix if applicable.
+Alternate email address
+An additional email address for the employee, if available.
+Gender
+The gender identity of the employee.
+Employee status
+The employee's current employment status.
+Employee type
+The type of employment.
+Employee status start date
+The date when the employee’s current status became effective.
+Date in job
+The date the employee started their current job position.
+Date of last hire
+The most recent date the employee was rehired.
+Job group code
+A code representing the job classification or category.
+Alternate job title
+An alternate title for the employee’s job role, if applicable.
+←
+New record trigger
+New/updated record trigger
+→
+Last updated:
+3/24/2025, 12:23:49 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

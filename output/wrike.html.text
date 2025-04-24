@@ -1,0 +1,162 @@
+Workato コネクター - Wrike | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Wrike
+Wrike
+(opens new window)
+は、チームメンバーが同じ場所にいても分散していてもチーム間のコラボレーションを可能にする、オンラインプロジェクト管理ソフトウェアです。
+#
+API バージョン
+Wrike コネクターは、
+Wrike REST API v4
+(opens new window)
+を使用します。
+#
+Workato での Wrike への接続方法
+Wrike コネクターは、OAuth 2.0認証を使用します。これにより、以下のことが可能になります。
+このコネクター用のスコープの定義
+Wrike での認証
+Wrike コネクション
+#
+Wrike コネクター用のスコープ
+権限に付随するものとして、コネクターが Wrike データをどのように操作できるかを定義するスコープがあります。たとえば、
+Create task (タスクの作成) アクション
+にはスコープ
+Default
+および
+wsReadWrite
+が必要です。
+[Advanced settings]
+>
+[Api scope]
+を選択することで、コネクターのスコープを編集できます。
+Wrike コネクターの API スコープ
+項目名
+説明
+Api scope
+このコネクションのためにリクエストする権限を選択します。Workato トリガーとアクションの全体を使用可能にする場合は、
+[select all]
+を選択してすべてのスコープをリクエストできます。空白のままにすると、コネクターは
+Default
+のみをリクエストします。
+#
+Wrike での認証
+ユーザー資格情報を使用してログインするには、
+[Link your account]
+を選択します。
+Wrike のログイン資格情報を要求するポップアップが表示されるので、提示されたフィールドに
+ユーザー名/パスワード
+を入力してください。
+ユーザー名/パスワードでの接続
+項目名
+説明
+Email
+接続する Wrike アカウントのメールアドレス。
+Password
+接続する Wrike アカウントのパスワード。
+←
+アクション
+新規コメント トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Wrike への接続方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

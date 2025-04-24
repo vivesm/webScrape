@@ -1,0 +1,579 @@
+Workbot for Microsoft Teams - App Studio を使用した Enterprise Workbot の作成 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+Microsoft App Studio を使用した Enterprise Workbot の作成
+Microsoft による App Studio のサポートの終了
+2022年1月1日
+をもって、Microsoft は App Studio のサポートを終了しました。Enterprise Workbot を作成するには、
+Microsoft Teams 開発者ポータルに関するガイド
+をご覧ください。このガイドは、参考用として引き続き掲載しているものです。
+Enterprise Workbot を設定するには、以下が必要です。
+Workato 内の要件
+:
+以下に対するアクセス権 :
+Workbot :
+アカウントに
+[Tools] > [Workbot]
+オプションが表示されない場合は、カスタマーサクセスマネージャーまでお問い合わせください。
+カスタム OAuth プロファイル
+:
+アカウントに
+[Tools] > [Custom OAuth Profiles]
+オプションが表示されない場合は、カスタマーサクセスマネージャーまでお問い合わせください。
+以下を実行できる権限 :
+Workbot の作成と設定
+コネクションの作成と設定
+カスタム OAuth プロファイルの作成と設定
+Microsoft 組織内の以下のロールのいずれか1つ
+:
+アプリケーション管理者
+クラウドアプリケーション管理者
+グローバル管理者
+特権ロール管理者
+Microsoft
+(opens new window)
+で自身に割り当てられているロールは、
+[ユーザー] > (自身のユーザー名を選択) > [割り当てられている役割]
+で確認できます。
+#
+ステップ1: Workato 内での Workbot の作成
+1
+Workato アカウントにサインインします。
+2
+[Tools] > [Workbot]
+に移動します。
+3
+[Custom bots]
+タブに続いて
+[+ New custom bot]
+をクリックします。
+4
+[Application]
+フィールドの
+[Workbot for Microsoft Teams]
+を選択します。
+5
+[Name]
+フィールドにボットの名前を入力します。
+6
+[Create new app]
+をクリックします。
+このページは開いたままにしておいてください。ボットの設定に必要になります。
+#
+ステップ2: Microsoft Teams アプリの作成
+ステップ2.1: Microsoft App Studio のインストール
+ステップ2.2: アプリの作成と設定
+ステップ2.3: ボットへの個人タブの追加
+ステップ2.4: ボットの資格情報の取得
+#
+ステップ2.1: Microsoft App Studio のインストール
+注
+App Studio をインストール済みの場合は、
+次のステップ
+に進んでください。
+1
+Microsoft Teams アカウントにサインインします。
+2
+左側のナビゲーションメニューの3点リーダー (
+...
+) をクリックして、
+App Studio
+を検索します。
+3
+App Studio をクリックしてインストールします。
+#
+ステップ2.2: アプリの作成と設定
+1
+App Studio の
+[マニフェストエディター]
+タブに移動します。
+2
+[新しいアプリの作成]
+をクリックします。
+3
+表示されるページで、以下を入力します。
+短い名前
+: ボットの略称です。例 :
+OpsBot
+完全名
+:
+任意。
+ボットのフルネームです。例 :
+Opportunities Bot
+App ID
+:
+[生成]
+をクリックしてアプリ ID を生成します。
+この情報を控えておいてください
+App ID
+は、すぐに参照できるようにしておいてください。Workato 側のボットの設定で必要になります。
+パッケージ名
+: 逆引きドメインフォーマットでパッケージ名を入力します。例 :
+com.workato.opsbot
+バージョン
+: ボットのバージョンを入力します。新規ボットのバージョンは通常
+1.0.0
+です。
+短い説明
+: ボットの簡単な説明を入力します。
+詳しい説明
+: ボットの詳しい説明を入力します。
+注
+:
+[短い説明]
+と同じテキストを入力すると拒否されます。
+Web サイト
+:
+https://www.workato.com
+を入力します。
+プライバシーに関する声明
+:
+https://www.workato.com/legal/privacy-policy
+を入力します。
+使用条件
+:
+https://www.workato.com/legal/terms-of-service
+を入力します。
+ブランド
+: アプリ独自のアイコンを使用することを推奨しますが、デフォルトの Workbot アイコンでも構いません。独自のアイコンを使用する場合、サイズが Microsoft の要件を満たしていることを確認してください。
+デフォルトの Workbot アイコンを使用する場合は、右クリックして以下を保存します。
+フルカラー (192x192ピクセル)
+:
+透過輪郭 (32x32ピクセル)
+: 画像は空白で表示されますが、存在しています。アクセントカラーには
+#108921
+を使用します。
+#
+ステップ2.3: ボットへの個人タブの追加
+このステップは任意です
+ボットに個人タブを追加する必要がない場合は、
+次のステップ
+に進んでください。
+1
+左側のナビゲーションバーで
+[機能] > [タブ]
+をクリックします。
+2
+[Add a personal tab]
+をクリックします。
+3
+表示されるウィンドウで、以下を入力します。
+名前
+:
+Getting started
+を入力します。
+エンティティ ID :
+gettingstarted
+を入力します。
+コンテンツ URL
+:
+https://docs.workato.com/workbot-for-teams/getting-started.html
+を入力します。
+Web サイトの URL
+:
+https://docs.workato.com/workbot-for-teams/getting-started.html
+を入力します。
+4
+[保存]
+をクリックします。
+タブを追加したページは以下のように表示されます。
+#
+ステップ2.4: ボットの資格情報の取得
+ステップ2.4.1: クライアント ID の取得
+ステップ2.4.2: クライアントシークレットの取得
+#
+ステップ2.4.1: クライアント ID の取得
+1
+左側のナビゲーションバーで
+[機能] > [ボット]
+をクリックします。
+2
+[設定]
+をクリックします。
+3
+ボットに名前を付けます。例 :
+OpsBot
+4
+[スコープ]
+から、以下を選択します。
+個人
+チーム
+グループチャット
+ボットの作成が完了したら、ボット名の下に表示される
+ボット ID
+を控えておいてください。このボット ID はボットのクライアント ID として使用するので、すぐに参照できるようにしておいてください。Workato 側の設定で必要になります。
+#
+ステップ2.4.2: クライアントシークレットの取得
+[アプリパスワード]
+の
+[新しいパスワードを生成]
+を選択します。
+このパスワードはボットのクライアントシークレットとして使用するので、すぐに参照できるようにしておいてください。Workato 側の設定で必要になります。
+#
+ステップ3: アプリと接続するための Workato の設定
+1
+ステップ 1
+の Workato のページに戻ります。
+2
+ステップ3
+では、以下のフィールドに入力します。
+Bot ID
+:
+前のセクション
+で生成した
+ボット ID
+です。
+Client secret
+:
+前のセクション
+で生成した
+アプリのパスワード
+です。
+App ID
+:
+アプリの作成
+時に生成した
+アプリ ID
+です。
+3
+[保存]
+をクリックします。
+4
+[Step 4]
+のセクションを展開して、ボットのエンドポイントアドレスをコピーします。これは以下のような形式になります。
+https://app.workato.com/skype_webhooks/event?coak_id=42
+このアドレスは、すぐに参照できるようにしておいてください。次の手順で必要になります。
+#
+ステップ4: Workato と接続するためのアプリの設定
+ステップ4.1: ボットのエンドポイントアドレスの設定
+ステップ4.2: Workato のドメインの許可リストへの追加
+ステップ4.3: ボットのマニフェストのダウンロード
+ステップ4.4: アプリストアへのマニフェストのアップロード
+ステップ4.5: チームまたはチャネルへのボットの追加
+ステップ4.6: 認証リダイレクト URL の設定
+#
+ステップ4.1: ボットのエンドポイントアドレスの設定
+1
+Microsoft Teams App Studio に戻ります。
+2
+[マニフェストエディター] > (自身のボット) > [機能] > [ボット]
+に移動します。
+3
+[メッセージングエンドポイント]
+セクションの
+[Bot endpoint address]
+フィールドに、
+前のセクション
+で取得した
+ボットのエンドポイントアドレス
+を貼り付けます。
+#
+ステップ4.2: Workato のドメインの許可リストへの追加
+1
+左側のナビゲーションバーで、
+[完了] > [Domains and permissions]
+に移動します。
+2
+[有効なドメインを入力]
+フィールドに
+*.workato.com
+を入力します。
+3
+[追加]
+をクリックします。ドメインが
+[Additional valid domains]
+セクションに追加されます。
+#
+ステップ4.3: ボットのマニフェストのダウンロード
+1
+左側のナビゲーションバーで、
+[完了] > [Test and distribute]
+に移動します。
+2
+ページの右側にエラーが表示されている場合は、先へ進む前に解決してください。
+解決せずに進むと、アプリパッケージ (別名マニフェスト) のインストール時またはダウンロード時に問題が発生することがあります。これらの問題は通常、
+[詳細]
+>
+[アプリの詳細]
+または
+[機能]
+>
+[ボット]
+のフィールドに関係しています。
+エラーが解決されたら、次のステップに進みます。
+3
+[ダウンロード]
+をクリックします。アプリのマニフェストは、デフォルトのダウンロードフォルダーにダウンロードされます。ファイルの場所を控えておいてください。次のステップで必要になります。
+#
+ステップ4.4: アプリストアへのマニフェストのアップロード
+1
+ブラウザの新規タブを開いて、
+Microsoft Teams の管理センター
+(opens new window)
+に移動します。
+2
+左側のナビゲーションバーで
+[Teams のアプリ] > [アプリを管理]
+に移動します。
+3
+アプリの表で
+[+ アップロード]
+をクリックします。
+4
+前のセクション
+でダウンロードしたマニフェストファイルを選択してアップロードします。これにより、ボットが Microsoft のテナントアプリカタログにアップロードされます。
+#
+ステップ4.5: チーム/チャネルへのボットの追加
+1
+Microsoft のテナントアプリカタログ
+に移動します。
+2
+[Build for (自身の名前)]
+セクションで、自身のアプリを見つけて選択します。アプリが表示されない場合は、Microsoft Teams からサインアウトして、再度サインインします。
+3
+[追加]
+ボタンの横にある矢印をクリックして、
+[Add to team]
+を選択します。
+4
+チームまたはチャネルの名前を入力します。
+#
+ステップ4.6: 認証リダイレクト URL の設定
+1
+Azure ポータル
+(opens new window)
+に移動します。
+2
+検索バーに、
+App Registration
+と入力して結果を選択します。
+3
+表示されるページで、自身のボットをクリックします。
+4
+左側のナビゲーションバーの
+[認証]
+をクリックします。
+5
+[Platform configurations]
+の
+[+Add a platform/Web]
+をクリックします。
+6
+[リダイレクト URI]
+セクションに、以下の URI を追加します。
+https://www.workato.com/auth/skype/callback
+https://www.workato.com/users/auth/skype
+https://www.workato.com/oauth/callback
+7
+ページ上部近くにある
+[保存]
+をクリックします。
+#
+ステップ5: Workbot のコネクションの確立
+1
+Workato アカウントでブラウザのタブを開きます。
+2
+[Connections]
+(opens new window)
+に移動します。
+3
+[Create connection]
+をクリックします。
+4
+アプリのリストから、
+Workbot for Microsoft Teams
+を検索してクリックします。
+5
+以下の項目に入力します。
+Connection name
+: コネクションの名前を入力します。
+Location
+: コネクションを保存するフォルダーを選択します。
+Advanced settings
+:
+[API Scope(s)]
+で、ボットが使用する API スコープを選択します。デフォルトでは、
+User.Read
+、
+User.Read.All
+、
+Group.Read.All
+が要求されます。
+Custom OAuth profile
+: ボットが使用するカスタム OAuth プロファイルを選択します。
+6
+[Connect]
+をクリックします。Microsoft Teams の認証を求めるプロンプトが表示されます。
+7
+認証を実行し、プロンプトが表示されたらボットの権限を承認します。
+#
+トラブルシューティング
+アプリの追加時または認証時に権限の問題が発生する場合は、
+Microsoft Teams 管理センター
+(opens new window)
+の以下の設定を確認してください。
+組織全体のアプリ設定
+アクセス許可ポリシー
+セットアップポリシー
+#
+組織全体のアプリ設定
+1
+[Teams のアプリ] > [アプリを管理]
+に移動します。
+2
+[組織全体のアプリ設定]
+をクリックします。
+3
+[サードパーティ製アプリ]
+の下の
+[Teams でサードパーティ製アプリを許可する]
+が
+オン
+に設定されていることを確認します。
+4
+[カスタムアプリ]
+の下の
+[カスタムアプリとの相互作用を許可する]
+が
+オン
+に設定されていることを確認します。
+5
+[保存]
+をクリックします。
+#
+アクセス許可ポリシー
+1
+[Teams のアプリ] > [アクセス許可ポリシー]
+に移動します。
+2
+組織全体のポリシーを選択します。
+3
+[サードパーティ製アプリ]
+の下の
+[すべてのアプリを許可]
+が設定されているか、自身のアプリが許可されていることを確認します。
+4
+[カスタムアプリ]
+の下の
+[すべてのアプリを許可]
+が設定されているか、自身のアプリが許可されていることを確認します。
+5
+[保存]
+をクリックします。
+#
+セットアップポリシー
+1
+[Teams のアプリ] > [セットアップポリシー]
+に移動します。
+2
+組織全体のポリシーを選択します。
+3
+[カスタムアプリをアップロード]
+が
+オン
+に設定されていることを確認します。
+Last updated:
+2023/8/31 1:07:14
+On this page
+Microsoft App Studio を使用した Enterprise Workbot の作成
+ステップ1: Workato 内での Workbot の作成
+ステップ2: Microsoft Teams アプリの作成
+ステップ3: アプリと接続するための Workato の設定
+ステップ4: Workato と接続するためのアプリの設定
+ステップ5: Workbot のコネクションの確立
+トラブルシューティング
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,133 @@
+SuccessFactors - Merge record アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+SuccessFactors
+#
+Merge record (レコードのマージ) アクション
+レコード内の特定のプロパティを更新します。
+新しい値を指定しなければ、項目の値は変更されません。
+これとは反対に、
+Update アクション
+では、値を指定しない場合は項目がデフォルト値に設定されます。
+#
+入力項目
+Object
+SuccessFactors オブジェクトを選択します。オブジェクトには同じような名前が付けられる可能性があるため、リストにはその内部名が含まれます。
+Additional attributes
+選択したオブジェクトと SuccessFactors の設定に応じて後続の項目が表示され、これらの項目でレコードに関する追加の属性 (ID、開始日、ステータスなど) を定義します。
+#
+出力項目
+出力項目は、選択したオブジェクトによって異なります。利用可能なデータピルを確認するには、出力データツリーを調べてください。
+DateTime 項目
+DateTime
+項目は、システムによって UTC 時間に変換されます。元のタイムゾーンは、特に指示のない限りインスタンスの
+環境タイムゾーン
+(opens new window)
+から推論されます。データツリーとデータピルについての詳細は、
+こちら
+を参照してください。
+←
+レコード詳細の取得
+レコードの検索
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

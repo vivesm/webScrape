@@ -1,0 +1,201 @@
+Workato connectors - NetSuite REST - Execute RESTlet script action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite REST
+#
+NetSuite REST - Execute RESTlet script action
+Use this action to export or import data in NetSuite.
+Learn more about
+NetSuite RESTlet
+(opens new window)
+.
+#
+Input
+Input field
+Description
+Operation
+Select a RESTlet operation to perform from the picklist. Available operations include
+Import
+and
+Export
+.
+Export
+operations use
+GET
+methods and
+Import
+use
+POST
+HTTP methods to interact with RESTlet APIs.
+Script ID
+Provide the RESTlet script ID to perform the operation. You can get the script ID from within your NetSuite instance in
+Customization > Scripting > Scripts > NetSuite script record
+.
+Deployment ID
+Provide the RESTlet script deployment ID to perform the operation. Obtain the deployment ID from your NetSuite instance in
+Customization > Scripting > Scripts > NetSuite script record > Deployments
+.
+Request URL parameters
+Determine what the URL parameters should be and assign values to them. You can set up these parameters in Workato's graphical UI by clicking
+Add URL parameter
+. Then, provide a
+Label
+,
+Data type
+, and
+Hint
+(optional) in the
+Add new field modal
+. Alternatively, you can add the request URL parameters manually by providing a JSON description of your schema.
+Request body parameters
+This input field is only available when you perform an
+Import
+operation. Click
+Use JSON
+to describe your request body parameters in JSON, or click
+add fields manually
+to fill out the
+Add new field
+modal, determining the
+Name
+,
+Label
+,
+Data type
+, whether the parameter is
+Optional
+, and the
+Hint
+for each of your parameters.
+Response type
+Determine a response type. You can choose between JSON and plain text.
+Output schema
+Click
+Use JSON
+to describe all fields in your response using JSON, or click
+add fields manually
+to fill out the
+Add new field
+modal, determining the
+Name
+,
+Label
+,
+Data type
+, whether the parameter is
+Optional
+, and the
+Hint
+for each of your parameters.
+#
+Output
+This action does not generate any output data for use in downstream recipe steps.
+←
+Delete record action
+Execute SuiteQL query action
+→
+Last updated:
+3/4/2025, 6:33:28 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

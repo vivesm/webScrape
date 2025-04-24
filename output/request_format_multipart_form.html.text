@@ -1,0 +1,391 @@
+How to ガイド - 複合データ型 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+さまざまなデータ形式の処理
+#
+How to ガイド - 複合データ型
+複合データ型リクエスト
+(opens new window)
+は、通常、大きなファイルやデータをサーバーに送信するときに使用されます。
+このリクエスト形式は、カスタムアダプターコード内の任意のキー (
+execute
+、
+acquire
+、
+fields
+など) で宣言できます。宣言は、
+Content-Type
+ヘッダー内にデータ形式を埋め込むことで行います。
+#
+サンプルコードスニペット
+例として、
+IBM Watson API
+(opens new window)
+の Document Conversion エンドポイントを使用してみましょう。このエンドポイントは、multipart/form-data 形式の文書を受け入れます。
+cURL の例は、次のようになります。
+curl
+\
+https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version
+=
+2015
+-12-15
+\
+-X
+POST
+\
+-u
+"{username}"
+:
+"{password}"
+\
+-F
+config
+=
+"{
+\"
+conversion_target
+\"
+:
+\"
+answer_units
+\"
+}"
+\
+-F
+"
+[email protected]
+;type=application/pdf"
+Workato:
+{
+title
+:
+"IBM Watson"
+,
+connection
+:
+{
+# Some code here
+}
+,
+test
+:
+{
+# Some code here
+}
+,
+actions
+:
+{
+upload_file
+:
+{
+input_fields
+:
+lambda
+do
+[
+{
+name
+:
+"file_name"
+,
+type
+:
+"string"
+}
+,
+{
+name
+:
+"file_data"
+,
+type
+:
+"string"
+}
+,
+{
+name
+:
+"conversion_target"
+,
+type
+:
+"string"
+}
+]
+end
+,
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+post
+(
+"https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document"
+)
+.
+params
+(
+version
+:
+"2015-12-15"
+)
+.
+request_format_multipart_form
+.
+payload
+(
+file
+:
+[
+input
+[
+'file_data'
+]
+,
+'application/pdf'
+]
+,
+file_name
+:
+input
+[
+'file_name'
+]
+,
+config
+:
+"{\"conversion_target\":\"
+#{
+input
+[
+'conversion_target'
+]
+}
+\"}"
+)
+end
+}
+,
+output_fields
+:
+{
+# Some code here
+}
+}
+,
+triggers
+:
+{
+# Some code here
+}
+,
+object_definitions
+:
+{
+# Some code here
+}
+,
+pick_lists
+:
+{
+# Some code here
+}
+,
+methods
+:
+{
+# Some code here
+}
+SDK では、ペイロードの
+file
+キーは長さ2の配列を取ることに注目してください。これにより、リクエストがフォームデータとして定義されます。配列の最初の項目はファイルデータで、2番目の項目は入力ファイルのメディアタイプ (MIME タイプ) になります。
+#
+コンポーネント
+cURL
+Workato
+curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST
+post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")
+.params(version: "2015-12-15")
+-u "{username}":"{password}"
+これは [connection](../authentication/basic-authentication.md) キーで定義され、自動的に送信リクエストに追加されます。
+-F config="{\"conversion_target\":\"answer_units\"}"
+-F "
+[email protected]
+;type=application/pdf"
+.request_format_multipart_form
+.payload(
+file: [input['file_data'], 'application/pdf'],
+file_name: input['file_name'],
+config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")
+#
+バリエーション
+場合によっては、ファイル名を、前の例のように個別のキーと値のペアではなく、ファイルペイロードの一部として複合データ型で明示的に記述する必要があります。そのために、ペイロードを複合データ型に合わせることができます。
+注意: このファイル名はペイロードキー (
+file
+) とは異なります。
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+post
+(
+"https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document"
+)
+.
+params
+(
+version
+:
+"2015-12-15"
+)
+.
+request_format_multipart_form
+.
+payload
+(
+file
+:
+[
+input
+[
+'file_data'
+]
+,
+'application/pdf'
+,
+input
+[
+'file_name'
+]
+]
+,
+config
+:
+"{\"conversion_target\":\"
+#{
+input
+[
+'conversion_target'
+]
+}
+\"}"
+)
+end
+←
+URL エンコードフォーム
+API 認証
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サンプルコードスニペット
+コンポーネント
+バリエーション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

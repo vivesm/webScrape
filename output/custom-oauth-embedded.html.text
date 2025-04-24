@@ -1,0 +1,127 @@
+カスタムOAuthプロファイル - 組み込みパートナー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+#
+組み込みパートナー向けのカスタムOAuthプロファイル
+組み込みパートナー向けのカスタムOAuthプロファイルを使用すると、サポートされているコネクタ上で独自のカスタムアプリを作成し、それらをWorkatoに接続することができます。これにより、アプリのブランディング、許可スコープ、およびOAuthプロファイルを制御できます。
+データが所有していないアプリを介さずに流れることができない場合や、Workatoがサポートしていないスコープのアプリケーションに対して自分自身のアプリケーションでの権限を持っている場合など、セキュリティ上の理由でカスタムOAuthプロファイルを作成することがあります。
+組み込みパートナーとして、アプリケーションを登録することで、OAuth同意フォームが「Workato」の許可を要求するものではなくなります。代わりに、フォームを構成して組織に合わせたブランド体験を提供できます。
+組み込みパートナー向けには、以下のアプリに対してカスタムOAuthプロファイルが利用可能です：
+Google Drive
+Google Sheets
+HubSpot
+OneDrive
+Outlook
+Microsoft Dynamics
+Microsoft Sharepoint
+Salesforce
+Salesforce（セカンダリ）
+Zoom
+さらに、直接のユーザーに利用可能なOAuthプロファイルは、組み込みパートナーにも利用可能です。これには以下が含まれます：
+Slack
+Workbot for Slack
+Workbot for Microsoft Teams
+追加情報
+管理者アカウントでカスタムOAuthプロファイルを作成する方法
+カスタマーアカウントにカスタムOAuthプロファイルを適用する方法
+←
+API プラットフォーム
+作成
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

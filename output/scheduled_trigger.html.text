@@ -1,0 +1,169 @@
+Workato connectors - Active Directory - Scheduled entry search trigger (Batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Active Directory
+#
+Scheduled entry search trigger (Batch)
+The
+Scheduled entry search
+batch trigger searches Active Directory entries on a schedule you specify. The trigger retrieves a list of entries matching the criteria you specify and processes them batches.
+#
+Input fields
+Input field
+Description
+Sample entry DN
+Specify the distinguished name (DN) of a reference entry. The trigger uses this entry’s attributes as a template to define sub-fields in the
+Search by
+field and retrieve values from matching entries.
+Trigger on
+Select whether to search at a
+Specific interval
+or
+Specific date/time
+.
+Entry search filter
+Enter
+LDAP filters
+(opens new window)
+to define search conditions. For example, enter
+(ou=Dev)(objectClass=Person)
+to retrieve only
+Person
+entries from the
+Dev
+organization unit.
+Batch size
+Specify the number of entries to process in each batch. The default value is
+100
+and the maximum is
+1,000
+.
+Limit
+Enter the maximum number of entries you plan to retrieve each trigger event. The maximum value is
+1,000
+.
+Search by
+Enter values for each attribute you plan to filter by. Only entries that match all the provided values are processed. This field includes sub-fields for each attribute of the reference entry.
+ADDITIONAL INPUT FIELDS
+The recipe editor generates additional input fields based on your
+Trigger on
+selection. Use these fields to specify the trigger schedule.
+#
+Output fields
+Input field
+Description
+Entries
+A list of retrieved entries and their values for attributes defined by the reference entry.
+First batch
+Indicates whether the current batch is the first batch.
+Last batch
+Indicates whether the current batch is the last batch.
+←
+New/updated entry trigger
+Search users action
+→
+Last updated:
+12/19/2024, 6:02:19 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

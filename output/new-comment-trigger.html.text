@@ -1,0 +1,155 @@
+Workato connectors - Wrike new comment trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - New comment trigger
+This trigger picks up comments that are created.
+Each comment is processed as a separate job. It checks for new jobs once every poll interval, retrieving up to 7 days of new comments for each poll.
+If the last new comment event is older than 7 days, more than 1 poll will be required to retrieve new comments up to current date & time.
+New comment trigger
+#
+Input fields
+Input field
+Description
+When first start, this recipe should pick up events from
+Comments created after this time will be processed by the recipe. If left blank, the default date will be set to
+one hour
+before the recipe is first started.
+#
+Output fields
+The output of this trigger contains the full set of columns from the selected comment. Here are some commonly used outputs. Since each Wrike comments are uniquely attached to folders or task, either the
+Folder ID
+or the
+Task ID
+will be displayed.
+Output field
+Description
+Comment ID
+The ID of the comment.
+Author ID
+The ID of the author.
+Text
+The text of the comment.
+Updated data
+The date this comment was updated.
+Created data
+The date this comment was created.
+Folder ID
+The ID of the related task. Either
+Folder ID
+or
+Task ID
+is displayed.
+Task ID
+The ID of the related folder. Either
+Folder ID
+or
+Task ID
+is displayed.
+←
+Connection setup
+New event trigger (real-time)
+→
+Last updated:
+7/2/2021, 8:23:33 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

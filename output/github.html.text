@@ -1,0 +1,213 @@
+Github | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Github
+Github
+(opens new window)
+は、多くの開発者や企業により利用されている、人気のバージョン管理アプリケーションです。
+Github コネクターを使用すると、Github を中心とした強力な自動化を構築して、ソフトウェア開発プロセスやアジャイルスプリントを管理することができます。
+#
+API バージョン
+このコネクターは Github
+REST API
+(opens new window)
+を使用します。
+#
+Workato での Github への接続方法
+Workato では以下の2つの方法で Github に接続できます。
+Workato レシピがお客様に代わってアクションを実行することが可能な従来の OAuth アプリを使用する。詳細については、
+こちら
+を参照してください。
+Workato レシピがアプリとしてアクションを実行することが可能な Github アプリを作成する。詳細については、
+こちら
+を参照してください。
+違いについては、
+こちら
+(opens new window)
+を参照してください。
+ほとんどの場合は、Github の推奨に従って、詳細なアクセス制御を行えるように Github アプリを作成します。また Github アプリはどのユーザーのアイデンティティも持たないため、レシピが実行している機能についてより明確な洞察を得ることもできます。
+TIP
+Github アプリを使用してコネクションを作成する場合には、作成する各コネクションは、組織またはユーザーのアカウント内の Github アプリの特定のインストールに結び付けられます。
+#
+従来の OAuth での認証
+従来の OAuth を使用して Github から認証を受けるには、単に [Connect] をクリックします。Github にリダイレクトされ、そこで Workato の OAuth アプリが代わりにアクションを実行するための承認を要求します。
+コメント、イシュー、プルリクエストの作成は、認証されたユーザー (お客様) の名前で行われます。
+認証タイプとして OAuth アプリを選択して [Connect] をクリックする
+#
+Github アプリでの認証
+Github アプリを使用して Github から認証を受けるには、追加の手順が必要になります。
+認証タイプとして Github アプリを選択して Github アプリから詳細を収集する
+#
+ステップ1: 作成していない場合は Github アプリを作成する
+この Github アプリは Workato コネクションに結び付けられます。これがリポジトリに変更を加えている自動化であることがどのチームメイトにもわかるように、一意の名前とアバターで Github アプリを作成できます。
+Github アプリの作成方法については、
+こちら
+(opens new window)
+を参照してください。
+#
+ステップ2: インストールしていない場合は組織/ユーザーアカウントに Github アプリをインストールする
+特定の Github アプリに結び付けられるほか、この Workato コネクションはこの Github アプリの特定のインストールにも結び付けられます。Github アプリは、自分が所有しているか管理者である組織にインストールできます。Github アプリの設定ページに移動し、
+Install App
+を選択します。
+このセクションには、このアプリをインストール可能な、自分が属す組織のリストが表示される
+TIP
+自分が管理者ではない組織に Github アプリをインストールする場合は、その組織の管理者にインストールを要求することになります。
+#
+ステップ3: アプリの設定ページから Github アプリ ID と秘密鍵を取得する
+次は、Workato コネクションに対して、Github アプリからの資格情報を指定する必要があります。アプリ ID は Github アプリの
+General
+設定ページで確認できます。
+このアプリ ID を保存してコネクションで使用する
+続いて、秘密鍵を生成できるセクションまでページをスクロールします。まだ
+General
+設定ページにいます。
+秘密鍵を生成する
+この鍵はマシンに自動的にダウンロードされます。この
+.pem
+ファイルをテキストエディターで開いて、秘密鍵の内容を確認します。以下のような形式になります (実際はさらに長い)。
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAyL/wuiSaWoH0pyf366G5E7dbzzmON1qMMrWvls8RtZtgOLjb
+FBxj6gO2aUfoGbMCMqOYRV6xCn6tK118sGYMd5U/kCFu3IRPr/2GoEtcrf0TecQG
+ON+27ijH0Vpn62o8NzGejdy0AWujrtAl6F8xGZeze0PzrGvW6h/GnAdZO1gJnp8t
+wmEqEMXqAsPOQ0hkY+r+pE8RKQVsJCe+PIanBKp7RKWDi9usPFZQdQ==
+-----END RSA PRIVATE KEY-----
+-----BEGIN RSA PRIVATE KEY-----
+と
+-----END RSA PRIVATE KEY-----
+も含め、鍵全体をコピーし、コネクションの
+Github App Private key
+入力項目に貼り付けます。
+#
+ステップ4: インストール ID を取得する
+インストール ID は、Github アプリのインストール先の組織またはユーザーの設定で確認できます。
+ユーザーについては、
+Settings
+>
+Applications
+>
+Your GitHub App
+>
+Configure
+の順に選択します。インストール ID は URL の末尾で確認できます。URL が
+https://github.com/settings/installations/13876669
+の場合、インストール ID は
+13876669
+です。
+組織については、組織の Github ホームページで、
+Settings
+>
+Installed Github Apps
+>
+Configure
+の順に選択します。インストール ID は URL の末尾で確認できます。URL が
+https://github.com/settings/installations/13876669
+の場合、インストール ID は
+13876669
+です。
+このインストール ID を保存して、Workato コネクションに対して入力します。これで準備完了です。
+←
+FTP
+Gmail
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Github への接続方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,220 @@
+HTTP SSL certificate verify failed | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Solution articles
+#
+HTTP SSL certificate verify failed
+The
+Certificate verify failed
+error occurs when you attempt to connect to the
+HTTP connector
+in Workato without a valid certificate.
+Workato::Adapters::OnException::Exception: SSL_connect returned=1 errno=0 state=error: certificate verify failed
+#
+Solution
+Use the following example as a guide to troubleshoot the
+Certificate verify failed
+error:
+EXPIRED OR DOMAIN MISMATCH CERTIFICATE ISSUES
+If the certificate is not accepted because it is self-signed, you can export the self-signed certificate and configure the Workato HTTP connector to trust it. However, if the certificate is rejected for other reasons, such as being expired or having a domain mismatch, these steps do not apply.
+#
+Download the certificate chain
+Complete the following steps to download the certificate chain:
+1
+Open a browser, such as Firefox, and navigate to the page that uses a self-signed SSL certificate. For illustration purposes, you can use
+https://self-signed.badssl.com/
+.
+2
+Click
+Advanced… > View Certificate
+to obtain the certificates.
+Obtain the certificates
+3
+Click
+PEM (chain)
+to download the entire certificate chain.
+Download the certificate chain
+WHY DOWNLOAD THE CERTIFICATE CHAIN
+To ensure a secure connection, download the entire certificate chain. This chain can consist of multiple certificates, such as the server certificate, intermediate certificates, and the root certificate.
+Certificate chaining is essential because each certificate in the chain verifies the preceding one. To establish trust with the endpoint or site through Workato, having all these certificates is crucial.
+4
+Open the downloaded certificate using a text editor. In this example, there is only one certificate.
+Open the downloaded certificate using a text editor
+5
+Copy the contents of the certificate, starting from
+-----BEGIN CERTIFICATE-----
+to
+-----END CERTIFICATE-----
+.
+Now that you have the certificate chain, you can
+configure the HTTP connection
+in Workato.
+#
+Configure the HTTP connection
+Complete the following steps to configure the HTTP connection:
+1
+Navigate to the
+Connections
+tab in Workato and click
+Create > Connection
+.
+2
+Search for and select
+HTTP
+as your connector.
+3
+Complete the required fields. Refer to the
+HTTP connection setup
+documentation for more information.
+4
+Set the
+Use custom TLS/SSL certificate settings
+field to
+Yes
+.
+5
+Paste the downloaded certificate contents in the
+TLS server custom CA certificate
+field.
+SEPARATE MULTIPLE CERTIFICATES
+If the certificate chain includes multiple certificates, separate each one with an empty line.
+Paste the downloaded certificate contents
+6
+Click
+Connect
+.
+The HTTP operations should now access the same endpoint successfully, and the job should complete without errors.
+#
+Troubleshoot certificate errors
+When performing an operation through our HTTP connector, you may encounter the following error:
+SSL_connect returned=1 errno=0 state=error: certificate verify failed (unable to get issuer certificate)
+If this error occurs and the connection already uses custom CA certificates, the issue is likely due to an incomplete certificate chain.
+Complete the following steps to resolve this error:
+1
+Ensure the entire certificate chain is provided in the
+TLS server custom CA certificate
+input field, with each separated by an empty line. The following should be included in the chain:
+The server certificate
+Any intermediate certificates
+The root certificate
+2
+Verify the certificate chain configuration. If the certificate chain is complete and correctly configured, the action should work with the connector and through tools such as cURL and Postman.
+3
+Ensure the SSL certificate chain is valid by using tools such as
+KeyCDN SSL Checker
+(opens new window)
+before attempting other troubleshooting steps.
+Example of a certificate chain check for
+https://www.google.com
+#
+Why this error occurs
+This error occurs because SSL certificates that are self-signed are not recognized as secure by most SSL libraries used by applications such as Google Chrome, Mozilla Firefox, and Postman.
+The same applies to our HTTP connector in Workato. When using self-signed certificates with the HTTP connector, these certificates must be explicitly trusted. To ensure they are correctly recognized and validated, you must provide the entire certificate chain during connection setup.
+←
+Column does not exist
+Common recipe errors
+→
+Last updated:
+7/31/2024, 6:37:47 PM
+On this page
+Solution
+Why this error occurs
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

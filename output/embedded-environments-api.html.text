@@ -1,0 +1,291 @@
+Embedded Environments - APIs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Features
+Environments
+#
+Embedded Environments APIs
+Embedded APIs
+are fully compatible with Embedded Environments. You can continue to use the same Embedded API across all environments by targeting the appropriate workspace ID. When provisioning Environments for an existing Embedded Customer, their original workspace ID becomes the Development workspace ID, and two new IDs are generated for the TEST and PROD Environments.
+#
+Embedded APIs with and without Environments
+The base URL for all Embedded API interactions is:
+.../api/managed_users/
+Append the
+managed_user_id
+to this base URL to interact with a specific customer. This allows you to manage each environment for customers with Environments provisioned by pointing to each workspace ID. If the customer doesn't have Environments provisioned, you can use the URL
+/api/managed_users/:managed_user_id
+to interact with a specific customer.
+WORKSPACE ID REPRESENTATION FOR PROVISIONED AND NON-PROVISIONED ENVIRONMENTS
+The
+managed_user_id
+represents the Workspace ID when Environments is not provisioned.
+The
+managed_user_id
+represents each environment ID (Development, Test, or Production) when Environments is provisioned. To find the
+managed_user_id
+: click
+Workspace Admin > Settings > Workspace ID
+.
+Use the following API endpoints to target a specific environment within a customer's account:
+Development environment:
+/api/managed_users/:managed_user_id_dev
+Test environment:
+/api/managed_users/:managed_user_id_test
+Production environment:
+/api/managed_users/:managed_user_id_prod
+When you provision Environments for an existing customer, their original
+:managed_user_id
+is designated for the Development environment (
+:managed_user_id_dev
+). New unique identifiers are generated for the Test and Production environments (
+:managed_user_id_test
+and
+:managed_user_id_prod
+, respectively). This ensures that each environment is independently accessible and manageable through the API, providing precise control over the deployment and operation of integrations across different development stages.
+#
+Provision Environments programmatically
+You can provision the Environments feature programmatically for new and existing managed customers. Refer to the
+Embedded APIs Environments
+section for more information.
+#
+How to get the correct ID
+You can retrieve the IDs for your customers' environments using the
+Get List Of Customers API
+.
+When listing your customers, those with Environments provisioned return the new property
+environments
+with the PROD and TEST environments IDs.
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/managed_users
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+{
+"id"
+:
+29727
+,
+//this is the used_id for a customer without ENVs
+"external_id"
+:
+null
+,
+"name"
+:
+"new"
+,
+"environments"
+:
+[
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+...
+}
+,
+{
+"id"
+:
+29833
+,
+//this is the used_id_dev for a customer with ENVs
+"external_id"
+:
+null
+,
+"name"
+:
+"Alex"
+,
+"environments"
+:
+[
+{
+"id"
+:
+29835
+,
+//this is the used_id_prod for a customer with ENVs
+"environment_type"
+:
+"prod"
+}
+,
+{
+"id"
+:
+29834
+,
+//this is the used_id_test for a customer with ENVs
+"environment_type"
+:
+"test"
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+...
+}
+,
+}
+#
+External IDs for environments
+You can also specify unique external IDs for each of your customers' environments. External IDs enable you to manage customers programmatically in the same way as you do for customers without Environments.
+To add an external ID, you can either
+Update the customer through the API
+or add it through the UI:
+1
+Navigate to
+Manage customers
+.
+2
+Click
+Settings > External IDs
+.
+#
+Exclusive development environment access
+Certain API endpoints, designed for development activities like collaborator management, are exclusively accessible within the Development environment. An error displays if you try to access these endpoints from your TEST or PROD environments.
+For example:
+#
+Sample request
+curl
+-X
+POST https://www.workato.com/api/managed_users/:managed_user_id_test
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"message"
+:
+"Not Available for Environment"
+}
+←
+Deployment
+Collaborator roles and Environments
+→
+Last updated:
+1/9/2025, 10:56:53 PM
+On this page
+Embedded APIs with and without Environments
+Provision Environments programmatically
+How to get the correct ID
+External IDs for environments
+Exclusive development environment access
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

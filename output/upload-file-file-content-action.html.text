@@ -1,0 +1,156 @@
+Workato connectors - OneDrive - Upload file via file content action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+OneDrive
+#
+OneDrive - Upload file using file content action
+The
+Upload file using file content
+action uploads a file to Microsoft OneDrive using its content. The maximum supported file size is 4MB.
+#
+Input
+Input fields
+Description
+Folder
+Specify the folder path where the file is uploaded. For example,
+folder-one/folder-two
+.
+File name
+Provide the file name with its extension, such as
+New-csv-file.csv
+. If a file with the same name and extension exists, the action overwrites it with the new data.
+File contents in text or binary format
+Provide the file content in text or binary format to upload.
+#
+Output
+Output fields
+Description
+ID
+The unique identifier of the uploaded file.
+Name
+The name of the uploaded file.
+File size
+The size of the uploaded file in bytes.
+Web URL
+The URL to view the file or folder in a web browser.
+Download URL
+The URL to download the file.
+Kind
+Indicates whether the item is a file or folder.
+Created by
+Information about the user who created the file or folder.
+Created date time
+The date and time when the file or folder was created.
+Last modified by
+Information about the user who last modified the file or folder.
+Last modified date time
+The date and time when the file or folder was last modified.
+←
+Search files action (batch)
+Upload file URL action (file)
+→
+Last updated:
+1/16/2025, 3:49:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

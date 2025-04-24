@@ -1,0 +1,258 @@
+ボタン、タスクモジュール、ピックリスト | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for MS teams
+#
+Workbot のボタン、タスクモジュール、ピックリスト
+ボタンまたはタスクモジュールの送信によって、Workbot コマンドを呼び出せます。
+[Create issue] ボタンを押すと「newissue」コマンドが送信され、レシピが実行される
+ボタンやタスクモジュールによって Workbot コマンドを呼び出す際に、追加のパラメータを渡すこともできます。パラメータは通常、呼び出される Workbot レシピに必要な情報を渡すために使用します。
+[Re-open issue] ボタンは「reopen_issue」コマンドを呼び出すだけでなく、パラメータも渡す
+「reopen_issue」レシピがどの問題を再度オープンすべきかを認識できるように、「sys_id」を渡すように設定されている [Re-open issue] ボタン
+ピックリスト内の選択肢から Workbot コマンドを呼び出すことはできませんが、同じメッセージ内で、ボタンまたはタスクモジュールの送信と一緒に選択パラメータを渡すことが可能です。
+選択パラメータには選択肢からの値が設定される
+選択パラメータは、同じメッセージ内のボタンが押されたときに (ボタンに設定されているその他のパラメータとともに) 渡されます。
+[Next] ボタンは呼び出すコマンドレシピに対して「Google」という「opportunity_id」も渡している
+#
+ボタンの設定
+ボタンは
+Post reply
+または
+Post message
+アクションで使用できます。
+ボタンは別のレシピの Workbot コマンドを実行するように設定可能
+以下の表に、ボタンの項目に入力する内容を示します。
+入力項目
+値
+説明
+Title
+ボタンのラベル。例
+Create ticket
+表示するボタンのラベルを入力します。
+Submit button command
+ボタンのクリック時に実行する Workbot コマンド。例
+create_ticket
+Workbot コマンドにより呼び出せる既存のレシピのリストから選択します。
+Parameters
+ボタンのクリック時に次のレシピに渡すパラメータ値。例
+{
+"sys_id": "
+sys_id
+"
+"summary": "
+Summary
+",
+"description": "
+Description
+"
+}
+パラメータ値として次のレシピに渡す、名前と値のペアを入力します。データピルは二重引用符で囲む必要があります。
+#
+ピックリストと選択肢の設定
+選択肢から Workbot コマンドを呼び出すことはできませんが、同じメッセージ内で、ボタンまたはタスクモジュールの送信と一緒に選択パラメータを渡すことが可能です。
+選択パラメータには選択肢からの値が設定される
+選択パラメータは、同じメッセージ内のボタンが押されたときに (ボタンに設定されているその他のパラメータとともに) 渡されます。
+[Next] ボタンは呼び出すコマンドレシピに対して「Google」という「opportunity_id」も渡している
+以下の表に、ピックリストと選択肢の項目に入力する内容を示します。
+入力項目
+説明
+Pick list name
+ピックリストの名前。選択肢の前に表示されます。マークダウンに対応しています。
+Pick list style
+[
+Compact
+] では選択肢がドロップダウンメニューに、[
+Expanded
+] ではすべての選択肢がラジオボタンとして表示されます。
+Choice parameter
+選択肢の値を格納するパラメータの名前。この名前と値のペアは、追加のパラメータとして渡されます。
+Title (choice)
+表示される選択肢のタイトル。
+Value (choice)
+選択肢の値。選択すると、値が [
+Choice parameter
+] に渡されます。
+#
+タスクモジュール
+Workbot コマンドでパラメータが定義されている場合、Workbot はパラメータ値をユーザーから収集するために、Teams 内でタスクモジュールを起動します。
+レシピ内のパラメータ
+ユーザーにパラメータ値の入力を求める際には、タスクモジュールは以下のように表示されます。
+レシピ内のパラメータ
+#
+タスクモジュールでのヒントと値の例の追加
+各パラメータに対してヒントと値の例を設定できます。ヒントは入力フィールドの下に、値の例は入力フィールドの中に表示されます。
+レシピ内のパラメータ
+ユーザーにパラメータ値の入力を求める際には、タスクモジュールは以下のように表示されます。
+入力フィールドの下のヒント、入力フィールドの中の値の例
+#
+パラメータの非表示
+[
+Optional
+] を [
+Yes
+]、[
+Visible?
+] を [
+No
+] に設定することにより、パラメータを非表示にできます。これは、ユーザーに入力を求める必要がないレコード ID を渡す場合に有用です。
+パラメータはタスクモジュールで非表示になります。
+#
+タスクモジュールのピックリストオプションの追加
+ユーザーが限定された選択肢のリストから選択できるように、ピックリストオプションを設定することができます。これは、使用可能なオプションがわかっている場合に有用です。たとえば、Urgency (High:1, Medium: 2, Low: 3)、Priority (1,2,3,4,5) などのオプションです。
+ピックリストを追加するには、[
+Options
+] 項目に、カンマで区切ってオプションを追加します。表示名とその値を異なるものにしたい場合は、コロンで区切ります (例
+High:1,Medium:2,Low:3)。
+ピックリストの表示名と値には、
+:
+または
+,
+を含めることはできません。
+表示名と値が同じであるオプション
+表示名と値が異なるオプション
+タスクモジュールのピックリストに表示されたオプション
+#
+動的ボタンとファクトセット
+ボタンとファクトセットも、リストデータピルを使用して動的に生成することができます (リストの詳細については、
+リストの管理
+に関するガイドを参照してください)。
+ボタン (またはファクトセット) の項目で、右上の横向きの3点リーダーをクリックし、[Dynamic List] を選択します。動的リストオプションが表示されます。
+以下の表に、動的ボタンの項目に入力する内容を示します。
+入力項目
+値
+説明
+Button source list
+リストデータピルを入力します。例
+Users
+データツリー内で、リストデータピルの横にはリストアイコンが表示されます。たとえば Salesforce の Users では以下のようなリストを使用します。
+Title
+ボタンのラベル。例
+Assign users
+表示するボタンのラベルを入力します。通常、リストデータピルからのデータピルを使用します。たとえば Salesforce のユーザーリストのデータピルである Salesforce のユーザー名を使用します。
+Submit button command
+ボタンのクリック時に実行する Workbot コマンド。例
+assign_user
+既存の Workbot コマンドレシピから選択するか、新しいコマンドを入力します。このボタンをクリックすると、対応するコマンドトリガーを含むレシピがトリガーされます。
+Additional parameters
+ユーザーがボタンをクリックして送信すると、追加のパラメータが渡されます。JSON 形式で名前と値のペアを指定します。例
+{
+"opportunity_id": "
+Opportunity ID
+",
+"stage": "
+Stage
+"
+}
+追加のパラメータとして次のレシピに渡す、名前と値のペアを入力します。
+#
+詳細
+Workbot for Microsoft Teams の使用
+Workbot のトリガー
+Workbot のアクション
+←
+アクション
+実行時ユーザー接続
+→
+Last updated:
+2024/2/22 23:17:11
+On this page
+ボタンの設定
+ピックリストと選択肢の設定
+タスクモジュール
+タスクモジュールのピックリストオプションの追加
+動的ボタンとファクトセット
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

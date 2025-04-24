@@ -1,0 +1,245 @@
+Workato connectors - HubSpot | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+HubSpot
+HubSpot
+(opens new window)
+is a leading growth platform that offers a full suite of marketing, sales, customer service, CRM software and additional services. The platform enables businesses to optimize their content, nurture leads, and monitor contacts as they become customers, to track marketing progress. HubSpot also supports integration with an ever-growing range of customer success, productivity, and finance applications to facilitate and boost the growth of businesses.
+#
+API version
+The HubSpot connector uses the
+HubSpot REST API v3
+(opens new window)
+.
+#
+Supported editions and versions
+The HubSpot connector works with all HubSpot cloud instances, for example,
+Starter, Professional, and Enterprise
+.
+However, the availability of HubSpot connector triggers and action depends on the HubSpot account privileges. Access to HubSpot APIs depends on the account tier. Learn more about
+HubSpot account tiers
+(opens new window)
+.
+#
+How to connect to HubSpot on Workato
+The HubSpot connector uses OAuth 2.0 authentication with HubSpot.
+Complete the following steps to authenticate with HubSpot:
+1
+Provide a unique
+Connection name
+to identify which HubSpot instance it connects to.
+2
+Optional. Go to the
+Advanced settings
+section and choose the scopes that enable you to grant access to additional HubSpot features and set up custom actions. The connector requests the necessary set of scopes for its triggers and actions to function by default. Refer to the complete list of
+available scopes
+for more information.
+3
+Optional. Select a
+Custom OAuth profile
+for this connection or
+create a new one
+.
+4
+Click
+Connect
+.
+5
+Select the HubSpot account where you plan to authorize Workato and click
+Choose Account
+.
+Select an account
+#
+List of triggers and actions
+Workato currently supports the following HubSpot triggers and actions. We are actively working on adding support to a wider range of triggers, actions, and objects. Find out more details about each by clicking on the links below. You can also navigate to them through the sidebar.
+New/Updated Record triggers
+New Record triggers
+Create actions
+Update actions
+Add actions
+Get actions
+Search actions
+Remove actions
+Delete actions
+#
+Updated triggers and actions
+The following triggers and actions have been deprecated. Use the updated triggers and actions instead.
+Deprecated trigger/action
+Updated trigger/action
+New/updated contact trigger
+Upgrade to
+New/Updated Records trigger
+.
+New/updated company trigger
+Upgrade to
+New/Updated Records trigger
+.
+New/updated company trigger
+Upgrade to
+New/Updated Records trigger
+.
+New/updated deal trigger
+Upgrade to
+New/Updated Records trigger
+.
+New contact in contact list trigger
+Upgrade to
+New contact in list trigger
+.
+Add contacts into contact list action
+Upgrade to
+Add contact to list action
+.
+Get contacts in contact list action
+Upgrade to
+Get contacts in list action
+.
+Remove contact from contact list action
+Upgrade to
+Remove contact from list action
+.
+New company action
+Upgrade to
+New Records action
+.
+New contact action
+Upgrade to
+New Records action
+.
+Search companies action
+Upgrade to
+Search Records action
+.
+Search contacts action
+Upgrade to
+Search Records action
+.
+Get deal by ID action
+Upgrade to
+Get Records action
+.
+Get contact details by email action
+Upgrade to
+Get Records action
+.
+Get contact details by VID action
+Upgrade to
+Get Records action
+.
+Get company details action
+Upgrade to
+Get Records action
+.
+←
+List records
+Create a Custom OAuth profile
+→
+Last updated:
+4/12/2025, 2:38:40 PM
+On this page
+API version
+Supported editions and versions
+How to connect to HubSpot on Workato
+List of triggers and actions
+Updated triggers and actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,383 @@
+Troubleshooting - Formula troubleshooting | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Modify recipe data
+Formulas
+#
+Formula troubleshooting
+This guide helps you solve specific problems in Workato recipes. Each scenario shows how to use formulas to transform, validate, and process data effectively.
+#
+Transform multiline text into a comma-separated string
+Some systems, such as Salesforce or text exports, store data with line breaks (
+\n
+) to separate values. Target systems often require data in a single, comma-separated format.
+#
+Solution
+Complete the following steps to transform a multiline text input into a comma-separated string:
+1
+Go to the recipe step with a field that accepts multiline text input.
+2
+Activate
+Formula
+mode in the field where you plan to transform the multiline text.
+3
+Enter the following formula to replace the line breaks with commas:
+<TextField>.gsub("\n",",")
+Replace
+<TextField>
+with the relevant datapill or static multiline text.
+#
+Remove duplicates in a comma-separated string
+Data sources often produce strings with duplicate values, such as
+Apple, Banana, Apple
+. These duplicates can cause errors or inconsistencies in downstream systems that require unique values.
+#
+Solution
+Complete the following steps to remove duplicates from a comma-separated string:
+1
+Go to the recipe step with a field that accepts a comma-separated string.
+2
+Activate
+Formula
+mode in the field where you need to clean up duplicates.
+3
+Enter the following formula to split the string into an array, remove duplicates, and rejoin it as a cleaned string:
+<TextField>&.split(“,”)&.uniq&.join(", ")
+Replace
+<TextField>
+with the relevant datapill or static string.
+#
+Split comma-separated strings into arrays
+Some systems provide data as a comma-separated string. Target systems often require this data as individual items for multi-picklist fields or other processing steps.
+#
+Solution
+Complete the following steps to split a comma-separated string into an array:
+1
+Go to the recipe step with a field that accepts a comma-separated string.
+2
+Activate
+Formula
+mode in the field where you need to split the string.
+3
+Enter the following formula to split the string into an array:
+<TextField>.split(",")
+Replace
+<TextField>
+with the relevant datapill or static string.
+#
+Join arrays into line-break-separated strings
+Some systems provide data as an array of strings. Target systems often require this data in a line-break-separated format for text fields or custom logs.
+#
+Solution
+Complete the following steps to join an array of strings into a line-break-separated format:
+1
+Go to the recipe step with a field that accepts array input.
+2
+Activate
+Formula
+mode in the field where you plan to transform the array.
+3
+Enter the following formula to join the array into a line-break-separated string:
+<Array>.join("\n")
+Replace
+<Array>
+with a relevant datapill or static array.
+#
+Transform an array into a comma-separated string
+Dynamic fields often return data as arrays of values. Target systems that require text inputs often need this data as a single, comma-separated string.
+#
+Solution
+Complete the following steps to convert an array of strings into a single, comma-separated list:
+1
+Go to the recipe step with a field that accepts array input.
+2
+Activate
+Formula
+mode in the field where you plan to transform the array.
+3
+Enter the following formula to transform the array into a comma-separated string:
+<Array>.join(", ")
+Replace
+<Array>
+with a relevant datapill or static array.
+#
+Convert date strings to date format
+Some sources provide dates as strings, such as
+MM/DD/YYYY
+. Target systems often require these dates in a proper format for calculations or comparisons.
+#
+Solution
+Complete the following steps to convert a date string into a proper date format:
+1
+Go to the recipe step with a field that accepts date input.
+2
+Activate
+Formula
+mode in the field where you plan to convert the date string.
+3
+Enter the following formula to convert the string into a date format:
+<Date>.to_date(format:“MM/DD/YYYY”)
+Replace
+<Date>
+with the relevant datapill or static date string. Ensure the format inside
+format: "MM/DD/YYYY"
+matches the actual structure of the input string.
+#
+Extract first item from an array
+Some systems return arrays, even when they contain only one value. Target systems often require just the first item for further processing or as a standalone value.
+#
+Solution
+Complete the following steps to extract the first value from an array:
+1
+Go to the recipe step with a field that accepts array input.
+2
+Activate
+Formula
+mode in the field where you plan to extract the first item.
+3
+Enter the following formula to extract the first value from the array:
+<Array>.first
+Replace
+<Array>
+with a relevant datapill or static array.
+#
+Truncate a string to fit field length
+Target systems often enforce strict character limits, such as 255 characters. Strings that exceed these limits can cause errors during updates.
+#
+Solution
+Complete the following steps to truncate a string to fit a field’s length limit:
+1
+Go to the recipe step with a field that accepts text input.
+2
+Activate
+Formula
+mode in the field where you plan to truncate the string.
+3
+Enter the following formula to truncate the string:
+<Text>.slice(0, 255)
+Replace
+<Text>
+with the relevant datapill or static string, and adjust
+255
+to match the character limit of your target system.
+#
+Validate field length
+Some systems, such as Salesforce, require fields like opportunity IDs to match a specific length. Validating the length ensures data integrity before further processing.
+#
+Solution
+Complete the following steps to validate a field’s length:
+1
+Add an
+IF Condition
+step in your recipe.
+2
+Activate
+Formula
+mode in the
+Data field
+where you plan to check the field’s length.
+3
+Enter the following formula to calculate the field’s length:
+<Field>.length
+Replace
+<Field>
+with the relevant datapill or a static string.
+4
+Set the condition to compare the field length with the target value. For example:
+Equals
+18
+to validate Salesforce opportunity IDs.
+Greater than
+0
+to ensure the field is not empty.
+#
+Convert a date to a different format
+Some systems require dates in specific string formats for logs, reports, or user-facing fields. Convert the source date into a compatible format to meet system or audience needs.
+#
+Solution
+Complete the following steps to convert a date into a different format:
+1
+Go to the recipe step with a field that accepts a date input.
+2
+Activate
+Formula
+mode in the field where you plan to reformat the date.
+3
+Enter the following formula to reformat the date:
+<Date>.strftime("%A, %B %d")
+Substitute
+<Date>
+with the relevant datapill or static date string, and adjust the format string
+("%A, %B %d")
+to match your desired output. For example, if
+<Date>
+contains
+2025-01-05
+(in YYYY-MM-DD format), the formula will output
+Monday, January 05
+.
+#
+Example of different formats
+The
+strftime
+method allows you to customize date formats for different use cases. The following table displays common date formats and their corresponding output:
+Format
+Formula
+Output for 2025-01-05
+Full date
+<Date>.strftime("%A, %B %d")
+Monday, January 05
+Shortened date
+<Date>.strftime("%b %d, %Y")
+Jan 05, 2025
+ISO format
+<Date>.strftime("%Y-%m-%d")
+2025-01-05
+European format
+<Date>.strftime("%d/%m/%Y")
+05/01/2025
+Date with time
+<Date>.strftime("%B %d, %Y at %H:%M")
+January 05, 2025 at 00:00
+#
+Populate field based on a condition
+Some systems require fields to reflect specific values based on set conditions. Dynamically adjust the field’s value to ensure it meets the criteria for downstream processing.
+#
+Solution
+Complete the following steps to populate a field based on a condition:
+1
+Go to the step in your recipe where the field accepts the input.
+2
+Activate
+Formula
+mode in the field where you plan to apply the condition.
+3
+Enter the following formula in the field:
+<Field>&.scan(/(ValueToSearchFor)/).present? ? "ValueIfTrue" : "ValueIfFalse"
+4
+Replace the following placeholders in the formula:
+<Field>
+: Replace with the datapill or static value representing the input field.
+ValueToSearchFor
+: Replace with the term you plan to search for in the field.
+ValueIfTrue
+: Replace with the value to populate if the condition is true.
+ValueIfFalse
+: Replace with the value to populate if the condition is false.
+←
+Other formulas
+Expand automation possibilities
+→
+Last updated:
+1/28/2025, 5:02:56 PM
+On this page
+Transform multiline text into a comma-separated string
+Remove duplicates in a comma-separated string
+Split comma-separated strings into arrays
+Join arrays into line-break-separated strings
+Transform an array into a comma-separated string
+Convert date strings to date format
+Extract first item from an array
+Truncate a string to fit field length
+Validate field length
+Convert a date to a different format
+Populate field based on a condition
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

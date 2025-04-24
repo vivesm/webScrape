@@ -1,0 +1,218 @@
+Microsoft Entra ID - New group trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Microsoft Entra ID
+#
+Microsoft Entra ID - New group trigger
+The
+New group
+trigger detects when a Microsoft Entra ID group is created.
+#
+Input
+Input field
+Description
+Trigger poll interval
+Select how frequently to check for new events.
+When first started, this recipe should pick up events from
+Choose a start date and time to retrieve trigger events. Leave blank to start with events from one hour ago.
+Output fields
+Choose fields to include in the response. Leave blank to return default fields.
+Additional fields
+Add fields with JSON or enter them manually.
+Set trigger condition
+Define conditions to filter trigger events before processing.
+#
+Output
+Output field
+Description
+Group ID
+A unique identifier for the group in Microsoft Entra ID.
+Deleted date time
+The timestamp when Microsoft Entra ID deleted the group.
+Classification
+Specifies the group’s sensitivity or type. For example,
+Confidential
+,
+Internal
+, or
+Public
+.
+Created date time
+The timestamp when the group was created in Microsoft Entra ID.
+Creation options
+Specifies settings applied during group creation.
+Description
+A brief summary or explanation of the group's purpose or intended use.
+Display name
+The name displayed for the group in the directory. This is used in lists, searches, and communication interfaces.
+Expiration date time
+The timestamp when the group expires.
+Group types
+Defines the type of group, such as
+Security
+or
+Microsoft 365
+.
+Is assignable to role
+Indicates whether the group can be assigned to Azure AD roles.
+Mail
+The primary email address associated with the group, if it is mail-enabled.
+Membership rule
+A rule that defines dynamic membership for the group based on user or device attributes.
+Membership rule processing state
+The current status of membership rule processing.
+Preferred language
+The default language for communications and notifications sent to group members.
+Theme
+Specifies a theme or branding applied to the group, often used in Microsoft Teams or SharePoint.
+Unique name
+A unique identifier used for group recognition.
+Mail enabled
+Indicates whether the group supports email communication.
+Mail nickname
+The alias for the group’s email address.
+On premises domain name
+The domain name for the group in an on-premises directory.
+On premises last sync date time
+The last time the group synchronized with the on-premises directory.
+On premises net bios name
+The NetBIOS name of the domain associated with the group in an on-premises environment.
+On premises sam account name
+The Security Account Manager (SAM) account name for the group in an on-premises directory.
+On premises security identifier
+The security identifier (SID) of the group in the on-premises directory, used for access control.
+On premises provisioning errors
+A list of errors encountered while syncing or provisioning the group from an on-premises environment.
+Category
+Specifies the category or purpose of the group.
+On premises sync enabled
+A Boolean value indicates whether the group is enabled for synchronization with an on-premises directory.
+Preferred data location
+The geographic location where group-related data should be stored to meet compliance or organizational requirements.
+Proxy addresses
+A list of proxy email addresses associated with the group for communication purposes.
+Renewed date time
+The timestamp indicating when the group was last renewed or refreshed, often used in lifecycle management.
+Resource behavior options
+A set of options that define how the group interacts with resources, such as Microsoft 365 services.
+Resource provisioning options
+Specifies settings for resource provisioning, such as how group resources like mailboxes or sites are created.
+Service provisioning errors
+A list of errors encountered during the provisioning of resources or services for the group.
+Security enabled
+Indicates whether the group is used for security purposes.
+Security identifier
+A unique identifier for managing group permissions.
+Visibility type
+Defines the visibility of the group.
+Reason
+The reason for creating or modifying the group.
+←
+New deleted user trigger
+New/updated group trigger
+→
+Last updated:
+2/12/2025, 9:34:45 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

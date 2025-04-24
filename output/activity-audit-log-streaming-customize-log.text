@@ -1,0 +1,300 @@
+オーディットログストリーミング - ログメッセージのカスタマイズ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの管理
+管理者ダッシュボード
+アクティビティ監査ログ
+#
+ログメッセージのカスタマイズ
+Workatoでは、S3、Splunk、Datadogなどのセキュリティおよびイベント管理アプリケーションにストリーミングする前に、オーディットログメッセージをカスタマイズすることができます。これにより、特定の形式で送信したり、イベントメッセージをカスタマイズして必要に応じて適用することができます。たとえば、イベントログが自動的に宛先アプリケーションで処理されるように、ソースアプリケーション（たとえば
+Workato
+）と環境メタデータ（
+staging
+や
+production
+など）を含める必要がある場合があります。
+アカウント設定 > デバッグ
+タブでは、
+オーディットログストリーミング > ログメッセージのカスタマイズ
+セクションで、JSON形式を使用してカスタムログメッセージを作成することができます。カスタムフィールドとともに、Workatoオーディットログの
+プレースホルダ
+を使用してJSON構造を定義します。Workatoは、イベントがストリーミングされる前にプレースホルダの値を実際のログメッセージで置換します。
+#
+サポートされているプレースホルダ
+Workatoは、次のプレースホルダをサポートしています：
+プレースホルダ
+説明
+例
+{{{log_message}}}
+JSON形式のオーディットログイベントメッセージ
+例を参照
+{{{log_message_str}}}
+エスケープされたJSON文字列としてのオーディットログイベントメッセージ。
+Grafana Loki
+に送信されるログには必須です。
+例を参照
+{{{now}}}
+タイムスタンプ
+2023-06-02T01:30:01.002-04:00
+{{{now_utc}}}
+ミリ秒単位のタイムスタンプ
+1685683801002.2139
+{{{now_utc_micro}}}
+マイクロ秒単位のタイムスタンプ
+1685683801002213
+{{{now_utc_nano}}}
+ナノ秒単位のタイムスタンプ
+1685683801002214000
+JSONキー
+現在、プレースホルダをJSONオブジェクトで使用する場合、各キーは値内のプレースホルダの名前と一致する必要があります。たとえば、プレースホルダ
+{{{log_message_str}}}
+を使用する場合、キーに
+"log_message_str"
+という名前を付ける必要があります：
+{
+"log_message_str"
+:
+{
+{
+{
+log_message_str
+}
+}
+}
+,
+"now_utc_micro"
+:
+{
+{
+{
+now_utc_micro
+}
+}
+}
+}
+#
+カスタムログメッセージの例
+次の例では、
+source
+、
+environment
+、
+service
+フィールドをDatadogに送信し、メッセージが自動的に適切なバケットにルーティングおよび保存されるようにしています。
+{{{log_message}}}
+は、WorkatoがJSON形式の実際のオーディットログイベントメッセージに置き換えるために使用するプレースホルダです。
+{
+"source"
+:
+"workato"
+,
+"environment"
+:
+"staging"
+,
+"hostname"
+:
+"workato_cloud"
+,
+"service"
+:
+"emp_onboarding"
+,
+"log_message"
+:
+{
+{
+{
+log_message
+}
+}
+}
+}
+有効なJSONが必要です
+有効なJSONを定義してください。JSONが無効であるか、
+{{{log_message}}}
+または
+{{{log_message_str}}}
+のプレースホルダを含まない場合、Workatoはデフォルトのログメッセージをカスタマイズせずに送信します。
+以下の画像は、Datadogログエクスプローラでログメッセージがどのように表示されるかを示しています。
+カスタムオーディットログメッセージフィールド
+カスタムレシピ開始アクティビティオーディットログメッセージ
+カスタムジョブ履歴オーディットログメッセージ
+#
+Grafana Loki用のカスタムログメッセージの例
+Grafana Loki HTTP API
+(opens new window)
+では、ログメッセージを文字列として送信する必要があるため、
+{{{log_message_str}}}
+プレースホルダを
+{{{log_message}}}
+の代わりに使用する必要があります。
+Loki APIでは、文字列としてフォーマットされたナノ秒単位のタイムスタンプが必要です。タイムスタンプが文字列に変換されるように、
+"{{{now_utc_nano}}}"
+プレースホルダをダブルクォートで囲んで使用します。
+カスタムオーディットログメッセージのJSON構造を次のようにフォーマットします：
+{
+"streams"
+:
+[
+{
+"stream"
+:
+{
+"label"
+:
+"workato"
+}
+,
+"values"
+:
+[
+[
+"{{{now_utc_nano}}}"
+,
+{
+{
+{
+log_message_str
+}
+}
+}
+]
+]
+}
+]
+}
+Lokiに送信されるカスタムログメッセージの例：
+{
+"streams"
+:
+[
+{
+"stream"
+:
+{
+"label"
+:
+"workato"
+}
+,
+"values"
+:
+[
+[
+"1685687453790827508"
+,
+"{\"event\":\"recipe_started\",\"details\":{\"run_once\":false,\"request\":{\"ip_address\":\"76.100.203.123\",\"user_agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36\"}},\"user\":{\"id\":1234567,\"external_id\":null,\"email\":\"
+[email protected]
+\",\"name\":\"Example User\",\"environment_id\":1234567,\"environment_type\":\"dev\",\"account_id\":1234567,\"account_name\":\"Example User\"},\"team\":{\"id\":1234567,\"external_id\":null,\"email\":\"
+[email protected]
+\",\"name\":\"Example User's team\",\"environment_id\":1234567,\"environment_type\":\"dev\",\"account_id\":1234567,\"account_name\":\"Example User\"},\"resource\":{\"type\":\"Flow\",\"id\":16983123,\"name\":\"Cat Fact Generator\",\"path\":\"Home/AI Testing\",\"folder_id\":9020123},\"timestamp\":\"2023-06-02 06:30:53 UTC\"}"
+]
+]
+}
+]
+}
+←
+ログ - ストリーミング
+ログストリーミングの宛先
+→
+Last updated:
+2025/4/5 20:05:46
+On this page
+サポートされているプレースホルダ
+カスタムログメッセージの例
+Grafana Loki用のカスタムログメッセージの例
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

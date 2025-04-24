@@ -1,0 +1,151 @@
+Workato コネクター - Zendesk - Comments for ticket アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Zendesk
+#
+Zendesk - Get comments for ticket (チケットに関するコメントの取得) アクション
+このアクションは、チケット ID に基づく検索に一致する特定のチケットを取得します。Zendesk のインスタンスで検索条件に一致する結果のみが返されます
+Get comments for ticket アクション
+#
+入力項目
+入力項目
+説明
+ID
+チケットの一意の Zendesk ID。
+#
+出力項目
+このアクションの出力には、
+説明
+(チケットの最初のコメントとして保存される) など、このチケットに関するコメントすべてのリストが含まれます。
+出力項目
+説明
+Ticket ID
+チケットの一意の Zendesk ID。これは、チケットの作成時に自動的に割り当てられます。
+Type
+チケットのコメントのタイプ。可能な値は、
+comment
+、
+incident
+、または
+VoiceComment
+です。
+Body
+作成者が付けたコメント。
+HTML body
+作成者が付けた HTML 形式のコメント。
+Public
+このコメントが公開の場合は
+True
+、そうでない場合は
+False
+が表示されます。
+Date created
+このコメントが作成された日時。
+Author ID
+コメントの作成者の一意の Zendesk ID。
+Attachments
+このコメントの添付ファイル。
+List size
+リストのサイズ (取得されたコメントの数に相当)。
+←
+ID に基づくチケットの詳細の取得
+ユーザーの検索
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

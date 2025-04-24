@@ -1,0 +1,124 @@
+Handling YAML | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Working with files
+#
+Handling YAML
+YAML (YAML Ain’t Markup Language) is a human-readable format for structured data. It uses
+key: value
+pairs and supports lists, nested objects, and dictionaries. YAML is commonly used in configuration files and metadata headers.
+Some integrations provide YAML files or embed YAML in multi-format documents. You can use Workato to extract structured values from this content during recipe execution.
+#
+YAML tools by Workato
+Use
+YAML tools by Workato
+when you need to extract values from raw YAML content. You can parse YAML files from Dropbox, SFTP, or Google Drive, or extract metadata from document headers written in YAML. It also supports reading YAML content from any step that outputs file content.
+YAML tools by Workato provides the
+Parse YAML document
+action. This action uses a sample YAML snippet to define the output structure and returns structured datapills based on the file content.
+←
+Handling SOAP
+Downloading files
+→
+Last updated:
+4/8/2025, 10:09:47 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

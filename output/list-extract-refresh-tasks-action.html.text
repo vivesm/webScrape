@@ -1,0 +1,149 @@
+Tableau - List extract refresh tasks action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Tableau
+#
+Tableau - List extract refresh tasks action
+The
+List extract refresh tasks
+action returns a list of extract refresh tasks from the Tableau site.
+#
+Input
+This action doesn’t require any input fields.
+#
+Output
+Output field
+Description
+Schedule ID
+The unique identifier for the schedule associated with the extract refresh task.
+Name
+The name of the extract refresh task or the associated schedule.
+State
+Indicates the current status of the extract refresh task.
+Priority
+The priority of the task execution in relation to other tasks.
+Created at
+A timestamp indicating when the extract refresh task was created.
+Updated at
+A timestamp of the most recent update to the extract refresh task.
+Type
+The type of task.
+Frequency
+How often the extract refresh task runs.
+Next run at
+A timestamp indicating the next scheduled execution of the extract refresh task.
+Workbook ID
+Unique identifier for the workbook associated with the extract refresh task.
+Extract refresh task ID
+Unique identifier for the extract refresh task itself.
+Consecutive failed count
+The number of times the extract refresh task has failed consecutively.
+←
+Download view action
+Refresh workbook action
+→
+Last updated:
+3/25/2025, 5:05:19 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

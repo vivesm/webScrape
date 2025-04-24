@@ -1,0 +1,169 @@
+Workatoコネクター - SuccessFactors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+SuccessFactors
+#
+SuccessFactorsに接続する
+前提条件
+セクションの推奨事項を確認してください。
+認証
+SuccessFactorsコネクターでは、BasicまたはOAuth 2.0のいずれかの方法を使用して認証できます。ただし、SAP SuccessFactorsではOAuth 2.0の使用を推奨しています。
+SuccessFactorsアカウントに接続するには、次の情報を提供してください：
+接続名
+この接続を識別するための一意の名前を入力してください。これにより、他のレシピで接続を再利用できます。
+認証タイプ
+Basic
+または
+OAuth 2.0
+の認証方法を選択してください。選択に応じて、次の情報を提供してください：
+Basic
+ユーザー名
+と
+パスワード
+を入力してください。
+OAuth 2.0
+クライアントID
+と
+プライベートキー
+を入力してください。クライアントIDは、API Centerで生成されたAPIキーです。
+会社ID
+プロファイルのドロップダウンメニューの「バージョン情報を表示」またはURL内の「company =」という用語で見つけることができます。詳細な手順については、この
+knowledge base
+(opens new window)
+を参照してください。
+ユーザーID
+SuccessFactorsのユーザーIDです。
+環境
+環境を選択
+または
+APIエンドポイントを入力
+のいずれかを選択してください。選択に応じて、次の情報を提供してください：
+環境を選択
+SuccessFactorsの環境を選択してください。
+環境は、SuccessFactorsのURLの最初の部分を見ることで見つけることができます。たとえば、URLが
+pmsalesdemo8.successfactors.com
+(opens new window)
+である場合、環境は
+DC8 SalesDemo
+です。異なるURLをそれぞれの環境にマッピングするために、この
+knowledge base
+(opens new window)
+を参照できます。
+APIエンドポイントを入力
+SuccessFactors OData APIにアクセスするためのエンドポイントURLを入力してください。
+タイムゾーン
+環境
+タイプが
+APIエンドポイント
+で指定されている場合、APIサーバーのタイムゾーンを選択する必要があります。詳細については、この
+SAPドキュメント
+を参照してください。
+それ以外の場合、これはオプションのフィールドです。
+このアプリはプライベートネットワーク内ですか
+No gateway
+オプションを選択する必要があります。
+組織のSuccessFactorsアプリがプライベートネットワーク内にある場合は、
+オンプレミス接続
+を介してアクセスする必要があります。
+←
+前提条件
+ナビゲーション項目の使
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

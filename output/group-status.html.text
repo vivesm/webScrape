@@ -1,0 +1,141 @@
+On-prem Group - Status | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem group
+#
+Status
+The status of an on-prem group depends on the status of the on-prem agents that belong to a group. The group must be active for it to be used in a recipe.
+On-prem groups statuses
+#
+On-prem agent status
+On-prem agents in a group
+Clicking into an on-prem group will show you the state of each agent in the group. An agent can have the following statuses.
+Status
+Description
+Awaiting setup
+This agent setup is incomplete. The agent setup is complete only when it has successfully connected for the first time.
+No response
+This agent is currently not responding. This could be due to several reasons. Usually, this is because the agent is shut down or if the secure connection between Workato and the server is broken.
+Active
+This agent is active and can process requests from Workato.
+Disabled
+This agent is manually disabled. Requests will not be sent to this agent. It can be manually enabled to establish an active connection again.
+#
+Active on-prem group
+An on-prem group must have at least one active agent for it to be an active group.
+Groups with more than one active agent will achieve high availability with fault tolerance and load balancing.
+When the group has only a single active agent, it will continue to process the jobs but without the advantages of load balancing.
+#
+Connections
+On-prem connections
+A connection that connects through an on-prem group depends on the status of the group. Recipes that make use of these connections can only process jobs successfully when the group is active.
+As long as a single agent within that group is active, on-prem requests can still be sent successfully.
+←
+Add an agent FAQs
+Configuration
+→
+Last updated:
+12/9/2019, 5:21:57 PM
+On this page
+On-prem agent status
+Active on-prem group
+Connections
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

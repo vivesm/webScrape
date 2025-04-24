@@ -1,0 +1,339 @@
+Insights - Add a dashboard to your Workflow app | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Build Insights
+Create dashboards
+#
+Workflow apps dashboards
+You can create an Insights dashboard within Workflow apps to visualize and manipulate data to gain valuable insights into your automation projects.
+#
+Create a Workflow apps dashboard
+You can add a dashboard to your Workflow app in two ways:
+Create and assign a dashboard
+: Automatically adds the dashboard as a tab in your app.
+Create an unassigned dashboard
+: Allows you to configure the dashboard before you assign it to your app.
+#
+Create and assign a dashboard
+Complete the following steps to create and assign a dashboard to your Workflow app:
+1
+Select a project that contains an existing Workflow app.
+2
+Go to the
+App
+tab, locate the
+Interface
+section, and click
++ Add new tab
+.
+Add tabs
+3
+Enter a
+tab
+name in the
+Tab name
+field.
+Add new tab
+4
+Configure which users can view this tab in the
+Display tab to
+field.
+DISPLAY TAB TO FIELD
+Select
+Nobody
+from the
+Display tab to
+drop-down menu when creating a new dashboard with this method. This hides the dashboard until you make it visible.
+5
+Click
+Add tab
+.
+6
+Click
+Create page
+to add a new Insights dashboard to this tab.
+Create the page
+7
+Enter a name in the
+Page name
+field.
+Name the page
+8
+Use the
+Location
+drop-down menu to select the project or folder where you plan to store this page.
+9
+Select
+Dashboard
+from the list of
+page templates
+.
+Select the dashboard template
+10
+Click
+Create page
+. This creates a new Workflow apps
+page
+using the dashboard template:
+Create the dashboard page
+After you assign an Insights dashboard to your app, it appears in the Workflow apps portal as a separate tab:
+Insights dashboards appear as a separate tab in the Workflow apps portal
+After you create the dashboard, proceed to
+configure the dashboard
+.
+#
+Create an unassigned dashboard
+Complete the following steps to create the dashboard page separately before you assign it to your Workflow app:
+1
+Select a project that contains an existing Workflow app. Alternatively, go to
+Assets > Pages
+.
+2
+Click
+Create > Page
+.
+Create a new page
+3
+Enter a name in the
+Page name
+field.
+Name the page
+4
+Use the
+Location
+drop-down menu to select the project or folder where you plan to store this page.
+5
+Select
+Dashboard
+from the list of
+page templates
+.
+Select
+Dashboard
+as your template
+6
+Select a
+Data table
+for your page:
+If this is the first page in your project, choose a data table from the
+Data table
+drop-down menu.
+If no data table exists,
+create a new one
+.
+If this isn't the first page, the data table is linked automatically.
+Select a data table for your page
+7
+Click
+Create page
+. This creates a new Workflow apps
+page
+using the dashboard template:
+Create the dashboard page
+After you create the dashboard,
+configure it
+before you assign it to your Workflow app.
+#
+Configure the dashboard
+Complete the following steps to configure the Workflow apps dashboard:
+1
+Drag and drop chart components onto your page in the page editor.
+Add chart components
+PAGE DATA AND DISPLAY COMPONENTS
+Workflow app dashboards are a type of Workflow app page, which means you can use datapills from the
+Page data
+menu and components from the
+Display
+section, such as containers and images.
+While these datapills and components can't be used within charts, you can use datapills in other areas of the page, including text fields. Display components allow you to control when a container is visible and add images to the page or dashboard for a more customized experience.
+Learn more about the
+Page data menu
+,
+using datapills in pages
+, and
+page components
+.
+2
+Select a
+data source
+from the list of supported sources.
+Workato displays your data as a table by default.
+3
+Run
+queries
+on your data. Workato previews the results table for each query.
+Results table
+4
+Select the type of
+chart
+you plan to build. Workato previews the auto-generated chart based on your selected data source.
+5
+Configure
+Chart settings
+to customize your chart. Chart settings are dynamic and depend on the
+chart type
+you select.
+Chart settings
+6
+Save your chart to your dashboard.
+7
+Click
+Save
+and
+Exit
+after you edit the page to return to the
+app settings
+page.
+Continue to
+assign the dashboard to your Workflow app
+if you created an unassigned dashboard. The process is complete if you created an assigned dashboard.
+#
+Assign an existing dashboard to your Workflow app
+Complete the following steps to add an unassigned dashboard to your Workflow app:
+1
+Go to the
+App
+tab, locate the
+Interface
+section, and click
++ Add new tab
+.
+Add tabs
+2
+Enter a
+tab
+name in the
+Tab name
+field.
+Add new tab
+3
+Configure which users can view this tab in the
+Display tab to
+field.
+4
+Click
+Add tab
+.
+5
+Click
+Assign existing pages
+.
+Create the page
+6
+Select the dashboard to display in the tab and click
+Save changes
+.
+Assign the dashboard to your Workflow app
+After you assign an Insights dashboard to your app, it appears in the Workflow apps portal as a separate tab:
+Insights dashboards appear as a separate tab in the Workflow apps portal
+←
+Workspace-level dashboards
+Edit dashboards
+→
+Last updated:
+4/1/2025, 5:13:02 PM
+On this page
+Create a Workflow apps dashboard
+Create and assign a dashboard
+Create an unassigned dashboard
+Configure the dashboard
+Assign an existing dashboard to your Workflow app
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

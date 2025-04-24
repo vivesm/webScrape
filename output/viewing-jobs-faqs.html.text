@@ -1,0 +1,168 @@
+Viewing Jobs FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+After you create your recipe
+View job reports
+#
+Viewing Jobs FAQs
+Get answers to frequently asked questions about about viewing jobs.
+What is a Recipe Job in Workato?
+A
+Recipe Job
+in Workato is created when an active recipe processes a trigger event and runs a series of actions. Each job holds a unique trigger event and executes its recipe logic based on that data.
+How can I view job reports in Workato?
+To view job reports
+, click the
+Jobs
+tab in your recipe to open the Jobs report page. You can view details about specific jobs, customize reports, and repeat (rerun) jobs.
+What is the data retention policy for job reports in Workato?
+Job reports in Workato are retained according to your account's data retention policy. The duration for which the data is kept depends on the specific settings of your
+Workato account
+(opens new window)
+.
+Can I customize job reports in Workato?
+Yes. You can
+customize job reports
+to show up to 10 additional columns, which can include any data available in the recipe.
+What kind of metadata and statuses are included in job details?
+The Job details page includes
+metadata
+such as:
+Job ID
+Start time
+Recipe version
+Status
+Duration
+Tasks used
+Rerun number
+Job statuses
+are:
+Completed
+Failed
+Processing
+Paused
+Aborted
+How are paused jobs handled in Workato?
+Paused jobs
+occur when a recipe containing long actions is stopped. These jobs resume when the recipe is restarted, continuing with the same recipe version they began with.
+Can I rerun a failed job?
+Yes. You can
+rerun jobs
+. When you rerun a job, the trigger event runs through the sequence of actions in the recipe again. Duplication may occur, so be sure to check and remove duplicates (if present) before re-running the job.
+Why is my job stuck in processing status?
+Some jobs may take a long time to complete. This can happen if the recipe is:
+Processing bulk data using
+long actions
+Waiting for an recipe function
+to resolve
+Using a dedicated
+waiting step
+from Scheduler by Workato
+In such cases, the job may take a several minutes or hours to complete. It may even exceed the
+normal timeout limit
+.
+←
+Rerunning jobs
+Optimizing task usage
+→
+Last updated:
+2/2/2024, 9:18:15 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

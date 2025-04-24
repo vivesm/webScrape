@@ -1,0 +1,386 @@
+オンプレミスエージェント - 拡張機能 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+オンプレミス接続
+オンプレミスエージェント
+#
+拡張機能
+企業は、多くの場合、企業ファイアウォールの背後にオンプレミスのアプリケーションとデータベースをデプロイしています。
+Workato のオンプレミス拡張機能を利用すると、Java を使用してレガシーアプリケーションに接続できます。拡張機能は、Workato オンプレミスエージェントのサーブレットとして登録され、レシピ内から使用できる REST エンドポイントとして公開されます。
+拡張機能を使用するべき場合 :
+アプリケーションに REST/SOAP API がない。
+アプリケーションにサポートされている JAVA ライブラリがある。
+拡張機能を使用しない場合 :
+アプリケーションに REST/SOAP API がある。
+HTTP コネクター
+を使用するか、
+コネクター SDK
+でカスタムのコネクションを構築する。
+シンプルなコマンドラインスクリプトを実行する。その場合は
+こちら
+のコマンドラインスクリプトを使用してください。
+#
+前提条件 :
+Java 8 SDK
+(opens new window)
+#
+例
+拡張機能がどのようなものかを示すために、SHA-256 メッセージダイジェストを実行するシンプルな拡張機能の作成方法を順を追って説明していきます。この拡張機能は、リクエスト本体を取得し、SHA-256 で暗号化されたバージョンを返します。その後、この拡張機能を REST エンドポイントとして有効化し、レシピ内で使用できるようにします。
+#
+拡張機能の作成
+この拡張機能の
+リポジトリ
+(opens new window)
+をダウンロードします。これは、独自の拡張機能を作成するときに基本テンプレートとして利用できる Gradle プロジェクトです。
+オンプレミス拡張機能のソースファイルは
+src/main/java/com/mycompany/onprem/SecurityExtension.java
+にあります。
+ルートフォルダーで
+./gradlew jar
+を実行して Gradle を起動し、プロジェクトをビルドします。出力先は
+build/libs/opa-extensions-0.1.jar
+になります。
+#
+拡張機能のインストール
+OPA 拡張機能をインストールするには、Workato エージェントディレクトリの配下に
+ext
+という名前の新しいディレクトリを作成し、
+ext
+フォルダーに
+opa-extensions-0.1.jar
+を格納します。
+クラスパスと新たに追加した拡張機能で
+conf/config.yml
+を更新します。これにより、jar ファイルの場所がオンプレミスエージェントに通知されます。
+server
+:
+classpath
+:
+C
+:
+\\Program Files\\Workato Agent\\ext
+extensions
+:
+security
+:
+controllerClass
+:
+com.mycompany.onprem.SecurityExtension
+secret
+:
+HA63A3043AMMMM
+上記の
+classpath
+の値は、実際の環境に応じた適切な場所に設定する必要があります。
+複数の拡張機能がある場合は、以下のようにすべての jar ファイルを ext フォルダーに格納し、extensions の配下に新しいエントリを追加します。
+server
+:
+classpath
+:
+C
+:
+\\Program Files\\Workato Agent\\ext
+extensions
+:
+security
+:
+controllerClass
+:
+com.mycompany.onprem.SecurityExtension
+secret
+:
+HA63A3043AMMMM
+otherextension
+:
+controllerClass
+:
+com.mycompany.onprem.OtherExtension
+server
+パラメータの設定プロパティは以下のとおりです。
+プロパティ名
+説明
+classpath
+ユーザー定義のクラスの場所を指定します。
+extensions
+パラメータの設定プロパティは以下のとおりです。
+プロパティ名
+説明
+security
+これは、SDK で使用される拡張機能のプロファイル名です。各拡張機能に一意の名前を使用します。
+controllerClass
+拡張機能をのマッピング先の Java クラスを OPA に通知するための必須フィールドです。
+secret
+Java クラスで使用されるオプションの環境プロパティです。複数のプロパティを追加できます。
+#
+SDK の構築
+レシピで拡張機能を使用するには、Workato でカスタムコネクター (SDK) が必要です。以下のコードを使用し、
+コネクターページ
+(opens new window)
+でカスタムコネクターを作成します。
+{
+title
+:
+'On-prem security'
+,
+secure_tunnel
+:
+true
+,
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+'profile'
+,
+hint
+:
+'On-prem security connection profile'
+}
+]
+,
+authorization
+:
+{
+type
+:
+'none'
+}
+,
+apply
+:
+-
+>
+(
+)
+{
+headers
+(
+'X-Workato-Connector'
+:
+'enforce'
+)
+}
+}
+,
+test
+:
+-
+>
+(
+connection
+)
+{
+post
+(
+"http://localhost/ext/
+#{
+connection
+[
+'profile'
+]
+}
+/computeDigest"
+,
+{
+payload
+:
+'test'
+}
+)
+}
+,
+actions
+:
+{
+sha256_digest
+:
+{
+title
+:
+'Create SHA-256 digest'
+,
+description
+:
+'Create <span class="provider">SHA-256</span> digest'
+,
+input_fields
+:
+-
+>
+{
+[
+{
+name
+:
+'payload'
+}
+]
+}
+,
+output_fields
+:
+-
+>
+{
+[
+{
+name
+:
+'signature'
+}
+]
+}
+,
+execute
+:
+-
+>
+(
+connection
+,
+input
+)
+{
+post
+(
+"http://localhost/ext/
+#{
+connection
+[
+'profile'
+]
+}
+/computeDigest"
+,
+input
+)
+}
+}
+}
+}
+SDK コードでは以下の注意点に留意してください。
+secure_tunnel
+を true に設定すると、コネクションの作成時に、OPA を選択できます。拡張機能を備えた OPA を選択するようにしてください。
+ヘッダー
+X-Workato-Connector: enforce
+を使用すると、これが OPA 拡張機能と通信するためのリクエストであることを OPA に通知できます。
+パス
+http://localhost/ext/#{connection['profile']}/computeDigest
+は Java クラスで定義されます。
+@RequestMapping
+(
+path
+=
+"/computeDigest"
+,
+method
+=
+RequestMethod
+.
+POST
+)
+←
+Monitoring
+バージョンノート
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,144 @@
+Data tables - Data tables コネクタ - レコードの更新アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workflow Apps
+テーブルストレージ
+Data table connector コネクタ
+#
+レコードの更新
+指定された主キーに一致する場合、データテーブル内のレコードを更新します。それ以外の場合、新しいレコードをデータテーブルに挿入します。
+更新するすべての列/フィールドの新しい値と、必要なすべての列を指定する必要があります。
+#
+入力フィールド
+データテーブルの選択
+変更を加えるデータテーブルを選択します。
+主キーカラム
+Workatoが指定されたフィールドのセットに対してレコードが既に存在するかどうかを検出するために使用する列です。
+#
+追加の入力フィールド
+追加の入力フィールドは、選択したデータテーブルの列に対応します。
+更新する各列に新しい値を指定する必要があります。フィールドの値を指定しない場合、Workatoはデータテーブルの対応する列を更新しません。
+#
+必須のフィールド/列
+これらのフィールドに入力する値は、そのデータテーブルで指定された条件を満たす必要があります。たとえば、必須の列は必須のフィールドとして表示されます。
+さらに、入力する値は列のタイプと一致する必要があります。たとえば、列が整数型の場合、レシピエディタの対応する入力フィールドは整数のみ受け付けます。
+値の列/入力フィールドが受け入れる値に関する詳細については、
+列のタイプ
+を参照してください。
+#
+出力
+レコード
+オブジェクトからのすべてのフィールドが含まれます。これには以下のフィールドが含まれます：
+レコードID
+レコードの一意のIDです。
+作成時刻
+レコードの作成時刻です。
+最終編集時刻
+レコードの最終編集時刻です。
+レコードの作成
+新しいレコードが作成されたかどうかを示します。指定された主キーに一致するレコードがなく、Workatoが新しいレコードを挿入した場合、または主キーに一致するレコードがある場合、Workatoがレコードを更新しました。
+←
+レコードの更新
+レコードの削除
+→
+Last updated:
+2024/9/11 4:23:13
+On this page
+入力フィールド
+追加の入力フィールド
+必須のフィールド/列
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

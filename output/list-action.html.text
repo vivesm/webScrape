@@ -1,0 +1,144 @@
+Workato connectors - SMB list folder action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SMB
+#
+SMB - List folder action
+This action lists all files and subfolders from a specified folder in your SMB share. Items in subfolders are not retrieved.
+#
+Input
+Input field
+Description
+Folder path
+Provide the full path of the folder to retrieve the content of, for example:
+/folder1/folder2
+#
+Output
+The output of this action is a list of records, each record containing the following details:
+Output field
+Description
+Path
+The full path of the resource, including the file name and extension, for example:
+/folder1/folder2/filename.csv
+.
+Size
+The size of the resource.
+Kind
+Indicates whether this item is a file or folder.
+Attributes
+Attributes of the resource.
+Create time
+The time the resource was created.
+Change time
+The time the resource was last changed.
+Access time
+The time the resource was accessed.
+←
+Download file action
+Get metadata action
+→
+Last updated:
+3/25/2025, 10:56:44 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

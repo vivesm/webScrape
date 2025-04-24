@@ -1,0 +1,139 @@
+Workato コネクター - Excel | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Excel
+Microsoft Excel
+(opens new window)
+は、強力なデータ視覚化および分析ツールである、スプレッドシートソフトウェアプログラムです。
+Workato の Excel コネクターを使用すると、OneDrive for Business、SharePointサイト、またはグループドライブに保存された Excel ワークブックからデータを読み込めます。
+#
+API バージョン
+Excel コネクターは
+Excel REST API
+(opens new window)
+を使用します。
+#
+Workato での Excel への接続方法
+Excel コネクターは認証に OAuth2 を使用します。プロンプトが表示されたら、画面上の
+コネクションに関する指示
+に従って、Microsoft アカウントにログインして接続します。
+#
+ロールとアクセス許可
+コネクターが機能するには以下の Microsoft Graph API のアクセス許可が必要であり、デフォルトで要求されます。
+アクセス許可
+説明
+Files.Read
+サインインしたユーザーのファイルをアプリが読み取ることを許可します。
+Group.Read.All
+サインインしたユーザーがアクセス可能なすべてのグループに対するファイルをアプリが読み取ることを許可します。
+Sites.Read.All
+すべての SharePoint サイトコレクション内のドキュメントを、サインインしているユーザーに代わってアプリが読み取ることを許可します。
+offline_access
+これにより、Workato がユーザーに代わってリソースに長時間アクセスできるようになります。同意ページでは、このスコープは、アクセス許可を付与したデータへのアクセスの維持と表示されます。
+←
+レコードの削除
+ワークブック検索
+→
+Last updated:
+2024/7/25 17:12:40
+On this page
+API バージョン
+Workato での Excel への接続方法
+ロールとアクセス許可
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

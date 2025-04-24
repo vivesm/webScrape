@@ -1,0 +1,273 @@
+Set up project-level Azure Key Vault secrets management | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data & security
+Connection credentials
+Azure Key Vault
+#
+Set up Azure Key Vault for project-level secrets management
+WARNING
+Switching to project-specific secrets management causes external secrets references scoped to the workspace level to stop working.
+#
+Prerequisites
+To complete the steps in this guide, you must have the following:
+In Workato
+:
+An account with the
+Data Monitoring/Advanced Security & Compliance
+capability. For more information, contact your Workato Customer Success Manager.
+In Microsoft Azure
+:
+An existing
+key vault
+(opens new window)
+.
+A
+registered application
+with an appropriate role policy assigned:
+For key vaults using
+role-based access control (RBAC)
+(opens new window)
+, the registered app must have the
+Key Vault Secrets User
+role.
+For key vaults using
+access policies
+(opens new window)
+, the registered app must have the
+Get
+secret permission.
+REGISTERING AN APPLICATION
+To learn how to register an application, see
+Registering an application with Microsoft Entra ID
+.
+#
+Select the scope for secrets management
+1
+Sign in to Workato.
+2
+Go to
+Workspace admin > Settings > External secrets manager
+.
+3
+Click the
+Use external secrets manager
+toggle.
+4
+Select the
+Set up secrets management for each project individually
+option from the
+Scope
+drop-down menu.
+Set up secrets management for each project individually
+5
+Click
+Save
+.
+6
+If you switch secrets management scopes, Workato notifies you that existing external secret references scoped to the project level will no longer function.
+To proceed with switching from workspace-level to project-level secrets management, select the checkbox to acknowledge the impact and click
+Use project-specific secrets
+.
+Use project-specific secrets
+#
+Select the project
+1
+In Workato, navigate to your projects.
+2
+Select the project that you plan to configure with secrets management.
+3
+In the project, go to
+Workspace admin > Settings > External secrets manager
+.
+4
+In the
+Which secrets manager do you want to use?
+field, select
+Azure Key Vault
+.
+Secrets management interface of a project
+5
+Click
+Set up connection
+.
+6
+In the
+Connect to Azure Key Vault
+modal, select
++ Create a new connection
+.
+Create a new Azure Key Vault connection
+#
+Connect to Azure Key Vault
+Configure Azure Key Vault connection
+1
+Connection name
+Name your Azure Key Vault connection.
+2
+Vault URL
+Provide the URL of your key vault. Obtain this value by navigating to
+Azure portal > Key vaults
+(opens new window)
+. Select the desired key vault and copy the
+Vault URI
+shown in the
+Overview
+. In our example, we connect to the vault URL
+https://example.vault.azure.net/
+.
+3
+Tenant ID
+Provide the ID of the tenant where your key vault and app registration are located. Azure refers to this as the
+Directory (tenant) ID
+. Obtain this value by navigating to
+Azure portal > App registrations
+(opens new window)
+. Select your
+registered application
+and copy the
+Directory (tenant) ID
+shown in the
+Overview
+.
+4
+Client ID
+Provide your client ID, which Azure refers to as the
+Application (client) ID
+. Obtain this value by navigating to
+Azure portal > App registrations
+(opens new window)
+. Select your
+registered application
+and copy the
+Application (client) ID
+shown in the
+Overview
+.
+5
+Client Secret
+Provide your client secret, which Azure refers to as the secret
+Value
+. Azure only displays this value when the secret is generated. If you need to generate a new secret, see
+Registering an application with Microsoft Entra ID, Step 2
+.
+6
+Click
+Connect
+. Workato displays the name of the Azure Key Vault connection:
+Connection successful
+7
+Click
+Save changes
+.
+FURTHER READING
+Using Azure Key Vault secrets to authenticate to connections
+←
+Set up Azure Key Vault for workspaces
+Use Azure Key Vault
+→
+Last updated:
+3/18/2025, 5:45:08 PM
+On this page
+Prerequisites
+Select the scope for secrets management
+Select the project
+Connect to Azure Key Vault
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

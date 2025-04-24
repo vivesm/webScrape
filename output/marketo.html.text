@@ -1,0 +1,338 @@
+Workato connectors - Marketo | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Marketo
+Marketo
+(opens new window)
+is a marketing automation software that helps businesses manage and optimize their marketing efforts.
+It provides tools for email marketing, lead management, consumer marketing, customer base marketing, and mobile marketing.
+#
+API version
+The Marketo connector uses
+Marketo REST API v1
+(opens new window)
+.
+#
+How to connect to Marketo
+Workato supports custom authentication to connect to Marketo.
+CUSTOM SERVICE CLIENTS
+Marketo exposes REST endpoints to enable integration platforms like Workato to remotely access and execute core functionalities. We recommend you create a custom service client specifically for Workato to facilitate this integration.
+Key benefits of using a custom service client include:
+Isolated logging
+: All operations are logged under a dedicated custom service client for integration and workflow processes. This approach enhances tracking and troubleshooting by isolating issues related to specific integration platforms.
+Customized permissions
+: A custom service client allows for tailored permissions and security profiles, independent of individual employee user accounts.
+Ensure that the custom service client is granted all necessary permissions to perform the required actions for your integration scenario. If a
+403
+error occurs during recipe execution, it indicates that the service client lacks the appropriate permissions for the action.
+Complete the following steps to establish a Marketo connection in Workato:
+Create an API role
+Create an API user
+Create a custom service for Workato
+Retrieve client credentials
+Set up the connection
+#
+Step 1: Create an API role
+Complete the following steps to create an API role in Marketo:
+1
+Sign in to your Marketo instance as a user with administrator privileges.
+2
+Go to
+Admin > Users & roles
+and select the
+Roles
+tab.
+3
+Click
+New role
+.
+4
+Provide a name for your new role in the
+Role name
+field and optionally a description in the
+Description
+field.
+5
+Select the
+Access API
+checkbox in the
+Permissions
+field.
+Create role in Marketo
+6
+Click
+Create
+to create the API role.
+After creating the API role, you can create an API user.
+#
+Step 2: Create an API user
+Complete the following steps to create an API user in Marketo:
+1
+Go to
+Admin > Users & roles
+and select the
+Users
+tab.
+2
+Click
+Invite new user
+.
+3
+Fill out the
+Email
+,
+First name
+, and
+Last name
+fields. Optionally, fill out the
+Reason
+and
+Access expires
+fields.
+4
+Click
+Next
+.
+5
+Select the API role you created in the previous step from the
+Roles
+menu.
+6
+Check the
+API only
+checkbox.
+Create user in Marketo
+7
+Click
+Next
+.
+8
+Click
+Send
+.
+After creating the API user, you can create a custom service for Workato.
+#
+Step 3: Create a custom service for Workato
+Complete the following steps to create a custom service for Workato:
+1
+Go to
+Admin > LaunchPoint
+.
+2
+Click
+New > New service
+.
+3
+Enter a descriptive
+Display name
+and select
+Custom
+in the
+Service
+menu.
+4
+Enter a description in the
+Description
+field.
+5
+Select the API only user you created in the previous step in the
+API only user
+menu.
+6
+Click
+Create
+.
+New custom service
+After creating the custom service for Workato, you can retrieve the client ID and client secret, which are required to establish a connection in Workato.
+Refer to the Marketo documentation for more information about
+custom services
+(opens new window)
+.
+#
+Step 4: Retrieve client credentials
+Complete the following steps to retrieve client credentials:
+1
+Select
+View details
+for the new custom service.
+View custom service
+2
+Copy the
+Client ID
+and
+Client secret
+. These values are required to authenticate your Marketo connection in Workato.
+Client credentials
+After retrieving client credentials, you can set up the Marketo connection in Workato.
+#
+Step 5: Set up the connection
+Complete the following steps to set up your Marketo connection:
+1
+Sign in to your Workato account and navigate to the project where you plan to add your Marketo connection.
+2
+Click
+Create > Connection
+and select
+Marketo
+as your connection.
+3
+Configure the following connection fields:
+Connection field
+Description
+Connection name
+Give this connection a unique name that identifies to which Marketo instance it is connected.
+Location
+Specify the project or folder where you plan to store your Marketo connection.
+REST endpoint
+Provide the base URL of your Marketo instance.
+For example, if your REST endpoint is
+https://123-ABC-456.mktorest.com/rest
+, type
+123-ABC-456
+in this field.
+You can find the base URL by signing into Marketo and navigating to
+Admin > Integration > Web services
+. Refer to the
+Marketo documentation
+(opens new window)
+for more information.
+Custom service client ID
+Provide the
+client ID generated in Marketo
+.
+Custom service client secret
+Provide the
+client secret generated in Marketo
+.
+4
+Click
+Connect
+.
+#
+Minimum scopes
+The connection requires the following scopes at a minimum:
+Read-Only Activity
+Read-Write Activity
+Read-Only Lead
+Read-Write Lead
+Read-Only Asset
+Read-Write Asset
+Select these roles when
+creating a new API role
+.
+←
+Update subscriber action
+Self-service flow steps
+→
+Last updated:
+10/2/2024, 3:53:41 PM
+On this page
+API version
+How to connect to Marketo
+Step 1: Create an API role
+Step 2: Create an API user
+Step 3: Create a custom service for Workato
+Step 4: Retrieve client credentials
+Step 5: Set up the connection
+Minimum scopes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

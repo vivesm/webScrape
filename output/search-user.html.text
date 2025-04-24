@@ -1,0 +1,243 @@
+Workato connectors - Search user action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Intercom
+#
+Intercom - Search user action
+The
+Search user
+action allows you to search for a specific user record using their unique email, user ID, or Intercom internal ID.
+Intercom - Search user action
+#
+Input
+User ID
+Enter the unique identifier or email of the user.
+Internal Intercom ID
+Provide the internal identifier that Intercom uses to track users.
+#
+Output
+Type
+The entity type for the data returned.
+ID
+The unique identifier for the user in Intercom.
+User ID
+The user's identifier within the application.
+Anonymous
+Indicates whether the user is anonymous.
+Email
+The user's email address.
+Name
+The user's full name.
+Avatar
+Type
+The type of avatar image.
+Image URL
+The URL of the user's avatar image.
+App ID
+The identifier for the app associated with the user within Intercom.
+Companies
+Type
+The type of related entities.
+Companies
+Type
+The type of company data.
+Company ID
+The unique identifier for the company.
+ID
+The unique identifier used within Intercom for the company.
+Company name
+The name of the company.
+List size
+The number of companies associated with the user.
+List index
+The index of a company in the list of associated companies.
+Location data
+Type
+The type of location data provided.
+City name
+The city associated with the user's location.
+Continent code
+The continent code for the user's location.
+Country name
+The country name for the user's location.
+Latitude
+The latitude coordinate for the user's location.
+Longitude
+The longitude coordinate for the user's location.
+Postal code
+The postal code for the user's location.
+Region name
+The region name for the user's location.
+Timezone
+The timezone for the user's location.
+Country code
+The country code for the user's location.
+Phone
+The user's phone number.
+Pseudonym
+The pseudonym used by the user, if applicable.
+Remote created at
+The timestamp of when the user was created remotely.
+Session Count
+The total number of sessions logged by the user.
+Owner ID
+The ID of the owner or responsible user for the contact in Intercom.
+Last request at
+The timestamp of the last request made by the user.
+Created at
+The timestamp of when the user was created in Intercom.
+Signed up at
+The timestamp of when the user signed up.
+Updated at
+The timestamp of when the user's information was last updated.
+Unsubscribed from emails
+Indicates whether the user has unsubscribed from emails.
+Marked email as spam
+Indicates whether the user has marked an email as spam.
+Has hard bounced
+Indicates whether an email sent to the user has hard bounced.
+Do not track
+Indicates whether the user has enabled do not track.
+Referrer
+The URL of the referrer through which the user was acquired, if applicable.
+Last Seen IP
+The last known IP address of the user.
+User Agent Data
+Details about the user's browser and operating system.
+Utm campaign
+The UTM campaign parameter associated with the user.
+Utm content
+The UTM content parameter associated with the user.
+Utm medium
+The UTM medium parameter associated with the user.
+Utm source
+The UTM source parameter associated with the user.
+Utm term
+The UTM term parameter associated with the user.
+Social profiles
+Type
+The type of social profiles associated with the user.
+Social profiles
+ID
+The unique identifier for the social profile.
+Name
+The name of the social network.
+Type
+The type of social profile.
+URL
+The URL of the social profile.
+Username
+The username of the user on the social network.
+List size
+The total number of social profiles associated with the user.
+List index
+The index of the social profile in the list.
+←
+Search tags by user action
+Update user action
+→
+Last updated:
+4/22/2024, 5:48:05 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

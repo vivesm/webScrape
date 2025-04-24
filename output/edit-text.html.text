@@ -1,0 +1,159 @@
+OpenAI - テキスト編集アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+OpenAI
+#
+テキスト編集アクション
+提供された入力、指示、およびパラメータに対してテキストを編集します。このアクションは、さまざまなユースケースでワークフロー全体で使用することができます：
+提案/ピッチの生成:
+セールスチームは、提案書、見積もり、その他のセールス資料の品質を向上させるために、テキスト編集機能を使用することができます。このアクションは、セールスドキュメントを生成し、内容を明確かつ簡潔にするために自動的に編集するために使用することができます。
+ブレインストーミング:
+マーケティングチームは、メッセージングやコンテンツの品質を向上させるために、テキスト編集機能を使用することができます。マーケティング資料を生成し、文法的に正確で魅力的なコンテンツに自動的に編集するためのワークフローで使用することができます。
+ドキュメンテーションの生成:
+このアクションは、リリースノートからドキュメンテーションを生成するために使用することができます。これにより、内部および外部のコミュニケーションが迅速化されます。
+テキスト編集アクション
+#
+入力
+フィールド
+説明
+モデル
+テキストを編集するために送信するOpenAIモデルを選択します。
+入力
+変更したいテキストプロンプトを入力します。
+指示
+モデルが入力テキストを編集するための具体的な指示を提供します。
+Top p
+完了の多様性を制御するために0から1の値を入力します。値が高いほど、より多様な応答が生成されます。これと温度の両方を使用することはお勧めしません。詳細は
+こちら
+(opens new window)
+をご覧ください。
+温度
+完了のランダム性を制御するために0から2の値を入力します。値が高いほど、出力はよりランダムになります。一方、値が低いほど、より焦点を絞った決定論的な出力になります。これとtop pの両方を使用することはお勧めしません。詳細は
+こちら
+(opens new window)
+をご覧ください。
+編集回数
+プロンプトに対して生成する編集の数です。最小値は1、最大値は20です。
+#
+出力
+フィールド
+説明
+作成日時
+応答が生成された日時のタイムスタンプです。
+選択肢
+テキスト
+指定された入力に対するモデルの応答です。
+最良の選択肢
+OpenAIが確率的に最適な選択と考える応答が含まれています。
+使用状況
+プロンプトトークン
+プロンプトによって使用されるトークンの数です。
+編集トークン
+テキスト編集に使用されるトークンの数です。
+合計トークン
+プロンプトと応答に使用されるトークンの総数です。
+←
+ビジネスアクション
+画像生成
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

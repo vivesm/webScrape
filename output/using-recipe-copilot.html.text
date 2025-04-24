@@ -1,0 +1,327 @@
+Copilot in Recipe building | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+AI features
+Copilots
+Recipe Copilot
+#
+Recipe Copilot in recipe building
+Recipes are the foundation of any automation strategy on Workato. However, building a recipe can be challenging when you're uncertain about where to start. Recipe Copilot addresses this challenge by generating a sketch outline based on your description of the recipe you plan to build.
+Recipe Copilot also supports the development and refinement of your recipes. Whether you add new steps, modify existing ones, or fine-tune configurations, Recipe Copilot provides a flexible and interactive process to ensure your automation aligns with your goals.
+#
+Prerequisites
+Ensure that you have
+Copilot
+enabled for your workspace. Enabling Copilots requires an
+Admin
+system role. If you aren't assigned this role, contact your workspace administrator to enable this feature. Refer to our
+Copilots
+documentation for more information.
+#
+Describe and sketch your automation
+To create a recipe, outline the intended workflow and specify relevant apps. Recipe Copilot sketches the flow based on your description, providing a foundation for your automation process.
+Recipe Copilot outline prompt
+Phrase your prompts carefully to enhance the quality and relevance of Recipe Copilot's responses. Use the following tips to create effective prompts:
+State applications and objectives clearly
+to help Recipe Copilot understand your requirements and generate accurate suggestions.
+Use clear, descriptive language
+to outline your workflow or the task needing assistance.
+#
+Examples of effective prompts
+Consider the following examples to understand how to craft effective prompts for Recipe Copilot and what to avoid:
+Vague
+: "Issue notification."
+This prompt lacks context, making it difficult for Recipe Copilot to generate useful suggestions.
+Better
+: "Sync Jira to Slack when a high-priority issue is created."
+This prompt specifies the apps (Jira and Slack) and includes a condition (high-priority issue), but it still lacks details about the specific actions to take.
+Best
+: "Notify the engineering team in Slack and create a Trello card when a new high-priority Jira issue is created, including the issue title, description, and due date."
+This prompt is clear and detailed, naming the involved apps (Slack, Jira, Trello), specifying the condition, and outlining the objective and required information. This gives Recipe Copilot the context it needs to generate accurate suggestions.
+#
+Start over
+Click
+Start over
+at any time to restart the recipe-building process. This action resets the process based on the recipe's current state:
+While the sketch is loading
+: Resets the recipe to its empty state.
+When the sketch is loaded and ready for review
+: Resets the recipe to its empty state.
+When configuring steps
+: Disables the
+Start over
+button.
+After all steps are configured
+: Retains the configured steps but clears fields from steps
+Pending review
+.
+After all steps are configured and reviewed
+: Retains both the steps and their fields.
+Start over in Recipe Copilot
+#
+Review the sketch
+Recipe Copilot sketches a flow of your recipe after you describe your automation and confirm your prompt.
+Recipe outline in Recipe Copilot
+Click
+Approve
+to approve the sketch. You can enter update requests in the prompt to
+refine the sketch
+.
+#
+Interact with and refine the sketch
+Recipe Copilot offers a flexible, iterative process, enabling you to refine the sketched outline as needed. Use the following methods to adjust the sketch and tailor it to your automation goals:
+Discuss your specific requirements with Recipe Copilot to make precise adjustments. Provide detailed feedback to align the recipe with your needs. Copilot highlights updates in the recipe editor as you refine the recipe, allowing you to see adjustments in real-time.
+Refine the recipe sketch in Recipe Copilot
+Request best practices from Recipe Copilot to optimize your recipe. This helps ensure that your automation follows recommended guidelines and uses the best possible strategies.
+Ask for best practices
+Update and enhance the sketch by adding details or modifying steps. This iterative process allows your recipe to evolve and improve as your needs change.
+#
+Set up connections
+After you approve the recipe sketch, Recipe Copilot prompts you to set up the necessary connections. This step links the apps and services involved in your automation.
+Complete the following steps to set up connections when creating a recipe sketch using Recipe Copilot:
+1
+Review the connection prompt displayed by Recipe Copilot after you approve the recipe sketch. The prompt lists the apps and services required for your automation.
+Connection setup in Recipe Copilot
+2
+Go through the list of connections provided by Recipe Copilot. For each app or service, you can:
+Select existing connections.
+Create new connections if none exist for the required apps.
+Click
+Edit apps used
+to change the app connectors for your recipe.
+PERMISSIONS
+If you lack permissions to create new connections, contact your workspace administrator.
+3
+Confirm all necessary connections.
+Recipe Copilot automatically converts your sketch into an actual recipe, configuring the steps based on the connections you confirm.
+Generated recipe
+#
+Review the generated recipe
+After Recipe Copilot generates your recipe, you must review each step.
+Complete the following steps to review the generated recipe:
+1
+Click each step labeled
+Pending review
+to start reviewing.
+Review pending steps in Recipe Copilot
+2
+Review each step's configuration in the recipe and take the appropriate action:
+Click
+Accept all
+to approve all suggestions.
+Select
+Ignore all
+to reject all suggestions and make manual adjustments later.
+If you reject suggestions or need adjustments, edit the steps as required. This may involve adjusting datapills, modifying conditions, or changing actions to meet your automation goals.
+DATAPILL MAPPING
+Recipe Copilot intelligently maps datapills into your actions. Confirm that the correct datapills are mapped to your recipe steps.
+Manually adjust recipe
+By reviewing and refining each step, you ensure that your recipe is optimized for your needs.
+#
+Add or modify steps
+After configuring your recipe, you can use Recipe Copilot to add new steps or modify existing ones. This flexible approach enables you to enhance or adjust your automation directly within the sketch outline.
+Complete the following steps to add or modify steps in your generated recipe:
+1
+Ask Recipe Copilot to add a step or modify an existing one in the sketch outline by entering one of the following commands:
+Add step
+Modify an existing step
+2
+Provide more details about the step you plan to add or modify. For example:
+Add a step to this recipe that sends a summary email to the project stakeholders with the meeting details, the Jira issue description, and relevant attachments or links.
+Add a new step using Recipe Copilot
+3
+Review the updated sketch outline and click
+Approve
+if the modifications meet your requirements.
+Review updated sketch
+4
+Select an existing connection or create a new one for the added or modified step in the sketch, if required.
+5
+Review the setup of the newly added or modified step within the sketch, making adjustments as needed.
+Review new step configuration
+After you’ve reviewed and approved all configurations, your recipe is ready for testing or further action.
+#
+Update existing recipes
+Recipes often require updates after their initial build as processes change. Recipe Copilot proposes updates and displays sketches of the proposed changes in the recipe editor when it detects changes to the initial processes.
+You can request updates to existing recipes directly in the recipe editor chat. Copilot generates a sketch that outlines the proposed steps. This enables you to review the sketch, refine it if needed, and confirm the changes before Copilot updates the recipe. Copilot also explains the recipe’s structure and inserts comments to improve clarity when requested.
+Complete the following steps to update an existing recipe:
+1
+Open the recipe you plan to update in the recipe editor.
+2
+Describe the updates you need in the Copilot chat. For example:
+"Add a step after updating a Jira issue to create a ServiceNow comment with the Jira issue link."
+"Modify the email notification step to include additional incident details."
+"Delete the email step and adjust subsequent actions."
+3
+Review the sketch Copilot generates. The sketch highlights steps with changes and shows the proposed updates.
+Review updated sketch
+4
+Refine the sketch by describing additional changes needed in the Copilot chat or approve the sketch by clicking
+Approve
+.
+Copilot modifies the recipe and remaps datapills based on existing configurations after sketch approval.
+5
+Click each step labeled with
+Pending review
+to review the updated configurations.
+1
+Accept or adjust the step’s fields based on your requirements.
+2
+Verify that datapills are mapped correctly. Copilot considers existing mappings when you generate updates but may require adjustments. Ensure that critical fields retain the correct values after you modify or delete steps.
+3
+Resolve missing or ambiguous fields. Copilot requests clarification when certain inputs are unclear or unavailable. For example:
+Resolve missing datapills
+Provide the necessary field values or explain your input requirements in the Copilot chat.
+6
+Revert changes if needed:
+Click
+Undo changes
+to revert the entire update and return the recipe to its original state.
+Describe the step or field you plan to revert in the Copilot chat to remove a single step or reset a specific input field configuration.
+Revert changes
+#
+Error handling
+When Recipe Copilot detects an issue during the recipe-building process, it identifies and highlights the problematic step. It then provides detailed information about the issue and suggests ways to resolve it.
+#
+Test and debug
+Before testing and debugging your recipe, complete the following steps to ensure it is secure:
+1
+Test
+and debug all steps in the recipe for functionality and accuracy.
+2
+Manage sensitive information by following
+secure data handling practices
+.
+3
+Apply best practices for
+error handling and monitoring
+throughout your recipe.
+#
+Data usage
+Refer to our
+appendix
+to see the data Recipe Copilot uses.
+#
+Limitations
+Recipe Copilot supports a wide range of automation tasks, but complex scenarios may require manual setup. For these cases, refer to Workato's
+recipe documentation
+.
+←
+Get started
+Docs Copilot
+→
+Last updated:
+2/26/2025, 2:59:28 PM
+On this page
+Prerequisites
+Describe and sketch your automation
+Examples of effective prompts
+Start over
+Review the sketch
+Interact with and refine the sketch
+Set up connections
+Review the generated recipe
+Add or modify steps
+Update existing recipes
+Error handling
+Test and debug
+Data usage
+Limitations
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,277 @@
+Passing parameters | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Microsoft Teams
+Advanced topics
+#
+Passing parameters
+Parameters are additional information to be used in the recipe in the form of datapills.
+Defining parameters
+in the Workbot trigger block is vital for the parameters to be passed successfully into the recipe, without which there will be no datapills to be used in the recipe actions.
+There are two sources for these parameters - the user and another recipe - and four ways these parameters can be passed into the recipe -
+line commands
+,
+buttons
+,
+task modules
+and
+pick lists
+.
+#
+Line commands
+If the parameters of the recipe are known beforehand, the user can specify them with the Workbot command after a space, with the format parameter1: value1 parameter2: value2 parameter3: value3, etc. An example can be seen in the top right corner of the screenshot below.
+Sending a 'newissue' command with additional parameters Urgency, Summary, and Description
+#
+Buttons
+Buttons can be used in either a
+post reply
+or a
+post message
+action.
+The following table shows what goes into the button fields:
+Input field
+Description
+Button text
+Text to be displayed on the button.
+Submit button command
+Workbot command to execute when button is clicked, for example,
+create_ticket
+. Only after
+configuring the command
+in a Workbot for Microsoft Teams trigger block can that command be visible in the drop-down list.
+Additional parameters
+Parameter values to be passed onto the next recipe when button is clicked, for example,
+{
+"sys_id": "
+sys_id
+"
+"summary": "
+Summary
+",
+"description": "
+Description
+"
+}
+Datapills must be enclosed within double quotes, and parameter names should be entirely lowercase. These parameters can be supplied by users. For example, you can supply parameters such as the urgency of an issue in ServiceNow, or specific recipe details like the Message ID from a previous Microsoft Teams message.
+*Supports Markdown
+A button can be configured to invoke a Workbot command of another recipe
+Parameters in the
+Additional parameters
+field of Recipe 1 are passed to the parameters defined in Recipe 2, invoked by the command within the
+Submit button command
+field.
+If there are more parameters passed in Recipe 1 than defined in Recipe 2, those extra parameters are not captured by Recipe 2; they are lost.
+Conversely, if there are fewer parameters passed in Recipe 1 than defined in Recipe 2, Workbot auto-fills the parameters that passed successfully and launches a
+task module
+to prompt the user to fill in the missing parameters.
+Half-filled task module
+#
+Task Modules
+Task modules are dialog boxes that appear when Workbot needs more parameter values from the user.
+Task module dialog box
+After the user fills in the required fields, these values are tied to datapills that the recipe can use later on.
+Parameters in the datatree
+For example, to create an incident in ServiceNow, you may want to prompt users for additional info like
+Urgency
+,
+Summary
+, and
+Description
+. By adding
+Urgency
+,
+Summary
+, and
+Description
+as parameters, Workbot will open a task module and prompt the user for each parameter.
+Workbot can ask users for info if you specify additional parameters in your command
+#
+Picklists
+Picklists allow users to choose between a fixed number of options. This is useful when the available options are known, for example, Urgency (High:1, Medium: 2, Low: 3), Priority (1,2,3,4,5), and so on. They are not able to pass parameters on their own and must be paired with either buttons or task modules to do so.
+#
+Picklists with buttons
+Pick lists can be found in the
+post reply
+and
+post message
+actions.
+The 'Next' button also passes the 'opportunity_id' of 'Google' onto the command recipe that it invokes
+The following table shows what goes into the pick list and choice fields:
+Input field
+Description
+Pick list name
+Name of pick list. Displays before choices, and supports markdown.
+Pick list style
+Compact
+displays choices in a drop-down menu, while
+Expanded
+displays all choices with radio buttons.
+Choice parameter
+Parameter name to store the choice value. This is a required field when passing parameters to another recipe, otherwise the value will not be passed.
+Title
+Text to display for choice. Cannot contain
+:
+or
+,
+.
+Value
+Value to pass to
+Choice parameter
+if chosen. Cannot contain
+:
+or
+,
+.
+*Supports Markdown
+The choice parameter will take its value from a choice (if it's chosen)
+When the user chooses from the
+Choices
+available in the picklist, that value is attached to the
+Choice parameter
+, which can then be passed on to the next recipe. Therefore, while the
+Choice parameter
+is labeled as optional, it must be defined for the value chosen to have a parameter to attach to. Furthermore, that same parameter must be
+defined
+in the downstream recipe's trigger block for the
+Choice parameter
+to be passed successfully.
+The user can define only one picklist per
+post reply
+or
+post message
+action block, meaning that only one parameter can be passed to the downstream recipe using a pick list.
+#
+Picklists in task modules
+When
+defining parameters
+in the Workbot for Microsoft Teams trigger block, a picklist is created in the task module when the
+Data type
+is set to
+String
+and comma-separated options are added to the
+Options
+field.
+If the display name and the value are different, separate the two by a colon, for example, High:1, Medium:2, Low: 3. That parameter's value thus takes on the option selected by the user and can be used further in the recipe as a datapill; a parameter gets passed through a pick list.
+It's important to note that pick list display name and value cannot contain
+:
+or
+,
+.
+Options where display name and value are the same
+Options where display name and value are different
+Options displayed in a picklist in task module
+#
+Learn more
+Using Workbot for Microsoft Teams
+Workbot triggers
+Workbot actions
+←
+Tabs
+Uploading files
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+Line commands
+Buttons
+Task Modules
+Picklists
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

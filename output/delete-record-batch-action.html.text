@@ -1,0 +1,144 @@
+Data tables - Delete records action (batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Data tables
+Connector
+#
+Delete records action (batch)
+The
+Delete records
+batch action deletes multiple records in a data table you specify. This action supports up to 200 records per batch.
+#
+Input
+Input fields
+Description
+Data table
+Select the data table you plan to delete records from. Click the link in this field's description to view the selected data table in the
+Data tables interface
+.
+Records source list
+Provide the IDs of the records you plan to delete in a list. You can input a list datapill for dynamic records or define individual fields for each record.
+Record ID
+Provide the unique identifier of the record you plan to delete. You can input a
+Record ID
+datapill or enter a static value from the data table's
+Record ID
+column, which is hidden by default.
+#
+Output
+Output fields
+Description
+Record ID
+The record ID of the deleted record.
+List size
+Total number of records in the list.
+List index
+The position of the record in the list.
+←
+Delete record action
+Remove values from a record action
+→
+Last updated:
+4/1/2025, 5:13:02 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

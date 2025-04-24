@@ -1,0 +1,159 @@
+Workflow apps- Builder experience - Component properties | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Builder experience
+Pages
+#
+Component properties
+Customize page components using the properties panel. The properties panel provides options that enable you to create dynamic pages that change in response to user input. You must configure each property for each component on your page.
+The following table provides a high-level overview of the different types of page properties and component compatibility. Each property has a unique set of configurable fields. Additionally, the set of available properties varies for each page component.
+View our
+page components
+documentation for information on customizing properties for each type of page component.
+Property
+Description
+Compatible components
+Editable
+Determine whether page components are editable, read-only, or editable only under the conditions you specify. The editability of components affects what other properties are customizable.
+Data table
+Linked tables
+Text
+Number
+Choices
+Data
+Button
+File upload
+Appearance
+Determine how components appear on the page. This includes deciding whether components are required, visible, assigning hints and placeholders to your components, and more.
+Text
+Number
+Choices
+Contact
+Display
+Data tables
+Linked tables
+Data
+Buttons
+File download
+File upload
+Data
+Configure how your data tables appear on your pages. This includes choosing which columns appear on your page, filtering columns, and more.
+Linked tables
+View
+Options
+Configure how choices components appear on your page by determining the source for multiple choice (drop-down) components.
+Drop-down
+Rules
+Set rules for these components. For example, you can determine whether users must fill out the field to submit the form. Additionally, you can create validation rules, including limiting user input, pattern matching, and setting accepted file types and maximum file sizes.
+Text
+Number
+Choices
+Contact
+Date
+File upload
+Note: The specific type of rules you can configure varies by component type.
+←
+Page components
+Datapills in pages
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

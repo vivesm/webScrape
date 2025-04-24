@@ -1,0 +1,158 @@
+IDP by Workato - Classify document action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+IDP by Workato
+#
+IDP by Workato - Classify document using IDP by Workato action
+The
+Classify document
+action analyzes a document’s content and assigns it to a predefined category based on provided guidelines.
+#
+Input
+Input field
+Description
+File contents
+Provide the file content to classify.
+File name
+Enter the file name with its extension or specify the type in
+File type
+.
+File type
+Select the file type of the uploaded content. This overrides the inferred type from
+File name
+. Supported types include
+png
+,
+jpg
+,
+webp
+,
+gif
+, and
+pdf
+. PDF files must not exceed 15 pages.
+List of categories
+Create a list of categories to classify the text.
+#
+Output
+Output field
+Description
+Remaining calls
+Number of IDP API calls left in the current period.
+Consumed calls
+Number of IDP API calls used.
+Reset time
+Timestamp when the call limit resets.
+Category
+Assigned category based on document content.
+Confidence scores
+Confidence level of the classification.
+←
+Process document action
+Insightly
+→
+Last updated:
+4/9/2025, 3:06:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

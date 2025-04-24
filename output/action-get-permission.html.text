@@ -1,0 +1,201 @@
+Workato connectors - Google Drive - Get file permission action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Drive
+#
+Google Drive - Get file permission action
+This action retrieves details for a permission associated with a given file in Google Drive. Permission details include the file's ownership and whether the file is shared with additional users, groups, or domains, or is accessible to anyone.
+Google Drive Get file permission action
+#
+Input
+Input field
+Description
+File
+The file with the permission you plan to retrieve. Select a file or enter its ID. To find the file ID, right-click the file and select
+Share > Copy link
+. For example, if the URL is
+https://drive.google.com/file/d/123nyR2IjW_Rq84d3qEYRoq1/view
+, the file ID is
+123nyR2IjW_Rq84d3qEYRoq1
+.
+Alternatively, you can find the file ID in the output of other Google Drive triggers and actions.
+Permission
+The permission you plan to retrieve. Select a permission or enter its ID. The permission ID can be obtained from the
+List permissions
+action.
+Use domain admin access?
+Issues the request as a domain administrator, if the connected user is the admin of the domain owning a shared drive. This setting allows the domain admin to
+retrieve permissions for shared drive files
+(opens new window)
+owned by their domain even if they aren't a member of the given shared drive. Default is set to
+No
+.
+#
+Output
+Output field
+Description
+Kind
+The kind of resource this is:
+drive#permission
+.
+Type
+The type of grantee:
+user
+,
+group
+,
+domain
+, or
+anyone
+.
+Permission ID
+The ID of this permission.
+Email address
+The email address of the user or group that was granted this permission.
+Domain
+The domain this permission refers to.
+Role
+The role granted by this permission.
+View
+The view for this permission.
+Allow file discovery
+Indicates whether this permission allows the file to be discovered through search. This is only applicable to permissions granted to
+domain
+or
+anyone
+.
+Display name
+The human-readable name for the permission grantee.
+user
+: User's full name.
+group
+: Name of the Google Group.
+domain
+: Domain owning the shared drive. Not applicable to the type
+anyone
+.
+Photo link
+A link to the user's profile photo, if available.
+Team Drive permission details
+A list of permission details for the Team Drive. Contains the following output fields, in addition to List size and List index:
+Team Drive permission type: The permission type for this user. Only applies to Team Drives.
+Role (Team Drive): The primary role for this user. Only applies to Team Drives.
+Inherited from (Team Drive): The ID of the item from which this permission is inherited. Only applies to Team Drives.
+Inherited (Team Drive): Whether this permission is inherited. Only applies to Team Drives.
+Permission details
+A list of permission details for the shared drive. Contains the following output fields, in addition to List size and List index:
+Permission type (shared drive): The permission type for this user. Only applies to shared drives.
+Role (shared drive): The primary role for this user. Only applies to shared drives.
+Inherited from (shared drive): The ID of the item from which this permission is inherited. Only applies to shared drives.
+Inherited (shared drive): Indicates whether this permission is inherited. Only applies to shared drives.
+Deleted
+Indicates whether the account associated with this permission has been deleted. This field only applies to user and group permissions.
+←
+Export file action
+List file permissions action
+→
+Last updated:
+3/10/2025, 6:11:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

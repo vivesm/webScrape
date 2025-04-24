@@ -1,0 +1,203 @@
+SnowflakeアクセラレータのELTパイプライン - プロパティ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+ELT パイプライン - Snowflake
+アセット
+#
+SnowflakeアクセラレータのELTパイプライン - アセット - 環境プロパティ
+SnowflakeアクセラレータのELTパイプラインには、SlackとMicrosoft Teamsの両方の実装に共通する9つの環境プロパティがあります：
+elt.user_section_text
+elt.user_button1_url
+elt.user_button1_label
+elt.snowflake_url
+elt.s3bucketregion
+elt.s3bucketname
+elt.bot_app_id
+elt.aws_secret_key
+elt.aws_key_id
+elt.admin_guide
+さらに、このアクセラレータには、SlackまたはMicrosoft Teams固有の2つの環境プロパティがあります：
+elt.slack_notification_channel
+elt.msteams_notification_channel
+#
+elt.user_section_text
+これはELT Botの
+ホームページ
+の左側の列にあるボタンのカスタマイズ可能な
+セクションテキスト
+です。
+サンプル値：
+ボタンセクションテキスト
+#
+elt.user_button1_url
+ELT Botのホームページにあるカスタマイズ可能なユーザーボタンのURLです。
+サンプル値：
+https://example.com
+#
+elt.user_button1_label
+これはELT Botの
+ホームページ
+のカスタマイズ可能なボタンのラベルテキストです。
+サンプル値：
+ラベルテキスト
+#
+elt.snowflake_url
+SnowflakeインスタンスのURLです。
+サンプル値：
+https://xyz.snowflake.com
+#
+elt.s3bucketregion
+S3リージョンを設定します。
+バケット > プロパティ > 静的ウェブサイトホスティング
+に移動して、エンドポイントURL内のリージョンを確認します。
+サンプル値：
+us-west-2
+#
+elt.s3bucketname
+大文字と小文字を区別するバケット名です。
+サンプル値：
+elt-pipeline-accelerator
+#
+elt.bot_app_id
+アプリのIDです。Slackのアプリの基本情報ページでアプリIDを確認できます。
+サンプル値：
+XA02B82C
+#
+elt.aws_secret_key
+このキーはS3管理者から取得します。このキーを使用して、Snowflakeにステージングエリアを作成します。
+サンプル値：
+fbFv7K8qs9zpGCpS6O8s4LosFwErc76Z112unTxT
+#
+elt.aws_key_id
+このキーはS3管理者から取得します。このキーを使用して、Snowflakeにステージングエリアを作成します。
+サンプル値：
+AKIA3J9TYYRU7CVUXG5N
+#
+elt.admin_guide
+このアクセラレータの管理ガイドのGoogleドキュメント版へのURLです。
+サンプル値：
+https://docs.google.com
+#
+elt.slack_notification_channel
+ELTパイプラインSlackボットから通知を受け取る予定のチャンネルです。
+サンプル値：
+#elt-notifications
+#
+elt.msteams_notification_channel
+ELTパイプラインMicrosoft Teamsボットから通知を受け取る予定のチャンネルです。
+サンプル値：
+#elt-notifications
+←
+ルックアップテーブル
+ヒントとトラブルシューティング
+→
+Last updated:
+2024/2/22 23:17:11
+On this page
+elt.usersectiontext
+elt.userbutton1url
+elt.userbutton1label
+elt.snowflake_url
+elt.s3bucketregion
+elt.s3bucketname
+elt.botappid
+elt.awssecretkey
+elt.awskeyid
+elt.admin_guide
+elt.slacknotificationchannel
+elt.msteamsnotificationchannel
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

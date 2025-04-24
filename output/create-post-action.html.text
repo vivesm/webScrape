@@ -1,0 +1,316 @@
+Workato connectors - WordPress Create post action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+WordPress
+#
+Create post action
+The
+Create post
+action allows you to create a new post in WordPress.
+Create post action
+#
+Input
+Input field
+Description
+Title
+Enter the title you plan to use for your post.
+Content
+Enter the content you plan to use in your post.
+Status
+Select the status you plan to assign to your post. For example:
+Publish
+,
+Private
+,
+Draft
+, or
+Pending
+.
+Comments open
+Select an option to determine whether comments are open on your post or not.
+Publicize
+Select an option to determine whether your post is publicized to all connected external services or not.
+#
+Output
+Output field
+Description
+ID
+The ID for the post. For example:
+187
+.
+Site ID
+The ID of the site. For example:
+6751xxxx
+.
+Author ID
+The ID of the author. For example:
+64588464
+.
+Login
+The login name of the author. For example:
+integrator1
+.
+Email
+The email address of the author.
+Name
+The display name of the author. For example:
+example1
+.
+First name
+The first name of the author.
+Last name
+The last name of the author.
+Nice name
+The nicely formatted name of the author.
+URL
+The URL to the author's WordPress site. For example:
+http://example1.wordpress.com
+Avatar URL
+The URL to the author's avatar. For example:
+https://2.gravatar.com/avatar/...
+Profile URL
+The URL to the author's Gravatar profile. For example:
+https://gravatar.com/example1
+IP address
+Indicates the IP address of the author.
+Site visible
+Indicates if the site is visible or not. Values are
+true
+or
+false
+.
+Date
+The date the post was created. For example:
+2024-02-21T15:36:53.000000-06:00
+.
+Modified
+The date the post was last modified.
+Title
+The title of the post. For example:
+Monthly newsletter
+.
+URL
+The URL to the post. For example:
+https://example1.wordpress.com/?p=187
+Short URL
+The short URL to the post. For example:
+https://wp.me/p4xxxx-31
+Content
+The HTML content of the post.
+Excerpt
+The excerpt of the post.
+Slug
+The slug of the post.
+GUID
+The globally unique identifier for the post. For example:
+https://example1.wordpress.com/?p=187
+Status
+The status of the post. For example:
+draft
+.
+Sticky
+Indicates if the post is sticky or not. Values are
+true
+or
+false
+.
+Password
+The password for the post, if any.
+Parent
+Indicates the parent of the post.
+Type
+The type of the post.
+Comments open
+Indicates if comments are open or not. Values are
+true
+or
+false
+.
+Pings open
+Indicates if pings are open or not. Values are
+true
+or
+false
+.
+Likes enabled
+Indicates if likes are enabled or not. Values are
+true
+or
+false
+.
+Sharing enabled
+Indicates if sharing is enabled or not. Values are
+true
+or
+false
+.
+Comment count
+The number of comments on the post.
+Like count
+The number of likes on the post.
+I like
+Indicates if the current profile likes the post or not. Values are
+true
+or
+false
+.
+Is reblogged
+Indicates if the post is reblogged or not. Values are
+true
+or
+false
+.
+Is following
+Indicates if the current profile is following the post or not. Values are
+true
+or
+false
+.
+Global ID
+The global ID of the post. For example:
+xx91abdae40f9e8d2966332245409ba5
+.
+Featured image
+The URL of the featured image, if any.
+Post thumbnail
+The thumbnail of the post, if any.
+Format
+The format of the post. For example:
+standard
+.
+Geo
+Indicates whether geographical information for the post is available or not. Values are
+true
+or
+false
+.
+Menu order
+The menu order of the post.
+Publicize URLs
+The URLs used for publicizing the post, if any.
+Tags
+The tags associated with the post, if any.
+Categories
+The categories associated with the post.
+Attachments
+The attachments to the post, if any.
+Metadata
+The metadata associated with the post.
+Meta links self
+The API link for the post. For example:
+https://public-api.wordpress.com/rest/xx/sites/6751xxxx/posts/187
+Meta links help
+The help link for the post. For example:
+https://public-api.wordpress.com/rest/xx/sites/6751xxxx/posts/187/help
+Meta links site
+The site meta link for the post. For example:
+https://public-api.wordpress.com/rest/xx/sites/6751xxxx
+←
+New post created trigger
+Delete post action
+→
+Last updated:
+3/7/2024, 6:22:16 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,229 @@
+Data tables - Data tables コネクタ - レコードの検索アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workflow Apps
+テーブルストレージ
+Data table connector コネクタ
+#
+レコードの検索
+レコードの検索
+アクションを使用すると、特定のデータテーブル内のエントリを検索できます。このアクションは、指定したデータテーブルから最大1,000（千）レコードを取得します。
+次のページトークン
+を使用して、複数ページのレコードをループ処理できます。
+#
+入力フィールド
+データテーブルの選択
+検索するデータテーブルを選択します。
+フィルタ
+クエリに1つ以上のフィルタを追加します。すべてのフィルタには
+列名
+、
+オペランド
+、
+値
+が含まれている必要があります。すべてのフィルタはANDで連結されます。
+列名
+使用可能な列名は、選択したデータテーブルに依存します。
+オペランド
+使用可能なオペランドは、選択したデータテーブルに存在する列のタイプに依存します。
+短いテキスト
+使用可能なオペランド:
+Equals
+Is not equal to
+Is null
+Is not null
+長いテキスト
+使用可能なオペランド:
+Equals
+Is not equal to
+Is null
+Is not null
+整数
+使用可能なオペランド:
+Equals
+Is not equal to
+Is less than
+Is greater than
+Is less or equals
+Is greater or equals
+Is null
+Is not null
+小数
+使用可能なオペランド:
+Equals
+Is not equal to
+Is less than
+Is greater than
+Is less or equals
+Is greater or equals
+Is null
+Is not null
+ブール
+使用可能なオペランド:
+Is true
+Is false
+Is null
+Is not null
+日付
+使用可能なオペランド:
+Equals
+Is not equal to
+Is before
+Is after
+Is on or before
+Is on or after
+Is null
+Is not null
+日時
+使用可能なオペランド:
+Equals
+Is not equal to
+Is before
+Is after
+Is on or before
+Is on or after
+Is null
+Is not null
+テーブルへのリンク
+使用可能なオペランド:
+Equals
+Is not equal to
+In
+Is null
+Is not null
+値
+入力する値は、列のデータ型と選択したオペランドと一致する必要があります。
+並べ替え
+検索結果を
+列名
+で整理します。
+使用可能なオプションは、検索するテーブルの列に依存します。
+並べ替え方向
+検索結果を
+昇順
+または
+降順
+で並べ替えます。
+制限
+取得するレコードの数を決定します。
+デフォルト値
+: 100
+最大値
+: 1,000
+次のページトークン
+指定したオフセットからレコードを取得します。
+#
+出力
+レコード
+レコードとそのフィールドの配列を返します。各レコードには以下が含まれます：
+レコードID
+レコードの固有IDです。
+作成日時
+レコードの作成時刻です。
+更新日時
+レコードの最終編集時刻です。
+次のページトークン
+指定されたオフセットからレコードを取得します。
+←
+レコードの作成
+レコードの更新
+→
+Last updated:
+2025/2/12 15:20:42
+On this page
+入力フィールド
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

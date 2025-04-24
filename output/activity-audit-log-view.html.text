@@ -1,0 +1,176 @@
+アクティビティ監査ログ - 表示 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの管理
+管理者ダッシュボード
+アクティビティ監査ログ
+#
+監査ログの表示
+必要なアクセス権
+を持つユーザーは、
+ダッシュボード > アクティビティ監査
+に移動して、監査活動ログを表示することができます。
+ページの上部にあるフィルターを使用して、選択した基準に基づいてログをフィルタリングできます。例えば、特定のユーザーのアクティビティを表示するには、
+すべてのユーザー
+をクリックし、メニューからユーザーを選択します。
+#
+アクティビティ監査ログのフィルタリング
+アクティビティ監査ログでは、(時間)
+期間
+、
+共同作業者/クライアント
+、
+アセット
+の種類に基づいてアクティビティをフィルタリングできます。
+期間
+アクティビティ監査ログを期間でフィルタリングします。
+利用可能なフィルター:
+過去1時間
+過去24時間
+過去7日間
+過去30日間
+いつでも
+カスタム範囲
+共同作業者/クライアント
+ワークスペース内の共同作業者および/またはAPIクライアントによるアクティビティ監査ログをフィルタリングします。
+利用可能なフィルター:
+すべての共同作業者/クライアント
+ワークスペース内の特定の共同作業者
+ワークスペース内の特定のAPIクライアント
+アセット
+アクティビティ監査ログをアセットの種類でフィルタリングします。
+利用可能なフィルター:
+APIアクセスプロファイル
+APIクライアント
+APIコレクション
+APIエンドポイント
+APIポリシー
+アカウント
+アプリポータル
+共通データモデル
+接続
+カスタムアプリ
+カスタムコネクタ
+データテーブル
+環境プロパティ
+ルックアップテーブル
+メッセージテンプレート
+パッケージ
+ページ
+プロジェクトプロパティ
+プロジェクトとフォルダー
+Pub/Subトピック
+レシピ
+リソース
+テストケース
+#
+アクティビティ監査ログのストリーミング
+ログを必要に応じて保持するために、
+アクティビティログストリーミング
+機能の使用をお勧めします。
+設定すると、この機能は監査ログデータを選択した宛先にストリーミングします。詳細については、
+監査ログストリーミングガイド
+を参照してください。
+←
+アクティビティ監査ログ
+ログ - ストリーミング
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+アクティビティ監査ログのフィルタリング
+アクティビティ監査ログのストリーミング
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

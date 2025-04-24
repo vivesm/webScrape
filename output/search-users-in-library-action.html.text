@@ -1,0 +1,229 @@
+Workato connectors - Microsoft SharePoint search users in SharePoint library action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SharePoint
+#
+Search users in SharePoint library action (batch)
+This action searches for users in a SharePoint library you specify.
+#
+Input fields
+Field
+Description
+Site name
+Provide the name of the SharePoint site to which you plan to connect. If left blank, Workato connects to your default home site, as specified in your connection settings. The site name is located in the URL of the site page. For example, if the URL is
+https://company-name.sharepoint.com/sites/product
+, the site name is
+product
+.
+If you plan to connect to a different site, you can provide the absolute URL to override the base URL. For example, if the input is
+https://company-name.sharepoint.com/teams/product
+, Workato connects to the provided input.
+Alternatively, you can provide the absolute URL to connect to a different site. For example, entering
+https://company-name.sharepoint.com/teams/product
+connects Workato to the specified site directly.
+Filter
+Provide a filter condition to use to search for the user. For example,
+Email eq
+[email protected]
+and Id eq 6
+.
+Search by
+Specify the how you plan to search for users. You can search by a fixed list or a dynamic list using a list datapill.
+Search by source list
+Input a list datapill to search for users using a list. Learn more about
+list input
+(opens new window)
+.
+ID
+Search by the unique identifier assigned to the user.
+Is hidden in UI?
+Search by whether this field is hidden in the user interface.
+Title
+Search by the title or name associated with the user.
+Login name
+Search by the user's login name used for authentication.
+Expiration
+Search by the date when the user's account or access expires.
+User principal name
+Search by the principal name of the user in the domain.
+Is email authentication guest user?
+Search by whether the user is authenticated as a guest via email.
+Is shared by email guest user?
+Search by whether the user account is shared as a guest user via email.
+Is site Admin?
+Search by whether the user has administrative privileges on the site.
+Principal type
+Search by the type of principal, such as user or group, associated with the user. Learn more about principal types and their corresponding values
+here
+(opens new window)
+.
+Email
+Search by the email address associated with the user.
+OData ID
+Search by the unique identifier in the OData format for the user.
+OData type
+Search by the type of data as per OData specifications.
+Pagination
+Specify how you plan for Workato to handle the search results. This section of the UI includes input fields allowing you to specify the
+Page size
+,
+Offset
+, and
+Order by
+Page size
+The maximum number of records to return in a single response.
+Offset
+The number of records to skip.
+Order by
+The field to order the results by.
+#
+Output fields
+The output datatree contains the details of the users that match the search criteria.
+Field
+Description
+ID
+The unique identifier assigned to the user in Sharepoint.
+Is hidden in UI?
+Indicates whether the user's profile is hidden in the user interface (UI).
+Title
+The display name or title associated with the user.
+Login name
+The login name or identifier used by the user to access SharePoint.
+Expiration
+The date or status indicating when the user's account or access expires.
+User principal name
+The user's principal name, typically in the format of an email address, used for identification purposes.
+Is email authentication guest user?
+Indicates whether the user is authenticated through email as a guest user.
+Is shared by email guest user?
+Indicates whether the user account is shared via email as a guest user.
+Is site Admin?
+Indicates whether the user has administrative privileges on the site.
+Principal type
+The type of principal, such as user or group, associated with the user. Learn more about principal types and their corresponding values
+here
+(opens new window)
+.
+Email
+The primary email address associated with the user account.
+User ID
+The unique identifier assigned to the user within the system.
+Odata ID
+The unique identifier assigned to the user's data entry in the OData format.
+Odata type
+The type or category of data represented by the OData entry related to the user.
+Odata edit link
+A link or URL that allows editing of the user's data entry in OData format.
+List size
+The size or number of items in a list associated with the user.
+List index
+The index or position of the user's entry within a list.
+←
+Search list items in library action (batch)
+Update file metadata in library action
+→
+Last updated:
+7/25/2024, 5:12:40 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

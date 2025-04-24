@@ -1,0 +1,195 @@
+Workato connectors - MailChimp - Add subscriber action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+MailChimp
+#
+Add subscriber action
+This action adds a subscriber to a list you specify in MailChimp.
+Add subscriber action
+#
+Input
+Input field
+Description
+List
+The list to which you plan to add the subscriber.
+Email address
+The email address of the subscriber.
+Status
+This is an optional field. Subscriber status allows you to select a specific status for the subscriber, including unsubscribed, pending, or archived.
+#
+Output
+Output field
+Description
+ID
+The ID of the action. For example:
+48blm743a5eb947wsm6d83f3a8dd9661
+.
+Contact ID
+The ID of the contact. For example:
+66b63b57w57bs5ef8354729f9ecfc249
+.
+Full name
+The full name provided by the subscriber. This field is blank if the subscriber did not provide a name.
+Web ID
+The web ID of the subscriber.
+Email type
+The email type, for example
+html
+.
+Status
+The status that triggered the subscriber notification.
+IP sign up
+The IP address of the subscriber. This field is
+null
+if tracking is not turned on.
+Timestamp sign up
+The timestamp of the subscription. This field is
+null
+if tracking is not turned on.
+Member rating
+The member rating of the subscriber. For example, if the subscriber is the second person to subscribe, this value is
+2
+.
+Last changed
+The date the subscriber's account was last changed. For example:
+2023-12-30
+.
+Language
+The language of the subscriber. This field is
+null
+if tracking is not turned on.
+VIP
+Indicates whether the subscriber is a VIP customer or not. Values are
+true
+or
+false
+.
+Location
+The location of the subscriber. This field is
+null
+if tracking is not turned on.
+Source
+The source of the subscriber.
+Tags count
+The number of tags applied to the subscriber.
+Tags
+The tags applied to the subscriber. This field is blank if no tags are applied to the subscriber.
+Email
+The email address of the subscriber.
+Email ID
+The email ID of the subscriber. For example:
+30dbbwbs5c
+.
+Unique ID
+The unique ID of the subscriber. For example,
+c579b1sm49
+.
+←
+New or updated subscriber trigger
+Add subscriber tags action
+→
+Last updated:
+2/18/2025, 8:37:10 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

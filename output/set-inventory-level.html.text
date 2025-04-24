@@ -1,0 +1,144 @@
+Workato コネクター - Shopify - Set inventory level | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Shopify
+#
+Shopify コネクター - Set inventory level (在庫レベルの設定)
+このアクションは、指定されたロケーションの在庫品目の在庫レベルを設定します。まだ在庫品目がロケーションに関連付けられていない場合は、関連付けが行われます。
+このアクションを使用するには、Shopify で
+在庫追跡
+(opens new window)
+を設定する必要があります。
+#
+入力
+項目
+説明
+Inventory item ID
+在庫レベルを設定する在庫品目の Shopify ID。
+Location ID
+在庫レベルを設定するロケーションの Shopify ID。ロケーションの ID を確認するには、List locations アクションを使用します。
+Quantity available
+利用可能な在庫数量を設定します。
+Disconnect if necessary?
+ピックリストから選択するか、ユーザー独自の値を入力します。在庫品目がフルフィルメントサービスに関連付けられていたか、これから関連付けられる場合に適用されます。
+yes の場合、以前に関連付けられていたロケーションの在庫レベルは0に設定され、関連付けが解除されます。
+no を指定したにもかかわらずフルフィルメントサービスのロケーションが関係している場合、アクションは失敗し、在庫レベルは設定されません。
+#
+出力
+項目
+説明
+Inventory item ID
+在庫品目の ID。
+Location ID
+ロケーションの ID。
+Available
+販売可能な在庫品目の数量。在庫品目が追跡されていない場合は、null が返されます。
+Updated at
+この在庫レベルが最後に利用可能だった日時。
+Admin GraphQL API ID
+一意の Admin GraphQL API ID。
+←
+メールで請求書を送信
+カスタマーの更新
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

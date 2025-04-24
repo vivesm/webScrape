@@ -1,0 +1,289 @@
+Workato connectors - LINE WORKS | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+LINE WORKS
+LINE WORKS
+(opens new window)
+is a professional communication and collaboration platform that helps organizations connect, share information, and plan schedules efficiently. With features like instant messaging, shared calendars, task management, and file sharing, it suits businesses of all sizes and industries.
+Workato's LINE WORKS connector enables integrations and automations within LINE WORKS, allowing you to automate tasks such as sending messages, searching user directories, retrieving bot lists, and creating channels. It also supports triggers for events like message exchanges, postback actions, and member participation in chats.
+#
+Prerequisites
+Before using the LINE WORKS connector in Workato, ensure you have an active LINE WORKS administrator account with appropriate permissions to access APIs and permissions to use the Developer Console. Refer to LINE WORKS'
+help documentation
+(opens new window)
+for detailed steps on creating an account.
+#
+Register an app in the LINE WORKS developer console
+Register an app in the LINE WORKS Developer Console to enable integration with the Workato platform and automate tasks such as messaging, user management, and event handling.
+1
+Sign in to the
+LINE WORKS Developer Console
+(opens new window)
+using an administrator account.
+2
+Go to
+API > Client App
+.
+3
+Click
+Add a Client App
+.
+4
+Enter your app name, then click
+Confirm
+to proceed.
+LINE WORKS Register an application
+5
+Complete the following steps to configure the app:
+1
+Add a brief
+Description
+of the app’s purpose.
+2
+Select the required
+API Scopes
+(e.g., bot.read, task.read). Refer to LINE WORKS'
+OAuth Scopes
+(opens new window)
+documentation for more details on authorization scopes.
+3
+Enter the
+Redirect URL
+provided by Workato for OAuth. Refer to the
+Workato Redirect URL guide
+(opens new window)
+to access your
+Redirect URL
+.
+4
+Click
+Add
+.
+5
+Click
+Save
+to complete the app's configuration.
+LINE WORKS Register an application
+6
+Copy the
+Client ID
+and
+Client Secret
+and store them in a secure location.
+For more details, refer to the
+LINE WORKS Developer Documentation
+(opens new window)
+.
+#
+Register a Bot in LINE WORKS
+Configuring a bot in the LINE WORKS Developer Console is required to utilize this connector's triggers and actions.
+Complete the following steps to configure a bot in the LINE WORKS Developer Console:
+1
+Sign in to the
+LINE WORKS Developer Console
+(opens new window)
+using an administrator account.
+2
+Go to
+API > Bot
+3
+Click
+Register
+.
+4
+Provide the
+Bot Name
+, a brief
+Bot Description
+, and complete the necessary fields.
+LINE WORKS Register a Bot
+5
+Click
+Save
+to complete the bot's configuration.
+6
+Go to
+Service > Bot
+(opens new window)
+.
+7
+Click
+Add bot
+to make the bot visible to members.
+LINE WORKS Register a Bot
+8
+Locate the bot you registered in the previous steps and click
+Add
+in the
+Add Bot
+column to enable it for members.
+9
+Locate your bot and click its
+Bot name
+to open the
+Bot info
+pop-up.
+LINE WORKS Register a Bot
+10
+Click
+Edit
+.
+11
+Click the
+Visibility setting
+toggle to make the bot public.
+12
+Click
+Save
+to complete the bot's configuration.
+Refer to the LINE WORKS'
+Bot Documentation
+(opens new window)
+for more details on bot configuration.
+#
+How to connect to LINE WORKS
+Workato supports Oauth2 authentication to connect to LINE WORKS. This authentication method requires the following value:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+LINE WORKS
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+LINE WORKS Connection
+4
+Enter the
+Client ID
+generated for your application in the LINE WORKS Developer Console.
+5
+Provide the
+Client Secret
+generated for your application in the LINE WORKS Console.
+6
+Select the necessary
+OAuth scopes
+(opens new window)
+required for your integration. If no scopes are selected, the minimum set of required scopes will be automatically applied.
+7
+Click
+Connect
+to complete the connection.
+←
+New message trigger in real-time
+New event trigger
+→
+Last updated:
+1/27/2025, 4:24:10 AM
+On this page
+Prerequisites
+Register an app in the LINE WORKS developer console
+Register a Bot in LINE WORKS
+How to connect to LINE WORKS
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,706 @@
+Regex overview | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+#
+Regex overview
+Regex, or regexp (regular expressions) are powerful tools used for matching patterns in text. Regex is a sequence of symbols and characters that expresses a string or pattern. Regex provides a concise and flexible way to identify strings of text that follow a specific pattern. In Workato, you can use regex to extract specific information from a body of text, validate user input, and more.
+This document serves as a basic introduction to regex and its usage in Workato. Refer to
+Ruby doc
+(opens new window)
+for a comprehensive guide on regex and its usage.
+#
+Use regex in Workato
+You can use regex can in various Workato products and features, including:
+Formulas: Regex can be used within string formulas to perform complex text manipulations. For example, you can use regex to extract specific parts of a string, validate input formats, or replace text patterns.
+Utilities: Workato provides utility connectors that support regex for tasks such as parsing JSON or XML documents. This allows for more precise data extraction and transformation.
+Recipes: When you're building recipes, you can use regex in conditions and actions to filter and manipulate data based on specific patterns.
+Workbot: Validate that user input matches the format you expect. For example, you can use regex to validate email addresses, URLs, and more.
+Workflow apps: Validate that user input matches the format you expect. For example, you can use regex to validate SSNs (Social Security Numbers), IBANs (International Bank Account Numbers), and more.
+LIMITATIONS
+Workbot and Workflow apps do not support
+interpolation
+(opens new window)
+(the insertion or inclusion of variable content within a regex pattern).
+#
+Basic syntax
+Regex consists of literal characters (which match themselves) and metacharacters (which have special meanings). Here are some basic elements:
+#
+Literal characters
+Literal characters match themselves, such as:
+a
+1
+!
+Refer to the
+literal characters reference table
+for more examples.
+#
+Metacharacters
+Metacharacters are special characters with predefined meanings. For example:
+.
+: Matches any single character.
+*
+: Permits zero or more occurrences of a character or range of characters.
++
+: Permits one or more occurrences of a character or range of characters.
+Refer to the
+metacharacters reference table
+for more examples.
+#
+Usage examples
+#
+Match a specific pattern
+The following example demonstrates how to use regex to match a specific pattern:
+/hello/
+matches the sequence
+hello
+in a string.
+#
+Character classes
+Character classes are a way to specify a set of characters that you plan to match. By using a character class, you can tell the regex engine to match any one of several characters or ranges of characters.
+/[a-z]/
+matches any lowercase letter.
+/[0-9]/
+matches any digit.
+#
+Quantifiers
+Quantifiers in regex specify how many times an element in the pattern should be matched. They are crucial for controlling the repetition of characters, groups, or character classes in regex patterns.
+/a*/
+matches zero or more occurrences of
+a
+.
+/b+/
+matches one or more occurrences of
+b
+.
+/c?/
+matches zero or one occurrence of
+c
+.
+#
+Anchors
+Anchors are special characters that specify positions within a string rather than matching characters. They are used to indicate the beginning or end of a string or a line or to define positions relative to other characters.
+^
+matches the start of a line.
+$
+matches the end of a line.
+#
+Escape sequences
+\d
+matches any digit.
+\w
+matches any word character, including alphanumeric characters and
+_
+(underscore).
+#
+Grouping and capturing
+/(abc)+/
+matches
+abc
+,
+abcabc
+, and similar repetitions of a pattern that you define.
+#
+Practical examples
+The following examples demonstrate how to use regex to match specific strings of text, such as email addresses, SSNs, URLs, and more.
+#
+IBAN (International Banking Account Number)
+IBAN (International Banking Account Number) formats vary by country. The following regex pattern covers many standard IBAN formats:
+^
+[
+A
+-
+Z
+]
+{2}
+[
+0
+-
+9
+]
+{2}
+[
+A
+-
+Z
+0
+-
+9
+]
+{1,30}
+$
+View a detailed explanation
+^[A-Z]{2}
+: Two uppercase letters (country code)
+[0-9]{2}
+: Two digits (check digits)
+[A-Z0-9]{1,30}
+: Between 1 and 30 alphanumeric characters
+#
+Social Security Number (SSN)
+The following pattern matches US SSNs (Social Security Numbers).
+^
+\d
+{3}
+-
+\d
+{2}
+-
+\d
+{4}
+$
+View a detailed explanation
+^\d{3}
+: Three digits at the beginning
+\d{2}
+: Hyphen followed by two digits
+\d{4}
+: Hyphen followed by four digits
+#
+ZIP Codes/postal codes
+#
+ZIP Codes (US)
+US ZIP Codes can be either five digits or nine digits (ZIP+4 format). The following regex covers both:
+^
+\d
+{5}
+(
+-
+\d
+{4}
+)
+?
+$
+#
+EU zip codes
+^
+\d
+{4,5}
+(
+[
+-
+\s
+]
+?
+\d
+{3}
+)
+?
+$
+View a detailed explanation
+^\d{4,5}
+: Matches four or five digits at the beginning, which is common in many EU postal codes.
+([-\s]?\d{3})?
+: Optionally matches a space or hyphen followed by 3 digits, accommodating formats like those in the Netherlands or Portugal.
+$
+: Asserts the end of the string.
+#
+Japan postal codes
+Japanese postal codes are formatted as three digits, a hyphen, and four digits:
+^
+\d
+{3}
+-
+\d
+{4}
+$
+View a detailed explanation
+^\d{3}
+: Three digits at the beginning
+\d{4}
+: Hyphen followed by four digits
+#
+Singapore postal codes
+Singapore postal codes are six digits:
+^
+\d
+{6}
+$
+View a detailed explanation
+^\d{6}
+: Matches exactly six digits.
+#
+Australian postal codes
+Australian postal codes are four digits:
+^
+\d
+{4}
+$
+View a detailed explanation
+^\d{4}
+: Matches exactly four digits.
+#
+Email addresses
+Use the following regex to match email addresses:
+^
+[
+a
+-
+z
+A
+-
+Z
+0
+-
+9
+._%+-
+]
++
+@
+[
+a
+-
+z
+A
+-
+Z
+0
+-
+9
+.-
+]
++
+\.
+[
+a
+-
+z
+A
+-
+Z
+]
+{2,}
+$
+View a detailed explanation
+^
+: Anchors the regex to the beginning of the string, ensuring that the entire string starts with the pattern defined next.
+[a-zA-Z0-9._%+-]+
+: This represents the local part of an email address before the @ symbol. It matches one or more occurrences (
++
+quantifier) of any alphanumeric character (
+a-z
+,
+A-Z
+,
+0-9
+), as well as the characters
+._%+-
+. This represents the local part of an email address before the
+@
+symbol.
+@
+: Matches the literal
+@
+character that separates the local part from the domain part of the email address.
+[a-zA-Z0-9.-]+
+: This represents the domain name part of the email address. It matches one or more occurrences (
++
+quantifier) of any alphanumeric character (
+a-z
+,
+A-Z
+,
+0-9
+), as well as the characters
+.
+and
+-
+.
+\.
+: Escapes the
+.
+character so that it matches a literal
+.
+. In regex,
+.
+is a metacharacter that matches any single character, so it must be escaped with
+\
+to match a literal
+.
+.
+[a-zA-Z]{2,}
+: This represents the top-level domain (TLD) part of the email address, and ensures it consists of at least two letters (such as,
+.com
+,
+.net
+, or
+.org
+). It matches any uppercase or lowercase letter (
+a-z
+,
+A-Z
+) that occurs at least two times (
+{2,}
+).
+$
+: Anchors the regex to the end of the string. This ensures that the entire string matches the pattern defined from start (
+^
+) to end (
+$
+).
+#
+URLs
+/
+^
+(
+https
+?
+:
+\/
+\/
+)
+?
+(
+[
+\d
+a
+-
+z
+.-
+]
++
+)
+\.
+(
+[
+a
+-
+z
+.
+]
+{2,6}
+)
+(
+[
+\/
+\w
+.-
+]
+*
+)
+*
+\/
+?
+$
+/
+View detailed explanation
+^
+: Anchors the match at the start of the string.
+(https?:\/\/)?
+:
+https?
+matches
+http
+or
+https
+. The
+s?
+makes the "s" optional, so it matches both
+http
+and
+https
+.
+:\/\/
+matches the literal
+://
+.
+The entire part is optional because of the
+?
+at the end. This allows matching URLs without the protocol (
+www.example.com
+).
+([a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+)
+:
+[a-zA-Z0-9-]+
+matches the domain name parts (
+example
+or
+sub-domain
+).
+(\.[a-zA-Z0-9-]+)+
+matches the
+.
+followed by another domain part (
+.com
+,
+.co.uk
+). The
++
+allows multiple such sections (for subdomains, TLDs, and others).
+(:[0-9]{1,5})?
+:
+(:[0-9]{1,5})
+matches an optional port number. It starts with a colon
+:
+and is followed by 1 to 5 digits (
+:8080
+).
+The
+?
+makes the port section optional.
+(\/[^\s]*)?
+:
+\/
+matches the forward slash
+/
+that typically starts the path.
+[^\s]*
+matches any character that is not a whitespace (
+[^\s]
+), zero or more times (
+*
+), which covers the rest of the URL path, query parameters, and fragments.
+The
+?
+makes this part optional, so it matches URLs without paths as well.
+$
+: Anchors the match at the end of the string.
+#
+Reference
+#
+Literal characters
+Literal Character
+Description
+All letters,
+a
+to
+z
+Matches the lowercase letter (a-z).
+All letters,
+A
+to
+Z
+Matches the uppercase letter (A-Z).
+All numbers,
+0
+to
+9
+Matches the digit (0-9).
+!
+Matches the exclamation mark.
+"
+Matches the double quote.
+#
+Matches the hash symbol.
+%
+Matches the percent sign.
+&
+Matches the ampersand.
+'
+Matches the single quote.
+,
+Matches the comma.
+-
+Matches the hyphen (except when used in a character class).
+:
+Matches the colon.
+;
+Matches the semicolon.
+<
+Matches the less-than sign.
+=
+Matches the equals sign.
+>
+Matches the greater-than sign.
+@
+Matches the at symbol.
+_
+Matches the underscore.
+`
+Matches the backtick.
+~
+Matches the tilde.
+#
+Metacharacters
+Metacharacter
+Description
+.
+Matches any single character except newline (
+\n
+).
+^
+Anchors the regex to the beginning of the string.
+$
+Anchors the regex to the end of the string.
+\
+Escapes a metacharacter, allowing it to be used as a literal character.
+[]
+Defines a character class, allowing any character within the brackets to match.
+[^]
+Defines a negated character class, matching any character not within the brackets.
+-
+Indicates a range within a character class.
+|
+Acts as an OR operator, allowing alternatives.
+()
+Groups expressions together, allowing quantifiers (
+*
+,
++
+,
+?
+,
+{}
+) to apply to the entire group.
+*
+Matches zero or more occurrences of the preceding element.
++
+Matches one or more occurrences of the preceding element.
+?
+Matches zero or one occurrence of the preceding element (optional).
+{}
+Specifies the exact number of occurrences or a range of occurrences of the preceding element.
+\b
+Matches a word boundary.
+\B
+Matches a non-word boundary.
+\d
+Matches any digit character (equivalent to
+[0-9]
+).
+\D
+Matches any non-digit character (equivalent to
+[^0-9]
+).
+\w
+Matches any word character (alphanumeric plus underscore, equivalent to
+[a-zA-Z0-9_]
+).
+\W
+Matches any non-word character (equivalent to
+[^a-zA-Z0-9_]
+).
+\s
+Matches any whitespace character.
+\S
+Matches any non-whitespace character.
+(?...)
+Specifies non-capturing groups, lookaheads, lookbehinds, and more, depending on what follows the
+?
+.
+←
+Parse EDI action
+Custom OAuth profiles
+→
+Last updated:
+9/9/2024, 3:25:12 PM
+On this page
+Use regex in Workato
+Basic syntax
+Literal characters
+Metacharacters
+Usage examples
+Match a specific pattern
+Character classes
+Quantifiers
+Anchors
+Escape sequences
+Grouping and capturing
+Practical examples
+IBAN (International Banking Account Number)
+Social Security Number (SSN)
+ZIP Codes/postal codes
+Email addresses
+URLs
+Reference
+Literal characters
+Metacharacters
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

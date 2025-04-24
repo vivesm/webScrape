@@ -1,0 +1,189 @@
+Workato コネクター - Workday - Get report | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Workday
+#
+Get report (レポートの取得)
+#
+使用方法
+Workday Report-as-a-Service は、Workato のアクションとして公開されています。このアクションは、レポートを実行し、そのレポートからすべてのデータを取得して配列として返します。このデータは、その他のアクションと同様にレシピで使用できます。カスタムレポートの設定方法については、
+こちら
+を参照してください。
+#
+入力
+レポートの URL を入力し、Workday からレポートを実行して取得します。
+レポート実行のための入力
+入力項目
+説明
+Report URL
+この URL の取得方法については、このドキュメントの
+カスタムレポート
+のセクションで確認してください。URL を入力すると、Workday アクションが適切な出力項目を生成します。
+Detect report schema automatically
+Workato でレポートを検査しないようにするには、[
+No
+] を選択します。次に、
+レポートのスキーマを設定
+します。
+これは、レポートの URL に動的な値を使用する場合に使用する必要があります。
+空白のままにすると、レポートのスキーマが自動的に検出されます。
+Remove empty fields
+[
+Yes
+] を選択すると、Workato はすべての
+Null values
+を削除し、項目を空白のままにします。
+デフォルトは
+Yes
+です。
+Additional fields
+一部のレポートの項目 (ネストされた項目など) がアクションの出力に表示されない場合は、この入力項目を使用して定義します。
+#
+レポートのパラメータと列の設定
+レポートのパラメータと列の手動による設定
+レポートの URL に動的な値を使用する必要がある場合があります。よくある理由としては、複数の Workday 環境 (開発および本番) 間でレシピを維持することが挙げられます。両方の環境のレポートが同じスキーマを持つとしても、それらの URL は異なります。そのため、レシピの維持に必要な作業を減らすために、環境プロパティデータピルを使用して適切なレポートの URL を割り当てることで、同じレシピを管理して再利用することができます。
+この場合、
+[Detect report schema automatically]
+入力項目に [
+No
+] を選択します。
+そうすると、Workato でレポートのスキーマを自動的に生成できなくなります。これは、実際のレポートの URL が、レシピジョブが処理されたときにのみ評価されるためです。レシピの作成時、レポートの URL はまだ未定であるため、レポートのスキーマについての情報はありません。
+作成時には、レポートの
+パラメータ
+と列を手動で定義するための追加の入力項目が表示されます。
+追加の入力項目
+説明
+Report Parameters
+カスタムレポートのフィルターパラメータ。カスタムレポートの設定方法に従って、
+パラメータのエイリアス
+と
+値
+を入力します。
+Report columns
+レポートの出力。Workday カスタムレポートの列を列挙します。このスキーマは、Workato の後続のレシピアクションで使用できるデータピルに変換されます。
+#
+出力
+このアクションの出力は配列として提供されます。この配列の各要素は、レポートの行に対応します。同様に、レポート内の各列は、レポートの出力配列の項目として表示されます。
+[Report column]
+でカスタムスキーマを設定している場合、カスタムレポートの列はデータピルとして反映されます。
+Get report アクションの出力
+#
+ユースケース
+#
+カスタム CSV ファイルの生成
+Workday からカスタムレポートを実行して取得する非常にシンプルなユースケースは、レポートから CSV ファイルを作成することです。これは、
+CSV by Workato
+を使用して実行できます。
+#
+カスタムロジックを使用した行のフィルタリング
+Workday は、レポートの結果にフィルターと検証のロジックを追加するための包括的な機能を提供します。ただし、この機能は Workday で利用可能なデータに限定されます。Workato は、Workday からレポートのデータを抽出し、複数のソースからのデータに対して検証ロジックを実行することを可能にします。
+外部アプリケーションからのデータを使用したカスタムフィルターのロジック
+この例は、Salesforce からのデータに対してレポート内の行をフィルタリングし、対応する Salesforce ユーザーアカウントの存在を確認する方法を示しています。結果として生成されるレポートには、アクティブな Salesforce ユーザーである Workday の従業員のみが含まれます。
+←
+カスタムオブジェクトの取得
+カスタムオブジェクト定義の一覧を取得
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+使用方法
+入力
+レポートのパラメータと列の設定
+出力
+ユースケース
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

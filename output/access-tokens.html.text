@@ -1,0 +1,152 @@
+Access Tokens | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API security
+#
+Access tokens
+Access tokens are strings that identify the client of an API recipe. The token value is a secret that is shared between a client and the Workato server. A token is passed to the API in an authorization header. The header must have a valid value for the call to succeed.
+Workato supports four token formats:
+Auth Token
+,
+OAuth 2.0
+,
+JSON Web Token (JWT)
+, and
+OpenID Connect
+.
+#
+Access token comparison
+Auth Token
+OAuth 2.0
+JSON Web Token (JWT)
+OpenID Connect
+Simple to set up and configure into the API request.
+Yes
+Yes
+Yes
+Yes
+Represents a Workato Access Profile.
+Yes
+Yes
+Yes
+Yes
+Can be reused for multiple web applications.
+No
+Yes
+No
+Yes
+Tokens with limited validity.
+No
+Yes
+Optional
+Yes
+Learn more about how you can use access tokens with the Workato API Platform:
+Auth Token
+OAuth 2.0
+JSON Web Token (JWT)
+OpenID Connect
+←
+Create new access profile
+Auth token
+→
+Last updated:
+5/25/2024, 12:46:29 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

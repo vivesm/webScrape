@@ -1,0 +1,199 @@
+Workato connectors - NetSuite - Unsupported records | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+Unsupported records in NetSuite
+Triggers and search actions do not support certain records because they cannot be queried through the NetSuite API.
+#
+Unsupported objects in search record action and trigger
+You can use the
+Get all standard records
+action to retrieve objects that do not appear in search actions:
+Budget category
+Campaign audience
+Campaign category
+Campaign channel
+Campaign family
+Campaign response
+Campaign offer
+Campaign search engine
+Campaign subscription
+Campaign vertical
+Currency
+Landed cost
+Lead source
+Sales tax item
+State
+Support case issue
+Support case origin
+Support case priority
+Support case status
+Support case type
+Tax account
+Tax group
+Tax type
+#
+Unsupported objects in trigger
+We do not support new and new/updated triggers for the following objects:
+Accounting period
+Billing account
+Billing schedule
+Bin
+Budget
+Campaign response
+Contact category
+Contact role
+Cost category
+Coupon code
+Custom list
+Customer category
+Customer message
+Customer status
+Entity group (new trigger not supported)
+Expense category
+Fair value price
+Folder (new trigger not supported)
+Gift certificate (new/updated trigger not supported)
+Global account mapping
+Inventory number
+Item account mapping
+Item revision
+Job status
+Job type
+Landed cost
+Manufacturing cost template
+Manufacturing operation task
+Manufacturing routing
+Nexus
+Other name category
+Partner category
+Payment method
+Payroll item
+Phone call
+Price level
+Pricing group
+Promotion code
+Rev rec schedule
+Rev rec template
+Sales role
+Sales tax item
+Site category
+Solution
+Tax group
+Tax type
+Term
+TimeSheet
+Topic
+Units type
+Vendor category
+Win loss reason
+←
+Common NetSuite fields
+NetSuite REST
+→
+Last updated:
+9/18/2024, 3:53:53 PM
+On this page
+Unsupported objects in search record action and trigger
+Unsupported objects in trigger
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,285 @@
+ELT Pipeline for Snowflake accelerator - lookup tables | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+ELT Pipeline - Snowflake
+Assets
+#
+ELT Pipeline for Snowflake accelerator - Assets - Lookup tables
+The ELT Pipeline for Snowflake accelerator has seven lookup tables that are common to both Slack and Microsoft Teams implementations of the accelerator:
+ELT | User Access
+ELT | Systems
+ELT | Objects
+ELT | JOB TABLE
+ELT | ERROR LOGS
+ELT | CONTROL TABLE | MAIN
+ELT | CONTROL TABLE | CHILD
+#
+ELT | User Access
+The
+ELT | User Access
+lookup table contains the following fields:
+Email
+The user's email address.
+Active
+The pipeline's status.
+Pipelines Pinned
+The pipelines the user has pinned to their
+App homepage
+.
+Role
+The user's role.
+Admin
+or
+Analyst
+.
+#
+ELT | Systems
+The
+ELT | Systems
+lookup table contains the following fields:
+SYSTEM_ID
+References the
+SYSTEM_ID
+in the
+ELT | Systems
+lookup table.
+SYSTEM
+The source system.
+TYPE
+The type of application (source).
+CREATED_BY
+The email address of the person who created the object.
+CREATED_ON
+Date when the object was created.
+#
+ELT | Objects
+The
+ELT | Objects
+lookup table contains the following fields:
+SYSTEM_ID
+References the
+SYSTEM_ID
+in the
+ELT | Systems
+lookup table.
+OBJECT
+The object used for the pipeline.
+CREATED_BY
+The email address of the person who created the object.
+CREATED_ON
+Date when the object was created.
+PRIMARY_KEY
+Custom Primary Key for SQL-type sources.
+#
+ELT | JOB TABLE
+The
+ELT | JOB TABLE
+lookup table contains the following fields:
+ELT_CONTROL_ID
+Unique ID auto-generated when you create a pipeline. This ID corresponds to the
+ELT_CONTROL_ID
+in the **ELT | CONTROL TABLE | MAIN** lookup table.
+JOB_ID
+Unique Job ID of the running pipeline.
+BATCH_START_DT
+Start date-time of the job.
+BATCH_END_DT
+End date-time of the job.
+ROWS_AFFECTED
+Total Rows processed. (Salesforce only)
+IS_SUCCESS
+This value indicates whether the job was successful. Boolean value (true/false).
+DISPATCHER_JOB_URL
+Job URL of the evaluated workload.
+WORKLOAD_JOB_URL
+Job URL of the respective workload called by the dispatcher.
+#
+ELT | ERROR LOGS
+The
+ELT | ERROR LOGS
+lookup table contains the following fields:
+ELT_CONTROL_ID
+Unique ID auto-generated when you create a pipeline. This ID corresponds to the
+ELT_CONTROL_ID
+in the
+ELT | CONTROL TABLE | MAIN
+lookup table.
+JOB_ID
+Unique Job ID of the running pipeline.
+ERROR_MSG
+Error message on failure.
+ERROR_CODE
+Error code of failure. Use to determine reprocessing logic.
+JOB_URL
+URL of the failed job.
+ACTION
+Dependent on the error code. Use to determine reprocessing logic. Actions can include notifications.
+#
+ELT | CONTROL TABLE | MAIN
+The
+ELT | CONTROL TABLE | MAIN
+lookup table contains the following fields:
+ELT_CONTROL_ID
+Unique ID auto-generated when you create a pipeline.
+SOURCE_SYSTEM_NAME
+Source system where the data originates.
+SOURCE_OBJECT_NAME
+Name of the desired data entity. This is usually a table or file name in the case of file source systems.
+TARGET_TABLE_NAME
+The table where the accelerator loads the data.
+LOAD_TYPE
+Type of the load.
+Allowed values:
+Full, incremental, or extract.
+STATUS
+Pipeline status.
+Allowed values:
+Pending, Active, Inactive, Error, Processing, or Extract
+COMM
+Communication channel (Slack or Microsoft Teams)
+CREATED_BY
+Email of the user who created the pipeline.
+UPDATED_BY
+Email of the user who updated the pipeline.
+#
+ELT | CONTROL TABLE | CHILD
+The
+ELT | CONTROL TABLE | CHILD
+lookup table contains the following fields:
+ELT_CONTROL_ID
+Unique ID auto-generated when you create a pipeline. This ID corresponds to the
+ELT_CONTROL_ID
+in the **ELT | CONTROL TABLE | MAIN** lookup table.
+PIPELINE_CREATED_DT
+Date when the pipeline is created.
+PIPELINE_UPDATED_DT
+Date when the pipeline is updated.
+HOUR
+Hour of the day selected.
+MINUTE
+Minute of the hour of the day selected.
+FREQUENCY
+How frequently the pipeline runs.
+Allowed values:
+Daily, Weekly, Monthly, Hourly, or Yearly
+START_TIME
+The time when the user schedules the pipeline to start.
+NEXT_TIME
+The next time the pipeline must run.
+LAST_SUCCESSFUL_JOB_URL
+Jobs are sub-tasks in a pipeline. The accelerator records them on the first and subsequent runs. The accelerator updates this value when a job finishes successfully.
+LAST_SUCCESSFUL_JOB_DT
+Last time the job ran successfully.
+←
+Assets
+Properties
+→
+Last updated:
+2/22/2024, 11:17:11 PM
+On this page
+ELT | User Access
+ELT | Systems
+ELT | Objects
+ELT | JOB TABLE
+ELT | ERROR LOGS
+ELT | CONTROL TABLE | MAIN
+ELT | CONTROL TABLE | CHILD
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

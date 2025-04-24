@@ -1,0 +1,157 @@
+Activity audit log FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Lifecycle & operations
+Operations hub dashboard
+Activity audit log
+#
+Activity audit log FAQs
+Get answers to frequently asked questions (FAQs) about Activity audit logs.
+What is the Activity audit log in Workato?
+The
+Activity audit log
+provides a comprehensive interface for Workato administrators to track changes made by users in their account. This includes user activities such as logins, recipe modifications, and more. It allows administrators to monitor and analyze changes for security and operational insights.
+How do I enable the Activity audit log feature?
+The
+Activity audit log
+is a feature available by default for Embedded partners and their end customers. Direct customers can contact their Workato Customer Success Manager to enable this feature.
+How can I customize the audit log messages before streaming them?
+You can
+customize audit log messages
+in JSON format to include metadata, such as the source application or environment. Use the placeholders
+log_message
+and
+log_message_str
+to substitute the actual event message.
+Will audit log streaming still run if my logs exceed 40 MB?
+Yes. However, the system does not send step-specific log lines if the overall
+file size exceeds 40 MB
+. Instead, it sends contextual job information, such as
+user_id
+,
+recipe_id
+, and
+time_executed
+.
+Why are my audit logs stored in a persistent cache?
+Audit logs are stored in a
+persistent cache
+to enable Workato to retry sending data that didn't successfully reach the log streaming destination.
+Workato removes audit logs from the persistent cache when one of the following occurs:
+The audit log reaches its destination successfully
+The data remains in the persistent cache for more than seven days
+Can I mask data in audit logs?
+Yes. You can enable
+data masking
+to prevent Workato from logging or streaming the input or output of any trigger or action. When enabled, Workato replaces the step data with a placeholder instead of the actual values.
+Refer to the
+Does data masking apply to audit log streaming?
+section for more information.
+What happens if my IAM role permissions for Amazon S3 are updated?
+If you update your
+IAM role permissions
+for an Amazon S3 bucket, you must disconnect and re-establish the connection in Workato to ensure continued access for audit log streaming. This security feature helps manage resource access.
+←
+Activity audit log reference
+Connector SDK
+→
+Last updated:
+3/21/2025, 6:05:52 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

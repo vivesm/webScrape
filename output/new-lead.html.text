@@ -1,0 +1,173 @@
+Workato connectors - Facebook Lead Ads New Lead Trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Facebook Lead Ads
+#
+Facebook Lead Ads - New lead trigger
+The
+New Lead
+trigger activates when a user completes a lead ad form on Facebook, providing immediate notifications. This trigger links to a specific Facebook page. Ensure you hold admin permissions for the page if it doesn't appear in the drop-down list. By selecting a form, you gain insights into the form's questions and can display datapills in Workato that correspond to these questions. If you don't specify a form, Workato captures all submissions from the page but cannot display the related datapills.
+Facebook Lead Ads - New lead trigger
+#
+Input
+Field
+Description
+Page
+Select the Facebook page to monitor for new lead ad form submissions. If your page is not displayed, ensure you have the necessary admin permissions for it.
+Form
+Choose a specific lead ad form to track submissions. If no form is selected, the trigger captures submissions from all forms on the selected page. The drop-down lists up to 100 recently created forms. If your form is not listed, toggle to input the form ID directly.
+Set trigger condition
+Specify conditions to filter events that activate the trigger.
+#
+Output
+Field
+Description
+ID
+The unique identifier for the lead.
+Ad ID
+The identifier for the ad.
+Ad name
+The name of the ad associated with the lead.
+Adset ID
+The identifier for the ad set.
+Adset name
+The name of the ad set.
+Campaign ID
+The identifier for the campaign.
+Campaign name
+The name of the campaign.
+Created time
+The time when the lead was created.
+Custom disclaimer responses
+Responses to custom disclaimers in the form.
+Field data
+Details provided in the form fields.
+Form ID
+The identifier for the form.
+Home listing
+Information about the home listing.
+Is organic
+Indicates if the lead is organic.
+Partner name
+The name of the partner associated with the lead.
+Platform
+The platform that captured the lead.
+Retailer item ID
+The identifier for the retailer item.
+Vehicle
+Details about the vehicle associated with the lead.
+Leadgen ID
+The identifier for the lead generation form.
+List size
+The total number of items in the list.
+List index
+The index of this item within the list.
+←
+Connection setup
+Get Adset insights
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

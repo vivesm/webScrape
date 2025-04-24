@@ -1,0 +1,328 @@
+API endpoint caching | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API endpoints
+#
+API endpoint caching
+WHO CAN USE THIS FEATURE?
+To use this feature, you need the following:
+Access to the
+API Platform
+feature
+The
+API platform
+privilege
+At its core, Workato helps streamline your business operations. The API caching feature adds an additional layer of optimization by reducing the number of identical requests that recipes have to make. For you, this has the following direct advantages:
+Faster response times in recipe actions
+Decrease in the total number of jobs
+Decreased job duration
+Reduction in traffic between applications
+In this guide, we cover the following scenarios:
+How API caching works
+How long cache data is retained
+Caching using endpoint parameters
+Caching best practices
+Caching limits and quotas
+How to enable caching for endpoints
+How to clear cached entries
+How to re-validate cached entry
+#
+How it works
+When enabled, API caching temporarily stores responses in a cache. Subsequent requests sent to the same endpoint (if sent within
+a specified amount of time
+) retrieve stored data from the cache, without utilizing the recipe endpoint. This results in faster response times and less resource usage.
+Caching basics
+Cache retention
+Caching using path and query string parameters
+#
+Caching basics
+Here is a brief overview of API caching:
+Caching is set on a per-endpoint basis
+Only
+GET
+methods support caching
+Each response to a
+GET
+request is a
+cache entry
+. Cache entries have
+size and workspace-specific limits
+.
+Cache entries are retained
+for a defined time period
+Caching supports using
+path and query string parameters
+#
+Cache retention
+When you set up caching for an endpoint, you can define the amount of time that the cache retains each entry. Subsequent requests sent during the retention period - or
+Time-to-live
+- retrieve the entry from the cache instead of reading the endpoint again.
+When the retention period ends, the cache automatically flushes the entry.
+For example: If the retention period is set to
+600
+seconds - or 10 minutes - entries remain in the cache for 10 minutes, and then are automatically flushed.
+Note
+: Workspaces
+have a limit of
+10,000
+cache entries
+. When this limit is reached, the oldest entries are flushed to accommodate newer entries.
+#
+Caching using path and query string parameters
+In addition to defining the retention period for cached entries, you can also define path and query string parameters to use as a cache key. If the cache key matches a request during the
+retention period
+, the request returns the matching entry from the cache.
+All path and query string parameters can be included in the cache keys.
+Example using path parameters
+Let's say our endpoint is
+/users/{id}
+, where ID is a value like
+12345
+. If a request is sent that matches the following example, the cached entry for user
+id: 12345
+will be returned from the cache:
+curl
+-X
+GET https://api.myworkatoexample.com/docs/users/12345
+\
+-H
+'API-TOKEN: YOUR_TOKEN'
+Example using query strings
+Let's say our endpoint is
+/users?id={value}
+, where the ID is a value like
+12345
+. If a request is sent that matches the following example, the cached entry for user
+id: 12345
+will be returned from the cache:
+curl
+-X
+GET https://api.myworkatoexample.com/docs/users?id
+=
+12345
+\
+-H
+'API-TOKEN: YOUR_TOKEN'
+#
+Best practices
+We recommend using caching on record types that don't change frequently. This reduces the likelihood of an outdated version of a record being retrieved from the cache.
+Cached entries can be
+manually cleared
+before the
+retention period
+ends, if needed.
+#
+Limits and quotas
+Summary
+Description
+Supported request types
+Successful (
+2xx
+)
+GET
+requests only
+Maximum cache key size
+10KB
+Maximum cache entry size
+10KB
+Requests exceeding this limit do not cache even when successful.
+Note:
+To adjust this limit, contact your Workato Customer Success Manager for support.
+Maximum cache entry count
+10,000 per workspace
+If exceeded, entries are flushed, from oldest to newest, to accommodate new entries.
+Note:
+To adjust this limit, contact your Workato Customer Success Manager for support.
+#
+Enabling endpoint caching
+Caching can be enabled for new and existing
+GET
+endpoints. If starting from scratch, follow the steps in the
+Create the recipe endpoint
+section before proceeding.
+1
+Click
+Edit response
+.
+2
+Toggle
+Cache response
+to on.
+3
+In the
+Time-to-live period
+field, define the time in seconds. This is how long the
+responses are stored in cache
+before being refreshed or deleted. The default to
+600
+seconds, or 10 minutes. The maximum is
+3600
+seconds (60 minutes).
+4
+In the
+Cache key parameters
+field, select the key(s) to use in
+request matching
+.
+5
+When finished, click
+Add endpoint
+.
+Endpoints with caching enabled have the
+Cache enabled
+badge:
+#
+Monitoring endpoint caching
+To view details about cached responses, navigate to
+API platform > Logs
+. A request that used a cached response has a
+Cached
+badge next to its
+Response time
+value.
+#
+Clearing cached endpoint data
+Cached entries clear automatically, based on the
+retention period
+you define. You can also manually clear the endpoint's entire cache.
+1
+Go to
+Platform > API platform > API collections
+in the Orchestrate platform.
+2
+Click the collection that contains the endpoint you plan to clear.
+3
+On the collection page, locate the endpoint.
+4
+Click the
+...
+(more) menu on the right side of the endpoint.
+5
+Click
+Clear cached responses
+.
+6
+When prompted to confirm, click
+Clear cache
+.
+#
+Re-validate cached entry
+Occasionally, clients decide to request the latest state by instructing the platform to re-validate the cached entry. To do this, send a request with
+Cache-Control: max-age=0
+header.
+curl https://api.myworkatoexample.com/docs/users/12345 \
+-H 'Authorization: Bearer ACCESS_TOKEN' \
+-H 'Cache-Control: max-age=0'
+←
+Testing
+FAQs
+→
+Last updated:
+3/17/2025, 9:47:14 PM
+On this page
+How it works
+Best practices
+Limits and quotas
+Enabling endpoint caching
+Monitoring endpoint caching
+Clearing cached endpoint data
+Re-validate cached entry
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

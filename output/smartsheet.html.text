@@ -1,0 +1,152 @@
+Workato connectors - Smartsheet | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Smartsheet
+Smartsheet
+(opens new window)
+enables you to collaborate and manage workflows effectively. You can plan, capture, manage, automate, and report on work across your organizations.
+#
+API version
+Smartsheet's connector uses Smartsheet's API 2.0 for integration. For more information, refer to
+Smartsheet's API documentation
+(opens new window)
+.
+#
+Connection setup
+Follow these steps to set up a Smartsheet connection in Workato:
+1
+Enter a unique
+Connection name
+to identify your Smartsheet account within Workato.
+Name your connection
+2
+Click
+Advanced settings
+to show or hide additional options depending on your requirements.
+3
+Select the necessary
+Requested permissions (OAuth scopes)
+for the connection. If you leave this field blank, the connection defaults to the minimum required permissions, which are
+READ_SHEETS
+,
+WRITE_SHEETS
+, and
+ADMIN_WEBHOOKS
+.
+4
+Review all information you entered to ensure it is correct, including the connection name and selected permissions.
+5
+Click
+Connect
+to authorize a connection between Workato and your Smartsheet account. This action opens a Smartsheet login window to complete the authorization.
+Authorize your connection
+←
+Set conversation topic
+New or updated row in a sheet
+→
+Last updated:
+2/20/2024, 7:45:14 PM
+On this page
+API version
+Connection setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,177 @@
+Workato コネクター - Bamboo HR | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Bamboo HR
+Bamboo HR
+(opens new window)
+は、人材データを収集、管理、および分析するための人事ソフトウェアソリューションです。
+#
+API バージョン
+Bamboo HR コネクターは
+Bamboo REST API v1
+(opens new window)
+を使用します。
+#
+Workato での Bamboo HR への接続方法
+Bamboo HR コネクションの設定
+入力項目
+説明
+Connection name
+このコネクションに対して、接続先のインスタンスを識別する一意の名前を付けます。
+API token
+API トークンです。この API トークンの作成方法については、
+こちら
+を参照してください。
+Sub-domain
+Bamboo HR インスタンスのベース URL です。
+#
+Bamboo HR で API キーを作成する方法
+ステップ
+説明
+1.
+[Profile]
+>
+[API keys]
+に移動します。
+Bamboo HR の [API keys] に移動する
+2.
+[Add New Key]
+を選択して、新しい API キーを作成します。
+新しい API キーを追加する
+3.
+この新しい API キーにわかりやすい名前を付けます (例 :
+workato_user
+)。
+新しい API キーを追加する
+4.
+API キーが生成されます。このキーを安全な場所に保存します。
+この API キーは、ここだけに表示されることに注意してください。このステップ以降、このキーを取得することはできなくなります。
+API キーを保存する
+詳細については、
+Bamboo HR のドキュメント
+(opens new window)
+を参照してください。
+#
+トリガーとアクション
+以下の章を参照できます。
+#
+Bamboo HR のトリガー
+New employee トリガー
+New employee トリガー (リアルタイム)
+Updated employee トリガー
+Updated employee トリガー (リアルタイム)
+#
+Bamboo HR のアクション
+Create employee アクション
+Update employee アクション
+Get employee details by ID アクション
+List employees in directory アクション
+Get table records of employee アクション
+←
+Azure Monitor
+新規従業員 トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Bamboo HR への接続方法
+Bamboo HR で API キーを作成する方法
+トリガーとアクション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

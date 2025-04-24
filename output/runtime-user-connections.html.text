@@ -1,0 +1,270 @@
+Features - Runtime user connections | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Slack
+Advanced topics
+#
+Runtime user connections
+FEATURE AVAILABILITY
+The runtime user connections feature is included in specific pricing plans for direct customers and is available by default for Embedded partners and their end customers. Refer to your pricing plan and contract to learn more.
+Recipes perform actions based on the identity and permissions of the user who connects the application by default. Using
+Runtime user connections
+, users can use their own credentials when running a recipe, even if they didn't create the original application connection.
+In this guide, we'll cover:
+The basics of runtime user connections
+How to enable this feature in your recipes
+How to manage runtime user connections
+#
+Basics
+How do runtime user connections work?
+What are parent connections?
+Who can use runtime user connections?
+Where can I use runtime user connections?
+#
+How do runtime user connections work?
+When enabled, the
+Runtime user connections
+feature allows users to authenticate themselves when a recipe runs, allowing the recipe to execute actions using their own credentials.
+For example: We have a recipe that uses Workbot to create opportunities in Salesforce. Here's what the execution would look like with and without runtime user connections:
+With runtime user connections
+Without runtime user connections
+User A
+invokes the recipe using the Workbot command
+Workbot prompts
+User A
+to use their own Salesforce credentials
+Workbot authenticates to Salesforce with
+User A's
+credentials
+Workbot creates opportunities credited to
+User A
+User A
+invokes the recipe using the Workbot command
+Workbot authenticates to Salesforce with the default user in the recipe (
+User B
+)
+Workbot creates opportunities credited to
+User B
+Once created, these connections persist. This means that users don't have to provide their credentials every time they run a recipe. Additionally, these connections can't be used in other recipes like normal connections.
+#
+What are parent connections?
+When you create connections at runtime, they link to a parent connection.
+For example, when you run a recipe with a Salesforce connection and authenticate to Salesforce, it creates Connection B. This new connection links to the recipe's default Salesforce connection, Connection A, as its parent.
+PARENT CONNECTIONS LIMITATION
+Parent connections are not supported for recipe functions toggled with runtime user connections. You must create separate runtime user connections for these recipes. If you try to use a parent connection, it fails and may cause unexpected behavior. We recommend creating a specific runtime user connection.
+#
+Who can use runtime user connections?
+While this feature is available to all plans and account types (including OEM), users need the following privileges to
+enable or disable
+the setting for recipes:
+Edit recipes
+View Runtime user connections
+Edit Runtime user connections
+#
+Where can I use runtime user connections?
+The
+Runtime user connections
+feature is available in:
+Recipe functions
+Workbot recipes with a
+New command
+trigger
+#
+Enabling And Disabling Runtime User Connections
+Runtime user connections can be used in:
+In Recipe functions
+In Workbot command recipes
+#
+Managing Runtime User Connections
+Manage runtime user connections:
+In the app
+Using Workbot in Slack
+Using Workbot in Microsoft Teams
+#
+Managing All Runtime User Connections In-App
+WHO CAN VIEW THIS PAGE?
+Users must have the
+View Verified user access at runtime
+privilege to access this page.
+Manage runtime user connections by navigating to
+Tools > Runtime user connections
+. This page lists all connections created as a result of users authenticating themselves at runtime.
+#
+Deleting Connections
+WHO CAN DELETE CONNECTIONS?
+Users must have the
+Delete connections
+privilege to delete connections.
+To delete a connection, click the
+Delete
+link next to the connection.
+Before deleting a connection, note that:
+Deleting a parent connection
+will cause any recipes using the connection to stop. Child connections - those created by users at runtime - won't be deleted.
+Deleting a child connection
+will require the user to re-authenticate themselves the next time the recipe is run. Successful re-authentication must occur before any actions can be performed on their behalf.
+#
+Managing runtime user connections with Workbot in Slack
+If using Workbot, you can:
+View your own runtime user connections
+Disconnect your runtime user connections
+#
+Viewing Your Runtime User Connections
+If using Workbot, you can view your own runtime user connections in
+a DM
+or in
+channels where Workbot is a member
+.
+#
+In A DM
+In a DM to Workbot, do the following to view your own runtime user connections:
+Send
+connections
+Send
+help
+and then click the
+Personal accounts
+button:
+Viewing runtime user connections in a Workbot DM
+#
+In A Channel
+In channels where Workbot is a member, send
+@Workbot connections
+or
+@Workbot help
+to view your own runtime user connections.
+#
+Disconnecting Your Runtime User Connections
+You can disconnect your own runtime user connections by
+viewing your own connections
+and clicking
+Disconnect
+:
+Disconnecting a runtime user connection
+#
+Managing runtime user connections with Workbot in Microsoft Teams
+Workbot in Microsoft Teams enables you to:
+View personal connections
+Disconnect personal connections
+#
+View personal connections
+View your personal connections by sending
+personal_connections
+in a DM to Workbot. Workbot lists your connections and their connection status.
+Viewing your personal connections
+#
+Disconnect personal connections
+Disconnect or delete your personal connections by selecting the connection in the picklist and clicking
+Disconnect
+or
+Delete
+.
+←
+Workbot for Enterprise Grid
+Workbot Troubleshooting
+→
+Last updated:
+2/13/2025, 9:46:17 PM
+On this page
+Basics
+Enabling And Disabling Runtime User Connections
+Managing Runtime User Connections
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

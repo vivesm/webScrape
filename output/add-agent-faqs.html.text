@@ -1,0 +1,155 @@
+On-prem add agent FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem group
+Add an agent
+#
+On-prem add agent FAQs
+Get answers to frequently asked questions (FAQs) about adding on-prem agents.
+What is an on-prem group in Workato, and why would I need to create one?
+An
+on-prem group
+in Workato is a way to manage a group of on-premise agents that perform specific tasks. You may need to create an on-prem group to organize and manage your agents effectively.
+What operating systems are supported for setting up on-prem agents in Workato?
+Workato supports the following
+operating systems for on-prem agent
+setup:
+Windows
+Linux (tar.gz archive installer, DEB package, and RPM package)
+Docker image
+Mac
+What is the Windows Service user account used for in the on-prem agent setup?
+Beginning with version 2.18.0, the
+Windows Service user account
+for Workato on-prem agents is set to
+Local Service
+instead of
+Local System.
+You can change this user account by editing the OPA windows service properties.
+Where can I find the activation code needed during agent installation?
+You can find the
+activation code
+in the agent creation wizard in Workato. Copy the code and paste it into the Windows installer during installation.
+Is there an alternative way to activate the agent if I don't have the activation code during installation?
+Yes, you can
+activate your agent
+later by running the
+activation.cmd
+script from the
+bin
+folder in your agent installation directory.
+#
+On-prem agent connectivity
+What should I be aware of regarding network configuration when setting up the on-prem agent?
+You should ensure that
+traffic to Workato
+is allowed from your server.
+How can I verify that my on-prem agent is functioning correctly?
+After the agent becomes active, you can click
+Test agent
+to verify that the connection is successful. This confirms that your agent is working as expected.
+←
+Docker image
+Group status
+→
+Last updated:
+7/29/2024, 9:24:56 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

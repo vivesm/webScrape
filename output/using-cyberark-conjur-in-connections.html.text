@@ -1,0 +1,259 @@
+Use CyberArk Conjur secrets in connections | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data & security
+Connection credentials
+CyberArk Conjur
+#
+Use CyberArk Conjur secrets in connections
+This guide demonstrates how to use secrets from CyberArk Conjur to configure Workato connections.
+#
+Prerequisites
+To complete the steps in this guide, you must have the following:
+In Workato
+:
+An account with a successful
+CyberArk Conjur Workspace-level
+or
+Project-level
+connection.
+A
+user role
+with
+Create
+and
+Edit Connections
+privileges.
+CyberArk Conjur
+:
+Conjur Cloud
+: A
+defined workload policy
+(opens new window)
+.
+Self-hosted Conjur Enterprise
+: A
+host policy statement
+(opens new window)
+.
+#
+Retrieve the secret's details from CyberArk Conjur
+1
+Authenticate to your Conjur Cloud or Conjur Enterprise server.
+2
+Retrieve the secret ID that you plan to use for the Workato connection.
+Conjur Cloud
+: Include the name of the vault that it is stored:
+data/vault/Partner-Workato/airtable/password
+Conjur Enterprise
+: Include the name of the policy where the variable is stored:
+AutomationVault/db/password
+NOT SUPPORTED: MULTILINE SECRETS
+Conjur Cloud does not support passing multiline secrets such as private keys or certificates to Workato.
+3
+Create a new connection or open the configuration page for an existing connection in your Workato account.
+Configure CyberArk Conjur connection
+4
+Click the corresponding input field for connection parameters referencing an external secret. The
+Add external secret
+option appears.
+5
+Select
+Add external secret
+to open the
+Add external secret
+popup.
+6
+Enter the
+Secret name
+in the
+Add external secret
+popup.
+Add external secret
+7
+Select
+Done
+. The secret appears as a masked datapill in the input field on the connection page.
+Select the datapill to edit the secret.
+8
+Click
+Connect
+and verify that this connection works.
+If you prefer to add the secret with a secret mask, follow this syntax for the secrets used in Workato connection credentials:
+{{workato:sm:<secret-name>}}
+Replace
+<secret-name>
+with the secret ID as shown in Conjur.
+#
+How to revoke access to secrets store on CyberArk Conjur
+To revoke Workato's access to secrets stored on CyberArk Conjur, rotate the host's API key with a PUT request and ensure that the host ID is URL-encoded:
+PUT
+{
+{
+conjurServer
+}
+}
+/authn/
+{
+{
+conjurOrganization
+}
+}
+/api_key?role
+=
+host:workato-conjur-demo/workato-us-2
+Secrets are no longer accessible after sixty minutes.
+To revoke access immediately, rotate the API key, then use the
+clear_cache
+API.
+For more information, consult the Conjur documentation on
+how to rotate host API keys
+(opens new window)
+.
+This process applies to both CyberArk Conjur Enterprise and CyberArk Conjur Open Source. Visit the
+Cyberark Conjur Cloud-specific documentation
+(opens new window)
+for more information.
+#
+Troubleshooting
+#
+Uninitialized variables and insufficient permissions
+Ensure that your
+host/host data/Workato/Workato-dev
+has the necessary permissions and that your variable has been initialized.
+Secret is not initialized
+The secret key is created on Conjur but no value has been assigned to it. Assign a value to the secret in Conjur.
+Host does not have permissions
+The host (service account that you used to create the connection) must have the
+[create, execute]
+permissions for a specific secret. This enables Workato to retrieve its value and establish the connection successfully.
+#
+Invalid credentials
+Confirm that you entered the correct information into the required fields.
+Server URL
+Ensure that it is in the form
+https://<domain>
+for a self-hosted Conjur Enterprise set up or
+https://<subdomain>.secretsmgr.cyberark.cloud/api/
+when connecting to Conjur Cloud.
+Organization account name
+The name of the organization when first configuring the leader node in Conjur Enterprise, or
+conjur
+when connecting to Conjur Cloud.
+Login ID
+The name of the host that has been assigned
+[read, execute]
+permissions on the variables or the name of the workload in Conjur Cloud.
+API key
+The API key that was generated when the host / workload was initially created.
+←
+Set up CyberArk Conjur for projects
+Set up HashiCorp Vault for workspaces
+→
+Last updated:
+3/18/2025, 5:45:08 PM
+On this page
+Prerequisites
+Retrieve the secret's details from CyberArk Conjur
+How to revoke access to secrets store on CyberArk Conjur
+Troubleshooting
+Uninitialized variables and insufficient permissions
+Invalid credentials
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

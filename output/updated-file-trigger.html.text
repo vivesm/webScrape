@@ -1,0 +1,154 @@
+Workato connectors - SFTP new/updated file in directory trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SFTP
+#
+New/updated file in directory trigger
+This trigger is activated when a file is created or updated in the specified directory. The trigger watches the first-level directory only.
+You can use the
+Download file action
+to fetch the contents of the new or updated file.
+New/updated file in directory trigger
+#
+Input
+Input field
+Description
+Directory
+Select the folder that you want to track. You can choose from the drop-down menu or enter the folder path directly. Files in this directory are processed from oldest to newest, based on when they were modified.
+When first started, this recipe should pick up events from
+The recipe will process files created or updated after this time. If left blank, the default date will be set to
+1 hour
+before the recipe is first started. Once the recipe has been run or tested, the value cannot be changed. Learn more about this
+input field
+.
+#
+Output
+Output field
+Description
+File path
+The file path.
+Name
+The name of the file.
+Symlink
+Whether this file contain links to other files.
+Size
+The size of the file.
+Owner
+The designated owner of the file.
+Group
+The group that this file belongs to.
+Permissions
+The permissions enabled on this file.
+Last accessed time
+The last time this file was accessed.
+Last modified time
+The last time this file was modified.
+←
+SFTP
+New/updated CSV file trigger (batch)
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,179 @@
+Workato connectors - PostgreSQL Run custom SQL action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+PostgreSQL
+#
+PostgreSQL - Run custom SQL action
+#
+Run custom SQL
+This action lets you send a SQL string to the PostgreSQL instance to be executed. It can be used to execute Data Manipulation Language (DML) statements like
+INSERT
+,
+UPDATE
+,
+SELECT
+and
+DELETE
+, as well as Data Definition Language (DDL) commands, like
+CREATE
+,
+ALTER
+and
+DROP
+.
+Unlike
+Select rows using custom SQL
+, this action is not optimized for easy configuration. For
+SELECT
+statements with large number of columns, use that action instead.
+OPA required
+This action requires a connection using Workato on-prem agent. Find out more about on-prem connectivity
+here
+.
+Run custom SQL action
+#
+Input fields
+Input field
+Description
+SQL
+This field is required
+. Provide a valid SQL string to be executed. This SQL string will be executed in your PostgreSQL instance.
+If multiple SQL statements are provided, all of them will be executed. However, only results from the last statement will be returned. Make sure each statement is separated by a
+;
+character.
+You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in quotes (
+''
+).
+Output fields
+Use this input to describe the columns that you are expecting from your SQL statement.
+If you do not expect any return values or do not need any, you may ignore this input field.
+#
+Output fields
+Input field
+Description
+Rows
+List of rows returned from the SQL execution. The fields in this list are defined by the
+Output fields
+input field.
+If left blank, this row will be available in the datatree as an array datapill.
+Rows affected
+This is an integer value indicating the number of rows inserted/updated/deleted from the SQL string.
+When executing
+SELECT
+statements, this will return
+nil
+.
+When executing a DDL (for example, creating a table), the value
+0
+will be returned.
+#
+Limitations
+There is a size limit of
+50000
+rows when your custom SQL statement returns data.
+←
+Run long query using custom SQL action
+Export query result
+→
+Last updated:
+11/5/2024, 4:58:55 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

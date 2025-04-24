@@ -1,0 +1,238 @@
+HTTP Connector - Configuring A Base URL | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+HTTP
+#
+Configure a base URL tor the HTTP connector
+You can configure a base URL for your
+HTTP connection
+to restrict outbound requests to a specified URL. This ensures that anyone using the connection in recipes can only connect to the server or application you specify.
+#
+Ensure security over the HTTP connector
+Data governance enables you to control data flow from one app to another. You can set the base URL to ensure that your sensitive data only passes through a specific endpoint, domain, or host.
+#
+Use the correct API version
+Ensure that all requests are made to the correct API version of the target application. All requests, including the API version, are routed to the same endpoint after you configure the base URL.
+Configuring the base URL simplifies recipe updates as API versions change. You can update request URLs for all recipes without needing to manually update individual actions by configuring a base URL.
+For example, you can configure the base URL to a specific version of Salesforce REST API. This requires a single update of the base URL of the HTTP connection when it's time to update the API version:
+https://instance.salesforce.com/services/data/v53.0
+#
+How it works
+The
+Base URL
+and the action's
+Request URL
+are used to construct the final request URL when an
+HTTP action
+is executed. You can simplify this concept in the following way:
+Base URL + Action Request URL = Final request URL
+.
+For example:
+Base URL
+:
+https://instance.salesforce.com
+Action Request URL
+:
+/services/data
+Final request URL
+:
+https://instance.salesforce.com/services/data
+Workato restricts all outgoing
+HTTP requests
+to the base URL provided. The URL validation rules are as follows:
+HTTP request
+Description
+Absolute path
+Base URL
+:
+https://instance.salesforce.com
+Request URL
+:
+https://instance.salesforce.com/services/data/
+Workato validates that the base URL of the given endpoint matches the base URL of the connection.
+Relative path with
+/
+prefix
+Base URL
+:
+https://instance.salesforce.com/services
+Request URL
+:
+/services/data/
+Workato validates that path starting from the top-level domain (
+.com
+). In this example,
+/services
+in the base URL matches
+/services
+in the request URL.
+Note
+: Relative paths can only be used if a
+Base URL
+is configured.
+Relative path without
+/
+prefix
+Base URL
+:
+https://instance.salesforce.com/services
+Request URL
+:
+data/
+Workato appends the request URL to the base URL.
+Note
+: Relative paths can only be used if a
+Base URL
+is configured.
+#
+Base URL errors
+If the action request URL attempts to use a different base URL or the computed final request URL is invalid, Workato will prevent the HTTP action and stop the job with an error.
+Here are some common errors with HTTP base URL validation:
+Type of Error
+Example
+Using a different base URL
+Base URL
+:
+https://instance.salesforce.com
+Request URL
+:
+https://acme.com/users/
+The base URL does not match.
+Error message:
+Attempted to send request to https://acme.com/users/ but only request with base URL https://instance.salesforce.com is allowed.
+Mismatch relative path with / prefix
+Base URL
+:
+https://instance.salesforce.com/services
+Request URL
+:
+/rest
+The relative path does not match
+/services
+defined in the Base URL.
+Error message:
+Attempted to send request to https://instance.salesforce.com/rest but only request with base URL https://instance.salesforce.com/services is allowed.
+#
+Define the base URL
+You can define the base URL by configuring the
+Base URL
+field when
+creating an HTTP connection
+. The base URL is typically provided by your target API's documentation.
+For example, the base URL for the
+Salesforce REST API
+(opens new window)
+is:
+https://instance.salesforce.com/
+This applies for both cloud-based HTTP endpoints and on-premise HTTP endpoints.
+←
+Connection setup
+Build an HTTP trigger
+→
+Last updated:
+1/14/2025, 5:59:51 PM
+On this page
+Ensure security over the HTTP connector
+How it works
+Base URL errors
+Define the base URL
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

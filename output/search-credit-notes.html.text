@@ -1,0 +1,155 @@
+Workato connectors - Xero Search credit notes action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - Search credit notes batch action
+The
+Search credit notes
+batch action allows you to find credit notes using specific criteria, such as the credit note ID. You must provide at least one search field.
+Xero - Search credit notes batch action
+#
+Input
+Input field
+Description
+Credit note ID
+Enter the Xero internal ID of the credit note you plan to search for. This ID is typically found at the end of the credit note's URL.
+Type
+Specify the type of credit note.
+Date
+Select a date to find credit notes created after this specific date.
+Status
+Enter the status to filter credit notes. Valid values include
+DRAFT
+,
+SUBMITTED
+,
+DELETED
+,
+AUTHORISED
+,
+PAID
+, and
+VOIDED
+.
+Line amount types
+Input the line amount type you plan to filter.
+Credit note number
+Provide the credit note number.
+Reference
+Input a reference number associated with the credit note for your search.
+#
+Output
+Output field
+Description
+Credit notes
+Details about the credit note records.
+←
+Search contacts
+Search items
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

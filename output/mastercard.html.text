@@ -1,0 +1,227 @@
+Workato connectors - Mastercard | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Mastercard
+Mastercard
+(opens new window)
+is a financial services company that provides a payment network for electronic transactions. It enables secure transactions and is widely accepted by merchants globally, allowing customers to make payments efficiently.
+#
+Prerequisites
+Before using the Mastercard connector on Workato, you must have a Mastercard developers account. Complete the following steps to set up your account:
+Obtain a Mastercard developers account
+Create a new project in the Mastercard developer portal
+Configure environment and keys
+Export your signing key
+#
+Obtain a Mastercard Developers account
+Complete the following steps to obtain a Mastercard developers account:
+1
+Go to the
+Mastercard Developers account sign up page
+(opens new window)
+.
+2
+Fill out the required fields and click
+Create account.
+3
+Activate your account through the link sent to your registered email address.
+You can use your Mastercard Developer account to create projects, access APIs, and request production access.
+#
+Create a new project in the Mastercard developer portal
+Complete the following steps to create a new project in the Mastercard developer portal:
+1
+Create a project on your
+My Projects
+(opens new window)
+page.
+2
+Name your project.
+3
+Indicate whether you are creating a project on behalf of a client.
+4
+Provide the client company name and client company address (if applicable).
+5
+Select the API service you plan to integrate with.
+6
+Provide the
+Commercial countries
+for the project. This field represents where you are doing business.
+7
+Fill out additional details that the API service requires (if applicable).
+#
+Configure your environment and keys.
+Complete the following steps to configure your environment and keys:
+1
+Within your project, select
+Credentials
+.
+2
+Choose whether you are creating a
+Sandbox/Production
+key.
+3
+Click
+Add project key.
+4
+Enter your Sandbox key alias and keystore password.
+5
+Click
+Create key
+.
+#
+Export your signing key.
+Complete the following steps to export your key to
+.pem
+format. This is necessary to use the key in Workato.
+1
+To export your key to a PKCS#1 PEM file (BEGIN RSA PRIVATE KEY), run the following command:
+openssl pkcs12 \-in key.p12 \-nodes | openssl rsa \-outform pem \-out pkcs1-key.pem
+2
+To export your key to a PKCS#8 PEM file (BEGIN PRIVATE KEY), run the following command:
+openssl pkcs12 \-in key.p12 \-nodes | openssl pkcs8 \-topk8 \-nocrypt \-out pkcs8-key.pem
+#
+How to connect to Mastercard on Workato
+The Mastercard connector supports OAuth 1.0a authentication. Complete the following steps to establish a connection to Mastercard:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Mastercard
+as your connection on the New Connection page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your consumer key in the
+Consumer key
+field.
+6
+Enter your private key in the
+Private key
+field.
+7
+Choose your environment in the
+Environment
+drop-down, if applicable.
+8
+Click
+Connect
+.
+Mastercard connection
+←
+Send message to a user action
+Enroll or unenroll merchants action
+→
+Last updated:
+2/25/2025, 1:35:45 AM
+On this page
+Prerequisites
+How to connect to Mastercard on Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

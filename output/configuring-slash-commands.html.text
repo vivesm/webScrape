@@ -1,0 +1,241 @@
+スラッシュコマンドの設定 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Slack
+Workbot インターフェイスの設計
+#
+スラッシュコマンドの設定
+スラッシュコマンドは、Workbot の Post command トリガーを起動するための便利な方法です。
+スラッシュコマンドを設定するには、
+Enterprise Workbot
+を接続する、または
+従来のカスタムインテグレーション
+を使用するという2つの方法があります。
+カスタムインテグレーションはいずれ廃止される予定の (その時期はまだ不明) レガシー機能であるため、Enterprise Workbot を使用することを強くお勧めします。
+#
+Enterprise Workbot を使用したスラッシュコマンドの設定
+この方法を使用するには、まず
+Enterprise ボット
+を作成する必要があります。
+スラッシュコマンドを Workato で使用するには、まず Slack の Enterprise Workbot でこれらのコマンドを追加して設定する必要があります。
+すでに Enterprise Workbot がある場合は、Enterprise ボットでスラッシュコマンドを設定する方法の説明に進んでください。
+#
+Workbot コネクション
+Enterprise Workbot を使用してスラッシュコマンドを設定するには、以下に示すように、そのカスタム OAuth プロファイルを Workbot コネクションに接続する必要があります。
+カスタム OAuth プロファイルが設定された Enterprise Workbot がない場合は、Enterprise Workbot の設定方法について、
+Enterprise Workbot
+に関するガイドを参照してください。
+#
+スラッシュコマンドの設定
+スラッシュコマンドは、Workbot の Post command トリガーの [
+Slash command configuration
+] グループで設定できます。
+以下の表は、スラッシュコマンドの設定フィールドに対する入力スキーマを示しています。
+フィールド
+説明
+設定
+Enable Slash command
+このコマンドトリガーに対してスラッシュコマンドを有効にするかどうかを切り替えます。
+[Yes] に設定すると、スラッシュコマンドを使用してこのコマンドを呼び出せます。
+Command name
+スラッシュコマンドを呼び出すために使用されます。
+このスラッシュコマンドを呼び出すために、ユーザーが Slack に入力するコマンド名です。「/」で始まる必要があり、スペースを含めてはなりません。例 /createissue
+このコマンドをコピーし、Slack で、Enterprise ボットのスラッシュコマンドの [
+Command
+] フィールドに貼り付けます。
+Auto-reply message
+コマンドが呼び出されると、この応答を自動的にユーザーのみに送信します。空にすると、ユーザーが入力したコマンドが応答としてそのまま返されます。
+"Command received, working..."
+など、呼び出されたコマンドを受信したことをユーザーに伝えるテキストを入力します。
+Dialog for missing command input fields
+ユーザーからコマンド入力項目を収集するためのダイアログを表示します。
+[Yes] に設定すると、入力が必要なコマンド入力項目をダイアログ形式で入力できます。[No] に設定すると、Workbot は対話形式でユーザーに入力を求めます。
+コマンドが Enterprise Workbot のスラッシュコマンドを使用して呼び出された場合にのみ使用できます。
+#
+設定の開始
+まず、通常通りに Post command トリガーの各フィールドに入力します。次に、[Slash command configuration] グループに進みます。
+#
+[Slash command configuration] グループ
+#
+Enable Slash command
+このコマンドトリガーに対してスラッシュコマンドを有効にするかどうかを切り替えます。	[Yes] に設定すると、スラッシュコマンドを使用してこのコマンドを呼び出せます。
+#
+Command name
+スラッシュコマンドの名前です。スラッシュコマンドの名前は、以下の例のように、実行する機能を示すように付ける必要があります。
+/createissue、/listusers、/showcustomers
+スラッシュコマンドのアクションはスラッシュで始める必要があり、またスペースを含めてはなりません。このスラッシュコマンドは Slack の Enterprise Workbot でも作成する必要がありますが、これについては後ほど説明します。
+#
+Request URL
+スラッシュコマンドを Slack から呼び出す際には、リクエストの送信先の URL が Slack で必要になります。このリクエスト URL は Workato により生成され、Slack でのスラッシュコマンドの設定時に必要になります (これについては後ほど説明します)。
+[
+Enable Slash command
+] を [
+Yes
+] に設定し、[
+Command name
+] に有効なコマンド名を入力すると、Post command トリガーの上部のヘルプボックスに
+リクエスト URL
+が生成されます。
+#
+スラッシュコマンドでのコマンド入力項目の使用
+Post command トリガーでコマンド入力項目を定義している場合は、呼び出し時にスラッシュコマンドにこれらの項目を渡すことができます。
+スラッシュコマンドのコマンド入力項目の形式は以下のとおりです。
+/slashcommand name1: value 1 name2: value 2 name3: value 3...
+name
+にはコマンド入力項目の名前、
+value
+には項目の値を指定します。
+たとえば、上記の JIRA の課題の作成レシピでは、[
+Title
+] と [
+Description
+] をコマンド入力項目として定義しています。対応する値をスラッシュコマンドの呼び出しに渡すには、以下のように指定します。
+/createissue title: Button is misaligned description: At the registration page, the registration button is misaligned.
+#
+Dialog for missing command input fields
+コマンド入力項目に必要な値が指定されていない場合は、Enterprise Workbot のスラッシュコマンドは Slack のダイアログを使用してこれらの値をユーザーから収集できます。
+[Yes] に設定すると、ユーザーがスラッシュコマンドを使用してコマンドを呼び出した際にダイアログが表示されるようになります。このダイアログにより、必要なすべてのコマンド入力項目をユーザーから収集できます。コマンド入力項目に定義されているヒントや例も、このダイアログに表示されます。
+[No] に設定すると、コマンド入力項目の値は、ユーザーとの対話を通して収集されます。
+#
+Slack でのスラッシュコマンドの作成
+上記の手順で、Slack でスラッシュコマンドを作成するために必要なすべての情報をトリガーに指定しました。
+Slack でスラッシュコマンドの作成を始めるには、
+https://api.slack.com/apps
+(opens new window)
+にアクセスし、Enterprise ボットを選択します。
+Enterprise ボットの選択
+[
+Slash Commands
+] で [
+Create New Command
+] を選択します。
+[
+Create New Command
+] の選択
+以下のフォームで、以下に示すようにフィールドに情報を入力します。
+Command name
+Request URL
+[
+Escape channels, users, and links sent to your app
+] ボックスをチェックして有効にします。これは、Workato に送信されるリクエストペイロード内でユーザーやチャンネルをエスケープするように Slack に指示します。
+フォームの一番下には、Slack でこのスラッシュコマンドがどのように表示されるかを示すプレビューが表示されます。
+[
+Save
+] をクリックして、スラッシュコマンドの作成を完了します。
+[
+Save
+] のクリック後に、ワークスペースへのアプリの再インストールが必要になる場合もあります。アプリを再インストールするには、表示されるマーキーで [
+Click here
+] をクリックします。
+Enterprise ボットをインストールまたは再インストールすると、Workbot レシピのトリガーとしてスラッシュコマンドが使用可能になります。
+同じボットにさらにスラッシュコマンドを追加することも可能だが、名前は一意でなければならない
+同じ Enterprise Workbot にさらにスラッシュコマンドを追加することができますが、スラッシュコマンドには名前空間が設定されていないため、1つの Slack チーム内では各スラッシュコマンドに一意の名前を付けてください。
+使ってみましょう。Slack ワークスペースに移動し、スラッシュコマンドを呼び出して Workbot レシピをトリガーしてください。
+従来のスラッシュコマンドの設定方法については、
+従来のスラッシュコマンドの設定
+を参照してください。
+←
+Workbot のボタン
+従来のスラッシュコマンド
+→
+Last updated:
+2025/3/27 18:33:05
+On this page
+Enterprise Workbot を使用したスラッシュコマンドの設定
+設定の開始
+Slack でのスラッシュコマンドの作成
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

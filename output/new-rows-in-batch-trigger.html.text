@@ -1,0 +1,184 @@
+Google Analytics - New rows in batch trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Google Analytics
+#
+Google Analytics - New rows in batch trigger (batch)
+The
+New rows in batch
+trigger activates when a new batch of rows is created in a Google Analytics report.
+#
+Input
+Input field
+Description
+Account
+Select the account from the drop-down menu.
+Property
+Select the property from the drop-down menu.
+Batch size
+Specify the number of records to include in each batch.
+Dimensions
+Provide the dimensions source list and select the dimension fields from the drop-down menu. Dimensions are attributes of your data.
+Metrics
+Provide the metrics source list and select the metrics fields from the drop-down menu. Metrics are the quantitative measurements of a report.
+Dimension filter
+Specify dimension filters to return only specific dimension values in the report. Provide
+AND
+,
+OR
+or
+NOT
+expressions as needed.
+Metric filter
+Provide the filter clause of metrics to apply after aggregating the report's rows. Provide
+AND
+,
+OR
+, or
+NOT
+expressions as needed.
+Metric aggregations
+Select the aggregation of metrics from the drop-down menu.
+Order bys
+Provide the parameters to sort the result sets. This field specifies how rows are ordered in the response.
+Currency code
+Provide the currency code in ISO format, such as USD.
+Cohort spec
+Provide the cohort specs such as cohorts, cohorts range, and cohort report settings.
+#
+Output
+Output field
+Description
+Dimension headers
+A list of dimension columns. The number of dimension headers and ordering of dimension headers matches the dimensions present in rows.
+Metric headers
+A list of metric columns. The number of metric headers and ordering of dimension headers matches the metrics present in rows.
+Rows
+Rows of dimension value combinations and metric values in the report.
+Totals
+Displays the totaled values of metrics if requested.
+Maximums
+Displays the maximum values of metrics if requested.
+Minimums
+Displays the minimum values of metrics if requested.
+Row count
+The total number of rows available for the report. This may be greater than the number of rows returned if pagination is used.
+Metadata
+Contains information about the report.
+Start date
+Start date in
+2021-01-01
+format.
+End date
+End date in
+2021-01-01
+format.
+←
+Connection setup
+Get report action
+→
+Last updated:
+3/18/2025, 11:32:34 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

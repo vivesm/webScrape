@@ -1,0 +1,353 @@
+SDK - GitHub における CI/CD の有効化 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+CLI
+ガイド
+#
+GitHub における CI/CD の有効化
+デプロイメントの安定性を高めるために、CI/CD ツールをコネクター開発のワークフローに組み入れることをお勧めします。このガイドでは、GitHub や GitHub Actions を使用している場合のプロセスについて説明します。これと同じ手法を、他の Git ツールや CI/CD ツールに移植することもできます。
+#
+前提条件
+GitHub リポジトリを所有していること
+GitHub リポジトリで Actions を管理できる権限があること
+GitHub リポジトリでリポジトリシークレットを設定する権限があること
+#
+GitHub Actions の設定
+次に、
+GitHub Actions
+(opens new window)
+ファイルを作成します。このファイルは、アクションが実行するステップを定義するために使用されます。
+リポジトリの
+.github/workflows
+フォルダに、新しい
+ruby.yml
+ファイルを作成します。以下に例を示します。
+name
+:
+Connector Unit Test
+on
+:
+pull_request
+:
+branches
+:
+[
+main
+]
+jobs
+:
+test
+:
+runs-on
+:
+ubuntu
+-
+latest
+strategy
+:
+matrix
+:
+ruby-version
+:
+[
+'2.4.10'
+,
+'2.5'
+,
+'2.7'
+]
+steps
+:
+-
+uses
+:
+actions/checkout@v2
+-
+name
+:
+Set up Ruby
+uses
+:
+ruby/setup
+-
+ruby@v1
+with
+:
+ruby-version
+:
+$
+{
+{
+matrix.ruby
+-
+version
+}
+}
+bundler-cache
+:
+true
+-
+name
+:
+Run tests
+env
+:
+# Only needed if using encrypted files.
+WORKATO_CONNECTOR_MASTER_KEY
+:
+$
+{
+{
+secrets.WORKATO_CONNECTOR_MASTER_KEY
+}
+}
+run
+:
+bundle exec rspec
+この例では、プロジェクトは暗号化された設定 (
+settings.yaml.enc
+) を使用しています。暗号化を使用する際は、以下のことを確認してください。
+プロジェクトの
+master.key
+ファイルを
+.gitignore
+に追加する。
+暗号化されたシークレット
+(opens new window)
+を使用してリポジトリに環境変数を設定する。この例では、環境変数は
+WORKATO_CONNECTOR_MASTER_KEY
+という名前です。
+#
+その他の自動検査の追加
+コーディングスタイルの維持を容易にする
+Rubocop
+(opens new window)
+など、他の検査を追加することができます。
+#
+Workato へのデプロイメントの自動化
+ここで、PR がマージされるたびにワークスペースへ自動的にデプロイメントされるなど、コネクターを開発環境へ自動的にデプロイできます。
+リポジトリの
+.github/workflows
+フォルダに、新しい
+ruby.yml
+ファイルを作成します。以下に例を示します。
+name
+:
+Connector Unit Test & Deployment
+on
+:
+push
+:
+branches
+:
+[
+main
+]
+jobs
+:
+test
+:
+runs-on
+:
+ubuntu
+-
+latest
+strategy
+:
+matrix
+:
+ruby-version
+:
+[
+'2.4.10'
+,
+'2.5'
+,
+'2.7'
+]
+steps
+:
+-
+uses
+:
+actions/checkout@v2
+-
+name
+:
+Set up Ruby
+uses
+:
+ruby/setup
+-
+ruby@v1
+with
+:
+ruby-version
+:
+$
+{
+{
+matrix.ruby
+-
+version
+}
+}
+bundler-cache
+:
+true
+-
+name
+:
+Run tests
+env
+:
+# Only needed if using encrypted files.
+WORKATO_CONNECTOR_MASTER_KEY
+:
+$
+{
+{
+secrets.WORKATO_CONNECTOR_MASTER_KEY
+}
+}
+run
+:
+bundle exec rspec
+-
+name
+:
+Push to DEV workspace Use this to push to DEV. This can be enabled when a PR is merged.
+env
+:
+# Only needed if using encrypted files.
+WORKATO_API_EMAIL
+:
+$
+{
+{
+secrets.WORKATO_DEV_ENVIRONMENT_API_EMAIL
+}
+}
+WORKATO_API_TOKEN
+:
+$
+{
+{
+secrets.WORKATO_DEV_ENVIRONMENT_API_TOKEN
+}
+}
+run
+:
+workato push
+#
+次のステップ
+コネクタープロジェクトのファイルの詳細については、
+こちら
+を参照してください。
+←
+rSpec - ファイルのアップロード
+よくある質問 (FAQ)
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+前提条件
+GitHub Actions の設定
+その他の自動検査の追加
+Workato へのデプロイメントの自動化
+次のステップ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

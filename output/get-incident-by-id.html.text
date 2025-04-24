@@ -1,0 +1,194 @@
+Workato connector - PagerDuty - Get incident by ID action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+PagerDuty
+#
+PagerDuty Connector - Get incident by ID action
+This action retrieves an incident in PagerDuty by the incident ID.
+#
+Input
+Field
+Description
+ID
+Required
+The incident ID.
+#
+Output
+Field
+Description
+ID
+The incident ID.
+Type
+A string that determines the schema of the object. This must be the standard name for the entity.
+Summary
+A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+Self
+The API show URL at which the object is accessible.
+HTML URL
+The URL at which the entity is uniquely displayed in the Web app.
+Incident number
+The number of the incident. This is unique across your account.
+Created at
+The date and time when this record was created.
+Status
+The current status of the incident.
+Incident key
+The incident's de-duplication key.
+Pending actions
+The list of pending actions on the incident. Each pending action contains the following fields.
+Type of action
+Updated at
+Service
+The service object contains the following fields.
+ID
+Type
+Summary
+Self
+HTML URL
+Assignments
+List of all assignments for this incident. This list will be empty if the Incident.status is resolved.
+Acknowledgments
+List of all acknowledgments for this incident. This list will be empty if the Incident.status is resolved or triggered. Each acknowledgment contains the following fields.
+At
+Acknowledger
+Last status change at
+The time at which the status of the incident last changed.
+Last status change by
+The agent that created or updated this incident. The agent object contains the following fields.
+ID
+Type
+Summary
+Self
+HTML URL
+First trigger log entry
+This object contains the following fields.
+ID
+Type
+Summary
+Self
+HTML URL
+Escalation policy
+This object contains the following fields.
+ID
+Type
+Summary
+Self
+HTML URL
+Teams
+A list of teams involved in the incident's lifecycle. Each team contains the following fields.
+ID
+Type
+Summary
+Self
+HTML URL
+Urgency
+The current urgency of the incident.
+←
+Add note to incident
+List log entries
+→
+Last updated:
+4/5/2023, 11:28:53 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,167 @@
+Workato connectors - Eventbrite New Order for Event trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Eventbrite
+#
+Eventbrite - New order for event trigger
+The
+New order for event
+trigger checks for new orders in Eventbrite. This trigger compiles a list of attendees included within the order. The picklist displays only the first 50 events, but you can search for all events using the
+Event
+field.
+Eventbrite - New order for event trigger
+#
+Input
+Input field
+Description
+Trigger poll interval
+Set the frequency at which Workato checks for new orders. This field defaults to every 30 minutes if not specified.
+When first started, this recipe should pick up events from
+Choose a start date for the trigger to begin fetching orders. After you test or run the recipe, you cannot change this value. Learn more about this
+input field
+.
+Organization
+Choose the organization you plan to monitor for new orders. This field defaults to the organization set in the connection if left blank.
+Event
+Choose the specific event for which to fetch new orders. Leave this field blank to monitor orders for all events owned by the connected Eventbrite user.
+#
+Output
+Output field
+Description
+Costs
+The cost details of the order.
+Name
+The name associated with the order.
+Time remaining
+The time left for completing the order.
+Event ID
+The identifier for the event associated with the order.
+Event
+The details of the event associated with the order.
+Resource URI
+The URI for the order resource on Eventbrite.
+ID
+The unique identifier for the order.
+Date changed
+The timestamp of when the order was last updated.
+Date created
+The timestamp of when the order was created.
+First name
+The first name of the person who placed the order.
+Last name
+The last name of the person who placed the order.
+Email
+The email address of the person who placed the order.
+Status
+The status of the order.
+Attendees
+A list of attendees associated with the order.
+←
+New event created
+New/updated attendee registered for event
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

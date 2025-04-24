@@ -1,0 +1,191 @@
+レシピファンクション - レシピファンクションの非同期呼び出し | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+レシピファンクション - レシピファンクションの非同期呼び出し
+このアクションは、レシピファンクションを呼び出した後、直ちにレシピの次のステップに進みます。非同期呼び出しは、後続のステップがレシピファンクションのワークフローの結果に依存しない場合に便利です。
+長い非同期呼び出しの後に後続のステップが実行されるワークフローでは、
+非同期呼び出しの待機
+アクション
+を使用して、すべての非同期呼び出しの処理が完了するまで待機するようにします。
+#
+要件
+このアクションを使用するには、
+レシピファンクション
+が必要です。これは
+レシピファンクション - ファンクションの新規呼び出し
+トリガーを使用するレシピであり、他のレシピから呼び出すことができます。
+#
+制限事項
+このアクションを使用する際は、次の点に注意してください。
+呼び出しが順番に実行されるとは限りません。
+ステップを順番に呼び出す必要があるワークフローでは、
+レシピファンクション - レシピファンクションの同期呼び出し
+アクションを使用します。
+このアクションでは
+result
+出力が生成されません。
+非同期呼び出しはレスポンスを待機しないため、このアクションでは
+result
+データが出力されません。
+非同期で呼び出されるレシピファンクションからのデータが必要なワークフローでは、回避策として
+Lookup table
+アクションを使用できます。
+回避策はこちらで確認できます。
+1
+以下を格納する列を持つ新しい
+Lookup table
+をアカウントに作成します。
+レシピ ID
+ジョブ ID
+親レシピに渡すデータ
+2
+レシピファンクション
+で以下を実行します。
+1
+Lookup table へのエントリの追加アクション
+のステップを追加します。
+2
+ステップ1で作成した Lookup table を選択します。
+3
+レシピ ID、ジョブ ID、親レシピに渡すデータを Lookup table に格納するアクションを設定します。
+このレシピファンクションは以下のようになります。
+3
+親レシピ
+で以下を実行します。
+1
+レシピファンクションの非同期呼び出しアクション
+のステップを追加し、レシピファンクションを呼び出すように設定します。
+2
+非同期呼び出しの待機アクション
+のステップを追加し、レシピファンクションが終了するまで待機するように設定します。
+3
+Lookup table のエントリの検索アクション
+のステップを追加し、レシピファンクションによって追加されたエントリを取得するように設定します。
+この親レシピは以下のようになります。
+#
+入力
+項目
+説明
+Recipe function
+ワークスペースのレシピファンクションの一覧から選択します。
+Recipe input
+選択したレシピファンクションの
+入力スキーマ
+に定義されている項目です。
+Connection overrides
+選択したレシピファンクションで　Runtime User Connections 設定が有効な場合にのみ使用できます。
+レシピ実行時に使用するコネクションの名前または ID を指定します。詳細については、
+こちら
+を参照してください。
+#
+出力
+項目
+説明
+Job reference
+ジョブの参照 ID です。
+注意
+: ジョブ ID ではありません。
+Job URL
+作成したジョブの URL です。
+Last updated:
+2023/8/31 1:07:14
+On this page
+要件
+制限事項
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

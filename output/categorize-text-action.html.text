@@ -1,0 +1,137 @@
+AI by Workato - Categorize text action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+AI機能
+AI by Workato
+#
+AI by Workato - Categorize text action
+FEATURE AVAILABILITY
+AI by Workato is available for all direct customers across all Workato data centers, but isn’t available to Embedded partners or their customers. All data is sent to OpenAI's servers in the US. You can opt-in to this feature by agreeing to our
+AI feature addendum
+(opens new window)
+. Contact your Customer Success representative to learn more.
+categorize text actionは、事前に定義されたカテゴリに基づいてテキストデータを自動的に分類または整理することを可能にします。一般的なカテゴリの場合、ルールを省略することができますが、一般的には分類を助けるために明確なルールの説明を設定することをお勧めします。
+このアクションにより、受信テキスト情報を効率的に整理、グループ化、またはルーティングして、ビジネスプロセスを合理化することができます。強化できる可能性のあるワークフローには、カスタマーサポートチケットのルーティング、コンテンツのタグ付け、スパムフィルタリング、製品分類などがあります。
+#
+Input
+Input field
+Description
+Text
+コネクタが分類する予定のテキストを提供します。
+List of categories
+テキストを分類するためのカテゴリのリストを作成します。各カテゴリが何を表すかを分類するのに役立つ追加の詳細を提供するためのルールを作成します。
+#
+Output
+Output
+Description
+Best match category
+このアクションは、入力テキストに最も適したカテゴリの1つを選択します。出力データピルには、最適なカテゴリの値が含まれます。定義したカテゴリがソーステキストに見つからない場合はエラーが表示されます。オプションとして「なし」を設定する場合は、明示的に設定する必要があります。
+Remaining calls
+1日の全体制限（100回）のうち、Workatoが実行可能な残りの呼び出し回数。
+Consumed calls
+1日の全体制限（100回）のうち、既に完了したアクションの回数。
+Reset time
+1日の制限がリセットされる時刻。
+←
+テキスト分析
+メールのドラフト作成
+→
+Last updated:
+2025/2/13 21:46:17
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

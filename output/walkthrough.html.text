@@ -1,0 +1,271 @@
+API レシピのウォークスルー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+API プラットフォーム
+API レシピ
+#
+API レシピのウォークスルー
+それでは独自の API レシピを作成してみましょう。このガイドでは、Salesforce を例に作成手順について説明します。
+目標は、Salesforce の商談作成を自動化し、それを REST エンドポイントとして公開することです。このエンドポイントを使用することで、外部のビジネスパートナーや社内の関係者は、Workato アカウントにアクセスしなくてもデータにアクセスして使用できるようになります。
+#
+ステップ1: レシピを作成する
+このステップでは、レシピを作成し、そのスタートポイントを選択します。
+1
+新しいレシピを作成し、名前を付けます。
+2
+レシピを保存するフォルダーを選択します。
+3
+スタートポイントとして
+[Build an API endpoint]
+をクリックします。
+4
+[Start Building]
+をクリックします。
+レシピ新規作成時に
+[Build an API endpoint]
+を使用すると、
+New API request
+トリガーと
+New API request
+アクションを持つレシピが自動的に作成されます。
+#
+ステップ2: レシピのトリガーを定義する
+次に、
+New API request
+トリガーのパラメータを定義することで、エンドポイントのリクエストとレスポンスの構造を定義します。トリガーの定義には、以下の2つのステップがあります。
+API エンドポイントのリクエストの構造を定義する
+API エンドポイントのレスポンスの構造を定義する
+#
+ステップ2.1: エンドポイントのリクエストの構造を定義する
+このステップでは、エンドポイントに対して行われるリクエストのパラメータを定義します。リクエストスキーマは表示される項目を決定するもので、API レシピでアクションを作成する際に定義する必要があります。
+1
+トリガーをクリックして
+[Setup]
+タブを開きます。
+2
+まだ開いていない場合は
+[Request]
+タブを開きます。
+3
+[Content type]
+項目で、エンドポイントで受け付ける必要があるデータの種類を選択します。たとえば、
+application/json
+を選択すると、エンドポイントはリクエスト内に有効な JSON データが存在するものと予期して、それを受け付けます。
+4
+[Request header]
+セクションで、エンドポイントに送信されるリクエストのヘッダーに含める必要があるパラメータを定義します。
+5
+[Request schema]
+セクションで、エンドポイントに送信されるリクエスト本体のスキーマを定義します。JSON のサンプルファイルをアップロードしても、項目に手入力しても構いません。
+今回の例で使用するスキーマには、Salesforce の商談作成に必要な項目が含まれます。
+#
+ステップ2.2: エンドポイントのレスポンスの構造を定義する
+リクエストの構造を定義したら、エンドポイントのレスポンスの構造の定義に進みます。レスポンスの構造は、API レシピから返される出力と、その対応する項目を定義します。
+たとえば、商談が正常に作成されたことがエンドポイントからユーザーに通知されるようにするには、それを行うレスポンス (
+200 - Created
+) を追加します。このレスポンスには、商談に関する情報、たとえば
+ID
+や作成時刻などを含めることができます。
+このセクションには、API レシピのアクションが正常に実行されなかった場合に備えて、
+エラー
+レスポンスを定義することも可能です。
+1
+まだ開いていない場合は
+[Response]
+タブを開きます。
+2
+[Response header]
+セクションで、エンドポイントから送信されるレスポンスのヘッダーに含まれるパラメータを定義します。
+3
+[Response schema]
+セクションで、エンドポイントから送信されるレスポンス本体のスキーマを定義します。JSON のサンプルファイルをアップロードしても、項目に手入力しても構いません。
+この例では、新規作成された Salesforce の商談の ID を表す
+ID
+項目を追加します。
+#
+ステップ3: レシピにステップを追加する
+続いて、レシピにアクションを追加します。Workato の
+レシピ作成のベストプラクティス
+に従い、以下のブロックを追加します。
+Monitor
+- このブロックは
+成功応答
+と考えてください。レシピ内のアクションがエラーなしで実行された場合、レシピはここで終了します。
+On Error
+-
+[Monitor]
+ブロックがエラーを返した場合、このセット内のアクションが実行されます。
+#
+ステップ3.1: [Monitor] ブロックを定義する
+1
+[Monitor]
+ブロックに目的のアクションを追加します。この例では、Salesforce で商談を新規作成するアクションを追加します (
+[Action in an app] > [Salesforce] > [New opportunity]
+)。
+2
+適切なデータをアクションにマッピングします。レシピのトリガーからのデータを
+Salesforce アクション
+の必要な入力に手動でマッピングするか、
+グループマップデータ
+を使用して自動的にマッピングできます。
+3
+アクションの定義が完了したら、
+[Return]
+アクションをクリックします。
+[Return]
+アクションを定義することで、API エンドポイントは、
+[Monitor]
+ブロックのアクションが正常に実行されたかどうかを示すレスポンスを確実に返すことができます。
+4
+[Return]
+アクションを定義するには、以下の手順を実行します。
+1
+[Response]
+を選択します。たとえば、Salesforce で商談が正常に作成されたことを示す場合は、
+[Created]
+を選択します。
+2
+[Response schema]
+セクションで、スキーマの項目に適切なデータをマッピングします。
+たとえば、新規作成された商談の ID をレスポンスに含めて返す場合は、
+ID
+項目を、
+Salesforce での商談作成
+アクションから返される
+Object ID
+データピルにマッピングします。
+#
+ステップ3.2: [On Error] ブロックを定義する
+最後のステップは
+[On Error]
+ブロックの定義です。このブロックは、
+[Monitor]
+ブロックのアクション、つまり今回の例では
+Salesforce での商談作成
+アクションの実行に失敗したときに実行されます。
+エラーレスポンスを定義することで、何らかの障害が発生した場合に、エンドポイントから有益な情報を得て、的を絞ったトラブルシューティングを行えるようになります。
+たとえば、Salesforce の API が動作せずに商談を正常に作成できなかった場合に、その旨を示すレスポンスを追加できます。
+#
+ステップ4: レシピを保存してテストする
+作成したレシピを保存してテストします。発生した障害のトラブルシューティングを容易にするため、
+レシピは細かなステップで構築する
+ことをお推めします。
+#
+次のステップ
+最適な API のパフォーマンスを実現するために
+[Jobs data retention]
+レシピ設定を使用すると、ログの作成を無効にして、API レシピのパフォーマンスを向上させることができます。ただし、いくつかのトレードオフがあることに注意してください。
+詳細については、「
+レシピのデータ保持の定義
+」を参照してください。
+API レシピの作成、お疲れさまでした。その他に実行できる操作については、以下のリソースを参照してください。
+API プラットフォーム
+API レシピ
+API の呼び出し
+API のセキュリティに関するベストプラクティス
+←
+概要
+SOAP API レシピの手順
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+ステップ1: レシピを作成する
+ステップ2: レシピのトリガーを定義する
+ステップ3: レシピにステップを追加する
+ステップ4: レシピを保存してテストする
+次のステップ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

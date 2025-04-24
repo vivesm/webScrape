@@ -1,0 +1,195 @@
+Workato connectors - SAP OData | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP OData
+#
+How to connect to SAP On-Premise instances on Workato
+Complete the following steps to set up OData services for your SAP On-premise system. Most legacy SAP systems as well as new SAP S/4HANA instances use the same or similar steps. However, legacy SAP systems such as ECC, do not have standard OData services available. Refer to this
+blogpost
+(opens new window)
+to create a custom OData service on your SAP Gateway.
+If you're using SAP S/4HANA On-Premise or
+SAP S/4HANA Cloud, private edition
+(opens new window)
+, the following steps illustrate how to set up an example service for exposing OData v2 service.
+For exposing OData v4 service, please refer to the section
+Publish Service Group
+(opens new window)
+in the official SAP help documentation.
+1
+Go to transaction code
+/n/iwfnd/maint_service
+Activate the service
+2
+Click
+Add Service
+, maintain
+LOCAL
+in the
+System Alias
+field, and press Enter.
+Add a service
+3
+Select service and click on Add Selected Services. In this example, we are adding
+API_BANKACCOUNT_SRV
+- a standard SAP API.
+Add your selected service
+4
+Name the technical service. In our example, its
+ZAPI_BANKACCOUNT_SRV
+. Click on Local Object to Save in Local Package and continue.
+Save the local package
+Confirmation message
+5
+Test your new OData service by going to the
+Service Catalog
+, search for
+Technical Service Name
+, and then click
+Call Browser
+to hit the OData Endpoint URL on the Browser and SAP Gateway Client. You can test different options, such as operations, methods, headers, payload , and more on the Gateway Client.
+Search for the technical service
+Test in-call browser
+Return to Workato to fill in the
+connection fields
+with the same details displayed in the SAP Gateway Client. Refer to the
+minimum permissions
+section to review the minimum permissions required to establish a connection.
+#
+How to connect to SAP S/4HANA Cloud via Basic Authentication on Workato
+Complete the following steps to set up OData services for your SAP S/4HANA Cloud instance.
+1
+Find the OData API for your automation requirements in the
+SAP API Business Hub explorer
+(opens new window)
+.
+SAP API explorer
+2
+Click to open the API you plan to use and locate the communication scenario ID. Store this ID for use later on.
+API details communication
+3
+Follow the steps in
+Setting up Communication Management
+(opens new window)
+. This process includes the following required tasks:
+Create a Communication User
+: the integration user assigned to Workato. Ensure that you
+use basic authentication
+.
+Create a Communication System
+: tied to the communication User.
+Create a Communication Arrangement
+: ties the communication system and user to the communication scenario.
+4
+Return to Workato to fill in the
+connection fields
+.
+←
+Connection setup
+Client certificate authentication setup
+→
+Last updated:
+7/8/2024, 2:16:42 PM
+On this page
+How to connect to SAP On-Premise instances on Workato
+How to connect to SAP S/4HANA Cloud via Basic Authentication on Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

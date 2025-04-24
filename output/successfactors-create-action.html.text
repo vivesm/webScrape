@@ -1,0 +1,137 @@
+SuccessFactors Create record action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP SuccessFactors
+#
+Create record action
+Creates a record in SuccessFactors with the provided values for the selected object.
+#
+Input fields
+Object
+Select the SuccessFactors object. Because objects can have similar names, the list includes their internal names.
+Additional attributes
+Depending on the object you select and your SuccessFactors configuration, subsequent fields appear where you define additional attributes for the record, such as ID, start date, and status.
+A common attribute is a navigation field, which associates this record with other records through a URI, such as a user to their manager. See
+Using navigation fields
+.
+#
+Output fields
+The output fields vary depending on the object you select. To view the available data pills, review the output datatree.
+DateTime fields
+The system converts
+DateTime
+fields to UTC time. It infers the origin time zone from the instance's
+environment time zone
+(opens new window)
+, unless otherwise stated. Learn more about
+Datatree and data pills
+.
+←
+Triggers
+Get record details action
+→
+Last updated:
+2/21/2023, 3:50:47 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

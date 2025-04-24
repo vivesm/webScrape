@@ -1,0 +1,159 @@
+Workato connectors - Upload File to Internal Stage | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Snowflake
+#
+Snowflake - Upload file to internal stage
+Workato offers bulk loading of data to an internal stage in Snowflake. This action uses the Snowflake
+PUT
+(opens new window)
+to upload files to Snowflake internal stage. This action takes in either a CSV file, or a
+Workato FileStorage
+file path, and uploads it to the specified internal stage.
+This action gives you the flexibility of using any type of internal stage. It is intended to work together with Workato bulk triggers (Jira, Marketo, and so on), and also works well when building
+ELT/ETL recipes
+. It also works together with the
+bulk load from stage action
+to bring data from an external source to a Snowflake table.
+#
+Input Fields
+Input field
+Description
+Source Type
+Specify the source of your data. It can be the contents of a CSV file, referenced as a
+File Contents
+datapill, or a Workato FileStorage path.
+Internal Stage
+Specify the internal stage to load data into. The action provides you with a picklist of named stages. Otherwise specify the name of your stage.
+Overwrite
+Specify whether to overwrite an existing file in the internal stage with the same name during upload.
+Defaults to
+No
+.
+Auto Compress
+Specify whether Snowflake should use gzip to compress file(s) during upload. If left unspecified, auto compression will be applied.
+#
+Output Fields
+Output field
+Description
+Status
+Indicates status of file upload to internal stage returned by Snowflake.
+Target file path
+Indicates the complete file location within the internal stage.
+Note:
+Use this datapill to reference the file in subsequent steps of the recipe.
+Target file size
+Indicates the uploaded file size (bytes).
+Source compression
+Indicates the compression of the source file.
+Target compression
+Indicates the compression applied to the uploaded file.
+←
+Export query result
+Bulk load to table from stage
+→
+Last updated:
+6/26/2024, 9:52:40 PM
+On this page
+Input Fields
+Output Fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

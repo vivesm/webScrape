@@ -1,0 +1,145 @@
+承認ボットアクセラレーターのインストール | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+Slack/Microsoft Teams用承認ボット
+#
+承認ボットアクセラレーターのインストール
+#
+前提条件
+エンタープライズボットアドオンが付いたWorkatoアカウント
+Microsoft TeamsアカウントにWorkbotアプリがインストールされている（Microsoft Teamsで使用する場合）
+Slackワークスペース（Slackで使用する場合）
+Core-ApprovalBot-Slack-V001.zip
+または
+Approval-bot-MSTeams.zip
+パッケージ
+#
+パッケージのインストール
+ワークスペースにパッケージをインストールするには:
+1
+Workatoで新しいプロジェクトを作成します。プロジェクトの名前を
+Approval Bot
+とします。
+2
+新しく作成した
+Approval Bot
+プロジェクト内に、新しいフォルダを作成します。フォルダの名前を
+Slack
+または
+Microsoft Teams
+とします。
+3
+Slackで承認ボットを実装する予定の場合は、
+Recipe Lifecycle Management
+ツールまたは
+フォルダにパッケージをインポートするAPI
+を使用して
+Core-ApprovalBot-Slack-V001.zip
+パッケージをインポートします。
+Microsoft Teamsで承認ボットを実装する予定の場合は、同じツールを使用して
+Approval-bot-MSTeams.zip
+パッケージをインポートします。
+←
+デザイン
+接続
+→
+Last updated:
+2024/2/22 23:17:11
+On this page
+前提条件
+パッケージのインストール
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

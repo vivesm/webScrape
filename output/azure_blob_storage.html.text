@@ -1,0 +1,173 @@
+Workato コネクター - Azure Blob Storage | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Azure Blob Storage
+Azure Blob Storage
+(opens new window)
+があれば、分析に必要なデータレイクを作成したり、ストレージを利用して強力なクラウドネイティブアプリやモバイルアプリを構築したりすることができます。
+Workato の Azure Blob Storage コネクターを使用すると、クラウドストレージのニーズを満たすより高度な自動化を実現でき、その他さまざまなアプリから Azure Blob Storage を対象にデータを自動的にプルまたはプッシュするデータパイプラインが構築されます。
+#
+API バージョン
+Azure Blob Storage コネクターは
+Blob service REST API
+(opens new window)
+を使用します。
+#
+Workato での Azure Blob Storage への接続方法
+Azure Active Directory で統合システムユーザー (ISU) を作成し、Azure Blob Storage への Workato コネクションを作成します。
+#
+Azure Active Directory で Workato の統合ユーザーを作成する方法
+Workato との統合には ISU を使用することをお勧めします。権限に一貫性が保たれ、単一のアカウントにすべての操作を記録できるようになります。以下に、Azure ポータルで Workato の統合ユーザーを作成する手順を示します。
+権限
+この ISU は、コネクションで定義したストレージアカウントにのみアクセスできる必要があります。
+まず、Azure ポータルで
+[Azure Active Directory]
+=>
+[ユーザー]
+=>
+[新しいユーザー]
+に移動して、ISU を作成します。
+Azure ポータルから [Azure Active Directory] に移動する
+[Azure Active Directory] で [ユーザー] に移動する
+[新しいユーザー] を選択する
+新しいユーザーの詳細を入力する
+TIP
+ISU の名前とメールアドレスは、このユーザーが Workato および特定ストレージアカウントの専用ユーザーであることがわかるようにしてください。
+次に、作成した ISU が Azure Blob Storage アカウントにアクセスできるようにする必要があります。
+[ストレージアカウント]
+=>
+(ストレージアカウント)
+=>
+[アクセス制御]
+=>
+[ロールの割り当ての追加]
+に移動します。
+Azure ポータルから [ストレージアカウント] に移動する
+Workato に対してアクセス権を付与するストレージアカウントを見つける
+このストレージアカウントの [アクセス制御] に移動する
+作成した ISU に、このストレージアカウントのロールの割り当てを追加する
+作成した ISU にロールの割り当てを追加する
+Workato で完全な
+読み取りと書き込み
+のコネクションを許可するには、少なくとも「
+Storage Blob Data Contributor
+」のロールをプロビジョニングする必要があります。
+読み取り
+専用コネクションの場合は、「
+Storage Blob Data Reader
+」 をプロビジョニングします。
+#
+Workato コネクションの作成
+Workato に戻って接続する際、以下の情報を入力するよう求められます。
+コネクションの項目
+説明
+Connection name
+接続先の Greenhouse インスタンスを識別する一意の名前を入力します。
+Storage account
+Azure Blob Storage 内のストレージアカウントの名前です。
+←
+アクションとトリガー
+新規 Blob トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Azure Blob Storage への接続方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

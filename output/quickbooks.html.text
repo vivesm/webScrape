@@ -1,0 +1,357 @@
+Workato コネクター - QuickBooks Online | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+QuickBooks Online
+QuickBooks Online
+(opens new window)
+は、企業が経費、請求書、および給与計算を管理できるようにする使いやすい会計ソフトウェアパッケージです。
+#
+API バージョン
+QuickBooks Online コネクターは
+V3 REST API
+(opens new window)
+を使用します。
+#
+サポートされるエディションとバージョン
+QuickBooks コネクターは、
+QuickBooks Online
+のすべてのバージョン (QuickBooks Self-Employed、QuickBooks Simple Start、QuickBooks Essentials、QuickBooks Plus) で動作します。
+Workato は現時点では QuickBooks Desktop/Enterprise のバージョンをサポートしていません。
+#
+Workato での QuickBooks への接続方法
+QuickBooks Online は OAuth1 をサポートします。
+[Connect]
+をクリックすると、QuickBooks へのポップアップウィンドウが開き、QuickBooks へ QuickBooks Online の資格情報を提供するよう指示されます。
+[Connect] を選択して QuickBooks Online の認証フローを開始
+認証が完了したら、Workato が QuickBooks アカウントに対して読み書きを実行できるよう権限を付与する必要があります。
+QuickBooks Online へのポップアップが生成され資格情報を求めるプロンプトが生成される
+Connection name
+この QuickBooks コネクションに、接続先の QuickBooks アカウントを識別する一意の名前を付け、
+[Connect]
+をクリックします。ポップアップ画面が生成されます。
+Username と Password
+QuickBooks の資格情報を使用してログインして、Workato が QuickBooks アカウントにアクセスできるようにします。
+#
+接続に必要なロールと権限
+統合には別のユーザーを作成して連携することをお勧めします。Workato から QuickBooks Online に正常に接続するには、このユーザーに
+Company Administrator
+権限が必要です。
+注 : Workato で (QuickBooks Online への) [Connect] をクリックすると、QuickBooks Online が開き、Workato へのログインと、QuickBooks アカウントに対する読み書き権限の付与の両方を行うように求められます。同じブラウザーで QuickBooks Online アカウントにすでにログインしている場合は、QuickBooks はユーザー名とパスワードを尋ねるステップをスキップし、Workato への権限の承認のみを行うよう求めます。QuickBooks で複数の企業の管理者になっている場合は、適切な QuickBooks Online 企業に対するコネクションを作成できるよう、適切な企業にログインしていることを確認してください。
+#
+QuickBooks での複数の企業への接続
+QuickBooks アカウントに複数の企業がある場合、同じ QuickBooks 認証を使用して、それらの企業を Workato に接続できます。各企業に対して新しいコネクションを作成するだけです。
+ただし、複数の Workato アカウントがある場合に、同じ企業に接続しようとすると、前のコネクションが切断されます。そのため、レシピの中断を防ぐために、1つの企業に接続するのに1つの Workato アカウントのみを使用することをお勧めします。
+#
+QuickBooks のトリガー
+QuickBooks コネクターでは、現在以下のトリガーを利用できます。
+新規 :
+Account、Bank Deposit、Bill Payment、Credit Note、Customer、Employee、Estimate、Invoice、Item、Payment、Sales Receipt、Vendor
+新規/更新 :
+Account、Tax Code、Tax Rate
+更新 :
+Bill、Credit Note、Customer、Employee、Estimate、Invoice、Item、Purchase、Vendor
+削除 :
+Item
+#
+QuickBooks のアクション
+#
+Add Line to Invoice (請求書への品目の追加)
+#
+Sales Item Detail (販売品目の詳細)、Discount Line Detail (割引品目の詳細)、Description only (説明のみ)
+#
+Sales Item Detail (販売品目の詳細)
+この名称に示唆されるように、ユーザーは販売品目に関していくらかの詳細情報を入力する必要があります。これには、[Item ID]、[Total Amount]、[Unit Price/Quantity]、および [Description] が含まれます。
+#
+Discount Line Detail (割引品目の詳細)
+#
+Description Only (説明のみ)
+ユーザーが項目の説明のみを含めたい場合は、このオプションを選択します。
+[Description only] は [Sales Item Detail] のサブセットであるため、ユーザーが請求書により多くの詳細を含めたい場合は、[Sales Item Detail] を選択してください。
+#
+1つの品目による作成と複数の品目による作成の違い
+#
+品目によるトランザクションオブジェクトの作成
+トランザクションオブジェクト (請求書、販売レシート、領収書、クレジットメモなど) を作成するための Workato QuickBooks アクションには、通常次の2つの入力方法があります。
+まず1つの品目で請求書を作成 (QuickBooks Online では少なくとも1つの品目を含めることが必要であるため) して、その後さらに追加するために Add Line Item to X (X に品目を追加) アクションを使用する方法
+または
+複数の品目で請求書を作成する方法。品目の詳細は、リストデータピルから動的にプルされます。この方法の詳細については、この後で説明します。
+「1つの品目による作成」を使用するタイミング
+1つの品目のみを使用した単一の請求書の作成は、トランザクションの項目の詳細が最小限である単一の同期に最適です。この例としては、1件の案件の請求書の作成や、寄付の領収書の作成などが挙げられます。その後、請求書への品目の追加は、新しい項目が既存の請求書に追加されたときに別のレシピで実行できるため、請求書の構造に柔軟性を持たせることができます。
+その他すべてのケースでは、「複数の品目による作成」を使用し、必要に応じて項目のリストを含めます。
+"リスト" 型のデータピルは、上の図で赤色の印で示されているように、[List] のロゴが付けられています。
+#
+Bank Deposit (銀行預金)
+Workato には、Bank Deposit オブジェクトに関連した以下の複数の QuickBooks のアクションがあります。
+Create bank deposits (銀行預金の作成)
+Search bank deposits (銀行預金の検索)
+Update bank deposits (銀行預金の更新)
+Bank Deposit に利用可能な項目は以下のとおりです。
+Txn Date
+トランザクションオブジェクトの日付。
+Total amount
+銀行預金の合計金額。この値は負の数にすることはできません。
+Cash back
+この預金に特定の金額をキャッシュバックするアカウントを指定します。
+Account
+Amount
+Memo
+Deposit To Account Reference
+この銀行預金の対象となるアカウントを指定します。[Deposit To Account] として [Undeposited Funds] は指定できないことに注意してください。
+Account
+ここで指定するアカウントは、[Bank] または [Other Current Asset] のアカウントの種類である必要があります。
+Transaction tax detail
+Tax Code
+Total Tax
+Line
+Line Source list
+データのアクセス元である品目オブジェクトを指定します。作成された品目の合計数はソースリストのサイズに等しくなります。ソースリストの詳細については、こちらを参照してください。
+Description
+各品目について [Description] を指定します。
+Amount
+各品目について、[Amount] を指定します。
+Linked Transaction
+関連付ける必要のある既存のトランザクションがある場合は、ここに詳細を指定して、既存のトランザクションに対して預金を記録します。
+Linked transaction source list
+データのアクセス元である品目オブジェクトを指定します。作成された品目の合計数はソースリストのサイズに等しくなります。ソースリストの詳細については、こちらを参照してください。
+Transaction ID
+Transaction Type
+預金にリンク可能なトランザクションの指定可能なタイプには、
+Transfer
+、
+Payment
+([Cash]、[CreditCard]、および [Check] の支払方法の種類に対して)、
+SalesReceipt
+、
+RefundReceipt
+、
+JournalEntry
+が含まれます。
+Transaction Line ID
+Deposit Line Detail
+Entity Name
+預金を預託した顧客の [Display Name] に対する参照
+Type
+[Customer] または [Vendor] を指定します。
+Value
+預金を預託した顧客の ID に対する参照
+Class reference
+トランザクションと関連付けられたクラスに対する参照
+Account Reference
+資金が預託されたアカウント
+Payment method reference
+支払方法
+Check num
+預金の小切手番号。
+Tax reference
+税コード
+明細に関連付けられた売上税/購買税コード。米国以外の企業のみ。
+Tax applicable on
+Private Note
+Currency Reference
+Value
+Name
+Transaction source
+クレジットカードトランザクションの発生源を指定するために内部的に使用されるフィールド。
+#
+為替レート
+QuickBooks Online は複数の通貨での国際取引を提供します。
+Workato はお客様のビジネスニーズに応え、ビジネスを自動化させるために必要な変更すべてをサポートします。
+QuickBooks Online では、複数の通貨をサポートできます。そのためには、[Accounts and Settings] セクションで、その機能を有効にする必要があります。複数通貨を有効にすると、設定が変更される場合があることに注意してください。QuickBooks Online サポートにお問い合わせください。
+[Exchange Rate] フィールドでは、指定した通貨から自国通貨への為替レートを指定できます。通貨が指定されていない場合、為替レートはデフォルトで自国通貨を1とするように設定されます。
+クレジットメモのような依存するトランザクションドキュメントについては、適用される通貨は、支払方法や銀行預金などの親となるトランザクションドキュメントによって決まります。
+例 :
+このフィールドは、トランザクションドキュメントの指定された通貨1単位を両替するのに、1.5239475が必要になることを意味しています。
+#
+営利バージョンと非営利バージョンで異なるラベル
+QuickBooks の非営利バージョンを使用している場合は、Workato で特定の用語が QuickBooks アカウントに表示されるのと異なるラベルが付けられる場合があることに注意してください。使用されるトリガーとアクションを調べるには、以下の表を参照してください。
+営利
+非営利
+Invoice
+Pledge
+Sales Receipt
+Donations (Sales)
+Expenses
+Expenditure
+Profit & Loss
+Statement of Activity
+Balance Sheet
+Statement of Financial Positions
+QuickBooks の非営利組織に関する詳細については、
+こちら
+(opens new window)
+を参照してください。
+#
+一般的なエラーとトラブルシューティング
+#
+Duplicate name exists (重複した名前が存在)
+QuickBooks では、表示名は顧客 (ドナー、テナントなどとも呼ばれる)、従業員、およびベンダー間で一意の識別子として使用されます。
+そのため、これら3つの種類のいずれかですでに存在している表示名と同じ表示名で別のレコードを追加しようとすると、次のようなエラーが発生します。"Another tenant, vendor, or employee is already using this name. Please use a different name. (別のテナント、ベンダー、または従業員がすでにこの名前を使用しています。別の名前を使用してください。)"
+Workato では、Duplicate Name Exists (重複した名前が存在) エラーが表示されます。
+このエラーの1つの解決策は、顧客、従業員、またはベンダーの表示名の前または後に接頭辞または接尾辞を追加することです。
+ただし、QuickBooks では、表示名においてコロン (:) を含む特定の特殊文字の使用が許可されないことに注意してください。
+以下に許可される文字の一覧を示します。
+英数字 (A-Z、a-z、0-9)
+コンマ (,)
+ドットまたはピリオド (.)
+疑問符 (?)
+単価記号 (@)
+アンパサンド (&)
+感嘆符 (!)
+番号/ポンド記号 (#)
+一重引用符 (')
+チルダ (~)
+アスタリスク (*)
+スペース ( )
+アンダースコア (_)
+マイナス記号/ハイフン (-)
+セミコロン (;)
+プラス記号 (+)
+括弧 (())
+#
+Account period closed, cannot update through API (会計期間がクローズされているため、API を介して更新できません)
+Error 6210: Account period closed, cannot update through API
+このエラーは、QuickBooks で決算日を設定しているため、その期間内でトランザクションを作成/更新できないことを意味しています。修正するには、決算日を削除する必要があります。
+詳細については、以下の記事を参照してください。
+https://support.quickbooks.intuit.com/support/Articles/HOW12993
+(opens new window)
+#
+Malformed website address format (Web サイトのアドレスの形式が正しくありません)
+QuickBooks fault: {"Error"=>[{"Message"=>"Malformed Web Site Address format", "Detail"=>"Web Site URL does not have correct format. Supplied value:example.com", "code"=>"2200", "element"=>"WebAddr"}], "type"=>"ValidationFault"}
+このエラーは、QuickBooks Online でレコードを作成しようとしているときに、Web サイトのアドレスを必要とするフィールドをマッピングした場合に発生します。QuickBooks API では、「
+http://example.com
+(opens new window)
+」の形式の Web アドレスを必要としますが、入力したアドレスの最初に
+「http://」または「https://」
+が含まれていないと、レシピは失敗します。
+#
+App already purchased (アプリがすでに購入済み)
+以下のエラーが発生した場合、Workato にすでに接続している社内のユーザーがいることを意味しています。このエラーを解決するため、社内のユーザーに Workato コネクションを削除するよう依頼してください。
+#
+Object not found. Error while accessing QuickBooks API (オブジェクトが見つかりません。QuickBooks API にアクセスする際のエラー)
+#
+このエラーの意味
+これは通常、QuickBooks 内の ID に基づいてオブジェクトを取得しようとした際に、オブジェクトが存在しない場合に発生します。
+たとえば上記の画像では、レシピは ID に基づいて QuickBooks から項目を取得しようとしますが、そのオブジェクトは QuickBooks アカウントに存在していません。QuickBooks でもう一度確認することができます。
+オブジェクトの ID は URL で確認できます。通常、ID=6 の形で表示されます。この場合、オブジェクトの ID は6になります。
+確認できたらいつでもジョブを再実行できます。または、ワークフローが正しく動作するようレシピを変更する必要がある場合もあります。
+#
+784 QuickBooks API not responding (QuickBooks API が応答していない )
+これは通常、QuickBooks の側で API が停止しているか、断続的な問題がある場合に発生します。
+http://status.developer.intuit.com
+(opens new window)
+でステータスを監視し、しばらく経ってから同じジョブの再実行を試行してください。
+#
+403 Forbidden エラー
+このエラーは、アプリのコネクションで接続性の問題が起きた可能性があることを意味しています。
+レシピページの [Connections] タブの下部に移動してアプリを切断し、再接続してください。
+←
+CSV ファイルからのレコードの一括作成および更新
+Recipe function by Workato
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+サポートされるエディションとバージョン
+Workato での QuickBooks への接続方法
+QuickBooks のトリガー
+QuickBooks のアクション
+営利バージョンと非営利バージョンで異なるラベル
+一般的なエラーとトラブルシューティング
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

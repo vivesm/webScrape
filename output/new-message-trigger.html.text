@@ -1,0 +1,155 @@
+Workatoコネクター - Apache Kafka新しいメッセージトリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Apache Kafka
+#
+Apache Kafka - 新しいメッセージトリガー
+#
+Kafkaトピックの新しいメッセージ
+このトリガーは、選択したKafkaトピックの新しいKafkaメッセージを取得します。AVRO形式でKafkaメッセージとキースキーマを選択できます。さらに、初期オフセットを設定して、Kafkaメッセージの取得を開始する位置を定義することもできます。このトリガーには2つのオプションがあります。シングルでは、すべてのメッセージの処理が単一のジョブの作成に結果として反映されます。バッチでは、複数のメッセージが単一のジョブで処理されます。
+トリガーの新バージョン
+オンプレミスエージェント2.20.0バージョンでは、更新されたApache Kafka新しいメッセージトリガーがリリースされました。以前のバージョンのトリガーを使用している場合は、エージェントをアップグレードして新しいトリガーに切り替えることをお勧めします。以前のトリガーは非推奨とマークされています。
+これにより、レシピが停止され、処理待ちのKafkaメッセージがキューにある場合に特に信頼性が向上しました。
+新しいKafkaメッセージトリガー
+#
+入力フィールド
+入力フィールド
+説明
+トピック
+購読するKafkaトピックを選択します。トリガーは、選択したトピックとそのすべてのパーティションからのすべてのメッセージを消費します。後続のレシピでメッセージをパーティションごとにフィルタリングすることができます。
+メッセージスキーマのソース
+メッセージスキーマのソースを定義します。[共通データモデル]が選択されている場合、Workatoで定義されたスキーマが使用されます。[スキーマレジストリ（オンプレミス）]オプションを選択すると、Kafkaクラスタで定義されたスキーマを使用できます。このオプションでは、[schema.registry.url]プロパティの設定が必要です。WorkatoはAVRO形式のスキーマをサポートしています。
+メッセージスキーマ
+メッセージスキーマの形式を、メッセージスキーマのソース入力に基づいて選択します。
+キースキーマのタイプ
+メッセージスキーマのソースと同様に、メッセージキーのスキーマタイプを設定できます。[スキーマレジストリ（オンプレミス）]オプションでは、[schema.registry.url]プロパティの設定も必要です。WorkatoはAVRO形式のスキーマをサポートしています。
+初期オフセット
+選択したトピックからKafkaメッセージを消費するポイントを選択できます。[最初のメッセージ]は、Kafkaクラスタで利用可能なすべてのメッセージを取得しようとします。[最新のメッセージ]は、過去のメッセージは無視され、選択したKafkaトピックからの新しいメッセージのみが消費されます。
+注意:
+このオプションは、選択したトピックに対して初めてレシピを実行する場合にのみ機能します。レシピを停止し、その間に生成されたすべてのメッセージを無視したい場合は、トピックを変更するか、このレシピをクローンして[最新のメッセージ]オプションを選択してから開始する必要があります。
+#
+出力フィールド
+このトリガーの出力は、選択したトリガーオプションに応じて、単一のKafkaメッセージまたはバッチのKafkaメッセージです。出力を後続のステップで使用するには、関連するデータピルにマップします。
+新しいメッセージトリガーの出力フィールド
+フィールド名
+説明
+メッセージ
+選択したKafkaトピックから消費されたデータを含むメッセージフィールドです。
+メッセージヘッダー
+Kafkaメッセージのヘッダーです。
+サイズ
+消費されたKafkaメッセージのサイズです。
+タイムスタンプ
+Kafkaメッセージのタイムスタンプです。
+キー
+データを含むKafkaメッセージキーのフィールドです。
+パーティション
+Kafkaメッセージが消費されたトピックのパーティションIDです。
+オフセット
+Kafkaのユニークなメッセージ識別子であるメッセージオフセットです。
+←
+接続方法
+メッセージの公開アクション
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+Kafkaトピックの新しいメッセージ
+入力フィールド
+出力フィールド
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

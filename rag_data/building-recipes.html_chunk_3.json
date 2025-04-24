@@ -1,0 +1,20 @@
+{
+  "text": "’s complexity. Consider the following questions when you design your\nrecipe꞉\nWhich applications need to interact?\nWhat data needs to move between the apps?\nHow should data be formatted and structured?\nRecipes frequently contain the following actions꞉\nCreate a new record\nFor example꞉ Create a new Jira user when an employee is added to Workday.\nUpdate an existing record\nFor example꞉ Update an employee’s permissions in Okta when their role changes.\nSend a notification\nFor example꞉ Email the IT team when a new hire’s accounts are set up.\nConditional logic and loops\nRecipes can be dynamic and can make decisions based on incoming data.\nConditional statements (If‑Else) control the workflow based on specific conditions.\nLoops process multiple records in a single execution.\nExample꞉ If an order value is above $1,000, assign it to a priority sales team, otherwise, route\nit normally.\nAn IF condition lets you make decisions based on specific conditions.",
+  "metadata": {
+    "source": "building-recipes.html.pdf",
+    "file_path": "output/building-recipes.html.pdf",
+    "title": "--- Page 1 ---",
+    "date": "2025-04-22",
+    "creator": "Chromium",
+    "producer": "Skia/PDF m71",
+    "creationdate": "D:20250423021054+00'00'",
+    "moddate": "D:20250423021054+00'00'",
+    "doc_id": "9d6229a5",
+    "chunk_id": "9d6229a5_3",
+    "chunk_index": 3,
+    "total_chunks": 8,
+    "file_name": "building-recipes.html.pdf",
+    "file_type": "pdf",
+    "processing_date": "2025-04-23T22:03:16.389552"
+  }
+}

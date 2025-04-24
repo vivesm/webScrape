@@ -1,0 +1,215 @@
+Workato コネクター - SQL Server Replicate アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+SQL Server
+#
+SQL Server - Replicate (複製) アクション
+このアクションは、SQL Server インスタンス内の選択されたテーブルを更新します。リストデータピルを入力として取り、それらを行として挿入または更新します。
+Workato はまず入力データと SQL Server テーブルの
+スキーマを検出および比較
+します。それらが一致しない場合、このアクションは SQL Server テーブル内に新しい列を作成します。これにより、入力スキーマに更新があった場合でも、入力のすべてのデータが SQL Server に自動的に同期されるようになります。
+#
+入力
+入力
+説明
+Table name
+完全なテーブル名を入力して、行を挿入するテーブルを選択します。SQL Server では大文字と小文字は区別されません。
+Unique keys
+これらの一意のキーの値を使用して行を照合します。テーブルで既存の行が検出された場合、更新されます。存在しない場合は、行が挿入されます。
+Rows
+入力としてリストデータピルが使用されます。
+Flatten columns
+入力データがオブジェクトとして書式設定されている場合、これを使用してオブジェクトを個々のキーと値のペアに平坦化します。詳細については、
+こちら
+を参照してください。
+Exclude columns
+この複製で除外する列をリストデータピルから選択します。除外された列はテーブルに追加されません。
+#
+出力
+出力
+説明
+A new table was created
+指定されたテーブル名が存在せず、ジョブで作成された場合に
+true
+になります。そうでない場合は
+false
+になります。
+An existing table was altered
+新しい列が検出され、テーブル内で追加/変更された場合に
+true
+になります。そうでない場合は
+false
+になります。
+Number of rows upserted
+テーブル内で挿入/アップサートされた行の数。
+#
+flatten を使用するタイミング
+データをオブジェクトとして書式設定している場合は、ネストされたデータに直接アクセスできない場合があります (JSON オブジェクト内にネストされたデータなど)。
+オブジェクトを平坦化し、個々のキーと値のペアを一意の列として扱うには、[Flatten columns] のトグルを使用します。このアクションは、ネストされたデータの1つの層のみを平坦化します。
+データソースの例を以下に示します。
+{
+"ID"
+:
+1
+,
+"NAME"
+:
+"John Doe"
+,
+"HANDLES"
+:
+{
+"GITHUB"
+:
+"johndoe"
+,
+"SLACK"
+:
+"john"
+}
+}
+平坦化されていない行は以下のようになります。
+ID
+NAME
+HANDLES
+1
+John Doe
+{"github": "johndoe", "slack": "john"}
+平坦化された行は以下のようになります。
+ID
+NAME
+HANDLES.GITHUB
+HANDLES.SLACK
+1
+John Doe
+johndoe
+john
+#
+Workato スキーママッパー
+各データソース (API、データベース、ファイル) には、独自のスキーマがあります。一貫性を保つために、このアクションはソースの各データ型を SQL Server テーブルスキーマにマップします。このマッピングは、SQL Server テーブルを作成/更新する前に行われます。
+入力データは以下で定義されるマッピングに基づいて SQL Server データ型に変換されます。
+Workato のデータ型
+SQL Server のデータ型
+string
+nvarchar(max)
+integer
+bigint
+number
+float(53)
+boolean
+bit
+object
+nvarchar(max)
+date
+date_time
+timestamp
+datetime2
+Workato では、
+コネクションの設定
+で定義されたタイムゾーンを使用するか、デフォルト SQL Server ユーザーアカウントのタイムゾーンを使用します。
+←
+削除
+オンプレミスファイルからの一括読み込み
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Workato スキーママッパー
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

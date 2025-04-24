@@ -1,0 +1,141 @@
+セカンダリコネクター {: #secondary-connectors :} | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+#
+セカンダリコネクター
+同じアプリの異なる2つのインスタンス間でデータを移動する必要のあるユースケースも存在します。たとえば、2つの国に拠点がある組織で、Salesforce アカウントも2つあり、2つの国の間でデータを同期する必要があるケースが考えられます。
+Workato ではこのようなユースケースを自動化するために、
+セカンダリコネクター
+という概念をサポートしています。上記の例では、メインの Salesforce コネクターは親会社のインスタンスに接続し、セカンダリの Salesforce インスタンスは子会社に接続します。
+#
+Workato でセカンダリコネクターを使用する方法
+セカンダリコネクターを使用するには、トリガーまたはアクションを選ぶ際に、アプリのピックリストからセカンダリコネクターを選択します。セカンダリコネクターで使用できるトリガーとアクションは、メインのコネクターと同じです。
+子会社の Snowflake インスタンスの新規の行を、メインの Snowflake インスタンスに移動する
+注
+: セカンダリコネクターも別個のコネクションとしてカウントされます。
+現時点では、以下のアプリでセカンダリコネクターがサポートされています。
+Amazon S3
+Docusign
+FTP/FTPS
+HTTP
+JDBC
+JIRA
+Marketo
+MySQL
+Netsuite
+オンプレミスファイル
+Okta
+Oracle
+PostgreSQL
+QuickBase
+Redshift
+Salesforce
+ServiceNow
+SFTP
+Slack
+Snowflake
+SQL Server
+Wrike
+Zendesk
+←
+Workbotレシピでの実行時ユーザー接続の使用
+ワークフロー (People Task)
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

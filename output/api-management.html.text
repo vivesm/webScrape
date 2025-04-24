@@ -1,0 +1,235 @@
+API Platform | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+API Platform
+FEATURE AVAILABILITY
+The API Platform is included in specific pricing plans for direct customers. It is available by default for Embedded partners and to their end customers for an additional fee. Refer to your pricing plan and contract to learn more.
+Workato's
+API Platform
+(opens new window)
+features enterprise-grade capabilities, encompassing key API management functionalities including our API gateway, governance, design, security and monitoring features.
+The API Platform enables you to create API proxies, which securely forward traffic to your internal APIs.
+The API Platform also enables you to create
+API recipes
+, which expose recipe functionality as API endpoints. This allows you to share data with partners or use the functionality in other recipes.
+You can create
+API collections
+from groups of endpoints, whether the endpoints are recipe-based or proxy-based.
+API publishers can control access to endpoints, monitor requests, and set limits on usage.
+#
+Key capabilities
+#
+API gateway
+The API gateway offers robust capabilities for managing your APIs, integrating advanced security, efficient routing, and effective mediation to ensure optimal performance and reliability.
+Learn more
+.
+#
+API governance
+Effective governance ensures that your APIs are secure, compliant, and managed according to best practices. This includes activity auditing, versioning, and lifecycle management. Implement granular access control and policies to manage usage and access. API access policies allow you to enforce rate limiting and quota management. These policies prevent overuse by a single client and ensure efficient and secure use of your APIs.
+Learn more
+.
+#
+API design
+Workato accelerates API development with intuitive features that simplify the creation, deployment, and management of APIs. With recipe and proxy endpoints, you can build your own APIs on Workato using a low-code/no-code approach, or securely expose your existing APIs. Define the endpoints, methods, and data structures for your APIs with Workato's native tools for API design and documentation.
+Learn more
+.
+#
+API monitoring
+Track and analyze API usage and performance with comprehensive monitoring and analytics tools. The API platform dashboard enables you to visualize real-time data for your endpoints and API collections. This includes metrics such as response times, error messages, and traffic patterns, enabling proactive management and optimization of APIs.
+Learn more
+.
+#
+API security
+Securely expose your APIs with Workato’s enterprise-grade security measures. Workato's API gateway supports various authentication methods to ensure secure access to APIs. Use OAuth 2.0, JWT tokens and OpenID Connect to provide flexibility and security in how APIs are accessed and used.
+Learn more
+.
+#
+Key concepts and features
+PREFER VIDEOS?
+Get the quick version in this video!
+#
+API collections
+An API collection is a set of endpoints that can be managed together. These endpoints can be API recipe-based or API proxy-based.
+Learn more
+.
+#
+Access policies
+An access policy can be used to set restrictions on the usage of an API. A single policy can be associated with one or more access profiles.
+Learn more
+.
+#
+Access profiles
+A single client can have one or more access profiles. An access profile specifies one or more API collections to which the client has access, and is optionally associated with an access policy.
+Learn more
+.
+#
+API proxy
+An API proxy is a gateway that separates a client-facing API from internal APIs. You can securely expose internal APIs as endpoints while making use of management features provided by the API Platform.
+Learn more
+.
+#
+API recipes
+An API recipe is a type of
+recipe
+that can be used to create API endpoints. Using the
+API Platform
+feature, you can expose these endpoints to external users or use them in other recipes.
+Learn more
+.
+#
+API tokens
+An API token grants access to all the API collections within an access profile. Technically, an API token is a string that is passed in the HTTP header with the name
+api-token
+.
+Learn more
+.
+#
+Clients
+A client is a user to whom access to one or more API collections can be granted.
+Learn more
+.
+#
+Concurrency
+Concurrency refers to the number of requests that can be processed simultaneously at a given time.
+#
+Concurrency limit
+The concurrency limit is the maximum number of requests your workspace can process simultaneously.
+#
+Dashboard
+A customizable tool to visualize real-time data on API collections and endpoints.
+Learn more
+.
+#
+Endpoints
+An endpoint is a single callable REST interface. It has an associated public URL.
+For API recipe-based endpoints, calls to the URL initiate a recipe that has a
+New API Request trigger
+.
+Learn more
+.
+For API proxy-based endpoints, calls to the endpoint URL are forwarded to a target URL in an HTTP connection.
+#
+Library
+The library is a catalog of APIs that are discoverable by other users in your organization.
+Learn more
+.
+#
+Peak concurrent API requests
+This represents the summary of peak API requests processed simultaneously across a workspace.
+#
+Queue
+The system automatically places requests in a queue when the concurrency limit is reached. It processes these queued requests when other concurrent requests complete.
+#
+Queue size
+The queue size represents the maximum number of requests that can be held in a queue when the concurrency limit is reached. When the queue reaches its full capacity, the system rejects any new incoming requests.
+#
+Recipe-level concurrency
+Recipe-level concurrency is a feature that allows you to set specific concurrency limits for individual API recipes. This enables you to prioritize selected endpoints or moderate high-traffic endpoints.
+←
+Troubleshoot your Data Pipeline
+API monitoring & analytics
+→
+Last updated:
+2/13/2025, 9:46:17 PM
+On this page
+Key capabilities
+Key concepts and features
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

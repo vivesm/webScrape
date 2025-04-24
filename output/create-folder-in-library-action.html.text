@@ -1,0 +1,177 @@
+Workato connectors - Microsoft SharePoint create folder in SharePoint library action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SharePoint
+#
+Create folder in SharePoint library action
+This action creates a folder in a SharePoint library you specify.
+#
+Input fields
+Field
+Description
+Site name
+Provide the name of the SharePoint site to which you plan to connect. If left blank, Workato connects to your default home site, as specified in your connection settings. The site name is located in the URL of the site page. For example, if the URL is
+https://company-name.sharepoint.com/sites/product
+, the site name is
+product
+.
+If you plan to connect to a different site, you can provide the absolute URL to override the base URL. For example, if the input is
+https://company-name.sharepoint.com/teams/product
+, Workato connects to the provided input.
+Alternatively, you can provide the absolute URL to connect to a different site. For example, entering
+https://company-name.sharepoint.com/teams/product
+connects Workato to the specified site directly.
+Parent folder
+Provide the parent folder where the new folder is created.
+Folder name
+Provide the name of the new folder you plan to create.
+#
+Output fields
+The output datatree contains the details of the newly created folder.
+Field
+Description
+Metadata
+Metadata about the file. This object contains the ID, URI, Etag, and Type of the file.
+Activities
+Activities related to the folder.
+Files
+The URL of the files contained within the folder.
+List item all fields
+The URL of all fields associated with list items in the folder.
+Parent folder
+The URL of the folder that contains the current folder.
+Properties
+The URL of additional properties or attributes of the folder.
+Storage metrics
+The URL of metrics related to the storage usage of the folder.
+Folders
+The URL of subfolders within the current folder.
+Unique ID
+The unique identifier for the folder.
+Name
+The name of the folder.
+Server Relative URL
+The relative URL of the folder within the SharePoint site.
+Exists
+Indicates whether the folder exists.
+Item count
+The number of items (files, subfolders, and more) in the folder.
+Time created
+The timestamp indicating when the folder was created.
+Time last modified
+The timestamp indicating when the folder was last modified.
+Prog ID
+The programmatic identifier associated with the folder.
+Welcome page
+The URL or path to the welcome page associated with the folder.
+Is WOPI enabled
+Indicates whether Web Application Open Platform Interface (WOPI) is enabled.
+←
+Copy file action
+Create rows in list action (batch)
+→
+Last updated:
+7/25/2024, 5:12:40 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

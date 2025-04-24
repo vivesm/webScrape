@@ -1,0 +1,239 @@
+JSON の処理 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+ファイルおよび添付ファイルの取り扱い
+#
+JSON の処理
+JSON (JavaScript Object Notation) は、データを格納するための構文です。API の世界では、おそらく最もよく知られ、幅広く使用されているデータ形式です。名前と値のペアと配列をベースとする JSON は、可読性が高く、伝送が簡単なシンプルな形式で作成されます。
+Workato では、データをレシピ内の入力項目および出力データピルとして表示するため、JSON はほとんどの場合、通常の Workato ユーザーからは見えません。ただし、特定のワークフロー自動化で、Raw JSON データを処理することがあります。
+以下の JSON を、連絡先の配列のサンプルとして使用してみましょう。
+[
+{
+"Name"
+:
+{
+"first_name"
+:
+"Sally"
+,
+"last_name"
+:
+"Jones"
+}
+,
+"Address"
+:
+{
+"street"
+:
+"20450 Stevens Creek Blvd #150"
+,
+"city"
+:
+"Cupertino"
+,
+"st"
+:
+"CA"
+,
+"postal"
+:
+"95014"
+}
+,
+"phone"
+:
+"4105554119"
+}
+,
+{
+"Name"
+:
+{
+"first_name"
+:
+"Bob"
+,
+"last_name"
+:
+"Towner"
+}
+,
+"Address"
+:
+{
+"street"
+:
+"1 Hacker Way"
+,
+"city"
+:
+"Menlo Park"
+,
+"st"
+:
+"CA"
+,
+"postal"
+:
+"94025"
+}
+,
+"phone"
+:
+"8552982507"
+}
+]
+#
+JSON Parser by Workato
+組み込みの JSON パーサーを使って Raw JSON コンテンツを解析すると、最も簡単に Raw JSON コンテンツを利用可能なデータピルに変換できます。
+JSON parser by Workato
+は、コネクションの設定を必要としないネイティブのアプリケーションです。
+[App]
+>
+[JSON parser by Workato]
+を選択して開始します。
+JSON パーサー
+#
+入力項目
+入力項目
+説明
+Sample document
+解析される JSON ドキュメントと同じ形式のサンプル JSON。
+Document
+解析される入力 JSON コンテンツ。
+#
+出力項目
+Sample document
+の JSON 形式に従って、データピルが生成されます。この例では、オブジェクト
+name
+と
+address
+がネストされた配列出力が生成されます。
+#
+カスタムコネクターの構築
+JSON parser by Workato
+は、Raw JSON データを事前の準備なしで処理できます。ただし、このようなデータを頻繁に処理する場合は、
+HTTP コネクター
+または
+コネクター SDK
+を使用してより恒久的なソリューションをカスタマイズすることをお勧めします。
+カスタムコネクター
+説明
+HTTP コネクター
+HTTP コネクターは、API から Raw データを処理するための便利な方法です。JSON データを処理する HTTP トリガーおよびアクションの構築に関する詳細なガイドとサンプルについては、
+HTTP コネクターのコース
+(opens new window)
+を参照してください。
+Workato コネクター SDK
+Workato コネクター SDK は、Workato フレームワークの拡張機能です。Workato コネクター SDK はさまざまな認証手続きに対応しており、開発者はこの SDK を使って、統合を必要とするアプリ用のコネクターの構築、管理、配備を行うことができます。詳細については、メインの
+Workato SDK のドキュメント
+を参照してください。
+詳細な比較情報については、
+HTTP と SDK
+に関するドキュメントを参照してください。
+←
+CSV の処理
+XML の処理と解析
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+JSON Parser by Workato
+カスタムコネクターの構築
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

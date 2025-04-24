@@ -1,0 +1,143 @@
+Workato connectors - LinkedIn - Get lead gen form response by ID | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+LinkedIn
+#
+LinkedIn Action - Get lead gen form response by ID
+We recommend using this action with our
+New lead gen form submitted
+trigger. This allows you to retrieve the information about a specific lead gen form submission, including the questions, answers, and contexts about the parent campaign, advertising account, or creative.
+Map "Form response ID" from the trigger
+#
+Input fields
+Input field
+Description
+Advertising account
+The advertising account where the form is coming from. You can't map a datapill to this field.
+Form
+The form to which this advertising response belongs. This is required for Workato to identify the custom questions within this advertising form.
+Lead gen form response ID
+The lead gen form response ID. This is available in the output of the trigger.
+#
+Output fields
+The output of this action contains all information relevant to a user who has filled up this form. This includes campaign, creative, and answer information.
+#
+Handling multiple lead gen form types
+When your advertising account or campaign has multiple lead gen forms used in the child creatives, you must use logical flows to route these responses to the correct
+Get lead gen form response by ID
+action. This can be done by discerning the ID of the form through the output of the trigger.
+Use variables by Workato to store the form ID
+You can find the ID of the form from the end of the URL in the Campaign Manager
+Use multiple if statements to route the responses to the correct
+Get lead gen form response by ID
+action which has the form selected
+←
+New lead gen form submitted
+Search lead gen form responses
+→
+Last updated:
+12/5/2024, 11:24:33 PM
+On this page
+Input fields
+Output fields
+Handling multiple lead gen form types
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

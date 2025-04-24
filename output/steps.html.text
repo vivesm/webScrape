@@ -1,0 +1,486 @@
+Steps | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Recipes
+#
+Steps
+SUMMARY
+Recipes consist of steps that enable you to create, update, or search within a target app, or define business logic with control flow statements.
+Use the
+IF condition
+step to create conditional branches:
+The
+IF condition
+evaluates an initial condition and runs actions when the condition is true.
+The
+ELSE IF condition
+adds conditional branches evaluated only if the previous conditions fail.
+ELSE
+runs actions when no preceding conditions are met.
+Repeat
+steps allow you to handle list items, and
+Repeat in Batches
+manages high-speed data transfers in smaller batches.
+The
+Call recipe function
+step allows you to trigger another recipe for reusable logic.
+The
+Stop job
+step allows you to end a job early in case of business logic errors.
+Use the
+Handle errors
+step to monitor and manage errors in actions, similar to a try/catch block in programming.
+Recipe steps define the core logic of a recipe. Steps enable you to create, update, or search within a target app. Steps also include control flow statements, such as
+IF conditions
+or repeating actions with
+Repeat
+steps . Utility steps support error handling, stopping jobs, invoking reusable logic, or transforming data.
+Various recipe steps available in recipe editor
+#
+Action step
+Actions perform operations in your target app, such as create, update, or search actions on records. Each action requires specific input fields and returns an output data tree, which you can use to map data into subsequent steps.
+Reorder steps in your recipe with drag-and-drop (video)
+#
+Example: Action step
+This example demonstrates a
+Search organizations
+action in a Zendesk integration. The input fields allow you to search for a Zendesk organization using the following criteria:
+Name
+: Search by organization name.
+Tags
+: Search by a comma-separated list of tags.
+Page number
+: Specify the page to retrieve results from when paginating.
+Maximum results
+: Limit the number of results returned in a single request.
+In this case, the
+Search organizations
+action searches for an organization by
+Name
+.
+Searching Zendesk organizations by Salesforce account name.
+Example recipe
+(opens new window)
+Zendesk returns the data for matching organizations when the
+Search organizations
+action completes. The output data tree displays the available fields, which you can map to subsequent steps.
+For example, the
+Update organization
+action uses the
+ID
+Properties
+datapill from the
+Search organizations
+output to identify which Zendesk organization to update. The
+ID
+Properties
+datapill uniquely identifies the organization to ensure that the correct record is updated.
+Updating Zendesk organization identified by ID.
+Example recipe
+(opens new window)
+#
+IF control statement
+An
+IF control statement
+directs a recipe to run specific actions based on specified conditions. It allows you to create conditional branches and execute different steps depending on the evaluated conditions. You can include additional branches using
+ELSE IF
+and a final
+ELSE
+branch to handle multiple outcomes efficiently, eliminating the need for nested conditions.
+For more details on the available conditions, refer to our
+Conditions documentation
+.
+#
+Example: Managing Zendesk tickets with conditional logic
+The following recipe manages Zendesk tickets using conditional steps:
+IF
+the ticket's type contains
+Bug
+, the workflow updates the ticket’s
+Priority
+to
+High
+and assigns it to the development team.
+ELSE IF
+the ticket's type contains
+Feature Request
+, the workflow updates the ticket’s
+Status
+to
+Pending
+and assigns it to the product management team.
+ELSE
+the workflow updates the ticket’s
+Status
+to
+Closed
+.
+Recipe using conditional steps to manage Zendesk tickets
+In this example, only one branch executes for each ticket, ensuring efficient and targeted processing.
+#
+Repeat control statements (loops)
+A
+Repeat control statement
+allows you to repeat a set of steps based on specific criteria. Workato provides two types of Repeat control statements:
+Repeat while
+Repeats
+one or more actions
+while
+a condition is met. The loop ends automatically when the condition is no longer met. For example, you can repeat the process of retrieving the next page of Google Drive search results while there are pages left to retrieve.
+Repeat for each
+Repeats
+one or more actions
+for each
+item in a list. The loop ends automatically when all items in the list are processed. For example, you can repeat the process of downloading each Google Drive file in a list of search results.
+REPEAT FOR EACH IN BATCHES
+The
+Repeat for each
+control statement processes list items one at a time by default or in batches. To repeat items in batches, refer to
+Repeat for each in batches
+.
+The following diagrams illustrate the logic of
+Repeat while
+and
+Repeat for each
+loops:
+Repeat while loop:
+flowchart TD
+Z(["Start"]) --> A["Execute action(s)"]
+A --> B{"Is condition met?"}
+B -- "Yes" --> C["Repeat action(s)"]
+B -- "No" --> D(["Exit loop"])
+C --> B
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+class Z,D WorkatoPink
+Repeat for each loop:
+flowchart TD
+A(["Start"]) --> B{"Any items in list?"}
+B -- "Yes" --> C["Take action on list item"]
+B -- "No" --> D(["Exit loop"])
+C --> B
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+class A,D WorkatoPink
+#
+Combine Repeat while and Repeat for each
+You can combine
+Repeat while
+and
+Repeat for each
+control statements in the same recipe to handle complex use cases. For example, a recipe can use a
+Repeat while
+loop to query contacts in Salesforce using an SOQL query while there are more pages of results. Within the
+Repeat while
+loop, a
+Repeat for each
+loop retrieves contact details for each record in the current page of search results.
+#
+Call Recipe Function action
+The
+Recipe Functions - Call Recipe Function
+action allows you to trigger another recipe, known as a recipe function. Recipe functions enable you re-use logic across multiple recipes to reduce duplication and simplify maintenance.
+Refer to the
+Recipe Functions documentation
+for more information.
+#
+Stop job step
+The
+Stop job
+step ends a job to prevent further processing. It is typically used when an error occurs in the business logic and continuing the job is unnecessary.
+You can configure the
+Stop job
+step to mark the job as
+Failed
+or
+Successful
+, depending on your business requirements.
+#
+Example: Stop job step
+The following recipe checks whether a Zendesk organization ID exists after searching for an organization in Zendesk. If the ID is not found, the recipe sends an email notification and stops further actions.
+Recipe using the Stop job step to send email and end the job.
+Example recipe
+(opens new window)
+In this recipe, every job follows one of two paths:
+If the Zendesk organization ID is not found, the recipe sends an email notification and stops the job.
+If the Zendesk organization ID is found, the recipe skips the conditional actions and updates the organization in Zendesk.
+This recipe marks jobs with errors to alert the recipe owner. This allows the recipe owner to review and retry the failed job if necessary.
+Configuring the Stop step's error message.
+Example recipe
+(opens new window)
+#
+Handle errors control statement
+The
+Handle errors
+control statement allows you to monitor actions for errors, similar to the try/catch concept in programming. When an error occurs, you can take one of the following actions:
+Retry the actions, such as in the case of temporary errors like network issues.
+Take corrective actions, such as notifying users through email, logging error messages, or undoing operations by deleting partially created records.
+This control statement consists of two blocks:
+Monitor block
+: Add the actions you plan to monitor for errors. If all actions succeed, Workato skips the
+Error
+block.
+Error block
+: If any action in the
+Monitor
+block fails, Workato executes the actions in this block. You can configure the
+Error
+block to retry the actions in the
+Monitor
+block a set number of times, with a defined interval between retries. If all retries fail, the remaining actions in the
+Error
+block execute.
+#
+Example: Monitor errors block
+The following recipe attempts to update a Zendesk organization after searching for it. If no matching Zendesk organization is found, the
+Update organization
+action fails.
+Recipe using the
+Monitor
+block to handle failures when updating Zendesk organizations.
+Example recipe
+(opens new window)
+In this recipe, the
+Monitor
+block checks for errors while attempting to update a Zendesk organization. If the update fails because no matching Zendesk organization is found, the
+Monitor
+block catches the failure. Because no auto-retry is configured, the recipe proceeds to the
+Error
+block. The
+Error
+block creates a new Zendesk organization to resolve the issue and ensure the process completes successfully.
+#
+Auto-retry
+When using the
+Error
+block, you can configure Workato to automatically retry failed actions within the
+Monitor
+block. By default, Workato does not retry failed actions. You must manually enable auto-retry to rerun failed actions.
+INTERACTION WITH LOOPS
+When a
+Monitor
+block containing a
+loop
+auto-retries, it resets the loop index and reruns the contained steps. Actions that were successfully completed during the previous run are not undone. Set the Monitor block to
+Do not retry
+or place it inside of the loop to avoid rerunning successful actions and duplicating action effects.
+By default, retries are disabled in the
+Error
+block.
+Workato allows you to configure up to three retry attempts and set the time interval between retries, which can range from one to ten seconds.
+Retry configuration fields
+You can also define a condition that must be met before Workato retries the actions in the
+Monitor
+block. For more information on the available conditions you can use, refer to the
+Conditions
+guide.
+Configuring the retry condition field. In this example, the actions in the
+Monitor
+block are retried only if the error message doesn't contain the
+401
+error code.
+#
+Example: Monitor errors block with retry
+If the actions in your
+Monitor
+block are likely to fail for temporary reasons, such as network or timeout issues, enabling auto-retry ensures that the recipe attempts the steps again. Workato retries the actions until they succeed or reach the maximum of three attempts.
+This recipe builds on the
+preceding example
+that updates a Zendesk organization after searching for it. If no matching Zendesk organization is found, the
+Update organization
+action fails.
+Recipe using auto-retry to recover from failures when updating Zendesk organizations.
+Example recipe
+(opens new window)
+When the
+Update organization
+action fails, the recipe checks whether the error message contains
+401
+. If the error message doesn't contain
+401
+, Workato retries the action at five-second intervals, up to three times. If the error message contains
+401
+, Workato skips the retries because the failure is due to insufficient permissions. In this case, you must correct the permissions in Zendesk to allow the update to succeed.
+#
+On error datapills
+When you add a
+Handle errors
+block to your recipe, Workato generates error-related datapills. These datapills allow you to customize how your recipe handles errors based on details such as the error type, message, and source of the error, including the recipe step, action, or app.
+You can use the following datapills to build steps for handling different types of errors. For more information, refer to
+error handling best practices
+.
+Datapill
+Description
+API name
+Error type
+The type of error that occurred.
+For example:
+error[type]
+and
+error[error_type]
+Error message
+A message describing the error.
+For example:
+error[message]
+,
+error[error_message]
+, and
+error[msg]
+Retry count
+The number of times Workato tried to rerun the actions in the
+handle errors
+block.
+For example:
+error[retry_count]
+and
+error[retries]
+Error UUID
+The Universally Unique Identifier (UUID) of the error. This is a 128-bit label used to identify the error. This key is optional and only displays a value if you provide the key.
+For example:
+error[uuid]
+and
+error[error_id]
+Errored step number
+The step on which the error occurred.
+For example:
+error[line_number]
+,
+error[step_number]
+, and
+error[step]
+Errored app
+The app that caused the error.
+For example:
+error[adapter]
+,
+error[app]
+, and
+error[application]
+Errored action
+The action on which the error occurred.
+For example:
+error[action]
+,
+error[action_name]
+, and
+error[operation]
+←
+Triggers
+IF control statements
+→
+Last updated:
+1/7/2025, 5:08:03 PM
+On this page
+Action step
+Example: Action step
+IF control statement
+Example: Managing Zendesk tickets with conditional logic
+Repeat control statements (loops)
+Combine Repeat while and Repeat for each
+Call Recipe Function action
+Stop job step
+Example: Stop job step
+Handle errors control statement
+Example: Monitor errors block
+Auto-retry
+Example: Monitor errors block with retry
+On error datapills
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

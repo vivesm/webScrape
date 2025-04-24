@@ -1,0 +1,158 @@
+Workato connectors - Okta get user by ID action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Okta
+#
+Get user by ID action
+This action retrieves account details of a specific user.
+Get user by ID action
+#
+Input fields
+Field
+Description
+User ID
+The unique ID of the target user.
+#
+Output fields
+The output datatree contains information about the user like the ID and status.
+Field
+Description
+ID
+The unique ID for the user.
+Status
+The current status of the user.
+Created time
+The timestamp when the user was created.
+Activated time
+The timestamp when the user's status was updated to
+Active
+.
+Status changed time
+The timestamp when the status was last changed.
+Last login time
+The timestamp when the user was last logged in.
+Last updated time
+The timestamp when the user was last updated.
+Password changed time
+The timestamp when the password was last changed.
+Profile
+This object contains information about the user's profile, including first and last name, email, organization, and title. Learn more about Okta user profiles
+here
+(opens new window)
+.
+Credentials
+This object specifies the primary authentication and recovery credentials for the user. It includes the recovery question and credentials provider.
+Links
+This object contains a collection of link relations for the user. It includes lifecycle operations and credentials operations. Learn more about Okta user link objects
+here
+(opens new window)
+.
+←
+Delete users
+Get user groups
+→
+Last updated:
+6/4/2020, 5:07:20 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

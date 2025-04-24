@@ -1,0 +1,208 @@
+Workato connectors - BILL - Add line to invoice action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+BILL
+#
+BILL - Add line to invoice action
+The
+Add line to invoice
+action adds a line item to an existing invoice in BILL.
+#
+Input
+Field
+Description
+Invoice ID
+Provide the internal ID of the invoice to update.
+Item ID
+Provide the internal ID of the item associated with the invoice.
+Description
+Enter a description for the invoice.
+Quantity
+Enter the quantity of items sold or the number of hours spent providing the service.
+Price
+Enter the price per item or hour.
+Taxable
+Specify whether the line item is taxable or not.
+#
+Output
+Field
+Description
+ID
+The ID of the modified invoice.
+Is active
+The status of the invoice.
+Customer ID
+The ID of the customer account associated with the invoice.
+Customer
+An object that contains information about the customer account associated with the invoice, such as its
+ID
+,
+Name
+,
+Account type
+, and
+Parent customer ID
+.
+Job ID
+The ID of the job associated with the invoice.
+Invoice number
+The user-generated number assigned to the invoice.
+Invoice date
+The invoice creation date.
+Due date
+The invoice due date.
+Created time
+The date and time when the invoice was created.
+Updated time
+The date and time when the invoice was last updated.
+Amount
+The total cost of all items in the invoice.
+Amount due
+The outstanding balance owed by the customer.
+Payment status
+The payment status of the invoice.
+Description
+Provides a description of the invoice.
+PO number
+The purchase order number associated with the invoice.
+Is to be printed
+Indicates whether
+bill.com
+(opens new window)
+prints and mails the invoice to the customer.
+Is to be emailed
+Indicates whether
+bill.com
+(opens new window)
+emails the invoice to the customer.
+Item sales tax
+The ID of the sales tax applied to all taxable items in the invoice.
+Sales tax percentage
+The sales tax percentage applied to all taxable items in the invoice.
+Sales tax total
+The total amount of sales tax applied to the invoice.
+Department ID
+The ID of the department associated with the invoice.
+Pay to bank account ID
+The ID of the bank account receiving the invoice payment.
+Pay to chart of account ID
+The ID of the chart of accounts receiving the invoice payment.
+Invoice line items
+A datatree that contains information about invoice line items, such as their
+ID
+,
+Invoice ID
+,
+Item ID
+, and
+Description
+.
+←
+Search record action (batch)
+Create record action
+→
+Last updated:
+11/27/2024, 4:56:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,311 @@
+Workato connectors - Wrike create task action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Create task action
+This action creates a single task in a specified Wrike folder/project. To create a main task, select
+Root
+as the parent folder.
+Create task action
+#
+Input fields
+Input field
+Description
+Folder
+Select a parent folder to create this task in. To use folder ID, toggle "Enter a folder ID".
+Title
+The title of the task.
+Description
+The description of the task.
+Importance
+The importance of the task. Permitted values are
+High
+,
+Normal
+, and
+Low
+.
+Assignee
+Select users who will be assigned to this task. You can define users with a source list or manually input their user ID.
+Priority after
+The newly created task will be put after this task in the task list.
+Priority before
+The newly created task will be put before this task in the task list.
+Follow
+Select
+True
+if this is a follow task, otherwise select
+False
+.
+Share task with users
+Select users who will share this task. You can define tasks with a source list or manually input their user ID.
+Add parent folders
+Select folders to be marked as parent folders. You can define folders with a source list or manually input their folder ID.
+Followers
+Select users who will be marked as task followers. You can define users with a source list or manually input their user ID.
+Super tasks
+The newly created task will be marked as a subtask to this task. You can define tasks with a task list or manually input their task ID.
+Date
+The start and due dates of this task. If left blank, a
+backlog
+task will be created.
+Start date
+The start date of this task.
+Due date
+The due date of this task.
+Custom status
+Select a custom status to describe this task. To use custom status ID, toggle "Enter a custom status ID".
+Status
+Select the status of the task. Permitted values are
+New
+,
+In progress
+,
+Completed
+,
+On hold
+, and
+Canceled
+.
+Ignore this field if you are using custom statuses.
+Custom fields
+Provide data for the custom fields.
+#
+Output fields
+Output field
+Description
+Task ID
+The ID of the task.
+Account ID
+The ID of the account.
+Title
+The title of the task.
+Description
+The description of the task. Will be blank if not specified.
+Brief description
+A brief description of the task.
+Parent folder
+The list of parent folders of this task.
+Folder ID
+The folder ID of the parent folder.
+List size
+The size of the list, corresponding to the number of parent folders retrieved.
+Super parent folder
+The list of super parent folder to this task.
+Folder ID
+The folder ID of the super parent folder.
+List size
+The size of the list, corresponding to the number of super parent folders retrieved.
+List of users who share task
+The list of users who share the task.
+User ID
+The ID of the user who shares this task.
+List size
+The size of the list, corresponding to the number of users retrieved.
+Assignees
+The list of users who are assigned to the task.
+User ID
+The ID of the user who shares this task.
+List size
+The size of the list, corresponding to the number of users retrieved.
+Status
+The status of the task.
+Importance
+The importance of the task. Permitted values are
+High
+,
+Normal
+, and
+Low
+.
+Created date
+The date this task was created.
+Updated date
+The date this task was updated.
+Completed date
+The date this task was completed.
+Dates
+The tasks dates.
+Type
+The type of task. Permitted values are
+Backlogged
+,
+Milestone
+, and
+scheduled
+.
+Duration
+Mandatory for
+Planned
+tasks. The duration in minutes.
+Start date
+The start date of this task.
+Backlogged
+tasks do not have start dates.
+Due date
+The due date of this task.
+Backlogged
+tasks and
+Milestone
+tasks do not have due dates.
+Work on weekends
+Indicates if weekends are included in task scheduling.
+Scope
+The scope of the task.
+Author
+The list of users who are assigned as authors of the task.
+User ID
+The ID of the user.
+List size
+The size of the list, corresponding to the number of users retrieved.
+Custom status ID
+The custom status ID of the task.
+Custom status
+The custom status of the task.
+Name
+The name of the custom status.
+List size
+The custom status ID of the task.
+Has attachments
+Indicates if the folder has attachments.
+Permalink
+The link to open the task in a web workspace. This is only accessible if the user has the appropriate access.
+Priority
+The ordering key that defines the task order in a task list.
+Followed by me
+Indicates if the task is followed by the Wrike user registered on Workato.
+Followers
+The users who follow this task.
+Follower ID
+The ID of the user who follows this task.
+List size
+The size of the list, corresponding to the number of users retrieved.
+Super task
+The list of tasks that are marked as super tasks.
+Super task ID
+The ID of the task that is marked as a super task.
+List size
+The size of the list, corresponding to the number of tasks retrieved.
+Subtask
+The list of tasks that are marked as subtasks.
+Super task ID
+The ID of the task that is marked as a subtask.
+List size
+The size of the list, corresponding to the number of subtasks retrieved.
+Dependency
+The list of tasks that are marked as dependencies.
+Dependency ID
+The ID of the task that is marked as a dependency.
+List size
+The size of the list, corresponding to the number of tasks retrieved.
+Metadata
+The metadata of this task. The metadata list size corresponds to the number of metadata entries retrieved.
+Custom fields
+Includes data from custom fields.
+←
+Create project action
+Create timelog action
+→
+Last updated:
+8/31/2023, 1:07:14 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

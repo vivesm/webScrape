@@ -1,0 +1,1730 @@
+Workato API - Recipe Lifecycle Management | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Developer API
+Resources
+#
+Recipe Lifecycle Management
+GLOSSARY
+Manifest:
+A container of different assets, including recipes, lookup tables, connections, and more.
+Package:
+The build of a manifest. Contains the source code of each asset within a manifest. It includes the latest version of the asset available when the package was created.
+#
+Quick reference
+Type
+Resource
+Description
+GET
+/api/export_manifests/folder_assets
+View assets in a folder.
+POST
+api/export_manifests
+Create an export manifest.
+PUT
+api/export_manifests/:id
+Update an export manifest.
+GET
+api/export_manifests/:id
+View an export manifest.
+DELETE
+/api/export_manifests/:id
+Delete an export manifest.
+POST
+/api/packages/export/:manifest_id
+Export package based on a manifest.
+POST
+/api/packages/import/:folder_id
+Import package into a folder.
+GET
+/api/packages/:id
+Get package by ID.
+GET
+/api/packages/:id/download
+Download a package.
+#
+View assets in a folder
+View assets in a folder. You can use this endpoint to help you create or update an export manifest.
+GET /api/export_manifests/folder_assets
+#
+URL parameters
+Name
+Type
+Description
+folder_id
+integer
+optional
+The ID of the folder containing the asset. Defaults to the root folder.
+include_test_cases
+boolean
+optional
+This parameter is currently not supported. Test cases are not included in the response. Defaults to
+false.
+include_data
+boolean
+optional
+Includes data from the list of assets. Defaults to
+false.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/export_manifests/folder_assets?folder_id=423'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"result"
+:
+{
+"assets"
+:
+[
+{
+"id"
+:
+12
+,
+"name"
+:
+"Copy of Recipeops"
+,
+"type"
+:
+"recipe"
+,
+"version"
+:
+1
+,
+"folder"
+:
+""
+,
+"absolute_path"
+:
+"All projects"
+,
+"root_folder"
+:
+false
+,
+"unreachable"
+:
+false
+,
+"zip_name"
+:
+"copy_of_recipeops.recipe.json"
+,
+"checked"
+:
+true
+,
+"status"
+:
+"added"
+}
+,
+{
+"id"
+:
+13
+,
+"name"
+:
+"My Salesforce account"
+,
+"type"
+:
+"connection"
+,
+"version"
+:
+2
+,
+"folder"
+:
+"Salesforce Integration Project"
+,
+"absolute_path"
+:
+"Salesforce Integration Project"
+,
+"root_folder"
+:
+false
+,
+"unreachable"
+:
+false
+,
+"zip_name"
+:
+"salesforce_account_v2.connection.json"
+,
+"checked"
+:
+true
+,
+"status"
+:
+"updated"
+}
+,
+{
+"id"
+:
+14
+,
+"name"
+:
+"Submit request in New workflow app"
+,
+"type"
+:
+"page"
+,
+"version"
+:
+1
+,
+"folder"
+:
+"Workflow Automation Project"
+,
+"absolute_path"
+:
+"Workflow Automation Project"
+,
+"root_folder"
+:
+false
+,
+"unreachable"
+:
+false
+,
+"zip_name"
+:
+"submit_request_workflow_app.page.json"
+,
+"checked"
+:
+true
+,
+"status"
+:
+"no change"
+}
+]
+}
+}
+#
+Create an export manifest
+Create an export manifest.
+POST /api/export_manifests
+#
+Payload
+Name
+Type
+Description
+name
+string
+required
+Name of the new manifest.
+assets
+object
+required
+Dependent assets. Workato recommends reviewing the
+View assets in a folder
+endpoint's response before using this endpoint. The
+View assets in a folder
+endpoint returns an
+assets
+object containing all assets in a specific folder. This can help you identify and format the assets you plan to include in your manifest.
+id
+integer
+required
+ID of the dependency.
+type
+string
+required
+Type of dependent asset. Refer to
+Asset types
+to see all supported
+type
+values.
+checked
+boolean
+optional
+Determines if the asset is included in the manifest. Defaults to
+true
+.
+version
+integer
+optional
+The version of the asset. Defaults to the latest version.
+folder
+string
+optional
+The folder that contains the asset. Defaults to
+""
+.
+absolute_path
+string
+required
+The absolute path of the asset. Defaults to root folder.
+root_folder
+boolean
+optional
+Name root folder. Defaults to
+false
+.
+unreachable
+boolean
+optional
+Whether the asset is unreachable. Defaults to
+false
+.
+zip_name
+string
+optional
+Name in the exported zip file. By default, Workato auto-generates a name with this structure:
+asset_#{index}.#{type}.json
+.
+folder_id
+integer
+optional
+The ID of the folder containing the asset. Defaults to the root folder.
+include_test_cases
+boolean
+optional
+Whether the manifest includes test cases or not. Defaults to
+false
+.
+auto_generate_assets
+boolean
+optional
+Auto-generates assets from a folder. Defaults to
+false
+.
+include_test_cases
+boolean
+optional
+This parameter includes test cases from automatic asset generation. Defaults to
+false
+.
+include_data
+boolean
+optional
+This parameter includes data from automatic asset generation. Defaults to
+false
+.
+include_tags
+boolean
+optional
+Specifies whether to include tags assigned to assets in the export manifest. Tags are excluded from the manifest when set to
+false
+. Set to
+false
+by default.
+#
+Asset types
+Supported asset
+type
+values include:
+recipe
+connection
+lookup_table
+workato_db_table
+account_property
+project_property
+workato_schema
+workato_template
+lcap_app
+lcap_page
+custom_adapter
+topic
+connection
+recipe
+api_group
+api_endpoint
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/export_manifests'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"export_manifest": {
+"name": "Test Manifest",
+"assets": [
+{
+"id": 12,
+"name": "Copy of Recipeops",
+"type": "recipe",
+"version": 1,
+"folder": "",
+"absolute_path": "All projects",
+"root_folder": false,
+"unreachable": false,
+"zip_name": "copy_of_recipeops.recipe.json",
+"checked": true
+}
+],
+"folder_id": 112,
+"include_tags": true
+}
+}'
+#
+Response
+{
+"result"
+:
+{
+"id"
+:
+12
+,
+"name"
+:
+"Test Manifest"
+,
+"last_exported_at"
+:
+null
+,
+"created_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"updated_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"deleted_at"
+:
+null
+,
+"project_path"
+:
+"Folder 1"
+,
+"status"
+:
+"working"
+}
+}
+Create a manifest with multiple assets
+You can pass multiple assets into the
+assets
+parameter to include them in the manifest.
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/export_manifests'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"export_manifest": {
+"name": "Test Manifest with two assets",
+"assets": [
+{
+"id": 65008167,
+"name": "Outreach",
+"type": "connection",
+"version": null,
+"folder": "API tests",
+"absolute_path": "All projects/API tests",
+"root_folder": false,
+"provider": "outreach",
+"unreachable": false,
+"zip_name": "API tests/outreach.connection.json",
+"deps": [],
+"checked": true
+},
+{
+"id": 86330482,
+"name": "Test recipe",
+"type": "recipe",
+"version": 4,
+"folder": "API tests",
+"absolute_path": "All projects/API tests",
+"root_folder": false,
+"include_test_cases": false,
+"unreachable": false,
+"zip_name": "API tests/test_recipe.recipe.json",
+"deps": [],
+"checked": true
+}
+],
+"folder_id": 21339705,
+"include_tags": true
+}
+}'
+#
+Response
+{
+"result"
+:
+{
+"id"
+:
+267546
+,
+"name"
+:
+"Test Manifest with two assets"
+,
+"created_at"
+:
+"2025-03-21T07:50:29.488-07:00"
+,
+"updated_at"
+:
+"2025-03-21T07:50:29.488-07:00"
+,
+"deleted_at"
+:
+null
+,
+"last_exported_at"
+:
+null
+,
+"project_path"
+:
+"Home assets"
+,
+"status"
+:
+"working"
+,
+"include_tags"
+:
+true
+}
+}
+#
+Auto-generate assets
+If you plan for Workato to auto-generate your assets, you can pass the parameter
+auto_generate_assets
+into the payload of the request. You must specify the
+folder_id
+you plan to have auto-generated. You can also choose to include test cases and data by adding the
+include_test_cases
+and
+include_data
+parameters. Note that test cases and data are excluded by default.
+Additionally, you can include
+auto_run
+in the payload to generate the package automatically.
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/export_manifests'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"export_manifest": {
+"name": "Test Manifest",
+"folder_id": 112,
+"auto_generate_assets": true,
+"include_test_cases": true,
+"include_data": true,
+"auto_run": true
+}
+}
+'
+#
+Response
+{
+"result"
+:
+{
+"id"
+:
+12
+,
+"name"
+:
+"Test Manifest"
+,
+"last_exported_at"
+:
+null
+,
+"created_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"updated_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"deleted_at"
+:
+null
+,
+"project_path"
+:
+"Folder 1"
+,
+"status"
+:
+"working"
+}
+}
+#
+Possible statuses
+Status
+Definition
+working
+Active.
+archived
+Deleted.
+#
+Update an export manifest
+Update an export manifest.
+PUT /api/export_manifests/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+string
+The ID of the dependency.
+#
+Payload
+Update the properties contained in
+assets[]
+to replace the assets previously defined.
+Name
+Type
+Description
+name
+string
+optional
+Name of the manifest. Update this value to change the manifest name. Defaults to previous name.
+assets
+object
+required
+Dependent assets. Workato recommends reviewing the
+View assets in a folder
+endpoint's response before using this endpoint. The
+View assets in a folder
+endpoint returns an
+assets
+object containing all assets in a specific folder. This can help you identify and format the assets you plan to update in your manifest.
+id
+integer
+required
+ID of the dependency.
+type
+string
+required
+Type of dependent asset. Refer to
+Asset types
+to see all supported
+type
+values.
+checked
+boolean
+optional
+Determines if the asset is included in the manifest. Defaults to
+true
+.
+version
+integer
+optional
+The version of the asset. Defaults to the latest version.
+folder
+string
+optional
+The folder that contains the asset. Defaults to
+""
+.
+absolute_path
+string
+optional
+The absolute path of the asset. Defaults to root folder.
+root_folder
+boolean
+optional
+Name root folder. Defaults to
+false
+.
+unreachable
+boolean
+optional
+Whether the asset is unreachable. Defaults to
+false
+.
+zip_name
+string
+optional
+Name in the exported zip file. By default, Workato auto-generates a name with this structure:
+asset_#{index}.#{type}.json
+.
+folder_id
+integer
+optional
+The ID of the folder containing the asset. Defaults to the root folder.
+include_test_cases
+boolean
+optional
+Whether the manifest includes test cases or not. Defaults to
+false
+.
+auto_generate_assets
+boolean
+optional
+Auto-generates assets from a folder. Defaults to
+false
+.
+include_test_cases
+boolean
+optional
+This parameter includes test cases from automatic asset generation. Defaults to
+false
+.
+include_data
+boolean
+optional
+This parameter includes data from automatic asset generation. Defaults to
+false
+.
+#
+Asset types
+Supported asset
+type
+values include:
+recipe
+connection
+lookup_table
+workato_db_table
+account_property
+project_property
+workato_schema
+workato_template
+lcap_app
+lcap_page
+custom_adapter
+topic
+connection
+recipe
+api_group
+api_endpoint
+#
+Sample request
+curl
+-X
+PUT
+'https://www.workato.com/api/export_manifests/12'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"export_manifest": {
+"name": "Test Manifest",
+"assets": [
+{
+"id": 12,
+"name": "Copy of Recipeops",
+"type": "recipe",
+"version": 1,
+"folder": "",
+"absolute_path": "All projects",
+"root_folder": false,
+"unreachable": false,
+"zip_name": "copy_of_recipeops.recipe.json",
+"checked": true
+}
+],
+"folder_id": 112
+}
+}
+'
+#
+Response
+{
+"result"
+:
+{
+"id"
+:
+12
+,
+"name"
+:
+"Test Manifest"
+,
+"last_exported_at"
+:
+null
+,
+"created_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"updated_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"deleted_at"
+:
+null
+,
+"project_path"
+:
+"Folder 1"
+,
+"status"
+:
+"working"
+}
+}
+Update a manifest with multiple assets
+You can pass multiple assets into the
+assets
+parameter to update them in the manifest.
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/export_manifests/15'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"export_manifest": {
+"name": "Test Manifest with two assets",
+"assets": [
+{
+"id": 65008167,
+"name": "Outreach",
+"type": "connection",
+"version": null,
+"folder": "API tests",
+"absolute_path": "All projects/API tests",
+"root_folder": false,
+"provider": "outreach",
+"unreachable": false,
+"zip_name": "API tests/outreach.connection.json",
+"deps": [],
+"checked": true
+},
+{
+"id": 86330482,
+"name": "Test recipe",
+"type": "recipe",
+"version": 4,
+"folder": "API tests",
+"absolute_path": "All projects/API tests",
+"root_folder": false,
+"include_test_cases": false,
+"unreachable": false,
+"zip_name": "API tests/test_recipe.recipe.json",
+"deps": [],
+"checked": true
+}
+],
+"folder_id": 21339715
+}
+}'
+#
+Response
+{
+"result"
+:
+{
+"id"
+:
+171350
+,
+"name"
+:
+"Test Manifest with two assets"
+,
+"created_at"
+:
+"2025-03-19T07:45:50.915-07:00"
+,
+"updated_at"
+:
+"2025-03-21T09:26:46.348-07:00"
+,
+"deleted_at"
+:
+null
+,
+"last_exported_at"
+:
+null
+,
+"project_path"
+:
+"Home assets"
+,
+"status"
+:
+"working"
+,
+"include_tags"
+:
+true
+,
+"assets"
+:
+[
+{
+"checked"
+:
+true
+,
+"root_folder"
+:
+false
+,
+"unreachable"
+:
+false
+,
+"name"
+:
+"Outreach"
+,
+"zip_name"
+:
+"API tests/outreach.connection.json"
+,
+"id"
+:
+65008167
+,
+"type"
+:
+"connection"
+,
+"version"
+:
+null
+,
+"folder"
+:
+"API tests"
+,
+"absolute_path"
+:
+"All projects/API tests"
+,
+"deps"
+:
+[
+]
+}
+,
+{
+"checked"
+:
+true
+,
+"root_folder"
+:
+false
+,
+"unreachable"
+:
+false
+,
+"name"
+:
+"Test recipe"
+,
+"zip_name"
+:
+"API tests/test_recipe.recipe.json"
+,
+"id"
+:
+86330482
+,
+"type"
+:
+"recipe"
+,
+"version"
+:
+4
+,
+"folder"
+:
+"API tests"
+,
+"absolute_path"
+:
+"All projects/API tests"
+,
+"include_test_cases"
+:
+false
+,
+"deps"
+:
+[
+]
+}
+]
+,
+"diff_included"
+:
+false
+}
+}
+#
+Auto-generate assets
+If you plan for Workato to auto-generate your assets, you can pass the parameter
+auto_generate_assets
+into the payload of the request. You must specify the
+folder_id
+you plan to have auto-generated. You can also choose to include test cases and data by adding the
+include_test_cases
+and
+include_data
+parameters. Note that test cases and data are excluded by default.
+Additionally, you can include
+auto_run
+in the payload to generate the package automatically.
+#
+Sample request
+curl
+-X
+PUT
+'https://www.workato.com/api/export_manifests/12'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"export_manifest": {
+"name": "Test Manifest",
+"folder_id": 112,
+"auto_generate_assets": true,
+"include_test_cases": true,
+"include_data": true,
+"auto_run": true
+}
+}
+'
+#
+Response
+{
+"result"
+:
+{
+"id"
+:
+12
+,
+"name"
+:
+"Test Manifest"
+,
+"last_exported_at"
+:
+null
+,
+"created_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"updated_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"deleted_at"
+:
+null
+,
+"project_path"
+:
+"Folder 1"
+,
+"status"
+:
+"working"
+}
+}
+#
+View an export manifest
+View an export manifest.
+GET /api/export_manifests/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+string
+The ID of the dependency.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/export_manifests/12'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"result"
+:
+{
+"id"
+:
+12
+,
+"name"
+:
+"Test Manifest"
+,
+"last_exported_at"
+:
+null
+,
+"created_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"updated_at"
+:
+"2023-02-27T02:44:59.447-08:00"
+,
+"deleted_at"
+:
+null
+,
+"project_path"
+:
+"Folder 1"
+,
+"status"
+:
+"working"
+}
+}
+#
+Delete an export manifest
+Delete an export manifest.
+DELETE /api/export_manifests/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Export manifest ID.
+#
+Sample request
+curl
+-X
+DELETE
+'https://www.workato.com/api/export_manifests/12'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"result"
+:
+{
+"success"
+:
+true
+,
+"status"
+:
+"destroyed"
+}
+}
+#
+Export a package based on a manifest
+Export a package based on a manifest.
+ENDPOINT PRIVILEGES ALSO PROVIDE ACCESS TO ASSETS
+When you provide an API client with privileges to this endpoint, the API client is also granted the ability to view other assets like recipes, lookup tables, Event topics, and message templates by examining the resulting zip file.
+POST /api/packages/export/:id
+This is an asynchronous request. Use
+GET package by ID
+endpoint to get details of the exported package.
+INCLUDE TAGS WHEN CREATING THE EXPORT MANIFEST
+To include tags in the exported package, set the
+include_tags
+attribute to
+true
+when calling the
+Create an export manifest
+endpoint.
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Export manifest ID.
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/packages/export/<manifest_id>'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"id"
+:
+242
+,
+"operation_type"
+:
+"export"
+,
+"status"
+:
+"completed"
+,
+"export_manifest_id"
+:
+3
+,
+"download_url"
+:
+"https://www.workato-staging-assets.com/packages/zip_files/000/000/242/original/exportdemo.zip"
+}
+#
+Import a package into a folder
+Import a package in zip file format into a folder. This endpoint allows an API client to create or update assets, such as recipes, lookup tables, event topics, and message templates, through package imports.
+PACKAGE IMPORT RATE LIMIT
+Workato enforces a strict limit of
+500 package import requests per hour
+per workspace. If this limit is exceeded, the system denies additional requests until the following hour when the request allowance resets.
+POST /api/packages/import/:id
+This is an asynchronous request. Use
+GET package by ID
+endpoint to get details of the imported the package.
+The input (zip file) is a
+application/octet-stream
+payload containing package content. URL parameter
+restart_recipes
+must be
+true
+if the running recipes need to be restarted upon import.
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Folder ID.
+#
+Query parameters
+Name
+Type
+Description
+restart_recipes
+boolean
+optional
+Value must be
+true
+to allow the restarting of running recipes during import.
+Packages cannot be imported if there are running recipes and this parameter equals
+false
+or is not provided.
+include_tags
+boolean
+optional
+Specifies whether to preserve tags assigned to assets when the package is imported into the folder. Tags are excluded from the import when set to
+false
+. Set to
+false
+by default.
+folder_id_for_home_assets
+string
+optional
+The ID of a folder to store assets in instead of the root folder. The folder specified must be accessible to the API client and cannot be the root folder. Defaults to
+""
+.
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/packages/import/<folder_id>?restart_recipes=true&include_tags=true'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/octet-stream'
+\
+--data-binary @
+'path/to/local/file.zip'
+#
+Response
+{
+"id"
+:
+251
+,
+"operation_type"
+:
+"import"
+,
+"status"
+:
+"completed"
+,
+"download_url"
+:
+"https://www.workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
+}
+#
+Get package by ID
+Get details of an imported or exported package.
+GET /api/packages/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Package ID.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/packages/<package_id>'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+This shows the response from the retrieval of a completed export manifest.
+{
+"id"
+:
+242
+,
+"operation_type"
+:
+"export"
+,
+"status"
+:
+"completed"
+,
+"export_manifest_id"
+:
+3
+,
+"download_url"
+:
+"https://www.workato-staging-assets,com/packages/zip_files/000/000/242/original/exportdemo.zip"
+}
+This shows the response from the retrieval of a failed export manifest
+{
+"id"
+:
+242
+,
+"operation_type"
+:
+"export"
+,
+"status"
+:
+"failed"
+,
+"error"
+:
+"error_message"
+,
+"export_manifest_id"
+:
+4
+,
+"download_url"
+:
+"null"
+}
+This shows the response from the retrieval of a completed import.
+NOTE
+For any completed import, it is important to also check each recipe's
+import_result
+.
+Learn more about the possible import_result values
+.
+{
+"id"
+:
+242
+,
+"operation_type"
+:
+"export"
+,
+"status"
+:
+"completed"
+,
+,
+"download_url"
+:
+"https://www.workato-staging-assets,com/packages/zip_files/000/000/242/original/importdemo.zip"
+,
+"recipe_status"
+:
+[
+{
+"id"
+:
+12345
+,
+"import_result"
+:
+"no_update_or_update_without_restart"
+}
+,
+{
+"id"
+:
+12346
+,
+"import_result"
+:
+"restarted"
+}
+,
+{
+"id"
+:
+12347
+,
+"import_result"
+:
+"stopped"
+}
+]
+}
+This shows the response from the retrieval of a failed import.
+NOTE
+For any failed import, not all recipes may be returned in
+recipe_status
+as they may not have been updated before the import failed.
+Learn more about the possible import_result values.
+.
+{
+"id"
+:
+242
+,
+"operation_type"
+:
+"export"
+,
+"status"
+:
+"completed"
+,
+,
+"download_url"
+:
+"https://www.workato-staging-assets,com/packages/zip_files/000/000/242/original/importdemo.zip"
+,
+"recipe_status"
+:
+[
+{
+"id"
+:
+12345
+,
+"import_result"
+:
+"no_update_or_update_without_restart"
+}
+,
+{
+"id"
+:
+12346
+,
+"import_result"
+:
+"restarted"
+}
+,
+{
+"id"
+:
+12347
+,
+"import_result"
+:
+"stopped"
+}
+]
+}
+#
+Recipe import_result values
+There are a total of six possible results:
+no_update_or_update_without_restart
+Indicates no restart was needed for the recipe. Either recipe could be updated without it or no update was made.
+Successful import
+not_found
+Unexpected error when recipe cannot be found. Should not often be seen.
+Import has failed with no update to recipe.
+stop_failed
+For recipes that need to be restarted, we attempt to stop the recipe. This state indicates we could not stop the recipe.
+Import has failed with no update to recipe.
+stopped
+Workato stopped the recipe but recipe was not restarted due to errors in the recipe.
+Import has failed with recipe updated but not restarted
+restart_failed
+Workato attempted to restart recipe but failed to do so.
+Import has failed with recipe updated but not restarted
+restarted
+Workato successfully restarted recipe after update.
+Successful import
+#
+Download package
+Downloads a package.
+GET /api/packages/:id/download
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Package ID.
+#
+Sample request
+curl
+-L
+-X
+GET
+'https://www.workato.com/api/packages/<package_id>/download'
+\
+-H
+'Authorization: Bearer <api_token>'
+Follow redirects in cURL
+Use the
+-L
+flag to follow redirect paths.
+#
+Response
+If successful, you will be redirected to the package content. Returns
+404
+if package not found or doesn't have content.
+←
+Update a recipe version comment
+Roles
+→
+Last updated:
+4/14/2025, 11:39:25 AM
+On this page
+Quick reference
+View assets in a folder
+URL parameters
+Response
+Create an export manifest
+Payload
+Response
+Auto-generate assets
+Response
+Update an export manifest
+URL parameters
+Payload
+Response
+Auto-generate assets
+Response
+View an export manifest
+URL parameters
+Response
+Delete an export manifest
+URL parameters
+Response
+Export a package based on a manifest
+URL parameters
+Response
+Import a package into a folder
+URL parameters
+Query parameters
+Response
+Get package by ID
+URL parameters
+Response
+Recipe import_result values
+Download package
+URL parameters
+Response
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

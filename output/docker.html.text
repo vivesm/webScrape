@@ -1,0 +1,209 @@
+On-prem agent deployment using Docker image | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem group
+Add an agent
+#
+On-premise agent deployment using Docker image
+This page provides steps on how to deploy an on-premise agent using Docker image.
+PREREQUISITE
+Make sure you have Docker installed on your machine.
+#
+Step 1: Retrieve the On-prem agent
+Complete the following steps to retrieve the On-prem agent:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Tools > On-prem groups
+and select your On-prem group.
+3
+Click
+Add on-prem agent
+.
+4
+Provide a descriptive agent name in the
+Agent name
+field, and select
+Docker
+as the operating system (OS) in the
+Operating system
+field.
+Choose OS
+5
+Copy and paste the Docker pull command provided by Workato into your terminal to pull the Docker image from the repository:
+docker
+pull
+"daa34553.workato.com/semi-public/amd64/workato-agent:<version>"
+;
+Pull Docker image
+#
+Step 2: Activate and run the On-prem agent
+Complete the following steps to activate and run the On-prem agent:
+1
+Copy and paste the activation command provided by Workato. The command should look similar to the example below, with
+"secret-agent-code"
+replaced by your unique activation code.
+Running this command automatically generates the agent key and certificate within the agent container. Note that the activation code is valid for one hour.
+docker
+run
+-it
+-e
+WORKATO_AGENT_ACTIVATION_CODE
+=
+"secret-agent-code"
+"daa34553.workato.com/semi-public/amd64/workato-agent:
+<
+version
+>
+ALLOW TRAFFIC TO WORKATO FROM YOUR SERVER
+You must allow traffic to Workato from your server. Refer to
+security allowlists
+for more information.
+Activate agent and run docker image
+2
+Optional. Run the following command if you plan to export your agent certificate and key to a directory on your host machine:
+docker
+run
+-it
+--rm
+-v
+/some/host/directory/containing/conf:/var/lib/workato-agent/conf
+-e
+WORKATO_AGENT_ACTIVATE_ONLY
+=
+y
+-e
+WORKATO_AGENT_ACTIVATION_CODE
+=
+"secret-agent-code"
+"daa34553.workato.com/semi-public/amd64/workato-agent:<version>"
+;
+3
+Optional. If you already have a valid agent key and certificate, run the OPA docker using the following command:
+docker
+run
+-d
+-v
+/some/host/directory/containing/conf:/var/lib/workato-agent/conf
+"daa34553.workato.com/semi-public/amd64/workato-agent:<version>"
+;
+4
+Click
+Test agent
+after the agent starts to verify that the connection is successful.
+Test agent
+PRIVATE KEY
+Workato does not have access to your private key file,
+cert.key
+, in the OPA
+conf
+folder. Ensure you protect this file from unauthorized access.
+←
+macOS package
+Add an agent FAQs
+→
+Last updated:
+3/18/2025, 1:38:30 AM
+On this page
+Step 1: Retrieve the On-prem agent
+Step 2: Activate and run the On-prem agent
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

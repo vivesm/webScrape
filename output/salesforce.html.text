@@ -1,0 +1,355 @@
+Workato connectors - Salesforce | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Salesforce
+Salesforce
+(opens new window)
+is a best-of-breed cloud customer relationship management app, enabling organizations to easily manage and track leads, contacts, and opportunities. It is built on the
+Force.com
+(opens new window)
+platform, and can be readily extended with an expansive range of third-party marketplace apps and other Salesforce products that encompasses sales, marketing, customer service and commerce.
+#
+Use cases
+Explore the capabilities of the Salesforce connector in our
+use cases
+documentation. Discover how you can use the Salesforce connector to create powerful multi-app workflows and automations:
+Display Salesforce account details
+directly in Slack with Workbot for Slack.
+Set up a
+workflow to track leads
+by creating a Salesforce task and adding a Snowflake row when new lead activity is detected in Marketo.
+Try a
+batch-sync solution
+that transfers data from MySQL to Salesforce.
+Ensure
+phone numbers are validated
+before syncing contacts from Salesforce to Snowflake.
+#
+API version
+The Salesforce connector uses
+Salesforce REST API version 62.0
+(opens new window)
+.
+#
+Supported editions and versions
+The Salesforce connector works with all Salesforce cloud instances, for example,
+Professional, Enterprise, Unlimited, and Developer
+. It also supports the following (not limited to) editions of Salesforce:
+Salesforce Sales Cloud
+Salesforce Service Cloud
+Salesforce Partner Community
+To login, go to
+Advanced settings
+in the connection and provide the community custom domain
+Salesforce Consumer Goods Cloud
+Salesforce Marketing Cloud
+SFMC has a separate connector
+Salesforce Data Cloud
+Available as a
+community connector
+(opens new window)
+built and supported by Workato
+It also works with
+Force.com
+applications. For all other editions not mentioned above, please contact your Workato representative for assistance.
+#
+How to connect to Salesforce on Workato
+The Salesforce connector can be connected using OAuth 2.0 or JWT Authentication.
+#
+OAuth2.0 Connection
+Configure OAuth2.0 Salesforce connection
+Connection name
+: Give this Salesforce connection a unique name that identifies which Salesforce instance it is connected to.
+Sandbox
+: To connect to a Salesforce Sandbox instance, simply use the login credentials for your sandbox account and select "yes" on this field.
+Fill in the above fields and click connect. A Salesforce connection pop-up prompts you to provide your Salesforce login credentials for OAuth 2.0 authorization with username and password.
+You can configure advanced settings as described below.
+Organization/community custom domain URL
+: The URL to your Salesforce community's custom domain.
+Requested permissions
+: Select
+permissions
+(opens new window)
+to request for this connection. Defaults to full (all permissions) if left blank.
+Minimum permissions required are basic info, manage data and make requests at any time; those are always requested in addition to selected permissions.
+Verified user access configuration
+: Use this setting to enforce a custom auth configuration for personal connections. Further information can be found
+here
+(opens new window)
+.
+Custom OAuth profile
+: When selected, all requests to the app will use the profile specified in
+Workato
+(opens new window)
+. You can create a new profile
+here
+(opens new window)
+. It ensures that the connection is restricted to the same set of scopes selected in the profile for all users with the profile, and the authentication flow uses the client app linked to the custom profile.
+#
+JWT Bearer Authentication
+Standard Oauth2 Connections require a specific account of a user to be linked to the connection. JWT Bearer Authentication removes the need for a specific account to be linked to a connection. Instead it requires a digital certificate, also called a digital signature, to sign the JWT request. However, this flow does require prior approval of the client app (Workato) in Salesforce. With the OAuth 2.0 JWT bearer token flow, Workato posts a JWT to the Salesforce OAuth token endpoint. Salesforce processes the JWT, which includes a digital signature, and issues an access token based on prior approval of Workato in Salesforce. The specific scopes granted can be controlled as described
+here
+(opens new window)
+.
+Configure Salesforce JWT Bearer connection
+Private Key
+: Create a private key and a digital certificate,
+server.crt
+. You will need to upload the digital certificate to Salesforce. Further information on creating these can be found
+here
+(opens new window)
+.
+Issuer
+: The issuer must contain the OAuth client_id or the connected app for which you registered the certificate.
+Subject
+: The subject must contain the username of the user if implementing for an Experience Cloud site. For backward compatibility, you can use principal (prn) instead of subject (sub). If both are specified, prn is used.
+Salesforce Subdomain
+: Enter your salesforce organization subdomain, eg.
+yourInstance.salesforce.com
+(opens new window)
+#
+Roles and permissions required to connect
+Salesforce users can connect to Salesforce from Workato. We recommend that a separate user be created for integration purposes.
+The connected user will have the same
+permissions
+(opens new window)
+through the Workato Salesforce connector as in Salesforce. They will be able to read and write the objects as specified in their Salesforce profile. The user profile should be setup to allow appropriate access to the requisite objects required for the recipes. The permissions can be edited via the connected user's profile in Salesforce.
+User permissions and access settings are specified in
+profiles
+and
+permission sets
+. To use them effectively, understand the differences between profiles and permission sets as follows:
+User permissions and access settings specify what users can do within an organization:
+Permissions determine a user's ability to edit an object record, view the Setup menu, permanently delete records in the Recycle Bin, or reset a user's password.
+Access settings determine other functions, such as access to Apex classes, app visibility etc.
+Every user is assigned only one profile, but can have multiple permission sets. When determining access for your user, use profiles to assign the
+minimum permissions
+and access settings for specific groups of users. Then use permission sets to
+grant more permissions
+as needed.
+#
+API Enabled permission
+The connected user's profile should be API enabled. This permission can be found in
+Setup
+>
+Profiles
+.
+API enabled permission - profile setup
+#
+Standard and custom object permissions
+To interact with an object in Salesforce, it is recommended that the connected user's profile needs to have permissions to
+read
+,
+write
+,
+edit
+,
+delete
+,
+view all
+,
+modify all
+for the standard or custom object in your Salesforce organization. This is to avoid any confusion for example, when the connected user is unable to update/upsert to certain records.
+View this
+Salesforce article
+(opens new window)
+for the difference between the standard privileges and 'View all'/'Modify all'.
+Salesforce standard object profile permissions setup
+Salesforce custom object profile permissions setup
+Object-level security (or object permissions) provide the bluntest way to control data access. Using object permissions, you can
+prevent a user from seeing, creating, editing, or deleting any instance of a particular object type, such as a lead or opportunity. Object permissions let you hide whole tabs and objects from particular users, so that they don’t even know that type of data exists.
+Once object-level security is enabled, the corresponding object will not appear on the Workato platform in object drop-downs on triggers or actions.
+#
+Platform event permissions
+In order to use platform events triggers and actions, you need platform events to be enabled in your Salesforce organization. You would need to set
+read
+and
+create
+permissions for the connected user's profile.
+Salesforce platform events permissions - profile setup
+#
+Real-time trigger permissions
+To use real-time triggers in Salesforce, workflow rules have to be set up in your Salesforce organization. These workflow rules require the
+Customize application
+permission, although the connected user does not need to be the user who sets these rules up. This permission can be found in
+Setup
+>
+Permission sets
+.
+Customize application permission - profile setup
+DEPRECATION NOTICE PERTAINING TO REAL-TIME TRIGGERS
+Currently, the real-time triggers configured in Workato rely on Salesforce Workflow rules. These existing Workflow rules will continue to be supported. However, we recommend all new recipes to use Salesforce Flows as Workflow Rules and Process Builder have now been
+deprecated
+(opens new window)
+by Salesforce. There is a
+migration tool
+(opens new window)
+to move your Workflow rules into Flows.
+As the outbound messages configured in Salesforce will remain the same, the process should not affect Workato recipes. Nevertheless, we recommend testing the migration in the Salesforce sandbox account first to ensure that there are no unexpected issues.
+#
+Connecting to custom domains
+Salesforce allows custom domains to be defined on both Salesforce organization and
+Salesforce Communities
+(opens new window)
+. Workato allows connections to be created to both.
+If your Salesforce organization is hosted on a custom domain, connect your account by clicking on 'Use custom domain' on the OAuth 2.0 pop-up. Then, enter your custom domain and the username and password.
+Use a custom domain
+If you are connecting to a Salesforce community with a custom domain, expand the 'Advanced settings' in the connection. Here, enter your Salesforce community's custom domain before clicking on 'Link your account'. You will see the login page for your community where you can simply enter your username and password to connect.
+Use a Salesforce Communities custom domain
+#
+Permissions required for bulk/batch actions
+The
+Manage Data Integrations
+,
+View Setup and Configuration
+and
+API Enabled
+permissions are required on the connected Salesforce User's account to allow all bulk operations to work correctly. View this
+document
+(opens new window)
+for more information.
+#
+Field-level security
+Field-level security is available in Permission Sets and Profiles. It is used when users should have access to an object while also having limited access to individual fields in that object. Field-level security—or field permissions—control whether a user can see, edit, and delete the value for a particular field on an object.
+They allow the protection of sensitive fields without having to hide the whole object from users. Field permissions are also controlled in permission sets and profiles. Field permissions control the visibility of fields in any part of the app, including related lists, list views, reports, and search results.
+TIP
+If you expect to see a certain mappable field on the Workato platform that cannot be found, field-level security is the likeliest cause. Check with your Salesforce admin if the field you're looking for is enabled for the connected Integration User. As such, it is recommended that all fields are available to the connected user to avoid confusion.
+#
+Working with the Salesforce connector
+#
+Can I connect more than one Salesforce account in a single recipe?
+Yes, you may use up to 2. Simply use the Salesforce Secondary app on Workato, and you will be able to use both accounts in a single recipe. Find out more
+here
+.
+#
+Best practices
+When starting to use Workato with your Salesforce account, we recommend that you either do it on a sandbox account, or test on non-essential pieces of data. This would prevent any loss of crucial data, especially since actions performed through Workato cannot be undone.
+#
+Working with sandboxes on Workato
+Salesforce sandboxes are isolated from your Salesforce production organization, so operations that you perform in your sandboxes don’t affect your Salesforce production organization, and conversely. Sandboxes are nearly identical to your Salesforce production organization. For a list of differences, see
+Sandbox Setup Tips and Considerations
+(opens new window)
+.
+#
+Troubleshooting
+You may encounter the following error(s).
+Workato connection cannot be established (Connection failed due to server error)
+Check that Workato is not blocked in
+Setup > Connected Apps OAuth Usage
+.
+←
+Code
+Create a custom OAuth profile
+→
+Last updated:
+4/17/2025, 4:38:19 PM
+On this page
+Use cases
+API version
+Supported editions and versions
+How to connect to Salesforce on Workato
+Roles and permissions required to connect
+Working with the Salesforce connector
+Best practices
+Troubleshooting
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

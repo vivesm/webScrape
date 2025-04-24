@@ -1,0 +1,142 @@
+Workato connectors - NetSuite - New/Updated records | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite trigger - New/Updated standard object and new/updated custom object trigger
+The new/updated standard object and new/updated custom object triggers are very similar.
+Limited support
+Because of API limitations, Workato does not support
+some types of records
+.
+When a recipe that updates records starts for the first time, it processes all instances of the selected object created or updated after the datetime in the
+From
+field.
+Subsequently, the recipe processes all newly created instances or updated instances.
+#
+Configure the trigger
+To use this trigger, follow these steps:
+1
+Select the standard object or the custom object to monitor.
+2
+Identify the datetime in the
+From
+field so the recipe starts processing the correct records.
+NetSuite new/updated object trigger - unconfigured. Select the object to monitor for newly created or updated records.
+#
+Example
+Consider the selected sales order and 1 Jan, 2017 midnight trigger:
+NetSuite new/updated object trigger - configured
+On the first run, the recipe processes all sales orders from or after 1 Jan. 2017 at midnight. Subsequently, if the recipe continues to run, the recipe picks up only new sales.
+Trigger behavior when the recipe stops and restarts
+If you stop the recipe, it processes all new sales orders created during the stoppage interval when you restart it.
+The recipe only picks up the most recent version of the search record. So, if a record updates three (3) times during the outage interval, the recipe only picks up the last version of the record when it restarts.
+←
+New record trigger
+New and updated records batch trigger
+→
+Last updated:
+2/21/2023, 5:58:26 AM
+On this page
+Configure the trigger
+Example
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

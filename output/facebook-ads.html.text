@@ -1,0 +1,173 @@
+Workato connectors - Facebook Lead Ads | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Facebook Lead Ads
+Facebook Lead Ads
+(opens new window)
+is a targeted advertising tool that allows businesses to collect lead information directly through ads, using forms that auto-populate with a user's Facebook contact details. You can use Facebook Lead Ads to efficiently capture leads, enhance your marketing campaigns, and drive customer engagement.
+#
+API version
+The Facebook Lead Ads connector uses the
+Facebook Marketing API v22.0
+(opens new window)
+.
+#
+Connection setup
+Complete the following steps to create a Facebook Lead Ads connection in Workato.
+1
+Enter a
+Connection name
+to label your Facebook Lead Ads account within Workato.
+Label your connection
+2
+Click
+Connect
+to open Facebook's login window.
+3
+Enter your credentials in the Facebook login window to authenticate your account.
+Facebook login window
+4
+Review the permissions that Workato requests to manage your Lead Ads.
+Review permissions
+5
+Click
+Continue
+to approve the connection permissions and complete the setup.
+#
+Troubleshooting
+If you have connected your Facebook account, given the relevant pages access and still can't trigger the recipe despite new leads being added -- utilize
+this tool
+(opens new window)
+to help with debugging the setup. You can select the relevant page and form and see if the Workato App has been successfully subscribed and even send a test webhook lead to check.
+If the Workato application isn't subscribed correctly, the likely issue is that it needs be explicitly provided
+CRM access
+(opens new window)
+within Meta business manager.
+We provide a step by step guide to the same as follows:
+1
+Setup a New leads trigger, start the recipe.
+2
+Go to
+Meta Business Suite
+(opens new window)
+-> Select your business in the drop-down -> Click the Settings icon -> Integrations -> Leads access
+3
+Go to CRMs tab and click on assign CRMs. Once you have started the recipe, Workato's OAuth app should be listed in the select options.
+Assign CRM access to Workato's App
+4
+Now the OAuth app should be listed in the
+Facebook leads testing tool
+(opens new window)
+, and the recipe should receive events when leads are created.
+Verify the configuration in the lead ads testing tool
+←
+Search events
+New lead
+→
+Last updated:
+3/4/2025, 5:57:08 PM
+On this page
+API version
+Connection setup
+Troubleshooting
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

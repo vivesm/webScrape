@@ -1,0 +1,462 @@
+How to ガイド - 認証 - API キー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+API 認証
+#
+How to ガイド - API キー認証
+API キー認証は、接続先となるアプリケーションの API キーを利用する認証方法であり、通例は、ユーザーがその生成を求められます。この API キーに付与される権限は、それを生成したユーザーの権限に従って割り当てられることも、キーごとに設定されることもあります。
+API が API キーを受け取るための方法はさまざまです。よくある例としては、次のようなものがあります。
+各リクエストの URL パラメータにキーを含める (
+GET www.api.com/resource?api-key=XXX
+)
+各リクエストのヘッダーにキーを含める (
+X-API-KEY: XXX
+)
+各リクエストのユーザー名やパスワードのフィールドにキーを含める (
+-u XXX
+または
+-u :XXX
+)
+#
+サンプルコネクター - Iterable
+{
+title
+:
+'Iterable'
+,
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+'api_key'
+,
+label
+:
+'API key'
+,
+control_type
+:
+'password'
+,
+optional
+:
+false
+,
+hint
+:
+'Get your <b>standard</b> API key <a href="https://app.'
+\
+'iterable.com/settings/apiKeys" target="_blank">here</a>.'
+}
+]
+,
+authorization
+:
+{
+type
+:
+'api_key'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+headers
+(
+api_key
+:
+connection
+[
+'api_key'
+]
+)
+end
+}
+,
+base_uri
+:
+lambda
+do
+|
+connection
+|
+'https://api.iterable.com'
+end
+}
+,
+test
+:
+lambda
+do
+|
+connection
+|
+get
+(
+'/api/channels'
+)
+end
+,
+#More connector code here
+}
+このコネクターのコード全体は
+こちら
+(opens new window)
+で確認できます。
+Iterable API については
+こちら
+(opens new window)
+を参照してください。
+#
+ステップ1 - コネクション項目の定義
+この部分では、コネクションの確立を試みるユーザーに向けて表示すべき項目を Workato に指示します。API キー認証の場合、ユーザーが Iterable において生成した APIキー (
+API key
+) が必要となります。
+ユーザーからの情報
+説明
+API キー
+Workato のエンドユーザーによって生成された API キー
+この指示は
+fields
+キーの中で行われます。このキーはハッシュの配列を受け入れ、その配列内の各ハッシュが、それぞれ個別の入力項目に対応しています。
+fields
+:
+[
+{
+name
+:
+'api_key'
+,
+label
+:
+'API key'
+,
+control_type
+:
+'password'
+,
+optional
+:
+false
+,
+hint
+:
+'Get your <b>standard</b> API key <a href="https://app.'
+\
+'iterable.com/settings/apiKeys" target="_blank">here</a>.'
+}
+]
+,
+TIP
+項目を定義する際は、少なくとも
+name
+キーを指定する必要があります。
+optional
+、
+hint
+、
+control_type
+といった追加的な属性を指定すると、その項目のほかの要素をカスタマイズできます。クライアントシークレットのような機密情報に対しては、必ず
+control_type
+を
+password
+として使用してください。
+Workato 内の入力項目を定義する方法について、詳しくは
+こちら
+を参照してください。
+#
+ステップ2 - 認証の定義
+この部分では、入力項目から受け取った値をコネクションの確立にどう利用するかについて Workato に指示します。これは、
+authorization
+キーを通じて処理されます。このキー内では、まず認証の種類 (
+type
+) を定義します。API キー認証の場合は、
+api_key
+を使用します。
+authorization
+:
+{
+type
+:
+'api_key'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+headers
+(
+api_key
+:
+connection
+[
+'api_key'
+]
+)
+end
+}
+,
+#
+ステップ3 - 以降の HTTP リクエストに対する資格情報の適用
+次に、このコネクターのユーザーから受け取る API キーの使用方法を Workato に指示する必要があります。これは
+apply
+キー内で行われます。このキーでは収集された API キーを、引数
+connection
+を通じて参照できます。
+apply
+キー内に記述したすべての命令は、コネクションの確立後にこのコネクターが送信する HTTP リクエストすべてに適用されます。
+この例では、受け取った API キー (
+connection['api_key']
+) を、あらゆるリクエストのヘッダーに追加するように定義しています。送信される各 HTTP リクエストのヘッダーに、
+api_key: XXX
+(
+XXX
+は API キー) が含まれることになります。
+#
+ステップ4 - API のベース URI の設定
+この部分では、API のベース URL を Workato に指示します。このキーは任意ですが、これを利用すると、コネクターのほかの部分で HTTP リクエストを定義する際に相対パスのみを入力できるようになります。
+base_uri
+の設定方法については、
+こちら
+を参照してください。
+base_uri
+:
+lambda
+do
+|
+connection
+|
+"https://api.iterable.com"
+end
+TIP
+この lambda 関数では引数
+connection
+にもアクセスできます。これは、API のベース URI がユーザーのインスタンスに基づいて変化する場合に特に便利です。引数
+connection
+には次の形式でアクセスできます。
+base_uri
+:
+lambda
+do
+|
+connection
+|
+#some code here
+end
+#
+ステップ5 - コネクションのテスト
+エンドユーザーから収集する必要のある項目と、それらの項目からの入力をどう利用するかを定義したので、次はこのコネクションをテストする手段が必要です。これは
+test
+キー内で扱われます。
+test
+:
+lambda
+do
+|
+connection
+|
+get
+(
+'/api/channels'
+)
+end
+,
+このキー内ではエンドポイントを指定する必要があります。このエンドポイントは、直前に受け取った新しい資格情報を使ってサンプルリクエストを送信するために利用されます。HTTP レスポンスとして200 OK を受け取った場合、接続は成功となります。上記の例では、エンドポイント
+/api/channels
+に
+GET
+リクエストを送信し、入力された API キーが有効であればレスポンスとして200 OK を受け取ることが期待されています。
+#
+バリエーション
+API キーを各リクエストの URL パラメータやユーザーフィールドで送信する必要がある場合も、ただ
+apply
+キーを修正するだけで済みます。
+#
+API キー を URL パラメータに含める場合
+authorization
+:
+{
+type
+:
+'api_key'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+params
+(
+api_key
+:
+connection
+[
+'api_key'
+]
+)
+# For URL parameters
+end
+}
+,
+#
+API キーをユーザー名フィールドに含める場合
+authorization
+:
+{
+type
+:
+'api_key'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+user
+(
+connection
+[
+'api_key'
+]
+)
+# For username
+password
+(
+""
+)
+# user method needs to be accompanied with an empty password declaration.
+end
+}
+,
+#
+コネクションの SDK リファレンス
+connection
+キー内で使用可能なキーとそのパラメータについての詳細は、
+SDK リファレンス
+を確認してください。
+←
+基本認証
+ヘッダー認証
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サンプルコネクター - Iterable
+ステップ1 - コネクション項目の定義
+ステップ2 - 認証の定義
+ステップ3 - 以降の HTTP リクエストに対する資格情報の適用
+ステップ4 - API のベース URI の設定
+ステップ5 - コネクションのテスト
+バリエーション
+コネクションの SDK リファレンス
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

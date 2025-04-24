@@ -1,0 +1,293 @@
+Internal and upstream/downstream application errors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+Run-time errors
+#
+Internal and upstream/downstream application errors
+Identifying the origin of an error in your solution is crucial for effective troubleshooting. Understanding whether the issue occurred within Workato, an intermediary middleware layer, or a backend database can help you streamline your efforts and achieve a timely resolution.
+Differentiating between internal and external errors is important for both triggers and actions. Action errors typically receive more attention due to their complexity. However, addressing trigger errors is also critical, as they may indicate connectivity or configuration issues, particularly when interacting with external systems.
+The following sections provide specific troubleshooting steps for each type of error:
+#
+Internal errors
+Refer to the following sections for common scenarios and troubleshooting methods for internal errors in Workato's platform-specific actions:
+#
+SQL Collection by Workato
+SQL Collection by Workato uses SQLite. Ensure your SQLite code adheres to the SQLite version 3.42.0 standards.
+Refer to the relevant tab for troubleshooting tips based on the scenario you encounter:
+If you encounter the following error when using the
+Create list
+action:
+Create list action error
+Verify the input fields. Ensure that the list source is an array and that it is set to
+Formula
+mode.
+Verify input
+If you encounter an
+Incomplete output
+error when using the
+Query lists
+action, update and sequence your output list schema correctly if the output appears incomplete.
+Sequence your output list schema
+If you encounter a
+No such column error
+when using the
+Query lists
+action, use the API name, not the label name, when writing the query.
+Use API name
+#
+Parsers and readers (XML/JSON/CSV)
+Errors with parsers typically result from data input that does not match the expected formats.
+Complete the following steps to troubleshoot parsers and readers:
+1
+Ensure that the data does not contain prohibited strings or delimiters, such as commas in a CSV string.
+2
+Ensure XML strings do not contain unescaped
+<
+or
+>
+symbols, and handle backslashes carefully when parsing data.
+3
+Verify that your source data adheres to the expected format rules. Use tools such as Notepad++ or Sublime Text for On-prem validation.
+4
+Follow XML rules for parsers, and ensure your sample document accurately represents the documents you are parsing.
+#
+RecipeOps
+RecipeOps actions can help automate troubleshooting and error handling in your Workato recipes. They offer key functions to manage and resolve errors effectively, including the following:
+Error aggregation
+Use RecipeOps to gather errors from various jobs and recipes.
+Recipe restart
+Restart recipes that have been interrupted, typically due to trigger errors.
+Action retry scope
+Implement retries in the On Error block, retrying specific actions within a Monitor block.
+Complete reruns
+Repeat all job actions using the original trigger data.
+System recovery
+Support recovery strategies during frequent system outages, such as server downtimes or critical errors.
+Errors associated with RecipeOps are uncommon. Learn more about
+RecipeOps
+.
+#
+Upstream/downstream application errors
+Upstream and downstream application errors arise from applications connected to Workato, rather than from Workato itself. They often occur when connecting to external or internal systems.
+Common scenarios include the following:
+Cloud connections
+Errors involving interactions with external cloud services such as Salesforce, Netsuite, or ServiceNow.
+On-premise connections
+Issues that occur when dealing with On-premise solutions such as SAP.
+Database interactions
+Errors due to connection timeouts, data discrepancies, or schema changes when interacting with databases.
+HTTP requests
+Problems with the Workato HTTP action, such as incorrect endpoints, timeouts, or payload formatting issues.
+Custom connectors
+Errors related to custom connectors can result from outdated APIs, incorrect configurations, or service downtimes.
+File system connections
+Errors can occur when actions involve file systems like SFTP or FTP due to permission issues, incorrect file paths, or server downtimes.
+Handling these application errors requires an in-depth understanding of the external system. While Workato support can offer general guidance, consulting an expert on the specific external application can help you quickly pinpoint and resolve the problem.
+#
+Troubleshoot external cloud connections
+When managing actions related to external cloud systems in Workato, understanding the nature and source of errors is essential. Complete the following steps to troubleshoot these issues:
+1
+Check the HTTP error codes to identify why the call from Workato failed.
+2
+Inspect the debug tab for detailed HTTP interactions between Workato and the external system. If the tab only shows the execution time or is unavailable, try rerunning the job for more details.
+3
+Determine if the errors are intermittent or constant. Intermittent errors may indicate temporary connectivity issues, while constant errors suggest problems with the external application or your Workato request.
+4
+Consult the external application for logs or records related to the error in Workato. If there are no logs of Workato's message, it may indicate connectivity issues or rate limit constraints.
+#
+Troubleshoot Workato HTTP actions
+When using an HTTP connector action in Workato to connect with an external endpoint, complete the following steps to troubleshoot potential issues:
+1
+Verify connectivity to ensure the external application that Workato is attempting to reach is hosted on a server with internet access.
+2
+Include
+Workato's IP addresses
+if the application needs to be added to an allowlist.
+3
+Verify incoming calls by checking the application logs for any calls from Workato.
+#
+Categorize HTTP status responses
+After addressing connectivity, IP allowlisting, and incoming call verification, categorize the errors according to the status codes outlined in the following tabs:
+2XX status codes indicate successful communication, with 200 being a common example. If you encounter issues with these codes in Workato, review how the external system generates and sends the 200 response.
+4XX status codes indicate client-side errors. The response should typically include details explaining the cause of the error.
+5XX status codes suggest server-side errors, indicating that the external system detected an issue or couldn't process your request.
+Visit
+Workato's systems status page
+(opens new window)
+to check the current platform status.
+If your error lacks an HTTP status code, it may be due to an internal error in the application making the call. Check your application logs to gain more clarity on these issues.
+#
+Troubleshoot On-prem Connectivity
+When troubleshooting On-prem connectivity issues, log files are critical for gaining insights into potential problems.
+The On-prem agent (OPA) logger creates a new log file at the beginning of each day, according to the On-premise system's time. Additionally, a new log file is generated once the file size exceeds 20 MB. If multiple log files are created in a single day due to this size limit, they are sequentially numbered for differentiation. For example:
+/agent-2019-11-01.0.log
+: This is the first file created for the day. If logs for the day don't exceed 20MB, this is the only file.
+/agent-2019-11-01.1.log
+: This is the next log file created if additional logs are needed that day. The last number in the file name gets incremented if there is a need for more files in that particular day.
+OPA logs are stored in different locations depending on whether your system is running Windows or Linux. The following sections explain how to access these logs on each platform:
+#
+Windows
+If your On-prem agent operates as a Windows service, you can find the log files at
+%SYSTEMROOT%\System32\LogFiles\Workato
+. Additionally, a shortcut to the Workato log directory is available in the Workato group within the Start menu.
+#
+Linux
+For an OPA set up as a Linux service through
+systemd
+, the default log location is
+/var/log/messages
+. However, because OPA logs can be combined with other system logs, use the
+journalctl
+tool for more specific logging.
+To access logs from the OPA agent using
+journalctl
+, run the following command:
+journalctl
+-u
+[
+name of the OPA service
+]
+.service
+The
+-u
+switch limits the logs to only those generated by the designated service – the OPA in this case. Replace
+[name of the OPA service]
+with the actual service name used during installation.
+You can refine your log search with various modifiers and switches:
+Export the result of
+journalctl
+to a file:
+> [output file]
+.
+Specify a time frame with
+--since
+and
+--until
+options.
+For example:
+journalctl
+-u
+workato.service
+--since
+"2020-07-26 23:15:00"
+--until
+"2020-08-5 23:20:00"
+>
+OPALogs.txt
+Learn more about
+journalctl
+logging options
+(opens new window)
+.
+#
+IP allowlisting
+Ensure that you complete the necessary IP allowlisting steps if the external application requires it.
+←
+Action and trigger errors
+APIM/webhook errors
+→
+Last updated:
+8/26/2024, 9:17:58 PM
+On this page
+Internal errors
+Upstream/downstream application errors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

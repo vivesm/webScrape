@@ -1,0 +1,170 @@
+Workato connectors - OneDrive - Upload large file via session action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+OneDrive
+#
+OneDrive - Upload large file using session action (file)
+The
+Upload large file using session
+action uploads a large file to Microsoft OneDrive using a file session. There is no fixed file size limit. The maximum size depends on whether the upload completes within the job timeout limit.
+#
+Input
+Input fields
+Description
+Folder
+Select the folder where you plan to upload files. Enter the file path where you plan to add the new file. For example,
+folder-one/folder-two
+.
+File name
+Provide the file name with its extension, such as
+New-csv-file.csv
+. If a file with the same name exists, the action overwrites it.
+File size
+Enter the size of the file in bytes.
+File contents in text or binary format
+Provide the content of the file in text or binary format.
+Chunk size
+Configure the chunk size to optimize throughput. A larger chunk size increases throughput but risks hitting API limits. The value entered is multiplied by
+320
+KB. The default is
+5
+(
+1600
+KB).
+#
+Output
+Output fields
+Description
+ID
+The unique identifier of the uploaded file.
+Name
+The name of the uploaded file.
+File size
+The size of the uploaded file in bytes.
+Web URL
+The URL to view the file or folder in a web browser.
+Download URL
+The URL to download the file.
+Kind
+Indicates whether the item is a file or folder.
+Created by
+Information about the user who created the file or folder.
+Created date time
+The date and time when the file or folder was created.
+Last modified by
+Information about the user who last modified the file or folder.
+Last modified date time
+The date and time when the file or folder was last modified.
+ETag
+The ETag (entity tag) is a unique identifier assigned to a version of a file or resource in OneDrive. It serves as a way for the system to track whether the content of the file has changed.
+CTag
+The CTag (change tag) is a timestamp or identifier used to track changes in a folder in OneDrive. It is often used for synchronization of folder contents, rather than individual files.
+←
+Upload file URL action (file)
+OpenAI
+→
+Last updated:
+1/16/2025, 3:49:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

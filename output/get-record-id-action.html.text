@@ -1,0 +1,152 @@
+Workato connectors - Wrike - Get record ID action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Get record ID action
+The
+Get record ID
+action converts a legacy record ID in Wrike to its API v4 format. You can use the API v4 in actions such as
+Get task by ID
+,
+Get folder by ID
+, and
+Get attachment metadata
+.
+#
+Input
+Input field
+Description
+Record type
+Select the type of record to convert to API v4 format.
+Record IDs
+Enter one or more legacy record IDs. You can find these IDs at the end of the URL when you access the record in the Wrike web interface. For example, in the permalink
+https://files.wrike.com/123456/123456789
+, the last 9 digits (
+123456789
+) represent the legacy record ID. Example input:
+123456789, 987654321
+.
+#
+Output
+Output field
+Description
+ID mappings
+List of ID mappings between API v4 and legacy formats.
+API v4 ID
+The converted API v4 format ID.
+Legacy ID
+The original legacy format ID.
+List size
+Total number of records in the batch.
+List index
+Position of the current record in the batch.
+←
+Get folder by ID action
+Get task by ID action
+→
+Last updated:
+2/26/2025, 10:21:24 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

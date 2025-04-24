@@ -1,0 +1,164 @@
+OpenAI - テキストプロンプトアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+OpenAI
+#
+テキストプロンプトアクション
+このアクションは、OpenAIの強力な言語モデルを使用して、指定されたプロンプトに対する補完を生成します。単純にプロンプトと必要なパラメータを提供するだけで、アクションは1つまたは複数の予測された補完を返します。このアクションを使用して、テキストの自動補完、質問への回答、新しいコンテンツの生成を簡単に行うことができます。
+テキストプロンプトアクション
+#
+入力
+フィールド
+説明
+モデル
+テキストプロンプトを送信するOpenAIモデルを選択します。
+プロンプト
+補完を生成するためのプロンプト。プロンプトが指定されていない場合、モデルは新しいドキュメントの開始時として生成します。複数の文字列（またはトークン）に対して応答を作成する場合は、関連する情報をデータピルとして入力してください。フォーマットの詳細については、
+こちら
+(opens new window)
+を参照してください。
+最大トークン数
+補完で生成するトークンの最大数。プロンプトのトークン数とここでの値の合計は、モデルのコンテキスト長を超えることはできません。ほとんどのモデルのコンテキスト長は2048トークンです（最新のモデルは4096をサポートしています）。
+サフィックス
+挿入されたテキストの補完の後に続くサフィックス。
+Top p
+補完の多様性を制御するために、0から1の値を入力します。値が高いほど、より多様な応答が生成されます。これと温度の両方を使用することはお勧めしません。詳細は
+こちら
+(opens new window)
+をご覧ください。
+温度
+補完のランダム性を制御するために、0から2の値を入力します。値が高いほど、出力はよりランダムになり、値が低いほど、より焦点を絞った決定論的な出力になります。これとtop pの両方を使用することはお勧めしません。詳細は
+こちら
+(opens new window)
+をご覧ください。
+補完の数
+プロンプトに対して生成する補完の数。
+ログ確率
+次のn個（この値によって決まる）の最も可能性の高いトークンと選択されたトークンのログ確率を取得するための数値を入力します。詳細は
+こちら
+(opens new window)
+をご覧ください。
+停止フレーズ
+生成を終了する特定の停止フレーズ。たとえば、停止フレーズをピリオド（.）に設定すると、モデルはピリオドに到達するまでテキストを生成し、その後停止します。生成されるテキストの量を制御するために使用します。
+存在ペナルティ
+-2.0から2.0の数値。正の値は、テキストに現れるかどうかに基づいて新しいトークンにペナルティを与え、モデルが新しいトピックについて話す可能性を高めます。
+頻度ペナルティ
+-2.0から2.0の数値。正の値は、テキストにおける既存の頻度に基づいて新しいトークンにペナルティを与え、モデルが同じ行を繰り返す可能性を低下させます。
+ベストオブ
+送信前に実際に生成される結果の数を制御します。なお、補完の数はここで入力した値より少なくすることはできません。
+ロジットバイアス
+トークンとそれぞれの特定のトークンのロジットの変化を含むJSONを入力します。たとえば、{"50256": -100}を渡すことで、`
+<td rowspan="3">使用法</td>
+<td>Prompt トークン</td>
+<td>プロンプトによって使用されるトークンの数。</td>
+</tr>
+<tr>
+<td>補完トークン</td>
+<td>テキストの補完に使用されるトークンの数。</td>
+</tr>
+<tr>
+<td>合計トークン</td>
+<td>プロンプトと応答によって使用されるトークンの総数。</td>
+</tr>
+←
+ChatGPTへのメッセージ送信
+録音の転写
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

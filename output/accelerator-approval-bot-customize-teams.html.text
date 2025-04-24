@@ -1,0 +1,200 @@
+Approval Bot accelerator- customize for Microsoft Teams | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+Approval Bot, Slack/Microsoft Teams
+#
+Customize the Approvals bot accelerator for Microsoft Teams
+If you plan on implementing the
+Approval bot accelerator
+in Microsoft Teams, you must configure the following recipes:
+ABT | REC-001 | Requests from Source System
+ABT | REC-003 | Approve/Reject Request from Microsoft Teams
+CUSTOMIZE APPROVAL WORKFLOW
+The approval workflow in this accelerator triggers from a new/updated row in Google Sheets by default. If you decide to use an application other than Google Sheets as the basis of your approval workflow, you must also change the connection in the preceding recipes.
+#
+Configure recipe
+ABT | REC-001 | Requests from Source System
+This recipe calls the
+ABT | Call-001 | Request to Microsoft Teams
+recipe when there is a new/updated row in a sheet in Google Sheets.
+To configure this recipe:
+1
+Optional
+. If you plan on using a connection other than Google Sheets, update your connection in
+Step 1
+.
+2
+In
+Step 1
+, enter the
+spreadsheet
+,
+sheet
+, and
+column to monitor
+.
+Spreadsheet
+Select a spreadsheet to monitor for a new/updated row.
+Sheet
+Select a sheet to monitor for a new/updated row. The sheet must have at least one header row and one data row.
+Column to monitor
+Workato monitors this column for changes. When a cell in this column changes value, Workato considers the corresponding row as
+updated
+and triggers the recipe.
+3
+Map the datapills from
+Step 1
+into
+Step 2
+. Workato preconfigures this step for you.
+The input fields in Workato correspond to headers in Google Sheets. Alternate applications should contain similar fields.
+Requester
+The person who submitted an approval request.
+Requester_email
+The email address belonging to the person who submitted the approval request.
+Request_app
+The app the requester is seeking approval for.
+Request_description
+The message accompanying the approval request.
+Date_requested
+Date of the approval request.
+Approver
+The person you designate to process approval requests.
+Approver_email
+The email address that belongs to the person you designate to process approval requests.
+Request_url
+The URL of the request.
+Date_approved
+If the approver approves the request, this is the approval date.
+Date_rejected
+If the approver denies the request, this is the rejection date.
+Request_ID
+The unique ID that belongs to the request.
+#
+Configure recipe
+ABT | REC-002 | Approve/Reject Request from Microsoft Teams
+Follow these steps to configure this recipe:
+1
+Optional.
+If you plan to use an application other than Google Sheets, change the sheet connection to your chosen application.
+2
+Map the result (approval or rejection) back to your application in
+Step 14
+and
+Step 23
+.
+3
+Optional.
+If you are not using the
+Sheet connector
+, delete
+Step 5
+.
+←
+Customize for Slack
+Start
+→
+Last updated:
+2/22/2024, 11:17:11 PM
+On this page
+Configure recipe ABT | REC-001 | Requests from Source System
+Configure recipe ABT | REC-002 | Approve/Reject Request from Microsoft Teams
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

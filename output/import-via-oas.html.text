@@ -1,0 +1,177 @@
+SDK - Open API Specification（OAS）からのインポート | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+OASからのコネクタ生成
+OASを使用することで、コネクタの構築を迅速化することができます。OAS生成ツールを使用すると、認証とアクションがすでに組み込まれたOASから直接コネクタを作成することができます。
+#
+OAS生成ツールの使用方法
+新しいカスタムコネクタを作成する場合にのみ、OAS生成ツールを使用できます。
+OASを提供してコネクタを作成するオプションを選択します。
+OASを直接ファイルアップロードするか、OAS仕様の公開URLを指定します。OASを指定した後、コネクタの名前を調整し、ロゴを提供することができます。これらは重要です。これにより、ユーザーは接続先のアプリケーションを識別することができます。
+生成されたコネクタ内に含める認証タイプとアクションをリストから選択します。
+アクションを選択して続行すると、Workatoはリクエストを解析し、生成されたコネクタを返します。
+TIP
+関連するアクションのサブセットを持つコネクタの方が、すべての可能なアクションをサポートする一般的なコネクタよりもユーザーエクスペリエンスが向上する場合があります。Workatoでは、エンドユーザーが必要とするアクションのみを選択することをお勧めします。後でアクションを追加することもできます。
+#
+WorkatoはどのようにOASドキュメントからコネクタを生成しますか？
+WorkatoのSDKには、コネクタの4つの主要な機能があり、それらはOASの異なる部分にマッピングされます。
+Servers
+`connection`と`base_uri`内のフィールド
+`security_schemes`
+`connection`内のフィールドと認証ロジック
+Path items
+個々のアクション、各アクションの入力と出力のための`object_definitions`およびメソッド
+Components
+関連するアクションで参照される`object_definitions`
+#
+生成されたコネクタはどのように動作しますか？
+各生成されたアクションは、OASドキュメントの詳細から生成されます。各アクション内では、APIエンドポイントで必要なすべてのフィールドを含む
+object_definitions
+を参照する
+input_fields
+が表示されます。これには、ヘッダー、クッキー、クエリパラメータ、およびリクエストペイロードの値の入力が含まれます。また、成功した呼び出しのための予想される応答ペイロード属性を含む
+object_definition
+を参照する
+output_fields
+も含まれます。
+各
+object_definition
+内では、Workatoスキーマにはあなたには馴染みのない追加の属性がある場合があります。これらは、あなたのOASから保持される特別な属性であり、コネクタが適切なAPIリクエストを作成する方法を理解するための重要なマーカーです。
+#
+生成されたコネクタのテスト
+コネクタが生成された後は、レシピで使用する前に必ずテストしてください。コードエディタの直下に表示される
+WorkatoのSDKデバッガーツール
+を使用します。生成された接続のコードが期待どおりに動作し、アクションも期待どおりに動作することを確認してください。
+コネクタをレシピで使用するためには、最新バージョンのコネクタをリリースする必要があります。右上隅にある「最新バージョンをリリース」をクリックしてください。その後、ワークスペースのすべてのユーザーがこのコネクタをレシピで使用できるようになります。
+#
+次は何ですか？
+コネクタを改善するためのさらなるステップがあります。
+コネクタの拡張について詳しく学ぶ
+。
+#
+トラブルシューティング/FAQ
+1. OASの解析に失敗したか、生成されたコードが期待どおりに動作しない場合は、どうすればよいですか？
+OASがコネクタに解析されなかった原因はさまざまです。OASドキュメントが有効であり、バージョン3.0であることを確認してください。
+サポートチケットにお問い合わせいただき、OASを提供してください。当社のチームが問題をトラブルシューティングし、分析します。
+2. トリガーが解析されたコネクタに含まれていないのはなぜですか？
+トリガーには、ページネーションロジックやカーソル管理などの追加の組み込みロジックがしばしば含まれています。初期リリースでは、トリガーは自動的に生成されず、手動で実装する必要があります。ただし、生成された
+object_definitions
+と
+methods
+を再利用して、必要なトリガーを構築することができます。
+3. OAS 3.1およびSwagger 2.0はサポートされますか？
+他のバージョンのOpenAPIドキュメントのサポートについては検討中です。最新のサポートのタイムラインについては、CSMにお問い合わせください。
+4. 生成されたコネクタのコードのインデントが正しくありません。どうすればよいですか？
+コードエディタでカーソルをフォーカスした状態で、
+ctrl+a
+（Windows）または
+cmd+a
+（Mac）を使用してコネクタのコード全体を選択し、
+shift+tab
+を使用してコードを自動インデントすることができます。
+5. 生成されたコネクタはどのデータ形式をサポートしていますか？
+OAS生成ツールは、JSON APIのみをサポートしています。
+Last updated:
+2024/2/13 16:59:53
+On this page
+OAS生成ツールの使用方法
+WorkatoはどのようにOASドキュメントからコネクタを生成しますか？
+生成されたコネクタはどのように動作しますか？
+生成されたコネクタのテスト
+次は何ですか？
+トラブルシューティング/FAQ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

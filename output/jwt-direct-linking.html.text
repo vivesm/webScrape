@@ -1,0 +1,379 @@
+JWT ダイレクトリンク | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+CX オプション
+#
+JWT ダイレクトリンク
+ダイレクトリンクとは、Embedded パートナーがプラットフォームを Workato アカウント内の安全なリソースにリンクできるようにする機能です。この機能は、Workato ページが IFrame を使ってパートナーのプラットフォームに埋め込まれている場合に特に便利です。
+ユーザーに安全なリソースへのアクセス権が付与される前に、そのユーザー用の Workato セッションが作成されます。アクセス権の付与には JWT トークンが使用されます。このトークンは、非対称鍵ペアを使った RS256 アルゴリズムによって生成されます。
+#
+アカウントの構造
+通常、Embedded パートナーとそのカスタマーのアカウントの構造は、以下の図のようになります。
+Embedded アカウントの階層構造
+#
+必要な情報
+情報
+必須
+提供元
+RSA の公開鍵
+Yes
+パートナーが JWT トークンの署名に使用する公開鍵を Workato に提供します。詳細については、
+JWT キーの生成
+を参照してください。
+Embedded のベンダー API キー
+Yes
+ダイレクトリンクの実装を始める際は Workato までお問い合わせください。Workato から安全な方法でベンダー API キーをお渡しします。
+カスタマーチームのアカウント ID
+Yes
+作成されたすべてのカスタマーアカウントの Workato ユーザー ID または外部 ID です。managed_users API を使用して作成した場合は、出力として返されます。
+アカウントの作成に UI を使った場合、
+カスタマーの ID は、そのカスタマー情報ページを表示した際の URL に含まれています。
+または
+、
+カスタマーアカウント内で、任意のレシピのデータツリーからも取得できます (ユーザー ID)。
+外部 ID を渡す場合は、先頭に
+E
+を付ける必要があります (例 : 外部 ID が T7423 の場合は ET7423 を渡す)。結果として返される ID は URL エンコードされます。たとえば、外部 ID が「TM10:YV303」である場合、URL エンコードされた値は「
+ETM10%3AYV303
+」となります。
+カスタマーのユーザー ID
+Yes
+カスタマーチーム内のユーザーの Workato ユーザー ID です。通常、このアカウントは以下に属します。
+カスタマーオーガナイゼーション内の個人、
+または
+パートナーがカスタマーアカウントを管理するために割り当てた担当者。
+managed_users API を使用して作成した場合は、出力として返されます。
+ユーザーの作成に UI を使った場合、
+カスタマーの ID は、カスタマーアカウント内で、任意のレシピのデータツリーからも取得できます (ユーザー ID)。
+外部 ID を渡す場合は、先頭に
+E
+を付ける必要があります (例 : 外部 ID が C9426 の場合は EC9426 を渡す)。結果として返される ID は URL エンコードされます。たとえば、外部 ID が「CM71:CV217」である場合、URL エンコードされた値は「
+CM71%3ACV217
+」となります。
+Workato アセットへのパス
+Yes
+パートナーがリンク先に設定したい Workato ページへのパスです。
+たとえば、コミュニティレシピにリンクする場合の Workato URL は、
+https://www.workato.com/browse/recipes
+(opens new window)
+となります。
+パスには、
+https://www.workato.com/
+(opens new window)
+に続くパラメータとフラグメントをすべて含めます。
+#
+Embedded パートナーの実装
+ダイレクトリンク URL 生成マイクロサービスをベンダーのサーバーに追加する必要があります (
+https://www.vendor.com/integrate_direct_link
+(opens new window)
+)。
+このエンドポイントでは、ベンダー認証が必要です。
+このサービスは、Workato アセットへのパスを受け入れます。
+このサービスは、以下のような URL を生成します。
+'https://www.workato.com/direct_link/' + path + '?' + query_params + '#' + fragment
+このサービスは、以下のような JWT トークンを生成します。
+ヘッダー部分
+typ
+クレームは JWT に設定
+alg
+クレームは RS256 に設定
+ペイロード部
+sub
+クレームは以下に設定
+<WORKATO_EMBEDDED_VENDOR_API_KEY>:<CUSTOMER_TEAM_ID>:<CUSTOMER_USER_ID>
+iat
+クレームはエポック秒で現在時刻に設定
+jti
+クレームはグローバルに一意な値に設定。この値は10分間に1回のみ使用してください。
+origin
+クレームは省略可能。ただし、
+カスタマー
+または
+ベンダー
+レベルで複数のオリジンが指定されている場合は、このクレームは必須になります。指定されたオリジンはセッションオブジェクトに保存され、セッションの存続期間の間使用されます。
+RS256 アルゴリズムを使用した秘密鍵で署名する (事前に Workato に渡しておいた公開鍵に対応する秘密鍵である必要があります)
+このサービスは、
+workato_dl_token
+パラメータが JWT トークンに設定された新しい URL にリダイレクトされます。
+ダイレクトリンクの URL は、ベンダーの HTML ページで Workato アセットを参照するために使用できます。ベンダーが HTML ページで JWT トークンを公開することがないようにしてください。
+例 :
+<
+html
+>
+<
+head
+>
+</
+head
+>
+<
+body
+>
+<
+p
+>
+<
+a
+href
+=
+'
+https://www.vendor.com/integrate_direct_link/recipes/1
+'
+target
+=
+_blank
+>
+Salesforce to Vendor lead sync
+</
+a
+>
+</
+p
+>
+</
+body
+>
+</
+html
+>
+#
+JWT キーの生成
+#
+秘密鍵
+秘密鍵を一から生成するには、以下のコマンドを使用します。
+$ openssl genrsa
+-out
+private.key
+2048
+$
+cat
+private.key
+-----BEGIN RSA PRIVATE KEY-----
+..
+.
+-----END RSA PRIVATE KEY-----
+#
+公開鍵
+次に、以下のコマンドで公開鍵を抽出します。
+$ openssl rsa
+-in
+private.key
+-pubout
+-out
+public.key
+$
+cat
+public.key
+-----BEGIN PUBLIC KEY-----
+..
+.
+-----END PUBLIC KEY-----
+#
+鍵を PEM 形式に変換する
+別の方法で鍵を生成した場合は、Workato に送信する前に、鍵の形式を変換する必要がある可能性があります。
+SSH 公開鍵から変換する場合は、以下のコマンドを使用します。
+$ ssh-keygen
+-f
+key.pkcs
+-e
+-m
+pem
+>
+key.pem
+#
+エラー
+以下に、JWT ダイレクトリンクの実装中に発生する可能性のあるエラーとその解決方法のリストを示します。
+カテゴリ
+エラー
+説明
+対応手順
+HTTP リクエスト
+http_request_invalid
+サーバーに送信されたリクエストが、次のいずれかの条件を満たしていません。
+- 有効な HTTP リクエストである
+- HTML 形式である
+- XHR 形式ではない
+送信されるリクエストが指定の条件を満たすようにします。
+path_invalid
+指定されたパスが有効であり、HTTPS で保護されている必要があります。
+URL またはパスを有効なものに修正し、「https://」で始まるようにします。
+JWT のヘッダーまたはペイロード
+token_missing
+JWT が存在していません。
+JWT がリクエスト中に存在するか確認します。
+token_invalid
+正しい構造の JWT には、ヘッダー、ペイロード、署名が以下の形式で含まれます。
+header.payload.signature
+このエラーは、これらの構成要素のいずれかが欠けているか、形式が正しくないことを示しています。
+JWT の形式が正しいことを確認します。
+token_signature_invalid
+JWT に署名する際に使用された署名 (秘密鍵) が無効です。
+JWT に署名する際に使用された署名の形式や設定が正しいことを確認します。
+alg_invalid
+JWT のヘッダーに使用された署名アルゴリズムが RS256 ではありません。
+ヘッダーの alg クレームの値が「RS256」であるか確認します。
+sub_missing
+ペイロードの sub (サブジェクト) クレームが存在しません。
+ペイロードの sub クレームが存在することを確認します。
+sub_invalid
+ペイロードの sub (サブジェクト) クレームが文字列ではありません。
+ペイロードの sub クレームが文字列であることを確認します。
+iat_missing
+ペイロードの iat (発行日時) クレームが存在しません。
+ペイロードの iat クレームが存在することを確認します。
+iat_invalid
+ペイロードの iat (発行日時) クレームが整数ではありません。
+ペイロードの iat クレームが整数であることを確認します。
+token_expired
+ペイロードの iat (発行日時) クレームの値が現在時刻の ±30秒です。
+iat クレームの値が現在時刻に基づいた有効な値であることを確認してください。
+jti_missing
+jti (JWT ID) クレームが存在しません。
+ペイロードの jti クレームが存在することを確認します。
+jti_invalid
+jti (JWT ID) クレームが文字列または整数ではありません。
+ペイロードの jti クレームが文字列または整数のいずれかであることを確認します。
+jti_reused
+jti (JWT ID) クレームが以前に使用された値です。
+jti クレームにグローバルに一意な値を使用してください。この値は10分間に1回のみ使用してください。
+アカウント関連
+team_missing
+Workato にアクセスしようとしているカスタマーチーム内のユーザーが、いずれのチームにも属していません。
+Workato にアクセスしようとしているカスタマーチーム内のメンバーが、カスタマーチームに正しく追加されていることを確認します。
+team_not_allowed
+ユーザーが Embedded パートナーの管理アカウントにログインしようとしています。これは許可されていません。
+アカウントの ID をカスタマーアカウント ID に変更します。
+team_direct_team_link_disabled
+カスタマーのチームアカウントが正しく設定されていません。
+このエラーを解決するため、Workato の担当者にご連絡ください。
+member_invalid
+チームにアクセスしようとしているユーザーは、チームの有効なメンバーではありません。
+Workato にアクセスしようとしているカスタマーチーム内のメンバーが、カスタマーチームに正しく追加されていることを確認します。
+team_unconfirmed
+チームアカウントの確認が行われていません。
+カスタマーチームのメールによる確認が必要です。不可能な場合、このエラーを解決するため、Workato の担当者にご連絡ください。
+member_unconfirmed
+チームメンバーのアカウントの確認が行われていません。
+カスタマーチームメンバーのメールによる確認が必要です。不可能な場合、このエラーを解決するため、Workato の担当者にご連絡ください。
+team_saml_required
+ユーザーがアクセスしようとしているチームで SAML SSO が有効になっています。ユーザーは、SAML SSO を有効にし、SAML IdP を使用してログインする必要があります。
+チーム管理者に連絡して、このユーザーの SAML SSO が有効になっていることと、このユーザーに SAML IdP を使用してログインするためのアクセス権があることを確認します。
+vendor_missing
+Embedded パートナーのアカウントが正しく設定されていません。
+このエラーを解決するため、Workato の担当者にご連絡ください。
+vendor_direct_team_link_disabled
+Embedded パートナーのアカウントが正しく構成されていません。
+このエラーを解決するため、Workato の担当者にご連絡ください。
+vendor_admin_missing
+Embedded パートナーのアカウントが正しく構成されていません。
+このエラーを解決するため、Workato の担当者にご連絡ください。
+vendor_key_missing
+Embedded パートナーのアカウントに一意のキーが割り当てられていません。
+このエラーを解決するため、Workato の担当者にご連絡ください。
+←
+実装
+JWT トラブルシューティング
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+アカウントの構造
+必要な情報
+Embedded パートナーの実装
+JWT キーの生成
+エラー
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

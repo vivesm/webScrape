@@ -1,0 +1,235 @@
+Handling JSON FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Working with files
+#
+Handling JSON FAQs
+Get answers to frequently asked JSON handling questions.
+What is JSON, and why is it important in the context of Workato?
+JSON (JavaScript Object Notation)
+is a data syntax used for storing and exchanging data. It is a popular and widely used format in the world of APIs. JSON is based on name/value pairs and arrays, making it highly readable and easily transmitted. In Workato, JSON is essential for handling data within recipes.
+How does Workato typically handle JSON data?
+Workato exposes
+JSON data
+as input fields and output datapills in recipes, making JSON mostly transparent to regular users. However, you may occasionally handle raw JSON data in specific workflow automation.
+What is an example of JSON data?
+The following
+JSON data example
+represents an array of contacts:
+[
+{
+"Name"
+:
+{
+"first_name"
+:
+"Sally"
+,
+"last_name"
+:
+"Jones"
+}
+,
+"Address"
+:
+{
+"street"
+:
+"20450 Stevens Creek Blvd #150"
+,
+"city"
+:
+"Cupertino"
+,
+"st"
+:
+"CA"
+,
+"postal"
+:
+"95014"
+}
+,
+"phone"
+:
+"4105554119"
+}
+,
+{
+"Name"
+:
+{
+"first_name"
+:
+"Bob"
+,
+"last_name"
+:
+"Towner"
+}
+,
+"Address"
+:
+{
+"street"
+:
+"1 Hacker Way"
+,
+"city"
+:
+"Menlo Park"
+,
+"st"
+:
+"CA"
+,
+"postal"
+:
+"94025"
+}
+,
+"phone"
+:
+"8552982507"
+}
+]
+How can I parse JSON data in Workato?
+Use the
+Parse JSON document action
+from JSON tools by Workato. This action extracts values from raw JSON based on a sample structure you provide.
+What are the input fields for the JSON parser in Workato?
+The
+Parse JSON document action input fields
+include the following:
+Sample document
+: A sample JSON structure that defines the expected format.
+Document
+: The actual JSON content to parse at runtime.
+Encoding of the file content
+: Set the character encoding.
+Edit schema
+: Refine or override the generated output schema.
+What can I expect as the output of the JSON parser in Workato?
+Datapills are generated using the JSON format in the
+Sample document
+field. For example, if your JSON contains an array with objects such as
+Name
+and
+Address
+, the
+output includes datapills that correspond to these objects and their properties
+.
+Are there alternatives to the built-in JSON parser for handling JSON data?
+Yes. If you frequently work with raw JSON data, we recommend that you consider more permanent solutions, such as custom connectors.
+Workato offers two primary options
+:
+HTTP connector:
+This is a convenient way to handle raw data from APIs. You can build HTTP triggers and actions to manage JSON data.
+Workato Connector SDK:
+This extension of the Workato framework supports various authentication procedures and allows developers to build, maintain, and distribute connectors to integration-seekers.
+←
+Handling JSON
+Handling XML
+→
+Last updated:
+4/1/2025, 2:07:47 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

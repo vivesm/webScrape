@@ -1,0 +1,373 @@
+Workato API - イベントストリーム | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+イベントストリーム
+#
+イベントストリーム
+イベントストリームAPIを使用すると、ユーザーは
+イベントトピック
+からメッセージを公開および取得できます。トピック内の各メッセージには、オフセットとして使用されるIDがあります。このエンドポイントを使用するには、
+message ID
+または
+last message timestamp
+のいずれかを保存する必要があります。
+WorkatoイベントストリームAPIのOpenAPI仕様は
+こちら
+(opens new window)
+からアクセスできます。
+WORKATO EVENT STREAMS の新しいAPIドメイン
+Workatoは、Event streams APIを新しいドメインに移行しました：
+event-streams.workato.com
+www.workato.com/api
+に公開されている従来のエンドポイントは引き続き動作しますが、1分あたり1000リクエストに制限されています。
+従来のドメインは、このページに記載されているのと同じリクエストおよびレスポンス形式で、
+/consume
+および
+/publish
+エンドポイントをサポートしています。
+#
+クイックリファレンス
+タイプ
+リソース
+説明
+POST
+/api/v1/topics/:topic_id/consume
+トピックからメッセージを取得します。
+POST
+/api/v1/topics/:topic_id/publish
+トピックにメッセージを公開します。
+POST
+/api/v1/batch/topics/:topic_id/publish
+トピックに複数のメッセージを公開します。
+#
+メッセージを取得する
+トピックからメッセージを取得します。このリソースでは、トピック内のすべてのメッセージを取得するか、リクエストボディにパラメータを含めて指定されたIDまたはタイムスタンプ以降のメッセージを取得するオプションを提供します。レスポンスは各バッチで最大50件のメッセージに制限されます。
+timeout_secs
+パラメータを設定することでロングポーリングモードを有効にできます。このモードでは、APIは利用可能なメッセージを即座に返します。メッセージがない場合、APIは最大
+timeout_secs
+秒間待機します。この間に新しいメッセージが現れた場合、即座に返されます。そうでなければ、呼び出しがタイムアウトした後に空のリストを提供します。
+POST /api/v1/topics/:topic_id/consume
+#
+URLパラメータ
+名前
+型
+説明
+topic_id
+integer
+required
+イベントトピックID。
+#
+ペイロード
+名前
+型
+説明
+after_message_id
+string
+optional
+メッセージID。サービスは指定されたIDのメッセージ以降のすべてのメッセージを返します。IDはトピック内に存在するメッセージである必要があります。
+since_time
+string
+optional
+RFC 3339形式のタイムスタンプ。サービスは指定されたタイムスタンプ以降のすべてのメッセージを返します。
+since_time
+の値が未来の場合、現在の時刻が使用されます。
+batch_size
+integer
+optional
+返す最大バッチサイズ。最大値は50です。指定しない場合は50件のメッセージを返します。
+timeout_secs
+integer
+optional
+ロングポーリングの最大タイムアウト。最大値は60です。デフォルト値は0です。0の場合、ロングポーリングは無効になります。
+USING SINCE_TIME PARAMETER
+We recommend using
+after_message_id
+to control the topic message cursor.
+since_time
+should only be used only for the first request (to poll messages from a specific timestamp without polling the whole topic), or if for some reason you need to re-retrieve messages from the topic. Using
+since_time
+, especially in combination with batch publish and long polling doesn't guarantee message order and can lead to skipped messages.
+#
+サンプルリクエスト
+curl
+-X
+POST
+"https://event-streams.workato.com/api/v1/topics/<id>/consume"
+\
+-H
+'Authorization: Bearer <token>'
+\
+-H
+'Content-Type: application/json'
+\
+--data
+'{"after_message_id": "A12x"}'
+#
+レスポンス
+{
+"messages"
+:
+[
+{
+"message_id"
+:
+"A12y"
+,
+"payload"
+:
+{
+"Name"
+:
+"Jane"
+,
+"Surname"
+:
+"Doe"
+}
+,
+"time"
+:
+"2023-04-14T15:07:14.437+00:00"
+}
+,
+{
+"message_id"
+:
+"A12z"
+,
+"payload"
+:
+{
+"Name"
+:
+"John"
+,
+"Surname"
+:
+"Doe"
+}
+,
+"time"
+:
+"2023-04-14T15:43:40.227+00:00"
+}
+]
+}
+#
+メッセージを公開する
+トピックにメッセージを公開します。メッセージはトピックスキーマに準拠している必要があります。
+POST /api/v1/topics/:topic_id/publish
+#
+URLパラメータ
+名前
+型
+説明
+topic_id
+integer
+required
+イベントトピックID。
+#
+ペイロード
+名前
+型
+説明
+JSON
+required
+トピックに公開するメッセージ。メッセージは
+トピックスキーマ
+に準拠している必要があります。
+#
+サンプルリクエスト
+curl
+-X
+POST
+"https://event-streams.workato.com/api/v1/topics/<id>/publish"
+\
+-H
+'Authorization: Bearer <token>'
+\
+--data
+'{"Name": "John", "Surname": "Doe"}'
+#
+レスポンス
+{
+"message_id"
+:
+"A1BRi"
+}
+#
+複数のメッセージを公開する
+複数のメッセージをトピックに公開します。メッセージはトピックスキーマに準拠している必要があります。
+POST /api/v1/batch/topics/:topic_id/publish
+#
+URLパラメータ
+名前
+型
+説明
+topic_id
+integer
+required
+イベントトピックID。
+#
+ペイロード
+名前
+型
+説明
+payloads
+Array of JSON
+required
+トピックに公開するメッセージの配列。メッセージは
+トピックスキーマ
+に準拠している必要があります。配列の最大サイズは100です。
+#
+サンプルリクエスト
+curl
+-X
+POST
+"https://event-streams.workato.com/api/v1/topics/<id>/publish"
+\
+-H
+'Authorization: Bearer <token>'
+\
+--data
+'{"payload":[{"Name": "John", "Surname": "Doe"},
+{"Name": "Jane", "Surname": "Doe"}]}'
+#
+レスポンス
+{
+"is_partial_error"
+:
+false
+,
+"message_ids"
+:
+{
+"0"
+:
+{
+"message_id"
+:
+"A1DFi"
+,
+"result"
+:
+"success"
+}
+,
+"1"
+:
+{
+"message_id"
+:
+"A1DL8"
+,
+"result"
+:
+"success"
+}
+}
+}
+←
+バッチでメッセージを発行
+コネクター
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+メッセージを取得する
+メッセージを公開する
+複数のメッセージを公開する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,273 @@
+Workato connectors - HL7 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+HL7 connector
+HL7
+(opens new window)
+, or Health Level Seven, is a set of international standards for the exchange, integration, sharing, and retrieval of electronic health information. HL7 messages are a key component of this standard, and serve as the format for exchanging information between healthcare applications. These messages are structured in a way that allows different systems to understand and interpret the data consistently. You can use HL7 messages for various purposes, including transmitting patient demographic information, laboratory results, clinical observations, and administrative data.
+The HL7 Workato connector allows you to send and receive HL7 messages in different versions, and includes a corresponding OPA extension.
+#
+Prerequisites
+You must complete the following prerequisites before you begin the installation process:
+Set up an
+on-prem agent (OPA)
+. You can use either a
+cloud profile
+or
+connection profile
+. Both options require the ability to manually edit the
+config.yml
+on the machine where the OPA is installed.
+Download and install
+Java 17 SDK
+(opens new window)
+.
+#
+Installation
+Complete the following steps to install the HL7 connector:
+1
+Locate the OPA directory on your filesystem. Typical locations are:
+Operating system
+Location
+Unix-like operating systems
+/opt/workato
+Windows
+C:\Program Files\Workato Agent
+macOS
+Location varies
+2
+Check if the JDK is already installed. It must be version 17 or later. Typical locations are:
+Operating system
+Location
+Unix-like operating systems
+/usr/lib/java
+Ubuntu
+/usr/share/java/
+Windows
+C:\Program Files\Java\jdk-<release>
+macOS
+Location varies based on distribution. Example:
+/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
+3
+Download the
+HL7 extension
+(opens new window)
+.
+4
+Download the file and extract the package to
+$OPA/ext
+where
+$OPA
+refers to your OPA installation directory.
+Learn more
+.
+5
+Navigate to the OPA configuration file at
+$OPA/conf/config.yml
+. To use the HL7 extension, you must update the configuration file according to the following instructions. This step applies whether the OPA is configured using a
+cloud profile
+or a
+connection profile
+.
+server
+:
+classpath
+:
+/opt/workato
+-
+opa/ext
+# Set the classpath to the path of the folder where the HL7 extension JAR files are located
+extensions
+:
+# HL7-Profile including a listener to receive messages
+hl7
+:
+# Name of the connection profile to be used, when creating a connection
+controllerClass
+:
+com.workato.extension.hl7.ExtensionController
+localPort
+:
+1011
+# Listening port to receive messages
+webhookURL
+:
+https
+:
+//webhooks.workato.com/users/
+...
+# The webhook URL to receive the HL7 message
+remotePort
+:
+1011
+# Port to send messages
+remoteHost
+:
+localhost
+# Hostname to send messages
+tls
+:
+false
+# Encoding used for sending and receiving messages. Possible values UTF-8, ISO-8859-1, UTF-16, ...
+# encoding: ISO-8859-1
+# HL7-Profile WITHOUT a listener, which allows to send messages only
+hl7_no_listener
+:
+controllerClass
+:
+com.workato.extension.hl7.ExtensionController
+remotePort
+:
+1011
+remoteHost
+:
+localhost
+tls
+:
+false
+# Encoding used for sending and receiving messages. Possible values UTF-8, ISO-8859-1, UTF-16, ...
+# encoding: ISO-8859-1
+6
+Install and release the connector from the Community Library.
+#
+Connection setup
+Complete the following steps to create an HL7 connection in Workato.
+Configure HL7 connection in Workato
+1
+Provide a
+Connection name
+that identifies which HL7 instance Workato is connected to.
+2
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+3
+Use the
+Connection type
+drop-down menu to select the
+on-premise group
+, where your HL7 extension is configured.
+4
+Use the
+Processing mode
+drop-down menu to select the HL7 processing ID you plan to use. Options are: Debugging, Production, and Training.
+5
+Provide your
+Profile name
+. To receive HL7 messages, the OPA profile
+MUST
+have a running HL7 listener.
+6
+Click
+Connect
+.
+←
+Update record action
+Send message action
+→
+Last updated:
+10/7/2024, 7:46:32 PM
+On this page
+Installation
+Connection setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

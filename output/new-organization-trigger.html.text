@@ -1,0 +1,138 @@
+Workato connectors - Zendesk new organization trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Zendesk
+#
+Zendesk - New organization trigger
+This trigger picks up new organizations that are created. Each organization is processed as a separate job. It checks for new organizations once every poll interval.
+Role privileges
+You need a Zendesk account with the Administrator role to use this trigger in your recipe.
+New organization trigger
+#
+Input fields
+Input field
+Description
+From
+Organizations created after this time will be processed by the recipe. If left blank, the default date will be set to
+one day
+before the recipe is first started.
+#
+Output fields
+The output of this trigger contains the full set of columns from the selected organization. Here are some commonly used outputs.
+Output field
+Description
+ID
+The unique Zendesk ID of the organization. This is automatically assigned when the organization is created.
+Group ID
+The unique Zendesk ID of the group of this organization.
+Organization custom fields
+Includes data of organization custom fields.
+Click here for a full list of
+organization outputs
+.
+←
+New/updated user
+New/updated organization
+→
+Last updated:
+7/2/2021, 10:09:23 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,209 @@
+Workato コネクター - Wrike create project アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Wrike
+#
+Wrike - Create project (プロジェクトの作成) アクション
+プロジェクトは、Wrike 内の作業を整理および管理し、作業のレポートを作成するための主な手段の1つです。Wrike プロジェクトとは、基本的にはフォルダーに追加のプロパティが足されたものです。
+このアクションは、指定された場所に1つのプロジェクトを作成します。メインプロジェクトを作成する場合は、親フォルダーとして
+[Root]
+を選択します。
+Create project アクション
+#
+入力項目
+入力項目
+説明
+Parent folder/project
+このフォルダーを作成する先の親フォルダー/プロジェクトを選択します。フォルダー/プロジェクト ID を使用するには、[Enter a folder/project ID] に切り替えます。
+Title
+フォルダーのタイトル。
+Project
+プロジェクトのプロパティを選択します。
+ステータス
+プロジェクトのステータス。
+User IDs of Wrike users who should own this project
+ユーザーをプロジェクトオーナーとして選択します。ソースリストを使用してユーザーを定義することも、ユーザー ID を手動で入力することもできます。
+Start date
+このプロジェクトの開始日。
+End date
+このプロジェクトの終了日。
+Description
+プロジェクトの説明。
+Users who share the project
+このプロジェクトを共有するユーザーを選択します。ソースリストを使用してユーザーを定義することも、ユーザー ID を手動で入力することもできます。
+Custom fields
+カスタムフィールドのデータを指定します。
+#
+出力項目
+出力項目
+説明
+Project ID
+プロジェクトの ID。
+Account ID
+アカウントの ID。
+Title
+プロジェクトのタイトル。
+Updated date
+このプロジェクトが更新された日付。
+Created date
+このプロジェクトが作成された日付。
+Description
+プロジェクトの説明。指定されない場合は空白になります。
+Users who share the project
+プロジェクトを共有するユーザーのリスト。
+User ID
+このプロジェクトを共有するユーザーの ID。
+List size
+リストのサイズ (取得されたユーザーの数に相当)。
+Parent project
+このプロジェクトの親プロジェクトのリスト。
+Project ID
+親プロジェクトのプロジェクト ID。
+List size
+リストのサイズ (取得された親プロジェクトの数に相当)。
+Child project
+このプロジェクトの子プロジェクトのリスト。
+Project ID
+子プロジェクトのプロジェクト ID。
+List size
+リストのサイズ (取得された子プロジェクトの数に相当)。
+Super parent project
+このプロジェクトの2階層上のプロジェクトのリスト。
+Project ID
+2階層上のプロジェクトのプロジェクト ID。
+List size
+リストのサイズ (取得された2階層上のプロジェクトの数に相当)。
+Scope
+プロジェクトのスコープ。
+Has attachments
+プロジェクトに添付ファイルがあるかどうかを示します。
+Permalink
+Web ワークスペースでプロジェクトを開くためのリンク。このリンクは、ユーザーに適切なアクセス権がある場合のみアクセス可能です。
+Workflow ID
+プロジェクトワークフローの ID。
+Metadata
+このプロジェクトのメタデータ。メタデータリストのサイズは、取得されたメタデータ項目の数に相当します。
+Project
+このプロジェクトのプロジェクトプロパティ。
+Author
+プロジェクトの作成者。
+Owner ID
+プロジェクトオーナーの ID のリスト。
+User ID
+プロジェクトオーナーのユーザー ID。
+List size
+リストのサイズ (取得されたプロジェクトオーナーの数に相当)。
+Status
+プロジェクトのステータス。
+Start date
+このプロジェクトの開始日。
+End date
+このプロジェクトの終了日。
+Created date
+このプロジェクトが作成された日付。
+Completed date
+このプロジェクトが完了した日付。
+Custom fields
+カスタムフィールドからのデータが含まれます。
+←
+フォルダーの作成
+タスクの作成
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

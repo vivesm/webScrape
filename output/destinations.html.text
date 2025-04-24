@@ -1,0 +1,286 @@
+データの送信先 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+データオーケストレーション
+#
+データの送信先
+#
+Workatoはどの送信先をサポートしていますか？
+以下のリンクを使用して、サポートされている送信先への接続を設定してください：
+Amazon S3
+Azure Blob Storage
+Databricks
+Google BigQuery
+Redshift
+Snowflake
+SQL Server
+詳細については、
+コネクタ
+のドキュメントを参照してください。
+#
+例：WorkatoをSnowflakeの送信先に接続する
+これらの手順では、SnowflakeデータウェアハウスをWorkatoデータパイプラインの送信先として使用する方法を示します。SnowflakeとWorkatoの接続に関する詳細なドキュメントについては、
+Snowflakeコネクタ
+のドキュメントを参照してください。
+この例を再現するには、WorkatoとSnowflakeのアカウント、および設定済みの
+Snowflakeデータウェアハウス
+(opens new window)
+が必要です。
+#
+接続としてSnowflakeを追加する
+1
+ワークスペースで
+Create > Connection
+を選択します。
+2
+Snowflakeを検索して選択します。
+3
+Snowflake接続情報を入力します。
+Snowflake接続
+項目
+説明
+接続名
+このSnowflake接続が接続しているSnowflakeインスタンスを識別する一意の名前を付けます。
+アカウント識別子
+Snowflakeインスタンスの
+アカウント識別子
+。Snowflakeはアカウントを識別する複数の方法を持っています。Workatoはすべての方法をサポートしています：
+アカウント名、接続名、およびアカウントロケーター
+。
+アカウント名：
+https://{orgname}-{account_name}
+接続名：
+https://{orgname}-{connectionname}
+アカウントロケーター：
+https://{accountlocator}.{region}.{cloud}
+アカウントロケーター
+を使用している場合、
+{region}
+および
+{cloud}
+は特定の場所でのみ必要であることに注意してください。例：
+アカウントがAWS US West（オレゴン）にホストされている場合、
+your-account-locator
+を使用します
+アカウントがAWS US East（オハイオ）にホストされている場合、
+your-account-locator.us-east-2
+を使用します
+アカウントがAzure West Europeにホストされている場合、
+your-account-locator.west-europe.azure
+を使用します
+Snowflakeアカウントへの接続
+について詳しく学びます。
+認証タイプ
+この接続の認証タイプを選択します。ユーザー名/パスワードとOAuth 2.0のいずれかを選択します。
+Warehouse（ウェアハウス）
+この接続のすべての計算を実行するために使用するウェアハウスの名前です。詳細は
+ウェアハウスの考慮事項
+を参照してください。
+データベース
+接続しようとしているSnowflakeデータベースの名前です。
+ユーザー名
+Snowflakeに接続するためのユーザー名。
+ユーザーに付与されるロールはSYSADMIN特権以下である必要があります。
+認証タイプでユーザー名/パスワードを選択した場合は
+必須
+です。
+パスワード
+Snowflakeに接続するためのパスワード。
+ユーザーに付与されるロールはSYSADMIN特権以下である必要があります。
+認証タイプでユーザー名/パスワードを選択した場合は
+必須
+です。
+Client ID
+OAuth 2.0認証フローおよびトークンリクエストに使用されるClient IDです。
+OAuth 2.0の設定
+について詳しく学びます。
+認証タイプでOAuth 2.0を選択した場合は
+必須
+です。
+Client secret
+OAuth 2.0トークンリクエストに使用されるClient secretです。
+認証タイプでOAuth 2.0を選択した場合は
+必須
+です。
+スキーマ
+オプション
+。接続したいSnowflakeデータベース内のスキーマの名前です。デフォルトは
+public
+です。
+データベースのタイムゾーン
+オプション
+。タイムゾーンのないすべてのタイムスタンプに適用します。
+4
+Connect
+を選択します。
+#
+Marketoのアクティビティを使用してSnowflakeの行を更新する
+この例は、
+Marketo、Salesforce、およびSnowflakeのレシピ
+の手順から引用しています。これらの手順は、MarketoとSnowflakeの既存の接続を前提としていますが、パイプラインのニーズに合わせて変更できます。
+Snowflakeの行に値のセットを追加するために、新しいレシピを作成するか、既存のレシピを更新します。
+1
+レシピに新しいアクションを
+Add step > Action in app
+で追加します。
+2
+Choose an app
+の検索ボックスで
+Marketo
+を検索して選択します。
+3
+トリガーとして
+New lead activity in Marketo batch
+を選択します。
+4
+カレンダーモーダルを使用して、レシピがイベントの監視を開始する日付を
+When first started, this recipe should pick up events from
+フィールドで選択します。
+Learn more about this
+input field
+.
+New lead activity batch trigger
+5
+Activity
+フィールドで
+New Lead
+を検索して選択します。
+New leadをアクティビティとして選択
+6
+List
+のドロップダウンメニューを使用して、リードアクティビティの監視を特定のリストに限定します。このフィールドが空の場合、すべてのリストからのリードアクティビティが含まれます。
+7
+Enrich lead data
+のオプションを選択します：
+Yes
+: トリガーの出力は、関連するリードデータで各アクティビティレコードを補足するために追加のリクエストを実行します。
+No
+: リードの強化リクエストを除外して、APIリクエストの数を減らします。
+8
+Save
+を選択します。
+9
++
+の
+Add step
+ボタンを選択し、
+Action in app
+を選択します。
+10
+Choose an app
+の検索ボックスで
+Snowflake
+を検索して選択します。
+11
+アクションとして
+Insert row
+を選択します。
+12
+Table
+のドロップダウンメニューを使用して、行を挿入する予定のSnowflakeテーブルの名前を選択します。
+13
+Save
+を選択します。
+←
+データソースへの接続
+データのロード
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+Workatoはどの送信先をサポートしていますか？
+例：WorkatoをSnowflakeの送信先に接続する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

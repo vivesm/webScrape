@@ -1,0 +1,307 @@
+Workato connectors - Ruby snippets by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Ruby snippets by Workato
+Ruby is a popular language for web development. The
+Ruby snippets by Workato
+connector enables you to write custom Ruby code and insert it into your recipe to execute a custom action. This allows you to use Ruby to perform actions such as invoking external services.
+ALLOWLISTED RUBY METHODS ONLY
+Only allowlisted Ruby methods can be added to your recipe. Refer to
+Available Ruby methods
+for more information.
+No connection set up is required to use the
+Ruby snippets by Workato
+connector.
+Ruby snippets by Workato
+#
+Required sections
+Section
+Description
+Name
+Provide a descriptive name that indicates the purpose of the action. For example,
+Get account details
+.
+Input
+Use this section to pass data into your Ruby code.
+Output schema
+Use this section to define the data structure that your Ruby code outputs.
+Code
+Use this section to add the Ruby code you plan to execute. This code can use the data passed in the
+Input
+section and must return a hash that matches the structure defined in the
+Output schema
+section.
+#
+Limitations
+The following limitations apply when using the Ruby snippets by Workato connector:
+Scripts cannot exceed
+1MB
+. Larger scripts may cause memory issues.
+Code snippets have a total memory limit of
+256MB
+, including libraries, temporary memory, and inputs.
+Actions terminate if they run for more than
+30 seconds
+.
+User-provided libraries are not supported.
+#
+Input
+The
+Input
+section in your Ruby snippet allows you to pass data into the Ruby code. This can be data from a previous step in the recipe or any other data you plan to use within your Ruby code. You can access the data in the
+Input
+section using the
+input
+keyword in your Ruby code.
+Input section
+You must define the input fields you plan to use in your action:
+1
+Navigate to the
+Input
+section.
+2
+Click
+Add field
+.
+3
+Add a
+Label
+to your input.
+Add new field
+4
+Use the
+Data type
+drop-down menu to select the data type you plan to use, such as string or boolean.
+5
+Optional. Enter a description or provide additional context to help users in the
+Hint
+field.
+6
+Click
+Add field
+to add the input field to your action.
+7
+Repeat these steps for all input fields you plan to pass to your Ruby code.
+#
+Output schema
+The output schema defines the data structure that your Ruby code outputs. This is useful if you plan to use the output of the Ruby code in subsequent recipe steps.
+You must define the output schema for the code when you use
+Ruby snippets by Workato
+to execute an action. The output schema builds the output datatree, allowing you to use the data returned from the Ruby function in subsequent recipe actions.
+Output schema
+You can configure the output schema by
+using sample JSON
+or by
+manually defining output fields
+.
+#
+Manually define output fields
+Complete the following steps to manually add fields to your output schema:
+1
+Navigate to the
+Output schema
+section.
+2
+Click
+Add fields manually
+.
+Manually define your output schema
+3
+Enter a
+Name
+for your field.
+4
+Optional. Add a
+Label
+to your input.
+5
+Use the
+Data type
+drop-down menu to select the data type you plan to use, such as string or boolean.
+6
+Use the
+Optional
+drop-down menu to select whether the field is optional or required.
+7
+Optional. Use the
+Nest under
+drop-down menu to select where to nest the field.
+8
+Optional. Enter a description or provide additional context to help users in the
+Hint
+field.
+9
+Click
+Add field
+to add this field to your output schema.
+10
+Repeat these steps for all fields you plan to pass to your Ruby code.
+#
+Use sample JSON
+Complete the following steps to configure your output schema with sample JSON:
+1
+Click the
+Use JSON
+button to open the schema generation wizard.
+Define your output schema with sample JSON
+2
+Paste the JSON sample you plan to use in the window and click
+Next
+.
+3
+Review the JSON sample and then click
+Generate schema
+. The output datatree appears in the
+Output
+fields.
+#
+Code
+The
+Code
+field is where you write the Ruby code that your recipe executes. This code can use the data from the
+Input
+field and must return a hash that matches the structure defined in the
+Output schema
+field. The keys in the returned hash must match the field names in the
+Output schema
+, and the corresponding values contain the data for those fields.
+Add your Ruby code
+#
+Error stacktrace
+When the "Execute Ruby code" action fails due to an error inside your code, Workato displays the relevant error stacktrace to help you debug your code.
+Sample error stacktrace
+#
+Logging
+To help with development and debugging, Workato supports logging intermediate values using
+puts
+statements. Each
+puts
+statement is displayed as a new line. Note that Workato only displays
+puts
+statements as log if a return value exists at the end of the Ruby script.
+For example, the following code:
+z
+=
+2
++
+1
+puts
+"The result of the computation is:"
+puts z
+{
+result
+:
+z
+}
+Yields the following output:
+Output of puts statements
+←
+Start job action
+Salesforce
+→
+Last updated:
+3/28/2025, 12:50:31 AM
+On this page
+Required sections
+Limitations
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

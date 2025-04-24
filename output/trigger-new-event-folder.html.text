@@ -1,0 +1,149 @@
+Workato connectors - Box - New event in folder | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+Box Action - New event in folder
+This trigger fetches folder and file related events in real time.
+This trigger replaces the deprecated Download file and Upload file event actions. Download and upload events can be monitored with the New event in folder/file trigger.
+#
+Input fields
+Field name
+Description
+Folder
+Use the drop-down menu to choose
+Select from list
+or
+Provide custom value
+.
+Events to monitor
+Select the check boxes for the events you plan to monitor.
+#
+Output fields
+The source object details populated in the output vary depending on the type of event. The following examples provide the output for the folder created and file uploaded events.
+#
+Folder created output
+Field name
+Description
+Event
+A short description of the event. For example,
+FOLDER.CREATED
+.
+File/folder source
+The source of the folder or file in which the event occurred.
+Additional information
+If additional information or notes were provided, it displays in this field.
+#
+File uploaded event
+Field name
+Description
+Event
+A short description of the event. For example,
+FILE.UPLOADED
+.
+File/folder source
+The source of the folder or file in which the event occurred.
+Additional information
+If additional information or notes were provided, it displays in this field.
+Last updated:
+4/9/2025, 3:16:38 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

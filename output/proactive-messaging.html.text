@@ -1,0 +1,161 @@
+Proactive messaging | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Microsoft Teams
+#
+Proactive messaging
+Workbot for Microsoft Teams can send a message to any user without any prior interaction. This allows you to create workflows that trigger on events outside of Microsoft Teams, for example, a new opportunity from Salesforce.
+Posting a message with the
+ID
+Step 2
+datapill obtained from the output of a preceding get user info action
+#
+How to proactively send a message to a user
+To send proactive messages to a user, you must use a
+Get user info by User Principal Name
+action followed by a
+Post message
+(or
+Post simple message
+) action.
+No.
+Step
+Description
+1
+Get user ID
+Use the action
+Get user by User Principal Name
+to obtain the user
+ID
+.
+2
+Set user ID as message recipient
+Next, use a Post message or Post simple message action with the
+ID
+Step 2
+datapill in the
+Message recipient
+field.
+#
+How it works
+To proactively send messages to a user, Workbot is installed to a user in personal scope. From this installation event, Workato retrieves and caches the
+conversation ID
+between the user and Workbot. Subsequently, Workbot is then able to send direct messages to the user using this
+conversation ID
+.
+#
+Limitations
+The very first proactive message sent to a user can take significantly longer than subsequent messages due to the installation of Workbot followed by the subsequent retrieval of the
+Conversation ID
+. However, once Workato caches the conversation IDs of new bot users, subsequent proactive messages can be posted normally.
+Proactively messaging first-time users inside a loop
+Be careful when sending users their very first proactive message from inside a loop as it can take as long as 10s per user. We recommend sending no more than 10 maiden messages (to new users) at a time.
+←
+Adaptive card blocks
+Triggers
+→
+Last updated:
+1/30/2025, 12:15:49 AM
+On this page
+How to proactively send a message to a user
+How it works
+Limitations
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,142 @@
+File Streaming | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connector SDK
+How-to guides
+#
+How-to guides - File Streaming
+Utilizing Workato's file streaming library, you'll be able to build connectors that can transfer gigabytes of data between a source and destination. This is done by downloading a smaller chunk of the larger file, uploading that to the destination and looping over this process multiple times.
+Many of Workato's standard platform connectors to common file storage locations have streaming enabled such as S3, Google Cloud Storage and Azure Blob.
+Find the full list here.
+#
+Prerequisites
+Downloading files
+The API should respect the
+HTTP RFC for Range headers
+(opens new window)
+which allows us to download a specific byte range of the file.
+Uploading the file
+The API should support ways to upload a file in multiple discrete chunks. This could be via
+Content-Range headers
+(opens new window)
+or via any other form chunked uploads such as
+Azure's multipart upload with block IDs.
+(opens new window)
+#
+Guides
+The guides below details out the various ways to build file streaming actions depending on the API's capabilities:
+Download file via file streaming (Range headers)
+Upload file via file streaming (Content-Range headers)
+Upload file via file streaming (Chunk ID)
+#
+What happens if your API does not meet the prerequisites?
+If the API you work with does not allow for chunked uploads or downloads, you can still download and upload files in-memory but subject to limitations of both time and size.
+This is not recommended unless absolutely necessary.
+←
+SDK trigger polling limits
+Download file
+→
+Last updated:
+1/12/2024, 3:49:35 PM
+On this page
+Prerequisites
+Guides
+What happens if your API does not meet the prerequisites?
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

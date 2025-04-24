@@ -1,0 +1,146 @@
+Workato コネクター - Gong - Search aggregated user data (集約されたユーザーデータの検索) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Gong
+#
+Gong コネクター - Search aggregated user data (集約されたユーザーデータの検索)
+このアクションは、Gong で集約されたユーザーデータを検索します。定義された日付範囲内の各期間に対する、Gong システム内での複数のユーザーの集約されたアクティビティを表示します。このエンドポイントでは、ユーザーごとに1つずつ、複数のレコードが返されます。ユーザーごとに、日付範囲の各期間に対するユーザーのアクティビティに関する統計情報などの項目が含まれます。その範囲にアクティビティがあったユーザーに対してのみレコードが返されます。
+#
+入力
+項目
+説明
+Aggregation period
+必須
+[Day]、[Week]、[Month]、[Quarter]、[Year]、[No aggregation] から選択します。データを集約するためのカレンダー期間。週の始まりは月曜日です。指定した日付範囲で集約されたユーザーデータが返されるようにするには、[No aggregation] を選択します。
+集約期間の選択時には、開始日 (この日を含む) と終了日 (この日を含まず、現在の日付を越えない) を指定する必要があります。ユーザー ID のリストを指定して、そのユーザーに対する情報のみを取得することも選択できます。空白のままにすると、すべてのユーザーが返されます。
+#
+出力
+項目
+説明
+Users aggregate activity
+各ユーザーに対する次の詳細情報を含むリスト
+User Aggregate Activity
+このリストオブジェクトには、単一のユーザーに対する集約された詳細情報が含まれます。
+User Email Address
+対応するインデックスに情報が存在するユーザーのメールアドレス。
+User ID
+特定のユーザーの Gong ユーザー ID。
+List Size
+集約されたユーザーのアクティビティのリストサイズ。
+List index
+集約されたユーザーのアクティビティのリスト内の各項目のインデックス。
+Records
+レスポンスのメタデータ
+Current page number
+ページネーションが行われるように、リピートリクエストに対して必要です。
+Current page size
+現在のページ上のレコードの数。
+Cursor
+ページネーションに必要な UUID。
+Total Records
+照会可能なレコードの合計数。
+←
+ID に基づく通話の取得
+通話スコアカードの検索
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

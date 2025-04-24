@@ -1,0 +1,143 @@
+Handling files and attachments | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+#
+Handling files and attachments
+Files and attachments are a key aspect of many integrations. Your recipes might involve data formats that are not found in the
+standard datapill list
+. Workato enables you to move file and attachments of different formats across different access/transport mechanisms, such as FTP, file system, APIs, or S3.
+For instance, you may need to upload a CSV file to Redshift or move attachments from Salesforce to Zendesk.
+#
+Text files
+Text files refers to files which can be opened with any text editor and is generally human-readable. Workato can act as the intermediary to move files from one app to another, as well as extract data from text files and parse it for use in Workato.
+For instance, a recipe can retrieve CSV file content, parse, and make it available within the recipe. The data can further be used in transformations and loaded unto the target system.
+Some examples of text files commonly worked with:
+Tabular data:
+CSV
+Documents: txt, rtf
+Web standards: html,
+JSON
+,
+XML
+,
+SOAP
+,
+YAML
+#
+Binary files
+Binary files refer to any file which is not human readable. Unlike text files where Workato parses the content to understand the structure of the data, Workato moves binary data without interpreting its content. For example, Workato cannot read and interpret an image file, but it can upload the entire file into Salesforce as an attachment.
+Some examples of binary files commonly used:
+Images: jpg, png, gif, bmp, psd
+Documents: pdf, doc, docx, ppt, xls, odt
+Click
+here
+to see our guidelines on working with binary files.
+←
+Verify a signed message action
+Handling CSV
+→
+Last updated:
+5/4/2021, 9:43:27 PM
+On this page
+Text files
+Binary files
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

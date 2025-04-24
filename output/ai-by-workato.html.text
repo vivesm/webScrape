@@ -1,0 +1,177 @@
+AI by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+AI機能
+#
+AI by Workato
+FEATURE AVAILABILITY
+AI by Workato is available for all direct customers across all Workato data centers, but isn’t available to Embedded partners or their customers. All data is sent to OpenAI's servers in the US. You can opt-in to this feature by agreeing to our
+AI feature addendum
+(opens new window)
+. Contact your Customer Success representative to learn more.
+AI by Workatoは、OpenAIとのコラボレーションを通じて開発されたWorkatoのユーティリティコネクタです。OpenAIモデルとプロンプトを活用しています。このコネクタは、トレーニング目的でユーザーデータを使用しません。
+AI by Workato
+#
+ワークスペースでAI by Workatoを有効にする
+ワークスペースでAI by Workatoを有効にするには、以下の要件を満たす必要があります：
+会社がDocuSignを通じてWorkatoのAI機能付加条項に署名し、同意していること。
+ワークスペースで
+Admin
+（システムロール）に割り当てられていること。
+PERMISSIONS
+AI by Workatoには詳細な権限設定がありません。ワークスペースで有効にすると、役割に関係なくワークスペース内のすべてのコラボレーターがアクセスできます。
+#
+Standard Workspaces
+1
+Workspace admin > Settings
+に移動します。
+2
+AI by Workatoの利用規約が会社のポリシーに準拠していることを確認します。
+3
+Enable AI by Workato
+をクリックします。
+Enable AI by Workato
+IMPACT ON WORKSPACE ENVIRONMENTS
+AI by Workatoを有効にすると、ワークスペース内のすべての環境に影響を与えます。アクティベーション前にこの影響を考慮してください。
+#
+AHQ Workspaces
+1
+Workspace admin > Settings > AI features
+をクリックします。
+2
+AI by Workatoの利用規約が会社のポリシーに準拠していることを確認します。
+3
+Enable AI by Workato
+をクリックします。
+Enable AI by Workato
+IMPACT ON AHQ WORKSPACES
+親AHQワークスペースでAI by Workatoを有効にすると、関連するすべての子ワークスペースでも自動的に有効になります。その後、各ワークスペースでAI by Workatoの使用を独立して有効または無効にすることができます。デフォルトでは有効です。子ワークスペースでのAI by Workatoのアクセスを制限するには、
+app access settings
+で設定できます。
+AI by Workatoを有効にすると、そのワークスペース（および親ワークスペースで有効にした場合は関連するワークスペース）のすべての環境（開発、テスト、本番）に影響を与えます。アクティベーション前にこの影響を考慮してください。
+#
+サポートされているアクション
+AIをレシピで使用できるようにするための一般的なビジネスアクションを作成しました。これらのアクションは事前に設定されており、プロンプトを自分で作成または調整することなくAI機能を実装できます。
+Workatoは以下のアクションをサポートしています：
+Analyze text
+Categorize text
+Draft email
+Parse text
+Translate text
+#
+制限
+AI by Workatoには以下のレート制限があります：
+24時間ごとに各ワークスペースで100アクション
+このレート制限を超えると、Workatoはエラーをスローし、ジョブが失敗します。使用状況を追跡するために、Workatoは各アクションの出力として以下のデータピルを提供します：
+Datapill
+Description
+Remaining calls
+The number of remaining calls Workato can execute out of the overall daily limit (100 calls).
+Consumed calls
+The number of actions completed out of the overall daily limit (100 calls).
+Reset time
+The time the daily limit resets.
+←
+Connector Copilot
+テキスト分析
+→
+Last updated:
+2025/2/13 21:46:17
+On this page
+ワークスペースでAI by Workatoを有効にする
+サポートされているアクション
+制限
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

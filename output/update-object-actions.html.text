@@ -1,0 +1,266 @@
+Workato コネクター - HubSpot オブジェクトの更新アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+HubSpot
+#
+HubSpot - オブジェクトの更新アクション
+これらのアクションを用いると、指定したプロパティを持つ既存のオブジェクトを HubSpot インスタンス内で更新し、更新されたオブジェクトの詳細 (ID など) を受け取ることができます。
+#
+サポートされているオブジェクト
+Workato は現在、以下のオブジェクトを更新するアクションをサポートしています。
+会社
+取引
+#
+Update company
+このアクションでは、新しいプロパティまたはプロパティ値で会社を更新します。
+#
+入力項目
+以下のリストは利用可能な入力項目の一部です。完全なリストについては、
+こちら
+を参照してください。
+入力項目
+説明
+Company information
+Name*
+会社の名前。
+Target account
+アカウントベースドマーケティング戦略
+において会社がターゲットアカウントと見なされているかどうかを示します。
+Is public*
+会社が株式公開されているかどうかを示します。
+Time zone*
+会社の所在地のタイムゾーン。
+Phone number*
+会社の代表電話番号。
+Street address*
+会社の住所。
+Street address 2*
+会社の追加の住所情報。
+City*
+会社が所在する市区町村。
+State/Region*
+会社が所在する都道府県または地域。
+Postal code*
+会社の郵便番号または ZIP コード。
+Country/Region*
+会社が所在する国または地域。
+Company domain name*
+会社の Web サイトドメイン。
+HubSpot Insights
+はこのドメインを使用して、会社についての基本的な情報をユーザーに提供します。
+Number of employees*
+会社に勤務している人の総数。
+Industry*
+会社が行っている事業の種類。デフォルトでは、このプロパティは約150個の事前定義済みオプションから選択できます。
+これらのオプションは HubSpot Insights で使用されるため削除できませんが、ニーズに合わせて
+新しいカスタムオプションを追加
+することができます。
+Annual revenue*
+実際または推定の年間売上高。
+Lifecycle stage
+マーケティング/セールスプロセス内で会社がどの段階にあるのかを示すために使われるプロパティ。
+関連付けられたコンタクトすべてと会社のライフサイクルステージとの自動同期について、詳しくは
+こちら
+を参照してください。
+Lead status
+会社のセールス、見込み、アウトリーチの状況を示すステータス。デフォルトでは、このプロパティには5種類のオプションがあります。
+オプションを追加したい場合は、
+こちら
+からプロパティの編集方法を参照してください。
+Type
+ユーザーと会社との関係 (プロスペクト、パートナー、リセラー、ベンダーなど)。
+Description*
+会社のミッションや目標についての簡潔な記述。
+Web analytics history
+Original source type
+この会社の初期のアクティビティで使用されたコンタクトのソース。
+Web Technologies
+この会社が使用している Web テクノロジ。
+Social media information
+Facebook fans
+会社の Facebook のファン数。
+Facebook company page*
+会社の Facebook ページの URL。
+Google plus page
+会社の Google+ ページの URL。
+LinkedIn company page*
+会社の LinkedIn ページの URL。
+LinkedIn bio*
+会社の LinkedIn のバイオグラフィ。
+Custom fields
+デフォルトのプロパティでニーズが満たされない場合は、独自のカスタムフィールドを作成することができます。
+カスタムフィールドの管理について、詳しくはこちらを参照してください
+。
+* ユーザーが会社の Web サイトドメイン名を入力すると、HubSpot は
+HubSpot Insights
+を利用して、アスタリスク (*) が付いたプロパティの自動設定を試みます。この機能を無効化する方法については、
+こちら
+を参照してください。
+#
+出力項目
+リクエストに成功すると、Workato は更新された会社を表すオブジェクトを返します。これにより、そのデータピルを以降のステップで使用できるようになります。利用可能な項目については、
+こちら
+を参照してください。
+#
+Update deal
+このアクションでは、新しいプロパティ値で取引を部分的に更新します。プロパティ値を消去するには、空の文字列を渡します。
+#
+入力項目
+入力項目
+説明
+Deal name
+取引に付けられた名前。
+Pipeline
+取引に使用するパイプライン。パイプラインにはこの取引が進む取引ステージが含まれています。取引パイプラインと取引ステージの設定方法について、詳しくは
+こちら
+を参照してください。
+Deal stage
+取引ステージでは、取り組んでいる取引の進捗状況を分類し、トラッキングすることができます。取引ステージの設定とカスタマイズについて、詳しくは
+こちら
+を参照してください。
+Deal owner
+取引の担当者。
+Associations
+Contact
+取引を関連付けたいコンタクトのコンタクト ID。
+Company
+取引を関連付けたい会社の会社 ID。
+Original source type
+関連付けられているコンタクトの当初のソース。コンタクトが存在しない場合は、関連付けられている会社の当初のソースになります。[初回参照日時] プロパティの値が最も古いものが表示されます。
+HubSpot campaign
+取引が関連付けられるマーケティングキャンペーン。
+Deal amount calculation preference
+商品項目から取引額を計算する際の方法を指定します。
+Manual forecast category
+取引クローズの可能性を、[予測なし]、[パイプライン]、[適切]、[有望]、[確実視]、または [クローズ済み] のいずれかとして手動で分類します。ユーザーやほかのユーザーが手動で予測を行い、成約の可能性を把握する際に役立ちます。
+Amount
+取引の総額。
+Close date
+取引の成約が見込まれる日。
+Create date
+取引が作成された日。
+Deal type
+取引のタイプ。デフォルトでは、取引は「新規ビジネス」または「既存ビジネス」に分類されます。取引タイプは
+取引プロパティ設定
+で編集または新たに追加できます。
+Deal description
+取引の説明。
+Closed lost reason
+取引が成立しなかった理由。
+Closed won reason
+取引が成立した理由。
+Custom fields
+デフォルトのプロパティでニーズが満たされない場合は、独自のカスタムフィールドを作成することができます。
+カスタムフィールドの管理について、詳しくはこちらを参照してください
+。
+#
+出力項目
+リクエストに成功すると、Workato は更新された取引を表すオブジェクトを返します。これにより、そのデータピルを以降のステップで使用できるようになります。利用可能な項目については、
+こちら
+を参照してください。
+←
+オブジェクトの作成
+コンタクトの追加
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サポートされているオブジェクト
+Update company
+Update deal
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

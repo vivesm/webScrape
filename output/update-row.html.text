@@ -1,0 +1,199 @@
+Workato connectors - Smartsheet Update row action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Smartsheet
+#
+Smartsheet - Update row action
+The
+Update row
+action enables you to update an existing row within your Smartsheet sheet.
+Smartsheet - Update row action
+#
+Input
+Input field
+Description
+Sheet name
+Select the Smartsheet where the row you plan to update is located.
+Row ID
+The unique identifier of the row in Smartsheet that you plan to update.
+Columns
+The columns in the Smartsheet where the data is updated. Leave this field blank to display the first 100 columns.
+Parent ID
+The ID of the parent row, if you are updating a child row. If
+To bottom
+is set to true, the system adds the row as the last child of the specified parent row.
+Locked
+Specifies whether the row should be locked after the update.
+Expanded
+Indicates if the row should be expanded to show details after the update.
+Font
+The font style to be applied to the text in the row. Valid values are 0 to 3.
+Sibling ID
+The ID of the sibling row, if the updated row is to be positioned relative to another row. If
+above
+is set to true, the system adds the row above the specified ID. Otherwise, it adds the row below the specified ID.
+To top
+If set, the updated row is moved to the top of the sheet.
+To bottom
+If set, the updated row is moved to the bottom of the sheet.
+Above
+The ID of the row above which the updated row should be positioned. If set to true, the system inserts the new row above the row specified by the
+Sibling ID
+.
+Cells
+Specific cell data to be updated in the row, such as
+Task Name
+,
+Assigned To
+,
+Complete
+,
+Status
+, and
+Comments
+.
+#
+Output
+Output field
+Description
+Row ID
+The unique identifier of the row that was updated in Smartsheet.
+Row number
+The number assigned to the updated row within the sheet.
+Parent ID
+The ID of the parent row, if the updated row is a child row.
+Parent row number
+The row number of the parent row, if applicable.
+Locked
+Indicates whether the row is locked after the update.
+Locked for user
+Shows if the row is locked specifically for the user after the update.
+Expanded
+Indicates if the row details are expanded after the update.
+Created at
+The timestamp of when the row was first created.
+Modified at
+The timestamp of the last modification of the row.
+Sibling ID
+The ID of a sibling row, if the updated row is positioned relative to another row.
+Cells
+Details of the specific cell data in the row after the update, such as
+Task Name
+,
+Assigned To
+,
+Complete
+,
+Status
+, and
+Comments
+.
+←
+Search rows
+SMB
+→
+Last updated:
+2/20/2024, 7:45:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

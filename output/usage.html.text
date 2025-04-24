@@ -1,0 +1,241 @@
+Usage dashboard | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Pricing
+#
+Usage dashboard
+NEW PRICING MODEL
+Customers on Workato's
+new task-based pricing model
+, effective in February 2024, can access the
+Billing and usage
+page by selecting
+Usage
+in the side navigation bar.
+Refer to your organization's pricing plan and contract, or contact your Customer Success Representative to learn more.
+#
+Usage
+The
+Usage dashboard
+provides an overview of your workspace consumption. It enables you to monitor and analyze usage patterns for improved visibility, tracking, and data-driven decision-making. It displays metrics on billable task usage, active On-prem agents (OPAs), high-volume recipes (HVRs), and other key factors across your workspace. These metrics help you manage usage, optimize resource utilization, and plan effectively.
+Key features of the dashboard include the following:
+Aggregate and detailed views
+Analyze billable tasks both in total and by individual asset types.
+Time interval visualization
+View data over different periods (weekly, monthly, cumulative) and group by specific asset types to detect usage trends and spikes.
+HVR recipe details
+Offers detailed information about your high-volume recipes, including the recipe name, current tier, environment, conversion date to HVR, and the number of non-billable tasks used.
+View task usage and HVRs
+#
+Billable Tasks
+The
+Billable Tasks
+graph visualizes the number of tasks consumed by recipes and API proxy requests across all environments, excluding high-volume recipes (HVRs). It displays the total number of billable tasks available under your platform plan and tracks their usage from the start to the end of the billing cycle.
+Billable Tasks graph
+#
+HVRs
+The
+HVRs
+section displays the number of high-volume recipes currently in use. A high-volume recipe consumes more than four million tasks in a billing cycle and resets in the following cycle. HVRs are categorized into the following tiers:
+Tier 1
+: Recipes that consume between 4 million and 15 million tasks
+Tier 2
+: Recipes that consume between 15 million and 30 million tasks
+Tier 3
+: Recipes that consume more than 30 million tasks
+HVRs section
+#
+Concurrency limit
+The
+Concurrency limit
+section displays the maximum number of recipe jobs that can be processed simultaneously.
+Concurrency limit section
+#
+Active OPAs
+The
+Active OPAs
+section displays the number of On-prem agents with active status in the workspace.
+Active OPAs section
+#
+Workflow app seats
+The
+Workflow app seats
+section displays the total number of end users authorized to use apps created with
+Workflow apps
+, excluding builders.
+Workflow app seats section
+#
+Billable Task details
+The
+Billable Task details
+section provides an overview of the tasks consumed by recipes and API proxy requests across all environments, excluding tasks from HVRs. It displays the total number of billable tasks and the monthly average of tasks used.
+Billable Task details
+#
+Tabs
+You can navigate between the following tabs:
+All
+Recipes
+API proxy requests
+View all billable task details
+View billable task details for recipes
+View billable task details for API proxy requests
+#
+Chart view
+Configure the
+Chart view
+to display billable task details over the following periods:
+Weekly
+Monthly
+Cumulative
+Weekly chart view
+Monthly chart view
+Cumulative chart view
+Hover over the chart to view the exact number of billable tasks consumed during a specific time period.
+Hover over the chart to view billable tasks consumed during a specific time period
+#
+Task breakdown by
+In the
+Task breakdown by
+section, you can view a detailed breakdown of tasks by the asset you choose. Assets are sorted automatically by the highest task usage.
+Task breakdown by section
+Configure your view by modifying the
+Group by
+option. Available options vary based on the selected tab:
+#
+All
+All
+Environment
+#
+Recipes
+Recipe
+Project
+Environment
+#
+API proxy requests
+API proxy group
+API proxy endpoint
+Environment
+#
+HVR recipe details
+The
+HVR recipe details
+section provides information about your high-volume recipes. It lists the recipe name, current tier, environment, conversion time and date to HVR, and the number of non-billable tasks the recipe uses.
+HVR recipe details
+The
+Current tier
+column displays the status of each recipe, allowing you to monitor how much capacity has been used within the current tier.
+#
+Plan details
+The
+Plan details
+tab provides information about your current billing cycle, renewal date, and
+platform plan
+. You can view the features included in your plan and any additional capacity purchased.
+←
+Pricing
+Contact us
+→
+Last updated:
+9/9/2024, 8:10:35 PM
+On this page
+Usage
+Plan details
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

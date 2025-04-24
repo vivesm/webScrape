@@ -1,0 +1,207 @@
+Create a pipeline | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+ELT Pipeline - Snowflake
+Pipeline bot
+#
+Create a pipeline
+You can create a new pipeline from the
+App homepage
+.
+1
+Open Slack or Microsoft Teams and navigate to your
+App homepage
+.
+2
+Select
+Create Pipeline
+.
+3
+Select a
+Source System
+. We preconfigured this accelerator to support the following sources:
+Salesforce
+MS SQL
+MS Windows file system
+4
+Select a
+Load Type
+from the list of available options.
+Full load (FULL)
+Full refers to a full extract of the source table every time a job runs. These types of jobs usually do not have a start date. You can determine their frequency when you create the pipeline. For example, you can assign small to medium-sized lookup tables, including currency, or codes, to
+full load
+.
+Incremental Load(INCR)
+All incremental jobs begin with a full refresh. The refresh syncs the source to the target, and then the pipeline switches to incremental using the time/date-based CDC approach. You can determine INCR frequency when you create the pipeline. Rather than refresh the entire extract every time a job runs, the accelerator picks up the data that has changed after the last time the pipeline ran. For example, consider a scenario where you migrate an
+opportunities table from Salesforce
+completely and set the load frequency to daily. In this situation, only daily data changes are extracted and merged.
+Extract Load (EXTR)
+Extract loads pull data from within a given time frame, usually between two timestamps. You can use this load type to build custom reports, including audits.
+5
+The
+Create Pipeline
+interface appears.
+Configure the following input fields in the
+Create Pipeline
+interface:
+Source object
+Object from the source system, such as contacts or accounts.
+Sample values:
+Lead, contact, or account.
+Destination table/object
+Name of the Snowflake table you plan to load data to. The name you choose must adhere to
+Snowflake naming conventions
+and avoid double quotes (
+"
+).
+Sample value:
+salesforce_leads_table_20220204170134
+Start date
+Pipeline start date relative to user's
+timezone
+.
+Sample value:
+2021-02-04
+Start hours, minutes
+Defines the pipeline start time. This value is relative to the Workato account owner's
+timezone
+.
+Sample value:
+11,30
+End date (optional)
+For extract pipelines, the
+end date
+specifies the end of the extraction timeframe. Not applicable to full load or incremental load pipelines.
+Sample value:
+2021-02-04
+End hours, minutes (optional)
+Not applicable to full load or incremental load.
+Sample value:
+15,25
+Frequency
+Defines the frequency at which the pipeline runs.
+Can be one of:
+Hourly
+Daily
+Weekly
+Monthly
+Yearly
+6
+Click
+Create
+.
+7
+After you create the pipeline, the ELT Pipeline bot sends you a message containing the message format.
+ELT Control ID: 6f51a574-b52-426e-992d-2c06414eebe
+Source System: Salesforce
+Source Object: Lead
+Target Table: Leads_Test
+Start Date: 2022-05-18T00:00:00.000000-07:00
+Start Date Hours: 07
+Start Date Minutes: 55
+Frequency: MONTHLY
+←
+App homepage
+Search for a pipeline
+→
+Last updated:
+2/22/2024, 11:17:11 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

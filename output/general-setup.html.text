@@ -1,0 +1,149 @@
+Workato connectors - Oracle Fusion Cloud | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Oracle Fusion Cloud
+#
+General Setup
+The Oracle Fusion Cloud connector is a metadata-based connector that retrieves input and output schemas for an object you select at design time. This connector supports the following actions and triggers:
+#
+Actions
+Create record
+Delete record
+Get record
+Search records
+Search records using advanced query
+Update record
+Upsert record
+Custom action
+#
+Triggers
+New business event (real-time)
+New record (batch)
+New record
+New/updated record (batch)
+New/updated record
+#
+Object Setup
+Choosing any action or trigger leads to the setup section which showcases the object selection at the very beginning, which is key to setting up the action or the trigger. Upon selecting a specific object to work with (for example, Invoice or Receivable Credit Memo), the action/trigger then fetches all input fields relevant to the specific chosen object.
+Upon successful fetch, the inputs of the specific objects are populated as shown below
+Object selection populates the fields in the action
+If you do not have access to the specific object resource in the Oracle Fusion Cloud (For example, an object from HCM module, which is not enabled in your plan), then a 403 Forbidden error is shown in the action/trigger
+Error populating the fields of the specific object
+The populated fields include both the main object properties, as well as child object properties. For example, Invoices includes main attributes such as Invoice number, Business unit, Invoice amount and so on, and it also has child objects such as Invoice Lines, Invoice installments, Attachments and so on.
+Main attributes under Invoice
+Child objects under Invoice
+Each of the child objects accepts a list input, this is useful when you have a list of items from an upstream system that you want to pass on to the child object. Example - Passing list of product line items from Salesforce to Invoice Line child object.
+Passing list datapill from Salesforce to the child object Invoice lines
+If you want to input the child objects like Invoice Lines manually instead of passing a list input, you can change the list to a fixed list and add the list items one by one as well.
+Fixed list setup under child object
+Child objects can further have more grand child objects under them, which can also be accessed in the same way as we did for Child objects. In this way we can add inputs to any depth for a particular record.
+←
+Connection setup
+Actions
+→
+Last updated:
+1/22/2025, 7:51:40 PM
+On this page
+Actions
+Triggers
+Object Setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

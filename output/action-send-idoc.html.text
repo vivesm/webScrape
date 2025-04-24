@@ -1,0 +1,263 @@
+Workato connectors - SAP action - Send Idoc | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP RFC
+#
+SAP Action - Send IDoc
+This action allows you to send IDoc to an on-premise SAP system, or to an SAP system on a server behind the corporate firewall. You must
+configure IDocs in your SAP system
+before using this action.
+#
+Input fields
+Field name
+Description
+IDoc name
+The IDoc to send. You can select an IDoc name from the picklist or enter IDoc name directly. The picklist only displays
+IDocs that are configured in the partner profile in your SAP system
+.
+Wait for SAP to process the IDoc?
+IDoc is processed asynchronously in SAP. So you can configure the recipe to wait for the processing to finish before moving on to the next recipe step.
+Check IDoc status every
+This field will appear if
+Wait for SAP to process the IDoc
+is set to
+Yes
+. Select how often Workato should call SAP. This is useful when you want to control the workload of your SAP system.
+After IDoc is selected, you can select IDoc input segments and fields. In this example,
+E1MARAM
+and
+EDI_DC40
+are selected.
+#
+Default IDoc parameters
+Workato provides the following default values for EDI_DC40 segments. Beginning with OPA version 22.2, providing values for the following attributes in EDI_DC40 segments overrides the default values. Other fields in the EDI_DC40 segment are empty by default.
+Field Name
+Description
+OPA V22.1 and prior
+OPA V22.2 and above
+Default value
+SNDPRT
+Partner type of sender
+Cannot be overridden
+Can be overridden
+LS
+indicates Logical System.
+SNDPOR
+Sender port
+Cannot be overridden
+Can be overridden
+The ALE port definition based on the current connection.
+SNDPRN
+Partner number of sender
+Cannot be overridden
+Can be overridden
+The partner number defined in the distribution model based on the current connection.
+RCVPRT
+Partner type of receiver
+Cannot be overridden
+Can be overridden
+LS
+indicates Logical System.
+RCVPOR
+Receiver port
+Cannot be overridden
+Can be overridden
+SAP
+plus
+systemName
+. System name is determined by the current connection to the SAP server: host/user/password, and prefixed with
+SAP
+. For example, if the
+systemName
+is
+XYZ
+, the
+ReceiverPort
+is
+SAPXYZ
+.
+RCVPRN
+Partner number of receiver
+Cannot be overridden
+Can be overridden
+The SAP server's partner number.
+ARCKEY
+Key for external message archive
+Can be overridden
+Can be overridden
+Unique submission ID which enables Workato to track IDoc status. If overridden, checking for IDoc status in the "Send IDoc" action and "Check IDoc Status" actions will not work. We recommend that you leave this field blank.
+MANDT
+Client
+Can be overridden
+Can be overridden
+The value of the
+user_logon.client
+provided in the current connection.
+DIRECT
+Direction of communication
+Can be overridden
+Can be overridden
+1
+indicates Outbound communication. We recommend that you leave this field blank.
+OUTMOD
+Output mode
+Can be overridden
+Can be overridden
+2
+indicates the output mode in the sender application.
+MESTYP
+Message type
+Can be overridden
+Can be overridden
+The selected IDoc message type based on the IDoc you select. For example, if you select the IDoc
+ORDERS.ORDERS05.ZORDERS
+, the message type is
+ORDERS
+.
+IDOCTYP
+Basic IDoc type
+Can be overridden
+Can be overridden
+The selected IDoc basic type based on the IDoc you select. For example, if you select the IDoc
+ORDERS.ORDERS05.ZORDERS
+, the basic type is
+ORDERS05
+.
+CIMTYP
+Extension type
+Can be overridden
+Can be overridden
+The selected IDoc basic type based on the IDoc you select. For example, if you select the IDoc
+ORDERS.ORDERS05.ZORDERS
+, the extension type is
+ZORDERS
+. If no extension is selected, then this field is empty.
+#
+Output fields
+Field name
+Description
+IDoc number
+SAP assigns this IDoc number after receiving the IDoc.
+Status
+Status of the IDoc after being received by SAP.
+Status code
+Status code of the IDoc after being received by SAP.
+Status description
+Status description of the IDoc after being received by SAP.
+Submission ID
+When Workato sends an IDoc to SAP, we will attach a
+Submission ID
+to that IDoc. You can use that ID to check for IDoc status using action
+Check IDoc Status
+.
+Detail
+Long text of the IDoc after being received by SAP. (OPA v27 and above required to populate value for this field)
+←
+New IDocs batch trigger
+Check IDoc status action
+→
+Last updated:
+3/4/2025, 12:47:23 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

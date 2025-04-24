@@ -1,0 +1,145 @@
+Workato connectors - Google Drive - Create folder | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Drive
+#
+Google Drive - Create folder action
+The
+Create folder
+action creates a new folder in Google Drive.
+Google Drive Create folder action
+#
+Input
+Input field
+Description
+Parent folder
+The parent folder where the new folder will reside. Select a folder from the picklist or enter the folder ID directly.
+If entering the folder ID for a shared drive (formerly Team Drive), this value must be in the form
+folder_id/shared_drive_id
+(for example,
+1fm6iCMYrN7roZZ-ynpVFRTVq9mellrWp/0AB6ZFCw3XdamUk9PAA
+). IDs can be found at the end of folder and drive URLs.
+Name
+Name of the new folder.
+#
+Output
+Output field
+Description
+ID
+The ID of the newly created folder.
+Name
+The name of the newly created folder.
+MIME type
+The MIME type of the newly created folder, as stated in
+Google documentation
+(opens new window)
+.
+←
+Copy file action
+Delete file action
+→
+Last updated:
+3/10/2025, 6:11:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

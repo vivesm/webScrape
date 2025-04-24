@@ -1,0 +1,1439 @@
+Workato API - Recipes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Developer API
+Resources
+#
+Recipes
+#
+Quick reference
+Type
+Resource
+Description
+GET
+/api/recipes/:id
+Get recipe details.
+POST
+/api/recipes
+Create a recipe.
+POST
+/api/recipes/:id/copy
+Copy a recipe.
+PUT
+/api/recipes/:id
+Update a recipe.
+GET
+/api/recipes
+List recipes belonging to user.
+PUT
+/api/recipes/:id/start
+Start recipe.
+PUT
+/api/recipes/:id/stop
+Stop recipe.
+DELETE
+/api/recipes/:id
+Delete recipe.
+POST
+/api/recipes/:recipe_id/reset_trigger
+Reset recipe trigger.
+PUT
+/api/recipes/:recipe_id/connect
+Update connection for an application in a stopped recipe.
+POST
+/api/recipes/:recipe_id/poll_now
+Activate a polling trigger for a recipe.
+GET
+/api/recipes/:recipe_id/versions
+Get recipe versions.
+GET
+/api/recipes/:recipe_id/versions/:id
+Get details of a recipe version.
+PATCH/PUT
+/api/recipes/:recipe_id/versions/:id
+Update a recipe version comment.
+#
+Get recipe details
+Returns details about a recipe object. Lifetime task count has task data starting from March 19, 2021.
+GET /api/recipes/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+required
+Recipe ID.
+#
+Query parameters
+Name
+Type
+Description
+includes[]
+array of strings
+optional
+Specifies additional fields to include in the response. Accepts
+tags
+as a value. If
+tags
+is supplied in the request, the response includes a
+tags
+field for the recipe. This field contains an array of zero or more tag handles (strings).
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/recipes/12389?includes[]=tags'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"id"
+:
+12389
+,
+"user_id"
+:
+4848
+,
+"name"
+:
+"New webhook call will get JIRA ticket information"
+,
+"created_at"
+:
+"2016-08-03T11:06:23.950-07:00"
+,
+"updated_at"
+:
+"2021-11-29T23:31:58.735-08:00"
+,
+"copy_count"
+:
+3
+,
+"trigger_application"
+:
+"workato_webhooks"
+,
+"action_applications"
+:
+[
+"jira"
+]
+,
+"applications"
+:
+[
+"workato_webhooks"
+,
+"jira"
+]
+,
+"description"
+:
+"New webhook call will get JIRA ticket information"
+,
+"parameters_schema"
+:
+[
+]
+,
+"parameters"
+:
+{
+}
+,
+"folder_id"
+:
+4724
+,
+"running"
+:
+false
+,
+"job_succeeded_count"
+:
+0
+,
+"job_failed_count"
+:
+0
+,
+"lifetime_task_count"
+:
+0
+,
+"last_run_at"
+:
+"2016-08-03T11:06:51.481-07:00"
+,
+"stopped_at"
+:
+"2016-08-03T11:22:57.285-07:00"
+,
+"webhook_url"
+:
+"https://www.workato.com/webhooks/rest/51b6a38f-0102-494d-8290-9d550aeeab3c/webhook_recipe"
+,
+"stop_cause"
+:
+null
+,
+"config"
+:
+[
+{
+"keyword"
+:
+"application"
+,
+"name"
+:
+"jira"
+,
+"provider"
+:
+"jira"
+,
+"skip_validation"
+:
+false
+,
+"account_id"
+:
+null
+}
+,
+{
+"keyword"
+:
+"application"
+,
+"name"
+:
+"workato_webhooks"
+,
+"provider"
+:
+"workato_webhooks"
+,
+"skip_validation"
+:
+false
+,
+"account_id"
+:
+null
+}
+]
+,
+"trigger_closure"
+:
+null
+,
+"code"
+:
+"...truncated..."
+,
+"version_no"
+:
+2
+,
+"version_author_name"
+:
+"Jennifer Diaz"
+,
+"version_author_email"
+:
+"
+[email protected]
+"
+,
+"version_comment"
+:
+"Refactored webhook logic to improve error handling and added support for custom JIRA fields"
+,
+"author_name"
+:
+"Kevin Smith"
+,
+"tags"
+:
+[
+"tag-ANMNxAz9-oYDJRm"
+,
+"tag-ANgeffPL-3gxQwA"
+]
+}
+#
+Create a recipe
+Creates a recipe in Workato based on parameters in the request.
+POST /api/recipes
+#
+Payload
+Name
+Type
+Description
+recipe
+object
+required
+The recipe object.
+recipe[name]
+string
+optional
+Name of the recipe.
+recipe[code]
+string
+required
+JSON string representing the recipe lines.
+recipe[config]
+string
+optional
+JSON string representing the connection lines.
+recipe[folder_id]
+string
+optional
+Folder for the recipe
+recipe[description]
+string
+optional
+Description of the recipe.
+#
+Sample request
+curl
+-X
+POST https://www.workato.com/api/recipes
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"recipe": {
+"name":"Send mail",
+"code":"{\"number\":0,\"provider\":\"clock\",\"name\":\"scheduled_event\",\"as\":\"timer\",\"title\":null,\"description\":\"<span class=\\\"provider\\\">Trigger</span> on a <span class=\\\"provider\\\">specified schedule</span>\",\"keyword\":\"trigger\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{\"time_unit\":\"minutes\",\"trigger_every\":\"5\"},\"extended_input_schema\":[{\"type\":\"string\",\"name\":\"trigger_every\",\"control_type\":\"integer\",\"label\":\"Trigger every\",\"hint\":\"Define repeating schedule. Enter whole numbers only.\\n This field can be set to a minimum of 5 minutes.\",\"default\":\"5\",\"optional\":false,\"extends_schema\":true},{\"type\":\"date_time\",\"name\":\"start_after\",\"control_type\":\"date_time\",\"label\":\"Start after\",\"hint\":\"Set date and time to start or leave blank to start immediately. <b>Once recipe has been run or tested, value cannot be changed.</b>\",\"optional\":true,\"extends_schema\":true,\"since_field\":true,\"render_input\":\"date_time_conversion\",\"parse_output\":\"date_time_conversion\"}],\"block\":[{\"number\":1,\"provider\":\"email\",\"name\":\"send_mail\",\"as\":\"send_mail\",\"keyword\":\"action\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{\"email_type\":\"html\"},\"uuid\":\"cd865246-ece7-4188-845e-33d021664be3\"}],\"uuid\":\"c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\"}",
+"config":"[{\"keyword\":\"application\",\"name\":\"clock\",\"provider\":\"clock\"},{\"keyword\":\"application\",\"name\":\"email\",\"provider\":\"email\"}]",
+"folder_id": "17254"
+}
+}'
+#
+Response
+{
+"success"
+:
+true
+,
+"id"
+:
+116
+}
+#
+Update a recipe
+Updates an existing recipe in Workato specified based on recipe ID. Recipe details are defined based on parameters in the request.
+PUT /api/recipes/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+required
+Recipe ID.
+#
+Payload
+Name
+Type
+Description
+recipe
+object
+optional
+The recipe object.
+recipe[name]
+string
+optional
+Name of the recipe.
+recipe[code]
+string
+optional
+JSON string representing the recipe lines.
+recipe[config]
+string
+optional
+JSON string representing the connection lines.
+recipe[folder_id]
+string
+optional
+Folder for the recipe
+recipe[description]
+string
+optional
+Description of the recipe.
+#
+Sample request
+curl
+-X
+PUT
+'https://www.workato.com/api/recipes/123421'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"recipe": {
+"name":"Send mail",
+"code":"{\"number\":0,\"provider\":\"clock\",\"name\":\"scheduled_event\",\"as\":\"timer\",\"title\":null,\"description\":\"<span class=\\\"provider\\\">Trigger</span> on a <span class=\\\"provider\\\">specified schedule</span>\",\"keyword\":\"trigger\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{\"time_unit\":\"minutes\",\"trigger_every\":\"5\"},\"extended_input_schema\":[{\"type\":\"string\",\"name\":\"trigger_every\",\"control_type\":\"integer\",\"label\":\"Trigger every\",\"hint\":\"Define repeating schedule. Enter whole numbers only.\\n This field can be set to a minimum of 5 minutes.\",\"default\":\"5\",\"optional\":false,\"extends_schema\":true},{\"type\":\"date_time\",\"name\":\"start_after\",\"control_type\":\"date_time\",\"label\":\"Start after\",\"hint\":\"Set date and time to start or leave blank to start immediately. <b>Once recipe has been run or tested, value cannot be changed.</b>\",\"optional\":true,\"extends_schema\":true,\"since_field\":true,\"render_input\":\"date_time_conversion\",\"parse_output\":\"date_time_conversion\"}],\"block\":[{\"number\":1,\"provider\":\"email\",\"name\":\"send_mail\",\"as\":\"send_mail\",\"keyword\":\"action\",\"dynamicPickListSelection\":{},\"toggleCfg\":{},\"input\":{\"email_type\":\"html\"},\"uuid\":\"cd865246-ece7-4188-845e-33d021664be3\"}],\"uuid\":\"c4b0778d-5a23-4c52-a5bb-4a99ae5d25ae\"}",
+"config":"[{\"keyword\":\"application\",\"name\":\"clock\",\"provider\":\"clock\"},{\"keyword\":\"application\",\"name\":\"email\",\"provider\":\"email\"}]",
+"folder_id": "17254"
+}
+}'
+#
+Response
+{
+"success"
+:
+true
+}
+UPDATING A RUNNING RECIPE IS PROHIBITED
+Any update call to a running recipe will return an error.
+#
+Copy a recipe
+Copy an existing recipe in Workato specified based on recipe ID.
+POST /api/recipes/:id/copy
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+required
+Recipe ID.
+#
+Payload
+Name
+Type
+Description
+folder_id
+string
+optional
+Folder id for the copied recipe
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/recipes/123421/copy'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+#
+Response
+{
+"success"
+:
+true
+,
+"new_flow_id"
+:
+39404
+}
+#
+List recipes belonging to a user
+Returns a list of recipes belonging to the authenticated user. Recipes are returned in descending ID order.
+GET /api/recipes
+#
+Query parameters
+Name
+Type
+Description
+adapter_names_all
+string
+optional
+List of adapters names, separated by commas. Resulting recipes should use all of the given adapters.
+adapter_names_any
+string
+optional
+List of adapters names, separated by commas. Resulting recipes should use at least one of the given adapters.
+folder_id
+string
+optional
+Return the recipes in the specified folder.
+order
+string
+optional
+Set ordering method. Possible options: activity, default.
+page
+integer
+optional
+Page number (defaults to 1).
+per_page
+integer
+optional
+Specifies the number of recipes to include per page. Defaults to 100. The maximum value is 100.
+running
+boolean
+optional
+If
+true
+, returns running recipes.
+since_id
+integer
+optional
+Use this parameter to retrieve recipes with IDs lower than the ID provided in the request. For example, if
+since_id=15500
+, Workato returns all recipes with IDs lower than
+15500
+(
+0
+-
+14999
+).
+stopped_after
+string
+optional
+Filter the list of recipes to exclude only those stopped after the date and time you specify. The date and time must be provided in ISO 8601 format according to the following pattern:
+YYYY-MM-DDTHH:MM:SSZ
+.
+stop_cause
+string
+optional
+Reason that the recipe stopped. Possible reasons include —
+trigger_errors_limit
+: Recipe was stopped due to consecutive trigger errors
+action_quota_limit
+: Customer exceeded plan's task limit
+trial_expired
+: Customer's trial expired
+txn_quota_limit
+: Customer exceeded plan's job limit
+updated_after
+string
+optional
+Filter the list of recipes to include only those updated after the date and time you specify. The date and time must be provided in ISO 8601 format according to the following pattern:
+YYYY-MM-DDTHH:MM:SSZ
+.
+includes[]
+array of strings
+optional
+Specifies additional fields to include in the response. Accepts
+tags
+as a value. If
+tags
+is supplied in the request, the response includes a
+tags
+field for each recipe. This field contains an array of zero or more tag handles (strings).
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/recipes?includes
+[
+]
+=
+tags
+&
+adapter_names_any
+=
+custom_adapter,custom_adapter1
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"items"
+:
+[
+{
+"id"
+:
+1913515
+,
+"user_id"
+:
+4848
+,
+"name"
+:
+"Callable service: JIRA ticket sync"
+,
+"created_at"
+:
+"2021-11-25T07:07:38.568-08:00"
+,
+"updated_at"
+:
+"2021-11-25T07:14:40.822-08:00"
+,
+"copy_count"
+:
+1
+,
+"trigger_application"
+:
+"workato_service"
+,
+"action_applications"
+:
+[
+"jira"
+]
+,
+"applications"
+:
+[
+"workato_service"
+,
+"jira"
+]
+,
+"description"
+:
+"When there is a new call for callable recipe, do action"
+,
+"parameters_schema"
+:
+[
+]
+,
+"parameters"
+:
+{
+}
+,
+"webhook_url"
+:
+null
+,
+"folder_id"
+:
+241557
+,
+"running"
+:
+false
+,
+"job_succeeded_count"
+:
+1
+,
+"job_failed_count"
+:
+0
+,
+"lifetime_task_count"
+:
+1
+,
+"last_run_at"
+:
+"2021-11-25T07:10:27.424-08:00"
+,
+"stopped_at"
+:
+"2021-11-25T07:11:06.346-08:00"
+,
+"version_no"
+:
+3
+,
+"stop_cause"
+:
+null
+,
+"config"
+:
+[
+{
+"keyword"
+:
+"application"
+,
+"name"
+:
+"workato_service"
+,
+"provider"
+:
+"workato_service"
+,
+"skip_validation"
+:
+false
+,
+"account_id"
+:
+null
+}
+,
+{
+"keyword"
+:
+"application"
+,
+"name"
+:
+"jira"
+,
+"provider"
+:
+"jira"
+,
+"skip_validation"
+:
+false
+,
+"account_id"
+:
+null
+}
+]
+,
+"trigger_closure"
+:
+null
+,
+"code"
+:
+"...truncated..."
+,
+"author_name"
+:
+"Alex Fisher"
+,
+"version_author_name"
+:
+"Alex Fisher"
+,
+"version_author_email"
+:
+"
+[email protected]
+"
+,
+"version_comment"
+:
+null
+,
+"tags"
+:
+[
+"tag-ANMNxAz9-oYDJRm"
+,
+"tag-ANgeffPL-3gxQwA"
+]
+}
+]
+}
+#
+Start a recipe
+Starts a recipe specified by recipe ID.
+PUT /api/recipes/:id/start
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+optional
+Recipe ID.
+#
+Sample request
+curl
+-X
+PUT https://www.workato.com/api/recipes/
+<
+recipe_id
+>
+/start
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"success"
+:
+true
+}
+#
+Stop a recipe
+Stops a recipe specified by a recipe ID.
+PUT /api/recipes/:id/stop
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+optional
+Recipe ID.
+#
+Sample request
+curl
+-X
+PUT https://www.workato.com/api/recipes/
+<
+recipe_id
+>
+/stop
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"success"
+:
+true
+}
+#
+Delete a recipe
+Delete a recipe specified by ID.
+DELETE /api/recipes/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+integer
+optional
+Recipe ID.
+#
+Sample request
+curl
+-X
+DELETE https://www.workato.com/api/recipes/
+<
+recipe_id
+>
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"success"
+:
+true
+}
+#
+Reset recipe trigger
+Reset recipe trigger cursor by recipe ID. Use this endpoint to re-sync data from the source application. The recipe should be designed to handle duplicate records because a re-sync processes every record again. Using this endpoint outside data orchestration scenarios may result in unintended behaviors, including data loss or corruption. Resetting a recipe trigger retains job history and records an event in the recipe's Activity audit log.
+If you reset the trigger of an active recipe, Workato completes all jobs with a running, deferred, or pending status first. Then, it proceeds to the new jobs created by the reset trigger.
+TRIGGER COMPATIBILITY
+This endpoint is only compatible with polling and scheduled triggers. Resetting other triggers may have no effect, or cause unintended behaviors. These triggers include:
+New CSV file in folder triggers
+Function triggers
+API triggers
+RecipeOps triggers
+Workbot triggers
+Deprecated Kafka triggers (compatible with latest triggers)
+POST /api/recipes/:recipe_id/reset_trigger
+#
+URL parameters
+Name
+Type
+Description
+recipe_id
+integer
+required
+ID of the recipe to reset.
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/recipes/91929/reset_trigger'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"success"
+:
+true
+}
+#
+Update a connection for a recipe
+Updates the chosen connection for a specific connector in a stopped recipe.
+PUT /api/recipes/:recipe_id/connect
+#
+URL parameters
+Name
+Type
+Description
+recipe_id
+integer
+required
+ID of the recipe.
+#
+Payload
+Name
+Type
+Description
+adapter_name
+string
+required
+The internal name of the connector. e.g.
+salesforce
+connection_id
+integer
+required
+The ID of the connection that replaces the existing one.
+#
+Sample request
+curl
+-X
+PUT
+'https://www.workato.com/api/recipes/123421/connect'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"adapter_name": "salesforce",
+"connection_id": 772461
+}'
+#
+Response
+{
+"success"
+:
+true
+}
+#
+Activate a polling trigger for a recipe
+Initiate the polling function of a recipe with polling triggers by providing the recipe ID. This action causes the recipe's polling trigger to execute immediately.
+Use the
+jobs APIs
+to check the status of a particular recipe.
+POST /api/recipes/:recipe_id/poll_now
+#
+Path parameters
+Name
+Type
+Description
+recipe_id
+integer
+required
+The ID of the recipe you plan to start.
+#
+Sample request
+curl
+-X
+POST https://www.workato.com/api/recipes/12345/poll_now
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+Job started
+Job already in progress
+Error codes
+#
+Job started
+{
+"success"
+:
+true
+}
+#
+Job already in progress
+{
+"message"
+:
+"Recipe is currently in trigger back off mode till 2023-06-23T23:02"
+}
+}
+#
+Error codes
+Name
+Description
+Sample reply
+404
+Not found
+{"success": false, "message": "Not Found"}
+429
+Too many requests. A
+Retry-After header
+(opens new window)
+specifies how long to wait before making a new request.
+{"message": "Recipe is currently in trigger back off mode till 2023-06-23T11:02"}
+, or
+{"message": "Not enough transaction credit"},
+or
+{"message": "Not enough action quota"}
+400
+Bad request
+{"message":"Trial has expired"}
+#
+Get recipe versions
+Retrieve detailed information about all versions of a specified recipe.
+GET /api/recipes/:recipe_id/versions
+#
+URL parameters
+Name
+Type
+Description
+recipe_id
+string
+required
+The ID of the recipe for which you plan to retrieve version details.
+#
+Query parameters
+Name
+Type
+Description
+page
+integer
+optional
+Page number. Defaults to 1.
+per_page
+integer
+optional
+Page size. Defaults to 100. The maximum is 100.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/recipes/12389/versions'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"data"
+:
+[
+{
+"id"
+:
+397103
+,
+"comment"
+:
+"Updated the recipe to include new Slack channels for onboarding new employees based on their roles"
+,
+"version_no"
+:
+2
+,
+"author_name"
+:
+"Alex"
+,
+"author_email"
+:
+"
+[email protected]
+"
+,
+"created_at"
+:
+"2024-08-03T11:06:23.950-07:00"
+,
+"updated_at"
+:
+"2024-08-04T23:31:58.735-07:00"
+}
+,
+{
+"id"
+:
+392814
+,
+"comment"
+:
+"Initial setup of Slack channels for onboarding new employees, including creating channels based on department and role"
+,
+"version_no"
+:
+1
+,
+"author_name"
+:
+"Alex"
+,
+"author_email"
+:
+"
+[email protected]
+"
+,
+"created_at"
+:
+"2024-08-03T11:06:23.950-07:00"
+,
+"updated_at"
+:
+"2024-08-03T11:06:23.950-07:00"
+}
+]
+}
+#
+Get a specific recipe version
+Retrieve detailed information about a specific recipe version.
+GET /api/recipes/:recipe_id/versions/:id
+#
+URL parameters
+Name
+Type
+Description
+recipe_id
+string
+required
+The ID of the recipe for which you plan to retrieve version details.
+id
+string
+required
+The ID of the recipe version for which you plan to retrieve details.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/recipes/12389/versions/397103'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Responses
+200 OK
+If successful, the API returns a
+200 OK
+status and a JSON response with the recipe version details:
+{
+"data"
+:
+[
+{
+"id"
+:
+397103
+,
+"comment"
+:
+"Updated the recipe to include new Slack channels for onboarding new employees based on their roles"
+,
+"version_no"
+:
+2
+,
+"author_name"
+:
+"Alex"
+,
+"author_email"
+:
+"
+[email protected]
+"
+,
+"created_at"
+:
+"2024-08-04T23:31:58.735-07:00"
+,
+"updated_at"
+:
+"2024-08-04T23:31:58.735-07:00"
+}
+]
+}
+404 NOT FOUND
+The API returns a
+404 Not Found
+error when you provide a non-existent or mismatched value, such as an incorrect recipe ID or version ID:
+{
+"message"
+:
+"Not found"
+}
+#
+Update a recipe version comment
+Updates the comment on a specific recipe version. This endpoint modifies only the comment associated with the version, not the version itself.
+PATCH/PUT /api/recipes/:recipe_id/versions/:id
+#
+URL parameters
+Name
+Type
+Description
+recipe_id
+string
+required
+The ID of the recipe for which you plan to retrieve version details.
+id
+string
+required
+The ID of the recipe version for which you plan to update the comment.
+#
+Payload
+Name
+Type
+Description
+comment
+string
+required
+The new comment for the recipe version. Must be 255 characters or fewer.
+#
+Sample request
+curl
+-X
+PATCH
+'https://www.workato.com/api/recipes/12389/versions/397103'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"comment": "Refined the Slack channel setup for onboarding to ensure channels are created accurately based on employee roles and departments"
+}'
+#
+Responses
+200 OK
+If successful, the API returns a
+200 OK
+status and a JSON response with the updated recipe version details:
+{
+"data"
+:
+[
+{
+"id"
+:
+397103
+,
+"comment"
+:
+"Refined the Slack channel setup for onboarding to ensure channels are created accurately based on employee roles and departments"
+,
+"version_no"
+:
+2
+,
+"author_name"
+:
+"Alex"
+,
+"author_email"
+:
+"
+[email protected]
+"
+,
+"created_at"
+:
+"2024-08-04T23:31:58.735-07:00"
+,
+"updated_at"
+:
+"2024-08-07T23:31:58.735-07:00"
+}
+]
+}
+404 NOT FOUND
+The API returns a
+404 Not Found
+error when you provide a non-existent or mismatched value, such as an incorrect recipe ID or version ID:
+{
+"message"
+:
+"Not found"
+}
+422 UNPROCESSABLE ENTITY
+The API returns a
+422 Unprocessable Entity
+error in the following scenarios:
+#
+Comment exceeds 255 characters
+This error occurs when the recipe version comment exceeds 255 characters:
+{
+"errors"
+:
+[
+{
+"code"
+:
+"validation_error"
+,
+"title"
+:
+"Comment is too long (maximum is 255 characters)"
+,
+"detail"
+:
+null
+}
+]
+}
+#
+Missing comment
+This error occurs when the recipe version comment is missing from the request payload:
+{
+"errors"
+:
+[
+{
+"code"
+:
+"validation_error"
+,
+"title"
+:
+"Missing parameter comment"
+,
+"detail"
+:
+null
+}
+]
+}
+←
+Upsert project properties
+Recipe lifecycle management
+→
+Last updated:
+12/2/2024, 5:37:14 PM
+On this page
+Get recipe details
+Create a recipe
+Update a recipe
+Copy a recipe
+List recipes belonging to a user
+Start a recipe
+Stop a recipe
+Delete a recipe
+Reset recipe trigger
+Update a connection for a recipe
+Activate a polling trigger for a recipe
+Get recipe versions
+Get a specific recipe version
+Update a recipe version comment
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,154 @@
+ジョブのキャンセル | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+レシピ作成後
+ジョブレポート
+#
+ジョブのキャンセル
+実行しているジョブはいつでも停止できます。実行しているジョブのステータスは
+[Processing]
+となっています。
+以下の場合、実行中のジョブをキャンセルしなければならないことがあります。
+レシピにバグが見つかり、直ちにジョブを停止したい
+処理中のジョブがスタックしているように見える
+#
+実行しているジョブをキャンセルする方法
+ジョブのキャンセルは、ジョブの詳細ページから行えます。このページで
+[Cancel job]
+ボタンを選択します。
+ジョブの詳細ページからのジョブのキャンセル
+ジョブのステータスが
+[Processing]
+から
+[Canceled]
+に更新されます。以下のジョブの詳細では、ジョブがユーザーによってキャンセルされたことが示されています (
+Job canceled by user
+)。
+キャンセルの理由
+#
+レシピファンクションとコーラブルレシピ
+通常、親レシピのジョブをキャンセルしても、子レシピはキャンセルされません。
+レシピファンクション
+を使用している場合、呼び出されたレシピは完了まで独立して実行を継続することがあります。
+注
+: これは、
+コーラブルレシピ (廃止)
+でも同様です。
+#
+よくある質問 (FAQ) : ジョブが「Processing」ステータスのままスタックしています
+ジョブによっては完了までに時間がかかることがあります。これはレシピが以下の場合に起こる可能性があります。
+長いアクション
+を使用して大量のデータを処理している。
+解決するまで
+レシピファンクションを待機している
+Scheduler by Workato の専用の
+待機ステップ
+を使用している
+このような場合、ジョブの完了に数分または数時間かかることがあり、
+一般的なタイムアウトの制限
+を超える可能性もあります。
+←
+ジョブレポート
+ジョブの再実行
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+実行しているジョブをキャンセルする方法
+レシピファンクションとコーラブルレシピ
+よくある質問 (FAQ) : ジョブが「Processing」ステータスのままスタックしています
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

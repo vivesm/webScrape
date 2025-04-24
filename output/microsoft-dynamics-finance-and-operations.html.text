@@ -1,0 +1,573 @@
+Workato connectors - Microsoft Dynamics Finance and Operations | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Microsoft Dynamics Finance and Operations
+Microsoft dynamics finance and operations
+(opens new window)
+(MDSFO) is one of Microsoft's enterprise resource planning software products. It is part of the Microsoft Dynamics family.
+#
+Prerequisites
+To establish a connection to MDSFO you must have an active sandbox or general instance.
+#
+Set up an MDSFO sandbox instance
+Complete the following step to obtain a sandbox instance of MDSFO. If you already have an instance, you can skip these steps.
+1
+Visit the
+Microsoft free trial page
+(opens new window)
+to create a free trial instance.
+2
+Select
+Finance and Operations
+.
+3
+Enter your account details.
+Microsoft redirects you to a page that states your instance is being prepared. This typically takes 15-20 minutes. Microsoft sends you an email notification when the instance is ready.
+Example instance
+If this does not work, you can set up your Microsoft account as a standard
+Dynamics Customer Engagement Trial
+(opens new window)
+.
+#
+Connection setup
+Establishing a connection to MDSFO in Workato consists of the following steps:
+Step 1: Register the Workato App in the Azure portal
+Step 2: Set up the application, user, roles, and privileges
+Step 3: Complete setup in Workato
+#
+Step 1: Register the Workato App in the Azure portal (Microsoft Entra ID)
+To connect to MDSFO on Workato, you must obtain the connection credentials by creating an application through Azure portal with the appropriate permissions.
+Sign in to the Azure portal by using an account with administrator permission. You must use an account in the same Office 365 subscription (tenant) as you intend to register the app. For example,
+[email protected]
+.
+1
+Register the Workato app in the Azure Portal
+If you already have an application, use your existing application. Otherwise, complete the following steps to create a new app registration.
+1
+Sign in to the
+Azure portal
+(opens new window)
+.
+2
+Select
+App registrations > + New registration
+, under
+Azure services
+.
+3
+Enter a unique name for the application and select a
+Supported account type
+.
+4
+Select
+Web
+from the
+Select a platform
+drop-down menu.
+5
+Enter
+https://www.workato.com/oauth/callback
+as the
+Redirect URI
+and select
+Register
+.
+Register an app
+2
+Assign permissions to your app
+1
+In the navigation sidebar, select
+Manage > API permissions
+.
+2
+Click
++ Add a permission
+and select
+Dynamics ERP
+API.
+Dynamic ERP
+3
+Select
+Delegated permissions
+, then check the permissions required. At minimum, the following permission is required to connect:
+AX.FullAccess
+Add additional permissions as required, according to your use case.
+AX-full-access
+4
+Click
+Add permissions
+.
+3
+Generate an API key
+This step is required for Authorization code grant connections only. If you plan to authenticate using client credentials, you can skip this step
+1
+Go to
+Manage > Certificates & Secrets > Client secrets
+and click
++ New client secret
+.
+2
+Provide a
+Description
+for the client secret and specify an expiry date.
+3
+Click
+Add
+. Copy and save this secret for use in Workato.
+4
+Obtain the Application (client ID) from the Azure portal
+This step is required for authorization code grant connections only. If you plan to authenticate using client credentials, you can skip this step
+1
+In the
+Azure portal
+(opens new window)
+, go to
+App registrations > Overview
+.
+2
+Copy the
+Application (client ID)
+for use in Workato.
+Obtain the Directory (tenant) ID from the Azure portal
+This step is required for client credentials connections only. If you plan to authenticate using authorization code grant, you can skip this step
+1
+Go to the
+Overview > Essentials
+section.
+App details
+2
+Copy the
+Directory (tenant) ID
+for use in Workato.
+#
+Step 2: Set up the application, user, roles, and privileges
+Completer the following steps to set up the application, user, roles and privileges in MDSFO.
+1
+Set up the application registered in Azure
+1
+Click
+Modules
+and navigate to
+System administration > setup
+. Select
+Microsoft Entra ID applications
+.
+Entra ID applications
+2
+Select
+New
+and paste the
+Client ID
+, which you can copy from the application registration in Azure.
+3
+Assign a
+Name,
+and add the
+User ID
+. This user should have the necessary roles and privileges for the entities that you need to access.
+4
+Click
+Save
+.
+Standard view
+2
+Create a new user and assign roles and privileges for entities
+1
+Click
+Modules
+and go to
+System administration
+. Select
+Users
+and click
+New
+.
+Users
+2
+Add the details, including the roles you plan to assign and click
+Save
+.
+New record
+3
+Provide access and privileges to a specific entity
+Complete the following steps to create a new role and assign it privileges. This is useful in situations where you don't plan to use prebuilt roles like
+Admin
+.
+1
+Click
+Modules
+from the left side. Go to
+Security configuration
+and click the
+Roles
+.
+2
+Click
+Create new
+and enter the new role name. Click
+OK
+.
+New role name
+3
+Select the new role from the
+Roles list
+.
+4
+Click
+Privileges
+and select
+Add references
+. Search for the particular privileges and select the privilege.
+5
+Click
+OK
+.
+Select privileges
+6
+Similarly, you can add whichever privileges you need by clicking on
+Add references
+.
+Add references
+7
+After adding the privileges, you must publish the privileges.
+Click
+Unpublished objects
+and select the Role from the
+Object type
+list and click
+Publish all
+.
+Publish objects
+4
+Add the role to your newly-created user
+1
+Go to
+Modules
+and select
+System administration
+.
+2
+Select
+Users
+then select the specific user from the User list.
+3
+Click on
+Assign roles
+and select one or more roles you plan to assign to the user from the
+Roles list
+and then click
+OK
+.
+Role assignment
+#
+Step 3: Complete setup in Workato
+Workato supports the following types of connections to MDSFO:
+Authorization code grant authentication (OAuth 2.0)
+Client credentials-based authentication (OAuth 2.0)
+#
+Authorization code grant authentication (OAuth 2.0)
+Complete the following steps to establish your MDSFO connection in Workato using authorization code grant authentication.
+1
+Install the MDSFO connector from the community library
+Complete the following steps to install a connector from the
+community library
+(opens new window)
+:
+1
+Open the recipe editor and search for a connector. Alternatively, you can search for a connector in the
+community library
+(opens new window)
+.
+Search for community connectors in the recipe editor
+2
+Select the community connector you plan to install.
+3
+Click
+Install
+to install the connector from the community library.
+Click
+Install
+4
+Select
+Release connector
+. Alternatively, select
+Review code
+to review and modify the connector code before releasing it to the workspace.
+Release the connector
+5
+Summarize any changes you made to the connector, then click
+Release
+to allow workspace collaborators to use the connector in recipes.
+The
+Confirm release
+dialog
+2
+Click
+Create > Connection
+.
+3
+Search for and select
+Microsoft Dynamics Finance and Operations
+as your connection in the
+New connection
+page.
+4
+Provide a name for your connection in the
+Connection name
+field.
+5
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+6
+Select the
+Connection type
+you plan to use. Select
+Cloud
+for direct connections, or an
+On-prem group
+(opens new window)
+from the drop-down.
+7
+In the
+OAuth 2.0 grant type
+field select
+Authorization code
+as the connection type.
+8
+Provide your
+AD domain name
+. Your subdomain is provided by your MDSFO application administrator. If your Dynamics URL is
+https://abc.crm.dynamics.com/adfs
+, the subdomain is
+abc.crm.dynamics.com
+(opens new window)
+. This step is mandatory for on-prem connections and optional for cloud connections.
+9
+Supply the
+Client ID
+and
+Client secret
+for your app. Refer to the
+Register an app in Azure
+section to learn more.
+10
+Click
+Connect
+.
+Connect MDSFO
+#
+Client credentials-based authentication OAuth 2.0
+Complete the following steps to establish your MDSFO connection in Workato using client credentials authentication.
+1
+Install the MDSFO connector from the community library
+Complete the following steps to install a connector from the
+community library
+(opens new window)
+:
+1
+Open the recipe editor and search for a connector. Alternatively, you can search for a connector in the
+community library
+(opens new window)
+.
+Search for community connectors in the recipe editor
+2
+Select the community connector you plan to install.
+3
+Click
+Install
+to install the connector from the community library.
+Click
+Install
+4
+Select
+Release connector
+. Alternatively, select
+Review code
+to review and modify the connector code before releasing it to the workspace.
+Release the connector
+5
+Summarize any changes you made to the connector, then click
+Release
+to allow workspace collaborators to use the connector in recipes.
+The
+Confirm release
+dialog
+2
+Click
+Create > Connection
+.
+3
+Search for and select
+Microsoft Dynamics Finance and Operations
+as your connection in the
+New connection
+page.
+4
+Provide a name for your connection in the
+Connection name
+field.
+5
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+6
+Select the
+Connection type
+you plan to use. Select
+Cloud
+for direct connections, or an
+On-prem group
+(opens new window)
+from the drop-down.
+7
+In the
+OAuth 2.0 grant type
+field select
+Client credentials
+as the connection type.
+8
+Provide your
+AD domain name
+. Your subdomain is provided by your MDSFO application administrator. If your Dynamics URL is
+https://abc.crm.dynamics.com/adfs
+, the subdomain is
+abc.crm.dynamics.com
+. This step is mandatory for on-prem connections and optional for cloud connections.
+9
+Supply the
+Client ID
+and
+Client secret
+for your app into their corresponding fields in Workato. Refer to the
+Register an app in Azure
+section to learn more.
+10
+Supply the
+Directory (tenant) ID
+for your app into its corresponding field in Workato. Refer to the
+Register an app in Azure
+section to learn more.
+11
+Click
+Connect
+.
+Connect MDSFO
+#
+Supported resources
+The MDSFO connector supports all the entities present in your instance.
+←
+Get status of merchant enrollment action
+Create record action
+→
+Last updated:
+1/28/2025, 4:51:50 PM
+On this page
+Prerequisites
+Connection setup
+Step 1: Register the Workato App in the Azure portal (Microsoft Entra ID)
+Step 2: Set up the application, user, roles, and privileges
+Step 3: Complete setup in Workato
+Authorization code grant authentication (OAuth 2.0)
+Client credentials-based authentication OAuth 2.0
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

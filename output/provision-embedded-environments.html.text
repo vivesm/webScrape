@@ -1,0 +1,331 @@
+Embedded Environments - Provision Environments | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Features
+Environments
+#
+Provision Embedded Environments for customers
+You must provision the Environments feature for each customer individually. You can define different roles in each environment for a single collaborator. Customer Managers have access to all environments with the same role.
+ENVIRONMENTS PROVISIONING CANNOT BE UNDONE
+After Environments are enabled for a customer, this configuration becomes a permanent account enhancement. It is not possible to revert to a single workspace setup.
+#
+Provision Environments for existing customers
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Click
+Manage customers
+in the sidebar navigation menu.
+3
+Select the customer you plan to provision Environments for in the
+Admin console
+customer table.
+4
+Click
+Settings > Plan
+.
+5
+Click
+Get started
+in the
+Provision environments for your customers
+box. The Provision Environments pop-up box opens with an overview of the Environments feature.
+Provision Environments to an existing customer
+6
+Click
+Provision environments
+in the pop-up box to confirm your selection.
+VERIFY ACCESS POST-ENVIRONMENT PROVISIONING
+After provisioning Environments for an existing customer, it is crucial to review and adjust Role-Based Access Control (RBAC) settings to ensure that your collaborators are granted the appropriate access across all environments (Development, Test, and Production).
+After provisioning Environments for an existing customer, their pre-existing workspace becomes their DEV workspace, which includes all running recipes. Additionally, the TEST and PROD environments are created. Recipes do not stop running at any point during the process.
+#
+Provision Environments for new customers
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Click
+Manage customers
+in the sidebar navigation menu.
+3
+Click
+Add customer
+.
+4
+Enter a
+Name
+and
+Notification email
+, and select a
+Plan
+for the customer.
+5
+Ensure the
+Provision environments
+toggle is on.
+6
+Click
+Add customer
+.
+Provision Environments to a new customer
+#
+Provision Environments programmatically
+You can provision the Environments feature programmatically for managed customers by using the boolean parameter
+provision_environments
+. Set this parameter to
+true
+to provision the Environments feature for a managed customer.
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/managed_users/:managed_user_id/'
+\
+-H
+'Authorization: Bearer <api_token>'
+Body
+{
+"name"
+:
+"Example managed customer"
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"provision_environments"
+:
+true
+}
+#
+Sample response
+{
+"id"
+:
+209
+,
+"external_id"
+:
+null,
+"name"
+:
+"Example managed customer"
+,
+"environments"
+:
+[
+{
+"id"
+:
+211
+,
+"environment_type"
+:
+"prod"
+,
+"external_id"
+:
+null
+}
+,
+{
+"id"
+:
+210
+,
+"environment_type"
+:
+"test"
+,
+"external_id"
+:
+null
+}
+,
+{
+"id"
+:
+209
+,
+"environment_type"
+:
+"dev"
+,
+"external_id"
+:
+null
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+null,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"wrike_integrate"
+,
+"origin_url"
+:
+null,
+"trial"
+:
+false,
+"in_trial"
+:
+false,
+"whitelisted_apps"
+:
+[
+]
+,
+"frame_ancestors"
+:
+null,
+"created_at"
+:
+"2024-05-17T00:48:23.454-07:00"
+,
+"updated_at"
+:
+"2024-05-17T00:48:23.454-07:00"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"workato_auth"
+}
+←
+Use Environments with Embedded
+Deployment
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Provision Environments for existing customers
+Provision Environments for new customers
+Provision Environments programmatically
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

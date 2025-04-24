@@ -1,0 +1,166 @@
+UKG Pro - Import data action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+UKG Pro
+#
+UKG Pro - Import data action
+The
+Import data
+action submits an encoded XML transaction to UKG Pro's Import Tool.
+#
+Input
+Input field
+Description
+Schema
+Provide the XML schema. You can retrieve the XML schema from
+Menu > Administration > Integration Studio > Import Tool > Configurations > Validate > Show Schema Options
+in UKG Pro.
+Transaction
+Provide the XML transaction.
+Unique file name
+Enter the name of the file.
+Time limit
+Enter the maximum length in minutes the action can run.
+#
+Output
+Output field
+Description
+Is complete?
+Indicates whether the import process is complete.
+Status
+The status of the
+Import data
+action within UKG Pro.
+Staging ID
+A unique identifier for the record in the staging system before final processing.
+Data
+Contains the raw or processed data related to the import.
+File process date
+The date when the file containing data was processed.
+Service submittal date
+The date when the data was submitted to the UKG Pro service.
+Last repost date
+The most recent date the data was resubmitted or reposted in the system.
+Employee name
+The full name of the employee.
+Employee number
+A unique employee identifier.
+Transaction
+The type of transaction.
+File name
+The name of the file.
+Messages
+Any system-generated messages related to the processing of the imported data, including errors or confirmations.
+Child transaction statuses
+The statuses of any sub-transactions related to the main transaction.
+Error
+Describes any errors encountered during the processing or importing.
+←
+Get record action
+Search record action
+→
+Last updated:
+3/24/2025, 12:23:49 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,259 @@
+Workspace | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+#
+Workspaces
+A two-minute video guide to your workspace
+A Workato workspace is your home base for building automations. This is where a dedicated team can collaborate, build recipes, and deploy recipes for a department, level of business, or organization unit.
+Use projects to organize your assets by use case, initiative, or process and create logical sub-folders for smaller units of work.
+#
+What is in my workspace?
+Your workspace is an operationally independent hub that contains
+projects
+,
+Workato Tools
+, and other enabled capabilities.
+Each workspace has its own usage limits (recipe and task limits).
+USING A MANAGED WORKSPACE?
+Managed workspaces share the same added capabilities as the HQ workspace. This includes
+API Platform
+and
+On-premise Connectivity
+. Speak to your Customer Success Manager to enable these features in your managed workspaces.
+Find out more about
+Automation HQ
+.
+#
+Collaboration in a workspace
+Enable collaboration with the
+workspace collaborators
+feature. Workato supports secure, flexible collaboration within a workspace, allowing teams to collaborate while maintaining development and security best practices.
+Learn how
+workspaces support collaboration between team members
+.
+#
+Do I need multiple workspaces?
+As Workato grows with your organization, the scale and complexity of business processes require collaboration between several users, including recipe builders and team admins. Use individual workspaces to represent a department, level of business, or an organizational unit.
+Learn how you can manage and oversee multiple workspaces with
+Automation HQ
+#
+Workspace settings
+Personal profile settings are available in
+My profile
+. Workspace-related settings are available in
+Workspace admin
+.
+#
+My profile
+You can access your personal account by clicking your user icon and selecting
+Profile settings
+from the drop-down menu.
+My profile
+#
+Profile settings
+My profile settings
+My profile
+is where you go to update and view your personal profile information:
+Profile
+Allows you to change your first name, last name, profile photo, phone number, timezone, and date and time format. Date and format settings provides options for a 24-hour and 12-hour clock and
+DD/MM/YYYY
+and
+MM/DD/YYYY
+options for the calendar date. The option you choose is reflected across your workspace, including in the activity audit log, dashboards, and more. This setting does not change the date and time format for other users in this workspace.
+Password
+Allows you to change your password.
+Two-factor authentication
+Allows you to set up two-factor authentication for your account.
+Workspace membership
+Provides workspace management options for workspaces you are a member of.
+Active logins
+Provides a list of devices used to sign in to your account. You can revoke any sessions that you do not recognize.
+#
+Workspace admin
+You can access workspace-related settings by clicking
+Workspace admin > Settings
+on the side navigation bar.
+Workspace admin in the side navigation
+#
+Workspace admin settings
+Workspace admin > Settings
+DISPLAYED FEATURES VARY
+Available features vary depending on your platform plan and privilege levels determined by
+role-based access control
+.
+The workspace interface enables you to update or view workspace information and configure workspace features:
+#
+Workspace
+General
+View and edit your workspace name, email, ID, session timeout duration, logo, and community profile.
+Workspace name
+A name for your workspace.
+Workspace email
+The designated email address for your workspace.
+WORKSPACE EMAIL VISIBILITY
+AHQ child workspaces and OEM customer workspaces do not have an account owner. As a result, the
+Workspace email
+field does not appear in the
+General
+section.
+Workspace ID
+A unique identifier for your workspace. This may be referenced as
+User ID
+in recipes.
+Session timeout duration
+The time of inactivity after which users are logged out.
+Workspace logo
+Upload a logo that represents your workspace across Workato.
+LOGO DISPLAY
+If a workspace logo is missing and a profile logo exists, the profile logo displays on this screen.
+Community profile
+View and edit your workspace public profile settings, which include name, contact email, website, and logo. You can also configure whether recipes can be published in the community library.
+Subscription plan
+Provides an overview of your plan, including your plan level, percent of transactions used, and the plan renewal date.
+Notifications
+Configure who receives notifications about usage, incidents, account updates, and more. If no email is specified, emails are sent to the Account email.
+AI features
+Enable and manage AI-powered features, such as Copilot and the AI by Workato app, for collaborators within a workspace.
+#
+Authentication
+Login methods
+Configure your workspace authentication method (Workato authentication,
+SAML-based SSO
+, or
+two-factor authentication
+).
+SCIM provisioning
+Automate user provisioning, role changes, and user de-provisioning from your identity provider (IdP) using the SCIM 2.0 protocol.
+#
+Environment-related settings
+If you have environments enabled in your workspace, you can see environment-specific features here. These include settings related to the following features:
+#
+Debug and logs
+Error alerts
+Define when and which workspace collaborators will receive email alerts when recipe errors occur.
+Network trace
+Inspect HTTP request and response data from your recipe steps for easier debugging. This includes payload and header information.
+Log streaming
+Stream job history and collaborator activity to an external log provider.
+#
+Security
+Data retention
+Workato stores job data in encrypted form to support error recovery, duplicate detection, custom reports, and more. Your plan type determines how long Workato retains this data.
+Encryption keys
+Select how your data is encrypted, for example, with a Workato key (default), AWS KMS key, or by using your own Custom key.
+External secrets manager
+Set up an external secrets manager, such as AWS Secrets Manager, to use stored secrets when configuring connections on Workato instead of hardcoding credentials.
+Amazon Web Services IAM
+Configure how your Workato workspace works with your AWS IAM roles.
+←
+Organization & workspaces
+Update account email
+→
+Last updated:
+3/25/2025, 7:27:43 PM
+On this page
+What is in my workspace?
+Collaboration in a workspace
+Do I need multiple workspaces?
+Workspace settings
+My profile
+Workspace admin
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

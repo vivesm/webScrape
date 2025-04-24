@@ -1,0 +1,1708 @@
+文字列の formula | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+レシピデータの変更
+Formulaモード
+#
+文字列の formula
+Ruby における文字列は、一続きのテキストや文字のことを指します。
+Workato では、さまざまな文字列の formula をサポートしています。Workato の formula は、ホワイトリストで許可された Ruby メソッドです。したがって、すべての Ruby メソッドがサポートされているわけではありません。その他の formula をホワイトリストに追加したい場合は、いつでも
+弊社までご連絡ください
+。これらの formula の構文と機能は、基本的に変更されません。
+present?
+、
+presence
+、
+blank?
+を除く大部分の formula は、null (Ruby では
+nil
+で表されます) を処理しようとするとエラーを返し、ジョブを停止することに注意してください。
+文字列に関する Ruby の詳細なドキュメントについては、
+こちら
+(opens new window)
+をご覧ください。
+以下の例では、テキスト文字列を操作するために使用できるメソッドをいくつか紹介します。ここでは、入力文字列として「Jean Marie」を使うことにします。
+#
+条件
+このセクションでは、文字列に条件 (if-else) を適用できる formula について説明します。条件の詳しい使用方法については、
+こちら
+を参照してください。
+#
+blank?
+この formula は入力文字列をチェックし、それが空の文字列または null である場合に true を返します。
+#
+構文
+Input
+.blank?
+Input
+- 入力データピル。利用できるデータ型には、文字列や数値、日付、日時があります。
+#
+使用例
+formula
+結果
+"Any Value"
+.blank?
+false
+123
+.blank?
+false
+0
+.blank?
+false
+""
+.blank?
+true
+#
+動作
+入力値が null または空の文字列の場合、この formula は true を返します。他のデータの場合は false を返します。
+#
+関連情報
+presence
+: データが存在する場合は、そのデータを返し、存在しない場合は nil を返します。
+present?
+: 有効な入力データがある場合に、true を返します。
+#
+is_not_true?
+ブール値を評価し、評価された値が true でない場合に true を返します。
+#
+構文
+Input
+.is_not_true?
+Input
+- 入力されるブール値、整数 (
+1
+または
+0
+)、あるいは認められている文字列値。
+#
+使用例
+formula
+結果
+true
+.is_not_true?
+false
+false
+.is_not_true?
+true
+0
+.is_not_true?
+true
+nil
+.is_not_true?
+true
+#
+動作
+入力を受け取り、true であるか false であるかを評価します。
+文字列値
+"true"
+、
+"t"
+、
+"yes"
+、
+"y"
+、
+"1"
+はブール値の
+true
+として評価されます。
+"false"
+、
+"f"
+、
+"no"
+、
+"n"
+、
+"0"
+はブール値の
+false
+として評価されます。
+ただし空の文字 (
+""
+) はブール値として評価されません。この formula は、文字列データ型で使用されると、エラーを表示します。
+#
+関連情報
+is_true
+: ブール値を評価し、評価された値が true の場合に true を返します。
+#
+is_true?
+ブール値を評価し、評価された値が true の場合に true を返します。
+#
+構文
+Input
+.is_true?
+Input
+- 入力されるブール値、整数 (
+1
+または
+0
+)、あるいは認められている文字列値。
+#
+使用例
+formula
+結果
+true
+.is_true?
+true
+false
+.is_true?
+false
+0
+.is_true?
+false
+nil
+.is_true?
+false
+#
+動作
+入力を受け取り、true であるか false であるかを評価します。
+文字列値
+"true"
+、
+"t"
+、
+"yes"
+、
+"y"
+、
+"1"
+はブール値の
+true
+として評価されます。
+"false"
+、
+"f"
+、
+"no"
+、
+"n"
+、
+"0"
+はブール値の
+false
+として評価されます。
+ただし空の文字 (
+""
+) はブール値として評価されません。この formula は、文字列データ型で使用されると、エラーを表示します。
+#
+関連情報
+is_not_true
+: ブール値を評価し、評価された値が true でない場合に true を返します。
+#
+present?
+この formula は入力データをチェックし、値が存在する場合は true を返します。入力データが nil、ブール値の false、空の文字列、または空のリストの場合、この formula は false を返します。
+#
+構文
+Input
+.present?
+Input
+- 入力データピル。利用できるデータ型には、文字列や数値、日付、リストがあります。
+#
+使用例
+formula
+結果
+"Any Value"
+.present?
+true
+123
+.present?
+true
+0
+.present?
+true
+"2017-04-02T12:30:00.000000-07:00"
+.present?
+true
+nil
+.present?
+false
+""
+.present?
+false
+[]
+.present?
+false
+#
+動作
+入力データが null、空の文字列、または空のリストの場合、この formula は false を返します。他のデータの場合は true を返します。
+nil 値を含むリストの評価
+空のリストの場合のみ、false が返されます。
+[]
+.present? は false を返します。
+nil や空の文字列を含むリストの場合は、true が返されます。
+[nil,""]
+.present? は true を返します。
+#
+関連情報
+presence
+: データが存在する場合は、そのデータを返し、存在しない場合は nil を返します。
+blank?
+: データが存在しないか、文字列が空白のみで構成されている場合に、nil を返します。
+#
+presence
+データが存在する場合は、そのデータを返し、存在しない場合は nil を返します。
+#
+構文
+Input
+.presence
+Input
+- 入力データピル。利用できるデータ型には、文字列や数値、日付、日時があります。
+#
+使用例
+formula
+結果
+nil
+.presence
+nil
+""
+.presence
+nil
+"Any Value"
+.presence
+"Any Value"
+45.0
+.presence
+45.0
+0
+.presence
+0
+#
+動作
+入力データが null または空の文字列の場合、この formula は nil を返します。その他のデータの場合、元の入力データを返します。
+#
+関連情報
+blank?
+: データが存在しないか、文字列が空白のみで構成されている場合に、nil を返します。
+present?
+: 有効な入力データがある場合に、true を返します。
+#
+include?
+文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は true を返します。
+#
+構文
+Input
+.include?(
+substring
+)
+Input
+- 文字列の入力。
+substring
+- チェック対象の部分文字列。
+#
+使用例
+formula
+結果
+"Partner account"
+.include?("Partner")
+true
+"Partner account"
+.include?("partner")
+false
+#
+動作
+この formula は文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は true を返し、含まれていない場合は false を返します。この部分文字列は大文字と小文字が区別されます。
+このメソッドは、
+exclude?
+とは反対の働きをします。入力文字列に指定されたキーワードが含まれている場合に限り、true を返します。
+#
+関連情報
+exclude?
+: 文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は false を返します。
+#
+exclude?
+文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は false を返します。
+#
+構文
+Input
+.exclude?(
+substring
+)
+Input
+- 文字列の入力。
+substring
+- チェック対象の部分文字列。
+#
+使用例
+formula
+結果
+"Partner account"
+.exclude?("Partner")
+false
+"Partner account"
+.exclude?("partner")
+true
+#
+動作
+この formula は文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は false を返し、含まれていない場合は true を返します。この部分文字列は大文字と小文字が区別されます。
+このメソッドは、
+include?
+とは反対の働きをします。入力文字列に指定されたキーワードが含まれていない場合に限り、true を返します。
+#
+関連情報
+include?
+: 文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は true を返します。
+#
+match?
+文字列に特定のパターンが含まれているかどうかをチェックします。含まれている場合は true を返します。
+#
+構文
+Input
+.match?(
+pattern
+)
+Input
+- 文字列の入力。
+pattern
+- チェック対象のパターン。
+#
+使用例
+formula
+結果
+"Jean Marie"
+.match?(/Marie/)
+true
+"Jean Marie"
+.match?(/ /)
+true
+"Partner account"
+.match?(/partner/)
+false
+#
+動作
+この formula は文字列に特定のパターンが含まれているかどうかをチェックします。含まれている場合は true を返し、含まれていない場合は false を返します。
+#
+関連情報
+include?
+: 文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は true を返します。
+exclude?
+: 文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は false を返します。
+#
+ends_with?
+文字列の末尾が特定の部分文字列であるかどうかをチェックします。そうである場合は true を返します。
+#
+構文
+Input
+.ends_with?(
+substring
+)
+Input
+- 文字列の入力。
+substring
+- チェック対象の部分文字列。
+#
+使用例
+formula
+結果
+"Jean Marie"
+.ends_with?("rie")
+true
+"Jean Marie"
+.ends_with?("RIE")
+false
+"Jean Marie"
+.upcase.ends_with?("RIE")
+true
+#
+動作
+この formula は、文字列の末尾が特定の部分文字列であるかどうかをチェックします。そうである場合は true を返し、そうでない場合は false を返します。
+#
+関連情報
+include?
+: 文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は true を返します。
+exclude?
+: 文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は false を返します。
+match?
+: 文字列に特定のパターンが含まれているかどうかをチェックします。含まれている場合は true を返します。
+starts_with?
+: 文字列の先頭が特定の部分文字列であるかどうかをチェックします。そうである場合は true を返します。
+#
+starts_with?
+文字列の先頭が特定の部分文字列であるかどうかをチェックします。そうである場合は true を返します。
+#
+構文
+Input
+.starts_with?(
+substring
+)
+Input
+- 文字列の入力。
+substring
+- チェック対象の部分文字列。
+#
+使用例
+formula
+結果
+"Jean Marie"
+.starts_with?("Jean")
+true
+"Jean Marie"
+.starts_with?("JEAN")
+false
+"Jean Marie"
+.upcase.starts_with?("JEAN")
+true
+#
+動作
+この formula は、文字列の先頭が特定の部分文字列であるかどうかをチェックします。そうである場合は true を返し、そうでない場合は false を返します。
+#
+関連情報
+include?
+: 文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は true を返します。
+exclude?
+: 文字列に特定の部分文字列が含まれているかどうかをチェックします。含まれている場合は false を返します。
+match?
+: 文字列に特定のパターンが含まれているかどうかをチェックします。含まれている場合は true を返します。
+ends_with?
+: 文字列の末尾が特定の部分文字列であるかどうかをチェックします。そうである場合は true を返します。
+#
+テキスト操作
+このセクションでは、文字列内のテキストを操作できる formula について説明します。
+#
+parameterize
+文字列内の特殊文字を置き換えます。アプリケーションが非標準の文字を受け付けない場合に使用します。
+#
+構文
+Input
+.parameterize
+Input
+- 入力文字列。
+#
+使用例
+formula
+結果
+"öüâ"
+.parameterize
+"oua"
+#
+動作
+この formula は文字列内の特殊文字を検索し、それを標準文字と置き換えます。アプリケーションが非標準の文字を受け付けない場合に使用します。
+#
+lstrip
+この formula は入力文字列の先頭にある空白を削除します。
+#
+構文
+String
+.lstrip
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+" Test ".
+.lstrip
+"Test "
+#
+動作
+この formula は文字列の先頭から空白を削除します。文字列の先頭に空白がない場合は、入力文字列がそのまま返されます。
+簡単なヒント: 空白の選択的な削除
+右側からのみ空白を削除する場合は、
+rstrip
+を使用してください。
+文字列の内部にある空白を削除する場合は、
+gsub
+を使用してください。
+"a b c d e"
+.gsub(" " , "") は
+"abcde"
+を返します。
+#
+関連情報
+strip
+: 入力文字列の先頭と末尾にある空白を削除します。
+rstrip
+: 入力文字列の末尾にある空白を削除します。
+gsub
+: テキスト文字列の一部を置換します。置換された文字を含む新しい文字列を返します。
+#
+rstrip
+入力文字列の末尾にある空白を削除します。
+#
+構文
+String
+.rstrip
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+" Test ".
+.rstrip
+" Test"
+#
+動作
+この formula は、文字列の末尾から空白を削除します。文字列の末尾に空白がない場合は、入力文字列がそのまま返されます。
+簡単なヒント: 空白の選択的な削除
+左側からのみ空白を削除する場合は、
+lstrip
+を使用してください。
+文字列の内部にある空白を削除する場合は、
+gsub
+を使用してください。
+"a b c d e"
+.gsub(" " , "") は
+"abcde"
+を返します。
+#
+関連情報
+strip
+: 入力文字列の先頭と末尾にある空白を削除します。
+lstrip
+: 入力文字列の先頭にある空白を削除します。
+gsub
+: テキスト文字列の一部を置換します。置換された文字を含む新しい文字列を返します。
+#
+strip
+この formula は入力文字列の先頭と末尾にある空白を削除します。
+#
+構文
+String
+.strip
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"Welcome to the future of automation! "
+.strip
+"Welcome to the future of automation!"
+" This is an example "
+.strip
+"This is an example"
+#
+動作
+この formula は文字列の両側から空白を削除します。文字列の先頭や末尾に空白がない場合は、入力文字列がそのまま返されます。
+簡単なヒント: 空白の選択的な削除
+片側からのみ空白を削除する場合は、
+lstrip
+または
+rstrip
+を使用してください。
+文字列の内部にある空白を削除する場合は、
+gsub
+を使用してください。
+"a b c d e"
+.gsub(" " , "") は
+"abcde"
+を返します。
+#
+関連情報
+lstrip
+: 入力文字列の先頭にある空白を削除します。
+rstrip
+: 入力文字列の末尾にある空白を削除します。
+gsub
+: テキスト文字列の一部を置換します。置換された文字を含む新しい文字列を返します。
+#
+strip_tags
+この formula は、文字列に埋め込まれている html タグを削除します。
+#
+構文
+String
+.strip_tags
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"<p>Jean Marie</p>".
+.strip_tags
+"Jean Marie"
+#
+動作
+この formula は、入力文字列内の html タグをチェックします。検出された html タグを削除してから、その文字列を返します。
+#
+関連情報
+strip
+: 入力文字列の先頭と末尾にある空白を削除します。
+#
+ljust
+文字列を左揃えにし、指定した長さになるまで空白またはパターンを挿入します。
+#
+構文
+String
+.ljust(
+length
+,
+character
+)
+String
+- 入力文字列。
+length
+- 出力文字列の長さ。
+character
+- (任意) 文字列に埋め込む文字。指定しない場合、デフォルトの埋め込み文字は空白になります。
+#
+使用例
+formula
+結果
+"test".
+.ljust(5)
+"test "
+"test".
+.ljust(10, "*")
+"test******"
+#
+関連情報
+rjust
+: 文字列を右揃えにし、指定した長さになるまで空白またはパターンを挿入します。
+#
+rjust
+文字列を右揃えにし、指定した長さになるまで空白またはパターンを挿入します。
+#
+構文
+String
+.rjust(
+length
+,
+character
+)
+String
+- 入力文字列。
+length
+- 出力文字列の長さ。
+character
+- (任意) 文字列に埋め込む文字。指定しない場合、デフォルトの埋め込み文字は空白になります。
+#
+使用例
+formula
+結果
+"test".
+.rjust(5)
+" test"
+"test".
+.rjust(10, "*")
+"******test"
+#
+関連情報
+ljust
+: 文字列を左揃えにし、指定した長さになるまで空白またはパターンを挿入します。
+#
+reverse
+文字を逆順に並び替え、文字列を反転させます。大文字と小文字の区別は維持されます。
+#
+構文
+String
+.reverse
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"Jean Marie"
+.reverse
+"eiraM naeJ"
+" jean marie "
+.reverse
+" eiram naej "
+#
+gsub
+テキスト文字列の一部を置換します。置換された文字を含む新しい文字列を返します。
+#
+構文
+String
+.gsub(
+find
+,
+replace
+)
+String
+- 入力文字列。データピルまたは静的な文字列値を使用できます。
+find
+- 検索する文字列。
+/pattern/
+構文を使用できます。
+replace
+- 置換文字列。文字列または
+ハッシュ
+を使用して、置換文字列を定義できます。
+#
+使用例
+formula
+結果
+"I have a blue house and a blue car"
+.gsub("blue", "red")
+"I have a red house and a red car"
+"Jean Marie"
+.gsub("J", "M")
+"Mean Marie"
+"Jean Marie"
+.downcase.gsub("j", "M")
+"Mean marie"
+#
+高度な使用例
+gsub
+メソッドの高度な使用例の詳細については、
+Ruby のドキュメント
+(opens new window)
+を参照してください。
+formula
+結果
+"Awesome"
+.gsub(/[Ae]/, 'A'=>'E', 'e'=>'a')
+"Ewasoma"
+"Anna's Cafe"
+.gsub("'", "\\'")
+"Annas Cafes Cafe"
+引用符を、マッチした部分より後ろのテキストに置き換えています。
+"Anna's Cafe"
+.gsub("'", {"'"=>"\\'"})
+"Anna\\'s Cafe"
+引用符を、置換文字列に置き換えています。
+#
+動作
+この formula は検索と置換に似た働きをします。次の2つの入力パラメータを受け取ります。
+1つ目の入力パラメータは、置換したい文字列です。大文字と小文字が区別されるため、大文字/小文字を正確に入力して、完全一致するすべての箇所を見つけるようにしてください。
+2つ目の入力パラメータは、1番目の入力パラメータに一致する箇所すべてを置換するのに使用する、新しい文字列です。
+正規表現のパターンマッチングの使用
+find
+パラメータとして正規表現を使用することが可能です。
+#
+関連情報
+sub
+: 検索用語に最初に一致した箇所を置換します。
+#
+sub
+文字列内で1番目の入力値に最初に一致した箇所を、2番目の入力値で置換します。この formula は大文字と小文字を区別します。大文字と小文字の区別が重要である場合は、比較の前に、大文字と小文字を確認して入力するようにしてください。
+#
+構文
+String
+.sub(
+find
+,
+replace
+)
+String
+- 入力文字列。データピルまたは静的な文字列値を使用できます。
+find
+- 検索する文字列。
+/pattern/
+構文を使用できます。
+replace
+- 置換文字列。文字列または
+ハッシュ
+を使用して、置換文字列を定義できます。
+#
+使用例
+formula
+結果
+"Mean Marie"
+.sub(/M/, "J")
+"Jean Marie"
+"Hello"
+.sub(/[aeiou]/, "*")
+"H*llo"
+#
+length
+入力文字列の文字数 (空白を含む) を返します。
+#
+構文
+String
+.length
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"Jean Marie"
+.length
+10
+" jean marie "
+.length
+12
+#
+slice
+文字列内の一部の範囲を返します。
+#
+構文
+String
+.slice(
+start
+,
+end
+)
+String
+- 入力文字列。
+start
+- 文字列から抜き出す範囲の先頭のインデックス。
+end
+- (任意) 返される文字数。指定されていない場合は、1文字のみが返されます。
+#
+使用例
+formula
+結果
+"Jean Marie"
+.slice(0,3)
+"Jea"
+"Jean Marie"
+.slice(5)
+"M"
+"Jean Marie"
+.slice(3.3)
+"n M"
+"Jean Marie"
+.slice(-5.5)
+"Marie"
+#
+動作
+この formula は文字列内の一部の範囲を返します。受け付けるパラメータは2つです。1番目のパラメータは、文字列のどの部分を起点に文字列を返すかを決めるインデックスです (1番目の文字は0であり、それ以降は1ずつ増加します。負の数の場合は、最後の文字から数えます)。2番目のパラメータは、返す文字数を指定します。1番目のパラメータのみが渡された場合は、1文字のみが返されます。
+#
+scan
+取得したいパターンを探して文字列をスキャンし、配列を返します。
+#
+構文
+String
+.scan(
+pattern
+)
+String
+- 入力文字列。
+pattern
+- 検索するパターン。
+#
+使用例
+formula
+結果
+"Thu, 01/23/2014"
+.scan(/\d+/)
+["01","23","2014"]
+"Thu, 01/23/2014"
+.scan(/\d+/).join("-")
+"01-23-2014"
+#
+encode
+指定されたエンコーディングで文字列を返します。
+#
+構文
+String
+.encode(
+encoding
+)
+String
+- 入力文字列。
+encoding
+- エンコーディングの名前 (例: Windows-1252)。Ruby のエンコーディングの詳細は、
+こちら
+(opens new window)
+を参照してください。
+#
+使用例
+formula
+"Jean Marie".encode("Windows-1252")
+#
+transliterate
+非 ASCII 文字を ASCII の近似文字に置き換えます。近似文字が存在しない場合、置換文字はデフォルトで「?」になります。
+#
+構文
+String
+.transliterate
+String
+- 入力文字列。
+#
+使用例
+ｆormula
+結果
+"Chloé"
+.transliterate
+"Chloe"
+parameterize
+: 文字列内の特殊文字を置き換えます。
+#
+テキストの大文字と小文字の操作
+このセクションでは、単語の特定部分の大文字/小文字を変更できる formula について説明します。
+#
+capitalize
+入力文字列をセンテンスケース、すなわち文頭の文字を大文字にする表記に変換します。
+#
+構文
+String
+.capitalize
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"ticket opened. Gold SLA"
+.capitalize
+"Ticket opened. gold sla"
+"jean MARIE"
+.capitalize
+"Jean marie"
+#
+titleize
+入力文字列をタイトルケース、すなわち各単語の先頭の文字を大文字にする表記に変換します。
+#
+構文
+String
+.titleize
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"ticket opened.Gold SLA"
+.titleize
+"Ticket Opened. Gold Sla"
+"jean MARIE"
+.titleize
+"Jean Marie"
+#
+upcase
+テキストを大文字に変換します。
+#
+構文
+String
+.upcase
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"Automation at it's FINEST!"
+.upcase
+"AUTOMATION AT IT'S FINEST!"
+"Convert to UPCASE"
+.upcase
+"CONVERT TO UPCASE"
+#
+動作
+この formula はすべての小文字を検索し、それを大文字に置き換えます。
+簡単なヒント: upcase を文字列検索に役立てる
+gsub
+や
+sub
+のような検索 formula では、文字の大文字と小文字が区別されます。
+upcase
+formula を使用すると、すべての文字の大文字/小文字を統一できます。
+#
+関連情報
+downcase
+: テキストを小文字に変換します。
+capitalize
+: テキストをセンテンスケースに変換します。
+titleize
+: テキストをタイトルケースに変換します。
+#
+downcase
+テキストを小文字に変換します。
+#
+構文
+String
+.downcase
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"Automation at it's FINEST!"
+.downcase
+"automation at it's finest!"
+"Convert to DOWNCASE"
+.downcase
+"convert to downcase"
+#
+動作
+この formula はすべての大文字を検索し、それを小文字に置き換えます。
+簡単なヒント: downcase を文字列検索に役立てる
+gsub
+や
+sub
+のような検索 formula では、文字の大文字と小文字が区別されます。
+downcase
+formula を使用すると、すべての文字の大文字/小文字を統一できます。
+#
+関連情報
+upcase
+: テキストを大文字に変換します。
+capitalize
+: テキストをセンテンスケースに変換します。
+titleize
+: テキストをタイトルケースに変換します。
+#
+quote
+文字列に引用符を付け、' (一重引用符) をエスケープします。
+#
+構文
+String
+.quote
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"Paula's Baked Goods"
+.quote
+"Paula''s Baked Goods"
+#
+配列との間の変換
+このセクションでは、文字列を配列に変換する方法を説明します。
+#
+split
+この formula は、指定した文字を中心に文字列を分割し、文字列の配列を返します。
+#
+構文
+String
+.split(
+char
+)
+String
+- 入力文字列値。データピルまたは静的な値を使用できます。
+char
+- (任意) テキストを分割する際に基点となる文字。これは大文字と小文字が区別されます。文字が指定されていない場合、デフォルトでは、文字列は空白で分割されます。
+#
+使用例
+formula
+結果
+"Ms-Jean-Marie"
+.split("-")
+["Ms", "Jean", "Marie"]
+"Ms Jean Marie"
+.split
+["Ms", "Jean", "Marie"]
+"Split string"
+.split()
+["Split", "string"]
+"Split string"
+.split("t")
+["Spli", " s", "ring"]
+"01/23/2014"
+.split("/")
+["01", "23", "2014"]
+"01/23/2014"
+.split("/").join("-")
+"01-23-2014"
+#
+動作
+この formula は、指定された文字を入力文字列の中から見つけます。その文字が見つかるたびに、入力文字列が新しい文字列に分割されます。
+分割文字
+分割のための引数には、複数の文字からなる文字列も使用できます (例:
+"and"
+)。
+"You and Me"
+.split("and") は
+["You","Me"]
+を返します。
+#
+関連情報
+strip
+: 入力文字列の先頭と末尾にある空白を削除します。
+slice
+: 文字列内の一部の範囲を返します。
+match
+: 入力文字列をチェックして、特定のパターンを探します。
+join
+: リストの項目を結合して、1つの文字列にします。
+#
+bytes
+与えられた文字列のバイト配列を返します。
+#
+構文
+String
+.bytes
+String
+- 入力文字列。
+#
+使用例
+formula
+結果
+"Hello"
+.bytes
+["72","101","108","108","111"]
+#
+変換の formula
+数値や日付といったデータ型の値を文字列に変換するには、to_s formula を使用します。
+#
+他のデータ型から文字列への変換
+#
+to_s
+データを文字列 (テキスト) 型に変換します。
+#
+構文
+Input
+.to_s
+Input
+- 入力データ。数値や配列、オブジェクト、日時といったデータ型を使用できます。
+#
+使用例
+formula
+結果
+-45.67
+.to_s
+"-45.67"
+"123"
+.to_s
+"123"
+[1,2,3]
+.to_s
+"[1,2,3]"
+{key: "Workato"}
+.to_s
+"{:key=>"Workato"}""
+"2020-06-05T17:13:27.000000-07:00"
+.to_s
+"2020-06-05T17:13:27.000000-07:00"
+"2020-06-05T17:13:27.000000-07:00"
+.to_s(:short)
+"05 Jun 17:13"
+"2020-06-05T17:13:27.000000-07:00"
+.to_s(:long)
+"June 05, 2020 17:13"
+#
+動作
+この formula は入力データの文字列表現を返します。
+簡単なヒント: 出力は文字列型
+リストの文字列表現を
+リピートステップ
+で使用することはできません。
+#
+関連情報
+to_f
+: データを浮動小数点 (数値) 型に変換します。
+to_i
+: データを整数型に変換します。
+#
+ordinalize
+数値を、順序付きの列の中の位置を表すために使われる序数文字列 (1st、2nd、3rd、4th など) へと変換します。
+#
+構文
+Input
+.ordinalize
+Input
+- 任意の入力数値。
+#
+使用例
+formula
+結果
+1
+.ordinalize
+"1st"
+2
+.ordinalize
+"2nd"
+3
+.ordinalize
+"3rd"
+1003
+.ordinalize
+"1003rd"
+-3
+.ordinalize
+"-3rd"
+#
+文字列から他のデータ型への変換
+#
+to_f
+データを浮動小数点 (数値) 型に変換します。
+#
+構文
+Input
+.to_f
+Input
+- 数値の入力データ。文字列型または整数型を使用できます。
+#
+使用例
+formula
+結果
+45
+.to_f
+45.0
+-45
+.to_f
+-45.0
+"45.67"
+.to_f
+45.67
+"Workato"
+.to_f
+0
+#
+動作
+この formula は入力データに数値が含まれているかどうかをチェックします。数値が含まれていない場合は0を返します。数値に小数点がない場合、
+.0
+が数値に追加されます。
+#
+関連情報
+to_i
+: データを整数データ型に変換します。
+#
+to_i
+データを整数データ型に変換します。
+#
+構文
+Input
+.to_i
+Input
+- 数値の入力データ。文字列型または浮動小数点型を使用できます。
+#
+使用例
+formula
+結果
+45.43
+.to_i
+45
+-45.43
+.to_i
+-45
+"123"
+.to_i
+123
+"Workato"
+.to_i
+0
+#
+動作
+この formula は入力データに数値が含まれているかどうかをチェックします。数値が含まれていない場合は0を返します。数値に小数点が含まれている場合、小数点以下のすべての数値が削除されます。
+整数のチェック
+この formula を使用すると、文字列に整数が含まれているかどうかをチェックできます。入力データに数値が含まれていない場合、この formula は
+0
+を返します。
+#
+関連情報
+to_f
+: データを浮動小数点 (数値) 型に変換します。
+#
+to_country_alpha2
+alpha-3 国名コードまたは国名を alpha2 国名コード (最初の2文字のイニシャル) に変換します。
+#
+構文
+Input
+.to_country_alpha2
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"GBR"
+.to_country_alpha2
+"GB"
+"United Kingdom"
+.to_country_alpha2
+"GB"
+#
+to_country_alpha3
+alpha-2 国名コードまたは国名を alpha3 国名コード (最初の3文字のイニシャル) に変換します。
+#
+構文
+Input
+.to_country_alpha3
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"GBR"
+.to_country_alpha3
+"GBR"
+"United Kingdom"
+.to_country_alpha3
+"GBR"
+#
+to_country_name
+alpha-2/3の国名コードまたは国名を ISO3166 の国名に変換します。
+#
+構文
+Input
+.to_country_name
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"GBR"
+.to_country_name
+"United Kingdom"
+"GB"
+.to_country_name
+"United Kingdom"
+#
+to_currency
+整数/数値を通貨形式にします。
+#
+構文
+Input
+.to_currency
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+説明
+結果
+"345.60"
+.to_currency
+デフォルトの通貨記号 "$" を追加します。
+"$345.60"
+#
+高度な使用例
+to_currency formula の高度な使用例を紹介します。これらをカンマで区切って組み合わせると、目的の通貨書式を作成できるでしょう。例:
+"12345.678"
+.
+to_currency
+(
+delimiter
+:
+"."
+,
+format
+:
+"%n %u"
+,
+precision
+:
+2
+,
+separator
+:
+","
+,
+unit
+:
+"€"
+)
+formula
+説明
+結果
+"345.60"
+.to_currency(unit: "€")
+デフォルトの通貨単位を変更します
+"€345.60"
+"345.60"
+.to_currency(format: "%n %u")
+単位に対する数値の位置を変更します (数値は
+%n
+で、通貨単位は
+%u
+で表されます)。数値と単位の間には空白を入れないことも、1個の空白を入れることもできます。デフォルトでは
+"%u%n"
+に設定されます。
+"345.60 $"
+"-345.60"
+.to_currency(negative_format: "(%u%n)")
+数値がマイナスの場合の書式を指定します (数値は
+%n
+で、通貨単位は
+%u
+で表されます)。
+"($345.60)"
+"345.678"
+.to_currency
+小数精度はデフォルトで2桁に設定されます。
+"$345.68"
+"345.678"
+.to_currency(precision: 3)
+小数点以下の桁数を指定して、小数精度を変更します。
+"$345.678"
+"345.678"
+.to_currency(separator: ",")
+小数点の記号
+を、「.」、「,」、「 」のいずれかで指定します。デフォルトでは「.」に設定されます。
+"$345.68"
+"12345.678"
+.to_currency(delimiter: ".")
+3桁ごとの区切り文字
+を、「,」、「.」、「 」のいずれかで指定します。デフォルトでは「,」に設定されます。
+""$12.345.68"
+#
+to_currency_code
+alpha-2/3の国名コードまたは国名を ISO4217 の通貨コードに変換します
+#
+構文
+Input
+.to_currency_code
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"GBR"
+.to_currency_code
+"GBP"
+"US"
+.to_currency_code
+"USD"
+#
+to_currency_name
+alpha-3 の通貨コード、alpha-2/3の国名コード、または国名を ISO4217 の通貨名に変換します。
+#
+構文
+Input
+.to_currency_name
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"GBR"
+.to_currency_code
+"Pound"
+"USD"
+.to_currency_code
+"Dollars"
+#
+to_currency_symbol
+alpha-3 の通貨コード、alpha-2/3の国名コード、または国名を ISO4217 の通貨記号に変換します。
+#
+構文
+Input
+.to_currency_symbol
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"GBR"
+.to_currency_symbol
+"£"
+"USD"
+.to_currency_symbol
+"$"
+#
+to_phone
+文字列または数値を (ユーザー定義の) 書式付きの電話番号に変換します。
+#
+構文
+Input
+.to_phone
+Input
+- 任意の入力文字列または数値。
+#
+使用例
+formula
+結果
+"5551234"
+.to_phone
+555-1234
+1235551234
+.to_phone
+123-555-1234
+1235551234
+.to_phone(area_code: true)
+(123) 555-1234
+1235551234
+.to_phone(delimiter: " ")
+123 555 1234
+1235551234
+.to_phone(area_code: true, extension: 555)
+(123) 555-1234 x 555
+1235551234
+.to_phone(country_code: 1)
++1-123-555-1234
+"123a456
+".to_phone
+123a456
+#
+to_state_code
+州の名前をコードに変換します。
+#
+構文
+Input
+.to_state_code
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"California"
+.to_state_code
+CA
+#
+to_state_name
+州のコードを名前に変換します。
+#
+構文
+Input
+.to_state_name
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"CA"
+.to_state_name
+CALIFORNIA
+#
+bytesize
+与えられた文字列の長さをバイト単位で返します。
+#
+構文
+Input
+.bytesize
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+結果
+"Hello"
+.bytesize
+5
+←
+formula への条件の追加
+数値の formula
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+blank?
+is_not_true?
+is_true?
+present?
+presence
+include?
+exclude?
+match?
+ends_with?
+starts_with?
+parameterize
+lstrip
+rstrip
+strip
+strip_tags
+ljust
+rjust
+reverse
+gsub
+sub
+length
+slice
+scan
+encode
+transliterate
+capitalize
+titleize
+upcase
+downcase
+quote
+split
+bytes
+他のデータ型から文字列への変換
+to_s
+ordinalize
+文字列から他のデータ型への変換
+to_f
+to_i
+to_country_alpha2
+to_country_alpha3
+tocountryname
+to_currency
+to_currency_code
+to_currency_name
+to_currency_symbol
+to_phone
+to_state_code
+to_state_name
+bytesize
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

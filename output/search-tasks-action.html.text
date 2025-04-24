@@ -1,0 +1,283 @@
+Workato コネクター - Wrike search tasks アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Wrike
+#
+Wrike - Search tasks (タスクの検索) アクション
+このアクションでは、検索条件に一致するタスクのリストを取得します。Wrike のインスタンスですべての条件に一致するレコードのみが返されます。ジョブごとに最大100個のタスクを取得できます。
+Search tasks アクション
+#
+入力項目
+入力項目
+説明
+Search custom field
+カスタムフィールドを選択すると、対応する入力項目が表示されます。デフォルトでは空白になります。
+Title
+タスクのタイトル。
+Importance
+タスクの重要度。
+High
+(高)、
+Normal
+(中)、および
+Low
+(低) から選択できます。
+Updated date
+この日付以降に作成されたタスクを取得します。
+Completed date
+この日付以降に完了したタスクを取得します。
+Permalink
+Web ワークスペースでタスクを開くためのリンク。
+Custom status
+タスクのカスタムステータスを選択します。
+Status
+タスクのステータスを選択します。
+New
+(新規)、
+In progress
+(処理中)、
+Completed
+(完了)、
+Deferred
+(待機中)、および
+Canceled
+(キャンセル) から選択できます。
+Created after
+この日付以降に作成されたタスクを取得します。
+Type
+タスクのタイプを選択します。
+Backlog
+(バックログ)、
+Milestone
+(マイルストーン)、および
+Planned
+(計画済み) から選択できます。
+#
+出力項目
+出力項目
+説明
+Task ID
+タスクの ID。
+Account ID
+アカウントの ID。
+Title
+タスクのタイトル。
+Description
+タスクの説明。指定されない場合は空白になります。
+Brief description
+タスクの簡単な説明。
+Parent folder
+このタスクの親フォルダーのリスト。
+Folder ID
+親フォルダーのフォルダー ID。
+List size
+リストのサイズ (取得された親フォルダーの数に相当)。
+Super parent folder
+このタスクの2階層上のフォルダーのリスト。
+Folder ID
+2階層上のフォルダーのフォルダー ID。
+List size
+リストのサイズ (取得された2階層上のフォルダーの数に相当)。
+List of users who share task
+タスクを共有するユーザーのリスト。
+User ID
+このタスクを共有するユーザーの ID。
+List size
+リストのサイズ (取得されたユーザーの数に相当)。
+Assignees
+このタスクに割り当てられているユーザーのリスト。
+User ID
+このタスクを共有するユーザーの ID。
+List size
+リストのサイズ (取得されたユーザーの数に相当)。
+Status
+タスクのステータス。
+Importance
+タスクの重要度。
+High
+(高)、
+Normal
+(中)、および
+Low
+(低) から選択できます。
+Created date
+このタスクが作成された日付。
+Updated date
+このタスクが更新された日付。
+Completed date
+このタスクが完了した日付。
+Dates
+タスクの日付。
+Type
+タスクの日付の種類。
+Backlog
+(バックログ)、
+Milestone
+(マイルストーン)、および
+Planned
+(計画済み) から選択できます。
+Duration
+Planned
+(計画済み) タスクでは必須です。分単位で期間を設定します。
+Start date
+このタスクの開始日です。
+Due date
+このタスクの期限日です。
+Work on weekends
+タスクのスケジュールに週末を含めるかどうかを示します。
+Scope
+タスクのスコープ。
+Author
+このタスクの作成者として割り当てられているユーザーのリスト。
+User ID
+ユーザーの ID。
+List size
+リストのサイズ (取得されたユーザーの数に相当)。
+Custom status ID
+タスクのカスタムステータス ID。
+Custom status
+タスクのカスタムステータス。
+Name
+カスタムステータスの名前。
+List size
+タスクのカスタムステータス ID。
+Has attachments
+フォルダーに添付ファイルがあるかどうかを示します。
+Permalink
+Web ワークスペースでタスクを開くためのリンク。このリンクは、ユーザーに適切なアクセス権がある場合のみアクセス可能です。
+Priority
+タスクリストにおけるタスクの順序を定義する順序指定キーです。
+Followed by me
+Workato に登録されている Wrike ユーザーがタスクをフォローしているかどうかを示します。
+Followers
+このタスクをフォローするユーザー。
+Follower ID
+このタスクをフォローするユーザーの ID。
+List size
+リストのサイズ (取得されたユーザーの数に相当)。
+Super tasks
+2階層上のタスクとしてマークされたタスクのリスト。
+Super task ID
+2階層上のタスクとしマークされたタスクの ID。
+List size
+リストのサイズ (取得されたタスクの数に相当)。
+Subtask
+サブタスクとしてマークされたタスクのリスト。
+Super task ID
+サブタスクとしてマークされたタスクの ID。
+List size
+リストのサイズ (取得されたサブタスクの数に相当)。
+Dependency
+依存関係ありとしてマークされたタスクのリスト。
+Dependency ID
+依存関係ありとしてマークされたタスクの ID。
+List size
+リストのサイズ (取得されたタスクの数に相当)。
+Metadata
+このタスクのメタデータ。メタデータリストのサイズは、取得されたメタデータ項目の数に相当します。
+Custom fields
+カスタムフィールドからのデータが含まれます。
+List size
+リストのサイズ (取得されたタスクの数に相当)。
+←
+プロジェクトの検索
+タイムログの検索
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

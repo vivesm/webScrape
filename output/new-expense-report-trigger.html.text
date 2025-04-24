@@ -1,0 +1,163 @@
+Workato connectors - SAP Concur New expense report trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP Concur
+#
+SAP Concur - New expense report trigger
+#
+New expense report trigger
+This trigger picks up expense reports when they are created or submitted. Each report is processed as a separate job. It checks for new reports once every poll interval.
+New expense report trigger
+#
+Input fields
+Input field
+Description
+When first started, this recipe should pick up events from
+The recipe processes expense reports created or submitted after this time. If no approval status is selected, or if
+Not submitted
+is selected, the trigger picks up expense reports when they are first created. Otherwise, it picks up expense reports when they are submitted. Learn more about this
+input field
+.
+Approval status
+Filter the expense reports by selecting an approval status from the following list:
+- Not submitted
+- Submitted
+- Submission triggered an anomaly and fraud check
+- Pending reviews
+- Pending external validation
+- Pending Budget approval
+- Pending Cost object approval
+- Pending manager approval
+- Pending prepayment validation
+- Pending receipt images
+- Needs to be resubmitted
+- Approved
+- Expired in approval queue
+You can also provide a custom status. Refer to the SAP Concur
+API documentation
+(opens new window)
+for more information about these statuses.
+Payment status
+Filter the expense reports by selecting a payment status from the following list:
+- On hold
+- Not paid
+- Confirmed
+- In process to be paid
+- Paid
+You can also provide a custom status. Refer to the SAP Concur
+API documentation
+(opens new window)
+for more information about these statuses.
+#
+Output fields
+All expense report fields, including custom fields, will be available as output fields for mapping in recipes action steps.
+←
+Concur API migration guide
+SAP SuccessFactors
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+New expense report trigger
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

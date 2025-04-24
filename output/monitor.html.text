@@ -1,0 +1,150 @@
+Monitor Data Pipeline recipes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data orchestration
+Data Pipeline recipes
+#
+Monitor Data Pipeline recipes
+AVAILABILITY
+Data Pipeline recipes are available to workspaces in the private preview program only.
+Contact your Workato representative to add Data Pipeline recipes to your workspace.
+#
+Object syncs
+All the objects selected in the pipeline are synced concurrently when you start a Data Pipeline recipe.
+You can view the status on the Object syncs page.
+1
+Navigate to the
+Object syncs
+page to view object sync logs as well as the overall status and statistics for your Data Pipeline recipe:
+Pipeline page shows Object syncs tab
+2
+The object syncs page shows a list of each object sync, along with its status:
+Object syncs page for a running pipeline
+3
+Optional. Search or filter the results in the table by status, object, or time period, or select a column heading to sort by:
+Search, filter, or sort the table
+#
+Data Pipeline status
+Data Pipeline activity status during sync
+The activity sidebar to the right of the object syncs table shows the current status and an overview of Data Pipeline sync activity.
+The pipeline status sidebar displays the following information after the sync completes:
+Time to next sync
+Time of last sync
+The number of successful and failed object syncs
+A seven-day graph of pipeline activity
+Data Pipeline status sidebar
+#
+Troubleshoot
+You can select a failed object sync from the table to view details of the error.
+Object sync failed details
+Continue to
+Troubleshoot your Data Pipelines
+for more information about how to identify and troubleshoot errors.
+←
+Create and run a Data Pipeline recipe
+Troubleshoot your Data Pipeline
+→
+Last updated:
+7/31/2024, 7:04:29 PM
+On this page
+Object syncs
+Data Pipeline status
+Troubleshoot
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

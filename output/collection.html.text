@@ -1,0 +1,342 @@
+SQL Collection by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+#
+SQL Collection by Workato
+FEATURE AVAILABILITY
+SQL collection by Workato is included in specific pricing plans for direct customers and is available to Embedded partners and their end customers for an additional fee. Refer to your pricing plan and contract to learn more.
+SQL Collection by Workato is a robust native application that provides you with the tools required to manipulate table data. You can use SQL Collection to synchronize related data across multiple systems, such as databases, web services, and more.
+SQL Collection by Workato
+#
+Why use SQL Collection
+SQL Collection allows you to run SQL statements with data from multiple sources. You can create temporary tables from a list input or CSV file. Subsequently, you can perform a variety of SQL queries to arrive at the required output for your use case.
+SQL Collection tables (also called
+SQL Collection lists
+) are temporary. This means they exist only for the duration of the job and do not persist across multiple jobs. Load the data directly to your target system after you complete data processing.
+#
+Transformation
+SQL Collection is built on SQL lite and functions like any database. You can create lists and query them using standard SQL syntax. Use common SQL keywords like
+WHERE
+,
+GROUP BY
+, and
+JOIN
+to manipulate data from tables into your planned format.
+Subsequently, load them directly into your target system with the SQL Collection output or export the data as a CSV file.
+#
+Handle large datasets with SQL Collection
+SQL Collection supports large datasets, but performance depends on the structure of your data, including row size and column count. We recommend that you use datasets that don't exceed
+50,000 records
+per SQL Collection list to ensure reliable performance.
+SQL Collection can handle larger datasets, such as 100,000 to 200,000 records, if the rows are small and have fewer columns. Datasets that exceed the recommended limits may impact performance or stability. Split tables into smaller chunks or use parallel recipes to process larger datasets efficiently.
+SQL Collection integrates seamlessly with Workato, allowing you to load and process data directly without third-party tools.
+#
+Connection setup
+No connection setup is required. Simply select
+App
+>
+SQL Collection by Workato
+to get started.
+#
+Actions
+#
+Create list in SQL Collection action
+This action creates a SQL Collection list in the recipe from a list input. The SQL Collection list contains the column headers according to the schema of the list.
+Note that the
+List source
+field must be in
+formula mode
+when you add a list datapill.
+For example, you can take a list of all workers from
+Workday
+.
+Create list in SQL Collection
+Input field
+Description
+List source
+Select a list
+datapill
+.
+Ensure that this field is in formula mode.
+List name
+The name of the list.
+Index primary
+Select one or more columns as the primary index of your list.
+Index secondary
+Select one or more columns as the secondary index of your list.
+COLLECTION DATE ERROR
+You may receive an invalid format error for the
+Date
+field when using
+SQL Collection
+. This error occurs because SQLite does not provide a storage class for dates and times. To correct this error, you must use
+Mapper by Workato
+to do one of the following:
+Update the date to the following format:
+YYYY-MM-DD HH:MM:SS.SSS
+Skip the date fields if the date is not required in downstream applications
+#
+Insert rows in SQL Collection action
+This action inserts rows into a SQL Collection list in the recipe from a list input. The SQL Collection list contains the column headers according to the schema of the list. You can use this in a repeat loop.
+Insert rows into SQL Collection
+Input field
+Description
+List source
+Select a list
+datapill
+. Ensure that this field is in formula mode.
+List name
+The name of the list.
+Create table if table doesn't exist?
+Creates a table if table does not exist.
+Index primary
+Select one or more columns as the primary index of your list.
+Index secondary
+Select one or more columns as the secondary index of your list.
+#
+Create list in SQL Collection from CSV
+This action creates a SQL Collection list from a CSV input. The newly-created list contains the column headers according to the schema of the CSV string.
+For example, if you plan to retrieve files from your
+on-prem
+systems, you can download a CSV file and use it directly with SQL Collection.
+Create list in SQL Collection from CSV
+Input field
+Description
+CSV source
+Select a CSV string as source input.
+List name
+The name of the list.
+File encoded type
+Select the file encoded type. The default value is UTF-8.
+Column names
+The column headers in your CSV source input. Select
+use a sample CSV file
+to define your schema with a CSV file.
+Ignore CSV header row
+Select
+Yes
+if the CSV source has a header row, otherwise select
+No
+.
+Column delimiter
+Select the character used to separate value in each line of the CSV.
+Index primary
+Select one or more columns as the primary index of your list.
+Index secondary
+Select one or more columns as the secondary index of your list.
+#
+Insert rows in SQL Collection from CSV file action
+This action inserts rows into a SQL Collection list in the recipe from a CSV file. It will contain the column headers according to the schema of the CSV string.
+Insert rows into SQL Collection from CSV file
+Input field
+Description
+CSV source
+Select a CSV string as source input.
+List name
+The name of the list.
+File encoded type
+Select the file encoded type. The default value is UTF-8.
+Column names
+The column headers in your CSV source input. Select
+use a sample CSV file
+to define your schema with a CSV file.
+Ignore CSV header row
+Select
+Yes
+if the CSV source has a header row, otherwise select
+No
+.
+Column delimiter
+Select the character used to separate value in each line of the CSV.
+Index primary
+Select one or more columns as the primary index of your list.
+Index secondary
+Select one or more columns as the secondary index of your list.
+#
+Query list in SQL Collection
+This action allows you to perform standard SQL queries on your lists.
+Query list in SQL Collection
+Input field
+Description
+SQL query
+Write your SQL query. Normal SQL syntax applies.
+Output list schema
+Define the schema according to your column headers in your output list. Select
+use sample JSON
+to define your schema with JSON.
+Write to CSV
+Select
+Yes
+to convert the query results to a CSV string, this will display the input fields below. To use this query output in further SQL queries, select
+No
+.
+Add CSV header
+Select
+Yes
+to use the column names as a CSV header row, otherwise select
+No
+.
+Column delimiter
+Select the character used to separate values in each line of the CSV.
+Here are some commonly used SQL keywords that can be used in the
+Query list
+action.
+SQL keywords
+Description
+SELECT
+Use the SQL wildcard
+*
+to call all the columns in this list.
+WHERE
+Define conditions that specify what data you want to retrieve from the list.
+JOIN
+Use
+JOIN
+,
+LEFT JOIN
+,
+INNER JOIN
+to combine lists.
+INSERT INTO
+Define new entries for your list.
+DELETE
+Define rows to remove from your list.
+Remember to query the full list before exporting or loading it into your target systems. Some SQL keywords (for example,
+INSERT INTO
+,
+DELETE
+) do not return list outputs. Therefore, datapills from these actions do not contain all the rows/columns in your SQL Collection list.
+#
+Example query: delete rows from list
+For example, you can tailor your workers list from
+Workday
+to exclude certain groups of people.
+Delete rows with Query list in SQL Collection
+Since a
+DELETE
+query does not return a list output, datapills from this step
+should not be used
+to export your list.
+#
+Example query: Export SQL collection as CSV
+Export rows as CSV
+Run a
+SELECT
+query to retrieve all rows from that SQL collection.
+SELECT
+*
+FROM
+workers_list
+Next, select
+Write to CSV
+in the action configuration. The output of this action can be directly exported as a CSV file.
+←
+Lookup tables
+SQL Collection by Workato FAQs
+→
+Last updated:
+2/13/2025, 9:46:17 PM
+On this page
+Why use SQL Collection
+Connection setup
+Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

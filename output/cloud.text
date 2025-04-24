@@ -1,0 +1,578 @@
+On-prem Agent - Cloud Profiles | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem connections
+#
+Cloud Profiles
+SUMMARY
+Cloud profiles let you configure on-prem connections directly in Workato, rather than manually editing a local config file on the agent's system.
+Cloud profiles support databases, on-prem file systems, SAP, Apache Kafka, certain secrets management systems, and other systems.
+OPA versions starting from
+2.15.0
+support cloud profiles.
+When you create a new connection, Workato automatically propagates the configuration details to all agents in the on-prem group.
+A single Workato on-prem agent (OPA) can connect to multiple on-prem applications. A
+cloud profile
+allows you to set up a connection directly in Workato. This option can be selected when
+creating a new on-prem group
+.
+#
+Basics
+What's a cloud profile?
+What types of systems can I connect to?
+How do I apply a new configuration?
+#
+What's a cloud profile?
+A cloud profile is a new way of setting connection for on-prem agent. Since OPA version
+2.15.0
+you can configure on-prem connections directly in Workato instead of editing local on-prem agent config file. This is a big simplification of the existing process as you no longer need a direct access to the machine where the agent is installed. Just make sure your agent is up and running.
+When creating a connection you will see the input field called
+Connection type
+. It is a list of existing on-prem groups. For some of the cloud connectors there can be a default
+Cloud
+setting. Make sure you select on-prem group that supports cloud profiles so you can create a connection directly in Workato.
+Below is an example of SQL Server connection when on-prem group with cloud profiles is selected. As you can see database connection properties can be set just like for a normal cloud connector.
+SQL Server cloud profile connection
+#
+What types of systems can I connect to?
+Cloud profiles are supported by the following system types:
+Databases
+On-prem file systems
+SAP
+Java messaging service
+Apache Kafka
+Active Directory
+Command-line scripts
+WARNING
+Please note that configuring some additional settings like google secrets manager, azure key vault or more advanced settings is not yet supported by cloud profiles. If you want to use them please check
+connection profiles
+.
+#
+How do I apply a new configuration?
+When you create a new connection the details are automatically propagated to all agents in the specific on-prem group. It should happen almost immediately but in some cases it might take a while for an agent to get updated connection details.
+#
+Database cloud profiles
+Database cloud profiles provide the information your On-prem Agent (OPA) uses to connect to a database.
+JDBC DRIVER REQUIREMENT
+To establish a connection with a JDBC database, copy the appropriate JDBC driver to the
+lib_ext
+folder of your on-prem agent. The on-prem agent can't connect to the database without this driver.
+All database connectors allow you to connect through an on-prem agent. In the connection fields, choose the on-prem group from the
+Connection type
+field.
+After choosing an on-prem group that supports
+cloud profile configuration
+, you can configure the connection in Workato as a cloud connector. Fill in the required fields and click
+Connect
+.
+Database connection using cloud profile
+In this section, we'll cover:
+Profile properties
+Supported database types
+#
+Profile Properties
+Database cloud connection profiles can contain the following properties:
+Name
+Type
+Description
+url/host
+required
+The host address of the database. For example,
+localhost
+.
+Note:
+A
+url
+or
+host
+value must be provided to fully configure the connection profile.
+port
+required
+The port of the database. If using the default port for a database type, this property may be omitted.
+For example, PostgreSQL databases use port
+5432
+by default. If your PostgreSQL uses this port, you don't need to add a
+port
+property to the connection profile.
+Default ports are listed in the
+Supported databases
+section.
+database
+required
+The name of the database. For example:
+sales
+Note:
+This property may be omitted if the
+url
+property is provided.
+username
+required
+The username of a database user that will be used to connect to the database.
+password
+required
+The password of the database user (
+username
+).
+ssl
+optional
+Options for configuring SSL connections. SSL is supported for the following databases:
+MySQL
+- version 5.7 and higher
+PostgreSQL
+- version 11.x and higher
+Contains the following properties:
+Name
+Type
+Description
+Server certificate
+optional
+X509 server certification in .pem format.
+SSL certificate
+optional
+X509 client certificate in .pem format.
+SSL certificate key
+optional
+RSA client key in .pem format.
+#
+Supported Databases
+The following table contains information about the databases OPA currently supports.
+Database name
+Default port
+Amazon Redshift
+5439
+JDBC-compatible databases
+Microsoft SQL Server
+1433
+MySQL
+3306
+Oracle
+1521
+PostgreSQL
+5432
+#
+On-prem Files Cloud Profile
+Please refer to
+On-prem Files connector documentation
+.
+#
+FTP(S) Cloud Profile
+On-prem agent version
+OPA 25.0 or newer is required to use FTP(S) connector.
+Please refer to
+FTP connector documentation
+.
+#
+SFTP Cloud Profile
+On-prem agent version
+OPA 24.0 or newer is required to use SFTP connector.
+Please refer to
+SFTP connector documentation
+.
+#
+SMB Cloud Profile
+ON-PREM AGENT VERSION
+OPA 26.0 or newer is required to use the SMB connector.
+Refer to the
+SMB connector documentation
+for additional information.
+#
+SAP Cloud Profile
+There are two connection types that the SAP connector supports -
+Direct connections
+or
+Message Server connections
+.
+SAP default ports
+Our SAP connector uses these ports by default:
+Via SAP Message Server : 36xx (where xx is SAP system number)
+W/o SAP Message Server, e.g. direct call to SAP : 48xx (with SNC) and 33xx (w/o SNC)
+Furthermore for HTTP(s) inbound communication (for example for consuming REST OData services, SOAP WebServices etc. provisioned from SAP) ports are per default 8000 (HTTP) and 44300 (HTTPs). If this ports have been setup on SAP in custom way, port numbers can be figured out in SAP by
+Go to the ICM Monitor ( SMICM ) transaction.
+Choose Goto Services to display the services configured in ICM and correlated ports.
+If the ports vary from our defaults, ensure port overrides are included in the connection details using the optional inputs for 'Client MS Server' and 'MS Server'.
+#
+SAP - Direct Connection
+Below is the example of
+Direct
+connection type. Use this connection type if SAP system is directly exposed as an application server.
+On-prem sap direct connection using cloud profile
+Parameter
+Description
+Click to expand image
+Gateway host
+(jco.client.ashost)
+Can be either DNS name or IP address. If present, this describes a direct connection to the SAP host. Can be in the format
+xx.xx.xx.xx
+. This is the IP Address of the SAP application server you are directly connecting to. This can be seen on the SAP Logon Pad which is used to login to your on-premise SAP Application server.
+System number
+(jco.client.sysnr)
+Two-digit SAP system number. It identifies the logical port on which the application server is listening for incoming requests. Commonly found from the TCP Port 33XX where XX is the system number.
+This defaults to
+00
+if not provided
+.
+Program ID
+(jco.server.progid)
+This matches the program ID given to the RFC destination linked to Workato in Tcode
+SM59
+.
+Quality of protection
+(jco.client.snc_qop)
+OPTIONAL. Only required if you configure Secure Network communication. If selected, JCO property
+jco.client.snc_mode
+is set to
+1
+.
+This defaults to
+No encryption
+if not provided
+SAPcrypto library path
+(jco.client.snc_lib)
+OPTIONAL. Only required if you configured Secure Network communication. Provide the filesystem path to l
+ibsapcrypto.so
+(Linux), l
+ibsapcrypto.dylib
+(Mac),
+sapcrypto.dll
+(Windows) within the server where your OPA is hosted. For example:
+C:\sec\sapcrypto.dll
+SNC partner name
+(jco.client.snc_partnername)
+OPTIONAL. Only required if you configured Secure Network communication. SNC partner found in STRUST under SNC
+SAPCryptolib
+. Must be prepended with the letter "p:". For example:
+p:CN=EH8, OU=I0021153688, OU=SAP Web AS, O=SAP Trust Community, C=DE
+Client
+(jco.client.client)
+The SAP client you plan to use for the connection. This is always a three-digit value. For example:
+100
+or
+080
+Language
+(jco.client.lang)
+OPTIONAL. Represents the logon language. If the language property is not provided, it defaults to the language configured for the user in SAP. Valid values are two-character ISO language codes or one-character SAP language codes.
+User
+(jco.client.user)
+SAP user provisioned for Workato. Using background user and disabling dialog properties are recommended.
+Password
+(jco.client.passwd)
+SAP user password.
+metadata_refresh_interval
+The interval in minutes to refresh metadata from SAP (except JCo cache). Default is 1440 minutes (24 hours).
+SNC name
+(jco.client.snc_myname)
+Optional. Canonical name of the client certificate you plan to use for the connection.
+Trace
+(jco.client.trace)
+Optional. This enables or disables RFC trace. Valid values are
+0
+or
+1
+.
+SAP Router
+(jco.client.saprouter)
+Optional. SAP Router string to be passed in the format
+/H/<Hostname/Public IP of the SAP Router>/S/<Port>
+.
+Connection pool capacity
+Optional. Maximum number of active connections that are kept open in the connection pool. Consult SAP admin to set value for this parameter.
+Connection peak limit
+Optional. Maximum number of active connections that can be created beyond the pool capacity during periods of high demand. After the load decreases, the additional connections are closed. Consult SAP admin to set value for this parameter.
+CONNECTION POOLING
+It's crucial for the SAP BASIS team to monitor performance after configuring the parameters (
+Connection pool capacity
+and
+Connection peak limit
+) to ensure that the connection pool can efficiently handle the workload without exhausting resources or overloading the SAP server.
+#
+SAP - Message Server Connection
+Below is the example of
+Message server
+connection type. Use this connection type when SAP system is behind message server gateway.
+On-prem sap message server connection using cloud profile
+Parameter
+Description
+Click to expand image
+Message server host
+(jco.client.mshost)
+Message Server host in the format of
+xx.xx.xx.xx
+. This is the IP Address of the Message Server you are connecting.
+System ID
+The system ID of the system the message server belongs to. See SAP Note 52959 in case of connection error.
+Logon group
+(jco.client.group)
+OPTIONAL. Logical group name of the application servers. Can be found in SAP Tcode
+SMLG
+Program ID
+(jco.server.progid)
+This matches the program ID given to the RFC destination linked to Workato in Tcode
+SM59
+.
+Program ID
+Quality of protection
+(jco.client.snc_qop)
+OPTIONAL. Only required if you configure Secure Network communication. Defaults to
+No encryption
+. If selected, JCO property
+jco.client.snc_mode
+is set to
+1
+.
+SAPcrypto library path
+(jco.client.snc_lib)
+OPTIONAL. Only required if you configured Secure Network communication. Provide the filesystem path to
+libsapcrypto.so
+(Linux),
+libsapcrypto.dylib
+(Mac),
+sapcrypto.dll
+(Windows) within the server that your OPA is hosted. For example:
+C:\sec\sapcrypto.dll
+SNC partner name
+(jco.client.snc_partnername)
+OPTIONAL. Only required if you configured Secure Network communication. SNC partner found in STRUST under SNC
+SAPCryptolib
+. Must be prepended with the letter "p:". For example:
+p:CN=EH8, OU=I0021153688, OU=SAP Web AS, O=SAP Trust Community, C=DE
+Client
+(jco.client.client)
+The actual client number which is used for connecting to Workato. Use the same one you log into with your SAP Logon Pad. It's always a 3 digit integer.
+Language
+(jco.client.lang)
+OPTIONAL. Represents the logon language. If the language property is not provided, it defaults to the language configured for the user in SAP. Valid values are two-character ISO language codes or one-character SAP language codes.
+User
+(jco.client.user)
+SAP user provisioned for Workato. Using background user and disabling dialog properties are recommended.
+Password
+(jco.client.passwd)
+SAP user password.
+metadata_refresh_interval
+The interval in minutes to refresh metadata from SAP (except JCo cache). Default is 1440 minutes (24 hours).
+SNC name
+(jco.client.snc_myname)
+Optional. Canonical name of the client certificate you plan to use for the connection.
+Client MS Server
+(jco.client.msserv)
+Optional. Client port number. Overrides the default
+3600
+port number.
+MS Server
+(jco.server.msserv)
+Optional. Message server port number. Overrides the default
+3600
+port number.
+Trace
+(jco.client.trace)
+Optional. This enables or disables RFC trace. Valid values are
+0
+or
+1
+.
+SAP Router
+(jco.client.saprouter)
+Optional. SAP Router string to be passed in the format
+/H/<Hostname/Public IP of the SAP Router>/S/<Port>
+.
+Connection pool capacity
+Optional. Maximum number of active connections that are kept open in the connection pool. Consult SAP admin to set value for this parameter.
+Connection peak limit
+Optional. Maximum number of active connections that can be created beyond the pool capacity during periods of high demand. After the load decreases, the additional connections are closed. Consult SAP admin to set value for this parameter.
+CONNECTION POOLING
+It's crucial for the SAP BASIS team to monitor performance after configuring the parameters (
+Connection pool capacity
+and
+Connection peak limit
+) to ensure that the connection pool can efficiently handle the workload without exhausting resources or overloading the SAP server.
+#
+JMS Cloud Profile
+The following JMS providers are supported by the cloud profile on-prem agent:
+Amazon Simple Queue Service
+Apache ActiveMQ
+Azure Service Bus
+#
+Amazon SQS
+You need the following configuration properties when connecting to Amazon SQS:
+On-prem cloud profile amazon
+Property name
+Comment
+region
+Your Amazon API region, eg 'us-east-2'
+accessKey
+Your Amazon API access key
+secretKey
+Your Amazon API secret
+Note that you need to make sure your SQS queue is created before sending messages.
+#
+Apache ActiveMQ
+For connecting to a running ActiveMQ broker you only need to specify the broker URL:
+On-prem cloud profile activemq
+ActiveMQ broker cannot be embedded into the agent. Using any
+vm://
+broker connections is not supported.
+#
+Azure Service Bus
+Azure Service Bus uses custom JMS provider. You will need the following configuration properties when connecting to Azure Service Bus:
+On-prem cloud profile custom
+Property name
+Comment
+provider
+Custom
+class
+org.apache.qpid.jms.JmsConnectionFactory
+remoteURI
+amqps://host-name.servicebus.windows.net
+username
+policy-name
+password
+primary-key
+Download jar files from
+here
+(opens new window)
+and extract it inside the
+lib_ext
+folder.
+Add the classpath inside the config.yml file.
+server
+:
+classpath
+:
+lib_ext
+#
+Apache Kafka Cloud Profile
+Please refer to
+Apache Kafka connector documentation
+.
+#
+Active Directory Cloud Profile
+Please refer to
+Active Directory connector documentation
+.
+#
+HTTP NTLM Cloud Profile
+Please refer to
+HTTP connector NTLM documentation
+.
+#
+Command-line Scripts Cloud Profile
+Please refer to
+On-prem Files connector documentation
+.
+←
+Overview
+Connection profiles
+→
+Last updated:
+3/20/2025, 12:28:18 AM
+On this page
+Basics
+Database cloud profiles
+On-prem Files Cloud Profile
+FTP(S) Cloud Profile
+SFTP Cloud Profile
+SMB Cloud Profile
+SAP Cloud Profile
+JMS Cloud Profile
+Apache Kafka Cloud Profile
+Active Directory Cloud Profile
+HTTP NTLM Cloud Profile
+Command-line Scripts Cloud Profile
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

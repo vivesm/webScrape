@@ -1,0 +1,142 @@
+Workato コネクター - Google Vision アクション - Read text from image | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Vision
+#
+Google Vision アクション - Read text from image (画像からのテキストの読み取り)
+このアクションは、画像からテキストを読み取ります。画像は以下の2種類のいずれかを使用できます。
+写真 :
+たとえば、写真には道路標識や交通標識が含まれる場合があります。Google Vision は抽出された文字列、個々の単語、およびそれらの境界ボックスを返します。
+スキャンされたドキュメント :
+Google Vision は抽出されたテキストとともに、ページ、ブロック、段落、単語、および改行の情報を返します。
+#
+入力項目
+項目名
+説明
+Image content
+ファイルコンテンツのデータピル、文字列、パブリック URL、または Google Cloud Storage の URI を受け付けます。
+Image type
+選択された画像の種類 (写真またはスキャンされたドキュメント) に応じて、Google Vision は出力を最適化します。
+#
+出力項目
+項目名
+説明
+Text annotations
+画像から抽出された個々の単語すべてを含むリスト。
+Locale
+抽出された単語のロケール。
+Text
+抽出された単語。
+Bounding poly
+画像上での単語の位置。X 座標と Y 座標が含まれます。
+Full text annotation
+画像から抽出されたテキスト全文。
+Pages
+幅、高さ、段落の位置といった、ページについての詳細情報が含まれます。
+Full text
+画像から抽出されたテキスト全文。
+←
+接続方法
+Greenhouse
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

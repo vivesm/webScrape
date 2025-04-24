@@ -1,0 +1,189 @@
+Workato connectors - Xero New/updated invoice trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - New/updated invoice trigger
+The
+New/updated invoice
+trigger activates when an invoice is created or updated.
+Xero - New/updated invoice trigger
+#
+Input
+Input field
+Description
+Trigger poll interval
+Choose how often Workato checks for new or updated events. This field defaults to five minutes if left blank. The minimum value allowed is five minutes.
+When first started, this recipe should pick up events from
+Determine the starting point for the trigger to fetch events. You cannot change this value after the recipe has been run or tested.
+Status
+Specify the invoice status that triggers the recipe.
+Sent to contact
+Filter invoices sent to a particular contact, applicable to approved invoices only.
+#
+Output
+Output field
+Description
+Type
+The type of the invoice.
+Invoice ID
+The unique identifier for the invoice.
+Invoice number
+The invoice number assigned by Xero.
+Payments
+Payment details associated with the invoice.
+Credit notes
+Credit note details applied to the invoice.
+Amount due
+The total amount due on the invoice.
+Amount paid
+The total amount paid against the invoice.
+Amount credited
+The total amount credited to the invoice.
+URL
+The URL link to the invoice in Xero.
+Currency code
+The currency code used for the invoice.
+Currency rate
+The exchange rate applied to the invoice currency.
+Has errors
+Indicates if there are errors associated with the invoice.
+Is discounted
+Indicates if any discounts have been applied to the invoice.
+Has attachments
+Indicates if there are attachments included with the invoice.
+Contact
+Contact details associated with the invoice.
+Date
+The date the invoice was issued.
+Due date
+The due date for payment of the invoice.
+Status
+The current status of the invoice.
+Branding theme ID
+The identifier for the branding theme applied to the invoice.
+Line amount types
+The type of line amounts on the invoice.
+Line items
+Details of each item listed on the invoice.
+Sub total
+The subtotal amount of the invoice before tax.
+Total tax
+The total tax amount for the invoice.
+Total
+The total amount of the invoice, including tax.
+Updated date
+The date on which the invoice was last updated.
+Paid date
+The date when the invoice was paid, if applicable.
+Reference
+A reference note or number for the invoice.
+←
+Connection setup
+New/updated contact
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

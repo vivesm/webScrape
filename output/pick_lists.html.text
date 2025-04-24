@@ -1,0 +1,541 @@
+SDK - CLI - ガイド - ピックリスト | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+CLI
+ガイド
+#
+How to ガイド - CLI におけるピックリストの実行
+ここでは、Workato Gem を使用してピックリストを実行する方法について説明します。
+#
+前提条件
+Workato SDK Gem がインストールされており、実行可能であること。詳細については、
+入門ガイド
+を参照してください。
+少なくとも1つのピックリストを備えた有効なコネクターがあること。ここでは以下のサンプルコネクターを使用します。
+有効な資格情報があること。サンプルコネクターのコードを使用する場合は、そのコネクターの適切な資格情報があることを確認してください。
+#
+サンプルコネクター - Chargebee
+connector.rb
+のコードを以下に示します。
+{
+title
+:
+'Chargebee-demo'
+,
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+'api_key'
+,
+control_type
+:
+'password'
+,
+hint
+:
+'You can find your API key final change3'
+\
+"under 'Settings'=>'Configure Chargebee'=>'API Keys and Webhooks'"
+\
+" in Chargebee's web console."
+,
+label
+:
+'Your API Key'
+}
+,
+{
+name
+:
+'domain'
+,
+control_type
+:
+'subdomain'
+,
+url
+:
+'chargebee.com'
+}
+]
+,
+authorization
+:
+{
+type
+:
+'basic_auth'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+user
+(
+connection
+[
+'api_key'
+]
+)
+end
+}
+,
+base_uri
+:
+lambda
+do
+|
+connection
+|
+"https://
+#{
+connection
+[
+'domain'
+]
+}
+.chargebee.com"
+end
+}
+,
+test
+:
+lambda
+do
+|
+_connection
+|
+get
+(
+'/api/v2/plans'
+,
+limit
+:
+1
+)
+end
+,
+pick_lists
+:
+{
+static
+:
+lambda
+do
+[
+%w[Subscription subscription]
+,
+%w[Customer customer]
+,
+%w[Plans plan]
+]
+end
+,
+dynamic
+:
+lambda
+do
+get
+(
+'/api/v2/customers'
+)
+[
+'list'
+]
+.
+map
+do
+|
+index
+|
+[
+index
+[
+'customer'
+]
+[
+'first_name'
+]
+,
+index
+[
+'customer'
+]
+[
+'id'
+]
+]
+end
+end
+,
+dependent
+:
+lambda
+do
+|
+connection
+,
+params
+|
+get
+(
+'/api/v2/customers'
+,
+params
+)
+[
+'list'
+]
+.
+map
+do
+|
+index
+|
+[
+index
+[
+'customer'
+]
+[
+'first_name'
+]
+,
+index
+[
+'customer'
+]
+[
+'id'
+]
+]
+end
+end
+,
+dependent_with_names
+:
+lambda
+do
+|
+connection
+,
+limit
+:
+|
+get
+(
+'/api/v2/customers'
+,
+limit
+:
+limit
+)
+[
+'list'
+]
+.
+map
+do
+|
+index
+|
+[
+index
+[
+'customer'
+]
+[
+'first_name'
+]
+,
+index
+[
+'customer'
+]
+[
+'id'
+]
+]
+end
+end
+}
+,
+}
+settings.yaml.enc
+に格納されている資格情報です。
+api_key
+:
+valid_api_key
+domain
+:
+valid_domain
+TIP
+暗号化された settings.yaml ファイルを使用する場合は、
+workato edit <PATH>
+を使用してファイルを編集または作成する必要があります。詳細については、
+こちら
+を参照してください。
+SDK Gem を使用すると、ピックリストを個別に呼び出すことができます。
+#
+例1 :
+static
+ピックリストの実行
+上記のサンプルで最初に取り上げるのは
+static
+ピックリストです。その名前が示すように、このピックリストは静的な値のリストを格納しており、呼び出されるとその値を返します。
+このピックリストの実行例を以下に示します。
+$ workato
+exec
+pick_lists.static
+[
+[
+"Subscription"
+,
+"subscription"
+]
+,
+[
+"Customer"
+,
+"customer"
+]
+,
+[
+"Plans"
+,
+"plan"
+]
+]
+#
+例2 :
+dynamic
+ピックリストの実行
+このピックリストはリクエストを送信し、そのレスポンスをピックリストの形式に変換します。ここでは、リクエストの認証に必要な接続設定がデフォルトの
+settings.yaml.enc
+ファイルであることを前提としています。それ以外のファイルを使用したい場合は、
+--settings
+を使用して設定を上書きできます。
+このピックリストの実行例を以下に示します。
+$ workato
+exec
+pick_lists.dynamic
+[
+[
+"dd"
+,
+"AzyuHzSiORQAo1JUb"
+]
+,
+[
+"fdsfdf"
+,
+"16Bji8SfZHHDm7v"
+]
+]
+#
+例3 :
+dependent
+ピックリストの実行
+このピックリストはリクエストを送信し、そのレスポンスをピックリストの形式に変換します。ここでは、リクエストの認証に必要な接続設定がデフォルトの
+settings.yaml.enc
+ファイルであることを前提としています。それ以外のファイルを使用したい場合は、
+--settings
+を使用して設定を上書きできます。
+この場合、ファイル
+fixtures/pick_lists/dependent/input.json
+の内容は以下のとおりです。
+{
+"limit"
+:
+"1"
+}
+このピックリストの実行例を以下に示します。
+$ workato
+exec
+pick_lists.dependent
+--args
+=
+'fixtures/pick_lists/dependent/input.json'
+[
+[
+"dd"
+,
+"AzyuHzSiORQAo1JUb"
+]
+]
+#
+例4 :
+dependent_with_names
+ピックリストの実行
+名前付き引数を受け入れるピックリストを使用することもあります。この場合、名前付き引数 (
+limit:
+) を持つピックリストを使います。
+CLI から引数を渡す場合、ファイル
+fixtures/pick_lists/dependent_with_names/input.json
+の内容は以下のようになります。
+{
+"limit"
+:
+"1"
+}
+このピックリストの実行例を以下に示します。
+$ workato
+exec
+pick_lists.dependent_with_names
+--args
+=
+'fixtures/pick_lists/dependent_with_names/input.json'
+[
+[
+"dd"
+,
+"AzyuHzSiORQAo1JUb"
+]
+]
+#
+例4 :
+dependent_with_names
+ピックリストの実行
+名前付き引数を受け入れるピックリストを使用することもあります。この場合、名前付き引数 (
+limit:
+) を持つピックリストを使います。
+CLI から引数を渡す場合、ファイル
+fixtures/pick_lists/dependent_with_names/input.json
+の内容は以下のようになります。
+{
+"limit"
+:
+"1"
+}
+このピックリストの実行例を以下に示します。
+$ workato
+exec
+pick_lists.dependent_with_names
+--args
+=
+'fixtures/pick_lists/dependent_with_names/input.json'
+[
+[
+"dd"
+,
+"AzyuHzSiORQAo1JUb"
+]
+]
+←
+CLI - メソッド
+rSpec - VCR の設定
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+前提条件
+サンプルコネクター - Chargebee
+例1 : static ピックリストの実行
+例2 : dynamic ピックリストの実行
+例3 : dependent ピックリストの実行
+例4 : dependent_with_names ピックリストの実行
+例4 : dependent_with_names ピックリストの実行
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,134 @@
+Workato connectors - On-prem files new line in CSV file trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+On-prem files
+#
+On-prem files - New line in CSV file trigger
+This trigger picks up new lines added to the end of a selected CSV file. Each line is processed as a separate job.
+When the recipe is first started, the trigger will pick up all existing lines in the selected CSV file. Subsequently, each new line added to the end of the file will be processed as a new job. This trigger checks for new lines once every poll interval.
+New line in CSV file trigger
+#
+Input fields
+Input field
+Description
+CSV file
+First, select a CSV file to process lines from. This CSV file must have a header line. The value of each column in the header will be used to generate the output schema of the trigger.
+Column delimiter
+Next, select a column delimiter for this selected CSV file. The delimiters available are: comma, semicolon, space, and tab.
+#
+Output fields
+Output field
+Description
+Line number
+Line number of the line currently being processed. Header lines are not processed, so the first line has the value 1.
+Columns
+This is an object type datapill. Columns of the selected CSV file will be available as datapills here.
+←
+New CSV file trigger
+New CSV lines trigger
+→
+Last updated:
+7/7/2021, 3:29:57 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

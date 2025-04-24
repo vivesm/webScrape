@@ -1,0 +1,208 @@
+チームコラボレーション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+組織とワークスペース
+#
+Team とコラボレーション
+動画もあります!
+Workato Workspace の概要を簡単にご説明します。
+組織の統合を構築する際は、業務プロセスの規模と複雑さによって、複数の人が一連のレシピで作業したり、1 つのレシピで共同作業したりする場合があります。
+Workato Workspace を使用すれば、開発とセキュリティのベストプラクティスを維持しながら、複数のユーザーが共同作業を行うことができます。この機能により、データガバナンス、チームメンバー間の柔軟性、およびセキュリティ適用の細分性をより詳細に制御できます。
+このガイドでは、次の項目について説明します。
+Team の機能
+チームの管理
+個人アカウントとチームアカウントの切り替え
+チームからの離脱
+コラボレータが行った変更の追跡
+レシピバージョン
+エクスポート/インポート
+#
+Team の機能
+Workato Workspace を開発した目的は、セキュリティを犠牲にせずに、アジャイルで反復的な共同開発を促進することです。Team では、管理者は以下のツールを使用して管理を行うとともに、セキュリティを維持することができます。
+ロールベースのアクセス制御 (RBAC)
+: 事前定義されたロールを使用して、アセットおよび機能に対するアクセスをきめ細かいレベルで設定します。
+RBAC は
+カスタムロール
+の作成をサポートするとともに、数種類の
+事前定義されたシステムロール
+も用意しています。
+複数のチームのサポート
+: 単一のユーザーまたはアカウントを複数のチームの一部とすることができます。これにより、1人の管理者またはエキスパートが複数の部門と協力したり、複数の部門を管理したりできます。
+シングルサインオンを利用したセキュリティの強化
+: SAML ベースのシングルサインオン (SSO) を利用することで、Okta や OneLogin といったアプリを使用して容易に Workato アカウントを管理し、プロビジョニングできます。Workato はカスタムロール向けの
+ジャストインタイムプロビジョニング
+もサポートしています。
+監査証跡を利用した変更の追跡
+: 複数名で作業する際は、各人の作業した内容を識別できることが重要になります。
+自動バージョニング
+機能により、作業内容を失わずに変更をロールバックまたはロールフォワードできます。
+レシピの所有権 :
+チームの一員であるユーザーが作成したレシピは、チームに所有権があります。コンサルタントがチームを離脱するとき、あるいは従業員がチームまたはジョブを変更するとき、チームに提供されたものは消えずに残ります。
+#
+チームの管理
+注
+[
+Team management
+] ページにアクセスするには、以下のものが必要です。
+Team Owner
+または
+Admin
+システムロール
+、または
+Team
+権限
+[
+Team management
+(opens new window)
+] ページにアクセスするには、サイドメニューの [
+Team management
+] をクリックします。
+ここから、以下の操作が可能です。
+コラボレータの招待と管理
+コラボレータに対する保留中の招待の表示
+コラボレータのロールの管理
+チーム設定の定義 (
+SSO
+など)
+#
+個人アカウントとチームアカウントの切り替え
+共同で作業しているチームを確認するには、サイドメニューを開き、プロファイルアイコンをクリックします。
+左上のプロファイルアイコンをクリックしてチームスイッチャを開く
+別のチームに切り替えるには、対象のチームをクリックします。
+#
+チームからの離脱
+チームを離脱すると、そのチームへのすべてのアクセスが無効になります。
+チームスイッチャを使用
+してチームを切り替えることはできなくなります。以前にチームに提供したレシピおよびアセットはすべて残されます。
+さらに、チームメンバーがチームを離脱すると、チーム所有者にメールで通知されます。
+所属するチームを離脱するには、以下の操作を実行します。
+1
+Workato アカウントで、
+[Settings] > [Workspace membership]
+(opens new window)
+に移動します。
+2
+離脱するチームの横にある [
+Leave
+] をクリックします。
+#
+コラボレータが行った変更の追跡
+チーム内での共同作業時、チームメンバーが行ったレシピへの変更およびエクスポート/インポートを追跡できます。これにより監査証跡が作成されるため、チームを効果的に管理し、チームの行っている変更がセキュリティプロトコルに適合していることを確認できます。
+#
+レシピバージョン
+レシピの変更は [
+Versions
+] タブに記録され、変更を行ったコラボレータが特定されます。旧バージョンのレシピは、Admin または Analyst のロールを持つユーザーが復元できます。
+概要をご覧になりますか。
+レシピバージョンの概要を紹介する動画をご覧ください。
+#
+エクスポート/インポート
+Recipe lifecycle management
+の実行中に行われるチームアカウントに対するエクスポートおよびインポートは、すべてのマニフェストとインポートフォルダーにあるエクスポート/インポートの履歴ページに記録されます。
+レシピのエクスポート履歴
+←
+シングルサインオン (SSO)
+ロールベースのアクセス管理 (RBAC)
+→
+Last updated:
+2023/11/27 21:51:04
+On this page
+Team の機能
+チームの管理
+個人アカウントとチームアカウントの切り替え
+チームからの離脱
+コラボレータが行った変更の追跡
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

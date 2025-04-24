@@ -1,0 +1,189 @@
+Workato connectors - Bynder | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Bynder
+Bynder
+(opens new window)
+is a digital asset management platform that enables teams to collaborate in the cloud, get content to market faster, and maximize the impact of marketing assets.
+#
+API version
+The Bynder connector uses
+Bynder REST API v4
+(opens new window)
+.
+#
+How to connect to Bynder on Workato
+#
+Bynder connection
+The Bynder connector uses OAuth 2.0 to authenticate with Bynder.
+Connection name
+Give this Bynder connection a unique name that identifies which Bynder instance it is connected to.
+Domain
+Enter your Bynder domain as found in your Bynder URL. If your Bynder url is
+https://acme.getbynder.com
+(opens new window)
+, then domain is
+acme.getbynder.com
+(opens new window)
+Scopes
+Enter the scope for which the user has permissions for. The default scopes can be overridden in the advanced settings. The full list of scopes and the actions that require the scopes can be found
+here
+(opens new window)
+.
+The following scopes are required to be included :
+"offline",
+"meta.assetbank:read"
+The other scopes that are selected by default includes :
+"asset.usage:read",
+"asset:read",
+"asset:write",
+"asset.usage:write",
+"collection:read",
+"collection:write",
+"workflow.campaign:read",
+"workflow.campaign:write",
+"workflow.group:read",
+"workflow.group:write",
+"workflow.job:read",
+"workflow.job:write",
+"workflow.preset:read",
+"meta.workflow:read
+Click on connect and a Bynder dialog box will pop-up, requesting your Bynder Account credentials, and granting access to Workato.
+#
+Roles and permissions required to connect
+Bynder users who can login to Bynder can connect to Bynder from Workato. The user will have the same
+user permissions
+(opens new window)
+on Workato as in Bynder. This means that they will have the same capabilities to view,update, delete, upload, and download assets as per their respective permissions on the Bynder platform. Bynder categorizes users into three groups: Light, Regular and Heavy users. Regular user role is sufficient to use most of the actions in the Bynder connector.
+#
+Working with Bynder connector
+#
+Terminology
+The terminology for Bynder can be found below.
+Assets
+Any type of digital files including images, movies, music files, and PDF documents. View supported file formats
+here
+(opens new window)
+.
+Collections
+Collections are assets that belong together or that are grouped together.
+Tags
+You can add tags manually, or get Bynder to tag assets for you using AI-based automated tags. Shortly after upload, the automated tags will be available under the Automated Tags drop-down in the asset detail screen. Read more about tag management
+here
+(opens new window)
+.
+Metaproperties
+Campaign metaproperties are recurring fields that can be added to specific campaign presets.
+Metaproperty option
+Options that belong to specific metaproperties. For example, if you have a Country metaproperty, you can add countries as options to this metaproperty.
+←
+Other actions
+New asset trigger
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+API version
+How to connect to Bynder on Workato
+Working with Bynder connector
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

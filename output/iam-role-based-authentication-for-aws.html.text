@@ -1,0 +1,282 @@
+接続資格情報のためのシークレット管理 - AWSサービスのIAMロールベースの認証 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+接続資格
+AWS Secrets Manager
+#
+AWSサービスのIAMロールベースの認証の使用
+AWS IAMロール認証を使用すると、Workatoが使用するためのAWSインスタンスに専用のロールを提供できます。専用のIAMプロファイルをプロビジョニングすることで、AWSインスタンスの所有者はAWSのセキュリティ資格情報を共有せずにWorkatoにAWSリソースへのアクセスを許可することができます。これにより、サードパーティのアプリケーション（たとえば、Workato）が許可された特定のAWSサービスとアクションへの制御されたアクセスを含む、アクセス許可の境界を維持するのに役立ちます。IAMロールベースの認証を使用して接続を構成する際、使用する外部IDは
+ワークスペースレベルまたはプロジェクトレベル
+にスコープを設定することができます。
+プロジェクトレベルで外部IDのスコープを設定することで、個々のプロジェクトに対してより詳細なAWSリソースへのアクセスを許可することができます。たとえば、「DevOps」プロジェクトのみにAmazon SQSへのアクセスを許可し、ワークスペース内のすべてのプロジェクトからアクセスできないようにすることができます。
+以下のAWSサービスとユニバーサルコネクタに対して、IAMロールベースの認証をサポートしています。
+Amazon Lex
+Amazon S3
+Amazon SES
+AWS Lambda
+AWS SQS
+AWS SNS
+Cloud Watch
+HTTPユニバーサルコネクタ
+#
+前提条件
+以下が必要です。
+Amazon Web Services（AWS）
+：
+IAM権限ポリシーの作成と変更を許可する権限
+IAMロールの作成と変更を許可する権限
+#
+IAM外部IDのスコープを選択する
+1
+Workatoにログインし、
+設定 > 詳細設定
+に移動します。
+2
+外部IDのスコープ
+ドロップダウンメニューを使用して、
+プロジェクトごとに個別の外部ID
+または
+ワークスペースごとに単一の外部ID
+を選択します。
+外部スコープ
+ワークスペースの外部IDを使用する既存の接続資格情報がある場合、WorkatoはIAMロールを更新する必要があるアクティブな接続のリストを表示して選択を確認します。逆に、複数のプロジェクトレベルの外部IDからワークスペースの単一の外部IDに切り替える場合も同様です。
+外部IDの選択を確認
+3
+個別の外部IDを使用
+または
+単一の外部IDを使用
+を選択して、選択を確認します。
+#
+IAMロールの作成
+IAMロールを作成するには、次の手順を実行します。
+1
+AWSコンソール
+に移動し、
+セキュリティ資格情報
+を選択します。
+セキュリティ資格情報
+2
+ロール > ロールの作成
+を選択します。
+ロールの作成
+3
+信頼されたエンティティのタイプ
+で
+AWSアカウント
+を選択します。
+4
+別のAWSアカウント
+を選択し、アカウントID（たとえば
+353360065216
+）を入力します。
+5
+外部IDが必要
+のチェックボックスを選択し、Workatoが生成した
+外部ID
+を入力します。
+各Workatoユーザーには固有の
+外部ID
+があります（たとえば、
+workato-user-84762
+）。AWSをWorkatoで使用する方法をより詳細に制御する場合は、外部IDのスコープをプロジェクトレベルに変更することで接続を構成することもできます。詳細については、
+シークレット管理
+を参照してください。
+AmazonアカウントID
+Workatoの外部IDを見つける
+Workatoで外部IDを見つけるには：
+アカウントにログイン >
+設定 > 詳細設定
+を選択します。
+ワークスペースレベルからプロジェクトレベルまたはその逆に外部IDのスコープを切り替えた場合、WorkatoのAWS接続が有効になるためには、ロールの外部IDを更新する必要があります。これは、「信頼関係」を選択し、受け入れられる外部IDの値を変更することで行うことができます。たとえば、外部IDの値を
+workato_iam_external_id_12345
+からプロジェクトレベルのスコープの外部ID（たとえば
+workato_iam_external_id_12345_6789
+）に置き換えることができます。
+6
+Workatoがアカウントで自動ワークフローを実行するための適切な権限を選択します。
+7
+IAMロールの
+名前と説明
+を入力します。
+Workatoは、IAMロールの名前については、以下を推奨します。## IAMロールの作成
+1
+AWSコンソール
+に移動し、
+IAMコンソール
+(opens new window)
+を開きます。
+2
+アクセス管理 > ポリシー
+を選択します。
+3
+ポリシーの作成
+をクリックします。
+4
+Workatoがアクセスを許可する予定のAWSサービスを見つけて選択します。
+5
+アクション
+フィールドで必要な権限を選択します。
+6
+ロールにアクセスを許可するリソースを指定します。
+ベストプラクティス
+Workatoでは、特定のリソースへのアクセスを許可することをお勧めします。最小限の権限を付与するために条件キーを使用する方法については、
+Amazonのドキュメント
+(opens new window)
+を参照してください。
+以下のようなページが表示されます。
+7
+次へ
+をクリックし、
+ポリシーの確認
+ページに進みます。
+8
+ポリシーの
+名前
+を入力します。
+9
+完了したら、
+ポリシーの作成
+をクリックします。
+#
+IAMロールのARNを取得する
+接続設定に必要な
+ロールARN
+を取得するには:
+1
+AWSコンソール > マイセキュリティ資格情報 > ロール
+に移動します。
+セキュリティ資格情報
+2
+検索ボックスを使用して、接続に使用するIAMロールのARNを見つけ、ロールを選択して概要を表示します。
+IAMロールの選択
+3
+ロールARN
+をコピーします。これをWorkatoでAmazon接続を作成する際に使用する必要があります。
+ロールARNのコピー
+#
+WorkatoにロールARNを追加する
+1
+Workatoアカウントにログインし、
+アセット
+メニューの下にある
+接続
+をクリックします。
+2
+認証タイプ
+のドロップダウンメニューから
+IAMロール
+を選択します。
+3
+IAMロールARN
+フィールドにARNの値を貼り付け、AWSサービスの他の必要なフィールド（例:
+リージョン
+）を入力します。
+4
+接続
+をクリックします。
+←
+AWS Secrets Managerの使用
+ワークスペースのための Hashicorp Vaultの設定
+→
+Last updated:
+2025/4/9 14:36:45
+On this page
+前提条件
+IAM外部IDのスコープを選択する
+IAMロールの作成
+IAMロールのARNを取得する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

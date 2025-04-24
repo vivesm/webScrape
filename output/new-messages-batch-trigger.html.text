@@ -1,0 +1,160 @@
+Workato connectors - Confluent Cloud new messages in topic trigger (batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Confluent Cloud
+#
+New messages in topic trigger (batch)
+Configure the Confluent Cloud connector to listen to new messages in batches that are created in your Confluent Cloud topic. This trigger checks for new messages once every poll interval and Workato processes each batch as a separate job.
+#
+Input fields
+Field
+Description
+Trigger poll interval
+Determine how frequently to check for new events. This defaults to five minutes if left blank. The minimum value allowed is five minutes.
+Topic
+Select a topic from the list or enter the topic name.
+Message schema source
+Select where your message schema is defined from either your
+common data models
+or your schema registry in Confluent Cloud. To retrieve schemas from your schema registry, you must configure your Confluent Cloud connection with your
+Stream Governance API credentials
+.
+Message schema
+Select a message schema from your common data models or schema registry.
+Initial offset
+Determine the initial offset. This value tells Workato how to handle the operation when there is no initial offset in Kafka or if the current offset no longer exists on the server. If set to
+Earliest
+, Workato starts fetching messages from the oldest available message in the topic. If set to
+Latest
+, Workato starts fetching messages from the most recent message. This value defaults to
+Earliest
+.
+Batch size
+Select the size of the returned events batch. The minimum is 1 and the maximum is 100. The default value is 100.
+#
+Output fields
+The output datatree contains information about the messages. This includes the key, raw message, partition, offset, timestamp, and size.
+Field
+Description
+Records
+An array of message records. Each record contains the following fields.
+Key
+The message key. This value is stored with the message.
+Message
+The message content.
+Raw message
+The raw message content.
+Partition
+The partition number.
+Offset
+The offset number.
+Timestamp
+The timestamp of the message.
+Size
+The size of the message in bytes.
+←
+New message trigger
+Publish message action
+→
+Last updated:
+9/17/2024, 7:39:13 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

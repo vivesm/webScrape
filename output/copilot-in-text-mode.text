@@ -1,0 +1,241 @@
+テキストモード | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+AI機能
+Copilots
+#
+Mapper Copilot
+WorkatoのMapper Copilotは、レシピエディタ内でAI支援を提供することで、レシピ内のテキスト操作を強化します。この機能を使用して、データピルを組み込んだテキストを作成できます。例えば、メールの下書き、Slack通知、請求書の説明などです。このページでは、Mapper Copilotを使用して通常の入力を処理し、英語のテキストを効果的に操作する方法について詳しく説明します。さらに、Mapper Copilotを使用すると、レシピ内の数千のデータピルから迅速に検索して選択し、正確なデータ処理が可能になります。
+#
+前提条件
+ワークスペースで
+Copilot
+が有効になっていることを確認してください。Copilotを有効にするには、
+Admin
+システムロールが必要です。このロールが割り当てられていない場合は、ワークスペース管理者に連絡してこの機能を有効にしてください。詳細については、
+Copilots
+のドキュメントを参照してください。
+PERMISSIONS
+Copilotsには詳細な権限設定がありません。ワークスペースで有効にすると、役割に関係なくワークスペース内のすべてのコラボレーターがアクセスできます。
+#
+Mapper Copilotの使い方
+Mapper Copilotを使用すると、レシピ内の入力フィールドを生成および操作できます。次の手順を完了して、Mapper Copilotを有効にして使用します：
+1
+テキスト操作が必要な任意のレシピアクションまたはトリガーステップに移動します。
+2
+テキストを挿入または編集する予定の入力フィールドで
+Text
+タブをクリックします。Mapper Copilotが有効になっている場合、入力提案を有効にできることを示すアイコンが表示されます。
+Navigate to the
+Text
+tab
+3
+提案されたアイコンをクリックしてMapper Copilotを有効にします。
+Activate Mapper Copilot
+#
+入力提案を選択する
+データを挿入する予定の入力フィールドをクリックすると、レシピの前のアクションに基づいたオプションを含む提案された入力メニューが表示されます。
+Select suggested input
+提案された入力メニューからオプションを選択して関連するデータピルをマッピングできます。提案が適切でない場合は、入力メニューの下部にある
+Fill field with AI instead
+をクリックします。このオプションを選択すると、Mapper Copilotが新しいカスタマイズされた入力提案を生成します。
+#
+入力提案を生成する
+テキストモードでMapper Copilotを有効にした後、特定のテキストプロンプトの生成を開始できます。
+HOW MAPPER COPILOT INTERPRETS DATA
+Mapper Copilotは、テキストフィールドに存在するデータに基づいて入力提案を生成する際のアプローチを調整します：
+入力または生成なし: Mapper Copilotはプロンプトとレシピのみを考慮します。
+入力あり: Mapper Copilotは既存の入力、プロンプト、およびレシピを考慮します。
+生成あり: Mapper Copilotは生成、プロンプト、およびレシピを考慮します。
+入力と生成あり: Mapper Copilotは生成、プロンプト、およびレシピのみを考慮します。
+1
+プロンプトに直接テキストの要件や変換の説明を入力します。入力を修正したり、以前の提案を表示したりする場合は、
+Back
+オプションを選択します。
+Generate a text prompt in Mapper Copilot
+2
+緑の矢印をクリックして入力生成プロセスを開始します。システムは**Generating input…**を表示し、入力の提案を処理していることを示します。プロセスをキャンセルするには、
+Stop
+を選択することもできます。
+Generate the input suggestion in Mapper Copilot
+3
+Mapper Copilotが生成した入力提案を確認し、それが変換要件を満たしていることを確認します。
+4
+提案を直接入力フィールドに
+Insert
+するか、
+Copy
+をクリックして他の部分で使用するためにクリップボードにコピーします。
+Insert the generated suggestion into the input field
+5
+提供された提案を使用するか、
+refine
+して、特定のデータニーズと希望する出力形式に合わせます。
+#
+既存の入力またはMapper Copilotが生成した提案を洗練する
+テキストフィールド内の既存の入力を調整したり、Mapper Copilotが生成した入力提案を洗練したりできます。次の手順を完了して、Mapper Copilotの提案を要件に合わせて更新します：
+1
+テキストボックス内で再度Mapper Copilotアイコンをクリックします。この操作により、新しい提案のためのプロンプトを更新できます。
+Activate Mapper Copilot to update the input suggestion
+2
+更新されたプロンプトを入力して提案を洗練します。
+Type the new requirements for the text
+3
+入力提案を確認し、意図した出力に一致していることを確認します。
+Review the updated formula suggestion
+4
+Replace
+を選択して、以前の提案を新しい提案に置き換えます。
+#
+テキストモードでデータピルをマッピングする
+Mapper Copilotは、レシピ内のデータピルの検索と使用を簡素化し、大規模なデータセットの管理に不可欠なツールです：
+1
+データピルを挿入する予定の入力フィールドで
+Text
+モードに切り替えます。
+2
+プロンプトにデータピルの要件を入力します。Mapper Copilotは入力に基づいて関連するデータピルを動的に提案します。
+Find datapills in Mapper Copilot
+3
+Insert
+をクリックしてデータピルを現在のステップのフィールドにマッピングするか、
+Copy to clipboard
+をクリックして他の部分で使用するためにデータピルをクリップボードにコピーします。
+Insert datapills
+4
+Mapper Copilotのテキスト操作機能を使用して、入力フィールド内のデータピルを変更またはフォーマットします。
+Refine and use datapills
+#
+不明な提案を再マッピングする
+Mapper Copilotが入力に対して類似のデータピルを見つけられない場合、不明な提案を再マッピングできます。次のいずれかのオプションを完了して不明な提案を再マッピングします：
+一致しないデータピルを
+Delete
+し、データツリーから手動で代替を選択します。
+Ask Copilot for help
+を選択して、データピルの再マッピングに関するAI支援の提案を受け取ります。
+Remap unknown datapills in Mapper Copilot
+これらの手順を実行することで、入力がレシピ内の正しいデータピルを正確に参照することを確認できます。
+#
+効果的な使用のためのヒント
+関連するデータピルを含める
+: 正確な提案を得るために、入力フィールドに必要なデータピルを含めます。選択したデータピルはMapper Copilotにコンテキストを提供し、正確なテキスト変換を生成できます。
+プロンプトで具体的に
+: より正確な提案を生成するために、プロンプトで明確かつ具体的な指示を提供します。使用する形式や変換を明示的に指定します。
+コンテキストデータを活用する
+: 前のステップから関連するデータを使用して、Mapper Copilotに正確で関連性のある提案を生成するための包括的なコンテキストを提供します。
+#
+データ使用
+Mapper Copilotがデータをどのように使用するかについては、付録の
+データ使用
+を参照してください。
+#
+制限事項
+Mapper Copilotは幅広い自動化タスクをサポートするように設計されていますが、複雑なシナリオでは手動設定が必要な場合があります。これらのケースについては、Workatoの
+データピルドキュメント
+を参照してください。
+←
+Formula Copilot
+Connector Copilot
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+前提条件
+Mapper Copilotの使い方
+入力提案を生成する
+データ使用
+制限事項
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

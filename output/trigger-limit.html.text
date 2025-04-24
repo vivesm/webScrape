@@ -1,0 +1,138 @@
+SDK - Trigger Limit | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connector SDK
+How-to guides
+#
+SDK trigger limit
+Workato enforces specific limits on SDK triggers to optimize performance and ensure system stability. Currently, we apply a limit to consecutive polling in a single poll cycle when no jobs are produced.
+#
+Consecutive polls in a single poll cycle without jobs
+When your triggers poll, they can poll consecutively to retrieve valid results. The
+can_poll_more
+boolean attribute in the SDK trigger poll response controls this behavior. Workato enforces a limit on consecutive polls in a single poll cycle when no jobs are produced.
+#
+Throttling mechanism
+Workato throttles a trigger if it polls consecutively without producing any jobs. This throttling minimizes unnecessary polling and ensures system stability. Starting February 10th, 2025, triggers are limited to 600 consecutive polls in a single poll cycle without jobs before Workato pauses polling for 5 minutes. Over time, this threshold will gradually decrease to 50 consecutive polls.
+When your trigger exceeds this limit, Workato pauses polling for 5 minutes. After the pause, polling resumes, and the counter continues from where it left off. If the next poll also produces no jobs, Workato pauses polling again for another 5 minutes. If a poll produces jobs, the counter resets to zero.
+This pattern repeats until the poll cycle ends when
+can_poll_more
+equals false. In short, after reaching the limit, triggers can only poll once every 5 minutes without producing jobs.
+#
+Notification mechanism
+Workato sends email notifications automatically when a recipe is throttled. These notifications provide relevant details and keep you informed about throttled recipes.
+#
+Recipients
+Workato sends notifications about throttled recipes to specific recipients based on their role. For workspace admins, notifications are sent directly to the admin of the workspace where the recipe runs. For Embedded partners, they are sent to the Embedded partner’s workspace email. Embedded customers do not receive these notifications.
+#
+Notification details
+Workato provides notifications at two key points to keep you informed about throttled recipes. When a recipe is throttled for the first time, Workato sends an email that contains details about the throttling event. This ensures you are immediately aware of any issues affecting your recipes.
+Additionally, at the end of each month, Workato sends a summary email that lists all recipes throttled during that month. This email provides a comprehensive overview of throttled recipes and serves as a reminder.
+←
+Verifying webhook events
+File streaming operations
+→
+Last updated:
+1/9/2025, 6:15:04 AM
+On this page
+Consecutive polls in a single poll cycle without jobs
+Throttling mechanism
+Notification mechanism
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

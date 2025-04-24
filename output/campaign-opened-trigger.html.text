@@ -1,0 +1,153 @@
+Workato connectors - MailChimp - Campaign opened trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+MailChimp
+#
+Campaign opened trigger
+This trigger runs when a contact in your audience opens a campaign communication sent to them.
+Campaign opened trigger
+#
+Input
+Input field
+Description
+Campaign ID
+The ID of the campaign you plan to monitor.
+#
+Output
+Output field
+Description
+Members
+The members included in the campaign.
+Campaign ID
+The ID of the campaign for which open details are being monitored.
+List ID
+The list ID used in the campaign for which open details are being monitored.
+List is active
+Indicates if the list used in the campaign is active or not. This value is
+true
+or
+false
+.
+Contact status
+The status of the contacts who opened the campaign.
+Email ID
+The email ID of the contacts.
+Email address
+The email address of the contact.
+Opens count
+Indicates how many times the campaign was opened.
+Timestamp
+The time at which the campaign was opened by the recipient. For example:
+2023-08-24T14:15:22Z
+.
+Total opens
+Indicates how many times the campaign was opened by recipients in total.
+←
+Campaign created trigger
+Campaign sent trigger
+→
+Last updated:
+1/10/2024, 8:49:34 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

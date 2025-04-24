@@ -1,0 +1,283 @@
+Workato connectors - Google Drive - New activity | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Drive
+#
+Google Drive - New activity trigger
+The
+New activity
+trigger allows you to monitor one or more activities within a parent folder.
+Google Drive New activity trigger
+#
+Input
+Input field
+Description
+Parent folder
+The folder to monitor for new activity. Subfolders are also monitored. Select a folder from the picklist or enter the folder ID directly. If entering the folder ID for a shared drive (formerly Team Drive), this value must be in the form
+folder_id/shared_drive_id
+(for example,
+1fm6iCMYrN7roZZ-ynpVFRTVq9mellrWp/0AB6ZFCw3XdamUk9PAA
+). IDs can be found at the end of folder and drive URLs.
+Start time
+When you start the recipe for the first time, it picks up activity from the specified date and time. Defaults to fetching activity an hour ago if left blank. After the recipe has been run or tested, the value cannot be changed. Refer to
+Triggers
+for more information.
+Activity to monitor
+Select one or more activities to monitor.
+#
+Output
+Note that in Google Drive API, the terms
+folder
+and
+file
+are used interchangeably. A
+folder
+is technically a special
+file
+. As a result, whenever the field name or field description mentions
+file
+, it also applies to
+folder
+.
+Output field
+Description
+ID
+ID of the changed Google Drive item.
+Title
+Title of the changed Google Drive item.
+MIME
+MIME type of the changed Google Drive item, as stated in
+Google Drive's documentation
+(opens new window)
+.
+Owner
+Owner of the Google Drive item. Contains the following output fields:
+Team Drive: Team Drive containing the item. Contains the following output fields:
+Name: Name of the Team Drive.
+Title: Title of the Team Drive.
+Domain
+Domain: Domain of the Team Drive containing the item. Contains the following output fields:
+Name: Name of the domain.
+Legacy ID: Legacy ID of the
+domain.li
+(opens new window)
+>
+Drive
+Drive: Shared drive containing the item. Contains the following output fields:
+Name: Name of the shared drive.
+Title: Title of the shared drive.
+Actions
+A list of actions that occurred. Contains the following output fields, in addition to
+List size
+and
+List index
+:
+Detail:Description of the action type and additional information about it. Contains the following output fields:
+Rename: Details about the renamed item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Permission change: Details about the permission change, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+Comment: Details about the comment change, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Settings change: Details about the changed settings, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Edit: An item was edited.
+DLP change: Details about a change that happened in data leak prevention status, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Create: Details about the created item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Delete: Details about the deleted item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Restore: Details about the restored item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Actors
+A list of actors who performed the activity. Contains the following output fields, in addition to
+List size
+and
+List index
+:
+User: Details about the end user. Contains the following input fields:
+Known user:Details about the known user, if applicable. Refer to the
+Drive Activity API Reference
+(opens new window)
+for more information.
+Deleted user: Details about the deleted user, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Unknown user: Details about the unknown user, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Primary action detail
+Details about the primary action for this activity. This is either representative, or the most important, of all actions in the activity. Contains the following output fields:
+Rename: Details about the renamed item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Move: Details about the moved item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Permission change: Details about the permission change, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Comment: Details about the comment change, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Reference: Details about the item that was referenced in an application outside of Drive, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Settings change: Details about the changed settings, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Edit: An item was edited.
+DLP change: Details about a change that happened in data leak prevention status, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Create: Details about the created item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Delete: Details about the deleted item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Restore: Details about the restored item, if applicable. Refer to the
+Google Drive Activity API Reference
+(opens new window)
+for more information.
+Drive file
+Details about the shared drive file. Contains the following output field:
+Type: Type of the shared drive file.
+Timestamp
+Date and time of when the activity occurred.
+←
+Connection setup
+New CSV file trigger
+→
+Last updated:
+3/10/2025, 6:11:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

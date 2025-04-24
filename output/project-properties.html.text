@@ -1,0 +1,156 @@
+Project properties | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+#
+Project properties
+Project properties are name-value pairs that enable you to store recipe configuration parameters for use within a single project. Project properties are available in all recipes within the same project under the
+Properties
+datatree.
+Project properties are useful for complex deployment models across connections and recipes. For example, you can have a property that indicates where to send a notification email. All recipes within the same project where the project properties exist can look up this value from the datatree and send an email to the same recipient.
+Project properties are distinct from
+environment properties
+in that their scope is narrower. Environment properties are globally available within your Workato account, while project properties are available only at the project level in the specific project where you create and maintain them.
+PROJECT PROPERTY JOB EXECUTION BEHAVIOR
+Jobs
+do not dynamically detect and update changes to project property values. Project property values are frozen at the beginning of job execution by design. You can use
+Lookup tables
+if you require dynamic detection for project property values.
+You can hide sensitive properties from common access by reducing the scope of users able to access projects containing sensitive properties.
+#
+Permissions
+Workato enables you to set granular permissions for both project properties and environment properties using
+role-based access control
+(RBAC) by creating a custom role.
+Project property permissions are available in
+Workspace admin > Collaborator roles > + Add collaborator role
+in the
+Recipe development
+section under
+Data storage
+.
+Project properties privileges
+Learn more about
+Collaborator privileges
+.
+#
+Limits
+Project property limits are global for all projects and depend on your account configuration. The following property limits apply by default:
+200
+for all projects within one environment.
+100
+for environment-level properties.
+Contact your Customer Success Manager for more information about your project property limits.
+FURTHER READING
+Learn how to implement project properties in your workspace with the following guides:
+Manage project properties
+Use project properties in recipes
+Project properties FAQ
+←
+Environment properties
+Manage project properties
+→
+Last updated:
+12/2/2024, 7:20:06 PM
+On this page
+Permissions
+Limits
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

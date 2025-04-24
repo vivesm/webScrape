@@ -1,0 +1,327 @@
+Linux RPMパッケージを使用したオンプレミスエージェントのインストール | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+オンプレミス接続
+オンプレミスグループ
+グループへのエージェントの追加
+#
+RPM Linuxパッケージを使用したオンプレミスエージェントのインストール
+このガイドでは、Red Hat、Fedora、Centosなどのオペレーティングシステムに対して、RPM Linuxパッケージを使用してオンプレミスエージェントをインストールする方法について説明します。
+TIP
+これらのコマンドを実行するためには、
+sudo
+権限が必要です。
+#
+ステップ1：オンプレミスエージェントのインストール
+1
+以下の内容で新しいファイル
+/etc/yum.repos.d/workato.repo
+を作成し、Workatoリポジトリをyumリポジトリリストに追加します。
+[
+workato-x86_64
+]
+name
+=
+Workato RPM Repo
+baseurl
+=
+https://workato-public.s3.amazonaws.com/DAA34553/repo/rpm/x86_64/
+enabled
+=
+1
+gpgkey
+=
+https://workato-public.s3.amazonaws.com/DAA34553/repo/archive.key
+gpgcheck
+=
+1
+2
+追加されたリポジトリを確認します。
+%
+sudo
+yum makecache
+Updating Subscription Management repositories.
+Unable to
+read
+consumer identity
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+Red Hat Update Infrastructure
+3
+Client Configuration Server
+8
+HA
+49
+kB/s
+|
+2.0
+kB 00:00
+Red Hat Enterprise Linux
+8
+for
+x86_64 - AppStream from RHUI
+(
+RPMs
+)
+79
+kB/s
+|
+4.5
+kB 00:00
+Red Hat Enterprise Linux
+8
+for
+x86_64 - BaseOS from RHUI
+(
+RPMs
+)
+74
+kB/s
+|
+4.1
+kB 00:00
+Red Hat Enterprise Linux
+8
+for
+x86_64 - High Availability
+(
+RPMs
+)
+from RHUI
+71
+kB/s
+|
+4.0
+kB 00:00
+Red Hat Ansible Engine
+2
+for
+RHEL
+8
+(
+RPMs
+)
+from RHUI
+67
+kB/s
+|
+4.0
+kB 00:00
+Workato RPM Repo
+Metadata cache created.
+3
+workatoを検索します。結果には、異なる
+データセンター
+を使用するエージェントがリストされます。データセンターの場所に一致するエージェントを選択します。
+%
+sudo
+yum search workato
+Updating Subscription Management repositories.
+Unable to
+read
+consumer identity
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+Last metadata expiration check:
+0
+:00:44 ago on Thu 09 Nov
+2022
+10
+:25:51 AM UTC.
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+=
+Name
+&
+Summary Matched: workato
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+==
+workato-agent.x86_64
+:
+workato-agent
+4
+以下のコマンドを使用してエージェントをインストールします。
+%
+sudo
+yum
+install
+workato-agent.x86_64
+#
+ステップ2：オンプレミスエージェントのアクティベート
+1
+オンプレミスグループページを開き、
+新しいエージェントを追加
+をクリックします。意味のあるエージェント名を入力し、エージェントのインストールに使用するオペレーティングシステム（OS）を選択します。
+オペレーティングシステムの選択
+2
+エンドユーザーライセンス契約
+を読み、同意します。
+利用規約の同意
+3
+以下のアクティベーションコマンドを実行すると、エージェントパッケージ内にエージェントキーと証明書が自動的に作成されます。アクティベーションコードの有効期間は1時間です。
+Workatoへのトラフィックがサーバーから許可されていることに注意してください - 詳細は
+こちら
+を参照してください。
+<install_home>
+ディレクトリに移動し、ウィザードから表示されるコマンドをコピーして実行します。
+プロキシを使用する場合
+プロキシを使用している場合、ウィザードに表示されるアクティベーションコマンドに
+--proxy-host=<ホストIPアドレス> --proxy-port=<ポート番号>
+パラメータを追加する必要があります。
+アクティベーション
+#
+ステップ3：オンプレミスエージェントの実行
+1
+エージェントサービスをバックグラウンドで起動するには、次のコマンドを使用します。
+systemctl start workato-agent.service
+2
+エージェントをシステム起動時に自動的に起動するには、次のコマンドを使用します。
+systemctl
+enable
+workato-agent.service
+3
+Setup Now
+をクリックしてWorkatoのエージェントウィザードを開き、
+Test agent
+ステップに進んでエージェントがWorkatoに接続できるかどうかを確認します。
+←
+Linux DEB パッケージ
+ステータス
+→
+Last updated:
+2025/2/25 9:03:23
+On this page
+ステップ1：オンプレミスエージェントのインストール
+ステップ2：オンプレミスエージェントのアクティベート
+ステップ3：オンプレミスエージェントの実行
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

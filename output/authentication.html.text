@@ -1,0 +1,308 @@
+Workato connectors - OpenAPI - Authentication | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+OpenAPI
+#
+OpenAPI Connector Authentication
+This guide serves as a reference for the authentication methods supported by the
+OpenAPI connector
+.
+#
+Swagger Files And Authentication Methods
+In some cases, the Swagger file for an application describes the required authentication method for the application. If the file contains this info, it can be useful for
+selecting the correct authentication method while setting up the connection
+.
+NOTE
+The connector currently doesn't support automatically reading the authentication method from Swagger files, even if present.
+#
+Supported Methods
+The OpenAPI connector supports the following authentication methods:
+None
+Basic
+Header
+Query params
+OAuth 2.0: Authorization code grant
+OAuth 2.0: Client credentials grant
+OAuth 2.0: Resource owner password grant
+In some cases, we support other authentication methods only when customizing the OpenAPI connector. Refer to the
+Setting up custom connectors
+guide for more information.
+#
+None
+This method doesn't require any authentication details. Use this method if:
+The application doesn't require authentication
+Authentication is performed from the input you provide in the recipe
+#
+Basic
+Basic authentication
+(opens new window)
+validates requests using a username and password. This is encoded with Base64 in transit over SSL; it is a common authentication flow.
+#
+Input fields
+Basic auth user
+The name of the application user/account.
+Basic auth password
+The password of the user. An alternative to your password would be an API key or API token, retrieved from your account settings.
+This should be kept secret.
+#
+Header
+For applications that require additional headers outside of the usual username and password or API key, or if you want to customize the headers sent in the request, use header authentication. You can also use header authentication when you already have a generated token.
+#
+Input field
+Header authorization
+Add custom auth headers, one on each line.
+Example:
+X-api-token: secret42
+Authorization: Bearer AbC123XyZ789uje4
+#
+Query params
+For applications where the authentication structure depends on validating URL query parameters, use the query params authentication.
+#
+Input fields
+Query param authorization
+Add custom URL query params, one on each line.
+Example:
+token: 872943684629
+api-key: DKDF34KD8DD
+#
+OAuth 2.0: Authorization code grant
+The
+Authorization code grant flow
+(opens new window)
+is the authentication standard adopted by a number of cloud apps. It is popular because it allows you to give third parties access to your apps without having to disclose your username and password to the third party. In this case, Workato simply redirects you to your app, where you key in your login credentials. This is sufficient for the app to trust that Workato is acting on your behalf when it makes API requests.
+The Authorization Code grant type is for use by confidential and public clients to exchange an authorization code for an access token. In addition, it requires that you have the following input information.
+#
+Input fields
+OAuth2 authorization URL
+This is the URL where Workato redirects you when you click
+Connect
+. This is usually the log in screen of your app.
+This should be publicly available from the API documentation of the app you’re connecting to, under the
+Authentication
+section.
+OAuth2 token URL
+The URL where Workato retrieves an auth token. The auth token is used to verify that we have permission to access your app and its data.
+This should be publicly available from the API documentation of the app you’re connecting to, under the
+Authentication
+section.
+How does the API require credentials to be sent to request a token?
+Depending on the app you’re connecting to, you may have to send your credentials either in the request body, or as a header.
+This should be publicly available from the API documentation of the app you’re connecting to, under the
+Authentication
+section.
+Client ID
+Public ID of the OAuth app that should be tied to Workato.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account, where you plan to connect, and should be kept secret.
+Client secret
+Matching private key that the application verifies along with the Client ID.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account, where you plan to connect, and should be kept secret.
+OAuth2 scopes
+Scopes are permissions that you can request from the app.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account, where you plan to connect.
+#
+OAuth 2.0: Client credentials grant
+Use the
+Client credentials grant flow
+(opens new window)
+when Workato requests an access token using only client credentials.
+This approach is ideal when requesting access to the protected resources under your control, or for machine-to-machine authentication where a specific user’s permission to access data is not required.
+#
+Input fields
+OAuth2 token URL
+URL where Workato retrieves the auth token. This auth token verifies that we have permission to access your app and its data.
+This should be publicly available from the API documentation of the app you’re connecting to, under the
+Authentication
+section.
+How does the API require credentials to be sent to request a token?
+Depending on the app you’re connecting to, you may send your credentials either in the request body, or as a header.
+This should be publicly available from the API documentation of the app you’re connecting to, under the
+Authentication
+section.
+Client ID
+Public ID of the OAuth app that should be tied to Workato.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account where you plan to connect, and should be kept secret.
+Client secret
+Matching private key that the application verifies along with the Client ID.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account where you plan to connect, and should be kept secret.
+OAuth2 scopes
+Scopes are permissions that you can request from the app.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account where you plan to connect.
+#
+OAuth 2.0: Resource owner password grant
+Use the
+Resource owner password grant flow
+(opens new window)
+when Workato requests a token to access application resources using user credential (username and password).
+#
+Input fields
+OAuth2 token URL
+URL where Workato retrieves the auth token. This auth token is used to verify that we have permission to access your app and its data.
+This should be publicly available from the API documentation of the app you’re connecting to, under the
+Authentication
+section.
+Client ID
+Public ID of the OAuth app that is tied to Workato.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account where you plan to connect, and should be kept secret.
+Client secret
+Matching private key that the application verifies along with the Client ID.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account where you plan to connect, and should be kept secret.
+Username
+The name of the user who sends these API calls.
+Password
+The password of the user who sends these API calls.
+This should be kept secret.
+OAuth2 scopes
+Scopes are permissions that you request from the app.
+This is usually found in the
+Settings
+or
+Integrations
+page (or equivalent) of your logged in app account where you plan to connect.
+←
+Basics
+Setup
+→
+Last updated:
+2/10/2025, 5:02:08 PM
+On this page
+Swagger Files And Authentication Methods
+Supported Methods
+None
+Basic
+Header
+Query params
+OAuth 2.0: Authorization code grant
+OAuth 2.0: Client credentials grant
+OAuth 2.0: Resource owner password grant
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

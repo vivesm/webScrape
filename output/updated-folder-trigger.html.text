@@ -1,0 +1,288 @@
+Workato connectors - Wrike new/updated folder trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - New/updated folder triggers
+Folders are one of the main ways to organize and manage information on Wrike.
+#
+New/updated folder trigger
+This trigger picks up folders that are created or updated and returns the folder tree data. Each record is processed as a separate job.
+New/updated folder trigger
+#
+Input fields
+Input field
+Description
+When first started, this recipe should pick up events from
+Folders created or updated after this time will be processed by the recipe. If left blank, the default will be set to
+one hour
+before the recipe is first started. Learn more about this
+input field
+.
+#
+Output fields
+Output field
+Description
+Folder ID
+The ID of the folder.
+Account ID
+The ID of the account.
+Title
+The title of the folder.
+Updated date
+The date this folder was updated.
+Created date
+The date this folder was created.
+Description
+The description of the folder. Will be blank if not specified.
+Users who share the folder
+The list of users who share the folder.
+User ID
+The ID of the user who shares this folder.
+List size
+The size of the list, corresponding to the number of users retrieved.
+Parent folder
+The list of parent folders of this folder.
+Folder ID
+The folder ID of the parent folder.
+List size
+The size of the list, corresponding to the number of parent folders retrieved.
+Child folder
+The list of child folders of this folder.
+Folder ID
+The folder ID of the child folder.
+List size
+The size of the list, corresponding to the number of child folders retrieved.
+Super parent folder
+The list of super parent folder to this folder.
+Folder ID
+The folder ID of the super parent folder.
+List size
+The size of the list, corresponding to the number of super parent folders retrieved.
+Scope
+The scope of the folder.
+Has attachments
+Indicates if the folder has attachments.
+Permalink
+The link to open the folder in a web workspace. This is only accessible if the user has the appropriate access.
+Workflow ID
+The ID of the folder workflow.
+Metadata
+The metadata of this folder. The metadata list size corresponds to the number of metadata entries retrieved.
+Project
+The project properties of this folder.
+Author
+The author who created the project.
+Owner ID
+The list of IDs of project owners.
+User ID
+The user ID of the project owner.
+List size
+The size of the list, corresponding to the number of project owners retrieved.
+Status
+The status of the project.
+Start date
+The date this project was started.
+End date
+The date this project was ended.
+Created date
+The date this project was created.
+Completed date
+The date this project was completed.
+Custom fields
+Includes data from custom fields.
+#
+New/updated folder trigger (real-time)
+This trigger picks up folders as soon as they are created or updated and returns the folder tree data. Each record is processed as a separate job.
+New/updated folder trigger (real time)
+#
+Input fields
+Input field
+Description
+When first started, this recipe should pick up events from
+Folders created or updated after this time will be processed by the recipe. If left blank, the default will be set to
+one hour
+before the recipe is first started. Learn more about this
+input field
+.
+#
+Output fields
+Output field
+Description
+Folder ID
+The ID of the folder.
+Account ID
+The ID of the account.
+Title
+The title of the folder.
+Updated date
+The date this folder was updated.
+Created date
+The date this folder was created.
+Description
+The description of the folder. Will be blank if not specified.
+Users who share the folder
+The list of users who share the folder.
+User ID
+The ID of the user who shares this folder.
+List size
+The size of the list, corresponding to the number of users retrieved.
+Parent folder
+The list of parent folders of this folder.
+Folder ID
+The folder ID of the parent folder.
+List size
+The size of the list, corresponding to the number of parent folders retrieved.
+Child folder
+The list of child folders of this folder.
+Folder ID
+The folder ID of the child folder.
+List size
+The size of the list, corresponding to the number of child folders retrieved.
+Super parent folder
+The list of super parent folder to this folder.
+Folder ID
+The folder ID of the super parent folder.
+List size
+The size of the list, corresponding to the number of super parent folders retrieved.
+Scope
+The scope of the folder.
+Has attachments
+Indicates if the folder has attachments.
+Permalink
+The link to open the folder in a web workspace. This is only accessible if the user has the appropriate access.
+Workflow ID
+The ID of the folder workflow.
+Metadata
+The metadata of this folder. The metadata list size corresponds to the number of metadata entries retrieved.
+Project
+The project properties of this folder.
+Author
+The author who created the project.
+Owner ID
+The list of IDs of project owners.
+User ID
+The user ID of the project owner.
+List size
+The size of the list, corresponding to the number of project owners retrieved.
+Status
+The status of the project.
+Start date
+The date this project was started.
+End date
+The date this project was ended.
+Created date
+The date this project was created.
+Completed date
+The date this project was completed.
+Custom fields
+Includes data from custom fields.
+←
+New event trigger (real-time)
+New/updated folder trigger (real-time)
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+New/updated folder trigger
+New/updated folder trigger (real-time)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

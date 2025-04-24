@@ -1,0 +1,188 @@
+RecipeOps by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API governance
+#
+RecipeOps by Workato
+FEATURE AVAILABILITY
+RecipeOps by Workato is included in specific pricing plans for direct customers and is available by default for Embedded partners and their end customers. Refer to your pricing plan and contract to learn more.
+PREFER VIDEOS?
+Get the quick version in this video!
+The RecipeOps connector enables you to build recipes to monitor and manage active recipes.
+Stopped recipes and failed jobs can have automated responses and notifications to mitigate their impact on critical business processes. You can also retrieve account, recipe, and job details using the RecipeOps connector.
+#
+Usage inspiration
+Need some inspiration? The RecipeOps connector can help you achieve the following:
+Notify designated workspace members when a key recipe is stopped. Workato sends notifications through Gmail, SMS, Twilio phone call or IVR, Slack, and more.
+Schedule on-call workspace members and build escalation policies.
+Flag low transaction counts and notify workspace members.
+Build job history report logs or audit reports in Google Sheets.
+Build recipe reports for an overview of automations and connected apps.
+#
+Connection setup
+WHO CAN SET UP CONNECTIONS?
+Collaborators must have the
+Create Connections
+privilege to create connections.
+When you set up a RecipeOps connection, you can select where you want recipes to be monitored:
+My account
+Someone else's account
+#
+Monitor your account
+If you select
+My account
+, no further information is needed to set up the connection.
+#
+Monitor another account
+If you select
+Someone else's account
+, an admin from the other account must provision an
+API client through Workspace admin
+and pass you the API token.
+LEGACY API KEYS DEPRECATION NOTICE
+Prior to January 11, 2023, RecipeOps used legacy API keys and emails for authentication. While these legacy API keys will continue to work, they have been migrated to API clients. This migration allows you to adopt a better security posture with granular access to APIs and projects. Take note that deleting this migrated API client will cause any RecipeOps connections using legacy API keys to fail.
+#
+Triggers
+The RecipeOps connector supports the following recipe triggers:
+Account connected
+Account credentials refresh failed
+Account disconnected
+API concurrency threshold exceeded
+API policy quota violation
+API policy rate limit violation
+Deployment approved
+Deployment complete
+Deployment failed
+Deployment rejected
+Deployment re-opened for review
+Job failed
+Member invitation accepted
+New deployment submitted for review
+On-prem agent disconnected
+Package deployed
+Recipe started
+Recipe stopped by user
+Recipe stopped by Workato
+Usage threshold reached
+#
+Actions
+The RecipeOps connector supports the following recipe actions:
+Get account details
+Get recipe details
+List connections
+List recipes
+Rerun jobs
+Search job history
+Search recipes
+Start recipe
+Stop recipe
+←
+API Access Policies
+Concurrency threshold exceeded
+→
+Last updated:
+2/13/2025, 9:46:17 PM
+On this page
+Usage inspiration
+Connection setup
+Triggers
+Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

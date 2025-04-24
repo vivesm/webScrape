@@ -1,0 +1,300 @@
+Variables by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+#
+Variables by Workato
+Workato variable is a user-declared
+datapill
+that contains a data value. These user-declared variables are different from a standard datapill in that your declared variables are mutable - the value of the variable can be changed within a recipe.
+The lifetime of a variable is for the duration of a single job (job scope) - there is no persistence, and no mechanism can access this across different jobs.
+Workato variables are typed. In order to use variables, you will first have to declare it using the
+create variable
+action. To update the variable, use
+update variables
+action.
+#
+Example
+If you want to find a particular entry within a report - the entry with the
+largest ARR
+.
+Create a variable called
+ARR
+.
+Run the
+for each
+action, and update
+ARR
+whenever it finds a higher value.
+Subsequently, use the
+ARR
+value to call up that specific entry.
+Iterate through the report for highest ARR
+#
+Connection setup
+No connection setup is required. Simply select
+App
+>
+Variables by Workato
+to get started.
+Variables by Workato
+#
+Create variable
+This action creates variables in the specified data type. You should configure each variable to match the data type that it will be used for (for example,
+integer
+,
+string
+).
+Create variable dialog box
+Multiple variables can be created in this step by clicking on
+Add variable
+Creating multiple variables
+Input field
+Description
+Label
+The name of the variable.
+Data type
+The
+data type
+of the variable.
+Default value
+The default value of the variable. Leave this blank to set the default value as
+nil
+.
+#
+Update variables
+This action updates existing variables. You can only update variables previously created with the
+Create variable
+action. Otherwise, this action cannot be used.
+Update variable
+Input field
+Description
+Variable name
+Select the variable(s) to update.
+Variable
+The new value of the variable.
+Note
+This action does not generate a datapill. To use this variable in another action, use the variable datapill in the
+Create variable
+step.
+#
+Reset the value of a variable
+You can set a
+nil
+value to variables in Update variable action to remove an existing value of a variable. This has to be done in the formula mode.
+#
+Create list
+This action create a list with custom schema. You can create an empty list or create a list with existing items.
+Create list
+Input field
+Description
+List name
+The name of the list.
+List item schema
+Define the properties of each item on this list.
+Items
+(Optional)
+Provide a list datapill to populate the list. You can
+add more items
+afterwards.
+#
+Define list item schema
+The list item schema will show up as a list of usable variables in the output datatree. These variables can be mapped unto subsequent recipe steps. Use
+Add field
+to define a new field.
+Add new field
+Input field
+Description
+Name
+The name of the new field.
+Data type
+The data type of the new field.
+Optional
+Select if this new field is mandatory.
+Hint
+A description of this new field.
+#
+Navigate list items
+To iterate through items in a list, use the
+List index
+datapill from the
+Create variable list
+action output and a method that supports pagination, such as a
+Repeat while
+loop. Refer to the
+Repeat while loops
+(opens new window)
+documentation for more information.
+#
+Add item to list
+This action appends a new item entry to an existing list. You can only update lists created with
+Variables by Workato
+.
+Add items in batches
+If you have a list datapill,
+add them to the list in batches
+.
+Some item fields are mandatory. Check that you have valid inputs for the required fields before using this action.
+Add item to list
+Input field
+Description
+List name
+Select the list to add your new entry.
+Insert location
+Select the location of the new entry.
+List item
+Define the values of the new entry.
+Note
+This action does not generate a datapill. To use this list in another action, use the datapills in the
+Create list
+step.
+For more information on list management, see
+here
+.
+#
+Add item to list (Batch)
+This action appends multiple items to an existing list. You can only update lists created with
+Variables by Workato
+.
+Some item fields are mandatory. Check that you have valid inputs for the required fields before using this action.
+Add item to list
+Input field
+Description
+List name
+Select the list to add your new entry.
+Insert location
+Select the location of the new entry.
+List items
+Provide a list datapill. Define how each list item is mapped.
+Note
+This action does not generate a datapill. To use this list in another action, use the datapills in the
+Create list
+step.
+For more information on list management, see
+here
+.
+#
+Clear all items from list
+This action removes all entries in an existing list. This action should be used after the
+Create list
+and
+Add items to list
+action. You can only clear lists created with
+Variables by Workato
+.
+Input field
+Description
+List name
+Select the list to clear all entries from.
+←
+Data orchestration - ETL/ELT
+Common data models
+→
+Last updated:
+1/27/2025, 4:16:23 PM
+On this page
+Create variable
+Update variables
+Create list
+Add item to list
+Add item to list (Batch)
+Clear all items from list
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

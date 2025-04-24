@@ -1,0 +1,229 @@
+Workato connectors - SFTP | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+SFTP connector
+SSH File Transfer Protocol (SFTP) is a file transfer protocol that encodes and transmits data through a secure channel. It establishes security by encrypting both authentication credentials and data files being transferred.
+Use this connector for bi-directional SFTP integrations. This connector allows you to read, write, and manage files in your SFTP server.
+With the SFTP connector, you use the triggers to monitor your SFTP server for events (for example,
+New/updated CSV file in directory
+). You can also integrate recipe actions like
+Upload file
+,
+Rename file
+, and
+Download file
+.
+#
+Use cases
+Integrate the SFTP connector with your business applications to securely transfer and manage files. You can automate data imports, synchronize records, and ensure seamless file exchanges between systems. Automated workflows can eliminate manual file handling and improve data accuracy across your applications. Explore our
+use cases
+to discover how you can optimize SFTP file transfers:
+Update Quickbase records from CSV files
+in SFTP.
+Upload a CSV file
+with Active Directory entries to an SFTP server.
+#
+How to authenticate with SFTP
+Because SFTP is built on top of the Secure Shell Protocol (SSH), you can include SSH keys as part of your authentication flow. SSH keys can be used in combination with user ID/password or used independently to authenticate Workato to your SFTP server. This extends the security of your connection with SSH encryption for your public and private keys.
+#
+Connection setup
+SFTP connection setup
+Input field
+Description
+Connection name
+Given this connection a unique name that identifies which SFTP server it is connected to.
+Location
+Select an existing
+project
+for this connection or create a new one.
+Connection type
+If you want to connect using an
+on-premise group
+, select the group name from the picklist. Otherwise, to use a direct connection, select
+Cloud
+.
+Auth type
+Select which authentication method to use.
+Username
+The user name of the SFTP server to be connected.
+Password
+The password credential to the SFTP server to be connected.
+Private key
+Only for
+Public/private key
+authentication type.
+The SSH private key for the SFTP server to be connected. You must provide the SSH private key in
+OpenSSH format
+(opens new window)
+. To save a key in this format, specify
+SecureShellPrivateKeyFormat.NewOpenSecureShell
+value as the format parameter. Refer to the
+Private key example format
+for more information.
+Hostname
+The address of your SFTP server.
+Port
+The default port for SFTP is
+22
+.
+Host key fingerprint
+A hash of the SSH public key. Workato supports SHA256 and MD5 encryption. For on-premise connection contact SFTP server administrator for the public key in Base64 format.
+Transfer buffer size
+The size of the buffer used to transfer files.
+Force close
+Shuts down the SSH connection at the end of each transaction. Toggle this if your SFTP server connection attempts get stuck. Otherwise, leave it blank.
+#
+Connecting to SFTP using Workato on-prem agent
+Access your SFTP server using the Workato on-prem agent by selecting the on-prem group under the
+Connection type
+field.
+Configure the SFTP connection directly in Workato cloud when using
+cloud profiles
+. Note that some properties may not be supported for on-premise connections.
+Refer to the
+connection profiles documentation
+if your on-premise group connections use
+config.yml
+.
+Contact your support team to troubleshoot any issues with connecting to a legacy SFTP server or if you encounter a "connection closed" error.
+ON-PREM AGENT VERSION
+OPA 24.0 or newer is required to use the SFTP connector.
+#
+Private key example format
+You must specify the
+SecureShellPrivateKeyFormat.NewOpenSecureShell
+value as the format parameter to save your key in the OpenSSH format.
+An example private key in OpenSSH format:
+-----BEGIN OPENSSH PRIVATE KEY-----
+EcvBi0CzMfLzAAAAgQCd/q/q1zxTyIWYW3+Io+eMvuMc7w17fVJEwCILNiB6CQea
+dPt3OWWr4boMjnaKOf6HvgCMgAQVoKzHEnM6wpa3Xm1CaS17xBRe/1fZl4lClzoZ
+ebrOYmmt/nWj8cgWxB/aFGcBfk5Zn/DPOTMPTiIsTKQR7R6CBMWpw8Ssa6hEvQAA
+AIBEmhtgDjsztfMyeWHygUs0965DeT69XxqOd0J4kuaeF6MP29Q1AZiojey/E2hF
+Z8TLqynQ6hHWVzij489TsxiWiDFs46rUoX2K3FVTGOXAV/JE8V0AaQLymv1PhIce
+1Vq89CXM1fNPRv6/yQ9RSlJA7vDg6vCPrmyA4bK6/Oq80w==
+-----END OPENSSH PRIVATE KEY----- |
+#
+Related resources
+The SFTP connector documentation contains the following resources:
+New/updated file trigger
+New/updated CSV file trigger (batch)
+Create folder
+Delete file
+Delete folder
+Download file
+Get file information
+List folder
+Rename/move file
+Search files/folders
+Upload file
+←
+Sendoso
+New/updated file trigger
+→
+Last updated:
+3/6/2025, 12:34:39 AM
+On this page
+Use cases
+Connection setup
+Related resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

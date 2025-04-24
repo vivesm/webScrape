@@ -1,0 +1,150 @@
+Workato connector - Shopify - Connect inventory item to location | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Shopify
+#
+Shopify - Connect inventory item to location
+This action connects an inventory item to a location in Shopify by creating an inventory level at the given location.
+You must set up
+Inventory tracking
+(opens new window)
+on Shopify to use this action.
+#
+Input
+Field
+Description
+Inventory item ID
+Shopify ID of the inventory item to connect to a location
+Location ID
+Shopify ID of the location that the inventory level should connect to. To find Shopify location IDs, use List locations action.
+Relocate if necessary?
+Relevant if inventory item has been or will be connected to a fulfillment service.
+If
+yes
+, inventory levels for previously connected locations will be relocated to this newly connected location and disconnected from other locations
+If
+no
+but a fulfillment service location is involved, the action fails and item is not connected.
+#
+Output
+Field
+Description
+Inventory item ID
+The inventory item ID.
+Location ID
+The location ID.
+Available
+The quantity of inventory items available for sale. Returns null if the inventory item is not tracked.
+Updated at
+When this inventory level was last available.
+Admin GraphQl API ID
+A unique admin GraphQL API ID.
+←
+Cancel a fulfillment
+Create customer
+→
+Last updated:
+7/10/2024, 3:22:21 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,143 @@
+Workato connectors - Microsoft Dynamics 365 Update object batch action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Microsoft Dynamics 365
+#
+Update object batch action
+This action updates multiple records for a specified object in Microsoft Dynamics 365 in a single batch.
+#
+Input fields
+Field
+Description
+Object
+Select any standard or custom Microsoft Dynamics 365 object to monitor. For example,
+Lead
+.
+Objects
+List of objects to update.
+Allow partial batch create
+Select
+Yes
+to allow successful records to be updated even if some records fail (commonly due to invalid field input). You can receive a mixed result, in which some operations may succeed while others fail. This allows for more flexibility in handling requests, but it also requires that you manage potential inconsistencies. Select
+No
+to roll back the entire batch if any record update attempt fails. This ensures that either all operations succeed or none do. If one update attempt fails, none of the records are updated. Defaults to
+No
+.
+ID
+Dynamics ID of the records to update.
+#
+Output fields
+The output datatree contains the IDs of the updated objects.
+Field
+Description
+Batch IDs
+A list of IDs for the successfully updated objects.
+←
+Update object action
+Message template by Workato
+→
+Last updated:
+1/6/2025, 5:18:09 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

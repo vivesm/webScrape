@@ -1,0 +1,450 @@
+Sync data between Amazon S3 and SQL Server use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+Databases
+#
+Sync data between Amazon S3 and SQL Server recipe
+This use case guides you through connecting
+Amazon S3
+and
+SQL Server
+to create a powerful automation.
+#
+What does this recipe do?
+This recipe runs on a schedule to sync data between Amazon S3 and SQL Server.
+flowchart TD
+subgraph Configuration[" "]
+direction TB
+subgraph Scheduler[&nbsp Scheduler by Workato New recurring event trigger &nbsp]
+t1(Trigger) --- setup1(setup)
+end
+subgraph S3[&nbsp Amazon S3 Generate presigned URL action &nbsp]
+Action1(Action) --- setup2(setup)
+end
+subgraph SQLServer[&nbsp SQL Server Export query result action &nbsp]
+Action2(Action) --- setup3(setup)
+end
+end
+CreateRecipe([Create recipe]) -- Configure your recipe --> Configuration --> Workflow([Automated workflow])
+Scheduler --> S3 --> SQLServer
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class t1,setup1,setup2,setup3,Action1,Action2,CreateRecipe,Workflow WorkatoTeal
+class Scheduler,S3,SQLServer SubgraphDash
+#
+Create your recipe
+Complete the following steps to create a recipe that runs on a schedule to sync data between Amazon S3 and SQL Server:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for Amazon S3 and SQL Server:
+Create an Amazon S3 connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Amazon S3
+on the
+New connection
+page.
+3
+Enter a name for your connection in the
+Connection name
+field.
+Connect to Amazon S3
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Authorization type
+drop-down menu to select
+IAM role
+.
+6
+Fill in the
+IAM role ARN
+field. Workato generates a unique external ID for every Workato user, such as
+workato-user-84762
+. You must provide this external ID when creating an IAM role in Amazon S3.
+7
+Use the
+Restrict to bucket
+drop-down menu to select which bucket this connection is restricted to. This is required when the user has only limited
+s3:ListBucket
+(opens new window)
+access.
+8
+Enter the region of your Amazon S3 account in the
+Region
+field. You can locate this value in your Amazon S3 account URL. For example, if your account URL is
+https://eu-west-1.console.s3.amazon.com
+, your region is
+eu-west-1
+.
+9
+Specify the download threads in the
+Download threads
+field. This field is used to boost download speed. The default is
+1
+, and the maximum is
+20
+.
+10
+Click
+Connect
+.
+Create a SQL Server connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+SQL Server
+on the
+New connection
+page.
+3
+Enter a name for your connection in the
+Connection name
+field.
+Connect to SQL Server
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Connection type
+drop-down menu to specify if your connection is cloud-based or uses an
+on-prem group
+.
+6
+Enter the URL of your hosted server in the
+Host
+field.
+7
+Enter the port number your server runs on in the
+Port
+field. The default is
+1433
+.
+8
+Enter the username used to connect to SQL Server in the
+Username
+field.
+9
+Enter the password used to connect to SQL Server in the
+Password
+field.
+10
+Enter the name of the database you plan to access in the
+Database
+field.
+11
+Optional. Use the
+Azure SQL
+drop-down menu to specify if you're connecting to Azure SQL.
+12
+Optional. Expand
+Advanced settings
+to configure additional datetime settings.
+13
+Click
+Connect
+.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Use the
+Location
+drop-down menu to select the project where you plan to store the recipe.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+and select
+Run on a schedule
+. This creates a new recipe with the Scheduler by Workato
+New recurring event trigger
+. This trigger doesn't require you to establish a connection.
+9
+Set up your Scheduler by Workato New recurring event trigger.
+1
+Click the trigger in the recipe editor.
+Click the trigger
+2
+Use the
+Time unit
+drop-down menu to specify how frequently to run the recipe. This recipe selects
+Minutes
+.
+Available options include
+Minutes
+,
+Hours
+,
+Days
+,
+Weeks
+,
+Months
+, or
+Custom schedule
+.
+3
+Enter a whole number in the
+Trigger every
+field. This example uses
+5
+to run the recipe every five minutes.
+Configure the New recurring event trigger
+Step summary
+This trigger sets the interval for how frequently the recipe runs.
+10
+Click
++ Add step
+and select
+Action in app
+.
+Click
+Add step > Add action in app
+11
+Set up your Amazon S3 Generate presigned URL action.
+1
+Search for
+Amazon S3
+and select it as your app.
+Choose Amazon S3
+2
+Select the
+Generate presigned URL
+action.
+Select the Generate presigned URL action.
+What's a presigned URL?
+(opens new window)
+3
+Select the Amazon S3 connection you created in the previous steps.
+4
+Select the bucket to monitor from the
+Bucket name
+drop-down menu.
+5
+Enter the folder path of the object in the
+Object name
+field. For example, enter
+orders.csv
+if the file is located at the root of your bucket.
+Ensure the folder path is accurate, as object and file names are case-sensitive. Refer to the
+AWS prefix documentation
+(opens new window)
+for more information.
+6
+Use the
+HTTP Method
+drop-down menu to select
+PUT
+.
+Configure the Generate presigned URL action
+Step summary
+This step creates a temporary authenticated URL to an object in your Amazon S3 bucket. A third party can use this URL to upload and modify this object for the specified duration.
+12
+Click
++ Add step
+and select
+Action in app
+.
+13
+Set up your SQL Server Export query result action.
+1
+Search for
+SQL Server
+and select it as your app.
+Choose SQL Server
+2
+Select the
+Export query result
+action.
+Select the Export query result action
+3
+Select the SQL Server connection you created in the previous steps.
+4
+Enter the following query in the
+SQL
+field. Replace
+{YOUR_TABLE}
+with the name of your table, and update the schema:
+SELECT
+*
+FROM
+{YOUR_SCHEMA}
+.
+{YOUR_TABLE}
+;
+This query retrieves all rows and columns from the specified table. For example, if your table is named
+Orders
+and resides in the default schema
+dbo
+, your query would look as follows:
+SELECT
+*
+FROM
+dbo
+.
+Orders
+;
+5
+Use the
+Column delimiter
+drop-down menu to specify the delimiter character that separates each column in the CSV file. For example, select
+comma
+.
+6
+Map the
+Presigned object URL
+Step 2
+datapill to the
+Upload URL
+field.
+Configure the Upload URL field
+Step summary
+This step executes the SQL query to retrieve all rows and columns from your specified table, exports the results as a CSV file, and uploads the file to your designated Amazon S3 object location.
+14
+Click
+Save
+.
+Your
+Sync data between Amazon S3 and SQL Server
+recipe is ready to test and implement.
+Example recipe configuration.
+Sync data between Amazon S3 and SQL Server
+recipe
+←
+Validate Salesforce contact information with JavaScript and upsert to Snowflake
+Developer
+→
+Last updated:
+1/21/2025, 10:06:39 PM
+On this page
+What does this recipe do?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

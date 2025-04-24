@@ -1,0 +1,160 @@
+SuccessFactors navigation fields | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP SuccessFactors
+#
+Using navigation fields
+Navigation fields are a powerful way to either retrieve records related to the one you're retrieving, or create associations between records when you create or update them. For example, use navigation fields in the SuccessFactors connector to retrieve records related to a user, such as their manager or biographical information. You can also use navigation fields when creating or updating a user to associate them with a new manager or set of biographical information. The following steps describe how to configure navigation fields.
+#
+Pulling information from SuccessFactors
+When configuring the triggers or actions that retrieve data from SuccessFactors, the navigation fields drop-down list appears after you select an object.
+1
+Select the related records that you want to retrieve together with the object.
+Use the navigation field to select the user's manager.
+2
+After you select the related navigation field, the output datatree of the action updates with new datapills.
+The datatree now contains datapills related to the user's manager.
+#
+Pushing information into SuccessFactors
+In actions that push information into SuccessFactors, navigation properties appear as input fields where you provide the link to the related records.
+To link one record to another, you must know the target record's key properties. It consists of one or more properties that make it unique across your entire SuccessFactors instance. These properties change from object to object in SuccessFactors.
+1
+To find the key properties of an object, use the
+Get record details
+action.
+2
+When selecting a specific object, the required fields in the action indicate the object's key properties. There are two types of objects: with one key property, or with two key properties.
+Here are examples of each situation:
+Objects with one key property
+When working with objects that have only one key property, you can enter the value of the key property surrounded by single quotation marks(').<
+Example:
+the
+User
+object has one key property,
+userId
+.
+To relate a specific Time Type record, enter the key property 'External code' in the input field. Remember to wrap it in single quotation marks(').
+Objects with two key properties
+For objects with more than one key property, you must specify the key properties along with the entered value.
+Example
+: the
+Position
+object has two key properties,
+code
+and
+effectiveStartDate
+.
+To relate a specific Position record, provide the key properties
+code
+and
+effectiveStartDate
+and their values in the input field. Remember to wrap values in single quotation marks(').
+←
+Connection setup
+Triggers
+→
+Last updated:
+2/21/2023, 3:50:47 AM
+On this page
+Pulling information from SuccessFactors
+Pushing information into SuccessFactors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

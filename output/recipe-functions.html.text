@@ -1,0 +1,187 @@
+コネクター - レシピファンクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Workato が提供するレシピファンクション
+レシピファンクション コネクターを使用すると、他のレシピから呼び出すことができるレシピを作成できます。
+レシピファンクション
+と呼ばれるこのレシピタイプは、
+別のレシピからの呼び出し
+によってトリガーされます。このコネクターを使用して、繰り返し可能な一連のアクションを複数のレシピに分割し、他のレシピで再利用することができます。
+コーラブルレシピから移行する
+場合は、切り替えについて
+レシピファンクションと API レシピへの移行ガイド
+を参照してください。
+#
+使い方のヒント
+ここでは、いくつかのヒントをご紹介します。レシピファンクション を使用すると、以下が可能になります。
+テストに要する労力の軽減。
+一連のアクションを繰り返し実行する代わりに専用のレシピにグループ化することで、ワークフローのテストと変更が容易になります。
+レシピの可読性の向上。
+ステップをより小さく、どこからでも呼び出すことができるレシピに分割すると、レシピが読みやすくなります。
+単一のレシピを元にしたステップ。
+作成したレシピはどこでも再利用できます。たとえば、標準化されたエラー通知ポリシーがある場合、レシピを1つ作成して再利用することで重複を防ぐことができます。
+実行時のレシピユーザーの確認。
+Runtime User Connections
+を使用すると、ユーザーが独自の資格情報を使用してレシピを実行できるようになります。
+REST API の公開について詳しくは、
+API プラットフォームコネクター
+を参照してください。
+#
+例
+以下のワークフローを作成するとします。
+1
+新規または更新された連絡先情報をデータベースから読み取る
+2
+データ変換を実行する
+3
+Salesforce で新しいアカウントを作成する
+4
+新しい Salesforce アカウントを MailChimp キャンペーンに追加する
+5
+Redshift データベースにデータをバックアップする
+これを実現するため、ワークフローを
+4
+つのレシピに分割します。
+1
+親 (呼び出し元) レシピ
+: ワークフローを開始し、データベースからデータを取得する
+2
+レシピ1
+: Salesforce アカウントを作成する
+3
+レシピ2
+: MailChimp キャンペーンに連絡先を追加する
+4
+レシピ3
+: Amazon Redshift に連絡先データをバックアップする
+ワークフローを複数のレシピに分割することで、このワークフローをトリガーすることなくレシピを他の場所で再利用できます。この設計手法を使用すれば、レシピ内の冗長なステップ数を削減することができます。
+以下の図で、これらのレシピがどのように連携するか確認してください。
+#
+設定
+コネクションを設定できるユーザー
+コラボレータがコネクションを作成するには、
+Create connections
+権限が必要です。
+このコネクターに設定は不要です。
+レシピファンクションを他のレシピで使用する方法については、
+ウォークスルー
+を参照してください。
+#
+トリガー
+レシピファンクション コネクターは、以下のレシピのトリガーに対応しています。
+ファンクションの新規呼び出し
+#
+アクション
+レシピファンクション コネクターは、以下のレシピのアクションに対応しています。
+レシピファンクションの非同期呼び出し
+レシピファンクションの同期呼び出し
+レシピファンクションからデータを返す
+非同期呼び出しの待機
+←
+一般的なエラーとトラブルシューティング
+ウォークスルー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+使い方のヒント
+設定
+トリガー
+アクション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

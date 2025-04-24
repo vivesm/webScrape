@@ -1,0 +1,166 @@
+Workato connectors - Redshift Run custom SQL action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Redshift
+#
+Run custom SQL action
+This action enables you to execute a SQL in Redshift. The maximum number of rows returned in this action is 50,000. Redshift only supports one SQL statement per action. You can use this action to execute Data Manipulation Language (DML) statements such as
+INSERT
+,
+UPDATE
+, and
+DELETE
+, as well as Data Definition Language (DDL) commands, such as
+CREATE
+,
+ALTER
+, and
+DROP
+.
+Use the
+Select rows using custom SQL
+action to retrieve a CSV stream for
+SELECT
+actions.
+Run custom SQL action
+#
+Input
+Input field
+Description
+SQL
+Enter a valid SQL query string. For example:
+SELECT * FROM PUBLIC.ACCOUNTS
+.
+Execute update only SQL statement without row limit
+Enables the action to run with no row limits on SQL statements, but also returns no rows. You can use this field to perform bulk data transformations. Defaults to no.
+Parameters
+Define the fields you plan to include in the list, and assign values to each field. You must declare the named bind variables in your
+WHERE
+input and assign values to these variables. Parameter values can be static or datapills. Select the closest corresponding data type that your database expects for the bind variable.
+Output Fields
+Describe the output for each row of your custom SQL string.
+#
+Output
+Output field
+Description
+Rows
+Returns a list of rows from SQL execution. Only fields you defined in the
+Output Fields
+input field are returned. If you leave this field blank, the row is available in the datatree as an array datapill.
+Rows affected
+Returns the number of rows affected by the SQL string execution. This field returns
+nil
+for
+SELECT
+statements and
+0
+for DDL statements.
+←
+Delete actions
+Run long query custom SQL action
+→
+Last updated:
+11/6/2024, 9:54:42 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

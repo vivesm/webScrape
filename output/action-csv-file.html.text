@@ -1,0 +1,179 @@
+Workato コネクター - Dropbox - CSV ファイルアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Dropbox
+#
+Dropbox - CSV ファイルアクション
+ここでは、Dropbox で CSV ファイルに対して実行できるアクションについて紹介します。
+#
+Update CSV file (CSV ファイルの更新)
+このアクションでは、Dropbox で選択したファイルの内容を更新できます。内容追加後のファイルサイズは150 MB を超えてはならないことに注意してください。
+Update CSV file アクション
+#
+入力項目
+項目名
+説明
+File
+処理する CSV ファイル。表示されるディレクトリから特定のファイルを選択するか、ファイルの名前を入力できます。
+Column separator
+値の区切り文字。
+File encoding type
+エンコーディングタイプはデフォルトで UTF-8 に設定されています。通常は変更する必要はありません。
+Append
+[
+Yes
+] を選択すると内容が既存のファイルに追加され、[
+No
+] を選択すると既存のファイルが上書きされます。
+Obtain a direct URL to file?
+4時間有効なパブリック URL を生成するかどうか。
+Column headers
+列名をそれぞれ別々の行に入力します。デフォルトでは、指定した CSV ファイルの列名が取得されます。
+#
+出力項目
+項目名
+説明
+Path
+更新された CSV ファイルのパス。
+Bytes
+ファイルサイズ (バイト単位)。
+Size
+ファイルサイズ (文字列形式)。
+MIME Type
+ファイルの MIME タイプ。
+URL
+ファイルのパブリック URL。
+Workato ファイルコネクター
+を使用してファイルをダウンロードするために使用できます。
+URL expires
+ファイルのパブリック URL の期限が切れる日時。
+Rev
+ファイルの現在のリビジョンに対する一意の識別子。
+Modified
+ファイルが最後に変更された日時。
+Client modified time
+ファイルの Dropbox への追加時に、デスクトップクライアントにより設定された変更時刻。この時刻は検証されていないため (Dropbox サーバーはデスクトップクライアントにより送信された時刻をそのまま保存している)、表示目的 (並べ替えなど) でのみ使用し、ファイルが変更されたかどうかの判断などには使用しないでください。
+#
+Read CSV file (CSV ファイルの読み取り)
+このアクションでは、各列と行の値に従って、選択した CSV ファイルの内容を公開できます。
+Read CSV file アクション
+#
+入力項目
+項目名
+説明
+File / File path
+処理する CSV ファイル。
+Column separator
+値の区切り文字。
+Add column names manually
+この下にある入力項目で列名を設定します。設定しない場合は、選択した CSV ファイルの先頭行が列名に使用されます。
+Column names
+1行につき1つの列名を入力します。
+#
+出力項目
+このアクションの出力項目は、選択した CSV ファイルの列と行の値に対応しています。
+←
+ファイルのアップロード
+フォルダー アクション
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Update CSV file (CSV ファイルの更新)
+Read CSV file (CSV ファイルの読み取り)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

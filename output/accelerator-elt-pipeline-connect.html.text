@@ -1,0 +1,187 @@
+SnowflakeアクセラレータのELTパイプライン接続 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+ELT パイプライン - Snowflake
+#
+SnowflakeアクセラレータのELTパイプライン接続
+SnowflakeアクセラレータのELTパイプラインには、SlackとMicrosoft Teamsの両方で共通の8つの接続があります：
+ELT | CON | Snowflakeを介したJDBC
+ELT | CON | Snowflake
+ELT | CON | JDBCを介したSQL Server
+ELT | CON | SQL Server
+ELT | CON | SFパートナーアカウント
+ELT | CON | S3
+ELT | CON | JDBCを介したPostgreSQL
+ELT | CON | オンプレミスファイル
+さらに、このアクセラレータにはSlackまたはMicrosoft Teamsのいずれかに固有の2つの接続があります：
+ELT | CON | ELTアクセラレータのWorkbot for Slack
+ELT | CON | ELTアクセラレータのWorkbot for Microsoft Teams
+#
+ELT | CON | Snowflakeを介したJDBC
+この接続は、
+JDBCコネクタ
+のドキュメントを使用して完了してください。
+#
+ELT | CON | Snowflake
+この接続は、
+Snowflake接続のセットアップ
+のドキュメントを使用して完了してください。
+認証タイプを選択してください。
+UTC
+タイムゾーンを選択してください。
+#
+ELT | CON | JDBCを介したSQL Server
+この接続は、
+JDBCコネクタ
+のドキュメントを使用して完了してください。
+#
+ELT | CON | SQL Server
+この接続は、
+SQL Server
+のドキュメントを使用して完了してください。
+#
+ELT | CON | SFパートナーアカウント
+この接続は、
+Amazon S3コネクタ
+のドキュメントを使用して完了してください。
+#
+ELT | CON | S3
+この接続は、以下のドキュメントを使用して完了してください。
+#
+ELT | CON | JDBCを介したPostgreSQL
+この接続は、
+JDBCコネクタ
+のドキュメントを使用して完了してください。
+データベース/サーバーの構成に基づいて、
+Postgres JDBCドライバをOPA用にダウンロード
+(opens new window)
+してください。
+#
+ELT | CON | オンプレミスファイル
+この接続は、
+オンプレミスファイルコネクタ
+のドキュメントを使用して完了してください。
+#
+ELT | CON | ELTアクセラレータのWorkbot for Slack
+この接続は、
+Workbot for Slack
+のドキュメントを使用して完了してください。
+この接続は、ELTパイプラインボットをSlackで実装する場合にのみ必要です。
+#
+ELT | CON | ELTアクセラレータのWorkbot for Microsoft Teams
+この接続は、
+Workbot for Microsoft Teams
+のドキュメントを使用して完了してください。
+この接続は、ELTパイプラインボットを Microsoft Teamsで実装する場合にのみ必要です。
+←
+インストール
+設定
+→
+Last updated:
+2024/2/22 23:17:11
+On this page
+ELT | CON | Snowflakeを介したJDBC
+ELT | CON | Snowflake
+ELT | CON | JDBCを介したSQL Server
+ELT | CON | SQL Server
+ELT | CON | SFパートナーアカウント
+ELT | CON | S3
+ELT | CON | JDBCを介したPostgreSQL
+ELT | CON | オンプレミスファイル
+ELT | CON | ELTアクセラレータのWorkbot for Slack
+ELT | CON | ELTアクセラレータのWorkbot for Microsoft Teams
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

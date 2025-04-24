@@ -1,0 +1,165 @@
+SQL Collection by Workato FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+#
+SQL Collection by Workato FAQs
+Get answers to frequently asked SQL Collection by Workato questions.
+What is SQL Collection by Workato and why should I use it?
+SQL Collection by Workato
+is a native application that allows you to manipulate table data. You should use this app to synchronize related data across multiple systems, such as databases and web services. SQL Collection by Workato lets you run SQL statements with data from various sources and create temporary tables for data processing.
+How does SQL Collection handle data transformation?
+SQL Collection handles
+data transformation
+seamlessly as it is built on SQL lite and functions like a database. You can create lists and query them using standard SQL syntax, including keywords like
+WHERE
+,
+GROUP BY
+, and
+JOIN
+. After you transform data, you can load it directly into your target system or export it as a CSV file.
+Does SQL Collection work with large datasets?
+Yes. SQL Collection supports
+large datasets
+, but performance depends on the structure of your data, including row size and column count. We recommend that you use datasets that don't exceed
+50,000 records
+per SQL Collection list to ensure reliable performance.
+SQL Collection can handle larger datasets, such as 100,000 to 200,000 records, if the rows are small and have fewer columns. Datasets that exceed the recommended limits may impact performance or stability. Split tables into smaller chunks or use parallel recipes to process larger datasets efficiently.
+Is a connection setup required to use SQL Collection by Workato?
+No. SQL Collection does not require a
+connection setup
+. You can start using SQL Collection by selecting
+App > SQL Collection by Workato
+from the recipe editor.
+What are the available actions in SQL Collection by Workato?
+SQL Collection offers several
+actions
+, including:
+Create list in SQL Collection action
+Insert rows in SQL Collection action
+Create list in SQL Collection from CSV
+Insert rows in SQL Collection from CSV file
+Query list in SQL Collection
+How does the Create list in SQL Collection action work?
+This action
+creates a SQL Collection list
+in the recipe from a list input. The SQL Collection list contains column headers based on the list's schema. You can specify primary and secondary indexes for the list.
+What should I do if I encounter a COLLECTION DATE ERROR when using SQL Collection for dates?
+You may receive an
+invalid format error
+for the Date field. To correct this error, you must use Mapper by Workato to update the date format or skip date fields if they are not required.
+How does the Query list in SQL Collection action work?
+This action allows you to
+perform standard SQL queries
+on your lists. You can write your SQL query, define the schema, and choose whether to convert the results to a CSV string.
+What should I keep in mind when using SQL keywords in the Query list in SQL Collection action?
+Some
+SQL keywords
+, like
+DELETE
+, do not return list outputs. This means that datapills from these actions should not be used to export your list.
+←
+SQL Collection by Workato
+Managed File Transfer (MFT) capabilities
+→
+Last updated:
+12/20/2024, 3:51:13 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

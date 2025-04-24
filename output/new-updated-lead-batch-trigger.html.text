@@ -1,0 +1,157 @@
+Workato connectors - Marketo New/updated lead trigger (batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Marketo
+#
+New/updated lead trigger (batch)
+This trigger picks up new or updated leads in batches in your Marketo instance. It checks for new or updated leads once every poll interval and Workato processes each batch as a separate job.
+#
+Input fields
+Field
+Description
+Trigger poll interval
+Specify how frequently to check for new events. This field defaults to five minutes if left blank. The minimum value allowed is five minutes.
+When first started, this recipe should pick up events from
+When you start the recipe for the first time, it picks up leads modified from this specified date and time. Defaults to fetching leads modified an hour ago if left blank. Learn more about this
+input field
+.
+List / List ID
+Select or provide the list ID to monitor for new or updated leads.
+Fields to monitor
+Select the fields you plan to monitor for changes and use in the recipe. All fields are selected if left blank. However, leaving this field blank isn't recommended as it can result in timeout errors.
+Batch size
+The size of the batch to be returned. The minimum value is
+1
+and the maximum is
+1000
+. Defaults to
+1000
+.
+Refer to the Marketo documentation for a
+list of standard fields
+(opens new window)
+available through the API. This list includes common fields but may not cover all input fields specific to this action.
+#
+Output fields
+The output datatree contains information about the leads, including all the fields defined under
+Fields to monitor
+in the trigger configuration.
+Field
+Description
+First lead ID
+The ID of the first lead in the batch.
+Last lead ID
+The ID of the last lead in the batch.
+Total leads
+The total number of leads in the batch.
+Leads
+The leads in the batch.
+←
+New/updated lead trigger
+Activate smart campaign action
+→
+Last updated:
+10/2/2024, 3:53:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,155 @@
+Data tables | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+#
+Data tables
+Data tables enable you to store data frequently used or referenced by recipes efficiently. Each data table has a
+spreadsheet-like user interface
+, which displays the stored data in columns (table structure) and rows (table data). Data tables are also used in Workato as the primary data store for your
+workflow apps
+.
+Workato also provides a
+connector
+to make using data tables in your integrations simpler and more efficient.
+Data tables are designed to be scalable and secure out of the box without any additional maintenance. You can create and modify data in a data table with just a few clicks.
+REGULATORY COMPLIANCE
+Data tables are not designed to store sensitive PCI data, including credit card numbers.
+#
+Use cases
+Example of typical data tables use cases are as follows:
+Storing data from chargeable APIs from 3rd party systems that are frequently referenced in recipes.
+Storing data from slow/non-performant APIs from 3rd party systems that are frequently referenced in recipes.
+Storing workflow apps data. This can be in a single table or multiple tables linked through
+link to a table
+columns.
+INCOMPATIBLE USE CASES
+Data tables are not designed for the following use cases:
+Relational database solution
+: Given the various limits enforced, data tables are not ideal as long-term large relational databases.
+Storing large data in a single cell
+: Data tables'
+long text
+column type can store only up to 10,000 characters, which is insufficient for large data storage.
+#
+Key terms
+The following list describes terminology useful for managing and interacting with your data tables:
+Record
+A set of values set for each column in a data table. Each record is identifiable through a unique record ID and is represented by a single row entry in the
+Data tables
+interface.
+Column
+A column in a data table represents a specific record field. Each column has its own unique ID, and is displayed as individual column in the
+Data tables
+interface.
+Record ID
+Workato automatically generates a unique ID for each record in a data table. Workato requires the Record ID to perform certain Data table connector actions, including update record, and delete record actions.
+Column ID
+Workato automatically generates a unique ID for each column in a data table. Workato typically references the Column ID in recipe actions to ensure resilience against column name changes.
+←
+Email notifications
+Permissions
+→
+Last updated:
+4/1/2025, 5:13:02 PM
+On this page
+Use cases
+Key terms
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

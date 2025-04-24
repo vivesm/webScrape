@@ -1,0 +1,132 @@
+Troubleshooting APIM/webhook calls at run time | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+Run-time errors
+#
+APIM/webhook calls at run time
+When interacting with Workato through APIM or webhooks, errors can arise that may not be immediately clear. Use the following guidelines to troubleshoot these issues effectively:
+#
+Verify network connectivity
+Ensure that the server calling Workato has internet access. Network restrictions or firewall settings can disrupt the connection. If your application or server security setup requires outbound connections to be allowlisted, verify that you’ve included Workato’s IP addresses. For the most current list of Workato's IPs, refer to our
+IP allowlists
+documentation.
+#
+Configure access permissions
+Workato allows you to restrict which IPs can access its API Management (APIM) endpoints. To secure your endpoints, allowlist the specific IP addresses permitted to make these calls. For detailed instructions on configuring your IP allowlist, refer to our
+API clients and access profiles
+documentation.
+#
+Review HTTP status codes
+After verifying network connectivity and access permissions, check the HTTP status code provided by Workato. This code can offer valuable insight into the nature of the problem and guide your next steps. For a detailed understanding of HTTP status code replies when using Workato HTTP connector actions, refer to the
+Categorize HTTP status responses
+section. If you don’t find a readable status code, investigate further using logs or by reaching out to Workato support for assistance.
+←
+Internal and upstream/downstream errors
+Inefficient memory usage
+→
+Last updated:
+8/26/2024, 9:17:58 PM
+On this page
+Verify network connectivity
+Configure access permissions
+Review HTTP status codes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,295 @@
+Workato connectors - Amazon Simple Notification Service | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Amazon SNS
+Amazon Simple Notification Service (SNS)
+(opens new window)
+is a fully managed messaging service for both application-to-application and application-to-person communication. It uses a simplified Pub/Sub paradigm to connect distributed systems, microservices, and node applications.
+#
+API version
+This connector uses the
+Amazon SNS API
+(opens new window)
+.
+#
+How to connect to Amazon SNS on Workato
+To connect to your Amazon SNS instance, you will need the
+AWS IAM role
+or the AWS IAM user
+Access key ID and secret
+.
+USE THE AWS IAM ROLE
+We recommend using the
+AWS IAM role
+.
+The AWS IAM role uses temporary credentials making this method secure and not requiring additional management compared to the AWS IAM user which uses permanent credentials that can be leaked and that have to be rotated by the user.
+#
+Connection fields
+Connection name
+Provide a unique name for this connection to identify the Amazon SNS instance it connects to.
+Authentication type
+Choose either
+IAM Role auth
+(recommended) or
+Access key auth
+.
+Authentication details
+Configure the authentication details based on your chosen
+Authentication type
+.
+IAM role ARN
+(For
+IAM Role auth
+)
+Enter the Amazon Resource Name (ARN) of the AWS IAM role. Example syntax:
+arn:aws:iam::account_id:role/role-name-with-path
+.
+Access Key ID
+(For
+Access key auth
+)
+Enter the IAM user access key ID.
+Secret Access Key
+(For
+Access key auth
+)
+Enter the secret associated with the access key ID.
+Region
+Specify the region of your AWS SNS instance.
+#
+Create IAM role and ARN retrieval
+Refer to the
+IAM role-based authentication for AWS
+page for instructions on how to create an IAM role for Workato and retrieve your Amazon resource name (ARN).
+#
+How to create integration system role
+You can create an integration system role to ensure that permissions are consistent and that all operations can be logged on a single account.
+#
+How to create integration system user
+To create a new ISU and obtain the Access key ID and secret access key:
+1
+Navigate to
+Identity and Access Management (IAM)
+on your AWS console. Select
+Users
+from the left panel. Click
+Add user
+.
+Create IAM user
+2
+Set the
+username
+. Ensure that
+Programmatic access
+is selected.
+Set username
+3
+In the
+Add permissions
+view do not select any policy, we will configure
+permissions and polices in a later step
+. Click
+Next
+.
+Skip setting permissions
+4
+Provide information for
+Tags
+as needed and review the configuration for this IAM user.
+This user has no permissions
+Disregard the warning that
+this user has no permissions
+, as we will be configuring
+permissions and policies in a later step
+.
+Next, save a copy of the
+Access key ID
+and
+Secret access key
+. This will be needed to
+connect to Workato
+.
+Save access key credentials
+5
+Navigate to
+Identity and Access Management (IAM)
+on your AWS console. Select
+Users
+from the left panel. Find the user that you have created and click on it. Click
+Add inline policy
+.
+Update IAM user policy
+6
+Adding permission for ISU
+In the
+Create policy
+view select
+JSON
+tab and copy-paste the below IAM policy template. Click
+Review policy
+.
+{
+"Version"
+:
+"2012-10-17"
+,
+"Statement"
+:
+[
+{
+"Sid"
+:
+""
+,
+"Effect"
+:
+"Allow"
+,
+"Action"
+:
+[
+"iam:GetUser"
+,
+"sns:ListTopics"
+,
+"sns:Subscribe"
+,
+"sns:Unsubscribe"
+,
+"sns:SetSubscriptionAttributes"
+,
+"sns:Publish"
+]
+,
+"Resource"
+:
+"*"
+}
+]
+}
+Review IAM user policy
+7
+In the
+Review policy
+view define a descriptive name for the policy (e.g.
+workato_isu-sns_connector
+). Click
+Create policy
+. User is ready, use credentials saved in the step
+4
+in Workato
+SNS connector configuration
+.
+Create policy
+←
+Update object
+New message trigger
+→
+Last updated:
+7/30/2024, 4:28:20 PM
+On this page
+API version
+How to connect to Amazon SNS on Workato
+Create IAM role and ARN retrieval
+How to create integration system role
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

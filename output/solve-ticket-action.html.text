@@ -1,0 +1,167 @@
+Workato コネクター - Zendesk - Solve ticket アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Zendesk
+#
+Zendesk - Solve ticket (チケットの解決) アクション
+このアクションは、Zendesk インスタンスの特定のチケットを更新して、チケットのステータスを
+solved
+に設定します。チケットは Zendesk ID により識別されます。
+一部のチケット項目では、チケットのステータスに関して制限があります。たとえば、Zendesk でチケットを
+solved
+に設定するには、事前に
+assignee
+と
+group
+に
+null
+以外の入力が必要です。このアクションを使用する前に、デフォルトとカスタムの前提条件がすべて満たされていることを確認してください。
+Solve ticket アクション
+#
+入力項目
+入力項目
+説明
+Ticket ID
+チケットの一意の Zendesk ID。
+Ticket form
+チケットフォームを選択して、その事前設定のチケットフォームの
+必須
+項目を開きます。
+チケットのカスタム項目
+必須のカスタム項目のデータを指定します。
+#
+出力項目
+このアクションの出力には、選択したチケットから取得される列がすべて含まれています。よく使用される出力項目を以下に示します。
+出力項目
+説明
+Ticket ID
+チケットの一意の Zendesk ID。これは、チケットの作成時に自動的に割り当てられます。
+Subject
+チケットの件名。
+Type
+チケットのタイプ。可能な値は、
+problem
+、
+incident
+、
+question
+、または
+task
+です。
+Priority
+チケットの優先度。可能な値は、
+urgent
+、
+high
+、
+normal
+、または
+low
+です。
+チケットのカスタム項目
+チケットのカスタム項目のデータが含まれます。
+チケットの出力項目すべてのリストについては、
+こちら
+をクリックしてください。
+←
+チケットの一括更新
+ユーザーの更新
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

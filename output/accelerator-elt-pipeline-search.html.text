@@ -1,0 +1,180 @@
+Search for a pipeline | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+ELT Pipeline - Snowflake
+Pipeline bot
+#
+Search for a pipeline
+You can search for a pipeline from the
+App homepage
+.
+1
+From the app homepage, select
+Search Pipeline
+.
+2
+Configure the
+Search Pipeline
+interface.
+ELT Control ID
+Optional
+. This is the pipeline's automatically generated UUID.
+Sample value:
+9c3b7d37-f960-4ef0-ad8b-045f8c7803bd
+Created by
+Search for the creator using an email address.
+Sample value:
+[email protected]
+Search from
+Optional
+. Start date for pipeline creation.
+Sample value:
+2021-01-04
+Status
+Filter pipelines by their status. Extract pipelines have a unique status.
+Can be one of:
+Active
+Inactive
+Pending
+Error
+In progress
+Extract
+Source
+Optional
+. Filter pipelines by their source system. Search results depend on sources defined using the
+Create pipeline
+interface.
+Sample value:
+Salesforce
+3
+Click
+Submit
+.
+The ELT Pipeline bot returns the following fields for each pipeline:
+Pipeline name
+ELT control ID
+Created by
+Load type
+Status
+Last successful job URL
+Pipeline created date
+Next run date
+RETRY BUTTON
+The
+Search pipeline
+output truncates to the top five (5) search results. Click the
+Retry
+button to search again with different criteria.
+#
+Pin a pipeline
+You can only pin pipelines after searching for them. To pin a pipeline to your home page, select the
+Follow
+button.
+You can edit and activate or deactivate a pinned pipeline using the
+view
+interface.
+←
+Create a pipeline
+View/edit a pipeline
+→
+Last updated:
+1/2/2023, 4:56:25 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

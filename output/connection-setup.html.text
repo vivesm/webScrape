@@ -1,0 +1,257 @@
+Workato connectors - Amazon S3 - Connection setup | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Amazon S3
+#
+Amazon S3 Connection
+#
+How to connect to Amazon S3 on Workato
+The Amazon S3 connector uses the
+AWS Signature Version 4
+(opens new window)
+to authenticate to Amazon S3. There are two ways to connect:
+Using
+Access Key
+Using
+IAM role
+ACCESS KEY LEGACY AUTHENTICATION
+Access key authentication is a legacy authentication format and we highly recommend IAM role authentication.
+#
+Connect to Amazon S3 using Access Key
+You can connect to S3 with an access key, however, the simplest method is to use an IAM role. You must provision a Workato
+IAM user
+(opens new window)
+and provide
+user credentials
+(opens new window)
+for this authentication method. Refer to
+Amazon documentation
+(opens new window)
+to learn how to create an IAM User.
+Refer to Amazon's documentation for
+instructions on how to set up and manage access keys
+(opens new window)
+.
+#
+Input fields for Access Key
+Field
+Description
+Connection name
+Give this connection a unique name that identifies which S3 instance it is connected to.
+Authorization type
+Select
+Access Key
+.
+Access key ID
+The ID of the user.
+Secret access key
+The secret of the user.
+Restrict to bucket
+Define which bucket this connection is restricted to.
+Restrict to path
+Use to restrict your connection to a specific bucket and object or path. This is required when the user has only limited
+s3:ListBucket
+(opens new window)
+access.
+Region
+Provide the region for this S3 account.
+Download threads
+The default is one thread.
+#
+Connect to Amazon S3 using IAM Role
+Provisioning a dedicated IAM profile allows the owner of the S3 instance to grant Workato access to AWS resources without sharing AWS security credentials. It also helps to maintain permission boundaries, including controlled access to specific AWS folders and actions that are permitted by the third-party application (for example, Workato).
+Workato will perform operations in your Amazon S3 as this IAM role. To use the full set of triggers and actions, the IAM role should have
+List
+/
+Write
+permission to specific buckets and folders. Workato recommends to grant only the required
+permissions
+and avoid using
+AmazonS3AllAccess
+whenever possible.
+#
+Input fields for IAM role
+Field
+Description
+Connection name
+Give this connection a unique name that identifies which S3 instance it is connected to.
+Authorization type
+Select
+IAM role
+.
+IAM role ARN
+The IAM role ARN.
+Note
+: Workato will generate a unique
+external id
+(for example,
+workato-user-84762
+). This value is different for every Workato user and must be provided when creating an IAM role in S3.
+Restrict to bucket
+Define which bucket this connection is restricted to.
+Restrict to path
+Use to restrict your connection to a specific bucket and object or path. This is required when the user has only limited
+s3:ListBucket
+(opens new window)
+access.
+Region
+Provide the region for this S3 account.
+Download threads
+The default is one thread.
+#
+Create IAM role and ARN retrieval
+Refer to the
+IAM role-based authentication for AWS
+page for instructions on how to create an IAM role for Workato and retrieve your Amazon resource name (ARN).
+#
+Permissions
+Action
+Role
+Create connection
+S3:ListAllMyBuckets
+Create bucket
+S3:CreateBucket
+Delete file/folder
+S3:DeleteObject
+,
+S3:ListAllMyBuckets
+Download file contents
+S3:ListAllMyBuckets
+,
+S3:GetObject
+Generate resigned URL
+S3:GetObject
+Get bucket location
+S3:GetBucketLocation
+List files in bucket
+S3:ListBucket
+,
+S3:ListAllMyBuckets
+Upload file
+S3:PutObject
+,
+S3:ListAllMyBuckets
+Upload file streaming
+S3:PutObject
+,
+S3:ListAllMyBuckets
+All triggers
+S3:ListBucket
+,
+S3:ListAllMyBuckets
+Use S3 as an
+audit log streaming destination
+S3:ListAllMyBuckets
+,
+S3:PutObject
+←
+Amazon S3
+New CSV file trigger
+→
+Last updated:
+11/22/2024, 9:17:41 PM
+On this page
+How to connect to Amazon S3 on Workato
+Connect to Amazon S3 using Access Key
+Connect to Amazon S3 using IAM Role
+Permissions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,247 @@
+Workato コネクター - Bynder - Get record details by ID | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Bynder
+#
+Bynder アクション - Get record details by ID
+このアクションは、Bynder 内の ID に基づいてレコードの詳細を取得します。Bynder の一意の ID に基づいて、特定のアセットデータ (アセット、アセットの使用状況、メタプロパティ) を取得します。
+#
+入力項目
+項目
+説明
+Object
+このアクションで検索するオブジェクトを選択します。
+Object-specific search fields
+検索するオブジェクトを選択すると、そのオブジェクトに関連した検索項目が表示されます。任意の標準項目を使用して検索できます。
+Object ID
+必須
+取得するオブジェクトの ID。ID は、URL の末尾で確認できます。
+検索するオブジェクトを選択すると、検索条件を入力するよう求められます。任意の標準項目を使用して検索できます。
+#
+出力
+オブジェクト固有の出力項目は、選択したオブジェクトに基づいて動的にレンダリングされます。
+#
+アセットの出力項目
+項目名
+説明
+Asset ID
+アセットの ID。
+Name
+アセットの名前。
+Description
+アセットの説明。
+IdHash
+アセットのハッシュ ID。
+Brand Id
+ブランドの ID。
+Archive
+レスポンスにアーカイブされたアセットのみを含めるかどうかを示します。0の場合、フィルタリングは行われません。
+Copyright
+著作権のラベル。
+Type
+アセットのタイプ。使用可能な値は、
+image
+、
+document
+、
+audio
+、
+video
+、
+3d
+です。
+Date Published
+アセットの公開日時。
+Date Created
+アセットの作成日時。
+User Created
+アセットを作成したユーザー。
+Date Modified
+アセットの変更日時。
+isPublic
+レスポンスに「Public」とマークされたアセットのみを含めるかどうかを示します。
+Extension
+ファイル拡張子のタイプ。
+Tags
+アセットに関連付けられたタグのリスト。
+Height
+画像アセットの高さ。
+Width
+画像アセットの幅。
+File Size
+ファイルサイズ。
+Orientation
+使用可能な値は、
+square
+、
+portrait
+、
+landscape
+です。
+Watermarked
+アセットに透かしが入っているかどうかを示します。0の場合、アセットに透かしは入っていません。
+Limited
+アクセス権限を持たないユーザーに対してアセットが非表示にされるかどうかを示します。0の場合、アセットに「Limited Use」というラベルは付けられません。
+Thumbnails
+アセットのプレビュー。
+Media items
+各アセットで利用可能なさまざまなメディア項目 (派生物) のリスト。
+Active Original Focus Point
+フォーカスポイントの座標。Bynder でフォーカスポイントを設定する方法については、
+こちら
+(opens new window)
+を参照してください。
+#
+アセットの使用状況の出力項目
+アセットの使用状況情報により、Bynder からエクスポートされ、サードパーティアプリケーションにインポートされているアセットを追跡することができます。
+項目名
+説明
+Id
+アセットの使用状況の ID。
+Asset Id
+アセットの ID。
+URI
+アセットが使用されているページに直接移動する URL。
+Additional
+追加コメントまたは説明。
+Integration
+統合 ID および説明。
+Timestamp
+統合の日時。
+#
+メタプロパティの出力項目
+項目名
+説明
+Name
+メタプロパティの名前。
+Label
+メタプロパティのラベル。
+Z index
+Z インデックスは、メタプロパティのオプションが表示される順序を示します。Z インデックスの値が小さいほど、そのメタプロパティオプションはリストの上位に表示されます。
+Id
+メタプロパティの ID。
+Type
+フィルタリング結果のアセットタイプのカンマ区切りのリスト。
+Options
+メタプロパティオプションのリスト
+Is multiselect
+メタプロパティが複数選択かどうかを示します。デフォルトは0です。
+Is multifilter
+メタプロパティがマルチフィルターかどうかを示します。デフォルトは0です。
+Is required
+メタプロパティが必須かどうかを示します。デフォルトは0です。
+Is mainFilter
+メタプロパティがメインフィルターかどうかを示します。デフォルトは0です。
+Is API field
+メタプロパティが API 項目かどうかを示します。デフォルトは0です。
+Is display field
+メタプロパティが [Asset detail] ページに表示されるかどうかを示します。デフォルトは0です。
+Is drilldown
+メタプロパティがドリルダウン結果としてフィルタリング可能かどうかを示します。デフォルトは1です。
+Is searchable
+メタプロパティが検索によりフィルタリング可能かどうかを示します。デフォルトは1です。
+←
+検索
+アセットのアップロード
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

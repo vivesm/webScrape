@@ -1,0 +1,266 @@
+Google Workspace アクション - Delete object | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Workspace
+#
+Google Workspace - Delete record (レコードの削除) アクション
+Delete record アクションは、Google Workspace 内のオブジェクトを削除します。このアクションを設定するには、まず削除できるオブジェクトのリストからオブジェクトを選択する必要があります。そうすると、そのオブジェクトに関連したさらなる項目が表示されます。Workspace 内のオブジェクトの削除は慎重に行ってください。
+#
+Delete a user (ユーザーの削除)
+Google Workspace 内のユーザーを削除します。
+#
+入力項目
+項目名
+説明
+Email address
+削除するユーザーのメールアドレス
+ユーザーのプライマリメールアドレスまたはエイリアスメールアドレスのいずれかを指定できます。
+#
+出力項目
+出力項目は、ユーザーが削除されたかどうかを返します。
+#
+Delete a user alias (ユーザーエイリアスの削除)
+Google Workspace 内のユーザーのエイリアスメールアドレスを削除します。
+#
+入力項目
+項目名
+説明
+Email address
+ユーザーのプライマリメールアドレス/エイリアスメールアドレスまたは固有のユーザー ID
+Alias
+ユーザーのエイリアスメールアドレス
+#
+出力項目
+出力項目は、ユーザーエイリアスが削除されたかどうかを返します。
+#
+Delete a group (グループの削除)
+Google Workspace 内のグループを削除します。
+#
+入力項目
+項目名
+説明
+Group email address
+削除するグループのメールアドレス
+#
+出力項目
+出力項目は、グループが削除されたかどうかを返します。
+#
+Delete an organizational unit (組織部門の削除)
+Google Workspace 内の組織部門を削除します。
+#
+入力項目
+項目名
+説明
+Organizational unit
+削除する組織部門。
+#
+出力項目
+出力項目は、組織部門が削除されたかどうかを返します。
+#
+Delete a member of a group (グループのメンバーの削除)
+Google Workspace のグループのメンバーを削除します。
+#
+入力項目
+項目名
+説明
+Group email address
+グループのメールアドレス/グループエイリアス/固有のグループ ID
+Group member email address
+このグループから削除されるユーザーまたは別のグループのメールアドレス
+#
+出力項目
+出力項目は、グループのメンバーが削除されたかどうかを返します。
+#
+Delete a role assignment (ロール割り当ての削除)
+Google Workspace 内のユーザーのロール割り当てを削除します。
+#
+入力項目
+項目名
+説明
+Role
+Google Workspace 内の削除されるロール
+#
+出力項目
+出力項目は、ロールが削除されたかどうかを返します。
+#
+Delete app specific passwords (アプリ固有のパスワードの削除)
+Google Workspace 内のユーザーのアプリ固有のパスワードを削除します。
+#
+入力項目
+項目名
+説明
+Email address
+ユーザーのメールアドレス。プライマリ、エイリアス、または固有のユーザー ID を指定できます。
+Code ID
+削除されるアプリ固有のパスワードの固有の ID
+#
+出力項目
+出力項目は、アプリ固有のパスワードが削除されたかどうかを返します。
+#
+Delete verification code (確認コードの削除)
+Google Workspace 内のユーザーのメールアドレスに関連付けられた確認コードを削除します。
+#
+入力項目
+項目名
+説明
+Email address
+ユーザーのメールアドレス
+#
+出力項目
+出力項目は、確認コードが削除されたかどうかを返します。
+#
+Delete access token (アクセストークンの削除)
+ユーザーの下のクライアントに対して発行されたアクセストークンを削除します。
+#
+入力項目
+項目名
+説明
+Email address
+ユーザーのメールアドレス。プライマリ、エイリアス、または固有のユーザー ID を指定できます。
+Client ID
+トークンの発行先となっているアプリケーションのクライアント ID
+#
+出力項目
+出力項目は、アクセストークンが削除されたかどうかを返します。
+#
+Delete license assigned to a user (ユーザーに割り当てられたライセンスの削除)
+Google Workspace 内のユーザーに割り当てられた製品ライセンスを削除します。
+#
+入力項目
+項目名
+説明
+Product ID
+ユーザーのライセンスを削除する必要がある製品の名前
+SKU to update
+製品 SKU の一意の識別番号
+Email ID
+ライセンスを削除する必要があるユーザーのメール ID
+#
+出力項目
+出力項目は、ライセンスが削除されたかどうかを返します。
+#
+Delete mobile device resource assigned to a user (ユーザーに割り当てられたモバイルデバイスのリソースの削除)
+Google Workspace 内のユーザーに割り当てられたモバイルデバイスのリソースを削除します。
+#
+入力項目
+項目名
+説明
+Resource ID
+モバイルデバイスを識別するのに使用される API サービスの固有の ID
+#
+出力項目
+出力項目は、モバイルデバイスのリソースが削除されたかどうかを返します。
+←
+レコードの追加
+レコードの取得
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Delete a user (ユーザーの削除)
+Delete a user alias (ユーザーエイリアスの削除)
+Delete a group (グループの削除)
+Delete an organizational unit (組織部門の削除)
+Delete a member of a group (グループのメンバーの削除)
+Delete a role assignment (ロール割り当ての削除)
+Delete app specific passwords (アプリ固有のパスワードの削除)
+Delete verification code (確認コードの削除)
+Delete access token (アクセストークンの削除)
+Delete license assigned to a user (ユーザーに割り当てられたライセンスの削除)
+Delete mobile device resource assigned to a user (ユーザーに割り当てられたモバイルデバイスのリソースの削除)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

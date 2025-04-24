@@ -1,0 +1,204 @@
+Workato connectors - Talent Palette | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Talent Palette
+Talent Palette
+(opens new window)
+​​is a talent management system targeted at Japanese enterprises seeking to maximize operational efficiency.
+#
+API Documentation
+Complete the following steps to access Talent Palette's API documentation:
+1
+Sign in to the Talent Palette admin dashboard.
+2
+Go to the
+FAQ
+page and search for
+API
+.
+This page provides information about API specifications, obtaining an API token, and formatting files for importing.
+#
+Prerequisites
+Complete the following steps to generate a client ID and client secret in Talent Palette:
+1
+Sign in to the Talent Palette admin dashboard.
+2
+Go to the
+Admin Menu
+tab.
+3
+Go to the
+Others
+section. If
+Others
+is not visible, click
+Show All
+.
+4
+Click
+API
+.
+5
+Click
++ Add Client
+to generate a new Client ID and Secret. These values are required to establish the connection in Workato.
+#
+How to connect to Talent Palette on Workato
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Talent Palette
+as your connection in the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Talent Palette connection fields
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your Talent Palette
+Client ID
+.
+6
+Enter your Talent Palette
+Client secret
+.
+7
+Enter your Talent Palette
+Username
+.
+8
+Enter your Talent Palette
+Password
+.
+9
+Click
+Connect
+to complete the connection.
+#
+Actions
+The Talent Palette connector supports the following actions:
+Check job status
+Import members
+Import organizations
+Talent Palette actions
+←
+Search workbook action
+Create job status action
+→
+Last updated:
+2/11/2025, 2:54:09 AM
+On this page
+API Documentation
+Prerequisites
+How to connect to Talent Palette on Workato
+Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

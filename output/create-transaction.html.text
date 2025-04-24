@@ -1,0 +1,199 @@
+Workatoコネクター - Shopify - トランザクションの作成 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Shopify
+#
+Shopifyコネクター - トランザクションの作成
+このアクションは、Shopifyの注文に対してトランザクションを作成します。トランザクションは、注文における金銭のやり取りが発生した場合に作成されます。
+トランザクションリソースの詳細については、
+Shopifyのドキュメント
+(opens new window)
+を参照してください。
+#
+入力
+フィールド
+説明
+注文ID
+トランザクションが作成される注文のIDです。
+トランザクション金額
+トランザクションに含まれる金額です。値を指定しない場合、注文の合計金額（以前のトランザクションが行われた場合でも）がデフォルト値として使用されます。
+トランザクション親ID
+関連するトランザクションのIDです。キャプチャトランザクションの場合、親は承認トランザクションである必要があります。無効トランザクションの場合、親は承認トランザクションである必要があります。返金トランザクションの場合、親はキャプチャまたはセールトランザクションである必要があります。
+トランザクション承認
+トランザクションに関連付けられた承認コードです。
+トランザクションソース
+トランザクションのオプションの起源です。関連する注文のキャッシュトランザクションをインポートする場合は、「external」に設定します。
+トランザクションタイプ
+トランザクションのタイプです。有効なトランザクションタイプの詳細については、以下のリンクを参照してください。
+#
+トランザクションタイプ
+タイプ
+説明
+authorization
+顧客が支払うことに同意した金額です。承認期間は、支払いサービスによって異なりますが、7日から30日の間です。
+capture
+ショップの承認時に予約された金額の移動です。
+sale
+1つのステップで行われる支払いの承認とキャプチャです。
+void
+保留中の承認またはキャプチャのキャンセルです。
+refund
+キャプチャされた金額の一部または全額を顧客に返金することです。
+#
+出力
+このアクションの出力は、トランザクションのリストです。各トランザクションには、以下のデータピルが含まれます。
+フィールド
+説明
+ID
+このトランザクションの固有IDです。
+注文ID
+トランザクションが関連付けられている注文のIDです。
+金額
+トランザクションの総額です（小数点付きの文字列形式）。
+種類
+トランザクションのタイプです。
+ステータス
+トランザクションのステータスです。
+ゲートウェイ
+トランザクションが発行されたゲートウェイの名前です。
+メッセージ
+トランザクションの成功または失敗に関する追加情報を提供する、支払いプロバイダによって生成された文字列です。
+テスト
+トランザクションがテストモードの注文または支払いのために作成されたかどうかを示します。
+承認
+トランザクションに関連付けられた承認コードです。
+通貨
+トランザクションのISO 4217通貨コードです。
+場所ID
+トランザクションが処理された物理的な場所のIDです。
+ユーザーID
+注文が処理されたときにShopify POSデバイスにログインしていたユーザーのIDです（該当する場合）。
+親ID
+関連するトランザクションのIDです。
+デバイスID
+デバイスのIDです。
+エラーコード
+支払いプロバイダに依存しない、標準化されたエラーコードです。
+ソース名
+トランザクションの起源です。これはShopifyによって設定され、上書きすることはできません。
+作成日時
+日時と時刻です。
+フィールド
+説明
+id
+トランザクションの一意の識別子。
+amount
+トランザクションの金額。
+currency
+トランザクションの通貨。
+status
+トランザクションのステータス。
+created_at
+トランザクションが作成された日時。
+Receipt
+ショップが使用しているゲートウェイによってトランザクションに添付されたトランザクションレシートの値。このフィールドの値は、ショップが使用しているゲートウェイによって異なります。
+←
+支払い/返金の作成
+下書きの削除
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

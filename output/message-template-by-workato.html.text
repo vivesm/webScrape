@@ -1,0 +1,188 @@
+Message template by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Message template by Workato
+The Message template by Workato connector enables you to create and use static
+Message templates
+for commonly used messages in your recipes. These templates use
+Mustache
+(opens new window)
+as the templating language. Message templates can be used to generate HTML, text, JSON, and XML messages. They also allow you to separate the message composition logic (what the message looks like) from the message generation logic (when the message is sent). This separation enables you to change the message format without changing the recipe that sends the message.
+MESSAGE TEMPLATE ESCAPES HARMFUL ELEMENTS
+Message template escapes some potentially harmful HTML elements, such as those that could lead to XML injection.
+#
+Create a new template
+Templates define a structure for variables and body text that is consistent across runs and recipes.
+Complete the following steps to create a new template:
+1
+Navigate to
+Tools > Message templates
+and click
++ New template
+.
+2
+Provide the body text of the message in the
+Template body
+field. Specify variables by wrapping them in double brackets (
+{{}}
+).
+This field uses Mustache as its templating language. Refer to the
+Mustache documentation
+(opens new window)
+or the variables section of the
+Message template
+page for more information.
+3
+Add your variables in the
+Template input
+. You can use JSON or manually create your variables. Template variables support both scalar data types (string, integer, date, number, time, and boolean) and complex data types (object and list). You can define values for template variables using the
+Create message
+action.
+Template with defined variables
+VARIABLES, SECTIONS, COMMENTS, AND PARTIALS
+Refer to the
+Message template
+page for more information on using variables, sections, comments, and partials in your templates.
+#
+Create message action
+The
+Create message
+action defines the values to pass to a template's tags and generates a static
+Document
+string from the
+Template body
+.
+REQUIRES AT LEAST ONE TEMPLATE
+To use the
+Create message
+action, your workspace must have at least one template saved. Refer to the
+create a new message template
+section to learn how to create a message template.
+#
+Input
+Input
+Description
+Document template
+Select the template you plan to use.
+Template input
+Provide datapills or fixed values for your template variables to use within this recipe.
+#
+Output
+Output
+Description
+Document
+A static string generated from the
+Document template
+, with values from the
+Template input
+field in place of the variables.
+←
+Update object action (batch)
+MongoDB Atlas
+→
+Last updated:
+2/3/2025, 4:48:26 PM
+On this page
+Create a new template
+Create message action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

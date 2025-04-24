@@ -1,0 +1,160 @@
+Workato connectors - Zendesk new/updated ticket trigger (real time) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Zendesk
+#
+Zendesk - New/updated ticket trigger (real time)
+This trigger picks up tickets as soon they are created or updated. Each ticket is processed as a separate job.
+This trigger picks up tickets in real time. If you want to process tickets from a designated time, you can use the
+polling trigger
+.
+Role privileges
+You need a Zendesk account with the Administrator role to use this trigger in your recipe.
+New/updated ticket trigger
+#
+Input fields
+There are no input fields for this trigger.
+AUTOMATIC TRIGGER CREATION IN ZENDESK
+This Workato trigger automatically creates a Zendesk trigger. You can find the trigger in your Zendesk account under
+Admin > Business rules > Triggers
+.
+#
+Output fields
+The output of this action contains the full set of columns from the selected ticket. Here are some commonly used outputs.
+Output field
+Description
+Ticket ID
+The unique Zendesk ID of the ticket. This is automatically assigned when the ticket is created.
+Subject
+The subject of the ticket.
+Type
+The type of ticket. Permitted values are
+problem
+,
+incident
+,
+question
+, or
+task
+.
+Priority
+The priority of the ticket. Permitted values are
+urgent
+,
+high
+,
+normal
+, or
+low
+.
+Ticket custom fields
+Includes data of ticket custom fields.
+Click here for a full list of
+ticket outputs
+.
+←
+New/updated ticket
+New user
+→
+Last updated:
+3/3/2025, 7:17:50 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

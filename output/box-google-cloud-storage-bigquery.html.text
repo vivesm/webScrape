@@ -1,0 +1,617 @@
+Load Box CSV data to Google BigQuery with Google Cloud Storage use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+Files
+#
+Load Box CSV data to Google BigQuery with Google Cloud Storage recipe
+This use case guides you through connecting
+Box
+,
+Google Cloud Storage
+, and
+Google BigQuery
+to create a powerful automation.
+#
+What does this recipe do?
+This recipe monitors a Box folder for new CSV files, downloads each file’s contents, uploads the content to Google Cloud Storage, and then loads the data into a Google BigQuery table.
+flowchart TD
+subgraph Configuration[" "]
+direction TB
+subgraph BoxTrigger[&nbsp Box New event in folder trigger &nbsp]
+Trigger(Trigger) --- setup1(setup)
+end
+subgraph BoxAction[&nbsp Box Download file action &nbsp]
+Action1(Action) --- setup2(setup)
+end
+subgraph GoogleCloudStorage[&nbsp Google Cloud Storage Upload object action &nbsp]
+Action2(Action) --- setup3(setup)
+end
+subgraph GoogleBigQuery[&nbsp Google BigQuery Load data from Google Cloud Storage into BigQuery action &nbsp]
+Action3(Action) --- setup4(setup)
+end
+end
+CreateRecipe([Create recipe]) -- Configure your recipe --> Configuration --> Workflow([Automated workflow])
+BoxTrigger --> BoxAction --> GoogleCloudStorage --> GoogleBigQuery
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class CreateRecipe,Trigger,setup1,Action1,setup2,Action2,setup3,Action3,setup4,Workflow WorkatoTeal
+class BoxTrigger,BoxAction,GoogleCloudStorage,GoogleBigQuery SubgraphDash
+#
+How can I use this recipe?
+This recipe provides a versatile approach for handling CSV data, facilitating automated workflows between Box, Google Cloud Storage, and Google BigQuery. Consider the following usage examples for different departmental needs:
+Track marketing campaigns
+: Simplify campaign performance data collection and analysis. By storing CSV files with metrics in Box, you can integrate your data with Google BigQuery to create detailed reports and dashboards.
+Manage sales leads
+: Automatically transfer sales leads or customer data from CSV files saved in Box. This provides sales teams with the latest data in Google BigQuery and improves sales tracking and performance monitoring.
+Monitor operational KPIs
+: Automate the upload of operational logs or supply chain data from Box to Google BigQuery. This helps operations managers monitor key performance indicators and identify areas for process improvement without manual data entry.
+#
+Create your recipe
+Complete the following steps to create a recipe that monitors a Box folder for new CSV files, downloads each file’s contents, uploads the content to Google Cloud Storage, and then loads the data into a Google BigQuery table:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for Box, Google Cloud Storage, and Google BigQuery:
+Create a Box connection.
+The Box connector supports both OAuth 2.0 and
+client credentials
+authentication.
+Complete the following steps to set up your Box connection using OAuth 2.0 authentication:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Box
+on the
+New connection
+page.
+3
+Provide a name that identifies which Box instance Workato is connected to in the
+Connection name
+field.
+Create your connection
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store this connection.
+5
+Use the
+Authentication type
+drop-down menu to select
+OAuth 2.0
+.
+6
+Optional. Expand
+Advanced settings
+to select
+Requested permissions (Oauth scopes)
+options.
+You can select from the following scopes:
+Read files and folders
+Read and write files and folders
+Manage app users
+Manage managed users
+Manage groups
+Manage webhooks
+Manage enterprise properties
+Manage retention policies
+Global content manager
+Admin can make calls on behalf of users
+Manage signature requests
+Manage Box Relay
+7
+Click
+Connect
+. This opens the Box sign in dialog.
+8
+Enter your Box account email address and password.
+Log in to Box
+9
+Click
+Authorize
+.
+10
+Review the requested permissions and click
+Grant access to Box
+.
+Grant access to Box
+Create a Google Cloud Storage connection.
+You must have a
+service account
+to create a Google Cloud Storage connection in Workato.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Google Cloud Storage
+on the
+New connection
+page.
+3
+Provide a name that identifies which Google Cloud Storage instance Workato is connected to in the
+Connection name
+field.
+Connect to Google Cloud Storage
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store this connection.
+5
+Enter a valid Google Cloud Platform project ID in the
+Project identifier
+field. You can find the project ID in the
+Google Cloud Console
+(opens new window)
+by clicking
+Select a project
+in the navigation menu.
+6
+Enter the email address of the service account in the
+GCS Project service account email
+field.
+7
+Provide the private key from the downloaded JSON file in the
+Private key
+field. You must copy the private key from
+-----BEGIN PRIVATE KEY-----
+to
+-----END PRIVATE KEY-----
+.
+8
+Optional. Enter a comma-separated list of buckets the connection can access in the
+Restrict to bucket
+field. For example,
+bucket-1,bucket2
+.
+9
+Optional. Expand
+Advanced settings
+and use the
+Requested permissions (OAuth scopes)
+drop-down menu to select the permissions to request for this connection.
+10
+Click
+Sign in with Google
+.
+Create a Google BigQuery connection.
+The Google BigQuery connector supports both OAuth 2.0 and
+service account
+authentication.
+Complete the following steps to set up your Google BigQuery connection using OAuth 2.0 authentication:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Google BigQuery
+on the
+New connection
+page.
+3
+Provide a name that identifies which Google BigQuery instance Workato is connected to in the
+Connection name
+field.
+Connect to Google BigQuery
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store this connection.
+5
+Use the
+Authentication type
+drop-down menu to select
+OAuth 2.0
+.
+6
+Click
+Sign in with Google
+.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+9
+Click
+Select an app and trigger event
+.
+10
+Set up your Box New event in folder trigger.
+1
+Search for
+Box
+and select it as your app.
+Choose Box as your app
+2
+Select the
+New event in folder
+trigger.
+Select the New event in folder trigger
+3
+Select the Box connection you created in the preceding steps.
+4
+Use the
+Folder
+drop-down menu to select the folder you plan to monitor for events.
+5
+Use the
+Events to monitor
+drop-down menu to select
+File uploaded
+.
+6
+Click the
+Set trigger condition
+toggle.
+7
+Map the Box
+Name
+Step 1
+datapill (nested under the
+File/folder source
+Step 1
+object) to the
+Trigger data
+field.
+Configure the trigger condition
+8
+Use the
+Condition
+drop-down menu to select
+ends with
+.
+9
+Enter
+.csv
+in the
+Value
+field.
+10
+Click
+Save
+.
+Step summary
+This trigger monitors Box for newly uploaded CSV files, activating the recipe only when the file name ends with a
+.csv
+extension.
+11
+Click
++ Add step
+and select
+Action in app
+.
+Click
+Add step > Add action in app
+12
+Set up your Box Download file action.
+1
+Search for
+Box
+and select it as your app.
+Choose Box as your app
+2
+Select the
+Download file
+action.
+Select the Download file action
+3
+Map the Box
+ID
+Step 1
+datapill (nested under the
+File/folder source
+Step 1
+object) to the
+File ID
+field.
+Map the file ID
+4
+Optional. Specify the
+Chunk size
+and unit (for example, B, KB, MB) for file transfer. The default is 10MB, with a minimum of 32KB and a maximum of 10MB. Larger chunk sizes improve throughput but may exceed API limits.
+5
+Click
+Save
+.
+Step summary
+This step downloads the contents of the CSV file uploaded to Box.
+13
+Click
++ Add step
+and select
+Action in app
+.
+14
+Set up your Google Cloud Storage Upload object action.
+1
+Search for
+Google Cloud Storage
+and select it as your app.
+Choose Google Cloud Storage
+2
+Select the
+Upload object
+action.
+Select the Upload object action
+3
+Select the Google Cloud Storage connection you created in the preceding steps.
+4
+Use the
+Bucket name
+drop-down menu to select the bucket where you plan to upload the Box CSV file contents.
+5
+Enter a name for the object in the
+Name
+field, map the
+Job ID
+Properties
+datapill, and append
+.csv
+to specify the file extension.
+Configure the object name
+The
+Job ID
+Properties
+datapill is a
+default property
+. Mapping it to the name helps identify which
+job
+processed the object.
+6
+Map the Box
+File content
+Step 2
+datapill to the
+Object content
+field.
+7
+Click
+Save
+.
+Step summary
+This step uploads the Box CSV file contents to a bucket in Google Cloud Storage using file streaming.
+15
+Click
++ Add step
+and select
+Action in app
+.
+16
+Set up your Google BigQuery Load data from Google Cloud Storage into BigQuery action.
+1
+Search for
+Google BigQuery
+and select it as your app.
+Choose Google BigQuery
+2
+Select the
+Load data from Google Cloud Storage into BigQuery
+action.
+Select the Load data from Google Cloud Storage into BigQuery action
+3
+Select the Google BigQuery connection you created in the preceding steps.
+4
+Use the
+Project
+drop-down menu to select the project to be billed for the query.
+5
+Use the
+Dataset
+drop-down menu to select the dataset that contains the table where you plan to load the CSV file data.
+6
+Use the
+Table
+drop-down menu to select the table where you plan to load the CSV file data.
+7
+Locate the
+Source URI
+field and perform the following actions:
+1
+Enter
+gs://
+.
+2
+Map the Google Cloud Storage
+Bucket
+Step 3
+datapill.
+3
+Enter
+/
+.
+4
+Map the Google Cloud Storage
+Name
+Step 3
+datapill.
+Configure the Source URI
+8
+Use the
+Source format
+drop-down menu to select
+CSV
+.
+9
+Use the
+Autodetect
+drop-down menu to select
+Yes
+. This field enables Google BigQuery to automatically infer the schema and options of the data being loaded into the table.
+10
+Use the
+Alter table columns when required?
+drop-down menu to choose
+Allow field addition
+and
+Allow field relaxation
+. These options enable you to add new optional fields to your schema and change existing required fields to optional.
+11
+Use the
+Create disposition
+drop-down menu to select
+Create if needed
+. This options tells Google BigQuery to create the table if it doesn't already exist.
+12
+Click
+Save
+.
+Step summary
+This step loads the CSV file content data from Google Cloud Storage to a table in Google BigQuery.
+Your
+Load Box CSV data to Google BigQuery with Google Cloud Storage
+recipe is ready to test and implement.
+GOOGLE BIGQUERY LONG ACTION
+This recipe uses the
+Google BigQuery Load data from Google Cloud Storage into BigQuery
+action, which is a
+long action
+.
+When testing a recipe that includes a long action, the job may stall in the
+Processing
+status. To avoid this, we recommend
+starting the recipe
+instead of using the
+test recipe
+function.
+Example recipe configuration.
+Load Box CSV data to Google BigQuery with Google Cloud Storage
+recipe
+←
+Invite DocuSign signees to collaborate in Box and notify your team in Slack
+Finance and accounting
+→
+Last updated:
+1/16/2025, 9:16:49 PM
+On this page
+What does this recipe do?
+How can I use this recipe?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

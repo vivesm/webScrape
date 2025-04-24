@@ -1,0 +1,169 @@
+Workbot インターフェイスの設計 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Slack
+#
+Workbot インターフェイスの設計
+Workbot for Slack では、ボタン、メニュー、モーダルなど、Slack のインタラクティブコンポーネントの多くに対応しています。これらのインタラクティブコンポーネントを Workbot レシピ内で使用して、ユーザーから情報を収集し、Workbot メッセージの書式を設定し、後続のレシピをトリガーすることができます。これらのコンポーネントを適切なトリガーやアクションと組み合わせることにより、Workbot の対話型インターフェイスを自由に設計することが可能です。
+#
+インターフェイス機能の選択
+機能
+説明
+使用するアクション/トリガー
+アプリホーム
+ユーザーと Workbot との間で共有される、1:1のインタラクティブなスペース。タイムリーでカスタマイズされたコンテンツが含まれます。たとえば、承認する必要がある休暇届のリストが表示されます。
+New event
+トリガーと
+Publish app home view
+アクション
+添付ファイルフィールド
+メッセージに関連する情報を動的に表示する、2段組みのレイアウトをメッセージ本文の下に作成します。たとえば新しい Salesforce アカウントについて知らせるメッセージに、アカウントの会社名、年間収益、電話番号を含めることができます。
+Post message
+、
+Post command reply
+アクション
+Block kit
+ボタン、画像、メニューなどの UI 要素を Workbot メッセージに追加するために使用できる、Slackの UI フレームワークです。
+Post message
+、
+Post command reply
+、
+Open/update or push
+、
+Publish app home view
+アクション
+ボタン
+クリックされたボタンに基づいて、別のコマンドをトリガーします。たとえば、Workbot への問題の報告時に、人事や IT などのタイプを指定するためにボタンを選択するようにユーザーに求めることができます。
+Post command reply
+、
+Post message
+アクション
+ダイナミックメニュー
+ユーザーの入力に応じてメニューオプションを生成する、モーダルまたはダイアログのドロップダウンメニュー。Salesforce の会社名など、多数のメニューオプションが想定される場合に適しています。
+New dynamic menu event
+トリガー
+メッセージ
+Workbot とやり取りするための通常の方法。ダイレクトメッセージを使用して、または Workbot が招待されているチャンネルで、Workbot との間でメッセージを送受信します。
+Post command
+トリガーと
+Post message
+または
+Post command reply
+アクション
+メッセージメニュー
+選択された項目に基づいて、別のコマンドをトリガーします。たとえば、Workbot への問題の報告時に、優先度 (低、中、高) を明確にするためにメニュー項目を選択するようにユーザーに求めることができます。
+Post command reply
+、
+Post message
+アクション
+モーダル
+ユーザーから情報を収集する、インタラクティブなポップアップウィンドウ。
+Open/update or push
+アクション
+スラッシュコマンド
+レシピをトリガーするために、Slack のメッセージボックスに入力できるコマンド。例
+/createissue
+Post command
+トリガーを含む
+Enterprise Workbot
+←
+ユーザーアクションの待機
+Block kit
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

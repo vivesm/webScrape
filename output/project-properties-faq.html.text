@@ -1,0 +1,124 @@
+Project properties - FAQ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Project properties
+#
+Project properties FAQ
+#
+What happens when environment and project properties share the same name?
+Environment properties and project properties can have the same name. In this situation, you must make sure to select the appropriate property from the datatree yourself.
+Workato does not facilitate automatic transfers of properties between environmental and project levels, whether it's from environmental to project or vice versa.
+#
+What if project properties have the same name? How does Workato solve for this conflict?
+Workato does not allow you to have multiple project properties with identical names within the same project. However, you can have multiple recipes that have project properties with identical names if they belong to separate projects.
+Because the scope of each recipe is isolated by the project, there is no conflict between the project properties; the recipes simply use the project properties within their own projects and are unaffected by properties outside their parent project.
+However, consider a scenario where you move a recipe from one project to another, and the new project contains a project property with an identical name to one already utilized by the recipe. In this situation, the recipe uses the value of the property from the new project automatically.
+←
+Use in recipes
+Recipe logging
+→
+Last updated:
+9/13/2023, 3:21:36 PM
+On this page
+What happens when environment and project properties share the same name?
+What if project properties have the same name? How does Workato solve for this conflict?
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

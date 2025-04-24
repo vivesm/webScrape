@@ -1,0 +1,197 @@
+CSV の処理 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+ファイルおよび添付ファイルの取り扱い
+#
+CSV の処理
+カンマ区切り値 (CSV) ファイルは、表形式データを格納するテキストファイルです。CSV ファイルには、人間が理解できるプレーンテキストのデータが格納されます。
+CSV コンテンツを使用可能なデータピルに変換するには、
+Workato に組み込まれた CSV パーサー
+で CSV コンテンツを解析するか、
+コネクター固有の CSV パーサー
+を使用します。
+ここでは、以下の CSV コンテンツをサンプルとして使用します。
+Manufacturer, Model, Category, Item Name, Item Code, Description, Unit Cost, Unit Price, Taxable, Tax, Custom Field 1, Custom Field 2, Custom Field 3
+Sierra Gardening, MS-321, Gardening supplies, Pine wood potting bench, MS-321, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Pine, White, 30 inches
+Sierra Gardening, MS-322, Gardening supplies, Cherry wood potting bench, MS-322, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cherry, Natural, 30 inches
+Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cedar, Black, 30 inches
+#
+CSV by Workato
+ほとんどの Web アプリケーションは、処理を加えずに CSV ファイルを返します。
+CSV by Workato
+を使用すると、CSV ファイルのテキストコンテンツを読み取ることができます。これにより、自分のユースケースに応じて、個々の行を移動したりデータを変換したりできます。
+この例では、Dropbox で新しい CSV ファイルが処理されます。
+Parse CSV
+アクションを実行して、列と行のリストを取得します。
+Parse CSV。サンプルレシピは
+こちら
+(opens new window)
+。
+#
+入力項目
+入力項目
+説明
+CSV contents
+CSV
+file content
+データピルを選択します。CSV の行を直接貼り付けることもできます。
+Column separator
+CSV ファイルの列を区切る文字を選択します。
+CSV contents contain header line
+ヘッダー行があるかどうかを指定します。
+Header line
+CSV ファイルのヘッダー行を指定します。
+Keep track of columns by
+CSV コンテンツの列順序が固定されていない場合に設定します。
+Quote Character
+CSV のセル値を引用するために使用する文字です。引用文字が使用されていない場合は、
+none
+を選択します。
+#
+出力項目
+このアクションは行の配列を生成します。各行には、
+ヘッダー行
+で定義されたスキーマが含まれます。これは配列オブジェクトなので、
+リピートアクション
+を使用して行を反復する必要があります。
+このサンプルレシピでは、配列オブジェクトの各行を反復し、Wrike でタスクを作成します。
+リピートステップのデータツリーからアクションへのデータピルのマッピング
+リストの処理の詳細については、
+こちら
+を参照してください。
+#
+外部パーサーによる CSV ファイルの解析
+コネクターの中には、CSV コンテンツを解析できるトリガーとアクションを備えたものがあります。
+Box コネクター
+にはこの機能があります。
+新しい CSV ファイル
+をリッスンし、同じトリガーを使用して解析できます。
+BOX トリガーによる CSV ファイルの解析。サンプルレシピは
+こちら
+(opens new window)
+。
+#
+入力項目
+CSV by Workato と同様に、
+[Field names]
+に CSV のヘッダー行を入力します。これは出力にデータピルを作成するために必要な作業です。
+レシピで取得する CSV ファイルの列を定義する。
+サンプルレシピ
+(opens new window)
+。
+すべての新しい CSV ファイルが同じスキーマまたはヘッダー行を共有しているかどうかにかかわらず、このトリガーは新しい CSV ファイルをすべて処理します。これにより、ジョブエラーが発生したり、不正なデータがアプリに移動されたりする可能性があります。フォルダーやサブフォルダーを共有している場合は、関連する CSV ファイルだけがそのフォルダーに格納されるようにするか、処理するファイルを指定するトリガーフィルターを追加してください。
+#
+出力項目
+Box の CSV パーサー
+からの出力は、
+CSV by Workato
+からの出力と同じです。CSV コンテンツの列 (トリガーで定義されている) は、使用可能な変数として表示され、後続のレシピステップへのマッピングに使用できます。
+同様に、
+リピートアクション
+を実行して、CSV 行のリストを反復します。
+Box トリガーで定義されている変数を使用
+←
+ファイルおよび添付ファイルの取り扱い
+JSON の処理
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+CSV by Workato
+外部パーサーによる CSV ファイルの解析
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

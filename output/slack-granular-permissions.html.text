@@ -1,0 +1,204 @@
+きめ細かい権限スコープへの移行 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Slack
+#
+きめ細かい権限スコープへの移行
+2020年1月22日、Slack は
+きめ細かい権限設定
+(opens new window)
+をリリースし、旧来の
+bot
+スコープを廃止しました。
+これまで、ボットユーザーは特別に扱われ、包括的な
+bot
+スコープを要求していました。現在、新しい Slack アプリはボットユーザー用のスコープを個別にリクエストできるようになっています。
+2020年1月22日以前に使用されていたカスタム Slack ボットは、
+bot
+スコープを持っている可能性があります。そうしたボットは
+2021年後半
+までに
+新しいスコープへ移行させる必要があります。
+Enterprise Workbot が
+bot
+スコープを持っているかどうかをチェックするには、アプリ管理ページ (このページにアクセスするにはアプリの作成者またはコラボレータである必要があります) に移動し、
+[OAuth & Permissions]
+以下を確認してください。
+#
+移行のスケジュール
+2020年2月21日
+Slack はあらゆる
+新規
+アプリにきめ細かい権限設定の使用を義務付ける予定です。ユーザー側が取るべき対応は特にありませんが、新規の Enterprise Workbot を作成した場合に、旧来のボットとは異なるスコープを持つのが普通となることには注意する必要があります。
+2021年後半
+アップグレードされていない既存のアプリが Slack によって評価され、それらのアプリに関わっている会話は Slack によってリストから削除されます。この時期よりも前に Enterprise Workbot を移行するよう強くお勧めします。
+#
+Enterprise Workbot のスコープを更新しなかった場合どうなるか
+2021年後半には Enterprise Workbot に関わっている会話が Slack の評価によりリストから削除される可能性があります。移行は簡単なので、それ以前にスコープの更新を済ませておくよう強くお勧めします。
+#
+移行の前後にボットの機能が影響を受けることがあるか
+ほとんどの場合は
+ありません。
+SCIM API
+(opens new window)
+、
+Web API
+(opens new window)
+、
+Event API
+(opens new window)
+、およびすべての関連メソッドが、新旧両方のボットトークンに対応しています。
+しかし、
+RTM API
+(opens new window)
+は新しいボットトークンではアクセスできません (したがって、移行後は使用できません)。アプリに RTM 機能が必要な場合はこの移行をそのアプリについて
+行わないよう
+、Slack は勧告しています。
+#
+新しいスコープへの移行
+Slack のアプリ管理ページで、
+[Update to Granular Scopes]
+に移動してください。
+きめ細かい権限スコープへ移動
+Step 1では、どのボットトークンスコープも選択しないでください。
+[Continue]
+をクリックします。
+Step 2では、以下のユーザートークンスコープを選択します。
+channels:read
+channels:write
+chat:write
+groups:read
+groups:write
+im:read
+im:write
+mpim:read
+mpim:write
+users:read
+users:read.email
+ユーザートークンスコープ
+[Continue]
+をクリックします。
+Step 3では、自身のスコープ選択を確認し、
+[Yes, migrate my app]
+を選択します。さらに、自身のアプリが RTM API を必要としないことを確認するよう Slack に促されたら、
+[Yes I'm sure]
+を選択します。
+スコープ選択の確認
+Step 4では、OAuth コードを変更する必要はありません。それは Workato によって処理されるためです。
+[I've updated my app]
+を選択してください。
+[I've updated my app]
+を選択
+最後に、新しい権限スコープを有効にするためにアプリを再インストールしてください。
+アプリを再インストール
+アプリの移行に関して、より詳しくは
+Slack の移行ガイド
+(opens new window)
+を参照してください。
+←
+カスタム OAuth プロファイル
+New event トリガー (リアルタイム)
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+移行のスケジュール
+Enterprise Workbot のスコープを更新しなかった場合どうなるか
+移行の前後にボットの機能が影響を受けることがあるか
+新しいスコープへの移行
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

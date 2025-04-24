@@ -1,0 +1,144 @@
+Workato Connector - HubSpot Export CRM data action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+Export CRM data action (bulk)
+This action allows you to export data from HubSpot in bulk. You can use the downloaded file contents in subsequent recipe steps to upload the file into other applications.
+Bulk CRM data export
+#
+Input
+Input field
+Description
+Export type
+Use the drop-down menu to select
+VIEW
+or
+LIST
+as the export type.
+Export name
+Provide a name for your export.
+Language
+Use the drop-down menu to choose
+Select a language
+(this option provides a list of languages for you to choose from) or
+Enter a language
+(this option allows you to manually enter the language you plan to use).
+Object
+Use the drop-down menu to choose
+Select an object
+or
+Enter object ID
+. You can select any standard HubSpot object, for example, contact, company, deal, and more.
+#
+Output
+Workato returns a record representing each imported record so you can use its datapills in subsequent steps.
+←
+Import CRM data action
+Associate record actions
+→
+Last updated:
+11/17/2023, 12:17:54 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

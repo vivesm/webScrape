@@ -1,0 +1,180 @@
+Workato connectors - Notion - New/updated database record trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Notion
+#
+Notion - New/updated database record trigger
+The
+New/updated database record
+trigger monitors a Notion database for new or updated records.
+#
+Input
+Field
+Description
+Trigger poll interval
+Specify how frequently to check for new events.
+Database
+Select the database to monitor.
+When first started, this recipe should pick up events from
+Set the date and time to start picking up trigger events. This enables your recipe to capture past events. Learn more about this
+input field
+.
+#
+Output
+Field
+Description
+Object
+The type of object created or updated.
+Page ID
+The unique identifier of the associated page.
+Created time
+The timestamp when the record was created.
+Last edited time
+The timestamp when the record was last updated.
+Created by
+Contains information about the user who created the record, such as their
+User ID
+and the
+Object
+type.
+Last edited by
+Contains information about the user who last updated the record, such as their
+User ID
+and the
+Object
+type.
+Icon
+Contains information about the new or updated record's icon, such as its
+Type
+and associated
+Emoji
+.
+Parent
+Contains information about the new or updated record's parent, such as its
+Type
+and
+ID
+.
+Archived
+Indicates whether the database is archived.
+In trash
+Indicates whether the record is in Notion's trash folder.
+Properties
+Contains information about the new or updated record's properties, such as its
+Title
+,
+Type
+, and
+ID
+.
+URL
+The new or updated record's URL.
+←
+Connection setup
+Create record action
+→
+Last updated:
+12/3/2024, 4:54:13 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

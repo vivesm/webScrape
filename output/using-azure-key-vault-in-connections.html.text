@@ -1,0 +1,228 @@
+Azure Key Vaultのシークレットを接続で使用する方法 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+接続資格
+Azure Key Vault
+#
+Azure Key Vaultのシークレットを接続で使用する方法
+このガイドでは、
+Azure Key Vault
+(opens new window)
+からシークレットを使用してWorkato接続を設定する方法を示します。
+#
+前提条件
+このガイドの手順を完了するには、次のものが必要です。
+Workato内
+:
+ワークスペースレベル
+または
+プロジェクトレベル
+のAzure Key Vault接続が成功しているアカウント。
+作成
+および
+接続の編集
+権限
+を持つ
+user role
+。
+Microsoft Azure内
+:
+Azure Key Vaultシークレットを作成するための権限。
+#
+Step 1: Azure Key Vaultにシークレットを追加する
+1
+Azureポータルにサインインし、
+キーバルト > {キーバルト名} > シークレット
+に移動します。
+2
++生成/インポート
+を選択します。
+3
+シークレットの作成
+ページで、
+アップロードオプション
+を_手動_に設定します。
+Azure Key Vaultでシークレットを作成する
+4
+Azure Key Vaultで使用するシークレットのために、
+airtable-api
+などのアプリケーションを覚えるのに役立つ名前を入力します。
+5
+シークレットの値を入力します。これは通常、パスワード、APIキー、またはその他の機密情報です。
+6
+オプションで
+コンテンツの種類
+、
+有効化日
+、および/または
+有効期限
+を設定します。
+7
+有効
+トグルが
+はい
+に設定されていることを確認します。
+8
+作成
+を選択します。
+#
+Step 2: Workato接続を設定する
+Workatoアカウントで、新しい接続を作成するか、既存の接続の設定ページを開きます。
+Workato接続の資格情報で使用するAzure Key Vaultシークレットは、次の構文に従います。ここで、
+secret_name
+はAzure Key Vaultで使用するシークレットの名前です。
+{{workato:sm:<secret_name>}}
+次の例では、シークレット名は
+airtable-api
+です。
+{{workato:sm:airtable-api}}
+接続の設定ページで、この値全体を適切なフィールドに貼り付けます。
+#
+Step 3: 接続のセットアップを完了する
+接続
+をクリックし、この接続が正常に動作していることを確認します。
+#
+トラブルシューティング
+エラーメッセージ
+解決方法
+このキーバルトでシークレットが見つかりませんでした。
+シークレットが存在し、正しいAzure Key Vaultインスタンスに接続されていることを確認してください。
+シークレット
+{{secret name}}
+は無効になっています。再試行する前に、
+有効
+に設定されていることを確認してください。
+シークレットが
+有効
+に設定されていることを確認してください。
+呼び出し元にはリソース上で操作を実行する権限がありません。
+Azure Active Directoryアプリに十分な
+ロール
+または
+アクセスポリシー
+があること、およびクライアントシークレットが有効であることを確認してください。
+Azure Key Vaultへのパブリックネットワークアクセスが無効です。
+キーバルトへのパブリックアクセス
+(opens new window)
+が有効になっていることを確認してください。
+クライアントアドレスが承認されておらず、呼び出し元は信頼されたサービスではありません。
+ネットワークのIPアドレスが
+key vaultの許可リスト
+(opens new window)
+に追加されていることを確認してください。
+シークレットの有効期限が切れています。
+有効な有効期限のある新しいシークレットバージョンを作成してください。
+シークレットがアクティブ化されていません。
+シークレットのアクティベーション日が現在の日付より前に設定されていることを確認してください。
+ボールトからシークレットを取得できませんでした。
+シークレットがボールトに存在することを確認してください。
+シークレットが別のシークレットマネージャー向けにフォーマットされている場合、このエラーが発生する可能性があるため、シークレットが正しい形式
+{{workato:sm:<secret_name>}}
+になっていることを確認してください。
+←
+プロジェクトのための Azure Key Vault の設定
+Azure ADへのアプリケーション登録
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+前提条件
+Step 1: Azure Key Vaultにシークレットを追加する
+Step 2: Workato接続を設定する
+Step 3: 接続のセットアップを完了する
+トラブルシューティング
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

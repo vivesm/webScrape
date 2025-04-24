@@ -1,0 +1,125 @@
+レシピのセキュリティに関するベストプラクティス | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+トラブルシューティング
+ベストプラクティス
+#
+レシピのセキュリティに関するベストプラクティス
+#
+機密データの取り扱い
+Workato でレシピを作成する場合は、レシピのステップ内に機密データをプレーンテキストとして配置しないようにすることを強くお勧めします。これは、リモートサービスの認証や、個人情報 (たとえば、名前、住所、メールアドレス) などの、レシピの作成者に対して非公開にすべき情報の認証に使用されるトークンやキーについて特に当てはまることです。
+レシピのステップに機密データが配置されないようにするには :
+コネクター (HTTP コネクターなど) に使用される認証情報を、ハードコードされた文字列としてレシピに配置しないでください。たとえば、
+https://www.myapp.com/services/api-method?token=3ababe3235Z2z
+のような URL をレシピで指定しないでください。ベストプラクティスとして、接続のプロパティに認証トークンを保存します。
+クエリパラメータによる認証の設定
+などに関する説明を参照してください。
+その他の機密データについては、
+アカウントプロパティ
+に配置することを検討し、レシピで必要に応じて参照します。
+また、データピルを使用して、前のステップから現在のステップに機密データを渡すこともできます(これは、ハードコードされた機密データが前のステップで使用されていないことが前提となります)。
+これらのガイドラインに従うことで、以下のようなセキュリティ上のメリットがあります。
+機密データは、Workato チーム環境の他のユーザーには公開されません。
+レシピが複製されるときに、機密データが公開されることはありません。レシピが複製され、別の Workato アカウントにコピーされると、レシピのステップの一部であるデータはコピーされますが、接続プロパティとアカウントプロパティはコピーされず、データピルの動的コンテンツもコピーされません。
+機密情報の維持と管理がさらに容易になります。これは、そうした情報がさまざまなレシピに散在するのではなく、一元管理されるためです。
+いつかレシピを公開してコミュニティで共有することにした場合にも、機密データが公開されることはありません。
+←
+エラー通知メール
+ジョブのデバッグトレース
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

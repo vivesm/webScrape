@@ -1,0 +1,211 @@
+Workato connectors - Orderful new transactions from poller bucket trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Orderful
+#
+Orderful - New transactions from poller bucket (batch) trigger
+The
+New transactions from poller bucket
+batch trigger enables you to immediately create a job when a transaction is received from a poller bucket.
+Orderful - New transactions from poller bucket trigger
+#
+Input fields
+Input field
+Description
+Poller bucket ID
+Specify the poller bucket ID to retrieve new transactions.
+Trigger poll interval
+Select how frequently to check for new events. Defaults to five minutes if left blank.
+#
+Output fields
+Output field
+Description
+Transactions
+A list containing detailed information about each transaction.
+Transaction ID
+The ID of the transaction.
+URL
+The URL for the transaction.
+Sender Interchange control header (ISA) ID
+The ISA ID of the sender.
+Sender Interchange control header (ISA) ID qualifier
+The ISA ID qualifier of the sender.
+Sender Test Interchange control header (ISA) ID
+The test ISA ID of the sender.
+Sender Test Interchange control header (ISA) ID qualifier
+The test ISA ID qualifier of the sender.
+Sender name
+The name of the sender.
+Receiver Interchange control header (ISA) ID
+The ISA ID of the receiver.
+Receiver Interchange control header (ISA) ID qualifier
+The ISA ID qualifier of the receiver.
+Receiver Test Interchange control header (ISA) ID
+The test ISA ID of the receiver.
+Receiver Test Interchange control header (ISA) ID qualifier
+The test ISA ID qualifier of the receiver.
+Receiver name
+The name of the receiver.
+Type name
+The name of the transaction type.
+Links attachments
+The attachments of the transaction.
+Stream
+The source of the transaction. For example,
+TEST
+.
+Creator party
+The party that created the transaction.
+Status
+The status of the transaction.
+Status reason
+The reason for the current status of the transaction.
+Business number
+The business number of the transaction.
+Message size in bytes
+The message size of the transaction in bytes.
+Latest revision at
+The latest datetime when the transaction was revised.
+Reference identifiers
+Additional identifiers for the transaction.
+Message URL
+The URL for the transaction message.
+Validation status
+The validation status of the transaction. For example,
+VALID
+.
+Delivery status
+The delivery status of the transaction. For example,
+SENT
+.
+Acknowledgment status
+The acknowledgment status of the transaction. For example,
+ACKNOWLEDGED
+.
+Acknowledgment URL
+The URL for the transaction acknowledgment.
+Delivery ID
+The ID of the transaction delivery.
+Delivery URL
+The URL for the transaction delivery.
+Delivery approve URL
+The URL for the approved transaction delivery.
+Delivery fail URL
+The URL for the failed transaction delivery.
+Created at
+The datetime value when the transaction was created.
+Last updated at
+The datetime value when the transaction was last updated.
+List size
+The total number of items in the list.
+List index
+The position of an item in the list.
+←
+Connection setup
+Approve delivery action
+→
+Last updated:
+6/20/2024, 4:43:53 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

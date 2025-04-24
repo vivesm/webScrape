@@ -1,0 +1,292 @@
+Workbot for Slack - Configure a Slack Enterprise Workbot for Embedded users | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Slack
+Enterprise Workbots
+#
+Configure a Slack Enterprise Workbot for Embedded users
+This guide explains how Embedded partners can enable a Slack Enterprise Workbot for their end customers.
+LIST YOUR BOT IN SLACK MARKETPLACE
+To list your white-labeled Workbot in the Slack Marketplace, contact your Customer Success Manager.
+#
+Prerequisites
+Before you begin, ensure you have a Slack Enterprise Workbot. Refer to the
+Create a Slack Enterprise Workbot
+guide if you need to create one.
+#
+Steps
+Complete the following steps to configure a Slack Enterprise Workbot for Embedded customers:
+Activate the public distribution for your app
+Share the custom OAuth profile with an end customer
+Build your recipes
+Export the Workato manifest
+Import the package to the customer workspace
+Authenticate the customer's Workbot for Slack connection
+#
+Activate the public distribution for your app
+Complete the following steps to activate public distribution for your app:
+1
+Go to
+Your Apps
+(opens new window)
+on the Slack API website.
+2
+Select the Slack app you created in the
+Create a Slack Enterprise Workbot
+guide.
+3
+Go to
+Settings > Manage Distribution
+.
+4
+Locate the
+Share Your App With Other Workspaces
+section and expand
+Remove Hard Coded Information
+.
+5
+Select the checkbox to confirm you've removed any hard-coded information from your app, such as OAuth tokens and webhook URLs.
+6
+Click
+Activate Public Distribution
+to enable public distribution for your app.
+#
+Share the custom OAuth profile with an end customer
+Share the custom OAuth profile created in the
+Create a Slack Enterprise Workbot
+guide with your end customers. This profile enables their Slack account to access bot settings defined in your Slack account, so they don’t need to create an OAuth app in their Slack instance.
+Complete the following steps to share the custom OAuth profile:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Manage customers
+.
+3
+Select the customer.
+4
+Go to
+Settings > Custom OAuth profiles
+.
+5
+Click
+Assign a profile
+to set a custom OAuth profile for your customer workspace. The
+Assign an OAuth profile
+dialog appears.
+6
+Select
+Workbot for Slack
+from the
+Select app
+drop-down menu.
+7
+Select the custom OAuth profile created in the
+Create a Slack Enterprise Workbot
+guide.
+The customer workspace uses this profile by default when users create Workbot for Slack connections. You must share the OAuth profile individually with each customer workspace using this method. You can also manage OAuth profiles programmatically with
+custom OAuth profiles API endpoints
+.
+#
+Build your recipes
+Develop recipes using the Workbot for Slack connection to deploy in customer workspaces.
+#
+Export the Workato manifest
+After building the recipes and sharing the OAuth profile, export a manifest containing the bot recipes to the customer workspace. Refer to the
+Create a manifest
+guide or complete the following steps to export the Workato manifest:
+Export the Workato manifest
+1
+Go to
+Tools > Recipe lifecycle management > Export
+.
+2
+Click
+Create a new manifest
+.
+3
+Enter a name for the manifest in the
+Manifest name
+field.
+4
+Use the
+Source folder
+drop-down menu to select the source folder. All recipes and dependent assets from this folder and any subfolders become part of the manifest.
+5
+Click
+Next
+.
+6
+Click
+Create manifest
+.
+7
+Click
+Build and export package
+.
+8
+Click
+Download
+to download a zip file containing the manifest content.
+#
+Import the package to the customer workspace
+To import the package to the customer workspace, refer to the
+Import a package
+guide or complete the following steps:
+Import the package to the customer workspace
+1
+Switch to the customer workspace where you plan to import the manifest.
+2
+Go to
+Tools > Recipe lifecycle management > Import
+.
+3
+Click
+Import
+.
+4
+Select the zip file containing the package in
+Select zip file
+.
+5
+Use the
+Target folder
+drop-down menu to choose the import location.
+6
+Click
+Next
+.
+7
+Review the package details to confirm how it integrates with the customer workspace.
+8
+Click
+Next
+to start the import.
+9
+Click
+Finish
+when the import completes.
+#
+Authenticate the customer's Workbot for Slack connection
+After importing the package in the customer workspace, the Workbot for Slack connection becomes available. Ask the customer to authenticate this connection with their Slack credentials for the workspace where they plan to install the bot.
+The connection automatically uses the shared custom OAuth profile, ensuring the app package installed by the customer connects to the app configured in your Slack instance.
+CUSTOM OAUTH PROFILE FIELD DISABLED FOR EMBEDDED CUSTOMERS
+When the customer authenticates the Workbot for Slack connection, the custom OAuth profile selector will be disabled. The connection will still use the shared custom OAuth profile, and no other custom OAuth profiles will be available for this app in this workspace.
+#
+Outcome
+The recipes in the customer workspace are ready to be started. With the custom OAuth profile included in the connection, the bot should function as expected in the customer’s Slack instance.
+←
+Enterprise Workbots
+Enterprise Workbot vs Slash commands
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Prerequisites
+Steps
+Activate the public distribution for your app
+Share the custom OAuth profile with an end customer
+Build your recipes
+Export the Workato manifest
+Import the package to the customer workspace
+Authenticate the customer's Workbot for Slack connection
+Outcome
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

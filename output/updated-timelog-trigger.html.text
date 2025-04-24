@@ -1,0 +1,146 @@
+Wrike - New/updated timelog trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - New/updated timelog trigger
+This trigger picks up timelog records that are created or updated. Each record is processed as a separate job. It checks for new jobs once every poll interval.
+New/updated timelog trigger
+#
+Input fields
+Input field
+Description
+When first started, this recipe should pick up events from
+Timelog records created or updated after this time will be processed by the recipe. If left blank, the default will be set to
+one hour
+before the recipe is first started. Learn more about this
+input field
+.
+#
+Output fields
+Output field
+Description
+Timelog ID
+The ID of the timelog record.
+Task ID
+The ID of the task that this timelog record tracks.
+User ID
+The ID of the user who tracked the timelog record.
+Category ID
+The ID of the category of this timelog record.
+Hours
+The hours tracked in the timelog record.
+Created date
+The date this timelog record was created.
+Updated date
+The date this timelog record was updated.
+Completed date
+The date this timelog record was completed.
+Comment
+The comment to this timelog record.
+←
+New/updated task trigger (real-time)
+Cancel approval action
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

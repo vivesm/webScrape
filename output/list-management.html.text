@@ -1,0 +1,243 @@
+リスト操作 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+レシピデータの変更
+#
+リスト (別名 : 配列)
+アプリを統合する際には、リストを扱うことがよくあります。たとえば、売上請求書を同期する際の勘定科目の移動や、顧客勘定を同期する際の関連するリードと連絡先の移動などです。
+Workato では、さまざまな方法でリストを読み書きできます。
+#
+サンプルリストの準備
+この記事では、リスト操作に関して、さまざまな例を挙げます。サンプルリストとして、次のサンプル CSV ファイルを使用します。
+Manufacturer, Model, Category, Item Name, Item Code, Description, Unit Cost, Unit Price, Taxable, Tax, Custom Field 1, Custom Field 2, Custom Field 3
+Sierra Gardening, MS-321, Gardening supplies, Pine wood potting bench, MS-321, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Pine, White, 30 inches
+Sierra Gardening, MS-322, Gardening supplies, Cherry wood potting bench, MS-322, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cherry, Natural, 30 inches
+Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cedar, Black, 30 inches
+ほとんどの例で、
+Box
+トリガー
+New CSV file
+を使って Box フォルダーから CSV ファイルを読み出し、それを解析して3行の CSV からなるリストとして Workato に渡します。上記のサンプル CSV で CSV ファイルを作成し、
+New CSV file
+トリガーから取得できるように Box フォルダーにアップロードします。
+トリガー設定で、選択した Box フォルダーにある CSV ファイルが上記の CSV ファイルのみの場合、フィールドのリストに自動的に列名が入力されます。CSV データが正確に列にマッピングされるように、列名は CSV ファイルのヘッダー行に完全に対応させてください。
+レシピで取得する CSV ファイルの列を定義する。
+サンプルレシピ
+(opens new window)
+Box new CSV file
+トリガーで定義された列が、出力データツリーで使用できる変数のリストとして表示されます。これらの変数は、以降のレシピステップへのマッピングに使用できます。
+データツリーに
+[Lines]
+アイコンが表示されています。これは、データツリー内のリストを示すものです。
+データツリー内のリストアイコン
+上記のデータピルは、Workato アクションの入力フィールドへのマッピングに使用できます。リストからデータピルにマッピングする方法は3つあります。
+リスト処理なしでアクションに直接マッピングする。
+リスト入力でアクションにマッピングする (アクションが暗黙的にリストを処理する)。
+リピートステップでアクションにマッピングする (アクションではリストを処理しないため、レシピのロジックレベルで明示的に行う必要がある)。
+#
+リストからマッピングされたデータピルを使用する
+#
+リスト処理なしでアクションでデータピルを直接使用する
+リストから直接マッピングされたピルを使用する場合、最初のリスト項目の値のみが取得されます。次のレシピでは、リストからマッピングされたピルを、
+Log message
+アクションで直接使用します。
+Log message アクションでリストピルを直接使用するレシピ。
+サンプルレシピ
+(opens new window)
+ジョブの詳細ページでは、トリガー出力に CSV ファイル内の3行がすべて表示されます。
+CSV ファイル内の行を表示するトリガー出力の詳細
+Log message
+アクションでは、リストから直接マッピングされたデータピルを使用し、リスト処理をまったく行っていないため、データの最初の行だけが取得されます。
+データの最初の行だけが表示されている Log message の入力
+#
+リスト入力を使ってアクションでデータピルを使用する (アクションが暗黙的にリストを処理する)
+一部のアクションは入力としてリストを受け付けます (Salesforce の一括挿入アクションと一括更新アクション、会計アプリの仕訳作成アクション、ERP アプリの販売注文作成アクションなど)。
+次の例は、
+Bulk insert
+アクションによって Box CSV ファイルから Salesforce に新製品をインポートするシナリオの例です。
+リスト入力を使用したレシピの例。
+サンプルレシピ
+(opens new window)
+リストを入力として受け付けるアクションには、リストピルのみを受け付ける
+Source list
+という入力フィールドがあります。このリスト入力フィールドを選択すると、データツリーはリストピルのみを提供するように変更されます。行リストオブジェクトピルが、Salesforce の製品ソースリスト入力フィールドにマッピングされます。
+入力ソースリストに渡されたリストオブジェクトでは、リストがソースアプリからターゲットアプリに転送され、値がレシピにマッピングされたフィールドに基づいて転送されます。3つの在庫品目は、Box から Salesforce に製品として移動されます。
+CSV ファイルの内容を次に示します。
+CSV ファイル内の行を表示するトリガー出力の詳細
+ジョブレポートのアクション出力は、Salesforce で3つの製品が作成されたことを示しています。
+リスト入力による Salesforce の一括挿入
+#
+リピートステップでアクションにデータピルを使用する (アクションではリストを処理しないため、レシピのロジックレベルで明示的に行う必要がある)
+このサンプルシナリオでは、Box にアップロードした CSV ファイルに記録されている新規の在庫品目のリストを NetSuite インスタンスにインポートします。Box コネクターの
+New CSV file
+トリガーには読み込めるリストがありますが、NetSuite コネクターの
+Add inventory item
+アクションにはリスト処理機能がありません。
+リスト内を移動しながら NetSuite の在庫品目を3つ作成するには、リピートステップを使ってリストを反復しながら、反復ごとに同じアクションを実行する必要があります。
+リピートステップを使って NetSuite の在庫品目リストを反復するレシピ。
+サンプルレシピ
+(opens new window)
+行リストを反復するために、行リストオブジェクトをリピートステップの入力として渡します。その結果、レシピではリストを3回反復し、Add inventory item アクションを3回繰り返すことになります。このとき、毎回 CSV の別々の行から取得した別々の値が使用されます。
+リピートステップの入力としてリストオブジェクトを指定する
+リピートステップを使用する際には、データピルを For each データツリーから取得することに注意してください。
+For each データツリーからのデータピルのマッピング
+こうすることで、リストの反復時に、最初の
+Add inventory item
+ステップで1行目 (下記) が使用されるようになります。
+Sierra Gardening, MS-321, Gardening supplies, Pine wood potting bench, MS-321, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Pine, White, 30 inches
+2番目の
+Add inventory item
+ステップでは2行目 (下記) が使用されます。
+Sierra Gardening, MS-322, Gardening supplies, Cherry wood potting bench, MS-322, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cherry, Natural, 30 inches
+3番目の
+Add inventory item
+ステップでは3行目 (下記) が使用されます。
+Sierra Gardening, MS-323, Gardening supplies, Cedar wood potting bench, MS-323, Oakwood potting bench, 74.50, 119.99, Yes, 0.0875, Cedar, Black, 30 inches
+#
+リピートステップ使用時のよくある間違い
+こちら
+で説明したように、リスト処理なしにデータツリーのリストオブジェクトから直接取得したピルを使用すると、最初のリスト項目が使用されます。リピートステップから取得したデータピルではなく、リストオブジェクトから取得したデータピルをリピートステップ内で使用した場合でも、レシピでは3行の CSV が反復されます。ただし、各反復で各行から取得した値が使用されるのではなく、すべての反復で1行目から取得した値が使用されるため、重複が発生します。
+リピートステップからではなく、リストからの「間違った」(直接の) マッピングを使ったレシピの例。
+サンプルレシピ
+(opens new window)
+#
+リストコネクター (アキュムレータ)
+リストコネクターは、カスタムリストを作成して、その後同じジョブで使用するデータをそこに保存しておくための Workato ツールです。通常は、リスト入力でアクションに書き込むリストを準備するために使用されます。
+#
+アキュムレータアクションを使ってカスタムリストを作成する
+#
+リストのフィールドを定義する
+データを集めて格納する前に、格納先のカスタムリストを作成する必要があります。リストを作成するには、
+[List by Workato]
+を選択します。デフォルトアクションの
+[Accumulate items to list]
+を選択します。
+List by Workato
+フィールド名、型、ヒントを設定することで、カスタムリストのフィールドを定義します。
+カスタムリストの編集は、JSON 表現で行うこともできます。
+カスタムリストの JSON 表現を編集する
+リピートステップからのフィールドのマッピング
+リストはリピートステップ内にあり、データピルはリピートステップの出力データツリーからマッピングされる必要があります。これにより、反復されたリスト項目の値がカスタムリストに適切にマッピングされるようになり、また
+前述
+のように、メインデータツリー (リピートステップのデータツリーではなく) からの間違ったピルがマッピングされたためにリスト内で値が重複するということがなくなります。
+#
+アキュムレータ、リスト入力、リピートステップを使うレシピの例
+成立した Salesforce 商談と商談製品リストを、販売注文と類似の勘定科目リストとして NetSuite に移動するというシナリオを考えます。
+NetSuite コネクターの
+Create sales order
+アクションは、在庫品目の内部 NetSuite ID を参照する勘定科目リストを受け付けます。つまり、NetSuite の販売注文を1つのアクションで作成するには、同様の NetSuite の在庫品目 ID のリストも必要となります。ただし、Salesforce から得られるのは、Salesforce 商談製品の ID だけです。NetSuite 在庫品目の内部 ID を得るには、Salesforce 商談製品名で正しい NetSuite 在庫品目を検索し、見つかった NetSuite 在庫品目の内部 NetSuite ID を
+Create sales order
+アクションに渡す必要があります。
+アキュムレータとリスト入力を使用して、Salesforce 商談製品リストから NetSuite 在庫品目のカスタムリストを繰り返し処理で作成し、品目を含む完全な NetSuite 販売注文を1つのアクションで作成します。
+リピートステップで Salesforce の商談製品のリストを反復しながら、対応する NetSuite 在庫品目を見つけてカスタムリストに蓄積します。続けて、アキュムレータで作成したカスタムリストを渡すことで、完全な NetSuite 販売注文と勘定科目リストを1つのアクションで作成します。
+リピートステップを使った Salesforce-Netsuite レシピ。
+サンプルレシピ
+(opens new window)
+←
+データピル
+Formulaモード
+→
+Last updated:
+2024/9/27 19:31:21
+On this page
+リスト処理なしでアクションでデータピルを直接使用する
+リスト入力を使ってアクションでデータピルを使用する (アクションが暗黙的にリストを処理する)
+リピートステップでアクションにデータピルを使用する (アクションではリストを処理しないため、レシピのロジックレベルで明示的に行う必要がある)
+リストコネクター (アキュムレータ)
+アキュムレータアクションを使ってカスタムリストを作成する
+アキュムレータ、リスト入力、リピートステップを使うレシピの例
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

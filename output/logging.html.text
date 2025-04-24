@@ -1,0 +1,228 @@
+オンプレミスエージェント - ロギング | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+オンプレミス接続
+オンプレミスエージェント
+#
+オンプレミスエージェントのログ
+オンプレミスエージェント (OPA) には、さまざまな種類のイベントのログを記録するためのコードが含まれています。ログファイルには、OPA のアクティビティ、警告、トレースが格納されます。ログファイルはさまざまな場面で役立ちますが、最もよく使用されるのはトラブルシューティングを行うときです。
+#
+ロギングスケジュール
+OPA のロガーは、(オンプレミスのシステム時間に基づき) 日付が変わるたびに新しいログファイルを作成します。またファイルサイズが20 MB を超えた場合も、新しいログファイルを作成します。1日のうちに複数のログファイルが作成される場合は、それらを識別できるよう、順番に番号が付けられます。
+シナリオ1
+シナリオ2
+01-NOV-2019
+02-NOV-2019
+合計ファイルサイズ : 15 MB
+合計ファイルサイズ : 25 MB
+/agent-2019-11-01.0.log
+ログファイルは日付が変わるときに作成されます。
+/agent-2019-11-02.0.log
+ログファイルは日付が変わるときに作成されます。最初の20 MB がこのファイルに格納されます。
+/agent-2019-11-02.1.log
+別のログファイルが作成され、残りの5 MB が格納されます。
+エージェントフォルダーにある OPA ログファイルにアクセスできます。OPA に保持されるのは、最近の60個のファイルのみ、または最大で合計20 GB のファイルのみです。
+#
+OPA ログのプロパティ
+OPA ログには、以下のプロパティが含まれます。
+OPA ログのプロパティ
+説明
+Date
+必要なファイルがすぐに見つかるよう、各ログファイルに日付が付けられます。
+Numbered logs
+1日のうちに複数のログファイルが作成される場合には、それらのログファイルに順番に番号が割り振られます。
+File size limit
+ファイルの内容を簡単に照会できるよう、ロガーのファイルサイズが20 MB に制限されます。
+Storage limit
+フォルダーの上限を設定して、サーバーのストレージの負荷を軽減します。
+#
+OPA アクティビティのロギング
+config.yml
+ファイルの最上位レベルに
+logging
+定義を追加し、さまざまなレベルのアクティビティログを記録します。
+logging
+:
+cloud
+:
+true
+logger
+:
+logging_level
+workato
+:
+debug
+sql
+:
+trace
+cloud
+プロパティは Workato クラウドにログを送信するために使用されます。これにより Workato のサポートチームは、必要に応じて迅速にログにアクセスし、技術的な問題のより効率的な解決について支援できるようになります。このオプションは、設定ファイルでデフォルトで有効になっています。
+以下に使用できるロガーを示します。
+logger
+説明
+workato
+OPA のすべての部分からのログが記録されます。
+sql
+OPA のデータベース関連の部分のみが記録されます。
+custom
+詳細については、
+カスタムロガーの使用
+を参照してください。
+以下に、サポートされているロギングレベルを示します。
+logging_level
+説明
+trace
+エラーの原因になったステップを特定するのに役立つ情報です。通常、技術サポート担当者による診断に使用されます。
+例 : Starting secure tunnel (セキュアトンネルを開始します)
+debug
+ユーザーが理解できる形式の、トラブルシューティングまたは診断に役立つ情報です。
+例 : Failure due to an unknown exception (不明な例外によるエラーです)
+info
+通常の状態でログに記録する必要のある情報です。
+例 : agent starting/stopping (エージェントの開始/停止)
+warn
+問題となる可能性はあっても、直ちにユーザーが対処する必要のないイベントについての情報です。
+例 : transient network interruption (一時的なネットワークの中断)
+error
+調査が必要なエラーに関する情報です。
+例 : Agent failed to start (エージェントの開始に失敗)
+#
+特定のプロファイルのロギング
+特定のプロファイルに対して選択的にロギングを有効にすることもできます。それには、
+debug: true
+定義をプロファイルに追加するだけです。
+database
+:
+sql
+:
+adapter
+:
+mysql
+database
+:
+workato
+username
+:
+user
+password
+:
+password
+timeout
+:
+30
+debug
+:
+true
+#
+カスタムロガーの使用
+ネイティブのロガーの代わりにカスタムロガーを使用することもできます。それには、ロガー名をカスタムロガーのクラス名またはパッケージ名に置き換えるだけです。
+logging
+:
+"com.workato.agent.file"
+:
+debug
+←
+プロキシサーバーのサポート
+Monitoring
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+ロギングスケジュール
+OPA アクティビティのロギング
+特定のプロファイルのロギング
+カスタムロガーの使用
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

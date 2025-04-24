@@ -1,0 +1,187 @@
+テーブルストレージ - テーブルデータの追加/編集 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workflow Apps
+テーブルストレージ
+データテーブル
+#
+テーブルデータの編集
+データテーブルのインターフェースでは、テーブルデータの編集と削除がサポートされています。マウスを使用するか、
+キーボードショートカット
+を使用してデータと対話することができます。
+#
+新しい行の追加
+データテーブルは、各データテーブルにつき最大1,000,000（百万）レコード/行をサポートしています。テーブルの左側には、各行に番号が付けられています。
+データテーブルに新しい行を追加する
+データテーブルに新しい行を追加するには:
+1
+データテーブルで、行番号の下にある
++
+をクリックします。
+2
+各列フィールドに情報を入力します。
+3
+列データを保存するために ✓（チェックマーク）をクリックします。
+#
+キーボードショートカットを使用して新しい行を追加する
+1
+shift + enter
+を押します。
+2
+各セルに情報を入力します。
+セル間を移動するには、
+tab
+と
+tab + shift
+を使用します。
+3
+列データを保存するために
+command/ctrl + s
+を押します。
+#
+行の編集
+行内のデータを編集することができます。行はデータの完全なレコードです。
+データテーブル内の行を編集する
+行を編集するには:
+1
+変更する予定のテーブルセルをクリックし、必要な変更を行います。
+2
+必要に応じて、その行内の他のセルも編集します。
+3
+列データを保存するために
+✓
+（チェックマーク）をクリックします。
+4
+変更を破棄するには、
+x
+（削除）をクリックします。
+#
+キーボードショートカットを使用して行を編集する
+1
+クリックしてセルを選択します。
+2
+enter
+を押します。
+3
+必要な変更を行います。
+4
+変更を保存するために
+command/ctrl + s
+を押します。
+#
+行の削除
+行内のデータを削除することができます。
+1つ以上の行を削除する
+行を削除するには:
+1
+削除する予定の行番号を1つ以上選択します。行番号はテーブルの左側に表示されます。
+エントリを選択して右クリックして削除することもできます。
+2
+Delete
+をクリックします。
+←
+キーボードショートカット
+データテーブルの名前を変更する
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+新しい行の追加
+キーボードショートカットを使用して新しい行を追加する
+行の編集
+キーボードショートカットを使用して行を編集する
+行の削除
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

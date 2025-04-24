@@ -1,0 +1,229 @@
+Workato connectors - Wrike update project action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Update project action
+Projects are one of the main ways to organize, manage, and report on work within Wrike. In essence, Wrike projects are folders with additional properties.
+This action updates a specific project in Wrike. You can change the project name, add, or modify the title and description, as well as modify sharing users.
+Update project action
+#
+Input fields
+Input field
+Description
+Project
+Select a project to update. To use project ID, toggle "Enter a project ID".
+Title
+The new title of the project.
+Description
+The description of the project.
+Users to share the project with
+Select users to share this project with. You can define users with a source list or manually input their user ID.
+Remove users from sharing of project
+Select the users to remove from sharing this project. You can define users with a source list or manually input their user ID.
+Remove parent folders/projects
+Select the parent folders to remove. You cannot remove the
+Root folder
+or the
+Recycle bin
+. You can define folders with a source list or manually input the folder ID.
+Add parent folders/projects
+Select parent folders/projects to add. You can define folders/projects with a source list or manually input the folders/projects ID.
+Restore
+Select
+Yes
+to restore project from recycle bin, otherwise select
+No
+.
+Custom field
+Provide data for the custom fields.
+Project
+Update the project properties.
+Status
+The status of the project.
+Add owner ID
+Select users to add as project owners.
+Remove owner ID
+Select users to remove as project owners.
+Start date
+The date this project was started.
+End date
+The date this project will end.
+#
+Output fields
+Output field
+Description
+Project ID
+The ID of the project.
+Account ID
+The ID of the account.
+Title
+The title of the project.
+Updated date
+The date this project was updated.
+Created date
+The date this project was created.
+Description
+The description of the project. Will be blank if not specified.
+Users who share the project
+The list of users who share the project.
+User ID
+The ID of the user who shares this project.
+List size
+The size of the list, corresponding to the number of users retrieved.
+Parent project
+The list of parent projects of this project.
+Project ID
+The project ID of the parent project.
+List size
+The size of the list, corresponding to the number of parent projects retrieved.
+Child project
+The list of child projects of this project.
+Project ID
+The project ID of the child project.
+List size
+The size of the list, corresponding to the number of child projects retrieved.
+Super parent project
+The list of super parent project to this project.
+Project ID
+The project ID of the super parent project.
+List size
+The size of the list, corresponding to the number of super parent projects retrieved.
+Scope
+The scope of the project.
+Has attachments
+Indicates if the project has attachments.
+Permalink
+The link to open the project in a web workspace. This is only accessible if the user has the appropriate access.
+Workflow ID
+The ID of the project workflow.
+Metadata
+The metadata of this project. The metadata list size corresponds to the number of metadata entries retrieved.
+Project
+The project properties of this project.
+Author
+The author who created the project.
+Owner ID
+The list of IDs of project owners.
+User ID
+The user ID of the project owner.
+List size
+The size of the list, corresponding to the number of project owners retrieved.
+Status
+The status of the project.
+Start date
+The date this project was started.
+End date
+The date this project was ended.
+Created date
+The date this project was created.
+Completed date
+The date this project was completed.
+Custom fields
+Includes data from custom fields.
+←
+Update folder action
+Update task action
+→
+Last updated:
+7/2/2021, 8:18:31 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

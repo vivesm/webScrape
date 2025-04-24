@@ -1,0 +1,257 @@
+Workato connectors - Box - New or updated sign event in folder | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Box
+#
+Box Trigger - New/updated sign event
+Triggers when a signature event is added to a file within a Box folder, or when a signature event is updated. This trigger checks the selected Box folder for new or updated signatures every ten minutes.
+You must connect a Box account with admin level privileges or select
+manage enterprise properties
+in the OAuth scopes to use the
+New or updated sign event in folder
+trigger.
+#
+Input fields
+Field name
+Description
+Trigger poll interval
+Use the drop-down menu to select how often the poll checks for new sign events. The default is thirty minutes if you leave this field blank.
+Folder
+Use the drop-down menu to choose
+Select from list
+or
+Use folder ID
+.
+Sign events
+Use the drop-down menu to select the sign events you plan to monitor.
+#
+Output fields
+The output fields vary depending on the type of event. The following example shows the output for a signature request event.
+Field name
+Description
+Created by
+The member who triggered the sign event.
+Type
+The privilege level of the member who triggered the sign event. For example, user or admin.
+ID
+The ID of the event.
+Name
+The name of the member who triggered the event.
+Login
+The login the member used to trigger the event.
+Action by
+The action that met the trigger configuration.
+Created at
+The timestamp of the event. For example,
+YYYY-MM-DDT21:43:44.000000-07:00
+.
+Event ID
+The ID of the event. For example,
+046774a2-dbbb-426e-b079-d505eb4cd957
+.
+Event type
+The type of the event. For example,
+SIGN_DOCUMENT_VIEWED_BY_SIGNER
+IP address
+The IP address of the member who triggered the event.
+Type
+The type of action initiated the trigger. For example,
+event
+.
+Session ID
+The ID of the event session.
+Additional details
+Additional details display if available.
+Sign Request ID
+The ID of the sign request. For example,
+f9f51c27-0674-4f1a-8acf-90f18749f95a
+.
+Sign Request Short ID
+The short form of the request ID. For example,
+427L3P6X
+.
+Status
+The status of the event. For example, a sign request status may display as
+viewed
+.
+Signer IP address
+The IP address of the member who signed the document.
+Requester IP address
+The IP address of the member who requested the signature.
+File ID
+The ID of the file with the event.
+Type
+The type, file or folder.
+Name
+The name of the file or folder. For example,
+SampleSignDocument.pdf
+.
+Parent ID
+The ID of of the file.
+Type
+The location type of the parent, such as
+folder
+.
+Expires
+The expiration date of the request. For example,
+YYYY-MM-DDT21:38:59.000000-07:00
+.
+Requester
+Displays detailed information for the requester.
+ID
+The ID of the requester.
+Type
+The member type of the requester. For example,
+user
+.
+Name
+The name of the requester.
+Login
+The login the requester used to trigger the event.
+Signer
+Displays detailed information for the signer.
+ID
+The ID of the signer.
+Type
+The member type of the signer. For example,
+user
+.
+Name
+The name of the signer.
+Login
+The login the signer used to review the request.
+Template
+The template name used to create the request. If no template was used, the value is null.
+Sender message
+The subject and message the sent in the request. For example, the subject message may be:
+Sample Sign Document
+and the message:
+Sample Message
+.
+Forward
+Indicates if the request was forwarded.
+Batch send
+Indicates if the request was sent in a batch message to multiple members.
+Ready sign link
+The link to the document with the requested signature.
+ID
+The ID of the ready sign link.
+Redirection
+Displays redirection information.
+Redirect URL
+The redirected URL. If the link was not redirected, the values is
+"-"
+.
+Declined redirect URL
+The rejected URL redirect. If the link was not rejected for redirection, the values is
+"-"
+.
+←
+New folder in folder trigger
+New/updated metadata trigger
+→
+Last updated:
+11/3/2023, 8:24:13 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

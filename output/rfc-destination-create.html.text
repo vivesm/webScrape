@@ -1,0 +1,180 @@
+Workato connectors - SAP RFC - Create RFC destination for Workato in SAP | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP RFC
+#
+Create an RFC Destination for Workato in SAP
+REQUIRED STEPS
+Setting up the RFC destination with a
+Program ID
+is a mandatory step until OPA v24.3.
+Effective OPA v25, program ID is an optional field. (Leave it blank in the connection page if you only intend to use RFC/BAPI)
+In SAP, use Transaction
+SM59
+to create a new RFC Destination of type
+TCP/IP
+(type T).
+1
+Select the
+TCP/IP Connection
+folder and click the
+create
+button.
+RFC DESTINATION NAME
+Use the RFC Destination name in accordance to the SAP system landscape. For example: the Development, Test, and Production environments can be
+WORKATODEV
+,
+WORKATOTST
+, and
+WORKATOPRD
+respectively.
+2
+In the
+Technical Settings
+tab, select the
+Registered Server Program
+option.
+3
+Enter
+WORKATODEV
+,
+WORKATOTST
+, or
+WORKATOPRD
+as the program ID, according to the SAP system landscape. These values are case-sensitive.
+PROGRAM ID
+There can be only one registration with a combination of
+SAP Gateway host
++
+SAP Gateway service
++
+Program ID
+active at one time. We recommend that you use a unique program ID to establish multiple connections from Workato pointing to different clients within the same SAP system.
+4
+Proceed to the
+MDMP & Unicode
+or
+Unicode
+tab. Set the communication type to
+Unicode
+.
+5
+Click
+Save
+. Your newly-created RFC destination should appear.
+FURTHER READING
+To complete your connection to SAP RFC, read the following guides:
+Create a Workato integration user in SAP
+.
+Configure the Workato OPA
+.
+Configure the Workato SAP connector
+.
+Optional: Configure IDocs to/from Workato in SAP
+.
+←
+Connection setup
+Configure IDocs
+→
+Last updated:
+3/24/2025, 3:45:16 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

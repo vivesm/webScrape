@@ -1,0 +1,160 @@
+Microsoft Entra ID - Search transitive group members action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Microsoft Entra ID
+#
+Microsoft Entra ID - Search transitive group members action
+The
+Search transitive group members
+action retrieves a list of the group's transitive members using search filters. A group can include users, devices, service principals, and other groups as members.
+Refer to the
+Group membership
+(opens new window)
+section for supported member types. If the number of records exceeds the limit, this action paginates through the remaining records.
+#
+Input
+Input field
+Description
+Group
+Choose a group from the drop-down. Alternatively, enter a custom value if the group is not listed.
+Fields
+Choose the fields to include in the output.
+Additional fields
+Define additional fields using the schema designer.
+Search
+Filter results using search keywords. For example,
+mail:
+[email protected]
+.
+Learn more
+(opens new window)
+.
+Filter
+Apply query parameters to filter results. For example,
+startsWith(givenName, ‘J’)
+.
+Learn more
+(opens new window)
+.
+Next page cursor
+Retrieve this value from the output if additional records exist.
+Page size
+Set the maximum number of records to return. Defaults to 100 if blank. Note that the action may fail due to rate limits. Refer to
+Microsoft Graph service-specific throttling limit
+(opens new window)
+for more information.
+#
+Output
+Refer to the
+User schema
+(opens new window)
+for field definitions.
+←
+Search group members action
+Search users action
+→
+Last updated:
+2/9/2025, 1:56:30 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

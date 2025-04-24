@@ -1,0 +1,302 @@
+Workato connectors - Google Calendar | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Google Calendar
+Google Calendar
+(opens new window)
+is a cloud-based calendar application that enables scheduling, event tracking, reminders, and more.
+You can use Workato to synchronize data with Google Calendar automatically as part of a workflow. For example, you can create events in your calendar when a meeting is scheduled in another platform or app. You can also retrieve details about calendar events and synchronize them with other tools, such as CRMs or project management platforms.
+#
+API version
+The Google Calendar connector uses the
+Google Calendar API v3
+(opens new window)
+.
+#
+How to connect to Google Calendar
+Workato supports the following types of connections to Google Calendar:
+OAuth 2.0 authentication
+Service account authentication
+SERVICE ACCOUNT AUTHENTICATION
+You can use a service account to authenticate without a personal user account. For consistent use, Workato recommends service account authentication.
+#
+OAuth 2.0 authentication
+Complete the following steps to set up your Google Calendar connection using OAuth 2.0:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Google Calendar
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Select the project where you plan to store the connection from the
+Location
+drop-down menu.
+5
+Select
+OAuth 2.0
+as the
+Authentication type
+.
+6
+Click
+Sign in with Google
+, then sign in to your Google account. Ensure your Google account has sufficient permissions to manage the events and calendars you plan to use in Workato.
+Click
+Sign in with Google
+.
+#
+Service account authentication
+A Google service account is a specialized Google account associated with a Google Cloud Project (GCP) that can run API requests on your behalf.
+Service accounts provide the following benefits:
+Continuous operation:
+Service accounts ensure that operations continue even if individual user permissions change.
+Dedicated permissions:
+Service accounts can only access projects that you share with them.
+Dedicated API quotas:
+You can manage a service account's API quotas through GCP and request quota increases directly from Google.
+Refer to the
+Google service account documentation
+(opens new window)
+to learn more about service accounts.
+Service account authentication consists of the following steps:
+Set up a Google service account
+Enable the Google Calendar API
+Complete setup in Workato
+#
+Minimum scopes for service account connections
+The following scopes are required to connect to Google Calendar using a service account:
+https://www.googleapis.com/auth/calendar
+https://www.googleapis.com/auth/calendar.events
+https://www.googleapis.com/auth/admin.directory.resource.calendar
+https://www.googleapis.com/auth/tasks
+https://www.googleapis.com/auth/userinfo.email
+Refer to the
+Google Calendar API scopes
+(opens new window)
+documentation for a complete list of supported scopes.
+#
+Set up a Google service account
+Complete the following steps to set up a Google service account:
+1
+Create a service account
+(opens new window)
+in your GCP project.
+2
+Go to
+IAM & Admin > Service accounts
+. Ensure your dashboard is scoped to the project that contains your service account.
+Check the scope of your dashboard.
+3
+Click the
+Email
+of the service account you intend to use.
+Click the
+Email
+of the service account you intend to use.
+4
+Copy the service account's
+Email
+and save it to configure your connection later.
+Copy the account's
+Email
+.
+5
+Go to the
+KEYS
+tab.
+6
+Generate a private key
+(opens new window)
+and download it in JSON format. You can only download the key once.
+7
+Open the JSON file, then copy the entire private key from
+-----BEGIN PRIVATE KEY-----
+to
+-----END PRIVATE KEY-----\n
+(inclusive) and save it to configure your connection later.
+Enable the Google Calendar API, then return to Workato to finish setting up your connection.
+#
+Enable the Google Calendar API
+1
+Sign in to Google's
+API library
+(opens new window)
+.
+2
+Search for and select the
+Google Calendar API
+.
+3
+Click
+Enable
+to enable the API.
+Enable
+the
+Google Calendar API
+Return to Workato to finish setting up your connection.
+#
+Complete setup in Workato
+Complete the following steps in Workato to set up your Google Calendar connection using a service account:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Google Calendar
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Select
+Service account
+as the
+Authentication type
+.
+6
+Enter your service account's
+Private key
+.
+7
+Provide the
+User email
+of the account you plan to impersonate.
+USER IMPERSONATION
+User impersonation lets the service account act on behalf of a designated user, accessing and managing events in their Google Calendar. Impersonating a user ensures data accuracy and enforces the permissions and access controls set for that user in Google Calendar. Refer to Google's
+Service account impersonation
+(opens new window)
+guide for more information.
+8
+Click
+Sign in with Google
+to complete the setup.
+Configure Google Calendar service account connection
+←
+Get query job results
+New event trigger
+→
+Last updated:
+4/11/2025, 9:03:48 PM
+On this page
+API version
+How to connect to Google Calendar
+OAuth 2.0 authentication
+Service account authentication
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

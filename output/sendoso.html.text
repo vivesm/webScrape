@@ -1,0 +1,148 @@
+Workato コネクター - Sendoso | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Sendoso
+Sendoso
+(opens new window)
+は、最新のダイレクトメール、パーソナライズされたギフト、e ギフト、およびその他の Physical Impressions™ を大規模に届ける大手送信プラットフォームです。このコネクターのトリガーを使用して、Sendoso で新規ユーザーが追加されたときや、送信分析が更新されたときにレシピを実行できます。アクションを使用して、カスタムのギフトキャンペーンを管理できます。
+#
+Workato での Sendoso への接続方法
+[email protected]
+にメールを送信して、アカウントのクライアント ID とクライアントシークレットを要請してください。
+コミュニティライブラリからコネクターを
+インストール
+(opens new window)
+します。
+[Release latest version]
+をクリックして、レシピ内のコネクターを使用します。
+新規レシピを作成して、Sendoso トリガーまたはアクションを選択します。
+以下のコネクションの項目に入力します。
+#
+コネクションの項目
+項目
+説明
+Connection name
+このコネクションに対して、他のレシピで再利用可能なわかりやすい名前を付けます。
+Client ID
+Sendoso アカウントに関連付けられたクライアント ID。
+Client Secret
+Sendoso アカウントに関連付けられたクライアントシークレット。
+Environment
+Sendoso URL で指定された環境。
+#
+その他のアプリでの Sendoso の使用
+Sendoso は、以下のサンプルのレシピに示すような CRM アプリによるレシピでよく使用されます。
+新規/更新された商談にギフトを送信
+(opens new window)
+: 商談に1万ドル以上の価値がある場合に、Microsoft Dynamics 365 から連絡先にギフトを送信します。
+ギフトのステータスで Microsoft Dynamics 365 を更新
+(opens new window)
+: ギフトが送信、クリック、または配信された場合に常に Microsoft Dynamics 365 で新規連絡先が作成されるか、既存の連絡先が更新され、ギフトのステータスについてのメモが追加されます。
+TIP
+Send Analytics トリガーの出力には、ギフトの受信者のメールアドレスが含まれますが、名前は含まれません。Microsoft Dynamics 365 に一致するメールアドレスを持つ連絡先が存在しない場合、受信者のメールアドレスを連絡先の名前として持つ新しい連絡先が Dynamics 内に作成されます。
+←
+レコードの更新
+SFTP
+→
+Last updated:
+2023/10/20 17:28:19
+On this page
+Workato での Sendoso への接続方法
+その他のアプリでの Sendoso の使用
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

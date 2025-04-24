@@ -1,0 +1,151 @@
+Workato コネクター - Excel - Get cells アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Excel
+#
+Excel - Get cells (セルの取得) アクション
+このアクションは、Excel スプレッドシート内のさまざまなセル値を取得します。
+サポートされる最大ファイルサイズは50 MB です。
+Get cells アクション
+#
+入力項目
+入力項目
+説明
+File source
+スプレッドシートのファイルソース。
+OneDrive
+または
+SharePoint document library
+になります。
+Site
+ソースが SharePoint の場合のみ
+スプレッドシートが属す SharePoint サイト。
+Folder
+選択したファイルソース内のスプレッドシートのフォルダー。生成されたピックリストから選択するか、ドライブとフォルダー ID を手動で指定します。
+File name
+読み取るスプレッドシートのファイル名。
+Worksheet
+読み取るスプレッドシート内のワークシート。ワークシート名またはシートの位置を指定します。
+Range
+セルの取得元のワークシートの範囲アドレス。セル表記 (例
+B5:C20
+) または
+名前付き範囲
+(opens new window)
+で指定します。
+Range contains header line?
+範囲アドレスに、出力行として返すべきではないヘッダー行が最初の行に含まれる場合は、
+Yes
+に設定します。
+Columns
+このセルの範囲に対する列名。このアクションの出力でデータピルを生成するために使用されます。ワークシート内の列名とは一致しません。
+#
+出力項目
+出力項目
+説明
+Rows
+抽出されたセルの行の配列。行内のデータピルは、[
+Columns
+] の入力内容により決まります。
+←
+ワークシートの追加
+行の取得
+→
+Last updated:
+2024/7/25 17:12:40
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

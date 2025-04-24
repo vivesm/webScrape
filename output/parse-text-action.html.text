@@ -1,0 +1,156 @@
+AI by Workato - Parse text action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+AI by Workato
+#
+AI by Workato - Parse text action
+FEATURE AVAILABILITY
+AI by Workato is available for all direct customers across all Workato data centers, but isn’t available to Embedded partners or their customers. All data is sent to OpenAI's servers in the US. You can opt-in to this feature by agreeing to our
+AI feature addendum
+(opens new window)
+. Contact your Customer Success representative to learn more.
+The parse text action enables you to extract structured data from unstructured text without requiring any coding skills. It allows you to identify and extract specific information from text documents, emails, or other textual sources. This information can include names, addresses, dates, product details, and more.
+You can use this action as part of your lead generation workflows to extract customer information from incoming text messages, chat conversations, or social media posts to capture and categorize leads.
+#
+Input
+Input field
+Description
+Source text
+Provide the text you plan to parse.
+Fields to identify
+Determine the fields that you plan to identify from the text by providing the name and description of the field. Descriptions provide additional information to help Workato extract the fields.
+#
+Output
+The output of this action is dynamic and depends on how you've configured the
+Fields to identify
+section of the input. For example, if you configure this action to identify
+Customer emails
+,
+Phone numbers
+, and
+Names
+Workato generates
+Customer emails
+,
+Phone numbers
+, and
+Names
+datapills as output.
+Additionally, Workato provides the following output for this action.
+Output
+Description
+Remaining calls
+The number of remaining calls Workato can execute out of the overall daily limit (100 calls).
+Consumed calls
+The number of actions completed out of the overall daily limit (100 calls).
+Reset time
+The time the daily limit resets.
+←
+Draft email action
+Translate text action
+→
+Last updated:
+2/13/2025, 9:46:17 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

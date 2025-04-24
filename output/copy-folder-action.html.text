@@ -1,0 +1,258 @@
+Workato コネクター - Wrike copy folder アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Wrike
+#
+Wrike - Copy folder (フォルダーのコピー) アクション
+フォルダーは、Wrike の情報を整理し、管理するための主な手段の1つです。
+このアクションは、1つのフォルダーを選択して、指定された場所にコピーします。フォルダーをメインフォルダーとしてコピーする場合は、親フォルダーとして
+[Root]
+を選択します。
+Copy folder アクション
+#
+入力項目
+入力項目
+説明
+Folder to be copied
+コピーするフォルダーの名前。フォルダー ID を使用するには、[Enter a folder ID] に切り替えます。
+Destination folder/project
+フォルダーをコピーする先の親フォルダー/プロジェクトを選択します。フォルダー/プロジェクト ID を使用するには、[Enter a folder/project ID] に切り替えます。
+Title
+フォルダーのタイトル。
+Copy description
+コピー元フォルダーの説明をコピーする場合は
+Yes
+を選択し、それ以外の場合は
+No
+を選択します。説明をコピーしない場合、そのフィールドは空白のままになります。
+Copy assignee
+コピー元フォルダーのタスクを元のタスク担当者リストとともにコピーする場合は
+Yes
+を選択し、それ以外の場合は
+No
+を選択します。
+Add assignees to copied tasks
+新規フォルダー内のタスク担当者リストにユーザーを追加します。ソースリストを使用してユーザーを定義することも、ユーザー ID を手動で入力することもできます。
+Remove assignees to copied tasks
+新規フォルダー内のタスク担当者リストからユーザーを削除します。ソースリストを使用してユーザーを定義することも、ユーザー ID を手動で入力することもできます。
+Copy custom fields
+コピー元フォルダーのカスタムフィールドをコピーする場合は
+Yes
+を選択し、それ以外の場合は
+No
+を選択します。
+Copy custom statuses
+コピー元フォルダーのカスタムステータスをコピーする場合は
+Yes
+を選択し、それ以外の場合は
+No
+を選択します。
+Copy statuses
+コピー元フォルダーのステータスをコピーする場合は
+Yes
+を選択し、それ以外の場合は
+No
+を選択します。コピーしない場合、ステータスは
+New
+に設定されます。
+Copy parent folders/projects
+コピー元フォルダーの親フォルダー/プロジェクトをコピーする場合は
+Yes
+を選択し、それ以外の場合は
+No
+を選択します。
+Reschedule date
+New
+/
+In progress
+のタスクのみがスケジュール変更可能です。タスクのスケジュール変更に使用する日付。
+すべてのタスクをアクティブ化してスケジュール変更する場合は、
+[Reschedule date]
+と
+[Copy statuses]
+=
+No
+を組み合わせて使用します。
+Reschedule mode
+[Reschedule date]
+が指定されている場合のみ有効です。新規フォルダー内のタスクの開始日を設定する場合は
+Start
+を選択します。タスクの終了日を設定する場合は
+End
+を選択します。
+Entry limit
+新規フォルダーにコピーするタスク/フォルダー/プロジェクトの最大数を選択します。
+#
+出力項目
+出力項目
+説明
+Folder ID
+フォルダーの ID。
+Account ID
+アカウントの ID。
+Title
+フォルダーのタイトル。
+Updated date
+このフォルダーが更新された日付。
+Created date
+このフォルダーが作成された日付。
+Description
+フォルダーの説明。指定されない場合は空白になります。
+Users who share the folder
+フォルダーを共有するユーザーのリスト。
+User ID
+このフォルダーを共有するユーザーの ID。
+List size
+リストのサイズ (取得されたユーザーの数に相当)。
+Parent folder
+このフォルダーの親フォルダーのリスト。
+Folder ID
+親フォルダーのフォルダー ID。
+List size
+リストのサイズ (取得された親フォルダーの数に相当)。
+Child folder
+このフォルダーの子フォルダーのリスト。
+Folder ID
+子フォルダーのフォルダー ID。
+List size
+リストのサイズ (取得された子フォルダーの数に相当)。
+Super parent folder
+このフォルダーの2階層上のフォルダーのリスト。
+Folder ID
+2階層上のフォルダーのフォルダー ID。
+List size
+リストのサイズ (取得された2階層上のフォルダーの数に相当)。
+Scope
+フォルダーのスコープ。
+Has attachments
+フォルダーに添付ファイルがあるかどうかを示します。
+Permalink
+Web ワークスペースでフォルダーを開くためのリンク。このリンクは、ユーザーに適切なアクセス権がある場合のみアクセス可能です。
+Workflow ID
+フォルダーワークフローの ID。
+Metadata
+このフォルダーのメタデータ。メタデータリストのサイズは、取得されたメタデータ項目の数に相当します。
+Project
+このフォルダーのプロジェクトプロパティ。
+Author
+プロジェクトの作成者。
+Owner ID
+プロジェクト所有者の ID のリスト。
+User ID
+プロジェクト所有者のユーザー ID。
+List size
+リストのサイズ (取得されたプロジェクト所有者の数に相当)。
+Status
+プロジェクトのステータス。
+Start date
+このプロジェクトの開始日。
+End date
+このプロジェクトの終了日。
+Created date
+このプロジェクトが作成された日付。
+Completed date
+このプロジェクトが完了した日付。
+カスタムフィールド
+カスタムフィールドからのデータが含まれます。
+←
+タイムログの作成
+プロジェクトのコピー
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

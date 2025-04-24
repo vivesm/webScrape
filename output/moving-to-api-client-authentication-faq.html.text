@@ -1,0 +1,170 @@
+Workato API - Moving to API Clients | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+APIクライアントへの切り替え
+2023年1月11日
+に、Workatoは
+APIクライアント認証
+に移行します。従来のAPIキーはUIからアクセスできなくなります。
+Workatoは、予定された非推奨化の前に、Workato APIのすべての使用をAPIクライアント認証に切り替えることをお勧めします。
+認証にAPIクライアントを使用する方法
+について詳しく学びましょう。
+従来のAPIキーの非推奨化
+従来のAPIキーは2024年1月1日までサポートされ、その後は非推奨化されます。従来のAPIキーを使用して認証されたすべてのAPIリクエストは、この時点以降は拒否されるようになります。
+#
+これは私に影響しますか？
+この更新は、
+2023年1月11日
+より前に作成されたワークスペースにのみ影響します。
+2023年1月11日
+以降に作成されたワークスペースは、この更新の影響を受けません。これらのワークスペースには従来のAPIクライアントやクライアントロールはありません。
+#
+従来のAPIキーを引き続き使用できますか？
+現在、
+APIキーとメールによる認証
+を使用しているアプリケーションは引き続き動作します。Workatoは、従来の認証方法を2024年1月1日までサポートします。
+ただし、従来のAPIキーはもはや表示できなくなります。これは、トークンのセキュリティに関する業界の標準に合致しています。Workato APIを使用して新しい自動化を作成するには、新しいAPIトークンを作成するか、APIトークンを再生成してください。
+Workato APIで
+APIクライアントを使用する
+ように始めましょう。
+#
+従来のAPIキーを管理できる場所はどこですか
+従来のAPIキーは
+ワークスペースアクセス
+(opens new window)
+（
+EUデータセンター
+(opens new window)
+の場合）に移動されます。同じ権限を持つ従来のAPIクライアントとクライアントロールが作成されます。
+APIクライアント
+名前:
+移行済みAPIクライアント
+このクライアントを動作させるAPIトークンが従来のAPIキーです。このクライアントには以下のクライアントロールが割り当てられます。
+クライアントロール
+名前:
+管理者
+環境を持つワークスペースの場合
+環境を持つワークスペースでは、各環境ごとに別々のAPIクライアントが作成されます。
+移行済みAPIクライアント - {環境名}
+#
+APIクライアントへの移行
+移行済みのAPIクライアントは再生成できないため、新しいAPIトークンを作成する必要があります。
+新しいAPIクライアントとクライアントロールを作成する
+から始めましょう。新しいAPIトークンを使用するリクエストは、
+Authorization: Bearer
+ヘッダーではなく
+x-user-token
+と
+x-user-email
+ヘッダーで送信されます。
+従来のAPIキーとメールを使用するカスタムコネクタ（埋め込みコネクタやアクセラレータからのコネクタなど）については、サポートチームに連絡してサポートを受けるようにしてください。これらのコネクタの改善は、新しいAPIクライアント認証をサポートするためにリリースされます。
+#
+移行済みの従来のAPIキーの削除
+従来の移行済みAPIクライアントを削除すると、このAPIクライアントへのアクセスがすぐに削除されます。
+これにより、従来のAPIキーとメールを使用しているすべてのアプリケーションへのアクセスが取り消されます。
+従来のAPIクライアントの削除
+APIトークンを削除すると、従来のAPIキーとメールによる認証を使用しているすべてのアプリケーションへのアクセスがすぐに取り消されます。
+Workatoは、将来の使用のために新しいAPIトークンを作成して配布することをお勧めします。
+Last updated:
+2024/2/13 16:59:53
+On this page
+これは私に影響しますか？
+従来のAPIキーを引き続き使用できますか？
+従来のAPIキーを管理できる場所はどこですか
+APIクライアントへの移行
+移行済みの従来のAPIキーの削除
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

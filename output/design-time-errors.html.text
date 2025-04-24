@@ -1,0 +1,177 @@
+Design-time errors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+#
+Design-time errors
+During the development phase of your Workato recipe, errors known as design-time errors can prevent you from testing or starting your recipe. Design-time errors typically appear when you select
+Test recipe
+or
+Start recipe
+. You must resolve these errors to prevent job failures when the recipe is executed.
+#
+How to find the error
+When you start a recipe, you may see an error message near the recipe name. This error prevents the recipe from starting completely. Complete the following steps to locate and fix the error:
+1
+Click the
+Edit recipe to fix errors
+button to access the editor view.
+Edit recipe to fix errors
+2
+View error notifications displayed at the top of the screen in the editor view.
+View error notifications
+3
+Click on the highlighted step numbers to quickly navigate and fix these errors by going directly to the incorrect step.
+#
+Common design-time errors
+Unaddressed design-time errors can lead to operational failures, incorrect data processing, or other significant issues during recipe execution. The following examples are some of the most common design-time errors you may face when building and configuring your recipe:
+#
+Unestablished connectivity
+Errors related to unestablished connectivity occur when a recipe cannot establish a valid connection with external services or apps. Invalid credentials, permissions, or missing configurations can cause connectivity issues that must be resolved before the recipe can run. Learn more about
+unestablished connectivity
+.
+#
+Empty actions
+Actions within a recipe without the required configuration or data can result in errors that prevent the recipe from starting. Each action must have all necessary fields filled out to function correctly. Learn more about
+empty actions
+.
+#
+Missing input fields
+Triggers and actions require configuration to function correctly in a recipe. If a required input field does not have values or datapills, the recipe raises a design-time error and cannot start until the field is filled. Learn more about
+missing input fields
+.
+#
+Unavailable fields
+You may receive a design-time error if your recipe uses data fields that aren't available in your app. This can happen if a field in your app is deleted or renamed. Learn more about
+unavailable fields
+.
+#
+Invalid datapills
+Datapills can become invalid or missing if their source trigger or action is modified or deleted. The recipe cannot start without accurate data mapping, and the missing datapills must be replaced with valid ones. Learn more about
+invalid datapills
+.
+#
+Incorrect formulas
+Formulas with syntax errors, misspellings, or logical issues can generate errors. Ensuring proper syntax, operator spacing, and logical correctness is crucial to resolving formula errors. Learn more about
+incorrect formulas
+.
+#
+Incorrect code actions & SQL statements
+Errors in Python, Ruby, JavaScript, SQL code actions, and other programming languages can prevent the recipe from starting. Coding actions must be free of syntax and logical issues before testing or running the recipe. Learn more about
+incorrect code actions and SQL statements
+.
+#
+On-prem Agent (OPA) errors
+Integrating On-prem Agents (OPA) with your recipe requires careful setup. Common issues include configuration details in the
+config.yml
+file, account permissions, and access to the logs folder. We recommend checking the OPA logs as a starting point for troubleshooting. Learn more about
+On-prem Agent (OPA) errors
+.
+←
+Common recipe errors
+Unestablished connectivity
+→
+Last updated:
+6/5/2024, 6:25:20 PM
+On this page
+How to find the error
+Common design-time errors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

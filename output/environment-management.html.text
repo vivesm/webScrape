@@ -1,0 +1,2332 @@
+Workato API - Environment management | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Developer API
+Resources
+#
+Environment management
+The following endpoints enable you to manage and secure your environments by providing tools for working with
+external secrets managers
+and monitoring user activities through
+activity audit log
+records. You can also create, retrieve, update, and delete
+tags
+within your workspace.
+#
+Quick reference
+Type
+Resource
+Description
+POST
+/api/secrets_management/clear_cache
+Clears the secrets management cache.
+GET
+/api/activity_logs
+Retrieves activity audit log records.
+GET
+/api/tags
+Retrieves a list of tags.
+POST
+/api/tags
+Creates a tag.
+PUT
+/api/tags/:handle
+Updates a tag.
+DELETE
+/api/tags/:handle
+Deletes a tag.
+#
+Clear secrets management cache
+Clears the secrets management cache to retrieve the latest available credentials from an external secrets manager. You don't need to disconnect and reconnect the connection for the refreshed credentials to take effect.
+For example, when you update a secret in your external secrets manager, you can send a request to the Workato API simultaneously to clear the secrets management cache. This ensures that Workato retrieves the latest secret when required. This allows you to programmatically sync secrets with Workato every time they're changed as part of the secrets rotation process.
+The request doesn't require a body.
+POST /api/secrets_management/clear_cache
+#
+Sample request
+curl
+-X
+POST
+"https://www.workato.com/api/secrets_management/clear_cache"
+\
+-H
+"Authorization: Bearer <api_token>"
+#
+Sample response
+{
+"success"
+:
+true
+}
+#
+Get activity audit log
+Retrieves detailed information on activities within a specific environment. You can use query parameters to filter the activity audit log by resource types, such as recipes and connections, or event types, such as creating or deleting recipes.
+For a complete list of supported resource and event types, refer to the
+Activity audit log API reference
+.
+GET /api/activity_logs
+The response includes two primary elements:
+Element
+Description
+data
+An array of objects, each representing a log entry.
+total
+The total number of log entries returned.
+Each log entry in the
+data
+array contains the event's unique identifier, timestamp, and type, as well as the following objects:
+Object
+Description
+workspace
+This object includes the workspace ID, name, email, and environment.
+user
+This object includes the user ID, name, and email.
+details
+This object provides additional information about the request. The
+request
+object contains the IP address and user agent. The
+activity
+field describes the specific action performed.
+resource
+This object describes the resource involved, including its ID, name, type, email, and
+email_confirmed_at
+timestamp if applicable.
+CREATE SEPARATE API CLIENTS FOR EACH ENVIRONMENT ACTIVITY LOGS
+To obtain logs from different environments,
+create separate API clients
+for each environment and combine the data as required for your use case.
+The following environments can appear in your response, depending on the API client associated with your environment:
+dev
+(Development)
+sandbox
+(Sandbox)
+test
+(Test)
+stage
+(Staging)
+uat
+(User Acceptance Testing)
+preprod
+(Pre-Production)
+prod
+(Production)
+#
+Query parameters
+Name
+Type
+Description
+page[after]
+integer
+optional
+Specify the starting point for the next set of results based on the last result of the current page.
+page[size]
+integer
+optional
+Specify the number of results per page. The default and maximum number of records is 100.
+from
+string
+optional
+Specify the start of the time range for which to retrieve audit logs. Provide in ISO 8601 format (
+YYYY-MM-DDTHH:mm:ss.SSSZ
+).
+to
+string
+optional
+Specify the end of the time range for which to retrieve audit logs. Provide in ISO 8601 format (
+YYYY-MM-DDTHH:mm:ss.SSSZ
+).
+users_ids[]
+array of integers
+optional
+Filter logs to include activities performed by specified user IDs.
+include_resource_types[]
+array of strings
+optional
+Filter logs to include activities related to specified resource types.
+exclude_resource_types[]
+array of strings
+optional
+Exclude activities related to specified resource types.
+include_event_types[]
+array of strings
+optional
+Filter logs to include activities of specified event types.
+exclude_event_types[]
+array of strings
+optional
+Exclude activities of the specified event types.
+TIMEZONE
+All data centers use the system timezone, Pacific Daylight Time (PDT). When you specify a timezone in the
+from
+and
+to
+query parameters, the system converts it to and displays it as PDT.
+#
+Sample requests
+Request 1: Without query parameters
+Request 2: Get the last three records
+Request 3: Get the activities of one day for two users
+Request 4: Include activities with specific resource_types and event_types
+Request 5: Exclude activities with specific resource_types and event_types
+Request 6: Get activities with a non-existent event type or user ID
+#
+Request 1: Without query parameters
+The following example request returns a list of all activities in the environment associated with the API client:
+curl
+-X
+GET
+"https://www.workato.com/api/activity_logs"
+\
+-H
+"Authorization: Bearer <api_token>"
+Response 1: Without query parameters
+{
+"data"
+:
+[
+{
+"id"
+:
+1234567
+,
+"timestamp"
+:
+"2024-06-18 19:17:31 UTC"
+,
+"event_type"
+:
+"user_login"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+,
+"activity"
+:
+"password_login"
+}
+,
+"resource"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"type"
+:
+"Workspace"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"email_confirmed_at"
+:
+"2024-04-24 14:23:03 -0700"
+}
+}
+{
+...
+}
+]
+,
+"total"
+:
+65
+}
+#
+Request 2: Get the last three records
+The following example request retrieves the three most recent activity log entries. This request returns activities for the environment associated with the API client:
+curl
+-X
+GET
+"https://www.workato.com/api/activity_logs?page%5Bsize%5D=3"
+\
+-H
+"Authorization: Bearer <api_token>"
+Response 2: Get the last three records
+{
+"data"
+:
+[
+{
+"id"
+:
+3674006
+,
+"timestamp"
+:
+"2024-06-26 15:56:07 UTC"
+,
+"event_type"
+:
+"user_login"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+,
+"activity"
+:
+"password_login"
+}
+,
+"resource"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"type"
+:
+"Workspace"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"email_confirmed_at"
+:
+"2024-04-24 14:23:03 -0700"
+}
+}
+,
+{
+"id"
+:
+3670909
+,
+"timestamp"
+:
+"2024-06-25 16:38:11 UTC"
+,
+"event_type"
+:
+"recipe_created"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+}
+,
+"resource"
+:
+{
+"id"
+:
+289287
+,
+"name"
+:
+"My new recipe"
+,
+"path"
+:
+"Home/Demos"
+,
+"type"
+:
+"Flow"
+,
+"folder_id"
+:
+46319
+}
+}
+,
+{
+"id"
+:
+3668492
+,
+"timestamp"
+:
+"2024-06-24 15:52:23 UTC"
+,
+"event_type"
+:
+"user_login"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+,
+"activity"
+:
+"password_login"
+}
+,
+"resource"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"type"
+:
+"Workspace"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"email_confirmed_at"
+:
+"2024-04-24 14:23:03 -0700"
+}
+}
+]
+,
+"total"
+:
+65
+}
+#
+Request 3: Get the activities of one day for two users
+The following example request retrieves the activities of two users on June 30, 2024. This request returns activities for the environment associated with the API client:
+curl
+-X
+GET
+"https://www.workato.com/api/activity_logs?from=2024-06-30T00:00:00Z&to=2024-06-30T23:59:59Z&users_ids[]=54321&users_ids[]=12345"
+\
+-H
+"Authorization: Bearer <api_token>"
+DATE AND TIME FORMAT
+Ensure that the
+from
+and
+to
+query parameters use the
+YYYY-MM-DD
+format, where the month comes before the day. Using the
+YYYY-DD-MM
+format causes a
+500 Server error
+.
+Response 3: Get the activities of one day for two users
+{
+"data"
+:
+[
+{
+"id"
+:
+3649152
+,
+"timestamp"
+:
+"2024-06-30 23:09:51 UTC"
+,
+"event_type"
+:
+"connector_deleted"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+}
+,
+"resource"
+:
+{
+"id"
+:
+7321
+,
+"name"
+:
+"Calendly"
+,
+"type"
+:
+"CustomAdapter"
+}
+}
+,
+{
+"id"
+:
+3649149
+,
+"timestamp"
+:
+"2024-06-30 23:07:33 UTC"
+,
+"event_type"
+:
+"connector_created"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+}
+,
+"resource"
+:
+{
+"id"
+:
+7321
+,
+"name"
+:
+"Calendly"
+,
+"type"
+:
+"CustomAdapter"
+}
+}
+,
+{
+"id"
+:
+3649129
+,
+"timestamp"
+:
+"2024-06-30 22:34:36 UTC"
+,
+"event_type"
+:
+"user_logout"
+,
+"workspace"
+:
+{
+"id"
+:
+54321
+,
+"name"
+:
+"Jie"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+54321
+,
+"name"
+:
+"Jie"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"192.0.2.1"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+,
+"activity"
+:
+"switch_team"
+}
+,
+"resource"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"type"
+:
+"Workspace"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"email_confirmed_at"
+:
+"2024-04-24 14:23:03 -0700"
+}
+}
+,
+{
+"id"
+:
+3649127
+,
+"timestamp"
+:
+"2024-06-30 22:32:43 UTC"
+,
+"event_type"
+:
+"user_login"
+,
+"workspace"
+:
+{
+"id"
+:
+54321
+,
+"name"
+:
+"Jie"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+54321
+,
+"name"
+:
+"Jie"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"192.0.2.1"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+,
+"activity"
+:
+"switch_team"
+}
+,
+"resource"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"type"
+:
+"Workspace"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"email_confirmed_at"
+:
+"2024-04-24 14:23:03 -0700"
+}
+}
+,
+{
+"id"
+:
+3649124
+,
+"timestamp"
+:
+"2024-06-30 22:32:16 UTC"
+,
+"event_type"
+:
+"user_logout"
+,
+"workspace"
+:
+{
+"id"
+:
+54321
+,
+"name"
+:
+"Jie"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+54321
+,
+"name"
+:
+"Jie"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"192.0.2.1"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+,
+"activity"
+:
+"switch_team"
+}
+,
+"resource"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"type"
+:
+"Workspace"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"email_confirmed_at"
+:
+"2024-04-24 14:23:03 -0700"
+}
+}
+,
+{
+"id"
+:
+3649123
+,
+"timestamp"
+:
+"2024-06-30 22:32:00 UTC"
+,
+"event_type"
+:
+"user_login"
+,
+"workspace"
+:
+{
+"id"
+:
+54321
+,
+"name"
+:
+"Jie"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+54321
+,
+"name"
+:
+"Jie"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"192.0.2.1"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+,
+"activity"
+:
+"switch_team"
+}
+,
+"resource"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"type"
+:
+"Workspace"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"email_confirmed_at"
+:
+"2024-04-24 14:23:03 -0700"
+}
+}
+]
+,
+"total"
+:
+6
+}
+#
+Request 4: Include activities with specific resource_types and event_types
+The following example request includes activities with the
+resource_type
+ApiPrivilegeGroup
+and
+event_type
+api_privilege_group_updated
+. This request returns activities for the environment associated with the API client:
+curl
+-X
+GET
+"https://www.workato.com/api/activity_logs?include_resource_types[]=ApiPrivilegeGroup&include_event_types[]=api_privilege_group_updated"
+\
+-H
+"Authorization: Bearer <api_token>"
+Response 4: Include activities with specific resource_types and event_types
+{
+"data"
+:
+[
+{
+"id"
+:
+3661175
+,
+"timestamp"
+:
+"2024-06-18 17:38:33 UTC"
+,
+"event_type"
+:
+"api_privilege_group_updated"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+}
+,
+"resource"
+:
+{
+"id"
+:
+40327
+,
+"name"
+:
+"Recipe Operator"
+,
+"type"
+:
+"ApiPrivilegeGroup"
+}
+}
+,
+{
+"id"
+:
+3644097
+,
+"timestamp"
+:
+"2024-06-04 21:37:12 UTC"
+,
+"event_type"
+:
+"api_privilege_group_updated"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+}
+,
+"resource"
+:
+{
+"id"
+:
+40327
+,
+"name"
+:
+"Recipe Operator"
+,
+"type"
+:
+"ApiPrivilegeGroup"
+}
+}
+,
+{
+"id"
+:
+3643744
+,
+"timestamp"
+:
+"2024-06-04 16:24:44 UTC"
+,
+"event_type"
+:
+"api_privilege_group_updated"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+}
+,
+"resource"
+:
+{
+"id"
+:
+40327
+,
+"name"
+:
+"Recipe Operator"
+,
+"type"
+:
+"ApiPrivilegeGroup"
+}
+}
+]
+,
+"total"
+:
+3
+}
+#
+Request 5: Exclude activities with specific resource_types and event_types
+The following example request excludes activities with the
+resource_type
+User
+and
+event_type
+user_logout
+. This request returns activities for the environment associated with the API client:
+curl
+-X
+GET
+"https://www.workato.com/api/activity_logs?exclude_resource_types[]=User&exclude_event_types[]=user_logout"
+\
+-H
+"Authorization: Bearer <api_token>"
+Response 5: Exclude activities with specific resource_types and event_types
+{
+"data"
+:
+[
+{
+"id"
+:
+3670909
+,
+"timestamp"
+:
+"2024-06-25 16:38:11 UTC"
+,
+"event_type"
+:
+"recipe_created"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+}
+,
+"resource"
+:
+{
+"id"
+:
+289287
+,
+"name"
+:
+"My new recipe"
+,
+"path"
+:
+"Home/Demos"
+,
+"type"
+:
+"Flow"
+,
+"folder_id"
+:
+46319
+}
+}
+,
+{
+"id"
+:
+3665078
+,
+"timestamp"
+:
+"2024-06-20 20:00:36 UTC"
+,
+"event_type"
+:
+"connection_updated"
+,
+"workspace"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"environment"
+:
+"dev"
+}
+,
+"user"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Alex"
+,
+"email"
+:
+"
+[email protected]
+"
+}
+,
+"details"
+:
+{
+"request"
+:
+{
+"ip_address"
+:
+"60.160.90.91"
+,
+"user_agent"
+:
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+}
+}
+,
+"resource"
+:
+{
+"id"
+:
+66196
+,
+"name"
+:
+"My RecipeOps by Workato account"
+,
+"path"
+:
+"Home/Demos"
+,
+"type"
+:
+"SharedAccount"
+,
+"provider"
+:
+"workato_app"
+,
+"folder_id"
+:
+46319
+,
+"authorized"
+:
+true
+}
+}
+,
+{
+...
+}
+]
+,
+"total"
+:
+42
+}
+#
+Request 6: Get activities with a non-existent event type or user ID
+The following example request attempts to retrieve the activities of a non-existent event type and user ID. Filtering activities by a non-existent event type or user ID results in an empty array:
+curl
+-X
+GET
+"https://www.workato.com/api/activity_logs?users_ids[]=67890&include_event_types[]=nonexistent_event_type"
+\
+-H
+"Authorization: Bearer <api_token>"
+Response 6: Get activities with a non-existent event type or user ID
+{
+"data"
+:
+[
+]
+,
+"total"
+:
+0
+}
+#
+List tags
+Retrieves a list of tags in your workspace.
+GET /api/tags
+MANAGE TAGS PROGRAMMATICALLY
+Use the
+Manage tag assignments
+(
+POST /api/tags_assignments
+) endpoint to apply tags to or remove tags from assets. Taggable assets include recipes, connections, pages, and data tables.
+#
+Query parameters
+Name
+Type
+Description
+page
+number
+optional
+The page number of the tags to retrieve. Defaults to
+1
+.
+per_page
+number
+optional
+The number of tags to return in a single page. Defaults to
+100
+. Maximum value is
+100
+.
+q[title_or_description_cont]
+string
+optional
+Filters results to include tags where the title or description contains the specified string.
+Example
+:
+...?q[title_or_description_cont]=hr
+q[handle_in]
+array of strings
+optional
+Filters results to include only tags with handles that match the specified values. Each handle must be provided as a separate parameter instance.
+Example
+:
+...?q[handle_in][]=tag-APfXzndL-4whAmJ&q[handle_in][]=tag-APfWgxnc-Ggakzt
+q[author_id_eq]
+number
+optional
+Filters results to include only tags created by the specified author (user ID).
+Example
+:
+...?q[author_id_eq]=30482
+q[recipe_id_eq]
+number
+optional
+Filters results to include only tags associated with the specified recipe ID.
+Example
+:
+...?q[recipe_id_eq]=54525313
+q[connection_id_eq]
+number
+optional
+Filters results to include only tags associated with the specified connection ID.
+Example
+:
+...?q[connection_id_eq]=1571346
+q[only_assigned]
+boolean
+optional
+Filters results to include only tags that are assigned to an asset.
+Example
+:
+...?q[only_assigned]=true
+sort_by[]
+array of strings
+optional
+Specifies fields to sort the response by. Accepts
+title
+,
+assignment_count
+,
+updated_at
+, or
+last_assigned_at
+.
+Example
+:
+...?sort_by[]=assignment_count
+sort_direction[]
+array of strings
+optional
+Specifies the sort order for the response. Accepts
+asc
+or
+desc
+.
+Example
+:
+...?sort_direction[]=asc
+includes[]
+array of strings
+optional
+Specifies additional fields to include in the response. Accepts
+assignment_count
+and
+author
+.
+Example
+:
+...?includes[]=author
+#
+Sample request
+This request retrieves a list of tags and uses the
+includes[]
+query parameter to return both the author (the user who created the tag) and the number of times the tag has been assigned to an asset.
+curl
+-X
+GET
+"https://www.workato.com/api/tags?includes[]=author&includes[]=assignment_count"
+\
+-H
+"Authorization: Bearer <api_token>"
+#
+Response
+{
+"data"
+:
+{
+"tags"
+:
+[
+{
+"handle"
+:
+"tag-ANgdXgTF-bANz3H"
+,
+"title"
+:
+"Accounting"
+,
+"description"
+:
+"Accounting tag"
+,
+"color"
+:
+"orange"
+,
+"created_at"
+:
+"2024-08-29T14:09:13-07:00"
+,
+"updated_at"
+:
+"2024-08-29T14:09:13-07:00"
+,
+"author"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Charlie"
+,
+"avatar_url"
+:
+""
+}
+,
+"assignment_count"
+:
+6
+}
+,
+{
+"handle"
+:
+"tag-ANgef8oT-TgTeFY"
+,
+"title"
+:
+"Business development"
+,
+"description"
+:
+"Business development tag"
+,
+"color"
+:
+"green"
+,
+"created_at"
+:
+"2024-08-29T15:20:44-07:00"
+,
+"updated_at"
+:
+"2024-08-29T15:20:44-07:00"
+,
+"author"
+:
+{
+"id"
+:
+30482
+,
+"name"
+:
+"Jie"
+,
+"avatar_url"
+:
+""
+}
+,
+"assignment_count"
+:
+3
+}
+,
+{
+"handle"
+:
+"tag-ANgefFcG-RRkGKc"
+,
+"title"
+:
+"Finance"
+,
+"description"
+:
+"Finance tag"
+,
+"color"
+:
+"gold"
+,
+"created_at"
+:
+"2024-08-29T15:20:57-07:00"
+,
+"updated_at"
+:
+"2024-08-29T15:20:57-07:00"
+,
+"author"
+:
+{
+"id"
+:
+73913
+,
+"name"
+:
+"Alex"
+,
+"avatar_url"
+:
+""
+}
+,
+"assignment_count"
+:
+4
+}
+]
+}
+}
+#
+Create a tag
+Creates a new tag in your workspace.
+POST /api/tags
+#
+Payload
+Name
+Type
+Description
+title
+string
+required
+The title of the tag. Maximum of 30 characters.
+description
+string
+optional
+The description of the tag. Maximum of 150 characters.
+color
+string
+optional
+The color of the tag. Accepted values include
+blue
+,
+violet
+,
+green
+,
+red
+,
+orange
+,
+gold
+,
+indigo
+,
+brown
+,
+teal
+,
+plum
+,
+slate
+, and
+neutral
+. If this field is not specified, Workato assigns the tag a random color.
+#
+Sample request
+curl
+-X
+POST
+"https://www.workato.com/api/tags"
+\
+-H
+"Authorization: Bearer <api_token>"
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{
+"title": "HR",
+"description": "HR tag",
+"color": "green"
+}'
+#
+Response
+{
+"data"
+:
+{
+"handle"
+:
+"tag-ANrzJTFF-wczhaW"
+,
+"title"
+:
+"HR"
+,
+"description"
+:
+"HR tag"
+,
+"color"
+:
+"green"
+}
+}
+#
+Update a tag
+Updates an existing tag in your workspace.
+PUT /api/tags/:handle
+#
+URL parameters
+Name
+Type
+Description
+handle
+string
+required
+The handle of the tag to update.
+#
+Payload
+Name
+Type
+Description
+title
+string
+required
+The updated tag title. Maximum of 30 characters.
+description
+string
+optional
+The updated tag description. Maximum of 150 characters.
+color
+string
+optional
+The updated tag color. Accepted values include
+blue
+,
+violet
+,
+green
+,
+red
+,
+orange
+,
+gold
+,
+indigo
+,
+brown
+,
+teal
+,
+plum
+,
+slate
+, and
+neutral
+.
+#
+Sample request
+curl
+-X
+PUT
+"https://www.workato.com/api/tags/tag-ANrzJTFF-wczhaW"
+\
+-H
+"Authorization: Bearer <api_token>"
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{
+"title": "Updated tag name",
+"description": "Updated the tag name",
+"color": "red"
+}'
+#
+Response
+{
+"data"
+:
+{
+"handle"
+:
+"tag-ANrzJTFF-wczhaW"
+,
+"title"
+:
+"Updated tag name"
+,
+"description"
+:
+"Updated the tag name"
+,
+"color"
+:
+"red"
+}
+}
+#
+Delete a tag
+Deletes an existing tag in your workspace.
+DELETE /api/tags/:handle
+#
+URL parameters
+Name
+Type
+Description
+handle
+string
+required
+The handle of the tag to delete.
+#
+Sample request
+curl
+-X
+DELETE
+"https://www.workato.com/api/tags/tag-ANrzJTFF-wczhaW"
+\
+-H
+"Authorization: Bearer <api_token>"
+#
+Response
+If the request returns a
+200 OK
+status code, the tag was successfully deleted. No content is returned in the response body.
+←
+Delete a topic
+Activity audit log API reference
+→
+Last updated:
+1/8/2025, 8:56:53 PM
+On this page
+Clear secrets management cache
+Get activity audit log
+List tags
+Create a tag
+Update a tag
+Delete a tag
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

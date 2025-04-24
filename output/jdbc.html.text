@@ -1,0 +1,252 @@
+Workato connectors - JDBC | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+JDBC
+Connect to any ANSI-compliant database using this connector using a JDBC driver.
+#
+Supported databases
+All ANSI-compliant databases with a JDBC driver
+#
+How to connect to JDBC on Workato
+To create a connection to a JDBC source, you
+must
+use an
+On-premise agent
+. The JDBC connector uses JDBC authentication through an On-premise agent to establish a secure connection with your JDBC driver. Learn how to configure an
+on-premise agent profile
+to connect to a JDBC-compliant database.
+The JDBC connector only supports ANSI-compliant databases like
+Snowflake
+and
+SAP HANA
+. The database should support binding variables to be able to use some actions such as
+INSERT
+.
+JDBC connection using an on-premise agent
+Connection name
+Give this JDBC connection a unique name that identifies which JDBC instance it is connected to.
+On-prem connection profile
+Required.
+Profile name of the database you want to connect to. Predefine the on-prem connection profile in your
+config.yml
+file in your on-premise agent.
+Schema
+Optional.
+Name of the schema you want to use in this connection.
+Is this app in a private network?
+Optional.
+Before attempting to connect, make sure you have an active on-premise agent. Refer to the
+on-premise agent
+guide for more information.
+#
+Working with the JDBC connector
+#
+Table and view
+The JDBC connector works with all tables and views available to the credentials used to establish the connection. These are available in pick lists in each trigger/action, or you can provide the exact name.
+Select a table/view from the pick list
+Provide the exact table/view name in a text field
+The case sensitivity of the name of a table/view depends on your database implementation.
+#
+Single rows and batch rows
+The JDBC connector can read or write to your database as a single row or in batches. When using batch triggers/actions, you must provide the batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum batch size.
+Batch trigger inputs
+Besides the difference in input fields, there is also a difference between the outputs of these two types of operations. A trigger that processes rows one at a time has an output datatree that enables you to map data from that single row.
+Single row output
+However, a trigger that processes rows in batches outputs them as an array of rows. The
+Rows
+datapill indicates that the output is a list containing data for each row in that batch.
+Batch trigger output
+As a result, the output of batch triggers/actions must be handled differently. The output of the trigger can be used in actions with batch operations (like the Salesforce
+Create objects in bulk
+action) that requires mapping the
+Rows
+datapill into the source list. Learn how to
+work with lists in Workato
+.
+Using batch trigger output
+#
+WHERE condition
+This input field filters and identifies rows to perform an action on. You can use the WHERE condition in multiple triggers and actions in the following ways:
+filter rows to be picked up in triggers
+filter rows in
+Select rows
+action
+filter rows to be deleted in
+Delete rows
+action
+This clause is used as a
+WHERE
+statement in each request. It should follow basic SQL syntax.
+#
+Simple statements
+Enclose string values in single quotes (
+''
+). Columns used must exist in the table/view.
+A simple
+WHERE
+condition to filter rows based on values in a single column looks like this.
+currency
+=
+'USD'
+If used in a
+Select rows
+action, this
+WHERE
+condition returns all rows that have the value 'USD' in the
+currency
+column. Remember to wrap datapills with single quotes in your inputs.
+Using datapills in
+WHERE
+condition
+Enclose column names with spaces in double quotes (
+""
+) or square brackets (
+[]
+). For example, to use
+currency code
+as an identifier, enclose it in brackets.
+[
+currency code
+]
+=
+'USD'
+WHERE
+condition with enclosed identifier
+#
+Complex statements
+Your
+WHERE
+condition can also contain subqueries. The following example selects inactive employees from the
+compensation
+table.
+id
+in
+(
+select
+compensation_id
+from
+users
+where
+active
+=
+0
+)
+When used in a
+Select rows
+action, this selects all rows in the
+compensation
+table related to users who are no longer active (
+active = 0
+).
+Using subquery in WHERE condition
+←
+Javascript FAQs
+Select actions
+→
+Last updated:
+2/26/2025, 8:27:26 PM
+On this page
+Supported databases
+How to connect to JDBC on Workato
+Working with the JDBC connector
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

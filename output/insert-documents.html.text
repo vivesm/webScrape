@@ -1,0 +1,171 @@
+Workato Connectors - MongoDB Insert Documents Action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+MongoDB Atlas
+#
+MongoDB Atlas - Insert Documents Action
+This action inserts a batch of documents with a fixed structure into a
+MongoDB
+Collection. When we say "fixed", we mean that you know all the possible fields a document can have.
+Note
+: If any of the following are true, use the
+Replicate documents
+action instead:
+The documents' schema is flexible or unknown, or
+You want to update existing records
+#
+Limitations
+MongoDB limits the size of a single document to 16MB
+(opens new window)
+.
+#
+Input
+Field
+Description
+Collection
+The name of the target database collection where documents will be inserted. Note: Names are case-sensitive.
+Document schema
+Defines the schema of the documents to be inserted. You can add fields manually or provide sample JSON using the
+Schema generator
+.
+Note:
+For
+integer
+and
+decimal
+data, there are a few
+limitations
+to be aware of.
+Input document
+Defines the mapping between source data and the MongoDB documents to be inserted.
+#
+Output
+Field
+Description
+Collection name
+The name of the target database collection where documents were inserted.
+Inserted IDs
+An array of
+_id
+values of the inserted documents.
+Number of documents inserted
+The total number of documents inserted into the collection.
+#
+Resources
+MongoDB Atlas
+Data Typing Limitations
+Delete documents action
+Replicate documents action
+Search documents action
+Update documents action
+←
+Delete documents
+Replicate documents
+→
+Last updated:
+1/11/2022, 5:21:18 PM
+On this page
+Limitations
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

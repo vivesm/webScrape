@@ -1,0 +1,211 @@
+Workato コネクター - Zendesk - Search tickets アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Zendesk
+#
+Zendesk - Search tickets (チケットの検索) アクション
+このアクションは、検索条件に一致するチケットすべてのリストを取得します。Zendesk のインスタンスですべての検索条件に一致するレコードのみが返されます。
+Search tickets アクション
+#
+入力項目
+入力項目
+説明
+Status
+チケットのステータス。可能な値は、
+>open
+、
+pending
+、
+hold
+、
+solved
+、または
+closed
+です。
+Type
+チケットのタイプ。可能な値は、
+problem
+、
+incident
+、
+question
+、または
+task
+です。
+Priority
+チケットの優先度。可能な値は、
+urgent
+、
+high
+、
+normal
+、または
+low
+です。
+Subject
+チケットの件名。
+Description
+チケットの説明。
+Earliest created time
+チケットが作成された最も古い時間。
+Latest modified time
+チケットが最後に更新された時間。
+Requester
+チケットをリクエストしたユーザー。フルネーム、ユーザー ID、メールアドレス、または電話番号で定義できます。「none」や「me」を使うこともできます。
+Submitter
+チケットを送信したユーザー。フルネーム、ユーザー ID、メールアドレス、または電話番号で定義できます。「none」や「me」を使うこともできます。
+Organization
+リクエストを行ったユーザーのオーガナイゼーション。名前またはオーガナイゼーション ID で定義できます。「none」や「me」を使うこともできます。
+Tags
+このチケットに適用されるタグ。区切り文字
+,
+を使用して、複数のタグのクエリーを実行できます。
+Channels
+チケットの作成方法に関する情報。可能な値は、
+「web」
+、
+「mobile」
+、
+「API」
+などです。
+チケットの入力項目すべてのリストについては、
+こちら
+をクリックしてください。
+#
+出力項目
+このアクションの出力には、チケットのリストと、各チケットに対応する出力が含まれます。よく使用される出力項目を以下に示します。
+出力項目
+説明
+Ticket ID
+チケットの一意の Zendesk ID。これは、チケットの作成時に自動的に割り当てられます。
+Subject
+チケットの件名。
+Type
+チケットのタイプ。可能な値は、
+problem
+、
+incident
+、
+question
+、または
+task
+です。
+Priority
+チケットの優先度。可能な値は、
+urgent
+、
+high
+、
+normal
+、または
+low
+です。
+チケットのカスタム項目
+チケットのカスタム項目のデータが含まれます。
+List size
+リストのサイズ (取得されたチケットの数に相当)。
+チケットの出力項目すべてのリストについては、
+こちら
+をクリックしてください。
+←
+リレーションシップレコードの作成
+外部 ID に基づくチケットのリストの取得
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

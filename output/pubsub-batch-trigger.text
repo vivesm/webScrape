@@ -1,0 +1,128 @@
+Workato Event streams - batch trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Event streams
+Workato Event streams
+#
+Using the new batch of messages trigger
+The new message batch trigger enables you to poll batches of new messages from a specific topic in Workato. The trigger picks up all messages published to that topic in a single batch, at the specified time interval.
+See
+Batch triggers
+for more information.
+In addition to selecting the topic, you can specify both the batch size (up to 100), and the polling interval (between 5 minutes and 30 days).
+Select the topic and specify polling interval and batch size to configure the batch trigger
+Configure the following fields:
+Trigger poll interval
+How frequently the trigger should check for new events.
+Message topic
+Select a topic from your existing topics, update, or create a new topic.
+When first started, this recipe should pick up events from
+Fetch trigger event from a specified time. After you run or test a recipe, you cannot change this value. Learn more about this
+input field
+.
+Batch size
+How many events should the trigger return in a single batch (1 to 100). If there are more messages since the last poll, the trigger will return several batches.
+←
+New message trigger
+Publish message action
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

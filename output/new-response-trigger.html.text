@@ -1,0 +1,148 @@
+Google Forms - New response trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Google Forms
+#
+Google Forms - New response trigger
+The
+New response
+trigger activates when a response is submitted to a Google Form.
+#
+Input
+Input field
+Description
+Form ID
+Provide the unique ID of the form.
+#
+Output
+Output field
+Description
+Response ID
+A unique identifier assigned to the response submitted to the Google Form.
+Create time
+The timestamp when the response was created.
+Last submitted time
+The timestamp when the response was last submitted.
+Respondent email
+The email address of the respondent (if email collection is enabled).
+Answers
+The collection of responses provided by the respondent for each question.
+Question ID
+A unique identifier assigned to each question in the form.
+Grade
+The score assigned to a response if the form includes quiz grading.
+Text answers
+Responses given in text format for open-ended questions.
+File upload answers
+Files uploaded by the respondent (if the form includes file upload questions).
+Total score
+The final score achieved by the respondent if the form is set as a quiz with grading enabled.
+←
+Connection setup
+Get record details action
+→
+Last updated:
+3/28/2025, 6:34:20 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

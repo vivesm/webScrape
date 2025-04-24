@@ -1,0 +1,169 @@
+Workato connectors - Hive - List record (batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Hive
+#
+Hive - List records action (batch)
+The
+List records
+batch action retrieves a list of records for a selected object, such as actions or projects, in Hive.
+#
+Input
+Input field
+Description
+Object
+Select a Hive object, such as
+Project
+or
+Action
+.
+Page size
+Enter the maximum number of records to return. This field appears when you select
+Action
+,
+Label
+, or
+Resource Assignment
+.
+Next page token
+Enter a token to retrieve the next page of results. This field appears when you select
+Action
+or
+Resource Assignment
+.
+Next page token
+Enter a token to retrieve the next page of results. This field appears when you select
+Action
+or
+Resource Assignment
+.
+#
+Output
+The output fields depend on the object you select in the input. Each object returns a unique set of fields based on its type. Common fields may include the following:
+Output field
+Description
+ID
+Unique identifier of the record.
+Name
+Name of the record, if applicable.
+Created at
+Timestamp indicating when the record was created.
+Created by
+ID of the user who created the record.
+Modified at
+Timestamp indicating when the record was last updated.
+Modified by
+ID of the user who last modified the record.
+List size
+Total number of records retrieved in the batch.
+List index
+Position of the record within the retrieved batch.
+←
+Delete record action
+HubSpot
+→
+Last updated:
+2/26/2025, 9:11:27 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

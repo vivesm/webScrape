@@ -1,0 +1,213 @@
+On-prem agent installation using macOS package | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem group
+Add an agent
+#
+On-premise agent installation using macOS package
+This page provides steps on how to install an On-premise (On-prem) agent for a Mac operating system (OS).
+#
+Prerequisites
+You must
+create an On-prem group
+before you can you can add an On-prem agent.
+#
+Create an On-prem agent with macOS
+Complete the following steps to create an on-prem agent with macOS:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Tools > On-prem groups
+and select the group where you plan to add an agent.
+3
+Click
+Add agent
+. The Add agent dialog opens.
+4
+Provide an
+Agent name
+, use the
+Operating system
+drop-down menu to select
+Mac
+, and then click
+Next
+.
+Select Mac as your operating system
+5
+Click
+Download agent package
+and then click
+Next
+. This downloads the required Mac package to your machine as a
+.tar.gz
+archive file.
+6
+Extract the package into the folder you plan to use for your configuration.
+7
+Open the folder that contains the download package in terminal.
+8
+Copy and paste the
+Activation command
+from Workato into the terminal and run it. The agent key and certificate are automatically created in the agent package.
+Copy and paste the Activation command
+CODE IS VALID FOR ONE HOUR
+The code is valid for one hour. Click
+Regenerate code
+to generate a new code if it expires.
+9
+Return to your Workato On-prem window and click
+Next
+.
+10
+Run the on-premises agent by entering the following script, replacing
+<YOUR_FOLDER>
+with the name of your folder:
+sh
+<
+YOUR_FOLDER
+>
+/bin/run.sh
+Run the on-prem agent
+SSH SCRIPT CONFIGURATION
+If you are accessing the server through SSH and plan to allow the agent to run in the background independent of your shell session, you must add the nohup command (
+&
+) at the end of the script. You can also include a
+> file_name
+command to ensure that the outputs are logged.
+sh
+<
+YOUR_FOLDER
+>
+/bin/run.sh
+>
+opa_output.txt
+&
+11
+Click
+Next
+.
+12
+Click
+Test agent
+to confirm that your On-prem agent is working as expected.
+Test the on-prem agent
+13
+Click
+Done
+to complete the installation.
+PRIVATE KEY
+Workato does not have access to your private key file,
+cert.key
+, in the OPA
+conf
+folder. Ensure you protect this file from unauthorized access.
+←
+Linux RPM package
+Docker image
+→
+Last updated:
+3/18/2025, 1:40:04 AM
+On this page
+Prerequisites
+Create an On-prem agent with macOS
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,806 @@
+数値の formula | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+レシピデータの変更
+Formulaモード
+#
+数値の formula
+Ruby では、Fixnum は9、10、11などの整数を表し、Float は1.75などの小数を表します。
+Workato では、さまざまな数値の formula をサポートしています。Workato の formula は、ホワイトリストで許可された Ruby メソッドです。したがって、すべての Ruby メソッドがサポートされているわけではありません。その他の formula をホワイトリストに追加したい場合は、いつでも
+弊社までご連絡ください
+。これらの formula の構文と機能は、基本的に変更されません。
+present?
+、
+presence
+、
+blank?
+を除く大部分の formula は、null (Ruby では
+nil
+で表されます) を処理しようとするとエラーを返し、ジョブを停止することに注意してください。
+Fixnum (整数) に関する Ruby の詳細なドキュメントは
+こちら
+(opens new window)
+を、Float (小数) に関する Ruby のドキュメントは
+こちら
+(opens new window)
+を参照してください。
+#
+算術演算
+算術演算では、値が整数型か小数型 (浮動小数) のどちらであるかが重要になります。formula は常に、入力データとして与えられた型を保持しながら処理を行います。また、返される結果は、最も精度の高い型となります。
+例:
+整数値が与えられると、整数値が返されます。
+浮動小数値が与えられると、浮動小数値が返されます。
+浮動小数値と整数値の両方が与えられると、浮動小数値が返されます。これは浮動小数値のほうが精度が高いためです。
+#
+加算 (+) 演算子
+この演算子は、両側のオペランドを加算できます。このセクションでは、数値演算について説明します。日付の計算も行えますが、それについては
+こちら
+を参照してください。
+#
+使用例
+formula
+結果
+型
+4 + 7
+11
+Fixnum
+4.0 + 7
+11.0
+Float
+4.0 + 7.0
+11.0
+Float
+#
+減算 (-) 演算子
+この演算子は、左側のオペランドから右側のオペランドを減算します。このセクションでは、数値演算について説明します。日付の計算も行えますが、それについては
+こちら
+を参照してください。
+#
+使用例
+ｆormula
+結果
+型
+4 - 7
+-3
+Fixnum
+4.0 - 7
+-3.0
+Float
+4.0 - 7.0
+-3.0
+Float
+#
+乗算 (*) 演算子
+この演算子は、両側のオペランドを乗算します。
+#
+使用例
+formula
+結果
+型
+4 * 7
+28
+Fixnum
+4.0 * 7
+28.0
+Float
+4.0 * 7.0
+28.0
+Float
+#
+除算 (/) 演算子
+左側のオペランドを右側のオペランドで除算します。
+#
+使用例
+formula
+結果
+型
+4 / 7
+0
+Fixnum
+4.0 / 7
+0.571428...
+Float
+7 / 4
+1
+Fixnum
+7 / 4.0
+1.75
+Float
+7.0 / 4
+1.75
+Float
+7.0 / 4.0
+1.75
+Float
+#
+指数 (**) 演算子
+左側のオペランドを右側のオペランドでべき乗します。
+#
+使用例
+formula
+結果
+型
+5**3
+125
+Fixnum
+4**1.5
+8.0
+Float
+4.0**2
+16.0
+Float
+3**-1
+"1/3"
+Rational
+8**(3**-1)
+2.0
+Float
+7**-1.6
+0.044447...
+Float
+#
+剰余 (%) 演算子
+左側のオペランドを右側のオペランドで除算し、余りを返します。
+#
+使用例
+formula
+結果
+型
+4 % 7
+4
+Fixnum
+4.0 % 7
+4.0
+Float
+4 % 7.0
+4.0
+Float
+7 % 4
+3
+Fixnum
+7.0 % 4.0
+3.0
+Float
+#
+その他の数値の formula
+#
+abs
+数値の絶対値 (正) を返します。
+#
+構文
+number
+.abs
+number
+- 入力される整数または浮動小数。
+#
+使用例
+formula
+結果
+45
+.abs
+45
+-45
+.abs
+45
+45.67
+.abs
+45.67
+-45.67
+.abs
+45.67
+#
+round
+数値を四捨五入します。指定された小数点以下の桁数を持つ値を返します。
+#
+構文
+number
+.round(
+offset
+)
+number
+- 入力される整数または浮動小数。
+offset
+- (任意) 戻り値の小数点以下の桁数。負の数を指定できます。指定されていない場合、小数点以下の桁のない数値を返します。
+#
+使用例
+formula
+結果
+1234.567
+.round
+1235
+1234.567
+.round(2)
+1234.57
+1234.567
+.round(-2)
+1230
+#
+条件
+#
+blank?
+この formula は入力データをチェックし、それが数値ではない場合、または null の場合に true を返します。
+#
+構文
+Input
+.blank?
+Input
+- 入力データピル。利用できるデータ型には、文字列や数値、日付、日時があります。
+#
+使用例
+formula
+結果
+123
+.blank?
+false
+0
+.blank?
+false
+nil
+.blank?
+true
+""
+.blank?
+true
+#
+動作
+入力データが null または空の文字列の場合、true を返します。他のデータの場合は false を返します。
+#
+関連情報
+presence
+: データが存在する場合は、そのデータを返し、存在しない場合は nil を返します。
+present?
+: 有効な入力データがある場合に、true を返します。
+#
+even?
+整数の入力データをチェックし、偶数の場合は true を返します。
+#
+構文
+integer
+.even?
+integer
+- 入力される整数。
+#
+使用例
+formula
+結果
+123
+.even?
+false
+1234
+.even?
+true
+#
+関連情報
+odd?
+: 整数の入力データをチェックし、奇数の場合は true を返します。
+#
+odd?
+整数の入力データをチェックし、奇数の場合は true を返します。
+#
+構文
+integer
+.odd?
+integer
+- 入力される整数。
+#
+使用例
+formula
+結果
+123
+.odd?
+true
+1234
+.odd?
+false
+#
+関連情報
+even?
+: 整数の入力データをチェックし、偶数の場合は true を返します。
+#
+present?
+この formula は入力データをチェックし、値が存在する場合は true を返します。入力データが nil、ブール値の false、空の文字列、または空のリストの場合、この formula は false を返します。
+#
+構文
+Input
+.present?
+Input
+- 入力データピル。利用できるデータ型には、文字列や数値、日付、リストがあります。
+#
+使用例
+formula
+結果
+"Any Value"
+.present?
+true
+123
+.present?
+true
+0
+.present?
+true
+"2017-04-02T12:30:00.000000-07:00"
+.present?
+true
+nil
+.present?
+false
+""
+.present?
+false
+[]
+.present?
+false
+#
+動作
+入力データが null、空の文字列、または空のリストの場合、この formula は false を返します。他のデータの場合は true を返します。
+nil 値を含むリストの評価
+空のリストの場合のみ、false が返されます。
+[]
+.present? は false を返します。
+nil や空の文字列を含むリストの場合は、true が返されます。
+[nil,""]
+.present? は true を返します。
+#
+関連情報
+presence
+: データが存在する場合は、そのデータを返し、存在しない場合は nil を返します。
+blank?
+: データが存在しないか、文字列が空白のみで構成されている場合に、nil を返します。
+#
+presence
+データが存在する場合は、そのデータを返し、存在しない場合は nil を返します。
+#
+構文
+Input
+.presence
+Input
+- 入力データピル。利用できるデータ型には、文字列や数値、日付、日時があります。
+#
+使用例
+formula
+結果
+nil
+.presence
+nil
+""
+.presence
+nil
+"Any Value"
+.presence
+"Any Value"
+45.0
+.presence
+45.0
+0
+.presence
+0
+#
+動作
+入力データが null または空の文字列の場合、この formula は nil を返します。その他のデータの場合、元の入力データを返します。
+#
+関連情報
+blank?
+: データが存在しないか、文字列が空白のみで構成されている場合に、nil を返します。
+present?
+: 有効な入力データがある場合に、true を返します。
+#
+変換
+#
+ceil
+入力された数値を、次の大きい整数または浮動小数に丸めます。小数点以下の精度を指定できます。
+#
+構文
+number
+.ceil(
+precision
+)
+number
+- 入力される整数または浮動小数。
+precision
+- (任意) 戻り値の小数点以下の桁数。負の数を指定できます。指定されていない場合、小数点以下の桁のない数値を返します。
+#
+使用例
+formula
+結果
+1234.567
+.ceil
+1235
+-1234.567
+.ceil
+-1234
+1234.567
+.ceil(2)
+1234.57
+1234.567
+.ceil(-2)
+1300
+#
+floor
+入力された数値を、次の小さい整数または浮動小数に丸めます。小数点以下の精度を指定できます。
+#
+構文
+number
+.floor(
+precision
+)
+number
+- 入力される整数または浮動小数。
+precision
+- (任意) 戻り値の小数点以下の桁数。負の数を指定できます。指定されていない場合、小数点以下の桁のない数値を返します。
+#
+使用例
+formula
+結果
+1234.567
+.floor
+1234
+-1234.567
+.floor
+-1235
+1234.567
+.floor(2)
+1234.56
+1234.567
+.floor(-2)
+1200
+#
+to_f
+データを浮動小数点 (数値) データ型に変換します。
+#
+構文
+Input
+.to_f
+Input
+- 入力される数値データ。文字列データ型または整数データ型を使用できます。
+#
+使用例
+formula
+結果
+45
+.to_f
+45.0
+-45
+.to_f
+-45.0
+"45.67"
+.to_f
+45.67
+"Workato"
+.to_f
+0
+#
+動作
+この formula は入力データに数値が含まれているかどうかをチェックします。数値が含まれていない場合は0を返します。数値に小数点がない場合、
+.0
+が数値に追加されます。
+#
+関連情報
+to_i
+: データを整数データ型に変換します。
+#
+to_i
+データを整数データ型に変換します。
+#
+構文
+Input
+.to_i
+Input
+- 入力される数値データ。文字列データ型または浮動小数点データ型を使用できます。
+#
+使用例
+formula
+結果
+45.43
+.to_i
+45
+-45.43
+.to_i
+-45
+"123"
+.to_i
+123
+"Workato"
+.to_i
+0
+#
+動作
+この formula は入力データに数値が含まれているかどうかをチェックします。数値が含まれていない場合は0を返します。数値に小数点が含まれている場合、小数点以下のすべての数値が削除されます。
+整数のチェック
+この formula を使用すると、文字列に整数が含まれているかどうかをチェックできます。入力データに数値が含まれていない場合、この formula は
+0
+を返します。
+#
+関連情報
+to_f
+: データを浮動小数点 (数値) データ型に変換します。
+#
+to_s
+データを文字列 (テキスト) データ型に変換します。
+#
+構文
+Input
+.to_s
+Input
+- 任意の入力データ。数値や配列、オブジェクト、日時といったデータ型を使用できます。
+#
+使用例
+formula
+結果
+-45.67
+.to_s
+"-45.67"
+"123"
+.to_s
+"123"
+[1,2,3]
+.to_s
+"[1,2,3]"
+{key: "Workato"}
+.to_s
+"{:key=>"Workato"}""
+"2020-06-05T17:13:27.000000-07:00"
+.to_s
+"2020-06-05T17:13:27.000000-07:00"
+"2020-06-05T17:13:27.000000-07:00"
+.to_s(:short)
+"05 Jun 17:13"
+"2020-06-05T17:13:27.000000-07:00"
+.to_s(:long)
+"June 05, 2020 17:13"
+#
+動作
+この formula は入力データの文字列表現を返します。
+簡単なヒント: 出力は文字列データ型です。
+リストの文字列表現を
+リピートステップ
+で使用することはできません。
+#
+関連情報
+to_f
+: データを浮動小数点 (数値) データ型に変換します。
+to_i
+: データを整数データ型に変換します。
+#
+to_currency
+整数/数値を通貨形式にします。
+#
+構文
+Input
+.to_currency
+Input
+- 任意の入力文字列。
+#
+使用例
+formula
+説明
+結果
+"345.60"
+.to_currency
+デフォルトの通貨記号 "$" を追加します。
+"$345.60"
+#
+高度な使用例
+to_currency formula の高度な使用例を紹介します。これらをカンマで区切って組み合わせると、目的の通貨書式を作成できるでしょう。例:
+"12345.678"
+.
+to_currency
+(
+delimiter
+:
+"."
+,
+format
+:
+"%n %u"
+,
+precision
+:
+2
+,
+separator
+:
+","
+,
+unit
+:
+"€"
+)
+formula
+説明
+結果
+"345.60"
+.to_currency(unit: "€")
+デフォルトの通貨単位を変更します
+"€345.60"
+"345.60"
+.to_currency(format: "%n %u")
+単位に対する数値の位置を変更します (数値は
+%n
+で、通貨単位は
+%u
+で表されます)。数値と単位の間には空白を入れないことも、1個の空白を入れることもできます。デフォルトでは
+"%u%n"
+に設定されます。
+"$ 345.60"
+"-345.60"
+.to_currency(negative_format: "(%u%n)")
+数値がマイナスの場合の書式を指定します (数値は
+%n
+で、通貨単位は
+%u
+で表されます)。
+"($345.60)"
+"345.678"
+.to_currency
+小数精度はデフォルトで2桁に設定されます。
+"$345.68"
+"345.678"
+.to_currency(precision: 3)
+小数点以下の桁数を指定して、小数精度を変更します。
+"$345.678"
+"345.678"
+.to_currency(separator: ",")
+小数点の記号
+を、「.」、「,」、「 」のいずれかで指定します。デフォルトでは「.」に設定されます。
+"$345.68"
+"12345.678"
+.to_currency(delimiter: ".")
+3桁ごとの区切り文字
+を、「,」、「.」、「 」のいずれかで指定します。デフォルトでは「,」に設定されます。
+""$12.345.68"
+#
+to_phone
+文字列または数値を (ユーザー定義の) 書式付きの電話番号に変換します。
+#
+構文
+Input
+.to_phone
+Input
+- 任意の入力文字列または数値。
+#
+使用例
+formula
+結果
+"5551234"
+.to_phone
+555-1234
+1235551234
+.to_phone
+123-555-1234
+1235551234
+.to_phone(area_code: true)
+(123) 555-1234
+1235551234
+.to_phone(delimiter: " ")
+123 555 1234
+1235551234
+.to_phone(area_code: true, extension: 555)
+(123) 555-1234 x 555
+1235551234
+.to_phone(country_code: 1)
++1-123-555-1234
+"123a456
+".to_phone
+123a456
+←
+文字列の formula
+日付の formula
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+加算 (+) 演算子
+減算 (-) 演算子
+乗算 (*) 演算子
+除算 (/) 演算子
+指数 (**) 演算子
+剰余 (%) 演算子
+abs
+round
+blank?
+even?
+odd?
+present?
+presence
+ceil
+floor
+to_f
+to_i
+to_s
+to_currency
+to_phone
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

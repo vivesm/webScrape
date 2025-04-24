@@ -1,0 +1,252 @@
+Insights - Styling dashboards | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Build Insights
+Customize dashboards
+#
+Styling
+Styling your dashboard involves customizing display components, such as text, containers, and dividers, to maximize visual appeal.
+This guide offers practical guidance on how to personalize your dashboard's design. Refer to our
+concepts
+guide for information on dashboard design best practices.
+#
+Containers, dividers, and padding
+Use containers to group different, but related, charts together. Use dividers and padding to separate components.
+Complete the following steps to add and customize containers in your dashboard:
+1
+Select a
+Container
+from the components panel.
+2
+Drag and drop it onto the dashboard canvas.
+3
+Click and drag the edge of the container to resize it.
+Customize containers
+4
+Add additional containers to the dashboard canvas as necessary.
+5
+Consider how to organize the information you plan to report. If you plan to have a group of related charts, it makes sense to group them together in a container. You can also add filters to containers later to drill down into subsets of your data.
+Complete the following steps to add and customize dividers in to your dashboard:
+1
+Select a
+Divider
+component from the
+Components
+panel.
+2
+Drag and drop it onto your dashboard.
+Add and customize dividers
+3
+Use the
+Component properties
+panel to customize the divider's color.
+All chart and container components have built-in padding options. You can choose between
+Large
+,
+Medium
+,
+Small
+, and
+None
+.
+Complete the following steps to customize component padding in your dashboard:
+1
+Select a
+Container
+on the dashboard canvas.
+2
+Modify the padding using the properties panel. Available options are
+Large
+,
+Medium
+,
+Small
+, and
+None
+.
+Customize padding
+#
+Text
+Use text to add context, explanations, or instructions to your dashboard. Text components support specific
+Markdown
+(opens new window)
+syntax.
+Complete the following steps to add and customize text in your dashboard:
+1
+Go to the components panel and select a
+Text
+component.
+2
+Drag and drop the
+Text
+component onto your dashboard. Consider the purpose of this piece of text. Dashboard titles should be places at the top of the dashboard, while you might use headings to differentiate distinct containers.
+3
+Enter your text in the properties panel. Text components support specific markdown syntax.
+Add and customize text
+4
+Use the component properties panel to customize text alignment. Available options are
+Left
+,
+Center
+, and
+Right
+aligned.
+5
+Use the component properties panel to customize text color by choosing from a range of pre-defined options.
+Markdown element
+Markdown syntax
+Description
+H1
+#
+Use H1 headings for structured hierarchies, such as dashboard titles.
+H2
+##
+Use H2 headings for structured hierarchies, such as container titles.
+Bold
+**bold text**
+Use bold text to emphasize important information.
+Italic
+*italic text*
+or
+_italic text_
+Use italic text to emphasize important information.
+Hyperlink
+[link text](https://www.example.com)
+Use hyperlinks to add links to external resources or related content.
+Ordered list
+1. First item
+1. Second item
+1. Third item
+Use ordered lists to group sequential information into numbered steps.
+Unordered list
+- First item
+- Second item
+- Third item
+Use unordered lists to group related information into bulleted lists.
+#
+Customize color
+Customize color within your dashboard to enhance its visual appeal.
+Complete the following steps to customize colors in your dashboard:
+1
+Select a container component on your dashboard.
+2
+Customize the container's background color by selecting a pre-defined option from the properties panel
+Customize container colors
+3
+Customize the container's border color by selecting a pre-defined option from the properties panel.
+You can customize the following components:
+Containers
+: Customize background and border color.
+Text
+: Customize text color.
+Charts
+: Customize chart color in the chart editor.
+←
+Calculated columns
+Filter groups
+→
+Last updated:
+4/3/2025, 7:30:04 PM
+On this page
+Containers, dividers, and padding
+Text
+Customize color
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

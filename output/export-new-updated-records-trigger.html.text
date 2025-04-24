@@ -1,0 +1,180 @@
+Salesforce - Export new or new/updated records (bulk) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+Salesforce - Export new or new/updated records trigger (bulk)
+This triggers activates when a record is created or updated in Salesforce. You can expect a delay in processing the trigger job due to the time it takes the query to complete in Salesforce.
+You cannot test the recipe
+using this trigger because of this processing delay.
+This trigger uses
+V2.0 of the Salesforce API
+(opens new window)
+. Search results are returned in full as a CSV stream. You can write the stream to a file using a file connector, such as Box, or SFTP. You can also parse it to use as a list of data in Workato using the Parse CSV action in the
+CSV by Workato utility connector
+.
+Additionally, you can use these triggers in conjunction with the
+Get object schema action
+to fetch schema information of a Salesforce object and replicate it to your data warehouse.
+Learn more about bulk triggers and ELT/ETL processes
+.
+#
+Input fields
+Input field
+Description
+Object
+Select a standard or custom Salesforce object, such as a lead.
+Fields to retrieve
+Select the fields you plan to retrieve. All fields are returned if you leave this field blank.
+SOQL WHERE clause
+Enter a SOQL query to filter the records you plan to retrieve. For example:
+StageName = 'Closed Lost' AND IsClosed = false
+. Learn more about
+SOQL queries
+.
+Schedule settings
+Configure the trigger schedule. You can set all possible configurations similar to the
+scheduler trigger
+.
+When exporting records to form the CSV, fetch them in batches of
+Optional
+. This trigger pulls records in batches and streams them as a CSV. Use this input to control the number of records contained in each batch. Defaults to 10000.
+Include deleted records?
+Select
+Yes
+to include deleted records in the result. Defaults to
+No
+.
+When first started, this recipe should pick up events from
+When you start recipe for the first time, it picks up trigger events from this specified date and time. Defaults to one hour after the recipe starts. After the recipe runs or is tested, this value cannot be changed. Learn more about this
+input field
+.
+#
+Output
+Output
+Description
+All records successfully processed?
+Whether all records were processed successfully.
+Number of records processed
+The number of records processed.
+Number of records failed
+The number of records that failed to process.
+Number of retried records
+The number of records Workato retried processing.
+CSV content
+Datapill that contains the output of the trigger. Take note to utilize it primarily alongside streaming compatible actions like S3 upload file streaming action.
+Object name
+Name of the object being retrieved.
+Object schema
+The schema of the object being retrieved, based on the fields the user has selected. Each field has with it the associated name, label, original datatype, and mapped datatype. This allows for easy processing with database uploads and any additional transformations required.
+Created or updated from
+The time and date the record was created or updated.
+←
+New or updated records trigger (batch)
+Object relationships
+→
+Last updated:
+4/11/2025, 3:43:24 PM
+On this page
+Input fields
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,145 @@
+Workato connectors - Zendesk create organization membership action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Zendesk
+#
+Zendesk - Create organization membership action
+A membership links a user to an organization - An organization can have many users, and a users can be in many organizations.
+This action connects an existing user to an existing organization. Both the user and the organization are identified by their Zendesk ID.
+Create organization membership action
+#
+Input fields
+Input field
+Description
+User ID
+The Zendesk ID of the user to be connected.
+Organization ID
+The Zendesk ID of the organization to be connected.
+#
+Output fields
+Output field
+Description
+User ID
+The unique Zendesk ID of the user of this membership.
+Organization ID
+The unique Zendesk ID of the organization of this membership.
+ID
+The unique Zendesk ID of the organization membership. This is automatically assigned when the membership is created.
+URL
+The API URL of this membership.
+Default
+Is
+True
+if this is the default organization membership of the user, otherwise it will display
+False
+.
+Created at
+The time the organization membership was created.
+Updated at
+The time the organization membership was updated.
+←
+Create/update record
+Create custom object
+→
+Last updated:
+7/2/2021, 10:09:23 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

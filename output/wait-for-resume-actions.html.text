@@ -1,0 +1,504 @@
+Wait for resume actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connector SDK
+How-to guides
+Building actions
+#
+Wait for resume actions
+This article describes how to configure Wait for resume actions. This feature allows you to build actions capable of executing the following tasks:
+Send an API request to an external system to start a long-running process. For example, you can start a batch processing job or send a document for approval.
+Suspend the job in Workato after the request is sent.
+Wait for the external system to send an authenticated request back to Workato with a payload.
+Resume the job with the payload to continue downstream recipe steps.
+#
+Example use cases
+You can use Wait for resume actions to achieve the following use cases:
+Simulate a chat flow within a single recipe. This is similar to Workbot's "Wait for user input/action" feature.
+Wait for document approvals in an external system. When approved, the recipe continues immediately.
+Build process flows for records in an external system. For example, you can build a workflow that gathers leads from Marketo, and only proceeds when data collection is complete.
+#
+Prerequisites
+If you plan to use this action to send a request to an external system, the external system you choose must be able to send an authenticated request back to Workato's developer APIs.
+Additionally, the external system must be able to store a resume token, which is sent alongside the authenticated request to Workato's developer APIs. This token indicates which job Workato should resume.
+#
+How to implement Wait for resume actions
+Two crucial components facilitate the functionality of Wait for resume actions:
+SDK code
+: Use SDK code within actions to suspend and resume recipe workflows.
+API requests
+: Send API requests from third-party applications to Workato's developer APIs to resume jobs.
+#
+SDK code
+On the SDK level, there are new callbacks in actions that enable you to suspend and resume calls. Learn how it works in this
+sample custom connector
+(opens new window)
+.
+Sample custom connector code
+{
+actions
+:
+{
+wait_for_webhook
+:
+{
+config_fields
+:
+[
+{
+name
+:
+'url'
+,
+label
+:
+'API endpoint'
+,
+hint
+:
+'We will send a POST request to this endpoint with the resume token'
+,
+optional
+:
+false
+}
+,
+{
+name
+:
+'payload_schema'
+,
+optional
+:
+true
+,
+sticky
+:
+true
+,
+schema_neutral
+:
+true
+,
+control_type
+:
+'schema-designer'
+,
+sample_data_type
+:
+'json_input'
+,
+}
+]
+,
+execute
+:
+lambda
+do
+|
+_connection
+,
+input
+,
+_input_schema
+,
+_output_schema
+,
+continue
+|
+if
+continue
+.
+blank
+?
+# Calling suspend will put the job to sleep, after the request in the proc is executed.
+# in this case we send a POST request to the URL provided by the recipe builder
+# expires_at is configurable and once the time is reached, the job is resumed
+suspend
+(
+continue
+:
+{
+"state"
+=>
+"suspended"
+,
+"url"
+=>
+input
+[
+'url'
+]
+}
+,
+expires_at
+:
+10.
+minutes
+.
+from_now
+)
+elsif
+continue
+[
+"state"
+]
+==
+"resumed"
+{
+"result"
+=>
+"resumed"
+,
+"payload"
+=>
+continue
+[
+"payload"
+]
+}
+elsif
+continue
+[
+"state"
+]
+==
+"suspend_timeout"
+{
+"result"
+=>
+"suspend_timeout"
+}
+else
+{
+"result"
+=>
+"Unexpected state"
+}
+end
+end
+,
+# When suspend is called, this lambda is executed to suspend the job
+# The lambda receives 3 arguments
+# The resume token is an opaque token that must be stored in the external system. This will be used to identify the job to resume
+# expires_at is the time when the job resumes with a timeout
+# continue is the argument passed
+before_suspend
+:
+lambda
+do
+|
+resume_token
+,
+expires_at
+,
+continue
+|
+response
+=
+post
+(
+continue
+[
+'url'
+]
+,
+{
+expires_at
+:
+expires_at
+,
+resume_token
+:
+resume_token
+}
+)
+end
+,
+# Allows you to manipulate or add data before the resume.
+# We change the state of the "continue" argument
+# We also add the payload data into the "continue" argument
+# After this lambda is called, the "execute" lambda is called with the "continue" argument
+before_resume
+:
+lambda
+do
+|
+data
+,
+input
+,
+continue
+|
+if
+continue
+[
+"state"
+]
+==
+"suspended"
+continue
+[
+"state"
+]
+=
+"resumed"
+continue
+[
+"payload"
+]
+=
+data
+else
+{
+"result"
+=>
+"Unexpected state"
+}
+end
+end
+,
+# Allows you to manipulate or add data before the resume due to a timeout
+# We change the state of the "continue" argument
+# After this lambda is called, the "execute" lambda is called with the "continue" argument
+before_timeout_resume
+:
+lambda
+do
+|
+input
+,
+continue
+|
+if
+continue
+[
+"state"
+]
+==
+"suspended"
+continue
+[
+"state"
+]
+=
+"suspend_timeout"
+else
+{
+"result"
+=>
+"Unexpected state"
+}
+end
+end
+,
+output_fields
+:
+lambda
+do
+|
+object_definition
+|
+object_definition
+[
+'output'
+]
+end
+}
+}
+}
+This guide does not elaborate on the details of the standard attributes of the action. Refer to our
+SDK actions reference
+documentation to learn about the basic structure of actions.
+There are four lambdas in the action hash that are foundational for Wait for resume actions:
+#
+execute
+This lambda operates similarly to standard
+Multistep actions
+. Its primary purpose is to preprocess data from user input and determine the final output of the action when it resumes. This is facilitated by the
+continue
+argument, which is
+nil
+the first time the action is invoked. The
+continue
+argument also contains the output of either the
+before_resume
+or
+before_timeout_resume
+lambdas when resumed.
+For the Wait for resume action to function properly, the execute lambda must invoke the
+suspend
+method, which initiates the suspension of the job.
+Refer to our
+suspend method reference
+documentation for more information.
+#
+before_suspend
+This lambda is specific to Wait for resume actions and is invoked when the suspend method is called. It primarily registers the resume token with the external application, guiding it on how to resume this specific job.
+View our
+key reference
+documentation for more information.
+#
+before_resume
+This lambda is specific to Wait for resume actions and is invoked when Workato receives an API request to resume the job. Its primary purpose is to offer you a hook to manipulate data if necessary and manage the state of the
+continue
+argument before transferring execution to the
+execute
+lambda.
+View our
+key reference
+documentation for more information.
+#
+before_timeout_resume
+This lambda is specific to Wait for resume actions and is invoked when the
+expires_at
+time passes before Workato receives an API request to resume the job. Its primary purpose is to offer you a hook to manipulate data if necessary and manage the state of the
+continue
+argument before transferring execution to the
+execute
+lambda.
+View our
+key reference
+documentation for more information.
+#
+API requests
+To resume the job from the external system, the external system must be capable of dispatching an authenticated API request to Workato's
+developer API
+.
+#
+Resume job
+The Resume job endpoint resumes a suspended job based on the
+resume_token
+you provide. The endpoint returns
+204
+responses with no content.
+View our
+Resume job
+API documentation to learn how to use this endpoint.
+#
+Limitations
+API requests in the
+execute
+lambda must be called with
+.presence
+. Because API requests are lazy-loaded in the
+execute
+lambda, any request defined before the
+suspend
+method must be forced to execute using
+.presence
+chained after the request.
+Maximum time to suspend: The maximum time you can suspend a job is 60 days.
+Rate limits: The developer API has a rate limit of 100 requests each minute.
+Resume payload maximum size: The maximum payload size is 50MB.
+←
+Custom action
+Building triggers
+→
+Last updated:
+4/2/2024, 11:42:24 PM
+On this page
+Example use cases
+Prerequisites
+How to implement Wait for resume actions
+SDK code
+API requests
+Limitations
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

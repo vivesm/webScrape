@@ -1,0 +1,178 @@
+String formulas FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Modify recipe data
+Formulas
+#
+String formulas FAQs
+Get answers to frequently asked string formula questions.
+What are string formulas in Workato?
+Strings are sequences of text and characters.
+String formulas
+in Workato are allowlisted Ruby methods that enable you to manipulate and work with strings.
+What is the purpose of conditionals in string formulas?
+Conditionals allow you to apply if-else logic to strings, which you can use to perform various actions based on conditions. Refer to
+Conditionals
+for more robust instructions on how to add conditionals to formulas.
+How do I include and exclude work in string formulas?
+The
+include?
+formula
+checks if a specific substring is present in a string and returns
+true
+if it is found.
+The
+exclude?
+formula
+checks if a specific substring is
+not
+present in a string and returns
+true
+if it is
+not
+found.
+Can I use text manipulation with string formulas?
+Yes. You can manipulate text within strings with the following formulas:
+parameterize
+Replaces special characters.
+strip
+Removes white spaces from the beginning and end.
+upcase
+,
+downcase
+,
+capitalize
+, and
+titleize
+Changes the case of strings depending on your required format.
+Can I convert alpha-2 and alpha-3 content?
+Yes. You can convert alpha-2 and alpha-3 country codes to country names or convert country names to country codes with the following formulas:
+to_country_alpha2
+to_country_alpha3
+to_country_name
+You can convert alpha-2 and alpha-3 country codes to currency codes or currency names with the following formulas:
+to_currency_code
+to_currency_name
+What is the purpose of the ordinalize formula?
+The
+ordinalize
+formula
+turns a number into an ordinal string, such as 1st, 2nd, 3rd, and so on.
+What formula should I use to convert data types?
+You can use the
+to_s
+formula
+to convert various data types, including numbers, dates, and more into string data types.
+How do I convert the Ruby decrypt method output to a string?
+The
+Ruby decrypt method
+returns a byte array instead of a string by default. You can convert the decrypt method output to a string by appending the
+.as_string()
+or
+.as_utf8
+function to your formula.
+←
+String formulas
+Number formulas
+→
+Last updated:
+11/26/2024, 11:22:21 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

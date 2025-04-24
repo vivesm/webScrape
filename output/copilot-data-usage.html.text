@@ -1,0 +1,180 @@
+Copilot - Data usage | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+AI features
+#
+Copilots - Data usage
+We prioritize your privacy and data security, selectively retrieving contextual data to ensure optimal Copilot performance. Copilot only uses data directly related to the recipes you create within Workato. This does not include any third-party application data or job logs.
+Specifically, recipe data is defined as recipe steps, input fields, and apps used in your recipes.
+#
+Data usage by feature
+The following is a summary of the data used for its various features:
+Feature
+Data used
+Example
+Recipe Copilot: Recipe generation
+User prompts and data about your field structure (metadata) used in your applications.
+See example recipe generation data usage
+.
+Recipe Copilot: Add next step
+User prompts, data about your field structure (metadata) used in your applications, and data about your current recipe and output fields.
+See example add next step data usage
+.
+Docs Copilot
+Data about your current recipe and input fields.
+See example recipe description data usage
+.
+Formula Copilot
+User prompts for formulas, data about field structure (metadata) used in your applications, and data about your current recipe steps and their expected input and output formats.
+See example Formula Copilot data usage
+.
+Mapper Copilot
+User prompts for text, data about your field structure (metadata), and data about your current recipe fields and their expected input and output formats.
+See example Mapper Copilot data usage
+.
+Connector Copilot
+User prompts for connector actions, API documentation, and metadata about the connectors being developed.
+See example Connector Copilot data usage
+.
+AI by Workato
+Data from the input fields to create the proper output for actions such as text analysis, categorization, email drafting, parsing, and translation.
+See example AI by Workato data usage
+.
+#
+Examples by feature
+The following examples demonstrate the data usage for each Copilots feature:
+#
+Recipe Copilot: Recipe generation
+Recipe Copilot uses your prompt and the connection you select to generate a new recipe
+#
+Recipe Copilot: Add next step
+Recipe Copilot uses your prompt, the current recipe data, and the selected connection to suggest adding a new step
+#
+Docs Copilot
+Docs Copilot uses the recipe data and data from called functions to generate a recipe description
+#
+Formula Copilot
+Formula Copilot uses your prompt, field structure metadata, and recipe data to generate a formula
+#
+Mapper Copilot
+Mapper Copilot uses your prompt, field structure metadata, and recipe data to generate a text input suggestion
+#
+Connector Copilot
+Connector Copilot uses your prompt, API documentation, and metadata to assist in creating and refining custom connectors
+#
+AI by Workato
+AI by Workato uses data from input fields to create output for actions such as text analysis, categorization, email drafting, parsing, and translation
+←
+Translate text action
+IDP by Workato
+→
+Last updated:
+7/31/2024, 6:28:03 PM
+On this page
+Data usage by feature
+Examples by feature
+Recipe Copilot: Recipe generation
+Recipe Copilot: Add next step
+Docs Copilot
+Formula Copilot
+Mapper Copilot
+Connector Copilot
+AI by Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

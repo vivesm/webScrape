@@ -1,0 +1,144 @@
+Scheduler by Workato - Wait until specified time action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Scheduler by Workato
+#
+Scheduler by Workato - Wait until specified time action
+The
+Wait until specified time
+action allows you to specify the time to wait until before proceeding on to the next step. If the time specified is in the past, the recipe immediately proceeds on to the next step.
+#
+Input fields
+Field
+Description
+Time
+Specify the date and time for the job to resume. The job pauses until this time, then continues its subsequent actions. The time entered uses your workspace's timezone.
+How can I set a dynamic time?
+You can configure the recipe to wait until a specific time, such as next Monday at 8:00 AM PST, before the job proceeds to the next step.
+Complete the following steps to set up a dynamic time for resuming the job:
+1
+Switch the
+Time
+input field to
+formula mode
+.
+2
+Enter a
+date formula
+. For example, the following date formula configures the recipe to wait until the next Monday at 8:00 AM PST before proceeding to the next step:
+today.beginning_of_week + 7.days + 8.hours
+#
+Output fields
+Field
+Description
+Resumed at
+The timestamp at which the job resumed.
+←
+Wait for time duration action
+Recipe function by Workato
+→
+Last updated:
+3/27/2025, 7:39:26 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

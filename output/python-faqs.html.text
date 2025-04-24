@@ -1,0 +1,165 @@
+Python FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Python snippets by Workato
+#
+Python FAQs
+Get answers to frequently asked questions about Python.
+What can I do with the Python connector in Workato?
+The
+Python connector
+allows you to write and execute custom Python code as part of a recipe. You can use this connector to develop web applications, data pipelines, and machine learning projects.
+What are common uses for the Python connector?
+Common uses for the Python connector include:
+Data transformation (such as date formats)
+File format conversion (for example, CSV to JSON)
+Data set chunking to prevent API timeouts
+Refer to
+Use cases
+for more ways to use Python.
+Which version of Python does the Workato Python connector use?
+The Python connector in Workato runs
+Python 3.9 or later
+.
+What libraries are supported by the Workato Python connector?
+The Python connector supports all standard
+libraries
+included in Python 3.9 or later. The Python connector also supports the following libraries:
+bcrypt
+lxml
+msoffcrypto
+NumPy
+openpyxl
+pandas
+Pytz
+requests
+xlrd
+LIMITED LIBRARY SUPPORT
+The Python connector does not support user-provided libraries or libraries not listed in the preceding list.
+Are there any limitations to using the Python connector in Workato?
+Yes, you should consider the following
+limitations
+when using the Python connector:
+The Python connector limits script size to 1MB.
+The Python connector provisions 256MB of total memory overhead for each Python action.
+Actions time out after 90 seconds.
+Limit CSV file sizes to 20MB when using them with the Pandas library, due to its temporary storage requirements.
+Limit Excel file sizes to 5MB when using them with the Pandas library, as Pandas requires additional temporary storage and decompresses standard Excel compressed data.
+What actions are supported by the Python connector in Workato?
+The primary
+action
+supported by the Python connector is
+Execute Python code
+. This allows you to run custom Python scripts within a recipe.
+Do I need to perform any setup configuration to use the Python connector in Workato?
+No specific
+setup configuration
+is required for the Python connector. You can search for and select Python in the
+Apps
+tab to start using it.
+←
+Execute Python code
+Quickbase
+→
+Last updated:
+3/6/2025, 12:34:39 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

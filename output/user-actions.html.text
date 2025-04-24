@@ -1,0 +1,176 @@
+Workato connectors - Zoom User actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Zoom
+#
+Zoom - User actions
+Manage users in your Zoom organization easily with the Zoom connector's user actions. These actions help you to automate the process of onboarding or offboarding employees from your company if they require Zoom accounts for video conferencing.
+The Zoom connector supports the following
+user
+actions:
+Create user
+Update user
+Search users
+Get user
+Delete user
+#
+Create user
+Create users in Zoom under your Zoom organization. This allows you to provision Zoom accounts automatically for new employees in a Zoom organization automatically from an upstream HR application. Help your employees get up and running as soon as they join.
+Create a user in Zoom
+#
+Configuring the action
+When configuring this action, you'll need to configure the different attributes of this Zoom user. You'll be able to create users of any license and even SSO users. Simply fill up the relevant input fields by mapping datapills.
+#
+Update user
+Update users in Zoom under your Zoom organization. This allows you to update users in your Zoom organization such as their details, their passwords or their profile picture.
+#
+Configuring the action
+When configuring this action, you'll need to first select the
+Update type
+for the user. After selecting this, the relevant input fields will show up which you can then map datapills to.
+Update type
+Description
+User details
+Change the details of a user in Zoom.
+User password
+Change the password of a user.
+User profile picture
+Change the profile picture of a user.
+#
+Search users
+Search users in Zoom under your Zoom organization. This allows you to search for users in your Zoom organization and pull details about them. You can always narrow your search by the user's status or role.
+#
+Configuring the action
+When configuring this action, you'll need to define the filters for your search. Leave blank to pull all users in your organization.
+#
+Get user
+Get a specific user under your Zoom organization by their user ID. Use the output of this action to send information to downstream applications in a recipe.
+#
+Configuring the action
+When configuring this action, you'll need to provide the ID of the Zoom user.
+#
+Delete user
+Delete a user in your Zoom organization via SSO token or directly. This allows you to remove users entirely or revoke their SSO tokens.
+#
+Configuring the action
+When configuring this action, you'll need to first select the
+event type
+for the user.
+Delete type
+Description
+User
+Delete a user from your Zoom organization.
+User SSO token
+Revoke a user's SSO token from your Zoom Organization
+←
+Add or find registrants
+Download cloud recordings
+→
+Last updated:
+4/5/2023, 11:28:53 AM
+On this page
+Create user
+Update user
+Search users
+Get user
+Delete user
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

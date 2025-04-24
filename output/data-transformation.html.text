@@ -1,0 +1,156 @@
+データ変換 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+データオーケストレーション
+#
+データ変換
+データ変換は、特定の要件や目的を満たすために、データをある形式、構造、または表現から別のものに変換します。このプロセスは、データを操作、強化、クリーンアップ、または再構築し、分析、保存、表示、または交換に適したものにします。
+データ変換は、ETLの抽出とロードのステップの間で行うか、ELTでデータを宛先にロードした後に変換します。
+#
+ELT（Extract, Load, Transform）
+データベースまたはデータウェアハウスのコネクタを使用してカスタムSQLクエリアクションを利用し、宛先システムに既にロードされたデータに対する変換を実行します。Workatoは、このプロセスを調整し、SQLクエリを宛先システムに渡し、それが実行して結果を返します。
+#
+ETL（Extract, Transform, Load）
+Workatoの
+データオーケストレーション
+(opens new window)
+機能を活用して、SQL変換またはSQLコレクションを使用してプラットフォーム内で直接変換を実行します。Workatoのサービスはデータに対して変換を実行し、レシピ内で出力を提供し、さまざまなダウンストリームの宛先に転送できます。
+#
+ビジネスでの使用例
+さまざまなビジネスシナリオにおいて、データ変換はデータを最適化し、効果的に使用するための準備において重要な役割を果たします。以下は主要な例です：
+#
+正規化
+正規化は、データを標準的な形式や構造に整理することで、データの一貫性を確保し、冗長性を排除します。このステップは、データセット全体での統一性を維持し、分析やレポートを簡素化するために不可欠です。
+#
+集約
+集約は、ファイルシステム、アプリケーション、データベースなど、複数のソースからデータを組み合わせます。この統合されたデータは、分析やレポートの目的で特定の宛先に送信され、ビジネスメトリクスの包括的なビューを提供します。
+#
+エンリッチメント
+エンリッチメントは、外部ソースから追加の情報、属性、または派生値を追加することでデータを強化します。このプロセスはデータの質と価値を向上させ、より情報豊かで実用的なものにします。
+#
+変換
+変換は、データをあるデータ型、形式、またはエンコーディングから別のものに変更するプロセスです。例として、テキストを数値形式に変換することや、CSVファイルをJSON形式に変換することが含まれます。このステップは、異なるシステム間でのデータの互換性と可用性を確保します。
+#
+検証とクリーニング
+検証とクリーニングは、データの完全性、正確性、完全性を検証することを含みます。エラー、不整合、または外れ値を削除または修正し、データが高品質を維持するために必要な事前定義された標準や基準を満たすようにします。
+#
+逆ETL
+逆ETLは、データ標準化変換を適用した後、データウェアハウスからソースアプリケーションにデータを再同期することを指します。このアプローチにより、ソースアプリケーションが常に最新で標準化されたデータを運用に使用できるようになります。
+#
+さらなる探求
+データ変換をさらに深く理解するために、以下の特定の技術やツールをカバーするセクションを探索してください：
+#
+変換技術
+Workatoの組み込みの数式を使用してデータ操作と変換タスクを実行する方法を学びます。より複雑なニーズには、特定の要件に合わせたデータ変換のためにカスタムコードを活用する方法を発見してください。
+さらに探索する
+。
+#
+変換でのSQLの使用
+SQL変換とSQLコレクション手法の概要を含め、SQLを使用してデータ変換を実行する方法を探ります。SQLクエリを使用して、データベースまたはデータウェアハウス上で複雑な変換を直接実行できます。
+さらに学ぶ
+。
+←
+Incremental loading
+変換技術
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+ELT（Extract, Load, Transform）
+ETL（Extract, Transform, Load）
+ビジネスでの使用例
+さらなる探求
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

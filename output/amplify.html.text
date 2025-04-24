@@ -1,0 +1,213 @@
+Workato connectors - Amplify | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Amplify
+Amplify
+(opens new window)
+is a strategy execution software that helps organizations manage strategic projects, align them with goals, and track progress through analytics and reporting.
+#
+Prerequisites
+Before using the Amplify connector, ensure you have an active account and an Amplify instance with appropriate permissions to access Amplify APIs. If you don't already have an account, contact your app administrator to create an account and an Amplify instance.
+#
+Create an API token
+Complete the following steps to create an API token in the Amplify admin console:
+1
+Sign in to Amplify and click
+My Account
+.
+2
+Go to
+Administration > Authentication
+.
+3
+Locate the
+Access Tokens
+section at the bottom of the page.
+Amplify Token
+4
+Click
+New Access Token
+.
+Amplify Token Setup
+5
+Specify the
+Owner
+of the new token.
+6
+Select an expiration date for the token. We recommend allowing tokens to remain valid for one month.
+7
+Click
+Create
+to create the API token.
+#
+Configure user permissions
+To make changes to objects in Amplify using your token, you must have the necessary permissions in the associated Program.
+Complete the following steps to enable user permissions:
+1
+Navigate to the relevant
+Program
+.
+2
+From the menu, navigate to
+Teams & Roles > Roles & Permissions
+.
+Amplify User Roles
+3
+Create a new role for the API user, or click the edit icon on an existing role.
+Amplify User Permissions
+4
+Select the appropriate objects and assign
+Read
+,
+Update
+, or
+Full
+permissions as needed.
+5
+If you have created a new role, navigate to
+Teams
+and assign the new role to the user the token was created for.
+#
+How to connect to Amplify
+Complete the following steps to establish an Amplify connection:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Amplify
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Amplify Connection Setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the
+API Token
+for your Amplify account created in the previous steps.
+6
+Enter the
+Subdomain
+for your Amplify account instance.
+7
+Click
+Connect
+.
+←
+Community connectors
+Create record action
+→
+Last updated:
+4/8/2025, 5:53:59 PM
+On this page
+Prerequisites
+How to connect to Amplify
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

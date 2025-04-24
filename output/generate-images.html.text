@@ -1,0 +1,159 @@
+Azure OpenAI - Generate images action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Azure OpenAI
+#
+Generate images action
+The generate images action feature allows you to generate high-quality images from textual descriptions using machine learning models (Dall-E). This action can be used in a variety of use cases, such as:
+Slide deck generation:
+Sales teams can use the generate images API to create high-quality product images for sales presentations and proposals. By inputting a textual description of a product, the action can generate a photorealistic image that accurately represents the product's features and benefits. This can be used to generate slide decks based on specific inputs easily.
+Brand asset generation:
+Marketing teams can use this action to obtain a series of preliminary assets for their various campaigns. Within the standard campaign workflows, you can incorporate an additional step to kickstart the campaign assets generation aspect by utilizing this action and the campaign description.
+Generate images action
+#
+Input
+Field
+Description
+Prompt
+Enter the text for which to obtain an image. Maximum length is 1000 characters. We recommend that you provide a detailed prompt to obtain an image best suited for your purposes.
+Number of images
+The number of images to generate. The default value is 1 and the maximum is 5.
+User
+A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.
+Image size
+Select a resolution for the generated image from the picklist. This influences the level of detail in the image.
+#
+Output
+Field
+Description
+ID
+The ID of the generated image.
+Created at
+The time and date that the image was generated.
+Expires at
+The time and date the image expires.
+Result
+A JSON object containing the following attributes:
+Created:
+The time and date the image was generated.
+Data:
+A nested JSON object within
+Result
+containing the following attributes:
+URL:
+The URL of the generated image.
+List size:
+The total number of tokens used by the prompt and response.
+List index:
+Value indicating which item in the list is currently being accessed.
+Status
+Whether the image was generated successfully.
+←
+Complete text prompt action
+Generate text embedding action
+→
+Last updated:
+11/23/2023, 12:32:46 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

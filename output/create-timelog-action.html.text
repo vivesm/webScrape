@@ -1,0 +1,146 @@
+Workato コネクター - Wrike create timelog アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Wrike
+#
+Wrike - Create timelog (タイムログの作成) アクション
+このアクションは、Wrike で指定したタスクのタイムログエントリーを作成します。
+Create timelog アクション
+#
+入力項目
+入力項目
+説明
+ID of task to add new timelog record
+新しいタイムログエントリーを追加するタスクの ID。
+Timelog comment
+このタイムログエントリーのコメント。
+Timelog tracked hours
+このタイムログエントリーで追跡された時間。
+Tracked date
+新しいタイムログエントリーの日付。
+Timelog category
+タイムログエントリーのカテゴリを選択します。
+#
+出力項目
+出力項目
+説明
+Timelog ID
+タイムログエントリーの ID。
+Task ID
+このタイムログエントリーで追跡したタスクの ID。
+User ID
+このタイムログエントリーで追跡したユーザーの ID。
+Category ID
+このタイムログエントリーのカテゴリの ID。
+Hours
+このタイムログエントリーでタスクを追跡した時間。
+Created date
+このタイムログエントリーが作成された日付。
+Updated date
+このタイムログエントリーが更新された日付。
+Completed date
+このタイムログエントリーが完了した日付。
+Comment
+このタイムログエントリーへのコメント。
+←
+タスクの作成
+フォルダーのコピー
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

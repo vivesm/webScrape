@@ -1,0 +1,400 @@
+Environments - Review and approve deployments | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Lifecycle & operations
+Environments
+Deploying assets
+#
+Review and approve deployments
+PRIVATE BETA
+This feature is in private beta. Private beta features are available in production but only to selected customers. Customers must opt in and be accepted into the beta.
+During the private beta, Workato may update its functionality or change its availability without prior notice.
+Deploying recipes across environments (Development, Test, and Production) can lead to errors, operational risks, and compliance issues. The deployment review and approval workflow solves these challenges by ensuring accuracy, governance, and compliance through a structured process.
+This workflow is designed for customers using multiple environments. It gives you control over recipe deployments between environments. Regardless of your CI/CD process, this workflow streamlines deployments, improves collaboration, and enforces compliance.
+#
+Key features
+The deployment review and approval workflow offers several features to enhance your deployment process:
+Streamlined deployment process
+Reduces manual steps and simplifies recipe transitions between environments, making deployments more efficient.
+Improved collaboration
+Allows you to review, comment on, and approve deployments, promoting better teamwork and communication.
+Compliance and governance
+Enforces structured approval processes and maintains detailed audit trails for all deployments, ensuring compliance with governance policies.
+Risk reduction
+Identifies potential issues early in the review process, reducing errors and reducing operational risks.
+Enhanced transparency
+Gain clear visibility into deployment history and status at every stage, allowing you to track and monitor changes.
+#
+Enable deployment reviews and approvals
+Admin users or users with the appropriate
+workspace settings
+(WS) permissions can enable the review and approval workflow. This setting controls whether all deployments must go through a structured review and approval process. After enabling the workflow, you can configure collaborator roles and permissions to determine who can review, approve, and deploy.
+Complete the following steps to enable deployment reviews and approvals:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Workspace admin > Settings > Workspace > Deployments
+.
+Go to the
+Deployments
+settings
+3
+Enable the
+Require review and approval
+toggle. This setting controls whether deployments must go through the review and approval process:
+OFF
+: Deployments follow the default process without requiring reviews or approvals.
+ON
+: Deployments must be reviewed and approved before deployment.
+4
+Click
+Save
+to apply your changes. The workflow is now enabled for the workspace.
+#
+Configure permissions
+After enabling the review and approval workflow, ensure that users have the necessary permissions to manage reviews and approvals. Users with
+deploy permissions
+automatically receive
+review permissions
+, but users with only
+review permissions
+cannot deploy.
+#
+Key permissions
+Permissions define the actions you can perform within the review and approval workflow. You can assign these permissions in the
+Workspace admin > Collaborators > Collaborator roles
+settings. Refer to the
+Collaborator privileges
+documentation for more details.
+The following are the key permissions for managing reviews and approvals:
+Create deployments
+Users with project and folder view access can submit deployments for review in both source and target environments when the
+Require review and approval
+toggle is enabled. This action does not require deploy permissions.
+Review permissions
+Review permissions allow you to review and approve deployments. Users must have access to both the source and target environments. Deployment permissions are required to perform the actual deployment.
+Deployment permissions
+Deploy permissions allow you to deploy and review deployments. Users need access to both the source and target environments to perform these tasks.
+#
+Role-based permission configurations
+Each role in the workspace is assigned specific permissions. The following outlines how permissions are configured for system roles and custom roles:
+Admins and analysts
+These roles have deploy permissions by default. Deploy permissions also allow users to review and approve deployments.
+Custom roles
+You can assign custom roles deploy permissions, which include review permissions, or assign review permissions alone based on their responsibilities in the workflow. Ensure these permissions are granted in both the source and target environments.
+#
+Deployment review process
+The deployment review process consists of two main roles: authors and reviewers. Each role has specific capabilities in managing and reviewing deployments to ensure successful transitions between environments.
+The following tabs outline the specific capabilities for each role:
+As an author, you are responsible for selecting assets, configuring the deployment, and choosing reviewers. After you submit a deployment for review, you can edit the reviewers if needed. You can also add comments on specific assets within the deployment to provide context or highlight important details for reviewers.
+For detailed steps, refer to the
+Submit deployments for review
+section.
+As a reviewer, you can review deployments, approve or reject them, and optionally re-open reviews. You can also leave comments during the approval or rejection process for context.
+For detailed steps, refer to the
+Review deployments
+section.
+#
+Submit deployments for review
+The deployment approval process ensures that all deployments are reviewed before moving to the next environment. Before you submit a deployment for review, make sure you have the
+required permissions
+to create and manage deployments.
+#
+How to submit a deployment
+Complete the following steps to submit a deployment for review:
+1
+Go to the
+Deployments
+tab or the recipe page from which you plan to submit the deployment.
+2
+Click
+Deploy to
+and select the target environment for the deployment.
+Deploy to target environment
+3
+Select the assets to include in the deployment. You can choose to include all assets or select specific ones based on your requirements:
+Customize deployment
+4
+Review the details of the selected assets and the changes made to ensure everything is ready for submission.
+Review changes
+5
+Enter the deployment name and provide a description to help reviewers understand the purpose of the deployment.
+6
+Select up to five reviewers to review and approve or reject the deployment. After one reviewer approves the deployment, no further reviews are required for the workflow to proceed. You can search for and select the appropriate reviewers from the list.
+Request reviewers
+7
+Click
+Submit for review
+to initiate the review process.
+Deployment submission
+After submission, the selected reviewers receive an email notification with the deployment details:
+Review notification
+#
+Edit reviewers after submission
+After submitting a deployment for review, you can edit the list of reviewers if needed. You can add or remove reviewers, but there must always be at least one reviewer assigned.
+Complete the following steps to edit reviewers:
+1
+Go to the
+Deployments
+tab and select the deployment under review.
+Submitted deployment
+2
+Click
+Edit reviewers
+.
+Edit reviewers
+3
+You can add or remove reviewers, with a maximum of five. Ensure that at least one reviewer is assigned before proceeding.
+Edit reviewers
+4
+Click
+OK
+to save the updated list of reviewers. New reviewers receive an email notification with the deployment details.
+#
+Review deployments
+Review permissions allow you to approve or reject deployments. After a deployment is submitted for review, you can approve or reject it, with the option to re-open reviews for further adjustments if necessary. Before reviewing a deployment, ensure you have the
+required permissions
+to manage reviews and approvals.
+Complete the following steps to review a deployment:
+1
+Check your email for a notification inviting you to review the deployment. The email includes project details, the target environment, the author, and a link to the deployment.
+Review notification
+2
+Click the
+Review deployment
+button in the email to view the deployment details. This opens the deployment page, where you can view the assets, target environment, author, and description.
+3
+Click
+Add your review
+to start the review process. A dialog appears, allowing you to either approve or reject the deployment.
+Add your review
+4
+Choose one of the following actions:
+Select
+Approve
+and optionally leave comments for further context.
+Approve deployment
+Select
+Reject
+and leave comments explaining the reasons for rejection.
+Reject deployment
+5
+Click
+Submit
+to finalize your review.
+#
+Best practices for reviewing and deploying
+To prevent conflicts and unintended overwrites, review and deploy deployments in the order they were submitted. This ensures that newer assets are not overwritten by older versions.
+When multiple deployments are pending review or deployment, the most recent ones typically contain the latest updates. Deploying older deployments after newer ones can overwrite these updates, disrupting workflows or causing issues.
+Reviewing and deploying in the order deployments were created allows you to:
+Compare older and newer deployments to determine if an older deployment should be rejected in favor of a more recent one.
+Keep the target environment up to date by deploying the latest assets and updates.
+#
+How to manage multiple deployments
+Use the following practices when managing multiple deployments:
+Prioritize reviews
+: Identify pending deployments and review them in the order they were created.
+Reject or proceed
+: Reject unnecessary older deployments to prevent conflicts with newer ones.
+Deploy in order
+: Deploy sequentially to ensure the target environment receives updates correctly.
+While sequential reviews and deployments are recommended, clients may sometimes review or deploy out of order. In these cases, reviewers should check for dependencies and assess potential conflicts.
+#
+Re-open a review
+You can re-open reviews for further adjustments:
+Approved
+deployments can be re-opened by the reviewer, the author, or other collaborators with project view access.
+Rejected
+deployments can only be re-opened by the original reviewer who rejected the deployment.
+Re-open review
+#
+Multi-reviewer process
+When a deployment is assigned to multiple reviewers, only one review is required to finalize the decision. This can result in either an approval or rejection:
+Approval
+: If a reviewer approves the deployment, it is considered approved. Further reviews from other assigned reviewers are no longer required.
+Rejection
+: If a reviewer rejects the deployment, it is considered rejected and cannot be deployed.
+A deployment can be re-opened in the following scenarios:
+Any reviewer or collaborator with project view access can re-open an approved deployment if they disagree with the approval. This changes the deployment status to
+Pending review
+, allowing them to approve or reject it.
+Only the original reviewer who rejected the deployment can reopen it. This ensures that no one can override the rejection without consulting the original reviewer.
+#
+Add asset-level comments
+Asset-level comments allow you to provide detailed feedback on individual components within a deployment when specific assets require extra attention or clarification after the main review is complete.
+Complete the following steps to add an asset-level comment:
+1
+Go to the
+Deployments
+tab and select the deployment under review.
+2
+Click the
+Add comment
+icon next to the asset you plan to comment on.
+Add comment
+3
+Type your comment in the dialog and click
+Save
+.
+Add comment
+Asset-level comments are threaded, allowing you to have ongoing discussions around specific updates.
+Comment thread
+#
+Deploy approved deployment
+After a deployment is approved, it can be deployed to the assigned environment. Ensure you have the necessary
+deploy permissions
+before proceeding.
+Complete the following steps to deploy the approved deployment:
+1
+Go to the
+Deployments
+tab.
+2
+Select the approved deployment.
+3
+Click
+Deploy to [Environment]
+to finalize the process.
+4
+View the confirmation message that displays after successfully deploying the deployment to the environment. You can click
+View in [Environment]
+from the dialog to verify the deployment immediately.
+Deploy to environment
+#
+Activity logging and email notifications
+The deployment review process automatically records key actions in the activity audit log. Each action triggers an email notification sent to the relevant collaborators.
+The following actions trigger logging and email notifications:
+Request for deployment review
+Sent to each assigned reviewer, notifying them of a pending deployment review.
+Approval decisions
+Sent to the author, all assigned reviewers, and collaborators with deploy permissions for the target environment.
+Rejection decisions
+Sent to the author and all assigned reviewers.
+Deployment successfully deployed
+Sent to the author and all assigned reviewers.
+Reviewers added
+Sent to the newly added reviewer.
+Reviewers removed
+Sent to the removed reviewer.
+Re-opening of the deployment
+Sent to the author, all assigned reviewers, and collaborators with deploy permissions for the target environment.
+Failed deployment attempts
+Sent to the author to notify them of the failure.
+Reviewer comment added or edited
+Sent to the author and all assigned reviewers.
+Asset-level comments added or updated
+Sent to the author and all assigned reviewers.
+←
+How-to
+Logs
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Key features
+Enable deployment reviews and approvals
+Configure permissions
+Deployment review process
+Submit deployments for review
+Review deployments
+Deploy approved deployment
+Activity logging and email notifications
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

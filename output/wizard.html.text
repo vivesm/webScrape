@@ -1,0 +1,155 @@
+Webhooks セットアップウィザード | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Webhooks
+#
+Webhooks セットアップウィザード
+Webhooks ウィザードを使用すると、レシピの Webhook トリガーを簡単にテストおよび設定できます。ガイド付きのフローに従い、以下の手順を実行します。
+一意の Webhook アドレスの設定
+Webhook のサンプルイベントのリッスン
+イベントを受信すると、ウィザードがそのイベントに基づいてトリガーを自動的に設定します。
+トリガーを手動で設定したい場合は、このセットアップウィザードをいつでも終了できます。
+#
+セットアップの開始
+セットアップを開始するには、まずアプリのリストから
+Webhooks
+コネクターを選択します。以下の画像のようにセットアップウィザードのプロンプトが表示されます。
+Webhook のセットアップ
+[Setup webhook]
+ボタンを選択して、ウィザードを開始します。
+#
+一意の Webhook アドレスの生成
+Workato Webhook アドレスの生成
+この時点で、Webhook セットアップウィザードの最初のステップが表示されます。ここに、わかりやすいイベント名を指定します。このイベント名は、一意の Webhook アドレスを生成する際に使用されます。
+[Next]
+をクリックして、アプリから受信する Webhook イベントのリッスンを開始します。
+レシピが複数のソースから Webhook イベントを受信しないようにするには、Webhook レシピ全体で一意のイベント名を指定する必要があります。
+#
+Webhook トリガーのテスト
+アプリから受信する Webhook イベントのリッスンの開始
+この画面が表示されたら、アプリから受信する Webhook イベントをいつでもリッスンできる状態です。
+[Copy URL]
+ボタンを選択して、一意の Webhook アドレスをコピーします。この URL は、Webhook URL としてアプリに登録できます。たとえば以下に示すように、Eventbrite に
+Payload URL
+として URL を登録できます。
+Webhook を Eventbrite に追加して、データを Webhook トリガーに送信
+#
+Webhook のセットアップの完了
+Webhook イベントが (アプリによって) 正常に送信され、Workato で受信されたら、この画面が表示されます。
+Webhook イベントを受信
+Webhook のヘッダーとペイロードを調査して、正しいイベントが受信されていることを確認します。この Webhook イベントのサンプルは、今後すべてのイベントでテンプレートとして使用できます。Workato はペイロードとヘッダーデータを使用して、トリガーのその他の部分を設定します。
+トリガーを手動で設定する場合は、[Save and skip] を選択してください。
+設定に問題がなければ、右上の
+[Setup webhook]
+ボタンを選択してセットアップを完了します。
+#
+Webhook トリガーの設定完了
+トリガーの設定が完了し、いつでも利用できるようになりました。引き続き、レシピの残りの部分を作成してください。
+←
+Webhooks
+トリガーの設定
+→
+Last updated:
+2025/1/31 0:40:55
+On this page
+セットアップの開始
+一意の Webhook アドレスの生成
+Webhook トリガーのテスト
+Webhook のセットアップの完了
+Webhook トリガーの設定完了
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

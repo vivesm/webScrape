@@ -1,0 +1,144 @@
+Workato connectors - Marketo Schedule campaign or smart campaign action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Marketo
+#
+Schedule campaign or smart campaign action
+This action schedules a campaign or smart campaign to run at a given time in Marketo. Only campaigns or smart campaigns created in a program can be scheduled.
+#
+Input fields
+Field
+Description
+Campaign ID / Campaign
+Select the campaign from the list or provide the ID of the campaign to schedule. Only the first 300 campaigns are displayed in the list. If you do not find your campaign in the list, set the toggle to
+Enter campaign ID
+.
+Run at
+The date and time to run the campaign.
+Clone to program name
+The name of the resulting program.
+Tokens
+An array of tokens to be used in the campaign.
+Tokens source list
+Input a list datapill from which the tokens are derived. Learn more about
+list input
+.
+Name
+The name of the token.
+Value
+The value of the token.
+#
+Output fields
+Field
+Description
+Campaign ID
+The identifier of the campaign.
+←
+Return data to Marketo self service flow step action
+Search objects action (batch)
+→
+Last updated:
+10/2/2024, 3:53:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

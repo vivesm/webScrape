@@ -1,0 +1,140 @@
+Workato Event streams - 例シナリオ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+イベントストリーム
+Workato Event streams
+#
+Event streams のユースケース
+#
+レシピの分離
+次の例を考えてみましょう。
+ある会社には、WebToLead HTTPリクエストを受け取った後に Salesforce でリードを作成するレシピがあります。これは、オンラインでフォームに記入したリードから連絡先データを取得するために構築されました。リードを作成した後、レシピは Postgres の分析データベースを更新するというものです。
+オンラインフォームから Salesforce と PostgreSQL にリードを移動するレシピ
+我々の組織がデータベースを PostgreSQL から RedShift に変更し、MailChimp をメーリングリストアプリケーションとして使い始める場合、次のいずれかのアプローチを取ることができます：
+Event streams を使わずに元のレシピを修正する
+Event streams を使う
+#
+Event streams を使わずに元のレシピを修正する
+私たちはレシピを次のように更新する必要があります。
+PostgreSQL の代わりに Redshift に行を追加し、MailChimp に購読者を追加するために修正されたレシピ
+元のレシピへの変更は、レシピを修正し、後方互換性のためのテストを行い、本番環境にプッシュする必要があるため、レシピ開発ライフサイクルの追加のイテレーションを必要とします。QA をすり抜けたバグは、本番レシピのダウンタイムを引き起こします。
+#
+Event streams を使用する
+Event streams を利用する場合、リードデータをトピックに公開する前に Salesforce リードを作成するために、元のレシピをこのように構築します。このレシピは、そのサブスクライバーを気にする必要がないため、下流のレシピが変更されていることを知る必要がありません。
+Salesforce でリードを作成し、リードデータをトピックに公開するパブリッシャーレシピ
+リードデータで Redshift の行を作成する対応するサブスクライバーレシピは次のようになります。
+トピックからリードデータを取得し、リードデータで Redshift の行を作成するサブスクライバーレシピ
+リードデータで MailChimp のリードを作成する対応するサブスクライバーレシピは次のようになります。
+トピックからリードデータを取得し、リードデータで MailChimp のリードを作成するサブスクライバーレシピ
+#
+リアルタイムイベントからバッチを作成する
+例えば、同じシナリオでリードが非常に高速で生成され、Salesforce と PostgreSQL への API 呼び出しの数を最適化することを計画しています。WebToLead はリードを一つずつ公開するため、単一のレシピではそれを達成できません。
+Event トピックを使用すると、新しいリードを集約し、一定の時間間隔でバッチとして公開できます。元のレシピは、新しいリードを一度に一つずつ Event トピックに公開するだけです。
+WebToLead から新しいリードを受け取り、Event streams に公開するパブリッシャーレシピ
+対応するサブスクライバー用レシピは
+新しいメッセージのバッチトリガー
+を使用し、1 時間に一度実行されます。その後、バッチ全体を Salesforce と PostgreSQL にそれぞれ 1 回の API 呼び出しで公開します。
+新しいリードのバッチを受け取り、Salesforce と PostgreSQL に公開するサブスクライバーレシピ
+←
+使い方
+権限
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+レシピの分離
+リアルタイムイベントからバッチを作成する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

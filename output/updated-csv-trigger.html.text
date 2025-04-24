@@ -1,0 +1,167 @@
+Workato コネクター - SFTP New/updated CSV file in directory トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+SFTP
+#
+New/updated CSV file in directory (ディレクトリ内の新規/更新された CSV ファイル) トリガー
+このトリガーは、指定したフォルダー内の新規または更新された CSV ファイルを取得します。
+Workato では、CSV 行をバッチ単位で照合して処理します。デフォルトのバッチサイズは
+100
+、最大バッチサイズは
+1000
+です。
+注
+このトリガーはフォルダー全体を監視し、トリガー条件を検証する前に、新規または更新されたファイル内の CSV コンテンツを解析します。そのため、トリガーで指定したものと異なる CSV 形式 (ヘッダー名、列数) のファイルを追加すると、ジョブでエラーが発生する可能性があります。トリガーエラーを防ぐため、トリガー条件に一致する CSV 形式のファイルのみをフォルダーに追加するようにしてください。
+New/updated CSV file in directory トリガー
+#
+入力
+入力項目
+説明
+Directory
+追跡するフォルダーを選択します。ドロップダウンメニューから選択するか、フォルダーパスを直接入力できます。
+Column names
+CSV ヘッダー名を入力します。手動で入力することも、サンプルの CSV ファイルを指定することもできます。
+Column delimiter
+CSV ファイルの列を区切る文字を選択します。
+Contains header row
+ヘッダー行があるかどうかを示します。
+Batch size
+各バッチで処理する CSV 行の数。最大バッチサイズは
+1000
+です。
+Expected encoding
+CSV ファイルの予期されるエンコーディング。
+Keep track of columns by
+CSV コンテンツの列順序が固定されていない場合に設定します。
+Quote Character
+CSV のセル値を引用するために使用する文字。
+#
+出力
+このアクションの出力は
+レコードのリスト
+で、各レコードには
+CSV の列名
+で定義されたスキーマが含まれます。これはリストデータピルなので、
+リピートアクション
+を使用して各レコードを走査する必要があります。
+出力項目
+説明
+File name
+CSV のファイル名。
+First batch
+これが CSV 行の最初のバッチであるかどうかを示します。
+Last batch
+これが CSV 行の最後のバッチであるかどうかを示します。
+Lines
+これは
+リストデータピル
+であり、レコードのリストを表しています。
+List schema
+CSV の列名で定義されたデータピル。
+List size
+行の合計数。
+←
+新規/更新されたファイル トリガー
+フォルダーの作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

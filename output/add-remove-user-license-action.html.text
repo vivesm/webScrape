@@ -1,0 +1,150 @@
+Microsoft Entra ID - Add/remove user license action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Microsoft Entra ID
+#
+Microsoft Entra ID - Add or remove user license action
+The
+Add or remove user license
+action adds or removes subscriptions for a user. You can enable and disable specific plans associated with a subscription.
+#
+Input
+Input field
+Description
+User
+Select a user to add or remove a license. Alternatively, enter a custom value if the user is not in the drop-down menu.
+SKU ID
+Enter the specific GUID assigned to a licensing plan in Microsoft Entra ID.
+Service disabled plans
+List unique identifiers for disabled plans.
+Remove licenses
+Enter GUIDs of licenses to remove.
+Output fields
+Choose fields to include in the response. Leave blank to return default fields.
+#
+Output
+Output field
+Description
+License ID
+The GUID that identifies the license.
+SKU ID
+A globally unique identifier (GUID) for the licensing plan.
+SKU part number
+A string identifier for the product.
+Service plan ID
+A GUID that identifies each service plan.
+Service plan name
+The name of a specific service or feature in the licensing plan.
+Provisioning status
+Displays the service plan’s status within a subscription or license.
+Applies to
+Defines the service plan’s scope.
+←
+New user trigger
+Create group action
+→
+Last updated:
+2/12/2025, 9:34:45 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

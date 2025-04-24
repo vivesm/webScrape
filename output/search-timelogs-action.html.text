@@ -1,0 +1,156 @@
+Workato connectors - Wrike search timelogs action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Search timelogs action
+This action retrieves a list of timelog records that matches your search criteria. Only records in your Wrike instance that match all the criteria will be returned.
+Search timelogs action
+#
+Input fields
+Input field
+Description
+Timelog category
+Select the category for your timelog record. This will be blank by default.
+Created date
+Retrieve timelog records created after this date.
+Updated date
+Retrieve timelog records updated after this date.
+Tracked date
+Retrieve timelog records tracked after this date.
+Descendants
+Select
+Yes
+to add all descendant tasks to search scope, otherwise select
+No
+.
+#
+Output fields
+Output field
+Description
+Timelog ID
+The ID of the timelog record.
+Task ID
+The ID of the task that this timelog record tracks.
+User ID
+The ID of the user who tracked the timelog record.
+Category ID
+The ID of the category of this timelog record.
+Hours
+The hours tracked in the timelog record.
+Created date
+The date this timelog record was created.
+Updated date
+The date this timelog record was updated.
+Tracked date
+The date this timelog record was recorded.
+Comment
+The comment to this timelog record.
+List size
+The size of the list, corresponding to the number of timelog records retrieved.
+←
+Search tasks action
+Update approval action
+→
+Last updated:
+12/13/2019, 8:32:02 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

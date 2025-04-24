@@ -1,0 +1,163 @@
+Workato コネクター - PagerDuty - List log entries アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+PagerDuty
+#
+PagerDuty コネクター - List log entries (ログエントリの列挙) アクション
+このアクションは、PagerDuty の指定されたインシデントに関するログエントリを列挙します。
+#
+入力
+項目
+説明
+Since
+日付範囲の開始日です。
+Until
+日付範囲の終了日です。
+Is overview
+True の場合、最も重要な変更を示すログエントリのサブセットを返します。
+Include
+incidents、services、teams、channels を指定できます。値はカンマで区切ります。
+#
+出力
+このアクションの出力は、ログエントリのリストです。各ログエントリには、以下の項目が含まれます。
+項目
+説明
+ID
+ログエントリの ID です。
+Type
+オブジェクトのスキーマを決定する文字列です。エンティティの標準名である必要があります。
+Summary
+サーバーによって生成される短縮形式の文字列です。クライアント内のエンティティの基本的なラベル付けに適した、オブジェクトに関する簡潔で重要な情報を提供します。多くの場合、これは名前と同一ですが、ID としての使用は意図されていません。
+Self
+オブジェクトにアクセスできる API 表示 URL です。
+HTML URL
+エンティティが Web アプリに一意に表示される URL です。
+Created at
+ログエントリが作成された日時です。
+Agent
+インシデントのログエントリを作成または更新したエージェントです。
+Channel
+アクションを送信するチャネルとして使用された手段のポリモーフィックオブジェクト表現です。形式はタイプ (channeltype で指定される) に応じて異なります。
+Incident
+インシデントオブジェクトです。このオブジェクトには、以下の項目が含まれます。
+ID
+Type
+Summary
+Self
+HTML URL
+Teams
+インシデントのライフサイクルに関与するチームのリストです。各チームには、以下の項目が含まれます。
+ID
+Type
+Summary
+Self
+HTML URL
+Context
+グラフや画像へのリンクなど、トリガーに組み込まれるコンテキストです。
+Event details
+イベントに関する説明です。
+←
+ID に基づくインシデントの取得
+インシデントの検索
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

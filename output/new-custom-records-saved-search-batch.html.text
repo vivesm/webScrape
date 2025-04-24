@@ -1,0 +1,188 @@
+Workato connectors - NetSuite SOAP - New custom records in a saved search trigger (batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite trigger - New custom records in a saved search trigger (batch)
+The
+New custom records in a saved search
+trigger (batch) retrieves batches of new custom records from a saved search in NetSuite. Ensure the saved search results include the following fields:
+The
+Internal ID
+and
+Date Created
+fields of the base object.
+The
+Internal ID
+field for all joined objects.
+#
+Input
+Input field
+Description
+Trigger poll interval
+Specify how frequently to check for new events. Defaults to five minutes if left blank. The minimum value allowed is five minutes.
+When first started, this recipe should pick up events from
+Specify the date and time from which this recipe retrieves trigger events. You can't change this value after you test or run this recipe. Learn more about this
+input field
+.
+Custom Record
+Select the NetSuite custom record to retrieve.
+Saved search
+Select an option from the drop-down menu, or enter the saved search ID from the URL of the saved search page.
+Batch size
+Enter the number of NetSuite records to retrieve at a time. The minimum value is
+1
+, and the maximum is
+100
+.
+Output field configuration
+Select the NetSuite fields to include in the trigger output.
+Object list
+Select the records to include in the trigger output.
+Fields
+Select the fields to include in the trigger output. You must select the
+Internal ID
+checkbox for each record in the
+Record list
+field.
+Custom record custom fields
+Select custom fields to include in the trigger output.
+#
+Output
+Output field
+Description
+Range
+The range of records retrieved in the current batch.
+First batch ID
+The unique identifier of the first batch retrieved during the trigger's execution.
+Last batch ID
+The unique identifier of the last batch retrieved during the trigger's execution.
+Records
+A list datapill containing the records that match the saved search criteria.
+Basic (records)
+An object containing fields specific to your selected
+Custom Record
+. The fields included are determined by your selections in the
+Object list
+and
+Fields
+input fields.
+Total number of records
+The total count of records retrieved from the saved search across all batches.
+First batch
+Indicates whether this batch is the first batch of records retrieved.
+Last batch
+Indicates whether this batch is the last batch of records retrieved.
+Starting offset
+The position of the first record in the current batch within the overall dataset.
+Ending offset
+The position of the last record in the current batch within the overall dataset.
+←
+New saved search trigger
+New standard records in a saved search trigger (batch)
+→
+Last updated:
+1/28/2025, 10:02:09 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

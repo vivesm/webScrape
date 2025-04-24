@@ -1,0 +1,125 @@
+Troubleshooting - 403 Forbidden error | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+General error codes
+#
+403 Forbidden error
+The
+403 Forbidden error
+indicates that you do not have permission to access the data necessary to perform an action. For example, you have permission to access employee records, but not their salaries. If your recipe involves performing an action with the employee salaries, but Workato cannot access their salaries with your account permissions, the recipe will fail.
+Example of 403 forbidden error
+#
+Solution
+If this error occurs in the action, use
+network tracing
+to troubleshoot and identify the specific record that is causing the issue.
+Since network tracing is not available for triggers, if the 403 Forbidden error occurs in the recipe trigger, build a recipe to identify the record that is causing the error. For example, see how to troubleshoot
+403 Forbidden error
+on the
+BambooHR trigger
+.
+←
+401 Unauthorized
+404 Not found
+→
+Last updated:
+3/29/2021, 7:59:53 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

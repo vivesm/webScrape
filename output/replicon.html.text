@@ -1,0 +1,225 @@
+Workato connectors - Replicon | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Replicon
+Replicon
+(opens new window)
+is a suite of software for time-tracking, advanced project management, task collaboration, resource allocation, and professional services automation.
+#
+How to connect to Replicon on Workato
+The Replicon connector supports both basic authentication and token-based authentication to authenticate with Replicon.
+Replicon connection setup
+These are the parameters of the Replicon connection:
+Connection name
+Give this Replicon connection a unique name that identifies the Replicon instance of the connection.
+Location
+Specify where the Replicon connection resides in your Projects folder directory.
+Company
+The name of the company to which the Replicon instance is registered.
+User-token authentication?
+If
+Yes
+, authentication is based on the
+User token
+. If
+No
+, authentication is based on the
+Username
+and
+Password
+.
+User token
+If you selected
+user token
+authentication, provide the user token generated from the Authentication Service.
+Login name
+Login name to connect to Replicon.
+Password
+Password to connect to Replicon.
+Subdomain
+Name of the Replicon instance subdomain. Defaults to
+global
+if connecting to production instances.
+#
+How to generate user tokens on Replicon
+#
+Using Replicon Security API reference page
+Navigate to Replicon's Security API reference in
+Replicon API Documentation
+(opens new window)
+. If prompted, log into your account.
+On the Security API reference page, look for the
+AuthenticationService1.svc/CreateAccessToken2
+and click
+Try it now
+.
+Replace the JSON payload with the following code, and edit the fields as needed. You can remove the
+lifetime
+field, which creates a permanent token.
+{
+"identity"
+:
+{
+"loginName"
+:
+"user_name"
+}
+,
+"lifetime"
+:
+{
+"days"
+:
+0
+,
+"hours"
+:
+0
+,
+"minutes"
+:
+0
+,
+"seconds"
+:
+30
+,
+"milliseconds"
+:
+0
+}
+,
+"description"
+:
+"test"
+,
+"unitOfWorkId"
+:
+"12345"
+}
+Click
+Execute
+.
+Ensure that the Response Code is
+200
+, and that a token generates inside the JSON response body.
+Copy the generated token and place it inside the Workato connection setup.
+#
+Triggers and actions
+To learn more about Replicon triggers, see the following articles:
+New client trigger
+New project trigger
+New user trigger
+New/updated ready to sync invoice trigger
+Updated timesheet trigger
+←
+Export query result
+New client trigger
+→
+Last updated:
+7/29/2022, 4:54:03 PM
+On this page
+How to connect to Replicon on Workato
+How to generate user tokens on Replicon
+Triggers and actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

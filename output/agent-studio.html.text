@@ -1,0 +1,196 @@
+Agent Studio | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+Agent Studio
+Agent Studio enables you to build and leverage interactive AI agents, known as genies, for deployment within your organization. Genies dynamically perform actions and call workflows. Genies understand the context of each scenario and execute pre-defined skills to achieve a goal you set.
+Genies
+You can use Agent Studio to create and manage genies without code by exposing an agentic modular framework. This enables you to natively extend genies to your own systems for integration with your existing infrastructure.
+IT genie
+FEATURE AVAILABILITY
+Genies are available to all users in the US datacenter. Contact your Customer Success representative if you're interested in using genies.
+#
+Genies key components
+Genies consist of four key components that power its contextual understanding and skill set:
+#
+AI
+AI forms the brain of your genie, determining interactions with your users, and deciding which skills to use to execute an action. Genies automatically come with Workato's native large language model (LLM) but can be updated to use other models based on your requirements.
+The genie's AI component uses advanced natural language processing and machine learning algorithms to provide the following capabilities:
+Interpret user requests and queries
+Analyze context and available information
+Make decisions to determine which skills to use
+Generate human-like responses
+Continuously learn and improve based on interactions
+#
+Interaction layer
+The interaction layer is the genie component visibly exposed to your end users. The interaction layer can be integrated with platforms where your organization works, such as Slack, Microsoft Teams, custom chatbots developed within internal systems. The interaction layer includes the following capabilities:
+A user-friendly interface for employees to interact with the genie
+Multiple communication channels to fit your organization's workflow
+Customizable UI elements to match your brand and user experience preferences
+Real-time communication between users and the genie
+#
+Knowledge base
+The knowledge base component serves as the genie's memory. You can provide the knowledge base with relevant context on your company's policies or access to historical data that grounds the behavior of the genie. The genie's behavior is further tailored by information it gleans from the knowledge bases you provide it access to. The knowledge base component provides the following capabilities:
+Stores and organizes company-specific information
+Provides quick access to relevant data for informed decision-making
+Can be updated in real-time to ensure the genie always has the most current information
+Helps maintain consistency in Genie responses and actions across the organization
+#
+Skills
+The skills component provides the genie with tools that allow it to interact with various applications and systems. Skills define the capabilities of the genie and can be customized to suit your organization's specific requirements. Genies support skills across most applications and allows access to your workflows as custom skills. The skills component provides the following capabilities:
+Add or modify skill sets related to apps and data sources
+Create customized skills
+IT genie skills
+#
+Genies features
+Genies provide the following abilities:
+#
+Domain expertise
+Genies possess an intricate understanding of your organization's systems and processes to navigate and execute tasks effectively. This expertise is built through the following processes:
+Integration with existing systems and databases
+Continuous learning from user interactions and feedback
+#
+Reasoning ability
+Genies are equipped with a sophisticated reasoning engine that interprets and executes both straightforward and complex directives. Your genie's reasoning includes the following capabilities:
+Natural language understanding to interpret user intentions
+Contextual analysis to determine the most appropriate course of action
+Logical inference to make decisions based on available information
+Ability to handle multi-step tasks and complex workflows
+#
+Security and authentication
+Genies authenticate users in real-time to ensure actions are taken securely and appropriately, with necessary approvals. The security and authentication feature provides the following capabilities:
+Integration with your existing authentication systems
+Role-based access control (RBAC)
+Audit trails for all actions taken
+Compliance with your organization's security policies
+#
+Responsible action
+Genies execute actions strictly within the bounds of delegated abilities, with options to easily adjust (upskill or downskill) the capabilities of the genie as required. Responsive action includes the following capabilities:
+Clear definition of permitted actions for the genie
+Ability to set approval workflows for critical actions
+Easy-to-use interface for administrators to modify genie capabilities
+#
+Continuous learning
+Genies perpetually refine their knowledge and performance through interactions and added skills. Continuous learning is achieved through the following processes:
+Regular updates to the knowledge base
+Feedback loops that incorporate user input
+Native ability to adapt to changing organizational requirements and processes
+#
+Enterprise-grade security features
+Genies operate within a secure framework that protects data, enforces governance, and ensures compliance. This framework provides the following capabilities:
+User scoped connections
+: Genies authenticate actions at runtime to support role-based access and full auditing abilities.
+Data isolation and encryption
+: Genies ensure customer data is kept separate and secure.
+Responsible AI operations
+: Genies restrict actions to the skills provided to maintain ethical standards.
+Robust governance and transparency
+: Genies provide detailed logs and operational dashboards for enhanced observability and governance to ensure accountability and precision within your workflows.
+←
+Roles and permissions
+Genies configuration
+→
+Last updated:
+3/27/2025, 2:51:16 PM
+On this page
+Genies key components
+Genies features
+Enterprise-grade security features
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

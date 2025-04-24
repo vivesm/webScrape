@@ -1,0 +1,253 @@
+Workato コネクター - Redshift New row トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Redshift
+#
+Redshift - New row (新規行) トリガー
+#
+New row (新規行)
+このトリガーは、選択したテーブルまたはビューに挿入される行を取得します。各行は別個のジョブとして処理されます。ポーリング間隔ごとに一度、新規行をチェックします。
+New row トリガー
+入力項目
+説明
+Table
+行を処理するテーブル/ビューを選択します。
+Unique key
+行を一意に識別する一意のキー列を選択します。この列のリストは、選択したテーブル/ビューから生成されます。
+WHERE condition
+行をフィルタリングするためのオプションの
+WHERE
+条件を入力します。
+#
+New batch of rows (新規行のバッチ)
+このトリガーは、選択したテーブルまたはビューに挿入される行を取得します。これらの行は、ジョブごとに行のバッチとして処理されます。このバッチサイズは、トリガーの入力で設定できます。ポーリング間隔ごとに一度、新規行をチェックします。
+New batch of rows トリガー
+入力項目
+説明
+Table
+行を処理するテーブル/ビューを選択します。
+Unique key
+行を一意に識別する一意のキー列を選択します。この列のリストは、選択したテーブル/ビューから生成されます。
+Batch size
+このレシピの各ジョブで処理するバッチサイズを設定します。
+WHERE condition
+行をフィルタリングするためのオプションの
+WHERE
+条件を入力します。
+#
+New batch of rows via custom SQL (カスタム SQL を介した新規行のバッチ)
+このトリガーは、カスタム SQL に一致する行が挿入されたときに行を取得します。これらの行は、ジョブごとに行のバッチとして処理されます。このバッチサイズは、トリガーの入力で設定できます。ポーリング間隔ごとに一度、新規行をチェックします。
+New batch of rows via custom SQL トリガー
+入力項目
+説明
+SQL
+新規行を取得するためにポーリング間隔ごとに実行されるカスタム SQL クエリー。
+Unique key
+行を一意に識別する一意のキー列を選択します。この列のリストは、指定したカスタム SQL から生成されます。
+Batch size
+このレシピの各ジョブで処理するバッチサイズを設定します。このサイズは、デフォルトでは100に設定されます。
+#
+入力項目
+#
+Table
+行を処理するテーブル/ビューを選択します。このためには、ピックリストからテーブルを選択するか、または入力項目をテキストモードに切り替えて完全なテーブル名を入力します。
+#
+Unique key
+選択したこの列の値は、選択したテーブル内で行の重複を削除するために使用され、同じレシピ内で同じ行が2回処理されることがないようにします。
+そのため、選択した列内の値はテーブル内で繰り返されません。通常、この列はテーブルのプライマリキー (
+ID
+など) になります。この列は増分列で、並べ替え可能です。また、パフォーマンス向上のためにインデックスを付けることもできます。
+key_column_usage
+が定義された列のみを使用できます。この SQL クエリーを実行して、この要件を満たす列を見つけます。
+SELECT
+kc
+.
+column_name
+FROM
+information_schema
+.
+table_constraints tc
+JOIN
+information_schema
+.
+key_column_usage kc
+ON
+kc
+.
+table_name
+=
+tc
+.
+table_name
+AND
+kc
+.
+table_schema
+=
+tc
+.
+table_schema
+AND
+kc
+.
+constraint_name
+=
+tc
+.
+constraint_name
+WHERE
+tc
+.
+table_schema
+=
+'schema_name'
+AND
+tc
+.
+table_name
+=
+'table_name'
+#
+Batch size
+各ジョブで返される行のバッチサイズ。これには、
+1
+～最大バッチサイズ間の任意の数を指定できます。最大バッチサイズは
+100
+で、デフォルトは
+100
+です。
+指定されたポーリングにおいて、行数が設定されたバッチサイズよりも少ない場合、このトリガーはすべての行をサイズの小さなバッチとして処理します。
+#
+WHERE condition
+この条件は、1つ以上の列の値に基づいて行をフィルタリングするために使用されます。
+status
+=
+'closed'
+and
+priority
+>
+3
+選択したテーブルのすべての行を処理するには、空白のままにしてください。
+サブクエリーを含む複雑な
+WHERE
+条件を使用することもできます。詳細については、
+WHERE 条件
+に関するガイドを参照してください。
+#
+SQL
+行を選択するために実行する SQL を指定します。ここで指定する SQL は、出力データツリーの生成に使用されます。これを生成するために、SQL クエリーは指定時に一度実行されます。データピルをここにマッピングして、動的に変化する SQL 文を実行できます。データピルは必ず一重引用符 (
+''
+) で囲んでください。
+SQL で
+TOP
+のような制限句を使用しないでください。これは、クエリーで返される行数の制限が、
+[Batch size]
+入力項目
+で定義される値に基づいているためです。独自の制限句を追加すると、このアクションは失敗します。
+←
+削除
+新規行/更新行 トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+New row (新規行)
+New batch of rows (新規行のバッチ)
+New batch of rows via custom SQL (カスタム SQL を介した新規行のバッチ)
+入力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,159 @@
+Workato connectors - Confluence | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Confluence
+Confluence
+(opens new window)
+provides a comprehensive collaboration environment designed to enhance team interaction and knowledge exchange. With Confluence, you can create, share, and collaborate on projects all in one place.
+#
+API version
+Confluence's connector uses Confluence's REST-based API for integration. For more information, refer to
+Confluence's API documentation
+(opens new window)
+.
+#
+Connection setup
+To establish a connection with Confluence in Workato, follow these steps:
+1
+Enter a
+Connection name
+to identify your Confluence account within Workato.
+Name your connection
+2
+Select your
+Connection type
+. Choose
+Cloud
+for Confluence cloud instances or the corresponding option for
+on-prem
+connections.
+3
+Determine your
+Auth type
+. Choose from
+OAuth 2.0
+,
+Basic Authentication
+, or
+API Token
+based on your Confluence setup requirements.
+4
+Input your
+Confluence subdomain
+for cloud instances, typically found in the Confluence URL such as
+https://example.atlassian.net
+. For on-premises instances, select an on-prem agent or enter the on-premise Confluence URI.
+5
+Click
+Connect
+to authorize the connection.
+←
+Update room action
+Create page action
+→
+Last updated:
+2/23/2024, 11:25:46 PM
+On this page
+API version
+Connection setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

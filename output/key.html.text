@@ -1,0 +1,188 @@
+On-prem Agent - Key management | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem agent
+#
+On-prem agent key management
+Workato on-prem agent requires two files to connect to Workato cloud through a gateway:
+cert.key
+cert.pem
+When adding a new OPA in Workato Cloud there is an activation code available. Copy it.
+Go to the
+bin
+folder and run the
+activate
+script, passing the activation code as an input parameter. For example:
+activate.cmd -code: "your_sample_code"
+```
+This automatically creates the
+cert.key
+and
+cert.pem
+files. Ensure that your OPA host has access to the Workato on-prem gateway to successfully activate the Workato on-prem agent.
+The certificate remains valid for 3 years after the generation date.
+PRIVATE KEY
+Workato does not have access to your private key file,
+cert.key
+, in the OPA
+conf
+folder. Ensure you protect this file from unauthorized access.
+#
+Renew agent keys
+Certificate support
+Workato does not support regenerating certificates. You must create new certificates to replace old ones.
+Follow these instructions to generate new agent keys and replace expiring ones:
+1
+Create a new on-prem agent in the same on-prem group as the original agent.
+2
+Complete the steps in the
+Setup Now
+wizard for this new on-prem agent.
+3
+Copy the activation code. You don't need to download the new agent installer unless you plan to upgrade the agent.
+4
+Go to the existing on-prem agent installation's
+conf
+folder and move the
+cert.pem
+and
+cert.key
+files to a backup location.
+5
+Go to the
+bin
+folder and run the
+activate
+script, passing the activation code as an input parameter. For example:
+activate.cmd -code: "your_sample_code"
+This automatically creates the
+cert.key
+and
+cert.pem
+files.
+PROXY USAGE
+You must pass additional parameters to the
+activate
+script if you are using a proxy to connect to the Workato on-prem gateway.
+Run the
+activate
+script with the
+-help
+parameter to display the full list of accepted input properties.
+6
+Return to Workato Cloud and complete the setup wizard by clicking
+Test
+.
+7
+Ensure your new agent appears as
+Active
+.
+The existing on-prem agent installation becomes the new agent.
+The old on-prem agent record on the
+On-prem groups
+page is no longer necessary and can be removed.
+←
+Automatic alerts
+Password encryption
+→
+Last updated:
+3/18/2025, 6:04:35 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,196 @@
+Workato connector - Dropbox - New/updated CSV file in directory | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Dropbox
+#
+Dropbox - New/updated CSV file in directory trigger
+Triggers when a new CSV file is added or existing CSV file is updated in a specified folder. New and updated CSV files in subfolders will also be picked up.
+New/Updated CSV file in directory trigger
+#
+Input fields
+Field name
+Description
+When first started, this recipe should pick up events from
+When you start recipe for the first time, it picks up CSV files modified from this specified date and time. Defaults to fetching CSV files created/updated an hour ago if left blank. Once recipe has been run or tested, value cannot be changed. Learn more about this
+input field
+.
+Folder / Folder path
+The folder to monitor for new/updated CSV files. Sub-folders will also be monitored.
+Column delimiter
+The character used to separate column values in your CSV file.
+Batch size
+Number of CSV rows to process per batch. Instead of reading rows one by one, Workato reads a batch of CSV rows at a time to increase throughput.
+Learn more about batch processing
+.
+Obtain a direct URL to file?
+Generate a public URL that lives for 4 hours. This URL can be obtained from the
+URL
+data pill in the trigger output.
+Add column names manually?
+Set column names manually. Otherwise the first row of the latest CSV file in the selected folder will be taken to get column names.
+Column names
+Enter CSV column names, each on a new line. By default, the column names of the latest CSV file in your selected folder will be retrieved.
+#
+Output fields
+Field name
+Description
+Path
+File path.
+Bytes
+File size in bytes.
+Size
+File size in string format.
+Mime type
+The Mime type of this file.
+URL
+File's public URL. Can be used to download file using the
+Workato file connector
+.
+URL expires
+Date/time the file's public URL will expire.
+Rev
+A unique identifier for the current revision of the file.
+Modified
+Date/time the file was last modified.
+Client modified time
+This is the modification time set by the desktop client when the file was added to Dropbox. Since this time is not verified (the Dropbox server stores whatever the desktop client sends up), this should only be used for display purposes (such as sorting) and not, for example, to determine if a file has changed or not.
+Is directory
+Whether this is a directory/folder.
+Read only
+Whether this file is read only.
+Modifier
+The user who modified this file.
+Content hash
+A hash of the file content. This field can be used to verify data integrity. For more information see
+Box's Content hash page
+(opens new window)
+.
+Thumb exists
+Whether thumbnail exists.
+Icon
+String contents of file icon.
+First batch
+Whether this is the first batch of CSV lines.
+Last batch
+Whether this is the first batch of CSV lines.
+Lines
+A
+list data pill
+representing the list of CSV lines. Can be used with
+Repeat step
+to loop through the CSV lines.
+- Line
+The CSV line number.
+- Columns
+Contains the CSV columns' values in this CSV line.
+- List size
+Total number of CSV lines.
+←
+New/updated file trigger
+New lines in CSV file
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

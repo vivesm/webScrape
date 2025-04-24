@@ -1,0 +1,183 @@
+Workato connectors - Xero Create manual journal with line items action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - Create manual journal with line items action
+The
+Create manual journal with line items
+action allows you to create a manual journal with multiple line items in Xero.
+Xero - Create manual journal with line items action
+#
+Input
+Input field
+Description
+Narration
+Enter the description or details of the journal.
+Status
+Specify the status of the journal. Choose
+POSTED
+for journals that are finalized and
+DRAFT
+for journals that are preliminary and may require further editing.
+Date
+Set the date for the journal entry. If left blank, it defaults to the current date.
+Line amount types
+Define the line amount type for tax purposes. If left blank, it defaults to
+No Tax
+.
+Journal lines
+Provide the details for each line in the journal.
+Journal line source list
+Input a list datapill that contains the journal line details.
+Entry
+Details of the individual entry in the journal line.
+Account (entry)
+Specify the account code for the entry.
+Tax type (entry)
+Select the tax type for the entry.
+Line amount (entry)
+Input the financial amount for the entry.
+Description (entry)
+Provide a description for the entry.
+Opposite entry
+Details for the opposing entry in the journal line.
+Account (opposite entry)
+Specify the account code for the opposite entry.
+Tax type (opposite entry)
+Select the tax type for the opposite entry.
+Line amount (opposite entry)
+Input the financial amount for the opposite entry.
+Description (opposite entry)
+Provide a description for the opposite entry.
+#
+Output
+Output field
+Description
+Manual journal ID
+The unique identifier for the manual journal entry in Xero.
+Narration
+The description or details provided for the journal entry.
+Line amount types
+The type of line amounts entered, which indicates how taxes are applied.
+Status
+The status of the manual journal.
+Has attachments
+Indicates whether there are attachments linked to the journal entry.
+Show on cash basis reports
+Indicates if the journal entry appears on cash basis reports.
+Date
+The date the manual journal was recorded.
+Updated date UTC
+The UTC date and time the manual journal was last updated.
+Journal lines
+A collection of individual journal lines that make up the journal entry.
+←
+Create item
+Create overpayment
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

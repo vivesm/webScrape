@@ -1,0 +1,139 @@
+Open API - Delete record action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+OpenAPI
+#
+Open API - Delete record action
+The
+Delete record
+action deletes an action using OpenAPI. The list of objects is dynamically generated based on the API endpoints found in the
+OpenAPI document
+(opens new window)
+.
+Delete record action
+#
+Input
+Input fields
+Description
+OpenAPI document source
+Define how to provide the OpenAPI document to the connector. Workato recommends loading it from a URL. Alternatively, you can copy and paste the contents of the file.
+Server URL
+Provide a URL to the target host or service, for example,
+https://app.example.com
+or
+https://example.com/app
+. Relative endpoint paths from the OpenAPI document are appended to the server URL to construct the full endpoint URL.
+Object
+Select an object from the drop-down list of linked objects.
+#
+Output
+The output fields are determined by the object selected in the input. Map the relevant datapill from the data tree to subsequent steps.
+←
+Custom action
+Execute operation action
+→
+Last updated:
+1/27/2025, 1:45:51 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

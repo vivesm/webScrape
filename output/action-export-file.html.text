@@ -1,0 +1,164 @@
+Workato connectors - Google Drive - Export file action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Drive
+#
+Google Drive - Export file action
+The
+Export file
+action exports a Google file to another MIME type, such as Google Sheets to Excel. You can use the exported file in subsequent recipe steps to upload it into another app. This action supports a maximum file size of
+10MB
+and only exports binary files.
+#
+Input
+Input field
+Description
+File
+Choose the file you plan to export. Select a file or enter its ID. Right-click the file and select
+Share > Copy link
+to find the file ID. For example, if the URL is
+https://drive.google.com/file/d/123nyR2IjW_Rq84d3qEYRoq1/view
+, the file ID is
+123nyR2IjW_Rq84d3qEYRoq1
+.
+Alternatively, you can find the file ID from the output of other Google Drive triggers and actions.
+MIME type
+Select the
+MIME type
+(opens new window)
+that you plan to export the file to. Select a type from the picklist or enter the type directly. Refer to the
+Upload MIME types for Google Workspace documents
+(opens new window)
+guide for a list of supported MIME types.
+MIME TYPE CONVERSION LIMITATIONS
+Google Drive doesn't support all MIME type conversions mentioned in its
+API documentation
+(opens new window)
+. Some common limitations include the following:
+HTML conversions
+: Enter
+text/html
+as a custom value in the
+MIME type
+field instead of selecting
+HTML
+from the picklist.
+Conversions from Google Presentations
+: You can only export Google Slides to PowerPoint Presentation (PPTX) or Open Document Presentation (ODP) formats.
+#
+Output
+Output field
+Description
+File contents
+Contents of the newly exported file. You can use this datapill in downstream actions.
+Size
+The size of the exported file in bytes.
+←
+Download file action
+Get file permission action
+→
+Last updated:
+3/10/2025, 6:11:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,152 @@
+LinkedIn - New lead gen form submitted trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+LinkedIn
+#
+LinkedIn - New lead gen form submitted trigger
+The
+New lead gen form submitted
+trigger allows you to create jobs immediately when someone completes a lead gen form in any of your LinkedIn Campaigns. This trigger sends the information to your CRM, providing your sales team with visibility into new leads.
+LEAD GEN FORM MUST BE ACTIVE
+The lead gen form in your LinkedIn Campaigns must be active to successfully create a subscription and start the recipe. An inactive lead gen form returns a
+404 Not Found Error
+.
+Filter leads by advertising account, campaign, and form
+#
+Input fields
+At a minimum, you must select the advertising account containing the campaigns, which, in turn, contain the lead gen forms from which you plan to retrieve leads.
+Input field
+Description
+Advertising account
+This is the advertising account containing the advertising form to trigger off. If only this field is configured, this recipe considers all advertising form submissions across all campaigns and advertising forms within this advertising account as trigger events. You can only have one recipe listening on the same advertising account.
+Campaign
+Use this to scope advertising form submissions to a specific campaign in your LinkedIn advertising account. If this field is configured, this recipe considers all advertising form submissions on this specific campaign as trigger events. You cannot have more than one advertising form trigger listening on the same campaign.
+Form
+Use this to filter by specific lead gen forms in your advertising account or campaign.
+When first started, this recipe should pick up events from
+This allows you to retrospectively pull leads from LinkedIn. This would be useful for initial loads when starting this recipe. You can pull leads created in the past 90 days. Learn more about this
+input field
+.
+#
+Output fields
+The output of this trigger is a lightweight record that contains the identifiers of this lead gen form submission and its parent creative, campaign, account, and form.
+#
+How to use the trigger
+Overcoming restrictions on the trigger
+As LinkedIn imposes a one recipe rule for each advertising account or campaign, you will be unable to start multiple recipes that trigger off the same advertising account or campaign. To handle multiple automations based off the same advertising account or campaign, use
+Recipe functions
+.
+Getting details of the lead gen form response
+To get the contents of the answers to a specific lead gen form response, use the
+Get lead gen form response
+action.
+←
+Connection setup
+Get lead gen form response by ID
+→
+Last updated:
+10/24/2024, 5:58:08 AM
+On this page
+Input fields
+Output fields
+How to use the trigger
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

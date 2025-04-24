@@ -1,0 +1,315 @@
+Workato connectors - Google Vault | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Google Vault
+Google Vault
+(opens new window)
+is an information governance and eDiscovery tool for Google Workspace. Vault allows you to retain, hold, search, and export Google Workspace data.
+#
+API version
+The Google Vault connector uses the
+Google Vault API v1
+(opens new window)
+#
+Prerequisites
+Before you establish a connection to Google Vault, complete the following steps:
+Create an admin role with Vault privileges
+Assign Vault roles to users
+Configure OAuth 2.0 for authorization
+Delegate domain-wide authority to the service account
+After you complete these prerequisites, proceed to
+connect to Google Vault on Workato
+.
+#
+Create an admin role with Vault privileges
+Complete the following steps to create an admin role with the required Vault privileges:
+1
+Sign in
+(opens new window)
+to the
+Google Admin console
+(opens new window)
+using a super administrator account. You must use a super administrator account to complete these steps.
+2
+Go to
+Menu
+>
+Account
+>
+Admin roles
+in the admin console.
+3
+Click
+Create a new role
+.
+4
+Enter a name and description for the role. For example, name the role based on the privileges it grants.
+5
+Click
+Continue
+.
+6
+Expand the
+Google Vault
+section.
+7
+Select the required privileges for the role. Refer to the Vault
+Privileges reference
+(opens new window)
+for more information.
+8
+Click
+Continue
+.
+9
+Review the privileges you selected, then click
+Create Role
+.
+#
+Assign Vault roles to users
+Complete the following steps to assign Vault roles to users:
+1
+Go to
+Menu
+>
+Directory
+>
+Users
+in the admin console.
+2
+Find the user in the list. Refer to the
+Find a user account
+(opens new window)
+article for more details.
+3
+Click the user’s name to open their account page.
+4
+Scroll to and click
+Admin roles and privileges
+.
+5
+Click
+Turn on
+next to the prebuilt or custom role. If
+Turn on
+doesn’t appear, click under
+Roles
+to reveal the switches.
+6
+Click
+Save
+.
+#
+Configure OAuth 2.0 for authorization
+Complete the following steps to configure OAuth 2.0 for your app:
+1
+Open the Google Cloud console and go to
+Menu > APIs & Services > OAuth consent screen
+.
+2
+Select the user type for your app, then click
+Create
+.
+3
+Click
+Add or Remove Scopes
+. Select the minimum scopes required for your app. For this connector, include the following:
+https://www.googleapis.com/auth/ediscovery
+(opens new window)
+https://www.googleapis.com/auth/ediscovery.readonly
+(opens new window)
+4
+Click
+Save and Continue
+after selecting the required scopes.
+#
+Delegate domain-wide authority to the service account
+SERVICE ACCOUNT AUTHENTICATION
+You can use a service account to authenticate without a personal user account. For consistent use, Workato recommends service account authentication.
+Complete the following steps to delegate domain-wide authority:
+1
+Open the
+Google Admin console
+(opens new window)
+and go to
+Menu > Security > Access and data control > API Controls
+.
+2
+Select
+Manage Domain Wide Delegation
+in the
+Domain wide delegation
+pane.
+3
+Click
+Add new
+.
+4
+Enter the service account’s Client ID in the
+Client ID
+field. You can find your service account's client ID on the
+Service accounts page
+(opens new window)
+.
+5
+Enter the required scopes in the
+OAuth
+scopes field. For this connector, include the following scope:
+https://www.googleapis.com/auth/ediscovery
+.
+6
+Click
+Authorize
+.
+#
+Create a connection to Google Vault on Workato
+Workato supports JWT authentication to connect to Google Vault.
+Complete the following steps to connect Google Vault to Workato:
+1
+Click
+Create
+>
+Connection
+.
+2
+Search for and select
+Google Vault
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Google Vault connection
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your service account email address in the
+Issuer
+field.
+6
+Paste the private key from the downloaded JSON file in the
+Private key
+field.
+7
+Enter the user email address that serves as the primary subject of the JWT in the
+Email address
+field.
+8
+Click
+Sign in with Google
+to complete the connection.
+←
+Search records action
+Add account to hold action
+→
+Last updated:
+4/11/2025, 9:03:48 PM
+On this page
+API version
+Prerequisites
+Create a connection to Google Vault on Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,131 @@
+Workato connectors - NetSuite - New records | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite trigger - New standard object and new custom object trigger
+The new standard object and new custom object triggers are very similar.
+Limited support
+Because of API limitations, Workato does not support
+some types of records
+.
+#
+Configure the trigger
+To use this trigger, first, we must select the standard object or the custom object to monitor. We also must input the datetime in the
+From
+field to pinpoint the exact date from which the recipe should start processing records.
+NetSuite new object trigger - unconfigured. Select the object to monitor for newly created records.
+When the recipe starts for the first time, it picks up all existing instances of the selected object created after the datetime in the
+From
+field. Subsequently, it processes only the new instances.
+Consider the selected sales order and 1 Jan, 2017 midnight trigger:
+NetSuite new object trigger - configured
+On first run, the recipe processes all sales orders from or after 1 Jan, 2017 midnight. Subsequently, if the recipe continues to run, the recipe picks up only new sales.
+Trigger behavior when you stop and restart a recipe
+If you stop the recipe, the recipe processes all new sales orders created during the stoppage interval when restarted.
+←
+Export new and updated records trigger
+New/updated record trigger
+→
+Last updated:
+2/21/2023, 5:58:26 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

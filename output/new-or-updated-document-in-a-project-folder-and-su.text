@@ -1,0 +1,162 @@
+Workato connectors - BIM 360 - New or updated document in a project folder and subfolders trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+BIM 360
+#
+BIM 360 - New or updated document in a project folder and subfolders trigger
+The
+New or updated document in a project folder and subfolders
+trigger monitors a BIM 360 project folder and its sub-folders for newly created or updated documents.
+#
+Input
+Input fields
+Description
+Hub name
+Select the hub that contains the project folder you plan to monitor.
+Project name
+Select the project that contains the project folder you plan to monitor.
+Folder
+Select the project folder you plan to monitor. This trigger also monitors the folder's sub-folders.
+When first started, this recipe should pick up events from
+Set the date and time to start capturing trigger events. This enables your recipe to capture past events. Learn more about this
+input field
+.
+#
+Output
+Output fields
+Description
+Hub ID
+The BIM 360 ID of the hub that contains the document.
+Project ID
+The BIM 360 ID of the project that contains the document.
+Folder ID
+The BIM 360 ID of the folder that contains the document.
+Item ID
+The BIM 360 ID of the document.
+Item type
+The document's type.
+Attributes
+Contains information about the document's attributes, such as their
+Name
+an
+Created at
+date.
+Links
+Contains information about the document's link, such as its
+Href
+.
+Relationships
+Contains information about the document's relationships, such as their
+Thumbnails
+and
+Links
+.
+←
+New or updated document in a project folder trigger
+New or updated issue (V2) in a project trigger
+→
+Last updated:
+2/26/2025, 8:05:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

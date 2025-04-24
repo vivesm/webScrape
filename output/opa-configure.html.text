@@ -1,0 +1,197 @@
+Workatoコネクター - SAP RFC - OPAの設定 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+Workatoオンプレミスエージェント（OPA）の設定
+SAPサーバーでWorkatoオンプレミスエージェント（OPA）を設定するには、以下の手順が必要です：
+Workatoオンプレミスエージェント（OPA）のダウンロード
+SAP JCOライブラリのダウンロード
+OPAでSAPプロファイルを作成
+OPAの実行
+#
+Workatoオンプレミスエージェント（OPA）のダウンロード
+SAPとの連携のために、SAPサーバーまたはSAPサーバーにアクセスできる別の仮想マシンにWorkatoオンプレミスエージェント（OPA）をインストールする必要があります。
+仮想マシンサーバーとSAPサーバーは同じドメイン内にあり、ファイアウォールの外ではなく、お互いにアクセスできる必要があります。仮想マシンサーバーとSAPサーバーが互いに通信できるかどうかをテストするには、各サーバーから他のサーバーにpingを試してください。
+これらの手順
+に従って、Workato OPAをダウンロードしてセットアップしてください。
+#
+SAP JCOライブラリのダウンロード
+SAP JCoライブラリを使用するためのライセンスをまだ持っていない場合は、SAPプロバイダーにライセンスを問い合わせてください。
+SAP JCOライブラリ
+(opens new window)
+にアクセスして、以下のアイテムをダウンロードしてください：
+SAP JCOコネクターライブラリ
+直接接続（
+バージョン3.1.7
+以上）
+メッセージサーバー接続（
+バージョン3.1.7
+以上）
+オペレーティングシステムの互換性
+オペレーティングシステムに適切なバージョンのライブラリを選択してください。
+さらに、オペレーティングシステムがすべての前提条件を満たしていることを確認するために、
+SAPノート2786882 - SAP JCo 3.1リリースとサポート戦略
+(opens new window)
+を参照してください。
+ライブラリをダウンロードしたら、それらをOPAの
+lib_ext/
+ディレクトリに配置してください。
+Windowsユーザー：
+関連するすべてのファイルを
+lib_ext
+フォルダにインポートしてください。合計3つのファイル：
+sapjco3.dll
+、
+sapjco3.jar
+、
+sapidoc3.jar
+を
+lib_ext
+フォルダにインポートする必要があります。すでに
+sap-connector-X.X.X.jar
+という名前のファイルが内部に存在しているはずです。
+Macユーザー：
+関連するすべてのファイルを
+lib_ext
+フォルダにインポートしてください。合計3つのファイル：
+libsapjco3.dylib
+、
+sapjco3.jar
+、
+sapidoc3.jar
+を
+lib_ext
+フォルダにインポートする必要があります。すでに
+sap-connector-X.X.X.jar
+という名前のファイルが内部に存在しているはずです。
+Linuxユーザー：
+関連するすべてのファイルを
+lib_ext
+フォルダにインポートしてください。合計3つのファイル：
+libsapjco3.so
+、
+sapjco3.jar
+、
+sapidoc3.jar
+を
+lib_ext
+フォルダにインポートする必要があります。すでに
+sap-connector-X.X.X.jar
+という名前のファイルが内部に存在しているはずです。
+#
+OPAでSAPプロファイルを作成
+OPAでSAPプロファイルを作成するには、
+これらの手順
+に従ってください。
+#
+OPAの実行
+OPAを実行するには、
+これらの手順
+に従ってください。正常に実行された後、WorkatoでSAPコネクターを設定することができます。
+さらなる参考資料
+SAP RFCへの接続を完了するために、以下のガイドを参照してください：
+Workato SAPコネクターの設定
+。
+オプション：SAPでのIDocの設定/WorkatoへのIDocの設定
+。
+Last updated:
+2024/2/13 16:59:53
+On this page
+Workatoオンプレミスエージェント（OPA）のダウンロード
+SAP JCOライブラリのダウンロード
+OPAでSAPプロファイルを作成
+OPAの実行
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,159 @@
+Twilio connector - Received SMS trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Twilio
+#
+Received SMS trigger
+The Received SMS trigger checks for received SMS (text) messages every five minutes.
+Received SMS trigger
+#
+Input
+Input field
+Description
+Phone number
+The Twilio phone number you plan to monitor for received SMSes.
+#
+Output
+Output field
+Description
+Body
+The body (text) of the SMS received.
+Direction
+The direction (inbound or outbound) of the SMS. Received messages are inbound.
+From
+The phone number from which the SMS was sent.
+Price
+The amount it cost to send the SMS. This value is null if there is no cost per message for the phone plan.
+Error message
+This value is null if the message is sent successfully.
+To
+The phone number to which the SMS was sent.
+Date created
+The date the SMS was created.
+Status
+The status of the SMS (failed, success, or queued).
+SID
+This is the string identifier. This provides a unique key that is used to identify specific resources. Each SID has 34 digits.
+Date sent
+The date the SMS was sent.
+Messaging service SID
+The SID of the messaging service. This value is null if a messaging service wasn't used.
+Error code
+The error code if the message failed.
+Price unit
+The unit used to identify the price to send the message, for example, USD.
+API version
+The Twilio API version used by the sender. For example,
+2010-04-01
+.
+Subresource URIs
+If subresources, such as recordings or notifications, are present, the URIs display in the subresource URIs property. This value is blank if no subresource URIs are present.
+←
+Connection setup
+Get MMS media action
+→
+Last updated:
+12/12/2023, 2:18:13 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

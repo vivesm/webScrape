@@ -1,0 +1,476 @@
+Workato connectors - Box | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Box
+Box
+(opens new window)
+is a cloud content management and file sharing service for businesses. The Box platform enables secure and easy team collaboration on-the-go.
+#
+Use cases
+Integrate the Box connector with your business applications to enhance collaboration and file management. You can automate document sharing, improve approvals workflows, and securely transfer data across platforms. Explore our
+use cases
+to discover how you can optimize your Box workflows:
+Invite DocuSign signees to collaborate in Box
+and notify your team in Slack.
+Load Box CSV data
+to Google BigQuery with Google Cloud Storage.
+#
+API version
+The Box connector uses
+Box Rest API v2
+(opens new window)
+.
+#
+Supported editions and versions
+The Box connector works with all Box plans.
+#
+How to connect to Box on Workato
+The Box connector supports the following authentication methods:
+OAuth 2.0
+Client credentials
+#
+Roles and permissions required to connect
+Your Workato permissions match the permissions you have in Box. This means that you have the same capabilities to view, share, upload, and download files and folders in Workato that you have on the Box platform. Refer to
+Box privileges and permissions
+for more information.
+BOX REFRESH TOKEN
+Box Refresh Tokens enable you to acquire a new Access Token for Box. However, each Box Refresh Token is valid for only one use within a 60-day period. Consequently, if you maintain an active connection to Box but refrain from using any Box actions for 60 days, an error occurs when you try to perform a Box action.
+Refer to the Box documentation to learn how to manage your access using
+Box Refresh Tokens
+(opens new window)
+.
+#
+OAuth 2.0
+Complete the following steps to set up your Box connection using OAuth 2.0 authentication:
+1
+Provide a name that identifies which Box instance Workato is connected to in the
+Connection name
+field.
+Create your connection
+2
+Optional. Expand
+Advanced settings
+to select
+Requested permissions (Oauth scopes)
+options.
+You can select from the following scopes:
+Read files and folders
+Read and write files and folders
+Manage app users
+Manage managed users
+Manage groups
+Manage webhooks
+Manage enterprise properties
+Manage retention policies
+Global content manager
+Admin can make calls on behalf of users
+Manage signature requests
+Manage Box Relay
+3
+Click
+Connect
+. This opens the Box sign in dialog.
+4
+Enter your Box account email address and password.
+Log in to Box
+5
+Click
+Authorize
+.
+6
+Review the requested permissions and click
+Grant access to Box
+.
+Grant access to Box
+#
+Client credentials
+Complete the following steps to set up your Box connection using client credentials authentication:
+1
+Create a custom app.
+1
+Sign in to your Box account.
+2
+Go to
+Dev Console > My Apps
+.
+3
+Click
+Create New App
+.
+4
+Select
+Custom App
+as the app type to create.
+5
+Enter your app name in the
+App Name
+field.
+6
+Enter your app description in the
+Description
+field.
+7
+Use the
+Purpose
+drop-down menu to select
+Automation
+.
+8
+Click
+Next
+.
+9
+Select
+Server Authentication (Client Credentials Grant)
+as your authentication method.
+10
+Click
+Create App
+. This opens the
+Configuration
+tab.
+2
+Get required values.
+1
+Scroll to the
+OAuth 2.0 Credentials
+section and copy the
+Client ID
+. Store this value securely, as it is required to configure your Box connection in Workato.
+2
+Click
+Fetch Client Secret
+. This opens a
+2-Step Verification
+page.
+3
+Enter the 6-digit code from your authenticator app in the
+Authentication Code
+field. This reveals the
+Client Secret
+field.
+4
+Click
+Copy
+to retrieve the client secret. Store this value securely, as it is required to configure your Box connection in Workato.
+5
+Scroll to the
+App Access Level
+section and select
+App + Enterprise Access
+.
+6
+Click
+Save Changes
+.
+7
+Click the
+General Settings
+tab and copy either the
+User ID
+or the
+Enterprise ID
+. Use the
+User ID
+if the authentication subject type is a managed user, or the
+Enterprise ID
+if it is a service account. Store this value securely, as it is required to configure your Box connection in Workato.
+3
+Submit the app for authorization.
+1
+Go to the
+Authorization
+tab and click
+Review and Submit
+.
+2
+Review your app authorization submission and click
+Submit
+.
+3
+Click
+Back to My Account
+.
+4
+Authorize the app.
+1
+Go to
+Admin Console > Apps > Custom App Manager
+.
+2
+Hover over the app you submitted for authorization and click
+… More
+.
+3
+Select
+Authorize App
+.
+4
+Review the information and click
+Authorize
+.
+5
+Sign in to Workato and create a new Box connection.
+6
+Provide a name that identifies which Box instance Workato is connected to in the
+Connection name
+field.
+Connect to Box using client credentials authentication
+7
+Use the
+Location
+drop-down menu to select the project or folder where you plan to store your connection.
+8
+Select
+Client credentials
+from the
+Authentication type
+drop-down menu.
+9
+Enter the client ID from the
+Get required values
+step in the
+Client ID
+field.
+10
+Enter the client secret from the
+Get required values
+step in the
+Client secret
+field.
+11
+Use the
+Subject type
+drop-down menu to select your subject type. Available options include
+Managed user
+and
+Service account
+.
+Managed user
+: Enter the user ID from the
+Get required values
+step in the
+User ID
+field.
+Service account
+: Enter the enterprise ID from the
+Get required values
+step in the
+Enterprise ID
+field.
+12
+Optional. Specify the custom OAuth profile you plan to use for this connection in the
+Custom OAuth profile
+field.
+13
+Click
+Connect
+.
+#
+Working with attachments in Box
+#
+Upload file content
+You can upload plain text file content using this action.
+1
+Enter the text for your file in the
+File Content
+field.
+2
+Select the
+folder
+you plan to upload in Box.
+3
+Enter a
+name
+for the file, including the extension.
+Upload file content
+#
+Upload file from URL
+You can upload a file directly from a URL rather than entering text content. This allows you to upload non-text files such as images.
+1
+Enter the URL for the file you plan to upload in the
+Source URL
+field. Attachment URLs typically end with the file extension for the file (such as .jpg).
+Upload file from URL
+2
+Select the
+Destination folder
+where you plan to upload your file. Note that entering a file name is optional as Workato obtains the name of the file from the URL by default.
+#
+Create and use shared links to Box folder/file
+The
+Create shared link
+action allows you to create a direct link to a file or folder in Box.
+1
+Enter the
+file ID/folder ID
+for the file/folder for which you plan to create a shared link.
+2
+Select an
+access
+level for the shared link (Open, Company, Collaborators, or Default). Refer to
+Shared link permissions
+for more information.
+This sets restrictions on who can view your file/folder using the shared link. If you have a Premium Box subscription, you can also enter a password that link-users must enter before they can access your file/folder.
+Create shared links
+3
+Optional. Use the ID datapill from the trigger step to identify the new file when creating the shared URL link, and post the URL in the following schema to your Slack Workbot.
+Post the URL in Slack Workbot
+#
+Box privileges and permissions
+#
+Box role privileges
+When using Box with Workato, you can only perform the actions that are allowed by the level of access you have in the Box account used to make the connection to Workato. The following table describes the available Box role privileges.
+Levels
+Access
+Uploader
+Can only upload content and see names of items in the folder. Cannot view or download any content.
+Previewer
+Can only preview items in the folder. Cannot upload, edit, delete, or share any content.
+Viewer
+Can preview/download content, make comments, and generate shared links. Cannot add tags, invite new collaborators, edit shared links, or upload/edit/delete items in the folder.
+Previewer uploader
+Can preview content, add comments, add tasks, and upload content to the folder. Cannot add tags, generate shared links, invite new collaborators, or edit/delete items in the folder.
+Viewer uploader
+Can preview content, download content, add comments, generate shared links, and upload content to the folder. Cannot add tags, invite new collaborators, or delete items in the folder. Can still download, edit, and re-upload files under the same name manually or using Box Edit.
+Editor
+Can view, download, upload, edit, delete, copy, move, and rename content. Can also generate/edit shared links, make comments, assign tasks, create tags, and invite/remove collaborators. Cannot delete or move root level folders.
+Co-owner
+Has all permissions of an editor. Can also manage users in the folder: add new collaborators, change access levels of collaborators, remove collaborators.
+Owner
+Full access.
+#
+Shared link permissions
+When creating a shared link for a file or folder in Box, you can choose from four different options for access levels, as shown below.
+Levels
+Access
+Open
+Anyone with the link can access the file or folder. A Box account is not required.
+Company
+Only Box users with a validated email address matching your company's domain can access the file or folder via the shared link.
+Collaborators
+Only Box users invited to the folder or file (collaborators) can access the file or folder via the shared link.
+Default
+This option follows whatever the default setting for your account is. You can view and change this in your Box account settings under Content and Sharing.
+←
+Upload document to a project action
+New file trigger
+→
+Last updated:
+3/6/2025, 12:34:39 AM
+On this page
+Use cases
+API version
+Supported editions and versions
+How to connect to Box on Workato
+Roles and permissions required to connect
+OAuth 2.0
+Client credentials
+Working with attachments in Box
+Upload file content
+Upload file from URL
+Create and use shared links to Box folder/file
+Box privileges and permissions
+Box role privileges
+Shared link permissions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,158 @@
+スラッシュコマンドの設定 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Slack
+Enterprise Workbots
+#
+Enterprise Workbot と従来のスラッシュコマンドの比較
+Workato では、
+Enterprise Workbot の一部であるスラッシュコマンド
+(opens new window)
+(カスタム Slack アプリ) および従来のスラッシュコマンド (
+カスタムインテグレーションのスラッシュコマンド
+(opens new window)
+) の両方をサポートしています。
+カスタムインテグレーションはいずれ廃止される予定の (その時期はまだ不明) レガシー機能であるため、Enterprise Workbot を使用することを強くお勧めします。また従来のスラッシュコマンドでは、Enterprise Workbot で提供されている一部の機能はサポートされていません。
+Enterprise Workbot のスラッシュコマンドを使用するには、
+新しい Slack アプリを作成
+し、カスタム OAuth プロファイルを使用して Workato に接続する必要があります。従来のスラッシュコマンドではこれは不要です。従来のスラッシュコマンドは、Slack のアプリディレクトリから直接 Slack ワークスペースに追加できます。
+以下の表に、Enterprise Workbot のスラッシュコマンドと従来のスラッシュコマンドの詳しい比較を示します。
+機能
+Enterprise Workbot のスラッシュコマンド
+従来のスラッシュコマンド
+ダイアログを表示可能
+はい
+いいえ
+入力が必要なコマンド入力項目に対するダイアログ
+はい
+いいえ
+カスタム Slack アプリが必要
+はい
+いいえ
+Post コマンドの応答での一時メッセージのサポート
+はい
+いいえ
+接続方法
+カスタム OAuth プロファイルを使用した Workbot
+スラッシュコマンドの検証トークン
+アプリアイコンのカスタマイズ
+はい、Slack アプリページから
+はい、
+スラッシュコマンドページ
+から
+コマンド入力項目値の後続のメッセージ/レシピへの引き渡し
+はい
+はい
+チャンネルでの投稿
+はい、ただし招待されたチャンネルのみ
+はい、インストール先の Slack ワークスペース内のいずれのチャンネルにでも投稿可能
+複数のスラッシュコマンド
+はい、各 Workbot レシピは専用のスラッシュコマンドを持つことが可能
+はい、各 Workbot コネクションは複数のスラッシュコマンドの検証トークンを格納することが可能
+#
+Enterprise Workbot のスラッシュコマンドに関する注記
+Workbot は、コマンドを実行するチャンネルに参加させる必要があります。それには、Workbot をこのチャンネルに招待します。
+Workbot をチャンネルに招待すると、そのチャンネル内の
+誰でも
+コマンドを使用して Workbot を操作できるようになります。
+←
+Enterprise Workbots
+Slack Enterprise Grid でのWorkbot
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

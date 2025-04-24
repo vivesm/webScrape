@@ -1,0 +1,127 @@
+Troubleshooting - 400 Bad request error | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+General error codes
+#
+400 Bad request error
+The
+400 Bad request error
+indicates that the server was unable to process an invalid request. This occurs if the request is malformed, contains invalid fields (or columns), or if the request violates any field constraints.
+Example of 400 Bad request error
+#
+Solution
+400 Bad request errors
+covers a wide range of errors that cannot be properly processed by the server. Try the following troubleshooting steps to identify the issue.
+Check that field and column names are formatted properly. Ensure that you follow the naming convention (snake case or camel case) and that the names are case-sensitive.
+Ensure that your record IDs are valid. If your input fields contain IDs of records that do not exist, it will cause the action to fail.
+If you are sending a file, check if the file is too large.
+Refresh the connection to retrieve a fresh connection token.
+Still need help? Contact
+Workato support
+(opens new window)
+.
+←
+Troubleshooting
+401 Unauthorized
+→
+Last updated:
+3/29/2021, 7:59:53 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

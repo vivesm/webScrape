@@ -1,0 +1,266 @@
+Workato connectors - Google Sheets Update row action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Sheets
+#
+Update row action
+This action allows you to update a row in a sheet. It is often used with the
+Search rows action
+.
+#
+Input fields
+Input field
+Description
+Google Drive
+Select either your personal drive or a team drive. Your personal drive is selected by default.
+Spreadsheet
+Select a spreadsheet from the drop-down, or use the
+Spreadsheet ID
+datapill from the output of other Google Sheets triggers and actions.
+Sheet
+Select a sheet from the drop-down, or use the
+Sheet name
+datapill from the output of other Google Sheets triggers and actions.
+Row number
+Indicate the row you plan to update.
+Columns
+After you select a spreadsheet, a sheet, and a row in the sheet, the columns appear in this field. Enter the new values for Workato to update.
+#
+Output fields
+Output field
+Description
+Spreadsheet ID
+ID of the spreadsheet. You can map this into the
+Spreadsheet
+input field of other Google Sheets actions instead of selecting the spreadsheet from the drop-down menu.
+Spreadsheet name
+Name of the spreadsheet.
+Sheet name
+Name of the sheet. You can map this into the
+Sheet
+input field of other Google Sheets actions instead of selecting the sheet from the drop-down menu.
+Updated range
+The range in the sheet that this action has updated.
+Updated columns count
+The number of columns this action has updated.
+Columns
+This contains the values of all updated columns in the selected row.
+#
+How to use this action
+The following example demonstrates how to use the
+Update row
+action with the
+Search rows action
+.
+Our sample sheet is a list of items from different countries. For the Google Sheets connector to work, your sheet must have at least one header row and one data row.
+Sample sheet
+In this example, there is a mistake in cells A3 and A4: these values should be
+Australia and Oceania
+, not
+Asia
+.
+To fix this, our recipe must search for rows where
+Country
+equals
+Australia
+and
+Region
+equals
+Asia
+. Then, it must update the
+Region
+to
+Australia and Oceania
+instead.
+Sample recipe of Google Sheets Search and Update
+Complete the following steps to configure the
+Search rows
+and
+Update row
+actions:
+#
+Configure the Search rows action
+This action searches for rows in the Google Sheet that match the conditions you specify in the
+Columns
+fields.
+1
+Select the
+Search rows
+action and expand the
+Columns
+section.
+2
+Enter
+Asia
+in the
+Region
+field.
+3
+Enter
+Australia
+in the
+Country
+field.
+Configure the Search rows action
+#
+Configure the Repeat action
+For each row in the sheet, this action checks if there are any matches based on the search criteria specified in the
+Search rows
+action.
+1
+Click
++
+Add step
+and select
+Repeat for each
+.
+2
+Map the
+Rows | Step 2
+datapill to the
+Input list
+field.
+Configure the Repeat for each action
+#
+Configure the Update row action
+Complete the following steps to configure the
+Update row
+action:
+1
+Select the
+Update row
+action and map the
+Row number | Step 3
+datapill to the
+Row number
+field.
+Configure the Update row action
+2
+Enter
+Australia and Oceania
+in the
+Region
+field to update cells matching the search criteria.
+3
+Click
+Save
+to save your recipe.
+#
+Test the recipe
+Click
+Test recipe
+to test the recipe.
+After running the recipe, you'll find that cells A3 and A4 are correctly updated to
+Australia and Oceania
+:
+Cells A3 and A4 are correctly updated
+←
+Search rows action
+Update rows in bulk action
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+Input fields
+Output fields
+How to use this action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

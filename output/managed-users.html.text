@@ -1,0 +1,4211 @@
+Embedded API - Managed customers | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded API
+Resources
+#
+Manage customers
+ENDPOINT AVAILABILITY
+The endpoints in this guide are Embedded Vendor APIs and require the
+oem_vendor
+privilege. Contact your Workato representative to enable this privilege in your account.
+The
+Managed Users
+resource provides the ability to programmatically manage customers.
+#
+Quick reference
+DEPRECATED ENDPOINTS
+The following endpoints are deprecated:
+/api/managed_users/:id/upgrade
+/api/managed_users/:id/downgrade
+/api/managed_users/:id/member
+These endpoints will continue to function indefinitely but will no longer receive updates. You can use the fully supported endpoints listed in the following table:
+The Managed Users resource contains the following endpoints:
+Type
+Resource
+Description
+POST
+/api/managed_users
+Create a customer.
+PUT
+/api/managed_users/:id
+Update a customer.
+DELETE
+/api/managed_users/:id
+Delete a customer.
+GET
+/api/managed_users/:id
+Get a customer.
+GET
+/api/managed_users/
+List all customers.
+GET
+/api/managed_users/:id/members
+List members in a customer workspace.
+GET
+/api/managed_users/:id/members/:member_id
+Get a member in a customer workspace.
+POST
+/api/managed_users/:id/members
+Add a member to a customer workspace.
+PUT
+/api/managed_users/:id/members/:member_id
+Update a member in a customer workspace.
+DELETE
+/api/managed_users/:id/members/:member_id
+Remove a member from a customer workspace.
+GET
+/api/managed_users/:id/connections
+List connections in a customer workspace.
+POST
+/api/v2/managed_users/statistics/usage
+Retrieve usage metrics for customer workspaces with enhanced data granularity.
+POST
+/api/v2/managed_users/statistics/connection_usage
+Retrieve connection-based usage metrics for specified customer workspaces.
+GET
+/api/managed_users/usage
+Get task usage of all customers by month.
+POST
+/api/managed_users/:id/environments
+Provision Environments for an existing customer.
+GET
+/api/managed_users/:id/members/:member_id/privileges
+List privileges for a particular member of a customer workspace that you specify.
+PUT
+/api/managed_users/:id/upgrade
+This endpoint is deprecated. Instead, make a PUT request to the
+/api/managed_users/:id
+endpoint and update the customer's
+plan ID
+.
+Deprecated.
+Upgrade a customer.
+PUT
+/api/managed_users/:id/downgrade
+This endpoint is deprecated. Instead, make a PUT request to the
+/api/managed_users/:id
+endpoint and update the customer's
+plan ID
+.
+Deprecated.
+Downgrade a customer.
+POST
+/api/managed_users/:id/member
+This endpoint is deprecated. Instead, make a POST request to the
+/api/managed_users/:id/members
+endpoint.
+Deprecated.
+Add a member to a customer workspace.
+DELETE
+/api/managed_users/:id/member
+This endpoint is deprecated. Instead, make a DELETE request to the
+/api/managed_users/:id/members/:member_id
+endpoint.
+Deprecated.
+Remove a member from a customer workspace.
+#
+Create customer
+Creates a new Embedded customer.
+POST /api/managed_users
+#
+Payload
+Name
+Type
+Description
+name
+string
+required
+The full name of the customer.
+notification_email
+string
+required
+The email address for receiving error and administrative notifications.
+team_name
+string
+optional
+The name of the customer workspace.
+oauth_id
+string
+optional
+The identifier used for OAuth authentication.
+provision_environments
+boolean
+optional
+Determines whether the new Embedded customer is provisioned with the Environments feature. Defaults to
+false
+.
+external_id
+string
+optional
+An external identifier for the Embedded customer.
+origin_url
+string
+optional
+Applies to Embedded account customers. Provide a value if the Embedded iframe is hosted on a non-default origin page, such as customer-specific custom domains. Defaults to the origin configured at the workspace level.
+frame_ancestors
+string
+optional
+A list of comma-separated URLs used as frame ancestors in the Content-Security-Policy HTTP header. This configuration allows the rendering of Workato iframes on the domains you specify.
+plan_id
+string
+optional
+The plan ID. Defaults to the standard plan if not specified.
+time_zone
+string
+optional
+The timezone name. Defaults to PST if not specified. Refer to the
+Timezone list
+for accepted values.
+whitelisted_apps
+array of strings
+optional
+A list of connection
+provider
+s for apps the customer can access. Refer to the
+App access
+section for details.
+full_embedding
+boolean
+optional
+If true, end users are directed to the customer's
+origin_url
+. Set to
+false
+to disable full embedding. Defaults to
+null
+, inheriting the value (
+true
+or
+false
+) from the Embedded partner's admin settings.
+auth_settings
+hash
+optional
+Authentication settings for the customer workspace.
+auth_settings[type]
+string
+conditional
+Specifies the authentication type. Accepted values include
+workato_auth
+,
+two_fa_auth
+, and
+saml_sso
+.
+auth_settings[provider]
+string
+conditional
+The identity provider name.
+Required
+if using
+saml_sso
+as the
+auth_settings[type]
+. Accepted values include
+okta
+,
+onelogin
+, and
+others
+.
+auth_settings[metadata_url]
+string
+conditional
+The URL of the identity provider's metadata XML file for configuration details.
+Required
+if
+auth_settings[sso_url]
+,
+auth_settings[saml_issuer]
+, and
+auth_settings[x509_cert]
+are not provided.
+auth_settings[sso_url]
+string
+conditional
+The single sign-on URL provided by the identity provider for user authentication.
+Required
+if
+auth_settings[metadata_url]
+is not provided.
+auth_settings[saml_issuer]
+string
+conditional
+A unique identifier for the identity provider, often used to identify the issuer of SAML assertions.
+Required
+if
+auth_settings[metadata_url]
+is not provided.
+auth_settings[x509_cert]
+string
+conditional
+The X.509 certificate from the identity provider. This is used to verify SAML assertion signatures.
+Required
+if
+auth_settings[metadata_url]
+is not provided.
+auth_settings[jit_provisioning]
+boolean
+optional
+Choose to enable Just-in-Time (JIT) provisioning, allowing Workato to create user accounts upon first sign-in.
+environments
+array of objects
+optional
+An array of environment objects specifying configurations such as external IDs and error notification emails for each environment.
+environments
+[environment_type]
+string
+optional
+Specifies the environment type for creating customer information. Accepted values include
+dev
+,
+test
+, and
+prod
+, but see the
+warning
+on
+dev
+inclusion.
+environments
+[external_id]
+string
+optional
+External ID for the
+test
+or
+prod
+environments. Use
+external_id
+in the main request body for the
+dev
+environment.
+environments
+[error_notification_emails]
+string
+optional
+Error notification emails for the
+test
+or
+prod
+environments. Use
+notification_email
+in the main request body for the
+dev
+environment.
+400 BAD REQUEST
+Avoid providing
+environments[error_notification_emails]
+and
+environments[external_id]
+for the
+dev
+environment.
+If these values conflict with
+notification_email
+and
+external_id
+specified in the main request body, the API returns a
+400 Bad Request
+error due to conflicting assignments for the same attribute.
+Instead, use
+notification_email
+and
+external_id
+for the
+dev
+environment and reserve
+environments[error_notification_emails]
+and
+environments[external_id]
+for the
+test
+and
+prod
+environments.
+#
+Sample requests
+Request with Workato authentication
+Request with SAML SSO and metadata URL
+Request with SAML SSO and X509 cert
+#
+Request with Workato authentication
+This example request creates a new Embedded customer using Workato authentication.
+curl
+-X
+POST https://www.workato.com/api/managed_users
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Alex Workato",
+"team_name": "Nutech",
+"notification_email": "
+[email protected]
+",
+"provision_environments": true,
+"external_id": "UU0239093497",
+"whitelisted_apps": ["salesforce", "netsuite"],
+"time_zone": "Central Time (US & Canada)",
+"auth_settings": {
+"type": "workato_auth"
+},
+"full_embedding": false,
+"environments": [
+{
+"environment_type": "test",
+"external_id": "UU0239093498",
+"error_notification_emails": "
+[email protected]
+"
+},
+{
+"environment_type": "prod",
+"external_id": "UU0239093499",
+"error_notification_emails": "
+[email protected]
+"
+}
+]
+}'
+Response: Workato authentication
+{
+"id"
+:
+32122
+,
+"external_id"
+:
+"UU0239093497"
+,
+"name"
+:
+"Alex Workato"
+,
+"environments"
+:
+[
+{
+"id"
+:
+32124
+,
+"environment_type"
+:
+"prod"
+,
+"external_id"
+:
+"UU0239093499"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+,
+{
+"id"
+:
+32123
+,
+"environment_type"
+:
+"test"
+,
+"external_id"
+:
+"UU0239093498"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+,
+{
+"id"
+:
+32122
+,
+"environment_type"
+:
+"dev"
+,
+"external_id"
+:
+"UU0239093497"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+false
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"oem_enterprise"
+,
+"origin_url"
+:
+null
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+"netsuite"
+,
+"salesforce"
+]
+,
+"frame_ancestors"
+:
+null
+,
+"created_at"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"updated_at"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"time_zone"
+:
+"Central Time (US & Canada)"
+,
+"team_name"
+:
+"Nutech"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"workato_auth"
+,
+}
+,
+"current_billing_period_start"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"current_billing_period_end"
+:
+"2025-01-11T11:04:37.084-08:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+0
+,
+"active_recipe_count"
+:
+0
+}
+#
+Request with SAML SSO and metadata URL
+This example request creates a new Embedded customer using SAML SSO and the metadata URL. If using this method, the following
+auth_settings
+fields are required:
+type
+provider
+metadata_url
+curl
+-X
+POST https://www.workato.com/api/managed_users
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Alex Workato",
+"team_name": "Nutech",
+"notification_email": "
+[email protected]
+",
+"provision_environments": true,
+"external_id": "UU0239093497",
+"whitelisted_apps": ["salesforce", "netsuite"],
+"time_zone": "Central Time (US & Canada)",
+"auth_settings": {
+"type": "saml_sso",
+"provider": "okta",
+"metadata_url: "https://nutech.okta.com/app/exk29ua5yiqFVszrz0h8/sso/saml/metadata"
+},
+"full_embedding": false,
+"environments": [
+{
+"environment_type": "test",
+"external_id": "UU0239093498",
+"error_notification_emails": "
+[email protected]
+"
+},
+{
+"environment_type": "prod",
+"external_id": "UU0239093499",
+"error_notification_emails": "
+[email protected]
+"
+}
+]
+}'
+Response: SAML SSO and metadata URL
+{
+"id"
+:
+32122
+,
+"external_id"
+:
+"UU0239093497"
+,
+"name"
+:
+"Alex Workato"
+,
+"environments"
+:
+[
+{
+"id"
+:
+32124
+,
+"environment_type"
+:
+"prod"
+,
+"external_id"
+:
+"UU0239093499"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+,
+{
+"id"
+:
+32123
+,
+"environment_type"
+:
+"test"
+,
+"external_id"
+:
+"UU0239093498"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+,
+{
+"id"
+:
+32122
+,
+"environment_type"
+:
+"dev"
+,
+"external_id"
+:
+"UU0239093497"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+false
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"oem_enterprise"
+,
+"origin_url"
+:
+null
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+"netsuite"
+,
+"salesforce"
+]
+,
+"frame_ancestors"
+:
+null
+,
+"created_at"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"updated_at"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"time_zone"
+:
+"Central Time (US & Canada)"
+,
+"team_name"
+:
+"Nutech"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"saml_sso"
+,
+"provider"
+:
+"okta"
+,
+"metadata_url"
+:
+"https://nutech.okta.com/app/exk29ua5yiqFVszrz0h8/sso/saml/metadata"
+}
+,
+"current_billing_period_start"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"current_billing_period_end"
+:
+"2025-01-11T11:04:37.084-08:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+0
+,
+"active_recipe_count"
+:
+0
+}
+#
+Request with SAML SSO and X.509 certificate
+This example request creates a new Embedded customer using SAML SSO and the X.509 certificate. If using this method, the following
+auth_settings
+fields are required:
+type
+provider
+sso_url
+saml_issuer
+x509_cert
+curl
+-X
+POST https://www.workato.com/api/managed_users
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Alex Workato",
+"team_name": "Nutech",
+"notification_email": "
+[email protected]
+",
+"provision_environments": true,
+"external_id": "UU0239093497",
+"whitelisted_apps": ["salesforce", "netsuite"],
+"time_zone": "Central Time (US & Canada)",
+"auth_settings": {
+"type": "saml_sso",
+"provider": "okta",
+"sso_url": "https://nutech.okta.com/app/nutech_1/exk21ojjvq6212R6e5d7/sso/saml",
+"saml_issuer": "http://www.okta.com/exk21ojjvq6212R6e5d7",
+"x509_cert": "-----BEGIN CERTIFICATE-----\nMIID...YOUR_CERT_DATA...IDAQAB\n-----END CERTIFICATE-----"
+},
+"full_embedding": false,
+"environments": [
+{
+"environment_type": "test",
+"external_id": "UU0239093498",
+"error_notification_emails": "
+[email protected]
+"
+},
+{
+"environment_type": "prod",
+"external_id": "UU0239093499",
+"error_notification_emails": "
+[email protected]
+"
+}
+]
+}'
+Response: SAML SSO and X.509 certificate
+{
+"id"
+:
+32122
+,
+"external_id"
+:
+"UU0239093497"
+,
+"name"
+:
+"Alex Workato"
+,
+"environments"
+:
+[
+{
+"id"
+:
+32124
+,
+"environment_type"
+:
+"prod"
+,
+"external_id"
+:
+"UU0239093499"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+,
+{
+"id"
+:
+32123
+,
+"environment_type"
+:
+"test"
+,
+"external_id"
+:
+"UU0239093498"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+,
+{
+"id"
+:
+32122
+,
+"environment_type"
+:
+"dev"
+,
+"external_id"
+:
+"UU0239093497"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+false
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"oem_enterprise"
+,
+"origin_url"
+:
+null
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+"netsuite"
+,
+"salesforce"
+]
+,
+"frame_ancestors"
+:
+null
+,
+"created_at"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"updated_at"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"time_zone"
+:
+"Central Time (US & Canada)"
+,
+"team_name"
+:
+"Nutech"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"saml_sso"
+,
+"provider"
+:
+"okta"
+,
+"sso_url"
+:
+"https://nutech.okta.com/app/nutech_1/exk21ojjvq6212R6e5d7/sso/saml"
+,
+"saml_issuer"
+:
+"http://www.okta.com/exk21ojjvq6212R6e5d7"
+,
+"x509_cert"
+:
+"-----BEGIN CERTIFICATE-----\nMIID...YOUR_CERT_DATA...IDAQAB\n-----END CERTIFICATE-----"
+}
+,
+"current_billing_period_start"
+:
+"2024-12-11T11:04:37.084-08:00"
+,
+"current_billing_period_end"
+:
+"2025-01-11T11:04:37.084-08:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+0
+,
+"active_recipe_count"
+:
+0
+}
+#
+Update customer
+Updates an existing Embedded customer's information. You can use this endpoint to update specific parameters, such as
+external_id
+and
+error_notification_emails
+, in both test and production environments. Include the
+environments
+key in the request payload to specify the environment.
+PUT /api/managed_users/:id
+Additional notes:
+For customers on task-based plans, use this endpoint to update the task limit override and make a one-time adjustment.
+For Embedded partners, use this endpoint to update the custom origin URL for a specific customer.
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+#
+Payload
+PROPERTIES
+Properties update only if the payload includes the property. To clear a property’s value, set it to
+null
+in the payload.
+Name
+Type
+Description
+name
+string
+optional
+Updated name of the customer workspace. Displays in customer profiles, collaborator views, and audit logs.
+team_name
+string
+optional
+Updated name of the team workspace associated with the customer. Appears in workspace settings, customer management views, and the navigation sidebar for switching between workspaces.
+notification_email
+string
+optional
+Email for error and administrative notifications.
+error_notification_emails
+string
+optional
+Emails for error notifications, overriding the value in the
+notification_email
+property. This property applies specifically to the
+dev
+environment and differs from
+environments[error_notification_emails]
+.
+admin_notification_emails
+string
+optional
+Emails for administrative notifications. This property overrides what you input in notification email property.
+external_id
+string
+optional
+External identifier for the Embedded customer. This field applies specifically to the
+dev
+environment and differs from
+environments[external_id]
+.
+origin_url
+string
+optional
+Applies to Embedded customers. Provide a value if the embedded
+iframe
+is hosted on a custom domain or non-default origin page. Defaults to the origin configured at the account level.
+frame_ancestors
+string
+optional
+Provide one or more comma-separated frame ancestors. These URLs are used in the Content-Security-Policy HTTP header to allow rendering of Workato IFrames.
+plan_id
+string
+optional
+The ID of the plan.
+in_trial
+boolean
+optional
+Switches the user between a free plan and a subscription plan.
+task_limit_adjustment
+number
+optional
+Adjusts the task limit for the
+current
+accounting period. Only valid for task-based plans. This adjustment doesn't apply to subsequent periods. Make a negative adjustment by adding
+-
+. For example,
+-5000
+.
+custom_task_limit
+number
+optional
+Overrides the current plan limit. Limit override
+must
+result in a value greater than the current task usage.
+whitelisted_apps
+array
+optional
+A list of connection
+provider
+values specifying the apps the customer can access. Refer to
+Admin Console App access
+for more information.
+time_zone
+string
+optional
+Timezone name. View this
+document
+for a list of timezones. Defaults to PST if not specified.
+auth_settings
+object
+optional
+Authentication settings for the customer. Accepted
+types
+are
+workato_auth
+and
+saml_sso
+. When configuring
+saml_sso
+, accepted
+providers
+include "okta", "onelogin", and "others".
+current_billing_period_start
+string
+optional
+Set the current billing start date. The date should be provided in ISO 8601 format.
+full_embedding
+boolean
+optional
+When set to
+true
+, end users are sent to the customer's
+origin_url
+. Set this field to
+false
+to disable the fully embedded redirect process at the customer workspace level. If you don't specify this value, it defaults to
+null
+and inherits the value (
+true
+or
+false
+) from the Embedded partner's admin settings.
+environments
+array of objects
+optional
+An array of environment objects specifying where to update the customer's information, including the external ID and error notification emails for each environment.
+environments
+[environment_type]
+string
+required
+Specifies the environment type for updating customer information. Accepted values include
+test
+and
+prod
+.
+environments
+[external_id]
+string
+optional
+The updated external ID specific to each environment (
+test
+or
+prod
+). This field differs from the
+external_id
+in the main request body, applying only to the specified environments.
+environments
+[error_notification_emails]
+string
+optional
+Specifies updated error notification emails for each environment (
+test
+or
+prod
+). This field differs from
+error_notification_emails
+in the main request body, applying only to the specified environments.
+#
+Sample request
+curl
+-X
+PUT https://www.workato.com/api/managed_users/3498583
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Nutech",
+"team_name": "Nutech team workspace",
+"notification_email": "
+[email protected]
+",
+"admin_notification_emails": "
+[email protected]
+",
+"error_notification_emails": "
+[email protected]
+",
+"in_trial": false,
+"task_limit_adjustment": 1000,
+"custom_task_limit": 10000,
+"current_billing_period_start": "2024-11-01",
+"environments": [
+{
+"environment_type": "test",
+"external_id": "ext-ec-test-22",
+"error_notification_emails": "
+[email protected]
+"
+},
+{
+"environment_type": "prod",
+"external_id": "ext-ec-prod-15",
+"error_notification_emails": "
+[email protected]
+"
+}
+],
+"external_id": "ext-ect-dev-13",
+"origin_url": "https://abc123.acme.com",
+"frame_ancestors": "https://mysite.test.com",
+"plan_id": "oem_enterprise",
+"time_zone": "Amsterdam",
+"whitelisted_apps": [
+"salesforce",
+"workday"
+],
+"full_embedding": true
+}'
+#
+Response
+{
+"id"
+:
+3498583
+,
+"external_id"
+:
+"ext-ect-dev-13"
+,
+"name"
+:
+"Nutech"
+,
+"environments"
+:
+[
+{
+"id"
+:
+3498585
+,
+"environment_type"
+:
+"prod"
+,
+"external_id"
+:
+"ext-ec-prod-15"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+,
+{
+"id"
+:
+3498584
+,
+"environment_type"
+:
+"test"
+,
+"external_id"
+:
+"ext-ec-test-22"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+,
+{
+"id"
+:
+3498583
+,
+"environment_type"
+:
+"dev"
+,
+"external_id"
+:
+"ext-ect-dev-13"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+,
+[email protected]
+"
+,
+"full_embedding"
+:
+true
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"oem_enterprise"
+,
+"origin_url"
+:
+"https://abc123.acme.com"
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+"salesforce"
+,
+"workday"
+]
+,
+"frame_ancestors"
+:
+"https://mysite.test.com"
+,
+"created_at"
+:
+"2024-10-30T09:56:46.060-07:00"
+,
+"updated_at"
+:
+"2024-11-13T15:27:40.360-08:00"
+,
+"time_zone"
+:
+"Amsterdam"
+,
+"team_name"
+:
+"Nutech team workspace"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"workato_auth"
+}
+,
+"current_billing_period_start"
+:
+"2024-11-01T00:00:00.000-07:00"
+,
+"current_billing_period_end"
+:
+"2024-11-30T23:00:00.000-08:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+3
+,
+"active_recipe_count"
+:
+0
+,
+"current_billing_period_start"
+:
+"2024-11-01"
+}
+#
+Delete customer
+ACCOUNT RECOVERABILITY
+After you delete a customer account, it can't be fully recovered. Use caution when using this endpoint.
+Deletes an Embedded customer.
+DELETE /api/managed_users/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+#
+Sample request
+curl
+-X
+DELETE https://www.workato.com/api/managed_users/28942
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+Response
+{
+"success"
+:
+true
+}
+#
+Get customer
+Retrieve details about an Embedded customer's account.
+GET /api/managed_users/:id
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/managed_users/27819
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Responses
+Without environments
+With environments
+#
+Without environments
+{
+"id"
+:
+27819
+,
+"external_id"
+:
+null
+,
+"name"
+:
+"ACME Automations"
+,
+"environments"
+:
+[
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+null
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"oem_enterprise"
+,
+"origin_url"
+:
+null
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+]
+,
+"frame_ancestors"
+:
+null
+,
+"created_at"
+:
+"2024-10-02T16:16:14.512-07:00"
+,
+"updated_at"
+:
+"2024-10-02T16:16:14.512-07:00"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"team_name"
+:
+"ACME team workspace"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"workato_auth"
+}
+,
+"current_billing_period_start"
+:
+"2024-10-02T16:16:14.689-07:00"
+,
+"current_billing_period_end"
+:
+"2024-11-02T16:16:14.689-07:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+0
+,
+"active_recipe_count"
+:
+0
+}
+#
+With environments
+{
+"id"
+:
+27819
+,
+"external_id"
+:
+null
+,
+"name"
+:
+"ACME Automations"
+,
+"environments"
+:
+[
+{
+"id"
+:
+27821
+,
+"environment_type"
+:
+"prod"
+,
+"external_id"
+:
+null
+}
+,
+{
+"id"
+:
+27820
+,
+"environment_type"
+:
+"test"
+,
+"external_id"
+:
+null
+}
+,
+{
+"id"
+:
+27819
+,
+"environment_type"
+:
+"dev"
+,
+"external_id"
+:
+null
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+null
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"oem_enterprise"
+,
+"origin_url"
+:
+null
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+]
+,
+"frame_ancestors"
+:
+null
+,
+"created_at"
+:
+"2024-10-02T16:16:14.512-07:00"
+,
+"updated_at"
+:
+"2024-10-02T16:16:14.512-07:00"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"team_name"
+:
+"ACME team workspace"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"workato_auth"
+}
+,
+"current_billing_period_start"
+:
+"2024-10-02T16:16:14.689-07:00"
+,
+"current_billing_period_end"
+:
+"2024-11-02T16:16:14.689-07:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+0
+,
+"active_recipe_count"
+:
+0
+}
+#
+Get list of customers
+Get a list of all customers. This endpoint returns the data in the
+customer table of the Admin Console
+.
+GET /api/managed_users/
+#
+URL parameters
+Name
+Type
+Description
+page
+integer
+optional
+Page number. Defaults to 1.
+per_page
+integer
+optional
+Page size. Defaults to 100 (maximum is 100).
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/managed_users/
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Responses
+Without environments
+With environments
+TASK COUNT FOR BILLING PERIOD
+The task count provided by this endpoint represents the number of tasks completed during the customer's billing period.
+#
+Without environments
+{
+"result"
+:
+[
+{
+"id"
+:
+27819
+,
+"external_id"
+:
+null
+,
+"name"
+:
+"ACME Automations"
+,
+"environments"
+:
+[
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+null
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"oem_enterprise"
+,
+"origin_url"
+:
+null
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+]
+,
+"frame_ancestors"
+:
+null
+,
+"created_at"
+:
+"2024-10-02T16:16:14.512-07:00"
+,
+"updated_at"
+:
+"2024-10-02T16:16:14.512-07:00"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"team_name"
+:
+"ACME team workspace"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"workato_auth"
+}
+,
+"current_billing_period_start"
+:
+"2024-10-02T16:16:14.689-07:00"
+,
+"current_billing_period_end"
+:
+"2024-11-02T16:16:14.689-07:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+0
+,
+"active_recipe_count"
+:
+0
+}
+,
+...
+]
+}
+#
+With environments
+{
+"result"
+:
+[
+{
+"id"
+:
+27819
+,
+"external_id"
+:
+null
+,
+"name"
+:
+"ACME Automations"
+,
+"environments"
+:
+[
+{
+"id"
+:
+27821
+,
+"environment_type"
+:
+"prod"
+,
+"external_id"
+:
+null
+}
+,
+{
+"id"
+:
+27820
+,
+"environment_type"
+:
+"test"
+,
+"external_id"
+:
+null
+}
+,
+{
+"id"
+:
+27819
+,
+"environment_type"
+:
+"dev"
+,
+"external_id"
+:
+null
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+null
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"oem_enterprise"
+,
+"origin_url"
+:
+null
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+]
+,
+"frame_ancestors"
+:
+null
+,
+"created_at"
+:
+"2024-10-02T16:16:14.512-07:00"
+,
+"updated_at"
+:
+"2024-10-02T16:16:14.512-07:00"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"team_name"
+:
+"ACME team workspace"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"workato_auth"
+}
+,
+"current_billing_period_start"
+:
+"2024-10-02T16:16:14.689-07:00"
+,
+"current_billing_period_end"
+:
+"2024-11-02T16:16:14.689-07:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+0
+,
+"active_recipe_count"
+:
+0
+}
+...
+]
+}
+#
+Get list of customer workspace members
+Gets a list of team members in a customer workspace. Returns the
+id
+,
+grant_type
+(either team member or customer manager),
+name
+,
+email
+,
+external_id
+,
+role_name
+, and
+time_zone
+of workspace members.
+GET /api/managed_users/:id/members
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/managed_users/124125/members
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+[
+{
+"id"
+:
+1680
+,
+"grant_type"
+:
+"team"
+,
+"role_name"
+:
+"Admin"
+,
+"external_id"
+:
+null
+,
+"name"
+:
+"James Bourne"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+}
+,
+{
+"id"
+:
+2641
+,
+"grant_type"
+:
+"customer_manager"
+,
+"role_name"
+:
+"Admin"
+,
+"external_id"
+:
+null
+,
+"name"
+:
+"Jason Bond"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"time_zone"
+:
+"Eastern Time (US & Canada)"
+}
+]
+#
+Get customer workspace member
+Get information for a specific team member in a customer workspace. Returns the
+id
+,
+grant_type
+(either team member or customer manager),
+name
+,
+email
+,
+external_id
+,
+role_name
+, and
+time_zone
+of the specified member.
+GET /api/managed_users/:id/members/:member_id
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+member_id
+string
+required
+The ID of the member.
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/managed_users/124/members/1680
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"id"
+:
+1680
+,
+"grant_type"
+:
+"team"
+,
+"role_name"
+:
+"Admin"
+,
+"external_id"
+:
+null
+,
+"name"
+:
+"James Bourne"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+}
+#
+Add member to customer workspace
+Add a member to the specified Embedded customer workspace.
+POST /api/managed_users/:id/members
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID. The External ID must be URL encoded and prefixed with an
+E
+(for example,
+EA2300
+).
+#
+Payload
+ADD AN EXISTING USER
+You must provide the
+oauth_id
+and omit the following parameters to add an existing Workato user to an embedded workspace:
+role_name
+external_id
+time_zone
+name
+Name
+Type
+Description
+role_name
+string
+conditional
+The role to assign the member.
+Required
+if
+env_roles
+is not provided.
+name
+string
+conditional
+The full name of the member.
+Required
+when creating a new user to add to an embedded workspace.
+env_roles
+object
+conditional
+The environment roles object.
+Required
+if
+role_name
+is not provided.
+env_roles[environment_type]
+string
+conditional
+The type of environment in the customer workspace where you plan to add the member.
+Required
+if
+role_name
+is not provided.
+env_roles[name]
+string
+conditional
+The role to assign the member for the specific environment.
+Required
+if
+role_name
+is not provided.
+oauth_id
+string
+optional
+The identifier used for OAuth.
+external_id
+string
+optional
+The external identifier for the member.
+time_zone
+string
+optional
+The timezone name. Refer to the
+Timezone list
+section for more information. Defaults to PST if not specified.
+SPECIFY ROLES FOR DIFFERENT ENVIRONMENTS
+You must provide either
+role_name
+or
+env_roles
+in the payload.
+role_name
+only assigns a role in the
+dev
+environment. Use
+env_roles
+to specify the environment type and role for other environments.
+Workato does not support a mixed approach to assigning roles. This means that when you combine the
+env_roles
+and
+role_name
+in the payload, Workato ignores the
+role_name
+and only assigns the roles specified by the
+env_roles
+object.
+#
+Sample requests
+Without environments
+With environments
+#
+Without environments
+curl
+-X
+POST https://www.workato.com/api/managed_users/27819/members
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Jack Smith",
+"role_name": "Admin",
+"external_id": "UU0239093499"
+}'
+Response: Without environments
+{
+"id"
+:
+12341
+,
+"grant_type"
+:
+"team"
+,
+"role_name"
+:
+"Admin"
+,
+"external_id"
+:
+"UU0239093499"
+,
+"name"
+:
+"Jack Smith"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"created_at"
+:
+"2024-09-13T07:26:48.779-07:00"
+,
+"last_activity_log"
+:
+null
+}
+#
+With environments
+curl
+-X
+POST https://www.workato.com/api/managed_users/27819/members
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Jack Smith",
+"env_roles": [
+{
+"environment_type": "dev",
+"name": "Admin"
+},
+{
+"environment_type": "test",
+"name": "Analyst"
+},
+{
+"environment_type": "prod",
+"name": "Operator"
+}
+],
+"external_id": "UU0239093499"
+}'
+Response: With environments
+{
+"id"
+:
+12341
+,
+"grant_type"
+:
+"team"
+,
+"role_name"
+:
+"Admin"
+,
+"external_id"
+:
+"UU0239093499"
+,
+"name"
+:
+"Jack Smith"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"created_at"
+:
+"2024-09-24T08:06:09.883-07:00"
+,
+"last_activity_log"
+:
+null
+,
+"env_roles"
+:
+[
+{
+"environment_type"
+:
+"dev"
+,
+"name"
+:
+"Admin"
+}
+,
+{
+"environment_type"
+:
+"test"
+,
+"name"
+:
+"Analyst"
+}
+,
+{
+"environment_type"
+:
+"prod"
+,
+"name"
+:
+"Operator"
+}
+]
+}
+#
+Update customer workspace member
+Updates a member in an existing Embedded customer workspace.
+UPDATE MEMBER RESTRICTION
+You can update the
+role_name
+field for any member through the API, whether they were added manually or through the API.
+However, specific fields can only be updated programmatically for members who don't have an existing Workato account. This applies to users who don't have their own Workato workspace and only act as collaborators in Embedded customer workspaces.
+This includes the following fields:
+oauth_id
+external_id
+time_zone
+name
+PUT /api/managed_users/:id/members/:member_id
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID. The External ID must be URL encoded and prefixed with an
+E
+(for example,
+EA2300
+).
+member_id
+string
+required
+The ID of the member.
+#
+Payload
+Name
+Type
+Description
+name
+string
+optional
+The updated full name of the member.
+role_name
+string
+optional
+The updated role to assign the member.
+env_roles
+object
+optional
+The environment roles object.
+env_roles[environment_type]
+string
+optional
+The type of environment in the customer workspace where you plan to update the member's roles.
+env_roles[name]
+string
+optional
+The updated role to assign the member for the specific environment.
+oauth_id
+string
+optional
+The updated identifier used for OAuth.
+external_id
+string
+optional
+The updated external identifier for the member.
+time_zone
+string
+optional
+The updated timezone name. Refer to the
+Timezone list
+section for more information. Defaults to PST if not specified.
+#
+Sample requests
+Without environments
+With environments
+#
+Without environments
+curl
+-X
+PUT
+'https://www.workato.com/api/managed_users/27819/members/12341'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"role_name": "Operator"
+}'
+Response: Without environments
+{
+"id"
+:
+12341
+,
+"grant_type"
+:
+"team"
+,
+"role_name"
+:
+"Operator"
+,
+"external_id"
+:
+"UU0239093499"
+,
+"name"
+:
+"Jack Smith"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"created_at"
+:
+"2024-10-07T13:52:11.346-07:00"
+,
+"last_activity_log"
+:
+null
+}
+#
+With environments
+curl
+-X
+PUT
+'https://www.workato.com/api/managed_users/27819/members/12341'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"env_roles": [
+{
+"environment_type": "dev",
+"name": "Operator"
+},
+{
+"environment_type": "test",
+"name": "Operator"
+},
+{
+"environment_type": "prod",
+"name": "Operator"
+}
+]
+}'
+Response: With environments
+{
+"id"
+:
+12341
+,
+"grant_type"
+:
+"team"
+,
+"role_name"
+:
+"Operator"
+,
+"external_id"
+:
+"UU0239093499"
+,
+"name"
+:
+"Jack Smith"
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"created_at"
+:
+"2024-09-24T08:06:09.883-07:00"
+,
+"last_activity_log"
+:
+null
+,
+"env_roles"
+:
+[
+{
+"environment_type"
+:
+"dev"
+,
+"name"
+:
+"Operator"
+}
+,
+{
+"environment_type"
+:
+"test"
+,
+"name"
+:
+"Operator"
+}
+,
+{
+"environment_type"
+:
+"prod"
+,
+"name"
+:
+"Operator"
+}
+]
+}
+#
+Remove member from customer workspace
+Remove a member from an Embedded customer's account.
+Note
+: This endpoint only removes the member from the team - it doesn't delete their Workato account.
+DELETE /api/managed_users/:id/members/:member_id
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID.
+External id should be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+member_id
+string
+required
+The ID of the member.
+#
+Sample request
+curl
+-X
+DELETE
+'https://www.workato.com/api/managed_users/27819/members/12314'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+Response
+{
+"id"
+:
+3485434779
+}
+#
+List customer connections
+Get a list of connections in an Embedded customer's account.
+GET /api/managed_users/:id/connections
+#
+URL parameters
+Name
+Type
+Description
+id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(for example,
+EA2300
+) and the resulting ID should be URL encoded.
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/managed_users/27819/connections
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"result"
+:
+[
+{
+"id"
+:
+6132
+,
+"name"
+:
+"My Box account"
+,
+"provider"
+:
+"box"
+,
+"authorization_status"
+:
+"success"
+,
+"authorized_at"
+:
+"2019-09-10T18:20:08.854-07:00"
+,
+"created_at"
+:
+"2019-09-10T18:19:57.437-07:00"
+,
+"updated_at"
+:
+"2019-09-10T18:20:08.859-07:00"
+}
+,
+{
+"id"
+:
+6131
+,
+"name"
+:
+"My Salesforce account"
+,
+"provider"
+:
+"salesforce"
+,
+"authorization_status"
+:
+"success"
+,
+"authorized_at"
+:
+"2019-09-10T18:19:43.018-07:00"
+,
+"created_at"
+:
+"2019-09-10T18:19:12.902-07:00"
+,
+"updated_at"
+:
+"2019-09-10T18:19:43.021-07:00"
+}
+]
+}
+#
+Get usage (v2)
+Retrieves usage metrics for specified customer workspaces within a defined time frame, including task usage, recipe counts, and counts of successful and failed jobs. This endpoint parses and returns datetime values in the Embedded admin's workspace timezone.
+POST /api/v2/managed_users/statistics/usage
+QUERY USAGE FOR MULTIPLE WORKSPACES IN A SINGLE REQUEST
+We recommend querying usage for all relevant workspaces in a single request to optimize performance.
+JOB COUNTING AND ALLOCATION
+Each unique job run is counted only once. Jobs are never double-counted but may be allocated differently depending on the query timeframe, interval, and the most recent retry.
+#
+Payload
+Name
+Type
+Description
+from
+string
+required
+Start of the time range for retrieving usage metrics, in ISO 8601 format (
+YYYY-MM-DDTHH:mm:ss.SSSZ
+).
+to
+string
+required
+End of the time range for retrieving usage metrics, in ISO 8601 format (
+YYYY-MM-DDTHH:mm:ss.SSSZ
+).
+interval
+string
+optional
+Sets the time interval for aggregating results. Accepted values include
+none
+,
+year
+,
+month
+,
+week
+,
+day
+, and
+hour
+. Default is
+none
+.
+workspace_ids[]
+array of integers
+conditional
+Customer workspace IDs to retrieve usage data for.
+Required
+if
+external_ids[]
+is not provided.
+external_ids[]
+array of strings
+conditional
+Customer external IDs to retrieve usage data for.
+Required
+if
+workspace_ids[]
+is not provided.
+folder_ids[]
+array of integers
+optional
+Filters results to the specified folder IDs, returning tasks and job outcomes within those folders. Do not provide if using
+folder_name_pattern
+.
+folder_name_pattern
+string
+optional
+Filters results by folders matching the specified name pattern (for example,
+[PROD] Folder
+). Case-sensitive. Do not provide if using
+folder_ids[]
+. Wildcards and regular expressions are not supported.
+recipe_ids[]
+array of integers
+optional
+Filters results to the specified recipe IDs, returning tasks and job outcomes related to those recipes. Do not provide if using
+recipe_name_pattern
+.
+recipe_name_pattern
+string
+optional
+Filters results by recipes matching the specified name pattern (for example,
+[TEST] Recipe
+). Case-sensitive. Do not provide if using
+recipe_ids[]
+. Wildcards and regular expressions are not supported.
+adapter_names_all[]
+array of strings
+optional
+Filters results to recipes that use all of the specified connectors (for example,
+["stripe", "workday", "zendesk"]
+). Do not provide if using
+adapter_names_any[]
+.
+adapter_names_any[]
+array of strings
+optional
+Filters results to recipes that use any of the specified connectors (for example,
+["stripe", "workday", "zendesk"]
+). Do not provide if using
+adapter_names_all[]
+.
+running
+boolean
+optional
+Filters results to active (
+true
+) or inactive (
+false
+) recipes. Default is
+nil
+, which includes both active and inactive recipes.
+group_by
+string
+optional
+Specifies how results should be grouped. Accepted values include
+recipe
+and
+workspace
+. Default is
+workspace
+. Can only be set to
+recipe
+when either
+folder_ids[]
+,
+recipe_ids[]
+,
+folder_name_pattern
+, or
+recipe_name_pattern
+are specified.
+INCLUDE USAGE METRICS FOR DELETED RECIPES
+To include metrics for deleted recipes in the response, provide only the following fields in the request body:
+from
+to
+workspace_ids
+or
+external_ids
+interval
+(optional)
+Including any additional fields limits the usage data to non-deleted recipes that match those conditions.
+CASE-SENSITIVE FILTERS
+The
+recipe_name_pattern
+and
+folder_name_pattern
+filters are case-sensitive. These filters return any recipe or folder whose name contains the specified pattern. For example, both
+DeVelopment
+and
+MedveDeV
+would match the pattern
+DeV
+. The filters accept patterns with three or more characters.
+#
+Sample request
+This example request retrieves monthly usage statistics for customer workspaces with IDs
+10
+and
+2
+, from July 1, 2024, to September 26, 2024. The response is grouped by the specified recipes (IDs
+100
+and
+200
+).
+curl
+-X
+POST
+'https://www.workato.com/api/v2/managed_users/statistics/usage'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"group_by": "recipe",
+"interval": "month",
+"workspace_ids": [10, 2],
+"recipe_ids": [100, 200],
+"from": "2024-07-01",
+"to": "2024-09-26"
+}'
+#
+Responses
+200 OK
+{
+"data"
+:
+[
+{
+"recipe_id"
+:
+100
+,
+// Only part of the response when grouped by 'recipe'
+"workspace_id"
+:
+10
+,
+"intervals"
+:
+[
+{
+"start_datetime"
+:
+"2024-07-01T00:00:00.000-07:00"
+,
+"successful_job_count"
+:
+52
+,
+"failed_job_count"
+:
+3
+,
+"task_count"
+:
+110
+}
+,
+{
+"start_datetime"
+:
+"2024-08-01T00:00:00.000-07:00"
+,
+"successful_job_count"
+:
+78
+,
+"failed_job_count"
+:
+6
+,
+"task_count"
+:
+150
+}
+,
+{
+"start_datetime"
+:
+"2024-09-01T00:00:00.000-07:00"
+,
+"successful_job_count"
+:
+64
+,
+"failed_job_count"
+:
+2
+,
+"task_count"
+:
+130
+}
+]
+}
+,
+{
+"recipe_id"
+:
+200
+,
+"workspace_id"
+:
+2
+,
+"intervals"
+:
+[
+{
+"start_datetime"
+:
+"2024-07-01T00:00:00.000-07:00"
+,
+"successful_job_count"
+:
+43
+,
+"failed_job_count"
+:
+5
+,
+"task_count"
+:
+95
+}
+,
+{
+"start_datetime"
+:
+"2024-08-01T00:00:00.000-07:00"
+,
+"successful_job_count"
+:
+61
+,
+"failed_job_count"
+:
+8
+,
+"task_count"
+:
+125
+}
+,
+{
+"start_datetime"
+:
+"2024-09-01T00:00:00.000-07:00"
+,
+"successful_job_count"
+:
+72
+,
+"failed_job_count"
+:
+7
+,
+"task_count"
+:
+140
+}
+]
+}
+]
+,
+"generated_at"
+:
+"2024-09-26T13:48:46.839-07:00"
+}
+400 BAD REQUEST - NO MATCHING WORKSPACES FOUND
+If the workspace IDs or external IDs provided in the request do not belong to the Embedded account's list of customers, or if all non-matching workspace IDs are ignored and the resulting list is empty, the following error is returned:
+{
+"errors"
+:
+[
+{
+"code"
+:
+400
+,
+"title"
+:
+"No workspaces found matching the specified workspace filter conditions."
+}
+]
+}
+400 BAD REQUEST - NO MATCHING RECIPES FOUND
+If the folder IDs or recipe IDs provided in the request do not belong to the specified workspace or folder, or if all invalid folder IDs, recipe IDs, folder name patterns, and recipe name patterns are ignored and the resulting list is empty, the following error is returned:
+{
+"errors"
+:
+[
+{
+"code"
+:
+400
+,
+"title"
+:
+"No recipes found matching the specified filter conditions."
+}
+]
+}
+400 BAD REQUEST - SPECIFIED ADAPTERS NOT FOUND
+The following error is returned when the request includes an adapter in
+adapter_names_any
+or
+adapter_names_all
+that does not exist:
+{
+"errors"
+:
+[
+{
+"code"
+:
+400
+,
+"title"
+:
+"Specified adapters in the filter condition not found."
+}
+]
+}
+#
+Get connection-based usage
+Retrieves connection-based usage metrics for specified customer workspaces. This endpoint provides usage metrics specific to connections, distinct from the task-based metrics available through the
+Get usage (v2)
+endpoint.
+POST /api/v2/managed_users/statistics/connection_usage
+#
+Payload
+Name
+Type
+Description
+workspace_ids[]
+array of integers
+conditional
+Customer workspace IDs used to retrieve connection-based usage data.
+Required
+if
+external_ids[]
+is not provided.
+external_ids[]
+array of strings
+conditional
+Customer external IDs used to retrieve connection-based usage data.
+Required
+if
+workspace_ids[]
+is not provided.
+folder_ids[]
+array of integers
+optional
+Filters results by the specified folder IDs, returning tasks and job outcomes within those folders. Do not provide if using
+folder_name_pattern
+.
+folder_name_pattern
+string
+optional
+Filters results by folders matching the specified name pattern (for example,
+[PROD] Folder
+). Case-sensitive. Do not provide if using
+folder_ids[]
+. Wildcards and regular expressions are not supported.
+adapter_names[]
+array of strings
+optional
+Filters results by the specified connectors.
+include_runtime_connections
+boolean
+optional
+Specifies whether to include runtime connections data in the response. Defaults to
+false
+.
+#
+Sample request
+curl
+-X
+POST
+'https://www.workato.com/api/v2/managed_users/statistics/connection_usage'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"workspace_ids": [4552523],
+"folder_ids": [21256536],
+"adapter_names": ["salesforce", "workday", "stripe"]
+}'
+#
+Response
+{
+"data"
+:
+[
+{
+"active_connections_count"
+:
+3
+,
+"active_connections_data"
+:
+[
+{
+"id"
+:
+15728497
+,
+"name"
+:
+"My Salesforce account"
+,
+"provider"
+:
+"salesforce"
+,
+"authorization_status"
+:
+"success"
+,
+"recipe_count"
+:
+5
+,
+"running_recipe_count"
+:
+2
+,
+"external_id"
+:
+null
+,
+"folder_id"
+:
+21256536
+,
+"parent_account_id"
+:
+null
+}
+,
+{
+"id"
+:
+15816920
+,
+"name"
+:
+"My Workday account"
+,
+"provider"
+:
+"workday"
+,
+"authorization_status"
+:
+"success"
+,
+"recipe_count"
+:
+2
+,
+"running_recipe_count"
+:
+2
+,
+"external_id"
+:
+null
+,
+"folder_id"
+:
+21256536
+,
+"parent_account_id"
+:
+null
+}
+,
+{
+"id"
+:
+15816922
+,
+"name"
+:
+"My Stripe account"
+,
+"provider"
+:
+"stripe"
+,
+"authorization_status"
+:
+"success"
+,
+"recipe_count"
+:
+2
+,
+"running_recipe_count"
+:
+2
+,
+"external_id"
+:
+null
+,
+"folder_id"
+:
+21256536
+,
+"parent_account_id"
+:
+null
+}
+]
+,
+"inactive_connections_count"
+:
+0
+,
+"inactive_connections_data"
+:
+[
+]
+,
+"active_opa_count"
+:
+0
+,
+"workspace_id"
+:
+4552523
+}
+]
+,
+"generated_at"
+:
+"2024-10-23T08:53:05.428-07:00"
+}
+#
+Get monthly usage
+Retrieves monthly usage metrics for all Embedded customers for the last 12 months. This endpoint returns datetime values in the Embedded admin's workspace timezone. Currently, only task data is available through this endpoint.
+GET /api/managed_users/usage
+GET USAGE V2 API
+Use the
+Get usage (v2)
+endpoint to retrieve more granular task information for a specific date range, workspace, project, or recipe.
+TASK COUNT BY CALENDAR MONTH
+The task count by customer returned by this endpoint is the total of all tasks done in the associated
+calendar month
+. You can obtain the total usage across all plans using this endpoint, even if the customer's plan has changed or the billing date/usage has been reset.
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/managed_users/usage
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+Note
+: The following response has been truncated from 12 to three months.
+{
+"result"
+:
+{
+"data"
+:
+[
+{
+"user_id"
+:
+7443
+,
+"intervals"
+:
+[
+{
+"start_datetime"
+:
+"2019-10-01T00:00:00.000-07:00"
+,
+"task_count"
+:
+null
+}
+,
+{
+"start_datetime"
+:
+"2019-11-01T00:00:00.000-07:00"
+,
+"task_count"
+:
+null
+}
+,
+{
+"start_datetime"
+:
+"2020-10-01T00:00:00.000-07:00"
+,
+"task_count"
+:
+0
+}
+]
+}
+]
+,
+"generated_at"
+:
+"2020-10-02T05:41:29.232-07:00"
+}
+}
+#
+Provision Environments
+Provision Environments for an existing customer that you specify.
+POST /api/managed_users/:id/environments
+#
+Payload
+Name
+Type
+Description
+environments
+array
+optional
+A list of environment configurations.
+environment_type
+string
+conditional
+Specifies the type of environment.
+Required
+if
+environments
+is present. Possible values include
+dev
+,
+test
+, and
+prod
+.
+external_id
+string
+optional
+A unique identifier for the environment.
+error_notification_emails
+string
+optional
+Email address to receive error notifications.
+#
+Sample request
+curl
+-X
+POST https://www.workato.com/api/managed_users/:id/environments
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"environments": [
+{
+"environment_type": "dev",
+"external_id": "C1Dev",
+"error_notification_emails": "
+[email protected]
+"
+},
+{
+"environment_type": "test",
+"external_id": "C1Test",
+"error_notification_emails": "
+[email protected]
+"
+},
+{
+"environment_type": "prod",
+"external_id": "C1Prod",
+"error_notification_emails": "
+[email protected]
+"
+}
+]
+}'
+#
+Sample response
+{
+"data"
+:
+{
+"status"
+:
+"created"
+,
+"id"
+:
+29069
+,
+"external_id"
+:
+null
+,
+"name"
+:
+"Barnaby"
+,
+"environments"
+:
+[
+{
+"id"
+:
+29541
+,
+"environment_type"
+:
+"prod"
+}
+,
+{
+"id"
+:
+29540
+,
+"environment_type"
+:
+"test"
+}
+]
+,
+"notification_email"
+:
+"
+[email protected]
+"
+,
+"full_embedding"
+:
+true
+,
+"admin_notification_emails"
+:
+"
+[email protected]
+"
+,
+"error_notification_emails"
+:
+"
+[email protected]
+"
+,
+"plan_id"
+:
+"premium_quarterly"
+,
+"origin_url"
+:
+null
+,
+"trial"
+:
+false
+,
+"in_trial"
+:
+false
+,
+"whitelisted_apps"
+:
+[
+]
+,
+"frame_ancestors"
+:
+null
+,
+"created_at"
+:
+"2023-11-13T23:59:29.420-09:00"
+,
+"updated_at"
+:
+"2024-02-29T06:02:58.078-09:00"
+,
+"time_zone"
+:
+"Pacific Time (US & Canada)"
+,
+"auth_settings"
+:
+{
+"type"
+:
+"workato_auth"
+}
+,
+"current_billing_period_start"
+:
+"2024-03-08T08:19:19.079-09:00"
+,
+"current_billing_period_end"
+:
+"2024-04-08T09:19:19.079-08:00"
+,
+"task_count"
+:
+0
+,
+"active_connection_limit"
+:
+0
+,
+"active_connection_count"
+:
+5
+,
+"active_recipe_count"
+:
+5
+}
+}
+#
+Get list of customer privileges
+List privileges for a particular member of a customer workspace that you specify.
+#
+Sample request
+GET /api/managed_users/:id/members/:member_id/privileges
+#
+Sample response
+List privileges sample response
+{
+"data"
+:
+[
+{
+"environment_type"
+:
+"dev"
+,
+"name"
+:
+"Customer Admin"
+,
+"privileges"
+:
+{
+"Collaborator SAML SSO auth"
+:
+[
+"all"
+]
+,
+"Custom OAuth profiles"
+:
+[
+"read"
+]
+,
+"Connection Folders"
+:
+[
+"all"
+]
+,
+"Projects"
+:
+[
+"read"
+]
+,
+"Folders"
+:
+[
+"read"
+,
+"update"
+]
+,
+"Connections"
+:
+[
+"read"
+,
+"update"
+]
+,
+"Recipes"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+,
+"delete"
+,
+"run"
+,
+"read_run_history"
+]
+}
+,
+"folder_ids"
+:
+[
+40630
+]
+}
+,
+{
+"environment_type"
+:
+"prod"
+,
+"name"
+:
+"Customer Admin"
+,
+"privileges"
+:
+{
+"Collaborator SAML SSO auth"
+:
+[
+"all"
+]
+,
+"Custom OAuth profiles"
+:
+[
+"read"
+]
+,
+"Connection Folders"
+:
+[
+"all"
+]
+,
+"Projects"
+:
+[
+"read"
+]
+,
+"Folders"
+:
+[
+"read"
+,
+"update"
+]
+,
+"Connections"
+:
+[
+"read"
+,
+"update"
+]
+,
+"Recipes"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+,
+"delete"
+,
+"run"
+,
+"read_run_history"
+]
+}
+,
+"folder_ids"
+:
+[
+43469
+]
+}
+,
+{
+"environment_type"
+:
+"test"
+,
+"name"
+:
+"Customer Admin"
+,
+"privileges"
+:
+{
+"Collaborator SAML SSO auth"
+:
+[
+"all"
+]
+,
+"Custom OAuth profiles"
+:
+[
+"read"
+]
+,
+"Connection Folders"
+:
+[
+"all"
+]
+,
+"Projects"
+:
+[
+"read"
+]
+,
+"Folders"
+:
+[
+"read"
+,
+"update"
+]
+,
+"Connections"
+:
+[
+"read"
+,
+"update"
+]
+,
+"Recipes"
+:
+[
+"read"
+,
+"create"
+,
+"update"
+,
+"delete"
+,
+"run"
+,
+"read_run_history"
+]
+}
+,
+"folder_ids"
+:
+[
+43468
+]
+}
+]
+}
+←
+Delete row
+On-prem
+→
+Last updated:
+4/17/2025, 3:18:21 PM
+On this page
+Create customer
+Update customer
+Delete customer
+Get customer
+Get list of customers
+Get list of customer workspace members
+Get customer workspace member
+Add member to customer workspace
+Update customer workspace member
+Remove member from customer workspace
+List customer connections
+Get usage (v2)
+Get connection-based usage
+Get monthly usage
+Provision Environments
+Get list of customer privileges
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

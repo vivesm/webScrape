@@ -1,0 +1,150 @@
+Workato connectors - Bynder - Upload Asset | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Bynder
+#
+Bynder Action - Upload asset
+Upload an asset to Bynder by providing contents of the file. Input asset ID to save the new file to an existing asset, or leave it empty to upload the file as a new asset. When you are using this action, make sure your recipe is running for the upload to complete.
+#
+Input fields
+Field name
+Description
+File name
+Provide the name of the file with extension. For example, image.png
+File contents
+Contents of the file to upload. File contents can be obtained by using Download asset action, or from other actions/trigger.
+File size
+File size can be found in the output of other triggers/actions. You can also enter the value in bytes.
+Brand
+Brand to which you want to upload the asset to.
+Asset ID
+Asset Id to which you want to save the new file. When new files are uploaded to existing asset Id, new versions of the file are created.
+Time limit
+The time limit to how long the query can run in minutes. For example, 30. Default: 30 minutes.
+Name
+Name of the asset.
+Description
+Description of the asset.
+Tags
+Comma-separated list of tags of the asset.
+Categories
+Comma-separated category IDs of the asset.
+Audit
+Choose Yes if the asset should be sent to the waiting room. Otherwise, choose No. Note that in order to be able to chose whether or not the asset will be uploaded to the waiting room you'll need both the MEDIAUPLOAD and MEDIAUPLOADFORAPPROVAL security role.
+#
+Output fields
+Field name
+Description
+Media Id
+Id of media uploaded
+Media Items
+Paths to the media uploaded
+←
+Get record details by Id action
+Download asset action
+→
+Last updated:
+8/30/2021, 9:25:52 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

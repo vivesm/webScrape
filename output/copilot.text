@@ -1,0 +1,373 @@
+Connector Copilot | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+AI機能
+Copilots
+#
+Workato Connector Copilot
+HOW TO GET ACCESS
+CopilotはすべてのWorkatoデータセンターのすべてのユーザーが利用できます。すべてのデータは米国のOpenAIのサーバーに送信されます。私たちの
+AI機能追加契約
+(opens new window)
+に同意することでオプトインできます。アクセスを申請するには、カスタマーサクセス担当者に連絡してください。
+Workato Connector Copilotは、大規模言語モデル（LLM）を使用して、コネクタ構築の体験を向上させ、加速させます。これにより、経験豊富なSDK開発者であっても、コーディングやWebサービスに多少の知識がある新しいSDKユーザーであっても、迅速にコネクタを開発できます。Workato Connector Copilotを使用して、Workato SDKについて学び、認証ロジックを構築し、特定の要件に応じたアクションを構築することができます。
+POWERED BY AI
+CopilotのAIによる提案には、不正確な情報や存在しないパターン（いわゆる「幻覚」）が含まれる場合があります。コネクタで使用する前に、AI生成コードを確認し、検証してください。
+Workato Connector Copilotとのすべての会話は、学習と改善のために保存されます。私たちの
+データ使用
+について詳しく学んでください。
+#
+前提条件
+Copilot
+がワークスペースで有効になっていることを確認してください。Copilotを有効にするには、
+Admin
+システムロールが必要です。このロールが割り当てられていない場合は、ワークスペース管理者に連絡してこの機能を有効にしてください。詳細については、
+Copilots
+ドキュメントを参照してください。
+PERMISSIONS
+Copilotには詳細な権限設定はありません。ワークスペースで有効にすると、役割に関係なく、ワークスペース内のすべてのコラボレーターがアクセスできます。
+#
+Standard Workspaces
+1
+Account settings > Copilot usage
+に移動します。
+2
+Copilotの利用規約が会社のポリシーに準拠していることを確認します。
+3
+Enable Copilot
+をクリックします。
+Enable Copilot
+Enable Copilot
+IMPACT ON WORKSPACE ENVIRONMENTS
+Copilotを有効にすると、ワークスペース内のすべての環境に影響を与えます。アクティベーション前にこの影響を考慮してください。
+#
+AHQ Workspaces
+1
+Workspace admin > Settings > AI features
+をクリックします。
+2
+Copilotの利用規約が会社のポリシーに準拠していることを確認します。
+3
+Enable Copilot
+をクリックします。
+Enable Copilot
+IMPACT ON AHQ WORKSPACE
+親AHQワークスペースでCopilotを有効にすると、関連するすべての子ワークスペースで自動的にアクセスが許可されます。その後、各ワークスペースで独立してCopilotの使用を有効または無効にすることができます。デフォルトでは無効です。
+Copilotを有効にすると、ワークスペース内のすべての環境（親ワークスペースで有効にした場合は関連するワークスペースも含む）に影響を与えます。アクティベーション前にこの影響を考慮してください。
+#
+Connector Copilotの使用方法
+次の手順を使用する前に、ワークスペースでConnector Copilotが有効になっていることを確認してください。
+1
+Tools > Connector SDK
+をクリックします。
+2
+新しいカスタムコネクタを作成するか、既存のカスタムコネクタを選択します。
+新しいコネクタを作成する場合
+、APIに関する基本情報を提供するか、Connector Copilotと直接対話してステップバイステップでコネクタを構築できます。
+既存のコネクタを変更する場合
+、
+認証ロジックを作成
+したり、必要に応じて
+新しいアクションを生成
+したりできます。
+Connector Copilotは、
+Test code
+タブおよび
+Recent tests
+タブの隣に専用のタブとして表示されます。
+Copilot chat
+#
+コネクタ開発の加速
+Connector Copilotを使用すると、コネクタを迅速かつ効率的に構築できます。ビジネス目標やコネクタのニーズを説明すると、Connector Copilotが生産までの時間を短縮するのに役立ちます。
+Connector Copilot interface
+Connector Copilotチャットに初めて入ると、コネクタ、API、およびWorkato SDKドキュメントに関する質問をいつでも、どの順序でも行うことができます。Connector Copilotの機能について質問すると、その
+現在の機能
+のリストが提供されます。
+Connector Copilot capabilities
+SUPPORTED APIS
+WorkatoはConnector CopilotがサポートするAPIの数を継続的に拡大しています。追加のAPIをリクエストするには、サポートチームに連絡してください。
+#
+Copilotの機能
+Connector Copilotは次のタスクを支援します：
+Create connection blocks
+様々な認証方法を使用して、例えば
+OAuth 2.0
+,
+basic authentication
+, および
+API Key
+。
+様々なAPIエンドポイントに対して異なるHTTPメソッドを使用して
+Create actions
+。
+コネクションおよびアクションを構築するために必要な情報を収集するために
+Search for relevant API documentation
+。
+コネクタの構築方法を理解するためにWorkato SDKドキュメントから
+Access examples and references
+。
+SDKコードが
+Workato SDK whitelisted Ruby methods
+に準拠していることを確認します。
+#
+認証ロジックの作成
+Connector Copilotは、様々なAPIの認証ロジックの作成を支援します。特定の認証オプションについてAPIドキュメントをConnector Copilotと共有するか、フリーフォームチャットで進めることができます。以下のセクションでは、コネクタの認証を設定するためのガイダンスを提供します。
+#
+APIドキュメントの提供
+Connector Copilotは、ウェブをブラウズして関連するAPIドキュメントを検索します。必要な情報が見つからない場合は、APIドキュメントを直接提供できます。URLを提供するか、ドキュメントをコピーして貼り付けます。URLは10,000文字に制限されています。この制限を超える場合は、コピーして貼り付けを使用してください。
+GET BETTER RESULTS WITH COPY AND PASTE
+コピーして貼り付けを使用する場合、Connector Copilotが認証を生成するために最も関連性の高いドキュメントの部分を指定してください。例えば、OAuth 2.0接続の場合、APIの全フローに関するガイドをコピーして貼り付けると、より良い結果が得られます。
+提供されたドキュメントに基づいて、Connector CopilotはAPIに適した認証方法を提案します。適切なオプションが見つからない場合は、
+独自の認証方法を提供
+することができます。
+#
+カスタム認証の構築
+または、Connector Copilotの支援を受けてステップバイステップで認証を構築することもできます。Connector Copilotは、認証の種類、エンドポイント、および必要な特定のパラメータなどの詳細を求め、1つずつ構築するのを支援します。
+#
+すべての認証タイプに共通のガイダンス
+認証を設定する際には、Connector Copilotに包括的な情報を提供することが重要です。これには、認証タイプ、外部システムのベースURI、および接続を検証するためのテストエンドポイントの指定が含まれます。これらの共通点により、Connector Copilotは必要なコードを正確に構築できます。
+#
+一般的な認証タイプ
+Connector Copilotが正確で効果的な認証ロジックを生成できるように、可能な限り関連するコンテキストを提供してください。特定の認証タイプに必要な詳細は次のとおりです：
+#
+OAuth 2.0 Authorization Code Grant
+OAuth 2.0 Authorization Code Grantは通常、Webサーバーアプリケーションで使用されます。このフローでは、ユーザーを認証サーバーにリダイレクトして認証コードを取得し、その後、アクセス トークンと交換します。この方法のために、Connector Copilotに次の詳細を提供してください：
+Authorization URL
+ユーザーが認証するためにリダイレクトされるエンドポイント。
+Token URL
+認証コードをアクセス トークンと交換するために使用されるエンドポイント。
+アクセス トークンを取得するためのロジック
+認証後にアクセス トークンを取得する方法のロジックを提供します。
+アクセス トークンをリフレッシュするためのロジック
+アクセス トークンが期限切れになったときにリフレッシュする方法のロジックを提供します。
+#
+OAuth 2.0 Client Credentials Grant
+OAuth 2.0 Client Credentials Grantは、ユーザーの介入がないサーバー間通信に使用されます。このフローでは、クライアント資格情報を使用して直接アクセス トークンを取得します。この方法のために、Connector Copilotに次の詳細を提供してください：
+Token URL
+クライアント資格情報を使用してアクセス トークンを取得するために使用されるエンドポイント。
+アクセス トークンを取得するためのロジック
+クライアント資格情報を使用してアクセス トークンを取得する方法のロジックを提供します。
+#
+Basic authentication
+Basic authenticationは、各APIリクエストにユーザー名とパスワードを送信します。これらの資格情報は通常、base64でエンコードされます。APIリクエストに基本認証資格情報を含めるためのロジックをConnector Copilotに提供し、エンコードプロセスおよび必要なHTTPヘッダー形式をカバーします。
+#
+API key authentication
+API key authenticationは、APIリクエストにAPIキーを送信します。これはリクエストヘッダーまたはクエリパラメータとして送信されます。APIリクエストにAPIキーを含めるためのロジックをConnector Copilotに提供し、キーがヘッダーまたはクエリパラメータに含まれるかどうか、およびAPIが期待する正確な形式を詳細に説明します。
+#
+追加の認証タイプ
+Connector Copilotは他の認証タイプにも対応しています。これらの方法を使用する場合、特定のエンドポイント、パラメータ、および効果的に認証するために必要なロジックなど、可能な限り関連するコンテキストを提供してください。詳細で正確な情報を提供することで、Connector Copilotがコードを正確かつ効果的に構築できるようになります。
+#
+接続のレビューと調整
+Connector Copilotが接続ブロックコードを生成した後、次の手順を完了して接続をレビュー、調整、およびテストします：
+1
+生成されたコードをレビューし、必要な調整を行います。Connector Copilotは提供された詳細を使用して接続ブロックコードを生成します。
+2
+Connector Copilotが生成したコードをコネクタコードインターフェースにコピーして貼り付けます。既存の
+connection: { }
+を置き換えることを忘れないでください。
+3
+Test code
+タブに切り替えて、生成された接続をテストします。接続を認証するために関連する資格情報を提供する必要があります。
+Test your connection
+4
+Recent tests
+タブで認証ロジックをレビューします。認証およびプロセス中に行われたAPIコールの入力と出力もレビューできます。
+#
+アクションの生成
+アクションの作成には、特定のAPIエンドポイントと対話する方法を定義することが含まれます。接続を作成した後、Connector Copilotはアクションを作成する予定があるかどうかを尋ねる場合があります。あるいは、アクションを作成する予定であることをプロンプトに入力することもできます。
+#
+APIドキュメントの提供 {: {: #search-for-relevant-api-documentation :} :}
+Connector Copilotは、ウェブをブラウズして関連するAPIドキュメントを検索します。必要な情報が見つからない場合は、APIドキュメントを直接提供できます。URLを提供するか、ドキュメントをコピーして貼り付けます。URLは10,000文字に制限されています。この制限を超える場合は、コピーして貼り付けを使用してください。
+GET BETTER RESULTS WITH COPY AND PASTE
+APIドキュメントをコピーして貼り付ける場合、Connector Copilotがアクションを生成するために最も関連性の高い部分を指定してください。例えば、
+Create Invoice
+アクションの場合、動詞、エンドポイント、入力および出力パラメータを含むドキュメントをコピーして貼り付けると、より良い結果が得られます。
+提供されたドキュメントに基づいて、Connector CopilotはAPIに適したアクションコンポーネントを提案します。適切なオプションが見つからない場合は、Connector Copilotの支援を受けて
+アクションコンポーネントを定義
+することができます。
+#
+アクションコンポーネントの定義
+Connector Copilotは、アクションのコンポーネントを定義するのを支援します。Connector Copilotはこの情報を自動的に収集しますが、次の詳細を提供することで精度を向上させることができます：
+アクション名
+一意の識別子で、通常は
+verb_object
+形式です。例えば、
+create_contact
+。
+アクションタイトル
+動詞-オブジェクト形式のアクションのタイトル。例えば、
+Create contact
+。
+アクションの説明
+アクションの詳細な説明。
+HTTPメソッド
+APIリクエストに使用するHTTPメソッド。例えば、GET、POST、PUT、PATCH、DELETE、HEADなど。
+実行URI
+呼び出すAPIエンドポイント。パスパラメータは中括弧で示します。例えば：
+/v1/contacts/{id}
+。
+APIコンテンツタイプ
+APIエンドポイントが期待するコンテンツタイプ。例えば、JSON、XML、URL_FORM_ENCODED、MULTIPARTなど。
+リクエストヘッダー
+オプション。認証およびコンテンツタイプに関連するものを除く、必要なリクエストヘッダー。
+リクエストパスパラメータ
+オプション。APIエンドポイントが要求するパス、クエリ、またはボディパラメータ。
+#
+アクションのレビューと調整
+Connector Copilotがアクションコードを生成した後、次の手順を完了してアクションをレビュー、調整、およびテストします：
+1
+生成されたコードをレビューし、必要な調整を行います。Connector Copilotは提供された詳細を使用してアクションコードを生成します。
+2
+Connector Copilotが生成したコードをコネクタコードインターフェースにコピーして貼り付けます。既存の
+actions: { }
+を置き換えることを忘れないでください。
+3
+Test code
+タブに切り替えて、生成されたアクションをテストします。アクションを実行するために関連する入力パラメータを提供する必要があります。
+Test your action
+4
+Recent tests
+タブでアクションロジックをレビューします。アクションの実行中に行われたAPIコールの入力と出力もレビューできます。
+#
+APIドキュメントの検索
+Connector Copilotは、APIドキュメントを検索して、コネクタの構築に必要な情報を収集するのに役立ちます。APIドキュメントのURLを提供するか、ドキュメントをコピーして貼り付けることで、Connector Copilotが必要な情報を取得できます。
+#
+APIドキュメントの提供
+APIドキュメントを提供する際には、次の点に注意してください：
+URLの提供
+：APIドキュメントのURLを提供することで、Connector Copilotが自動的に情報を取得します。
+コピーして貼り付け
+：APIドキュメントをコピーしてConnector Copilotに貼り付けることで、より具体的な情報を提供できます。URLの制限を超える場合や、特定のセクションを強調したい場合に有効です。
+#
+Workato SDKドキュメントからの例と参照のアクセス
+Connector Copilotは、Workato SDKドキュメントからの例や参照を提供することで、コネクタの構築を支援します。特定の機能やメソッドについて質問すると、関連するドキュメントや例を提供します。
+#
+SDKコードの準拠
+Connector Copilotは、生成されたSDKコードがWorkato SDKのホワイトリストに含まれるRubyメソッドに準拠していることを確認します。これにより、コネクタが正しく動作することを保証します。
+#
+まとめ
+Workato Connector Copilotは、コネクタの構築プロセスを迅速かつ効率的にするための強力なツールです。大規模言語モデル（LLM）を活用して、認証ロジックの作成、アクションの生成、APIドキュメントの検索、SDKドキュメントからの参照の提供など、さまざまなタスクを支援します。Copilotを使用することで、コーディングやWebサービスに多少の知識がある新しいSDKユーザーでも、迅速にコネクタを開発できます。
+Connector Copilotを最大限に活用するために、提供された情報を正確かつ詳細にすることが重要です。これにより、Copilotが正確で効果的なコードを生成し、コネクタの構築プロセスをスムーズに進めることができます。
+←
+Mapper Copilot
+AI by Workato
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+前提条件
+Standard Workspaces
+AHQ Workspaces
+Connector Copilotの使用方法
+コネクタ開発の加速
+Copilotの機能
+認証ロジックの作成
+APIドキュメントの提供
+カスタム認証の構築
+すべての認証タイプに共通のガイダンス
+一般的な認証タイプ
+追加の認証タイプ
+接続のレビューと調整
+アクションの生成
+APIドキュメントの提供
+アクションコンポーネントの定義
+アクションのレビューと調整
+APIドキュメントの検索
+APIドキュメントの提供
+Workato SDKドキュメントからの例と参照のアクセス
+SDKコードの準拠
+まとめ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

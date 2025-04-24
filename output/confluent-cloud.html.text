@@ -1,0 +1,270 @@
+Workato connectors - Confluent Cloud | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Confluent Cloud
+Confluent Cloud
+(opens new window)
+is a fully managed event streaming platform based on Apache Kafka. It offers a cloud-native, scalable, and highly available Kafka platform, simplifying the deployment, management, and operation of Kafka clusters.
+The Confluent Cloud connector allows you to build real-time data pipelines and streaming applications. It integrates with the
+Confluent Cloud Schema Registry
+(opens new window)
+, which provides schema management for Kafka and ensures data standardization and compatibility as schemas evolve.
+#
+API version
+The Confluent Cloud connector uses the Confluent Cloud API.
+#
+How to connect to Confluent Cloud
+Workato supports connecting to Confluent Cloud using
+SASL/PLAIN authentication
+.
+#
+SASL/PLAIN authentication
+Complete the following steps to establish a connection to Confluent Cloud:
+1
+Sign in to your Workato account and navigate to the project where you plan to add your Confluent Cloud connection.
+2
+Click
+Create > Connection
+. Select
+Confluent Cloud
+as your connection.
+3
+Enter the following information in the provided fields:
+Configure your connection
+Connection name
+Give this connection a unique name that identifies to which Confluent Cloud instance it is connected.
+Seed brokers
+Provide a comma-separated list of seed brokers in the form of
+host:port
+.
+Username
+Provide the username for SASL/PLAIN authentication. Refer to our guide on
+generating SASL/PLAIN credentials
+to learn more.
+Password
+Provide the password for SASL/PLAIN authentication. Refer to our guide on
+generating SASL/PLAIN credentials
+to learn more.
+Stream Governance
+Click
+Show
+to expand hidden fields. This portion of the configuration is required if you plan to use the Confluent Cloud Schema Registry as a source for your message schemas. Refer to our guide on
+generating Stream Governance credentials
+to learn more.
+Stream Governance API URL
+Provide the URL of your Stream Governance API (Schema Registry and Stream Catalog API).
+Stream Governance username
+Provide the username for your schema registry. This value is the Stream Governance API key name in Confluent Cloud.
+Stream Governance password
+Provide the password for your schema registry. This is the Stream Governance API key secret in Confluent Cloud.
+4
+Click
+Connect
+.
+#
+Generate SASL/PLAIN credentials
+Complete the following steps to generate SASL/PLAIN credentials:
+1
+Sign in to your
+Confluent Cloud
+(opens new window)
+account.
+2
+On the left panel, select
+Environments
+and click the specific Kafka Cluster to open its overview page.
+Select a cluster
+3
+From the left panel, select
+Cluster settings
+.
+4
+Locate the
+Bootstrap servers
+entry. This provides you with a list of host and port combinations necessary for configuring your Kafka clients. It typically looks like a list of URLs, for example,
+pkd-lzurc.us-west1.gcp.confluent.cloud:9091
+, where each entry consists of a host and a port. This is your
+Seed brokers
+value.
+Find the Bootstrap servers/Seed brokers entry
+5
+Select
+API Keys
+from the left side navigation bar.
+Select API keys from the left panel
+6
+Click
++ Add key
+to create a new API key.
+7
+Copy the
+API key
+and
+API secret
+. These values are used as the
+Username
+and
+Password
+respectively in the Workato connection settings.
+#
+Generate Stream Governance credentials
+SCHEMA REGISTRY REQUIREMENTS
+Workato requires Stream Governance credentials for use cases that involve using your Confluent Cloud Schema Registry as a source for your message schemas. The following steps are optional if you plan to use a
+common data model
+as your schema source.
+Complete the following steps to generate Stream Governance credentials:
+1
+Sign in to your
+Confluent Cloud
+(opens new window)
+account.
+2
+Select
+Environments
+from the left navigation bar and click the
+Environment
+you plan to use.
+Open Environments
+3
+Find the
+Stream Governance API
+, located on the right panel. Copy the
+Endpoint
+value. This is the
+Stream Governance API URL
+in the Workato connection settings.
+Copy the Endpoint value
+4
+In the
+Stream Governance API
+section, under
+Credentials
+click
+{N} keys
+.
+Click {N} keys
+5
+Click
++ Add key
+to create a new Stream Governance API key.
+6
+Copy the
+API key
+and
+API secret
+. These values are used as the
+Stream Governance username
+and
+Stream Governance password
+respectively in the Workato connection settings.
+←
+Search pages action
+New message trigger
+→
+Last updated:
+9/17/2024, 7:39:13 PM
+On this page
+API version
+How to connect to Confluent Cloud
+SASL/PLAIN authentication
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

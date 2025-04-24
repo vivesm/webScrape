@@ -1,0 +1,2022 @@
+List and Hash Formulas | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Modify recipe data
+Formulas
+#
+List and Hash formulas
+In addition to the basic data types (for example, string and integer), you may encounter more complex data structures that contain information about multiple items or multiple pieces of information about a single item.
+You may encounter these data structures:
+Lists
+(also known as arrays)
+Hashes
+List of hashes
+Formulas in Workato are added to allowlists for Ruby methods. Only allowlisted Ruby methods are supported. To request the addition of new formulas to the allowlist,
+submit a support ticket
+(opens new window)
+.
+#
+Lists (arrays)
+Arrays are ordered, integer-indexed collections of any object. List indexing starts at 0. Lists and arrays refer to the same data structure.
+In the example below, a list of integers is expressed as:
+number_list
+=
+[
+100
+,
+101
+,
+102
+,
+103
+,
+104
+]
+As lists are ordered, we can use the following formula to get the values. Workato only supports retrieving up to the fifth item using this syntax.
+Formula
+Result
+number_list.first
+100
+number_list.second
+101
+number_list.third
+102
+number_list.fourth
+103
+number_list.fifth
+104
+number_list.last
+104
+We can also use indexes to get corresponding values. Remember, indexes start at 0:
+Formula
+Result
+number_list[0]
+100
+number_list[1]
+101
+number_list[2]
+102
+number_list[3]
+103
+Lists in Ruby supports negative indexes.
+Formula
+Result
+number_list[-1]
+104
+number_list[-2]
+103
+number_list[-3]
+102
+number_list[-4]
+101
+Lists also support ranges as indexes. This returns another list, instead of returning only a value.
+Formula
+Result
+number_list[0..2]
+[100, 101, 102]
+number_list[-3..-1]
+[102, 103, 104]
+number_list[0..-2]
+[100, 101, 102, 103]
+#
+Hashes
+A hash is a dictionary-like collection of unique keys and their values. They are similar to Lists, but where a List uses integers as its index, a Hash allows you to use any object type. Hashes enumerate their values in the order that the corresponding keys were inserted.
+Let's take the example of a hash with 2 values, with
+'Acme widgets'
+and
+10
+as the values of item_name and item_quantity respectively.
+line_item
+=
+{
+'item_name'
+=>
+'Acme widgets'
+,
+'item_qty'
+=>
+10
+}
+Formula
+Result
+line_item["item_name"]
+"Acme widgets"
+line_item["item_qty"]
+10
+#
+Lists of hashes
+Here is an example of an invoice which has multiple line items. It is represented as a list of hashes.
+line_items
+=
+[
+{
+'item_no'
+:
+1
+,
+'item_name'
+=>
+'Acme widgets'
+,
+'item_qty'
+=>
+10
+}
+,
+{
+'item_no'
+:
+2
+,
+'item_name'
+=>
+'RR bearings'
+,
+'item_qty'
+=>
+99
+}
+,
+{
+'item_no'
+:
+3
+,
+'item_name'
+=>
+'Coyote tyres'
+,
+'item_qty'
+=>
+7
+}
+]
+#
+Example list of hashes
+The following is an example of a list of hashes called
+Contacts
+.
+This is the Contacts list in a table form:
+name
+email
+state
+company
+company_rev
+Joe
+[email protected]
+CA
+ABC
+1000
+Jill
+[email protected]
+MA
+NBC
+1000
+Joan
+[email protected]
+MA
+NBC
+10000
+Jack
+[email protected]
+CA
+HBO
+30000
+This is the Contacts list in a list of hashes form.
+[
+{
+'name'
+=>
+'Joe'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'ABC'
+,
+'company_rev'
+=>
+1000
+,
+'description'
+=>
+{
+'summary'
+=>
+'First time buyer'
+,
+'estimated_value'
+=>
+300
+}
+}
+,
+{
+'name'
+=>
+'Jill'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'MA'
+,
+'company'
+=>
+'NBC'
+,
+'company_rev'
+=>
+1000
+,
+'description'
+=>
+{
+'summary'
+=>
+'Referral'
+,
+'estimated_value'
+=>
+500
+}
+}
+,
+{
+'name'
+=>
+'Joan'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'MA'
+,
+'company'
+=>
+'NBC'
+,
+'company_rev'
+=>
+10000
+,
+'description'
+=>
+{
+'summary'
+=>
+'Recurring customer'
+,
+'estimated_value'
+=>
+900
+}
+}
+,
+{
+'name'
+=>
+'Jack'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'HBO'
+,
+'company_rev'
+=>
+30000
+,
+'description'
+=>
+{
+'summary'
+=>
+'Recurring customer'
+,
+'estimated_value'
+=>
+1000
+}
+}
+]
+#
+List formulas
+#
+first
+This formula returns the first item in a list.
+It can also be used to return the first
+n
+items in a list. In this case, the output will be formatted as a list.
+#
+Syntax
+List
+.first(
+number
+)
+List
+- An input list.
+number
+- (optional) The number of items to retrieve from the list. If not specified, the formula will return only
+one
+item.
+#
+Sample usage
+Formula
+Result
+["One","Two","Three","Four","Five"]
+.first()
+"One"
+["One","Two","Three","Four","Five"]
+.first(2)
+["One","Two"]
+[1,2,3,4,5]
+.first()
+1
+[1,2,3,4,5]
+.first(3)
+[1,2,3]
+#
+How it works
+This formula returns the first
+n
+items from a list. If
+n
+is greater than one, the output is formatted as a list.
+Output datatype
+If you are returning a single item (i.e. no arguments provided). The output will be formatted according to the item's datatype.
+If you are returning more than
+one
+item. The output will be formatted as a list datatype.
+#
+See also
+last
+: Returns the last
+n
+items in a list.
+where
+: Returns a subset of list items that meet a certain condition.
+#
+last
+This formula returns the last item in a list.
+It can also be used to return the last
+n
+items in a list. In this case, the output will be formatted as a list.
+#
+Syntax
+List
+.last(
+number
+)
+List
+- An input list.
+number
+- (optional) The number of items to retrieve from the list. If not specified, the formula will return only
+one
+item.
+#
+Sample usage
+Formula
+Result
+["One","Two","Three","Four","Five"]
+.last()
+"Five"
+["One","Two","Three","Four","Five"]
+.last(2)
+["Four","Five"]
+[1,2,3,4,5]
+.last()
+5
+[1,2,3,4,5]
+.last(3)
+[3,4,5]
+#
+How it works
+This formula returns the last
+n
+items from a list. If
+n
+is greater than one, the output is formatted as a list.
+Output datatype
+If you are returning a single item (i.e. no arguments provided). The output will be formatted according to the item's datatype.
+If you are returning more than
+one
+item. The output will be formatted as a list datatype.
+#
+See also
+first
+: Returns the first
+n
+items in a list.
+where
+: Returns a subset of list items that meet a certain condition.
+#
+index
+Returns the index of the first item matching the given value. Returns
+nil
+if no matching items are found.
+#
+Syntax
+Input
+.index(
+value
+)
+Input
+- An input list.
+value
+- The value to search for in the list.
+#
+Sample usage
+Formula
+Result
+[4, 5, 6, 7].index(6)
+2
+[4, 5, 6, 7].index(8)
+nil
+#
+count
+Returns the number of items in a list.
+#
+Syntax
+List
+.count
+List
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+["Hello", "World", "Cat", "Dog"]
+.count
+4
+["Hello", "World", ["Sub-array", "Here"]]
+.count
+3
+["Hello", "World", nil, ["Sub-array", "Here"]]
+.count
+4
+#
+where
+Retrieves only the rows (hashes) which satisfy the specified WHERE condition. This formula accepts a single argument in the form of a hash with one or more key-value pairs.
+The default operand for the condition is
+equal to
+(
+==
+). This formula also supports the following operands. Operands should be added to the end of key separated by a space.
+Name
+Notation
+Example
+Equal to (default)
+==
+leads.where('state': 'CA')
+More than
+>
+leads.where('company_revenue >': 10000)
+More than or equal to
+>=
+leads.where('company_revenue >=': 10000)
+Less than
+<
+leads.where('company_revenue <': 10000)
+Less than or equal to
+<=
+leads.where('company_revenue <=': 10000)
+Not equal to
+!=
+leads.where('state !=': 'CA')
+Use datapills as the conditional argument
+Instead of using a static value (for example,
+'CA'
+), you can use a datapill as the conditional argument. The value of the datapill will be processed at run-time.
+contacts.where(state:
+datapill
+)
+#
+Sample usage
+Example of a single where condition
+contacts.where('state': 'CA')
+returns the following rows:
+name
+email
+state
+company
+company_rev
+Joe
+[email protected]
+CA
+ABC
+1000
+Jack
+[email protected]
+CA
+HBO
+30000
+These rows will be expressed as a list of hashes:
+[
+{
+'name'
+=>
+'Joe'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'ABC'
+,
+'company_rev'
+=>
+1000
+}
+,
+{
+'name'
+=>
+'Jack'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'HBO'
+,
+'company_rev'
+=>
+30000
+}
+]
+Example of compound where formula
+A compound WHERE formula will retrieve only the rows that matches all the conditions.
+contacts.where('state': 'CA', 'company_revenue >=': 10000)
+Returns the following rows:
+name
+email
+state
+company
+company_rev
+Jack
+[email protected]
+CA
+HBO
+30000
+These rows will be expressed as a list of hashes:
+[
+{
+'name'
+=>
+'Jack'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'HBO'
+,
+'company_rev'
+=>
+30000
+}
+]
+Warning - MULTIPLE CONDITIONS IN A SINGLE KEY
+Only the last condition is considered when you apply multiple conditions to the same key in a compound WHERE formula. This overrides previous conditions, and can lead to unexpected outcomes.
+The following example shows that applying multiple conditions for
+state
+, returns only rows that contain the second
+MA
+key:
+contacts.where('state': 'CA', 'state': 'MA')
+returns only rows with states that are
+MA
+:
+name
+email
+state
+company
+company_rev
+Jill
+[email protected]
+MA
+NBC
+1000
+Joan
+[email protected]
+MA
+NBC
+10000
+These rows will be returned as a list of hashes.
+[
+{
+'name'
+=>
+'Jill'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'MA'
+,
+'company'
+=>
+'NBC'
+,
+'company_rev'
+=>
+1000
+}
+,
+{
+'name'
+=>
+'Joan'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'MA'
+,
+'company'
+=>
+'NBC'
+,
+'company_rev'
+=>
+10000
+}
+]
+Example of multiple matches
+You can filter out records based on a particular field against more than 1 value. This is done by passing an array value in the WHERE condition.
+contacts.where('company': ['ABC','HBO'])
+This WHERE condition will return rows where the company is either
+ABC
+or
+HBO
+:
+name
+email
+state
+company
+company_rev
+Joe
+[email protected]
+CA
+ABC
+1000
+Jack
+[email protected]
+CA
+HBO
+30000
+These rows will be returned as a list of hashes.
+[
+{
+'name'
+=>
+'Joe'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'ABC'
+,
+'company_rev'
+=>
+1000
+}
+,
+{
+'name'
+=>
+'Jack'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'HBO'
+,
+'company_rev'
+=>
+30000
+}
+]
+Example where condition with pattern matching
+You can also filter out records using regex. This is done by passing a regex instead of a string.
+contacts.where('name': /^Jo/)
+This WHERE condition will return rows where the name starts with
+Jo
+:
+name
+email
+state
+company
+company_rev
+Joe
+[email protected]
+CA
+ABC
+1000
+Joan
+[email protected]
+MA
+NBC
+10000
+These rows will be expressed as a list of hashes:
+[
+{
+'name'
+=>
+'Joe'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'ABC'
+,
+'company_rev'
+=>
+1000
+}
+,
+{
+'name'
+=>
+'Joan'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'MA'
+,
+'company'
+=>
+'NBC'
+,
+'company_rev'
+=>
+10000
+}
+]
+Example where condition with pattern matching (using datapills)
+You may use data pills within a regex pattern to dynamically change the string that you are matching. However, using variables in a regex pattern requires escaping within the regex expression.
+For example:
+contacts.where(state: /#{
+datapill
+}/)
+The image below shows the method used to obtain all the 'Emails' in lookup table where the value in the 'State' column contains the string in the datapill from Salesforce,
+State | Step 2
+.
+Using datapills in regex expressions
+Note:
+All regex metacharacters will need to be escaped if they should not be interpreted as metacharacters.
+Example of chaining where conditions
+If a series of WHERE conditions are chained, the formula evaluates each where condition in series.
+contacts.where('state': 'CA').where('company_revenue >=': 10000)
+returns the following rows, which is the same as the compound where formula:
+name
+email
+state
+company
+company_rev
+Jack
+[email protected]
+CA
+HBO
+30000
+In this case, however, the chaining will result in an intermediary array:
+contacts.where('state': 'CA')
+first returns:
+name
+email
+state
+company
+company_rev
+Joe
+[email protected]
+CA
+ABC
+1000
+Jack
+[email protected]
+CA
+HBO
+30000
+And
+.where('company_revenue >=': 10000)
+filters this intermediary array further to return only:
+name
+email
+state
+company
+company_rev
+Jack
+[email protected]
+CA
+HBO
+30000
+Results will be expressed as a list of hashes:
+[
+{
+'name'
+=>
+'Jack'
+,
+'email'
+=>
+'
+[email protected]
+'
+,
+'state'
+=>
+'CA'
+,
+'company'
+=>
+'HBO'
+,
+'company_rev'
+=>
+'30000'
+}
+]
+Example of chaining not operator
+You can use the WHERE formula to find the difference between two arrays by chaining a not operator. This is useful if you have two lists, an original list and an updated list, and plan to compare the two to ensure the updated list contains all values from the original list.
+For example:
+contacts.where.not("id":updated_contacts.pluck('id'))
+identifies any values that are present in the original list (
+contacts
+) and missing from the updated list (
+updated_contacts
+).
+#
+except
+Returns a hash that includes everything except given keys.
+hash
+=
+{
+a
+:
+true
+,
+b
+:
+false
+,
+c
+:
+nil
+}
+hash
+.
+except
+(
+:c
+)
+# => { a: true, b: false }
+hash
+.
+except
+(
+:a
+,
+:b
+)
+# => { c: nil }
+hash
+# => { a: true, b: false, c: nil }
+#
+pluck
+Retrieves only the columns which have been specified.
+#
+Sample usage
+Example of a single column output
+contacts.pluck("email")
+returns
+email
+[email protected]
+[email protected]
+[email protected]
+[email protected]
+If a single column, results will be returned as an array:
+[
+"
+[email protected]
+"
+,
+"
+[email protected]
+"
+,
+"
+[email protected]
+"
+,
+"
+[email protected]
+"
+]
+Example of a multiple column dataset
+contacts.where("state ==": "CA").pluck("email", "company")
+returns
+email
+company
+[email protected]
+ABC
+[email protected]
+NBC
+[email protected]
+NBC
+[email protected]
+HBO
+Results are returned as a list of a list:
+[
+[
+"
+[email protected]
+"
+,
+"ABC"
+]
+,
+[
+"
+[email protected]
+"
+,
+"NBC"
+]
+,
+[
+"
+[email protected]
+"
+,
+"NBC"
+]
+,
+[
+"
+[email protected]
+"
+,
+"HBO"
+]
+]
+Example of retrieving nested fields
+This method can be used to extract nested fields. Use the
+[<1st-level field>,<2nd-level field>...]
+format to define which fields to retrieve.
+contacts.pluck("email", ["description", "summary"])
+returns
+email
+summary
+[email protected]
+First time buyer
+[email protected]
+Referral
+[email protected]
+Recurring customer
+[email protected]
+Recurring customer
+Results are returned as a list of lists:
+[
+[
+"
+[email protected]
+"
+,
+"First time buyer"
+]
+,
+[
+"
+[email protected]
+"
+,
+"Referral"
+]
+,
+[
+"
+[email protected]
+"
+,
+"Recurring customer"
+]
+,
+[
+"
+[email protected]
+"
+,
+"Recurring customer"
+]
+]
+#
+format_map
+Create an array of strings by formatting each row of given array of hashes. Allows you to add static text to the created strings as well. Fields to be represented in the format %{
+<field_name>
+}.
+#
+Sample usage
+contacts.format_map('Name: %{name}, Email: %{email}, Company: %{company}')
+returns
+[
+'Name: Joe, Email:
+[email protected]
+, Company: ABC'
+,
+'Name: Jill, Email:
+[email protected]
+, Company: NBC'
+,
+'Name: Joan, Email:
+[email protected]
+, Company: NBC'
+,
+'Name: Jack, Email:
+[email protected]
+, Company: HBO'
+,
+]
+The preceding example will give you a list of strings, one string for each row of the list
+"contacts"
+, using data from 3 of the fields: name, email, and company, as stated.
+#
+join
+Combines all items in a list into a text string. A separator is placed between each item.
+#
+Syntax
+List
+.join(
+separator
+)
+List
+- An input of list datatype.
+separator
+- The character to add between items when they are joined. If no separator is specified, the list items will be joined together.
+#
+Sample usage
+Formula
+Result
+["Ms", "Jean", "Marie"]
+.join("-")
+"Ms-Jean-Marie"
+[1,2,3]
+.join("--")
+"1--2--3"
+["ab", "cd", "ef"]
+.join
+"abcdef"
+#
+How it works
+The list items are combined into a single text string. The separator characters is added between each item.
+Separator character
+You can use a string of characters together as the separator argument (for example,
+", "
+).
+["Open","Pending","Closed"]
+.join(", ") returns
+"Open, Pending, Closed"
+.
+#
+See also
+split
+: Divides a string around a specified character and returns an array of strings.
+#
+smart_join
+Joins list elements into a string. Removes empty and nil values and trims any white space before joining.
+#
+Syntax
+List
+.smart_join(
+separator
+)
+List
+- An input of list datatype.
+separator
+- The character to add between items when they are joined. If no separator is specified, a blank space will be used as the joining character.
+#
+Sample usage
+Formula
+Result
+[nil, "", "Hello", " ", "World"]
+.smart_join(" ")
+"Hello World"
+["111 Vinewood Drive", "", "San Francisco", "CA", "95050"]
+.smart_join(",")
+"111 Vinewood Drive, San Francisco, CA, 95050"
+#
+concat
+Concatenates 2 lists into a single list. Nested lists will NOT be flattened.
+#
+Syntax
+List
+.concat(
+list_to_be_joined
+)
+List
+- An input of list datatype.
+list_to_be_joined
+- The other list to be concatenated with the original list input.
+#
+Sample usage
+Formula
+Result
+["Hello", "World"]
+.concat(
+["Workato", "Rocks"]
+)
+["Hello", "World", "Workato", "Rocks"]
+["Hello", "World", ["Sub-array", "Here"]]
+.concat(
+["Workato", "Rocks"]
+)
+["Hello", "World", ["Sub-array", "Here"], "Workato", "Rocks"]
+["Hello", "World", nil, ["Sub-array", "Here"]]
+.concat(
+["Workato", "Rocks"]
+)
+["Hello", "World", nil, ["Sub-array", "Here"], "Workato", "Rocks"]
+#
+reverse
+Reverses the order of a list.
+#
+Syntax
+List
+.reverse
+List
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+["Joe", "Jill", "Joan", "Jack"]
+.reverse
+["Jack", "Joan", "Jill", "Joe"]
+[100, 101, 102, 103]
+.reverse
+[103, 102, 101, 100]
+#
+sum
+For integers and decimals, the numbers will be added together and the total sum obtained. For strings, the strings will be concatenated together to form a longer string.
+#
+Syntax
+List
+.sum
+List
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+[1, 2, 3]
+.sum
+6
+[1.5, 2.5, 3]
+.sum
+7.0
+["abc", "xyz"]
+.sum
+"abcxyz"
+#
+uniq
+Returns a list containing unique items.
+#
+Syntax
+List
+.uniq
+List
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+["joe", "jack", "jill", "joe", "jack"]
+.uniq
+["joe","jack", "jill"]
+[1, 2, 3, 1, 1, 3]
+.uniq
+[1, 2, 3]
+[1.0, 1.5, 1.0]
+.uniq
+[1.0, 1.5]
+#
+flatten
+Flattens a multi-dimensional array (i.e. array of arrays) to a single dimension array.
+#
+Syntax
+List
+.flatten
+List
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+[[1, 2, 3], [4, 5, 6]]
+.flatten
+[1, 2, 3, 4, 5, 6]
+[[1, [2, 3], 3], [4, 5, 6]]
+.flatten
+[1, 2, 3, 3, 4, 5, 6]
+[[1, [2, 3], 9], [9, 8, 7]]
+.flatten
+[1, 2, 3, 9, 9, 8, 7]
+#
+length
+Returns the number of elements in self. Returns 0 if the list is empty.
+#
+Syntax
+List
+.length
+List
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+[ 1, 2, 3, 4, 5 ]
+.length
+5
+[{..}, {..}, {..}]
+.length
+3
+[" ", nil, "", nil]
+.length
+4
+[]
+.length
+0
+#
+max
+Returns largest value in an array. When comparing numbers, the largest number is returned. When comparing strings, the string with the largest ASCII value is returned.
+#
+Syntax
+List
+.max
+List
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+[-5, 0, 1, 2, 3, 4, 5]
+.max
+5
+[-1.5, 1.5, 2, 3, 3.5]
+.max
+3.5
+["cat", "dog", "rat"]
+.max
+"rat"
+#
+min
+Returns smallest value in an array. When comparing numbers, the smallest number is returned. When comparing strings, the string with the smallest ASCII value is returned.
+#
+Syntax
+List
+.min
+List
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+[-5, 0, 1, 2, 3, 4, 5]
+.min
+-5
+[-1.5, 1.5, 2, 3, 3.5]
+.min
+-1.5
+["cat", "dog", "rat"]
+.min
+"cat"
+#
+compact
+Removes nil values from array and hash.
+#
+Sample usage
+Formula
+Result
+["foo", nil, "bar"]
+.compact
+["foo", "bar"]
+{ foo: 1, bar: nil, baz: 2 }
+.compact
+{ foo: 1, baz: 2 }
+#
+Conditionals
+#
+blank?
+This formula checks the input string and returns true if it is an empty string or if it is null.
+#
+Syntax
+Input
+.blank?
+Input
+- An input datapill. It can be a string, number, date, or datetime datatype.
+#
+Sample usage
+Formula
+Result
+"Any Value"
+.blank?
+false
+123
+.blank?
+false
+0
+.blank?
+false
+""
+.blank?
+true
+#
+How it works
+If the input is null or an empty string, the formula will return true. For any other data, it returns false.
+#
+See also
+presence
+: Returns the data if it exists, returns nil if it does not.
+present?
+: Returns true if there is a valid input.
+#
+include?
+Checks if the string contains a specific substring, or if a list contains an element. Returns true if it does.
+#
+Syntax
+Input
+.include?(
+substring
+)
+Input
+- A string or list input.
+substring_or_element
+- The substring or element to check for.
+#
+Sample usage
+Formula
+Result
+"Partner account"
+.include?("Partner")
+true
+"Partner account"
+.include?("partner")
+false
+["Hello", "World", ["Sub-array","Here"]"]
+.include?("Hello")
+true
+["Hello", "World", ["Sub-array","Here"]"]
+.include?(
+["Sub-array","Here"]
+)
+true
+#
+How it works
+This formula check is the string contains a specific substring, or if a list contains a specific element. Returns true if it does, otherwise, returns false. The substring comparison is case sensitive, and the element comparison is exact match.
+This function acts in an opposite manner from
+exclude?
+. The latter will return true only if the input string/list does NOT contain the stated keyword/element.
+#
+See also
+exclude?
+: Checks if the string contains a specific substring, or if a list contains an element. Returns false if it does.
+#
+exclude?
+Checks if the string contains a specific substring, or if a list contains an element. Returns false if it does.
+#
+Syntax
+Input
+.exclude?(
+substring
+)
+Input
+- A string or list input.
+substring_or_element
+- The substring or element to check for.
+#
+Sample usage
+Formula
+Result
+"Partner account"
+.exclude?("Partner")
+false
+"Partner account"
+.exclude?("partner")
+true
+["Hello", "World", ["Sub-array","Here"]"]
+.include?("Hello")
+false
+["Hello", "World", ["Sub-array","Here"]"]
+.include?(
+["Sub-array","Here"]
+)
+false
+#
+How it works
+This formula check is the string contains a specific substring, or if a list contains a specific element. Returns false if it does, otherwise, returns true. The substring comparison is case sensitive, and the element comparison is exact match.
+This function acts in an opposite manner from
+include?
+. The latter will return true only if the input string/list contains the stated keyword/element.
+#
+See also
+include?
+: Checks if the string contains a specific substring, or if a list contains an element. Returns true if it does.
+#
+present?
+This formula will check the input and if there is a value present, it will return true. If the input is nil, boolean false, an empty string, or an empty list, the formula will return false.
+#
+Syntax
+Input
+.present?
+Input
+- An input datapill. It can be a string, number, date, or list datatype.
+#
+Sample usage
+Formula
+Result
+"Any Value"
+.present?
+true
+123
+.present?
+true
+0
+.present?
+true
+"2017-04-02T12:30:00.000000-07:00"
+.present?
+true
+nil
+.present?
+false
+""
+.present?
+false
+[]
+.present?
+false
+#
+How it works
+If the input is null, an empty string or an empty list, the formula will return false. For any other data, it returns true.
+Evaluating a list with nil values
+Only an empty list will return false.
+[]
+.present? returns false.
+A list with nil and empty string will return true.
+[nil,""]
+.present? returns true.
+#
+See also
+presence
+: Returns the data if it exists, returns nil if it does not.
+blank?
+: Returns nil if the data does not exist or if the string consist of only white spaces.
+#
+presence
+Returns the data if it exists, returns nil if it does not.
+#
+Syntax
+Input
+.presence
+Input
+- An input datapill. It can be a string, number, date, or datetime datatype.
+#
+Sample usage
+Formula
+Result
+nil
+.presence
+nil
+""
+.presence
+nil
+"Any Value"
+.presence
+"Any Value"
+45.0
+.presence
+45.0
+0
+.presence
+0
+#
+How it works
+If the input is null or an empty string, the formula will return nil. For any other data, it returns the original input data.
+#
+See also
+blank?
+: Returns nil if the data does not exist or if the string consist of only white spaces.
+present?
+: Returns true if there is a valid input.
+#
+Conversion
+The following formulas allows you to convert data from arrays to other data types
+#
+to_csv
+Generates CSV line from an array. This handles escaping. Nil values and empty strings will also be expressed within the csv line.
+#
+Syntax
+Input
+.to_csv
+Input
+- An input of list datatype.
+#
+Sample usage
+Formula
+Result
+["John Smith", "No-Email", " ", nil, "555-1212"]
+.to_csv
+"John Smith,No-Email, ,,555-1212"
+["John Smith", "No-Email", " ", nil, 1212]
+.to_csv
+"John Smith,No-Email, ,,1212"
+#
+to_json
+Converts hash or array to JSON string.
+#
+Syntax
+Input
+.to_json
+Input
+- An input datapill. It can be a list or hash datatype.
+#
+Sample usage
+Formula
+Result
+{"pet" => "cat", "color" => "gray"}
+.to_json
+{"pet":"cat","color":"gray"}
+["1","2","3"]
+.to_json
+["1", "2", "3"]
+#
+to_xml
+Converts hash or array into XML string.
+#
+Syntax
+Input
+.to_xml
+Input
+- An input datapill. It can be a list or hash datatype.
+#
+Sample usage
+Formula
+Result
+{"name" => "Ken"}
+.to_xml(root: "user")
+<user><name>Ken</name></user>
+[{"name" => "Ken"}]
+.to_xml(root: "users")
+<users><user><name>Ken</name></user></users>
+#
+from_xml
+Converts XML string to hash.
+#
+Syntax
+Input
+.from_xml
+Input
+- Input XML data.
+#
+Sample usage
+Converting XML string to hash
+This XML string:
+<?xml version=\"1.0\" encoding=\"UTF-8\" ?> <hash><foo type="integer">123</foo></hash>
+represents the following XML data.
+<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
+<
+hash
+>
+<
+foo
+type
+=
+"
+integer
+"
+>
+123
+</
+foo
+>
+</
+hash
+>
+XML string
+.from_xml will return the following hash.
+{
+"hash"
+:
+[
+"foo"
+:
+[
+{
+"@type"
+:
+"integer"
+,
+"content!"
+:
+"1"
+}
+]
+]
+}
+#
+encode_www_form
+Join hash into url-encoded string of parameters.
+#
+Syntax
+Input
+.encode_www_form
+Input
+- An input of hash datatype.
+#
+Sample usage
+Formula
+Result
+{"apple" => "red green", "2" => "3"}
+.encode_www_form
+"apple=red+green&2=3"
+#
+to_param
+Returns a string representation for use as a URL query string.
+#
+Syntax
+Input
+.to_param
+Input
+- An input of hash datatype.
+#
+Sample usage
+Formula
+Result
+{name: 'Jake', age: '22'}
+.to_param
+"name=Jake&age=22"
+#
+keys
+Returns an array of keys from the input hash.
+#
+Syntax
+Input
+.keys
+Input
+- An input of hash datatype.
+#
+Sample usage
+Formula
+Result
+{"name" => 'Jake', "age" => '22'}
+.keys
+["name", "age"]
+#
+values
+Returns an array of values from the input hash.
+#
+Syntax
+Input
+.values
+Input
+- An input of hash datatype.
+#
+Sample usage
+Formula
+Result
+{"name" => 'Jake', "age" => '22'}
+.values
+["Jake", "22"]
+#
+List operands
+#
+Difference (
+-
+)
+Returns the difference between two arrays, meaning a new array that is a copy of the first array without any of the items also present in the second array.
+#
+Syntax
+list
+-
+updated_list
+-
+the difference/subtract operand
+list
+- the original list
+updated_list
+- an updated list
+#
+Sample usage
+Let's say you have two arrays,
+contacts
+and
+updated_contacts
+:
+contacts = ["Ariel", "Max", "Kai", "Noam", "Tal"]
+updated_contacts = ["Ariel", "Max", "Kai", "Lee", "Quinn"]
+Formula
+Result
+contacts - updated_contacts
+["Noam", "Tal"]
+updated_contacts - contacts
+["Lee", "Quinn"]
+#
+How it works
+This operand creates an array that is the difference between the two arrays. The first example,
+contacts - updated_contacts
+, returns an array of items present in
+contacts
+but not present in
+updated_contacts
+. It's important to note that this does not simply remove duplicate items; if we reverse the order of operations, we obtain different results. For example, when we find the difference between
+updated_contacts
+and
+contacts
+, the new array contains items that are present in
+updated_contacts
+, and not present in
+contacts
+.
+#
+See also
+where
+: Returns a subset of list items that meet a certain condition. Reference the example on chaining not operands to use
+where
+to compare two lists.
+#
+Union (
+&
+)
+While Workato does not support the union (
+&
+) operand to manipulate arrays directly, you can achieve a similar result by combining the
+concat
+and
+uniq
+formulas.
+#
+Syntax
+list.concat(updated_list).uniq
+list
+- a list
+concat
+- concatenates two lists into a single list
+updated_list
+- an updated list
+uniq
+- returns a list containing unique values
+#
+Sample usage
+Formula
+Result
+contacts.concat(updated_contacts).uniq
+["Ariel", "Kai", "Lee", "Max", "Noam", "Quinn", "Tal"]
+#
+How it works
+concat
+concatenates two lists into a single list, and
+uniq
+returns a list containing unique items. You can combine two lists and remove any duplicate items that may appear by combining the two formulas.
+←
+Date formulas FAQs
+List formulas FAQs
+→
+Last updated:
+11/13/2024, 11:56:22 PM
+On this page
+Lists (arrays)
+Hashes
+Lists of hashes
+Example list of hashes
+List formulas
+first
+last
+index
+count
+where
+except
+pluck
+format_map
+join
+smart_join
+concat
+reverse
+sum
+uniq
+flatten
+length
+max
+min
+compact
+Conditionals
+blank?
+include?
+exclude?
+present?
+presence
+Conversion
+to_csv
+to_json
+to_xml
+from_xml
+encode_www_form
+to_param
+keys
+values
+List operands
+Difference (-)
+Union (&)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

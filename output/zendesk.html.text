@@ -1,0 +1,152 @@
+Workato connectors - Zendesk | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Zendesk
+Zendesk
+(opens new window)
+is a cloud ticketing solution that empowers customer engagement.
+#
+API version
+The Zendesk connector uses
+Zendesk REST API v2
+(opens new window)
+.
+#
+How to connect to Zendesk on Workato
+The Zendesk connector uses OAuth2. This will require you to authorize Workato on Zendesk to give Workato access to your Zendesk instance.
+#
+Specify subdomain
+Input your Zendesk
+subdomain
+and click
+link your account
+.
+Subdomain setup
+Field
+Description
+Subdomain
+The Zendesk subdomain to connect. If your Zendesk url is
+https://acme.zendesk.com
+, then the subdomain is
+acme
+.
+#
+Authentication flow for Zendesk
+You will be redirected to Zendesk. Login to Zendesk and complete a one-time authorization of Workato in your Zendesk instance.
+Authentication on Zendesk
+Field
+Description
+Email
+The email of the Zendesk account to connect.
+Password
+The password of the Zendesk account to connect.
+←
+Void payment
+New/updated ticket
+→
+Last updated:
+5/17/2024, 2:35:03 AM
+On this page
+API version
+How to connect to Zendesk on Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

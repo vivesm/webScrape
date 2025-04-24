@@ -1,0 +1,170 @@
+Troubleshoot Data Pipeline recipes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data orchestration
+Data Pipeline recipes
+#
+Troubleshoot Data Pipeline recipes
+AVAILABILITY
+Data Pipeline recipes are available to workspaces in the private preview program only.
+Contact your Workato representative to add Data Pipeline recipes to your workspace.
+#
+How to identify a Data Pipeline issue
+1
+You can access the details of a failed sync by selecting the
+Errors
+tab on the pipeline page, or by selecting the error on the
+Object syncs
+page:
+1
+If a Data Pipeline recipe fails on an object sync, select the
+Errors
+tab to view all objects with errors:
+Errors tab
+2
+Select the error for details:
+Failed object sync
+In this example, a 503 Service Unavailable error means that there's likely an issue with the target API itself.
+You can
+test the endpoint
+using tools like Postman or curl by sending raw content to the endpoint and verifying the response.
+Visit
+API endpoints management FAQs
+for more information.
+The Object syncs tab displays a table of all the object syncs:
+Object syncs page for a running pipeline
+1
+Filter the results in the table by status, or select an object sync that has failed:
+Object syncs page shows two errors
+2
+Select the failed sync from the table to display details in the sidebar:
+Object sync failed details
+In many cases, an object sync error can be resolved in the source or destination.
+Because Data Pipelines are auto-healing, objects with errors continue to be fetched in subsequent scheduled syncs.
+If you encounter an error with your source data during an object sync, resolve the error at the source to enable the pipeline to automatically recover the data in the next sync.
+#
+Stop and Start a Data Pipeline
+Select
+Stop pipeline
+to stop a pipeline from continuing a sync or to stop it from syncing again at its next interval.
+This action stops further syncs after the current object is completed.
+After you stop the pipeline, the activity sidebar shows details of the inactive pipeline:
+Stopped pipeline
+Select
+Start pipeline
+to start the pipeline again.
+If you stopped the pipeline during a sync, it will continue from the point when it was last stopped.
+Otherwise, it will resume the scheduled sync frequency.
+#
+Field deleted in the source
+When a field is removed from the source, the Data Pipeline retains the field in the destination so that you can refer to the previous values.
+The value is passed as null if records are updated after the field is deleted.
+Resolve any errors at the source and the self-healing pipeline will automatically recover the data in the next sync.
+←
+Monitor Data Pipeline status and object syncs
+API platform
+→
+Last updated:
+7/31/2024, 7:04:29 PM
+On this page
+How to identify a Data Pipeline issue
+Stop and Start a Data Pipeline
+Field deleted in the source
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

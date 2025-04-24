@@ -1,0 +1,203 @@
+RecipeOps - Get recipe details action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+RecipeOps by Workato
+#
+RecipeOps - Get recipe details action
+This action retrieves key information about a recipe, such as status, version number, and lifetime task count.
+#
+Limitations
+Lifetime task count data is available from March 19, 2021 onward.
+#
+Input
+Field
+Description
+Recipe
+The recipe to retrieve.
+#
+Output
+Field
+Description
+Recipe ID
+The ID of the recipe.
+User ID
+The workspace ID where this recipe is located.
+Name
+The name of the recipe.
+Parent ID
+The ID of the parent recipe.
+Folder ID
+The ID of the folder.
+Version no.
+The current version of the recipe.
+Last run at
+The time the recipe last ran.
+Created at
+The time the recipe was created.
+Updated at
+The time the recipe was last updated.
+Successful job count
+The total number of successful jobs completed by the recipe.
+Failed job count
+The total number of failed jobs the recipe has had.
+Lifetime task count
+The total number of tasks the recipe has used over the course of its lifetime.
+Active
+If
+true
+, the recipe is currently active.
+Last version
+Details about the last version of the recipe.
+This field has the following sub-fields:
+Field
+Description
+Version no
+The version number.
+User ID
+The workspace ID where this recipe is located.
+User name
+The name of the user who created the recipe.
+User email
+The email of the user who created the recipe.
+Updated at
+The time this version of the recipe was last updated.
+Folder
+Details about the folder containing the recipe.
+This field has the following sub-fields:
+Field
+Description
+ID
+The ID of the folder.
+Name
+The name of the folder.
+Path
+The location of the folder.
+Parents
+Details about the folders that contain the current folder.
+Created by
+Details about the user who created the recipe.
+This field has the following sub-fields:
+Field
+Description
+User ID
+The workspace ID where this recipe is located.
+User name
+The name of the user who created the recipe.
+User email
+The email of the user who created the recipe.
+#
+Resources
+RecipeOps overview
+RecipeOps actions
+RecipeOps triggers
+←
+Get account details
+List connections
+→
+Last updated:
+10/17/2024, 9:48:17 PM
+On this page
+Limitations
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,274 @@
+Insights - Chart types | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Reference
+#
+Chart types
+Chart editor
+You can create custom charts with your data after you've chosen a
+data source
+and prepared it by performing
+queries
+. Visualizing your data involves determining the metrics and dimensions you plan to represent.
+Metric
+: Quantitative values that you plan to analyze, track, and present visually. Metrics can be aggregated to find the sum, average, or count. It's typically the key performance indicator (KPI) or main value you plan to report on.
+Dimension
+: Categorical variables that give context or descriptive information to the metrics in your report. Dimensions are used for slicing, grouping, and filtering data.
+For example, you might plan to analyze the number of successful and failed jobs (metric) by Environment (dimension). You can use the Environment dimension to determine if integrations are performing well in your DEV, TEST, or PROD environments. Similarly, you can analyze money saved (metric) by project (dimension) to understand which projects are saving you the most money.
+Insights displays your data as a table by default. You can use the
+Type
+drop-down menu to select a chart and customize it. Insights supports the following chart types for data visualizations:
+Table
+Line graph
+Area graph
+Bar graph
+Pie chart
+Number graph
+#
+Table
+Tables are a structured way to present organized information with rows and columns. They are particularly useful when presenting data with multiple dimensions, comparisons, or detailed information.
+For example, the following table contains data for all business processes and provides detailed, exact data on the cost for each workflow run.
+Table
+By default, Insights displays your data as a table. To customize this table, configure the following input fields:
+Title
+Name your chart. The name you enter here displays on your Insights dashboard.
+Displayed columns
+Select the columns you plan to display in your chart. Click
+Select all
+to select/deselect all columns for display or select columns individually. Reorganize your columns by dragging and dropping them into place. This output is dynamic and depends on the
+data source
+you select. See the
+available data
+table for a description of the data available, organized by source.
+#
+Line graph
+Line graphs are best suited for displaying trends and changes over time. They are particularly effective at illustrating how a variable or multiple variables change in relation to each other as time progresses.
+The following line graph represents the number of onboarding requests an HR team receives each day.
+Line graph
+Customize the colors of your line graph by clicking the color swatch next to the data column you plan to change.
+Customize the colors of your line graph
+The following line graph segments data to represent the distribution of task usage across environments.
+Break down your data by data column
+Hover over your chart to view the exact distribution of data for each segment.
+Hover over your chart to view the exact distribution of data
+To customize your line graph, configure the following input fields:
+Title
+Name your chart. The name you enter here displays on your Insights dashboard.
+X-axis
+Data column
+Determine a dimension column. The option you select here appears as categories on the x-axis.
+Breakdown by data column
+Optional
+. Line graphs can display segments of your data in different colors, enhancing understanding by visually distinguishing between categories or groups. This facilitates quick comparisons and highlights trends or patterns, making it useful for displaying job success and error rates, as well as trends over time, such as task consumption across environments.
+Label
+Provide a label for the x-axis. If you do not enter a label, Insights supplies the name of the data column you selected in the
+Data
+field.
+Y-axis
+Data column
+Determine a measure column. The option you select here appears as values on the y-axis. Insights only displays numeric data columns (integer or decimal) for the y-axis.
+Label
+Provide a label for the y-axis. If you do not enter a label, Insights supplies the name of the data column you selected in the
+Data
+field.
+#
+Area graph
+Area graphs are useful for displaying quantitative data over time, typically illustrating how values change in relation to one another. They are particularly suited to displaying trends, such as task consumption over time.
+The following area graph displays cumulative task consumption for the past 365 days.
+Use an area graph to visualize task consumption
+Customize the colors of your area graph by clicking the color swatch next to the data column you plan to change.
+Customize the colors of your area graph
+The following area graph segments data to represent the distribution of task usage across environments.
+Break down your data by data column
+Hover over your chart to view the exact distribution of data for each segment.
+Hover over your chart to view the exact distribution of data
+To customize your area graph, configure the following input fields:
+Title
+Name your chart. The name you enter here displays on your Insights dashboard.
+X-axis
+Data column
+Select a column to measure. The column you select is represented as a block of color on the x-axis.
+Breakdown by data column
+Optional
+. Area graphs can display segments of your data in different colors, enhancing understanding by visually distinguishing between categories or groups. This facilitates quick comparisons and highlights trends or patterns, making it useful for showing job success and error rates, as well as trends over time, such as task consumption across environments.
+Label
+Provide a label for the x-axis. If you do not enter a label, Insights supplies the name of the data column you selected in the
+Data column
+field.
+Y-axis column
+Data column
+Select a column to use to measure the category you selected for the x-axis. The data column you select determines the area of the graph that is filled. Insights only displays numeric data columns (integer or decimal) for the y-axis.
+Label
+Provide a label for the y-axis. If you do not enter a label, Insights supplies the name of the data column you selected in the
+Data column
+field.
+#
+Bar graph
+Bar graphs are particularly effective for representing categorical data and comparing discrete values across different categories.
+The following bar graph displays the number of successful and failed jobs over time:
+Successful and failed jobs over time
+Customize the colors of your bar graph by clicking the color swatch next to the data column you plan to change.
+Customize the colors of your bar graph
+The following bar graph segments data to represent the relationship between successful and failed jobs in a workspace over time.
+Break down your data by data column
+Hover over your chart to view the exact distribution of data for each segment.
+Hover over your chart to view the exact distribution of data
+To customize your bar graph, configure the following input fields:
+Title
+Name your chart. The name you enter here displays on your Insights dashboard.
+X-axis
+Data column
+Determine a dimension (category) column. Each category is represented as a bar on the x-axis.
+Breakdown by data column
+Optional
+. Bar charts can display segments of your data in different colors, enhancing understanding by visually distinguishing between categories or groups. This facilitates quick comparisons and highlights trends or patterns, making it useful for showing job success and error rates, as well as trends over time, such as task consumption across environments.
+Label
+Provide a label for the x-axis. If you do not enter a label, Insights supplies the name of the data column you selected in the
+Data column
+field.
+Y-axis
+Data column
+Determine a measure column. The data column you select dictates the size of the bars in your graph. Insights only displays numeric data columns (integer or decimal) for the y-axis.
+Label
+Provide a label for the y-axis. If you do not enter a label, Insights supplies the name of the data column you selected in the
+Data column
+field.
+#
+Pie chart
+Pie charts are ideal for displaying parts of a whole, emphasizing the proportion of each category relative to the total. They are especially effective for showing the distribution of a single data set into different categories.
+The following pie chart represents the distribution of active recipes across environments.
+Pie chart
+Customize the colors of your pie chart by clicking the color swatch next to the data column you plan to change.
+Customize the colors of your pie chart
+To customize your pie chart, configure the following input fields:
+Title
+Name your chart. The name you enter here displays on your Insights dashboard.
+Dimension
+Determine the value you plan to measure.
+Measure
+Determine the measure. The measure determines the angle of each slice in a pie chart. This value must be an integer or decimal column.
+#
+Number graph
+Number graphs draw attention to data you plan to emphasize in your dashboard, such as conclusions, outliers, or high-performing metrics.
+For example, the following number graph represents average task consumption per month for the last 365 days.
+Number graph
+To customize your number graph, configure the following input fields:
+Title
+Name your chart. The name you enter here displays on your Insights dashboard.
+Measure
+Determine the measure, which is a column containing the value you plan to display on the chart. This value must be an integer or decimal column.
+FURTHER READING
+Data sources and available data
+Queries
+←
+Math functions
+Usage inspiration
+→
+Last updated:
+3/13/2025, 8:49:17 PM
+On this page
+Table
+Line graph
+Area graph
+Bar graph
+Pie chart
+Number graph
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,181 @@
+Workato connectors - Marketo Export new leads in Marketo trigger (bulk) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Marketo
+#
+Export new leads in Marketo trigger (bulk)
+This trigger runs on a schedule you set and returns new leads from Marketo.
+Search results are returned as a complete CSV stream. You can write the CSV stream to a file using a file connector, such as
+Box
+or
+SFTP
+, or parse it for use as a data list in Workato using the
+Parse CSV
+action in the
+CSV by Workato utility connector
+.
+Processing times can vary and be delayed due to the time required for the query to be completed in Marketo. Because of this, Workato doesn't support test jobs for recipes with this trigger.
+You can also use this trigger in conjunction with the
+Get object schema
+action to fetch schema information of a Marketo object and replicate it to your data warehouse. Learn more about
+bulk triggers and ELT/ETL processes
+.
+#
+Input fields
+Field
+Description
+When first started, this recipe should pick up events from
+When you start recipe for the first time, it picks up trigger events from this specified date and time. Defaults to one hour after the recipe starts. After the recipe runs or is tested, you can't change this value. Learn more about this
+input field
+.
+CSV format
+Describe the formatting of the exported file. Column names default to Marketo API names.
+Fields (CSV format)
+Select the lead fields to export into the file. Workato permits a maximum combined field length of 7300 characters.
+Column separator (CSV format)
+Select the delimiter of the exported file. Available options include
+Comma
+,
+Tab
+, and
+Semi-colon
+.
+#
+Output fields
+Field
+Description
+Job ID
+The unique identifier of the query job in Marketo.
+CSV content
+The datapill that contains the output of the trigger.
+Object name
+Name of the object being retrieved.
+Created from
+The datetime the record was created in Marketo.
+Object schema
+The schema of the object being retrieved.
+Field name (object schema)
+The name of the field in the object schema.
+Field label (object schema)
+The label of the field in the object schema.
+Original type (object schema)
+The original data type of the field.
+Mapped type (object schema)
+The data type that the field is mapped to in the target system, if different.
+Length (object schema)
+The length or size of the field, if applicable.
+Precision (object schema)
+The number of digits to the right of the decimal point for numeric fields.
+Scale (object schema)
+The number of digits to the left of the decimal point for numeric fields.
+Read only (object schema)
+Indicates whether the field is read-only and can't be edited.
+←
+Self-service flow steps
+Export new/updated leads in Marketo trigger (bulk)
+→
+Last updated:
+4/11/2025, 3:43:24 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

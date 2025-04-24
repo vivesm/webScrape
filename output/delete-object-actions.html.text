@@ -1,0 +1,132 @@
+Workato Connector - HubSpot delete object action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+HubSpot - Delete object actions
+These actions will allow you to delete an existing object from your HubSpot instance.
+Workato currently supports the delete action for these objects.
+Contact
+#
+Delete contact
+This action deletes from a particular HubSpot portal, the contact that matches the given contact ID or email. If a contact with the same email address interacts with the portal again (via a form submission for example) the contact will be added back into the user interface.
+Please take extra precaution when using this action as deleted objects may be deleted permanently. We suggest that all delete actions be committed manually and under supervision.
+Delete contact action
+#
+Input fields
+Input field
+Description
+Identification method
+Contact email
+Deletes the contact that corresponds to the email.
+Contact VID
+Deletes the contact that corresponds to the VID.
+#
+Output fields
+There are no output fields for this action.
+←
+Remove contact from list action
+IBM Db2
+→
+Last updated:
+3/29/2023, 2:00:59 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

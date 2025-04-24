@@ -1,0 +1,320 @@
+Workato connectors - SAP OData | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP OData
+#
+OAuth2.0 Authentication
+Workato supports OAuth 2.0 (Open Authorization 2.0). OAuth 2.0 protocol enables secure third-party access to a user's data on a server. This protocol is widely used for granting limited access to user data on applications. Workato supports Authorization Code Grant, a widely used authorization flow in OAuth 2.0, particularly for server-to-server communication where the client application has access to the client secret. This authorization method is considered more secure than other grant types because it involves the exchange of an authorization code for an access token, which helps prevent exposing sensitive information. This authentication is applicable for SAP On-Premise applications and SAP S/4HANA Cloud, Private Edition.
+#
+Enable OAuth2.0
+Complete the following steps to enable OAuth2.0 for OData V2 services:
+ENABLE OAUTH2.0 FOR ODATA V4 APIS
+Please refer to the SAP Note
+3304204
+(opens new window)
+to create an OAuth scope for OData V4 APIs.
+1
+Login to SAP system through SAP Logon and go to transaction code
+/n/iwfnd/maint_service
+2
+Click
+Add Service
+, maintain LOCAL in
+System Alias
+and press Enter.
+3
+Select the service you plan to use and click
+Add Selected Services
+. This example adds
+API_SALES_ORDER_SRV
+, a standard SAP API.
+4
+Provide a custom name for the technical service, for example:
+ZAPI_SALES_ORDER_SRV
+.
+5
+Click
+Local Object
+to save the service in the local package and select the
+Enable OAuth for Service
+checkbox under OAuth enablement.
+6
+Double-click
+Alias
+and validate that the
+SAP System Alias
+is correct for the
+Service Doc. Identifier
+.
+7
+If the service already existed in the service catalog, then you can directly navigate to the service and click on OAuth to enable OAuth authentication.
+#
+Prerequisites for OAuth2.0
+Complete the following prerequisite steps to configure OAuth:
+1
+Go to transaction code
+SICF
+.
+2
+Navigate to the service
+authorize
+under path:
+default_host/sap/bc/sec/oauth2/
+.
+3
+Right-click the
+authorize
+service and select
+Activate Link
+.
+4
+Right-click the service a second time and select
+Test Link
+to verify the URL for the service. The URL should be:
+https://<hostname>:<port>/sap/bc/sec/oauth2/authorize?sap-client=<XXX>
+5
+Navigate to the service
+token
+under path:
+default_host/sap/bc/sec/oauth2/
+.
+6
+Right-click the
+token
+service and select
+Activate Service
+.
+7
+Right-click the service again and select
+Test Service
+to verify the service URL:
+https://<hostname>:<port>/sap/bc/sec/oauth2/token?sap-client=<XXX>
+8
+Go to transaction code
+SU01
+.
+INTEGRATION USER TO BE USED AS CLIENT ID
+Refer to the
+SAP minimum permissions
+section for the minimum permissions required to establish an OAuth connection.
+9
+Create an integration user to whom you plan to assign OAuth scopes and ensure that
+Last name
+and
+New Password
+in the
+Address
+and
+Logon Data
+tabs are maintained.
+PASSWORD AND USER RECOMMENDATION
+We recommend that you use the
+Generate
+option to obtain a complex string for enhanced security. This string is used as the client secret. Additionally for this user, maintain the user type as
+System
+user which will restrict GUI access for this user.
+#
+Configuration for OAuth2.0 Client ID
+Complete the following steps to set up the OAuth Client ID:
+1
+Go to transaction code
+SOAUTH2
+.
+2
+Click
+Create
+and fill in the required user details and values.
+CLIENT ID USAGE RECOMMENDATION
+We recommend that you create multiple client IDs for individual connections to avoid connection loss if you plan to create multiple connections in Workato that point to the same SAP system.
+3
+Select the
+Grant Type Authorization Code Active
+and
+Refresh Allowed
+checkboxes. Maintain the
+Redirect URI
+with
+callback URI
+(opens new window)
+for your data center.
+4
+Click
+Add
+and select the scope you plan to use from the list. For example: the selected scope
+ZAPI_SALES_ORDER_SRV_0001
+provides access to the
+API_SALES_ORDER_SRV
+service.
+5
+Click
+Next
+, review the summary, and then click
+Finish
+.
+6
+Your OAuth2.0 Client ID setup is complete.
+#
+Connection fields
+ODATA VERSIONS
+We recommend that you create dedicated connections for V2 and V4 APIs.
+Field
+Description
+Connection name
+Provide the connection with a descriptive name so you can reuse it in other recipes.
+Connection type
+Choose an on-premise agent running on the same domain as SAP On-Premise system. Before attempting to connect, make sure you have an active on-premise agent.
+Authentication type
+Select
+OAuth2
+.
+OData version
+Select the OData version for the API you plan to use in this connection -
+v2
+or
+v4
+.
+Client ID
+Enter the userID created during the OAuth connection setup.
+Client Secret
+Enter the password. This is the password you either generated or added during the OAuth connection setup.
+Scopes
+Provide the scopes you plan to use to access your SAP OData system. For example:
+ZAPI_SALES_ORDER_SRV_0001
+. You must separate multiple scopes with a comma.
+Host
+The base path of your SAP OData services.
+For example, if the service URL is
+https://www.myS4HanaSystem.com/sap/opu/odata/sap/API_SALES_ORDER_SRV
+, then your host is
+https://www.myS4HanaSystem.com/sap/opu/odata/sap/
+.
+Service
+Provide a sample service that you can use to test authentication. This can be the first service that you configured.
+For example, if the service URL is
+https://www.myS4HanaSystem.com/sap/opu/odata/sap/API_SALES_ORDER_SRV
+, then your Service is
+API_SALES_ORDER_SRV
+.
+SAP client
+Provide the SAP client in which this OData service exists.
+For example, if the service URL is
+https://www.myS4HanaSystem.com/sap/opu/odata/sap/API_SALES_ORDER_SRV?sap-client=100
+, then your sap client is
+100
+.
+If you do not specify a client, the default client set in SAP is used.
+Bypass SSO/SAML2
+Select
+Yes
+to establish a connection to the SAP system by bypassing SAML 2.0 setup with a non-federated user.
+←
+Client certificate authentication setup
+OAuth BTP setup
+→
+Last updated:
+9/19/2024, 9:34:38 AM
+On this page
+Enable OAuth2.0
+Prerequisites for OAuth2.0
+Configuration for OAuth2.0 Client ID
+Connection fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

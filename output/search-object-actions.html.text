@@ -1,0 +1,138 @@
+Workato コネクター - HubSpot オブジェクトの検索アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+HubSpot - オブジェクトの検索アクション
+これらのアクションを用いると、選択したオブジェクトのレコードのうち、指定した検索基準に一致するレコードを複数取得することができます。
+Workato は現在、以下のオブジェクトを検索するアクションをサポートしています。
+コンタクト
+会社
+#
+Search contacts
+このアクションでは、検索基準に一致するコンタクトを取得します。コンタクトに関する一部のデータしか返されませんが、その中にはコンタクト ID (VID) が含まれているため、その ID に基づいてさらに詳細を調べることができます。
+#
+入力項目
+入力項目
+説明
+Search term
+検索に使用する検索語です。単語の全体または一部を使用できます。たとえば、名前やメールアドレスに「HubSpot」を含むコンタクトを検索する場合、「hub」を検索すると、メールアドレスに「HubSpot」を含むコンタクトも返されます。
+#
+出力項目
+Workato は指定された検索語に一致するコンタクトを表すオブジェクトのリストを返します。これにより、そのデータピルを以降のステップで使用できるようになります。利用可能な項目については、
+こちら
+を参照してください。
+#
+Search companies by domain name
+このアクションでは、ドメイン名に基づいて会社を取得します。ドメインは一意である必要はないため、リクエストに成功すると、このアクションは会社のレコードのリストを返します。1回のレスポンスで最大100件のレコードを含めることができます。
+#
+入力項目
+入力項目
+説明
+Domain name
+返したい会社の正確なドメイン名。
+Properties
+返される会社について含まれるプロパティのリスト。デフォルトでは、レスポンスで返されるプロパティはありません。そのため必要なプロパティを指定する必要があります。
+#
+出力項目
+Workato は指定されたドメイン名に一致する会社を表すオブジェクトのリストを返します。これにより、そのデータピルを以降のステップで使用できるようになります。利用可能な項目については、
+こちら
+を参照してください。
+Last updated:
+2023/8/31 1:07:14
+On this page
+Search contacts
+Search companies by domain name
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

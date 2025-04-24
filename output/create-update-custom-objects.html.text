@@ -1,0 +1,203 @@
+Workatoコネクター - Workdayカスタムオブジェクトの作成/更新アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Workday
+#
+カスタムオブジェクトの作成/更新アクション
+カスタムオブジェクトを設定することで、Workdayのビジネスオブジェクトを拡張することができます。これらのカスタムオブジェクトは、デフォルトのWorkdayに基づいており、追加のカスタムフィールドを保存することができます。カスタムオブジェクトを使用すると、デフォルトのWorkdayオブジェクトではキャプチャされない追加のデータを記録することができます。
+このアクションでは、Workdayレコードにカスタムオブジェクトの値を作成または更新することができます。親オブジェクトに指定されたカスタムオブジェクトレコードが存在しない場合、このアクションは新しく作成します。それ以外の場合は、指定された値でカスタムオブジェクトレコードを更新します。
+#
+例
+たとえば、従業員の新規採用プロセスを設定しています。すべての従業員は薬物検査を受ける必要があります。Workdayでは、親オブジェクト
+Workers
+の下に
+drugTested
+というカスタムオブジェクトを設定しています。
+このアクションを使用して、従業員にステータスを割り当てることができます。従業員に
+drugTested
+ステータスがまだない場合、このアクションはこの従業員のためにカスタムオブジェクトを作成します。
+それ以外の場合、この従業員がすでに
+drugTested
+オブジェクト（たとえば、
+True
+/
+False
+）を持っている場合、このアクションは新しい値でカスタムオブジェクトを更新します。
+#
+入力
+カスタムオブジェクトの作成/更新アクション
+入力フィールド
+説明
+Is multi-instanced?
+Workdayのカスタムオブジェクトは、シングルインスタンスまたはマルチインスタンスになります。マルチインスタンスのカスタムオブジェクトの例は、従業員の
+COVID19
+ワクチン接種記録です。シングルインスタンスのカスタムオブジェクトの例は、従業員が在宅勤務を許可されているかどうかです。取得するカスタムオブジェクトがマルチインスタンスである場合は、これを「Yes」に設定します。
+Parent object
+親オブジェクトの名前です。
+サポートされている親オブジェクト
+の一覧は、こちらのセクションで確認できます。
+Custom object fields
+このカスタムオブジェクトのフィールドを定義します。空白のままにすると、デフォルトの名前ですべてのフィールドが取得されます。
+Parent object ID
+選択している親オブジェクトのWorkday IDです。
+Custom object name
+親オブジェクトに関連付けたいカスタムオブジェクトのWebサービスエイリアスです。
+シングルインスタンスとマルチインスタンスのカスタムオブジェクトの例
+カスタムオブジェクトの入力スキーマは自動的に生成されます。オプションの「カスタムオブジェクトフィールド」スキーマデザイナーを使用して、スキーマを上書きまたは再定義することもできます。
+#
+サポートされている親オブジェクト
+Workdayは、以下のオブジェクトをカスタムオブジェクトで拡張することができます：
+academicAffiliates
+academicUnits
+academicUnitHierarchies
+bankAccounts
+businessAssets
+companies
+costCenters
+customers
+customerContracts
+customerContractLines
+customerInvoices
+customerInvoiceAdjustments
+employeeContracts
+formerWorkers
+jobProfiles
+ledgerAccounts
+loans
+locations
+positionRestrictions
+projects
+applicants
+purchaseOrders
+regions
+supervisoryOrganizations
+suppliers
+supplierContracts
+supplierInvoices
+supplierInvoiceAdjustments
+workers
+#
+例
+たとえば、薬物検査に合格した従業員
+6b36787a2e6301e185df0a95ff272a04
+の場合、
+カスタムオブジェクトの作成/更新
+アクションを使用します。nという変数を以下のように定義します：
+親オブジェクト名：
+workers
+カスタムオブジェクト：
+drugTested
+カスタムオブジェクトフィールド（ドラッグテスト済み）：
+True
+親オブジェクトID：
+6b36787a2e6301e185df0a95ff272a04
+#
+Outputs
+このアクションには出力はありません。
+Get custom object action
+を使用して、従業員のカスタムオブジェクトのステータスを確認できます。
+←
+カスタムオブジェクト定義の一覧を取得
+Workday RaaS
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+Outputs
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

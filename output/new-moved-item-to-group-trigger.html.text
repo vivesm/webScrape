@@ -1,0 +1,178 @@
+Monday - New Moved Item to Group Trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Monday
+#
+Monday - New moved item to group trigger
+The
+New moved item to group
+trigger runs the recipe when an item is moved to a group in Monday.
+#
+Input
+Input field
+Description
+Board name
+Enter the name of the board to monitor.
+When first started, this recipe should pick up events from
+Set the date and time for the trigger to start picking up items when the recipe runs for the first time. Defaults to 1 hour ago if left blank. You can't change this value after the recipe runs or tests successfully.
+#
+Output
+Output field
+Description
+ID
+The unique identifier of the event.
+Created at
+Date and time the event was created.
+Event
+Given event name.
+Entity
+Given entity name.
+Account ID
+The account’s unique identifier.
+User ID
+The user’s unique identifier.
+Board ID
+The board’s unique identifier.
+Group ID
+The group’s unique identifier.
+ID
+The source board’s unique identifier.
+Name
+The source board’s name.
+Kind
+The source board’s kind.
+ID
+The source group’s unique identifier.
+Name
+The source group’s name.
+Color
+The source group’s color.
+Is top group
+Belongs to top source group or not.
+ID
+The destination group’s unique identifier.
+Name
+The destination group’s name.
+Color
+The destination group’s color.
+Is top group
+Belongs to top destination group or not.
+Pulse ID
+The pulse’s unique identifier.
+Pulse name
+Given pulse name.
+Action record ID
+The action record’s unique identifier.
+Is undo action
+Reverses previous action or not.
+Is batch action
+Processes multiple actions together or not.
+←
+New item trigger
+Update any column value trigger
+→
+Last updated:
+2/26/2025, 6:26:37 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

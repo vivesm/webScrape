@@ -1,0 +1,220 @@
+Embedded Shared connectors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Admin console
+#
+Shared connectors
+Shared connectors are
+custom connectors
+shared through the Embedded Admin console exclusively to all customers. Partners can build and manage the versions of the connectors required by their customer community, resulting in quicker turnaround time and greater control over the connector's functionality.
+The shared connectors feature also enables Embedded partners to limit the use of their private APIs to their customers only if the custom connectors require them.
+Shared connectors tab in the Admin Console
+#
+Build a connector
+You must build your custom connector in the admin account before you can share it. A custom connector enables Workato to interact with a single application through a series of
+triggers
+and
+actions
+.
+Connectors built on the SDK are private, meaning they are only visible and available to the connector's owner. The connectors are first built in the admin account as custom connectors and then shared as
+shared connectors
+.
+View the
+SDK developer program
+documentation to get started with building a connector.
+#
+Share a connector
+You can push your custom connector to your customer community after you build and test it. Ensure you release the version of the connector you plan to share, as there are often multiple versions of the same connector.
+FEATURE AVAILABILITY
+Closed code source connector sharing is subject to the following limitations:
+Collaborating workspaces must use the same data center as the custom connector's developer. Refer to
+Share data between regions
+for more information on cross-region collaboration.
+Partners must be given access to this feature. Contact your Customer Success Representative to learn more.
+Complete the following steps to share a connector in Automation HQ:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Automation HQ
+.
+3
+Select the
+Shared connectors
+tab.
+Workspace moderators
+4
+Click
+Share connector with all workspaces
+.
+5
+Use the drop-down menus in the
+Share connector
+dialog to select a custom connector and the version you plan to share, then click
+Share connector
+.
+The
+Share connector
+dialog
+6
+If your workspace has access to closed source connector sharing, you can decide to share your connector as open or closed source:
+1
+Keep the
+Share without source code
+toggle off to make your source code visible to all users.
+Share your connector as open source
+2
+Click
+Start sharing
+.
+1
+Click the
+Share without source code
+toggle to keep the source code of your connector private.
+Share your connector without source code
+2
+Enter the email addresses of workspaces that require access to your connector. Separate each email with a comma. These workspaces can view and install your custom connector but will not have access to your connector's source code.
+Refer to
+Share your connector
+for more information about managing access to your closed source connector.
+3
+Click
+Start sharing
+.
+After customers install the custom connector, they can use it in their recipes by selecting it in the recipe editor. The connector is unavailable on the customer's
+Tools > Connector SDK
+page.
+#
+Version management
+Partners may continually develop the connector while customers use a prior version of the connector. After development and test cycles, Embedded partners can release the latest version of the connector.
+Select a connector to share
+Workato prompts you to update to the latest version when you release a new version of a shared connector. Click
+Update version
+to choose from a list of released versions.
+Partners may also revert to a previous version of the connector by clicking the overflow menu on each shared connector and selecting
+Switch shared version
+.
+#
+Export shared connectors
+You can export custom connectors from the admin account to customer or external accounts.
+#
+Export to customer workspaces
+If you previously shared the connector with your customers, it is already available in their accounts. Do not include the custom connector as part of the package during the export process if the custom connector is already present in their accounts.
+Select a connector to share
+Workato displays a warning message during the export process to remind users to remove the connector if they have already shared it with the intended account. In the example, the manifest used to build the package excludes the Simpletexting custom connector. The recipes work with the version of the connector shared by the partner in the admin account's Shared connectors page when imported.
+#
+Export to other accounts
+Include the custom connector in the manifest and package when exporting a shared connector to environments outside of customer workspaces. This installs the packaged connector if it doesn't exist, or updates the connector if it is already present in the other workspace.
+#
+Remove shared connectors
+Removing shared connectors is an irreversible action that prevents the discovery and usage of the connector in customer workspaces. Additionally, removing shared connectors stops customer recipes that use the connector. You must stop all active recipes using the connector before you remove it.
+←
+Customer managers
+Usage metrics
+→
+Last updated:
+2/6/2025, 10:05:26 PM
+On this page
+Build a connector
+Share a connector
+Export shared connectors
+Remove shared connectors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,136 @@
+Connectors - Databricks- New/updated rows via custom SQL (batch) trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Databricks
+#
+Databricks - New/updated rows via custom SQL (batch) trigger
+This trigger picks up rows when any rows matching the custom SQL are inserted/updated. These rows are processed as a batch of rows for each job. This trigger checks for new rows once every poll interval.
+New/updated rows via custom SQL (batch) trigger
+#
+Input fields
+To use this trigger, configure the following input fields.
+SQL
+Enter your custom SQL query. This query runs at each poll interval to pick up new/updated rows. Databricks supports SQL ANSI-92 compliant SQL statements.
+Use bind variables (for example,
+id = :id
+) and the parameter field to parameterize inputs.
+You must manually define the schema when you use bind variables.
+Unique key
+Select a unique key column to identify rows. Workato uses this to deduplicate existing rows.
+Sort column
+Select a column to identify updated rows. Along with the
+Unique key
+, this field enables Workato to identify which columns to use for deduplicating existing and updated rows.
+Output fields
+Define the columns returned in your query. You can use the output as datapills in downstream applications.
+Trigger poll interval
+Optional
+. How frequently to check for new events. If left blank, defaults to five minutes. Minimum value: five minutes.
+Learn more about polling intervals
+.
+←
+New rows via custom SQL (batch) trigger
+Select rows action
+→
+Last updated:
+4/5/2023, 2:25:23 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

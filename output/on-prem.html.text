@@ -1,0 +1,231 @@
+SDK - オンプレミスとのセキュアな接続の使用 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+API 認証
+#
+オンプレミスとのセキュアな接続の使用
+カスタムアダプター内で作成された HTTP リクエストは、デフォルトでは Workato から送信されます。これは、すべてのトラフィックが Workato の
+IP アドレス
+を通過することを意味します。しかし、すべてのリクエストが
+オンプレミスエージェント
+経由で送信されるように設定することもできます。
+サンプルコネクター - Mandrill
+オンプレミスエージェントを介した接続の有効化
+コネクションの SDK リファレンス
+#
+サンプルコネクター - Mandrill
+{
+title
+:
+"Mandrill"
+,
+# This is needed for OPA
+secure_tunnel
+:
+true
+,
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+'api_key'
+,
+label
+:
+'API key'
+,
+control_type
+:
+'password'
+,
+optional
+:
+false
+}
+]
+authorization
+:
+{
+type
+:
+'custom_auth'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+headers
+(
+"Authorization"
+:
+"Bearer
+#{
+connection
+[
+"token"
+]
+}
+"
+)
+end
+}
+,
+base_uri
+:
+lambda
+do
+|
+connection
+|
+"https://api.acmestudios.com"
+end
+}
+,
+test
+:
+lambda
+do
+|
+connection
+|
+get
+(
+'/me'
+)
+end
+,
+}
+#
+オンプレミスエージェントを介した接続の有効化
+デフォルトでは、カスタムアダプターは、オンプレミスエージェントを介した接続のオプションを提供していません。そのため、コネクションのセットアップ時に、その設定を行うすべがありません。
+オンプレミスエージェントを使用するオプションのないコネクション
+オンプレミスエージェントを介した接続のオプションは、カスタムアダプターのコードに
+secure_tunnel
+プロパティを追加するだけで有効にすることができます。これを
+true
+に設定し、トップレベルのプロパティとして定義する必要があります。
+このプロパティを追加すると、コネクションのセットアップ時に入力項目が表示され、アカウント内の既存のオンプレミスエージェントを選択できるようになります。
+オンプレミスエージェントを使用するオプションのあるコネクション
+オンプレミスエージェントの設定方法については、
+こちら
+を参照してください。
+#
+コネクションの SDK リファレンス
+connection
+キー内で使用可能なキーとそのパラメータについての詳細は、
+SDK リファレンス
+を確認してください。
+←
+AWS サービスの認証
+複数の認証フロー
+→
+Last updated:
+2025/4/8 18:16:04
+On this page
+サンプルコネクター - Mandrill
+オンプレミスエージェントを介した接続の有効化
+コネクションの SDK リファレンス
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

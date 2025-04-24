@@ -1,0 +1,195 @@
+Workato connectors - BIM 360 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+BIM 360
+BIM 360
+(opens new window)
+is a unified platform that connects teams and data in real-time to support informed decision making in industries from design to construction.
+#
+API version
+The BIM 360 connector uses the
+Autodesk Forge API v2
+(opens new window)
+.
+#
+How to connect to BIM 360 on Workato
+The BIM 360 connector uses OAuth 2.0 to connect to BIM 360. We recommend that you assign an integration user to Workato for recipes and provision the user in the required accounts, hubs, and projects.
+Complete the following steps to connect to BIM 360 in Workato:
+Authorize Workato in the BIM 360 Hub
+Complete setup in Workato
+#
+Authorize Workato in the BIM 360 Hub
+You must authorize Workato in the BIM 360 Hub before you can connect to BIM 360 on Workato.
+BIM 360 ADMIN REQUIRED
+A BIM 360 account administrator is required to authorize an app in the BIM 360 Hub.
+Complete the following steps to authorize Workato in the BIM 360 Hub:
+1
+Go to the
+Account Admin
+page in BIM 360.
+2
+Go to the
+Apps
+tab.
+3
+Select
+Autodesk Construction Cloud Connect
+from the list of apps.
+4
+Click
+Add to BIM 360
+. The authorization dialog appears.
+5
+Click
+Authorize
+. Workato appears as
+Active
+in BIM 360 Hub.
+#
+Complete setup in Workato
+Complete the following steps to set up the BIM 360 connection in Workato:
+1
+Enter a
+Connection name
+that identifies which BIM 360 instance Workato is connected to.
+2
+Expand
+Advanced settings
+and enter the
+Client ID
+and
+Client secret
+for your BIM 360 integration. Refer to BIM 360's
+Manage API Access to BIM 360 Services
+(opens new window)
+guide to generate these credentials.
+3
+Optional. Use the
+Requested permissions (OAuth scopes)
+drop-down menu to select the permissions for Workato.
+By default, Workato requests all permissions and always includes the required
+user-profile:read
+scope.
+You can select from the following scopes:
+user:read
+account:read
+data:write
+data:read
+data:create
+account:write
+4
+Click
+Connect
+to complete the setup.
+Complete the connection fields and click
+Connect
+←
+Update record action
+New or updated document in a project folder trigger
+→
+Last updated:
+2/26/2025, 5:50:49 PM
+On this page
+API version
+How to connect to BIM 360 on Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

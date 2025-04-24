@@ -1,0 +1,192 @@
+バイナリファイルの取り扱い | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+ファイルおよび添付ファイルの取り扱い
+#
+バイナリファイルの処理
+バイナリファイルとは、テキスト形式でないファイルのことです。このファイルの格納方式はテキストより複雑であり、人間が理解できる言語で記述されていません。Workato では、レシピを使用して、業務システム全体でこのようなバイナリファイルを同期させることができます。
+Workato には、アプリ間でファイルを移動する方法が2つあり、どちらもテキストファイルとバイナリファイルの両方に適用できます。
+パブリック URL によるファイル移動
+指定されたファイルのパブリック URL を取得し、移動先アプリに渡します。この方法では、ファイルをそのまま移動先アプリへ移動して、Workato は経由しません。ジョブの期間中、この URL にはパブリックにアクセスできる必要があります。
+ダウンロードによるファイル移動
+ファイルコンテンツを Workato にダウンロードしてから、移動先のアプリにアップロードします。この方法では、ファイルデータを読み込んでから変換することができます。
+ただし、ジョブの処理速度を低下させる可能性があるため、非常に大きなファイルにこの方法を使用することは
+推奨されません。
+#
+パブリック URL によるファイル移動
+この方法は、以下の2段階のプロセスになります。
+移動するファイルのパブリック URL を取得します。
+このパブリック URL を移動先アプリに渡します。
+以下は、Dropbox から Box へファイルを移動する方法の例です。サンプルレシピは
+こちら
+(opens new window)
+。
+パブリック URL により Dropbox から Box へファイルを移動する
+このレシピでは、
+New file
+トリガーからパブリック URL を取得します。次に、ファイルが Box にすでに存在しているかどうかを確認してから、
+Upload file via URL
+アクションに URL を渡します。
+New file
+トリガーの設定時には、パブリック URL を生成するために、
+[Obtain a direct URL to file]
+フィールドを
+Yes
+に設定してください。
+#
+ファイルコンテンツによるファイル移動
+この方法は、以下の2段階のプロセスになります。
+移動するファイルコンテンツをダウンロードします。
+ファイルをターゲットシステムに読み込みます。
+この処理には、
+Files by Workato
+コネクターを使用できます。このコネクターは、ユーザーがファイルに対してアクションを実行できるようにするネイティブアプリケーションです。
+以下は、Gmail の添付ファイルを Box へ移動する方法の例です。サンプルレシピは
+こちら
+(opens new window)
+。
+ダウンロードした Gmail の添付ファイルを Box にアップロード
+Gmail の
+New email
+トリガーで添付ファイルのリストが出力されることもあります。このレシピは、メールに添付ファイルがあるかどうかを確認します。存在する場合は、Download attachment アクションを実行します。次に、レシピは
+Upload file using file contents
+アクションを使用して、ファイルを Box にアップロードします。
+For each
+行 (ステップ2) はリピートアクションであり、メールの添付ファイルごとに、ダウンロードとアップロードのステップを再利用します。
+この例では、Gmail では添付ファイルへのパブリック URL は提供されないため、ファイルコンテンツによる移動方法が使用されています。レシピの効率化を図るため、可能な限り
+URL によるファイル移動
+を使用することをお勧めします。
+#
+パブリック URL からのファイルコンテンツのダウンロード
+ファイルの移動元アプリがファイルへのパブリック URL のみを提供し、移動先アプリが実際のファイルコンテンツを必要とする場合は、
+Files by Workato
+を使用してファイルをダウンロードできるようにします。このネイティブコネクターには
+Download file from URL
+アクションが備わっており、指定されたパブリック URL からファイルコンテンツを取得します。
+Box の共有フォルダーに新規に作成されたファイルをアップロードし、Salesforce アカウントに関連付ける必要があるシナリオについて説明します。レシピは以下のようになります。
+ツールを使用してファイルコンテンツをダウンロードするレシピ
+サンプルレシピ
+(opens new window)
+。
+このレシピでは、Box ファイルへのパブリック URL を使用してファイルコンテンツをダウンロードします。次に、このファイルコンテンツは、特定の Salesforce アカウント (ここではアカウント ID はハードコードされている) へ関連付けされた新しい添付ファイルとして、Salesforce にアップロードされます。
+Box の URL によりダウンロードしたファイルコンテンツを Salesforce にアップロード。
+サンプルレシピ
+(opens new window)
+。
+#
+Base64 エンコーディング
+Base64 エンコーディングとは、ネットワーク上で送信できるようバイナリコンテンツを標準文字セットに変換する方法のことです。一部のアプリでは Base64 でエンコードされたファイルコンテンツをアップロードする必要があり、通常これらのアプリでは、ファイルのダウンロード時に Base64 でエンコードされたファイルコンテンツが生成されます。
+Workato では、
+関数
+により、Base64 コンテンツをエンコードまたはデコードする機能をサポートしています。
+バイナリコンテンツを Base64 でエンコードして当該アプリにアップロードする場合は、以下の関数を使用します。
+ファイルコンテンツのエンコード用関数
+当該アプリで生成された Base64 コンテンツからのバイナリコンテンツをデコードする場合は、以下の関数を使用します。
+ファイルコンテンツのデコード用関数
+←
+YAML の処理
+ファイルストリーミング
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+パブリック URL によるファイル移動
+ファイルコンテンツによるファイル移動
+パブリック URL からのファイルコンテンツのダウンロード
+Base64 エンコーディング
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

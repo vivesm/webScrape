@@ -1,0 +1,143 @@
+AIML accelerator- design | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+AIML
+#
+Solution design overview
+The AIML accelerator consists of three main processes: stage training data, train a machine learning (ML) model, and get predictions.
+#
+Stage training data
+Staging training data involves the following steps:
+Workato queries the source system(s) for relevant training data.
+The source system(s) respond(s) to the query
+Workato transforms the source data into a feature representation and validates the data against defined rules.
+S3 serves as a data staging area for AWS SageMaker.
+Learn how to stage training data
+.
+#
+Train ML model
+Training an ML model involves the following steps:
+Workato queries source system(s) for relevant training data.
+Source system(s) respond to the query.
+Workato transforms the source data into a feature representation and validates it against defined rules.
+Workato calls SageMaker with the S3 location to train and deploy the machine learning model.
+Learn how to train a machine learning model
+.
+#
+Get predictions
+Getting predictions involves the following steps:
+Workato triggers based on a relevant event and captures previously unseen data.
+Workato constructs a feature string and makes a prediction request against a model endpoint.
+SageMaker responds with an ML model prediction.
+Workato handles the response as required by the specific use case. For example, you can configure Workato to send the output to a target system. You can also configure Workato to evaluate the response and drive an automated process.
+Learn how to get predictions
+.
+←
+AIML
+Install
+→
+Last updated:
+12/28/2022, 5:28:45 AM
+On this page
+Stage training data
+Train ML model
+Get predictions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

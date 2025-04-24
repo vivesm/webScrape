@@ -1,0 +1,151 @@
+Complex data types | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+Complex data types
+APIs commonly use complex data structures, such as objects and arrays. These arrays are also referred to as lists. APIs typically organize and transmit these structures in JSON format to represent structured data.
+#
+Mapping complex data in formula mode
+Formula mode provides tools for working with complex data types within Workato's input fields.
+You can use formula mode to perform the following actions when mapping complex data:
+Create arrays of primitive data types
+Access and manipulate data without needing a detailed schema
+Provide values for specific fields
+#
+Example
+The following example demonstrates how to use formula mode with complex data types. In this example, formula mode applies tags to Zendesk tickets based on associated Salesforce campaigns.
+1
+Enable formula mode within the
+Tags
+field of the Zendesk
+Update ticket
+action. Formula mode is required to input complex data structures. According to Zendesk's
+API documentation
+(opens new window)
+, tags must be formatted as a JSON array of strings.
+2
+Enter sample tags in the
+Tags
+field and click
+Test recipe
+to verify that the action is set up correctly. Ensure that the tags follow the correct JSON syntax for an array of strings. Invalid values in formula mode raise
+design-time formula errors
+.
+Tags field with sample tags
+3
+Use the
+pluck
+formula, which returns an object's sub-field, to retrieve
+Name
+values from the Salesforce
+Campaigns
+object and apply them as tags. This method dynamically adds tags to tickets instead of using static values.
+Dynamic array input in formula mode
+4
+Ensure that the correct data is sent to Zendesk by checking the job's
+Output
+tab.
+The Tags array of strings is correctly inserted into the ticket.
+Last updated:
+11/5/2024, 6:08:52 PM
+On this page
+Mapping complex data in formula mode
+Example
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

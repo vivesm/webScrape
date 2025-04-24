@@ -1,0 +1,170 @@
+Workato connector - Gong - Search call scorecards | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Gong
+#
+Gong Connector - Search call scorecards
+This action will search call scorecards in Gong. Retrieves all the answers for the scorecards that were reviewed during a specified date range, for calls that took place during a specified date range, for specific scorecards or for specific reviewed users.
+#
+Input
+Field
+Description
+Call start date
+The date of the call from when to list calls. This value is inclusive.
+Call end date
+The date of the call until when to list calls. This value is exclusive.
+Review start date
+The review date from when to list calls. This value is inclusive.
+Review end date
+The review date until when to list calls. This value is exclusive.
+Reviewed user IDs
+List of users to be filtered. If not supplied, all users are returned.
+#
+Output
+Field
+Description
+Answered Scorecards
+A list of following details for each scorecard
+Visibility type
+The aggregate details of a single user is contained within this list object.
+Answered scorecard ID
+Email address of the user whose information is at the corresponding index.
+Scorecard ID
+Gong User ID for the specific user.
+Scorecard name
+The list size of the users aggregate activity.
+Answers
+A list containing a series of answer objects. Each answer object contains within it details like question text, score, answer text, among others.
+Call ID
+ID of call for which this scorecard corresponds to.
+Call start time
+Start time of the call.
+Reviewed user ID
+ID of the user who was evaluated in this call.
+Reviewer user ID
+ID of the user who was reviewing this call.
+Review time
+Time when the review took place.
+List Size
+The list size of the call scorecards.
+List Index
+An index for each item in the list of call scorecards.
+Records
+Metadata of the response
+Current page number
+Necessary for repeat requests to ensure pagination.
+Current page size
+Number of records on the current page.
+Cursor
+UUID necessary for pagination.
+Total Records
+Total number of records that can be queried.
+←
+Search aggregated user data
+Search call transcripts
+→
+Last updated:
+4/5/2023, 11:28:53 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

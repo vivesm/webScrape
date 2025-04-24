@@ -1,0 +1,225 @@
+Workbot のボタン | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Slack
+Workbot インターフェイスの設計
+#
+Workbot のボタン
+ボタンは、複雑なワークフローを簡単にする対話型インターフェイスを設計するうえで重要となる構成要素です。
+Workbot コマンドのトリガーには特定のキーワードが必要です。Workbot コマンドが正しく実行されるには、この固有のキーワードがユーザーに伝達され、取得される必要があります。ボタンを使用すると、実行を求められているアクションをユーザーが1クリックで実行できるため、ユーザーは追加の Workbot コマンドを覚えることなく、何が必要かをすばやく判断できます。
+ボタンではクリックにより別のレシピまたはワークフローをトリガーする
+#
+機能
+ボタンには以下の機能があります。
+Workbot の Post command トリガーを含む別のレシピをトリガーする。
+そのレシピにコマンド入力値を渡す。
+ダイアログを呼び出す (
+Workbot でのダイアログの使用
+を参照)。
+設定されたリストまたは
+動的に生成されるリスト
+として表示される。
+対話型インターフェイスを使いやすくするには、ボタンの数は4つ以下にしてください。
+#
+ボタンの動作の仕組み
+ボタンは Workbot の
+Post command reply
+または
+Post message
+アクションで使用できます。
+以下の表に、ボタンの項目に入力する内容を示します。
+入力項目
+値
+説明
+Button title
+ボタンのラベル。例
+Cancel
+表示するボタンのラベルを入力します。
+Submit button command
+ボタンのクリック時に実行する Workbot コマンド。例
+salesforce update account
+既存の Post command トリガーのリスト (別のレシピからの) から選択するか、独自の3語から成るコマンドを入力します。このボタンをクリックすると、対応するコマンドトリガーを含むレシピがトリガーされます。
+Command input values
+ボタンのクリック時に次のレシピに渡すコマンド入力値。例
+account_id
+:
+Account ID
+account_description
+:
+Account Description
+コマンド入力項目として次のレシピに渡す、名前と値のペアを入力します。
+ボタンをクリックすると、別のレシピがトリガーされ、ボタンの項目で定義したコマンド入力値が渡されます。
+たとえば、ボタンの項目で以下のように定義したとします。
+Title
+:
+Highest
+Submit button command
+:
+ui_feature highest priority
+Command input values
+:
+project
+、
+issue_type
+、
+priority
+これにより、以下に示すように、このボタンが ([High]、[Low]、[Lowest] の3つのボタンとともに) ユーザーに表示されます。
+このボタンをクリックすると、以下のレシピがトリガーされます。
+ボタンによりトリガーされるレシピ
+トリガーされるレシピのコマンドトリガーである
+ui_feature highest priority
+が、ボタンの
+Submit button command
+と一致していることに注目してください。
+#
+ボタンの動的リスト
+ボタンはリストデータピルを使用して動的に生成することもできます (リストの詳細については、
+リストの管理
+に関するガイドを参照してください)。
+ボタンの項目で、右上の横向きの3点リーダーをクリックし、[Dynamic List] を選択します。動的ボタンの項目が表示されます。
+以下の表に、動的ボタンの項目に入力する内容を示します。
+入力項目
+値
+説明
+Button source list
+リストデータピルを入力します。例
+Accounts
+データツリー内で、リストデータピルの横にはリストアイコンが表示されます。たとえば Salesforce の Accounts では以下のようなリストを使用します。
+Button title
+ボタンのラベル。例
+Account Name
+表示するボタンのラベルを入力します。通常、リストデータピルからのデータピルを使用します。たとえば Salesforce の Accounts リストのデータピルである Salesforce の Account name を使用します。
+Submit button command
+ボタンのクリック時に実行する Workbot コマンド。例
+salesforce update account
+既存の Post command トリガーのリスト (別のレシピからの) から選択するか、独自の3語から成るコマンドを入力します。このボタンをクリックすると、対応するコマンドトリガーを含むレシピがトリガーされます。
+Command input values
+ボタンのクリック時に次のレシピに渡すコマンド入力値。例
+account_id
+:
+Account ID
+account_description
+:
+Account Description
+コマンド入力項目として次のレシピに渡す、名前と値のペアを入力します。
+以下の例では、アカウントに関連付けられているボタンをクリックすることにより、Salesforce の「Direct Customer」アカウントを更新します。このリストは毎日変わるため、ボタンの静的リストでは対応できません。動的ボタンの項目を以下のように指定します。
+Buttons source list
+:
+Accounts
+Button Title
+:
+Account Name
+Submit button command
+:
+salesforce update account
+Command input values
+:
+account_id
+、
+account_description
+これにより、以下のような、動的に生成されたボタンのリストがユーザーに表示されます。
+←
+Workbot のメッセージメニュー
+スラッシュコマンドの設定
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+機能
+ボタンの動作の仕組み
+ボタンの動的リスト
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

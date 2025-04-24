@@ -1,0 +1,136 @@
+トラブルシューティング - Bamboo HR - 新規ジョブのエラーチェック | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+トラブルシューティング
+解決
+#
+Bamboo HR - 新規ジョブのエラーチェック
+403 Forbidden エラー
+は、アクションの実行に必要なデータにアクセスする権限がないことを示しています。たとえば、従業員のレコードにアクセスするための権限はあっても、従業員の給与にアクセスするための権限はないことがあります。ユーザーのレシピで従業員の給与を使用してアクションが実行される場合、Workato がそのユーザーのアカウント権限で従業員の給与にアクセスできないと、レシピは失敗します。
+レシピトリガーでの403 Forbidden エラーメッセージの例
+#
+解決策
+レシピトリガーで403 Forbidden エラーが発生した場合、ネットワークトレースを利用してデバッグすることはできません。代わりに、このエラーの原因となる特定のレコードを迅速に識別するためのレシピを作成します。以下の手順に従い、すべてのレコードを繰り返し処理して発生するエラーをすべてログに記録するレシピを作成します。
+特定の時間に実行するトリガーを使用してレシピを設定します。
+BambooHR の
+List employees in directory
+アクションを挿入します。
+Repeat アクションを設定します。
+Employees list データピルを [Input list] フィールドに挿入します。
+[One item at a time] モードを選択します。
+Handle errors アクションを挿入します。
+Handle errors のMonitor アクションの下に、
+Get employee details by ID
+アクションを挿入します。[Employee ID] フィールドにステップ2のID データピルを挿入します。
+Handle errors のOn error アクションの下に、Logger by Workato アクションを挿入します。[Message] フィールドにステップ2のID データピルを挿入して、エラーが発生したレコードを識別できるようにします。
+このレシピを実行して Logger by Workato アクションの出力を検証し、アクセス権限を追加する必要があるレコードを確認します。
+#
+このエラーが発生する理由
+Workato をアプリケーションに接続するために資格情報を入力する際、データへのアクセスに必要な権限がない場合に、このエラーが発生する可能性があります。たとえば、社会保証番号などの機密データでは、より詳細な権限が必要になります。これにより、Workato が特定のレコードにアクセスするのを防止できます。
+通常は、
+ネットワークトレース
+を利用してトラブルシューティングを行い、問題の原因となる特定のレコードを識別します。ただし、レシピトリガーでこのエラーが発生した場合、トラブルシューティングでネットワークトレースを利用することはできません。
+ポーリングトリガーの場合、Workato は失敗したジョブに対して再度ポーリングを試みます。そのため、レシピが実行されなくなります。
+←
+NetSuite - 500 internal server エラー
+Undefined method for NilClass
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+解決策
+このエラーが発生する理由
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

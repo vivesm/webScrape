@@ -1,0 +1,234 @@
+API コレクションの管理 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+API プラットフォーム
+#
+API コレクションの管理
+API コレクションのページには、このアカウント (個人アカウントまたはチームアカウント) の API コレクションがすべて表示されます。各 API コレクションは、共通したアクセスパターンを持つエンドポイントで構成されているため、それらをまとめて管理できます。たとえば、営業チームが使用するレシピから呼び出される Salesforce 連携用のエンドポイント群は、1つの API コレクションにグループ化する必要があります。
+[Tools]
+>
+[API platform]
+>
+[API collections]
+に移動します。
+[API collections] タブ
+#
+API コレクションの設定
+#
+準備
+API レシピ
+を作成します。
+API レシピを1つのフォルダーにまとめます。同じ API コレクションに属するエンドポイントを持つ API レシピは、同じフォルダーにまとめることをお勧めします。API コレクションはフォルダーと関連付けることができるため、フォルダーに追加された新しい API レシピは、コレクションに自動的に追加されます。
+#
+新しいコレクションの作成
+[Add new API collection]
+をクリックします。
+[Create API Collection]
+ウィンドウが表示されます。
+API ソースを選択するウィンドウ
+[Collection name]
+、
+[Version]
+、
+[Description]
+に入力します。
+[Recipe folder]
+ドロップダウンリストで、API レシピが含まれるフォルダーを選択します。
+[Next]
+をクリックします。
+[Review endpoints]
+ウィンドウが表示されます。このウィンドウには、エンドポイントとして API コレクションにインポートされた API レシピのリストが表示されています。エンドポイントの名前、URL、メソッドを編集したり、後からエンドポイントを追加または削除したりすることができます。
+エンドポイントを確認するウィンドウ
+[Create API collection]
+をクリックします。
+新しいコレクションが追加された API コレクションのリストが表示されます。
+次に、エンドポイントを有効にします。デフォルトでは、新しいエンドポイントはすべて無効になっています。他のレシピやアプリからエンドポイントを呼び出せるようにするには、エンドポイントを有効にする必要があります。詳細については、
+「エンドポイントの有効化または無効化」
+を参照してください。
+新しい API コレクションをクリックし、コレクションの概要ページを開きます。
+API コレクションの概要ページ
+有効にするエンドポイントの右側にあるトグルをクリックします。
+次に、コレクション、URL、共有を設定します。
+任意 :
+[Settings]
+タブをクリックして、以下の設定を行います。
+任意 :
+バージョン番号を変更します。
+注 :
+API コレクションのバージョンは、1 ～ 10の一意のバージョン ID を使用して作成されます。名前は同じでもバージョンが異なるコレクションは、個別のオブジェクトになります。
+任意 :
+API コレクションに関する説明を入力します。
+[Collection settings] タブ
+任意 :
+[URL settings]
+タブをクリックして、コレクションパスをカスタマイズします。たとえば、このフィールドを使用して、営業、マーケティング、または人事用のコレクションを区別できます。
+WARNING
+oauth2
+は予約済みの名前空間です。
+oauth2
+から始まるコレクションパスは使用できません。
+以下のスクリーンショットは、このタブでカスタマイズできる URL のセクションを示しています。
+ドメイン
+と
+パスの接頭辞
+は、API プラットフォームの
+[Settings]
+タブでカスタマイズできます。
+[URL settings] タブ
+任意 :
+[Sharing]
+タブをクリックします。ここでは、コレクションをワークスペースの API ライブラリに追加できます。デフォルトでは、新しいコレクションはライブラリには表示されません。
+[Show in API library]
+をクリックすると、ワークスペース内の任意のユーザーがコレクションを見つけ、そのコレクションへのアクセスをリクエストできます。
+API コレクションをライブラリで共有
+次に、このコレクションをクライアントのアクセスプロファイルに割り当て、特定のユーザーまたはアプリがこのコレクションにアクセスできるようにします。
+新しいアクセスプロファイルの作成
+に進みます。
+#
+API コレクションの編集
+API コレクションを作成したら、API コレクションをクリックして、コレクションの概要ページを開きます。このページから、このコレクションで利用可能なエンドポイントを追加、削除、または編集できます。
+API コレクションの概要ページ
+関連トピック :
+新しいエンドポイントの作成
+エンドポイントのテスト
+#
+コンピュータで読み取り可能なドキュメント (OpenAPI)
+API コレクションのページの右上に、
+Download OpenAPI spec
+というラベルの付いたリンクがあります。このリンクから、コレクション内のすべてのエンドポイントに関するドキュメントが含まれた、ダウンロード可能なファイルにアクセスできます。このファイルのフォーマットは、Postman などのツールで使用できます。このフォーマットは、OpenAPI とも Swagger とも呼ばれます。現在、Workato は
+バージョン2.0
+(opens new window)
+の仕様に対応しています。
+#
+Postman への同期
+作成した API コレクションが正常にデプロイメントされ、問題なく使用できるようになったら、この API を当初のクライアント以外にも採用することを検討してみましょう。API コレクションがより多くの目にとまるようにするには、API コレクションを Postman ワークスペースに同期します。これにより、社内および外部のポータルを利用して、API コレクションの採用を促進することができます。
+1
+同期する API コレクションを開きます。
+2
+[Settings]
+タブ >
+[Sync to Postman]
+に移動します。
+[Sync to Postman]
+をクリックして同期を開始します。
+3
+Postman インスタンスとワークスペースに接続する必要があります。既存の Postman コネクションを選択するか、新しいコネクションを作成します。
+4
+Postman で API コレクションが保存される場所を設定します。
+[New API in Postman]
+を使用して新しい API を作成できます。
+この API コレクションを既存の Postman API に保存できます。
+API コレクションを既存の Postman API に保存する
+既存の Postman API に保存する場合は、バージョン名を指定する必要があります。これには異なるバージョン名を指定することをお勧めします。既存のバージョンを上書きするよう選択することもできます。
+5
+[Sync API collection]
+をクリックして同期を完了します。
+Workato は、この API コレクションの OpenAPI 仕様を Postman に自動的に送信し、選択した API の新規または既存のバージョンとして Postman に保存します。これにより、この API のバージョンを、Postman で開発者コミュニティに公開するよう設定できるようになります。
+API が更新された場合は、
+[Refresh sync]
+をクリックすれば、Postman の API を API コレクションの最新バージョンで更新できます。
+←
+パフォーマンス
+API エンドポイント
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API コレクションの設定
+API コレクションの編集
+コンピュータで読み取り可能なドキュメント (OpenAPI)
+Postman への同期
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

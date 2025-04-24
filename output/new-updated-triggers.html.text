@@ -1,0 +1,186 @@
+Workato Connector - HubSpot New/Updated Record Triggers | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+HubSpot - New/Updated record triggers
+This section contains documentation on the triggers that are currently supported on the Workato platform, including:
+New/Updated Record Trigger
+New/Updated Record batch Trigger
+DEPRECATION NOTICE
+The triggers below have been deprecated. Please use the New/Updated Record trigger instead.
+New/Updated Company Trigger
+New/Updated Contact Trigger
+New/Updated Deal Trigger
+#
+Trigger conditions
+For each trigger, you can configure trigger conditions. Trigger conditions are like filters in Workato. Turning on trigger conditions in Workato means that you can selectively choose which events you want to trigger workflows. Conditions can be set on object attributes like approval status. This allows you to build workflows that are only triggered on things such as approved purchase orders or invoices.
+#
+New/Updated record trigger
+Triggers when a new record is created or an existing record is updated in your HubSpot instance. Each record will be processed as a separate job. It checks for new jobs once every poll interval. To configure this action, you will need to first select the object you want to trigger jobs off.
+We currently support the following objects:
+Contact
+Company
+Deal
+Product
+Ticket
+Line Item
+Quote
+Custom Objects
+New/Updated record trigger
+#
+Input fields
+Input field
+Description
+Object
+Select the object you want to trigger jobs from.
+Properties
+If not configured, the default set of properties for each record type is returned. Configure this input to pull in custom sets of properties. Custom fields are supported.
+When first started, this recipe should pick up events from
+Configure this input to pull records created since a specific time in the past. Leave blank to pull records from 1 hour ago. Learn more about this
+input field
+.
+#
+Output fields
+Workato will return an object representing each new or updated record in separate jobs so you can use its datapills in the subsequent steps. The output datapills will be based on what you have configured in the
+Properties
+input field. If blank, a default set of properties are returned.
+#
+New/Updated record batch trigger
+Triggers when a new record is created or updated in your HubSpot instance. It checks for new jobs once every poll interval and fetches all new or updated instances of the object. It processes these records in batches as opposed to a single record per job. To configure this trigger, you will need to first select the object you want to trigger jobs off.
+We currently support the following objects:
+Contact
+Company
+Deal
+Ticket
+New/Updated Records batch trigger
+#
+Input fields
+Input field
+Description
+Object
+Select the object you want to trigger jobs off.
+Properties
+If not configured, we return the default set of properties for each record type. You can pull in custom sets of properties by configuring this input. Custom fields are supported.
+Filter Groups
+Use filters to only trigger on created records that meet your filter criteria. When multiple filter groups are provided, they will be combined using a logical AND operator. You can have a maximum of two filter groups. Last modified date is unavailable to be used as a property for filtering.
+Batch Size
+Provide number of records to be returned in each job. Minimum is 1 and maximum is 100. Defaults to 100.
+When first started, this recipe should pick up events from
+Configure this input to pull records that have been created since a time in the past. Leave blank to pull records from 1 hour ago. Learn more about this
+input field
+.
+#
+Output fields
+Workato will return an object representing each new or updated record in separate jobs so you can use its datapills in the subsequent steps. The output datapills will be based on what you have configured in the
+Properties
+input field. If blank, a default set of properties are returned.
+←
+Scopes for Custom OAuth profiles
+New record triggers
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+New/Updated record trigger
+New/Updated record batch trigger
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

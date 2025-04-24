@@ -1,0 +1,140 @@
+Workato connectors - Snowflake Merge action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Snowflake
+#
+Snowflake - Merge action
+This action merges data between two tables in Snowflake, allowing you to insert or update rows in a target table by matching values with a source table.
+Ensure that both tables have an identical schema
+. This action only supports the following cases:
+Values that match (for updates).
+Values that do not match (for inserts).
+#
+Input
+Input field
+Description
+Source table
+Choose the source table or enter a custom table name. This table provides the data for the merge.
+Target table
+Choose the target table or enter a custom table name. This table receives the merged data.
+Join expression
+Define the merge condition. You can choose from the source and target table columns or enter it manually.
+#
+Output
+Output field
+Description
+Rows affected
+The total number of rows affected by the merge operation.
+Rows updated
+The number of rows updated in the target table.
+Rows inserted
+The number of rows inserted into the target table.
+←
+Replicate schema action
+New row trigger
+→
+Last updated:
+3/19/2024, 5:06:31 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

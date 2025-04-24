@@ -1,0 +1,179 @@
+Data tables - 列の作成 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workflow Apps
+テーブルストレージ
+データテーブル
+#
+新しい列の作成
+新しい列を作成するには:
+1
++
+(プラス) ボタンをクリックします。
+2
+列名、列の型、デフォルト値 (オプション)、ヒント (オプション) を選択します。
+3
+または、列名の横にある
+...
+(省略記号) をクリックして新しい列を作成することもできます。既存の列の隣に新しい列を作成するには、
+左に列を挿入
+または
+右に列を挿入
+を選択します。
+新しい列の追加
+#
+キーボードショートカットを使用して新しい列を作成する
+#
+macOS
+macOS で新しい列を作成するには、
+command + i
+を押します。
+#
+Windows
+Windows で新しい列を作成するには、
+ctrl + i
+を押します。
+データテーブルとの対話に使用できるキーボードショートカットの完全なリストについては、
+キーボードショートカット
+を参照してください。
+#
+サポートされている列の型
+データテーブルがサポートする列の型のリストについては、
+列の型
+のドキュメントを参照してください。
+#
+デフォルト値
+各列にデフォルト値を設定します (オプション)。ユーザーが他の値を指定しない場合、Workato はデフォルト値を新しいレコードに割り当てます。列が
+必須
+とマークされており、テーブルに既に行がある場合、Workato はデフォルト値をすべてのレコードに自動的に割り当てます。
+Workato は
+Date
+および
+DateTime
+列のデフォルト値を自動的に割り当てます。
+Link to another table
+および
+File
+列の型を除くすべての列のデフォルト値をユーザーが指定できます。
+#
+ヒント
+各列にヒントを割り当てます (オプション)。列にヒントを割り当てる場合、Workato はレシピエディタの入力フィールドの下にヒントを表示します。データテーブルを表示する際には、Workato はヒントをツールチップとして表示します。
+Workato はレシピエディタでヒントを表示します
+#
+必須として設定する
+列を必須として設定します (オプション)。列を必須として設定する場合、ユーザーは新しい行を追加する際に列にデータを追加する必要があります。必須の列にデータを追加しない場合、Workato はエラーメッセージを表示し、列にデータを追加するまでレコードを保存できません。
+一部の
+列の型
+は必須としてマークすることができません。これには
+Link to another table
+および
+File
+列の型が含まれます。
+←
+データテーブルの作成
+列の編集
+→
+Last updated:
+2024/9/11 4:23:13
+On this page
+キーボードショートカットを使用して新しい列を作成する
+macOS
+Windows
+サポートされている列の型
+デフォルト値
+ヒント
+必須として設定する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,180 @@
+Workato connector - Google cloud storage - Update object metadata | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Cloud Storage
+#
+Google cloud storage Connector - Update object metadata
+This action will update an object’s metadata in your Google cloud storage instance.d
+For uploading object content and metadata use the
+upload object action
+.
+#
+Input
+Field
+Description
+Bucket name
+Required
+The name of the bucket to be updated.
+Object name
+Required
+The name of the object to be updated.
+Pre-defined Access Controls
+Select a pre-defined access control configuration.
+Projection
+Select the set of properties to return. Defaults to No ACL.
+Generation
+If present, permanently deletes a specific revision of this object (as opposed to the latest version, the default).
+If generation matches
+Makes the operation conditional on whether the object's current generation matches the given value. Setting to 0 makes the operation succeed only if there are no live versions of the object.
+If generation does not match
+Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
+If Meta generation matches
+Makes the operation conditional on whether the object's current metageneration matches the given value.
+If Meta generation does not match
+Makes the operation conditional on whether the object's current metageneration does not match the given value.
+Pre-defined access controls
+These are the accepted configurations:
+authenticatedRead
+: Object owner gets
+OWNER
+access, and allAuthenticatedUsers get
+READER
+access.
+bucketOwnerFullControl
+: Object owner gets
+OWNER
+access, and project workspace admins get
+OWNER
+access.
+bucketOwnerRead
+: Object owner gets
+OWNER
+access, and project workspace admins get
+READER
+access.
+private
+: Object owner gets
+OWNER
+access.
+projectPrivate
+: Object owner gets
+OWNER
+access, and project workspace members get access according to their roles.
+publicRead
+: Object owner gets
+OWNER
+access, and allUsers get
+READER
+access.
+#
+Output
+Object specific output fields will be dynamically rendered base on the objects you select.
+←
+Update bucket
+Upload object with file streaming
+→
+Last updated:
+10/4/2023, 6:53:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

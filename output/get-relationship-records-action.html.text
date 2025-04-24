@@ -1,0 +1,144 @@
+Workato connectors - Zendesk get relationship record action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Zendesk
+#
+Zendesk - Get relationship record action
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (for example, Tickets, Users, Organization). You can also configure custom relationships to define how objects are associated. Find out more about
+here
+.
+This action will retrieve the relationship records of a specified relationship type for a specified
+source
+object record. Only records that match the criteria will be returned.
+Get relationship record action
+#
+Input fields
+Input field
+Description
+Relationship type
+Select the type of relationship for your search.
+[Source object]
+ID
+The unique Zendesk ID of the source object.
+#
+Output fields
+Output field
+Description
+Relationship Type
+The user-defined key of the relationship type.
+ID
+The unique Zendesk ID of this relationship record. This is automatically assigned when the record is created.
+Source
+The ID of the source of the relationship.
+Target
+The ID of the target of the relationship.
+Date created
+The time the relationship record was created.
+List size
+The size of the list, corresponding to the number of relationships retrieved.
+←
+Get custom object record by ID
+Update ticket
+→
+Last updated:
+7/2/2021, 10:09:23 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

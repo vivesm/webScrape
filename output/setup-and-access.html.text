@@ -1,0 +1,200 @@
+ワークフローアプリ - アプリのセットアップとアクセス | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workflow Apps
+ビルダーの体験
+アプリの設定
+#
+セットアップとアクセス
+アプリ
+タブの上部には、アプリの名前を決定したり、カスタムアイコンをアップロードしたり、アプリのアクセスを管理したりするためのコントロールがあります。
+アプリビュー
+#
+名前とアイコン
+アプリの名前とアイコンを決定するには、以下の手順を実行してください：
+アプリ名
+既存の名前をクリックしてアプリの名前を編集します。この名前は
+アプリポータル
+に表示されます。
+アプリアイコン
+既存のアイコンをクリックしてアプリに固有のアイコンをアップロードします。
+アプリURLプレビュー
+既存のアプリ名をクリックして、アプリのURLの読み取り専用プレビューを表示します。
+ツール > アプリポータル > 設定 > 一般
+でURLのプレフィックスを
+カスタマイズ
+することができます。
+#
+アプリのアクセスを管理する
+アプリ
+タブのこのセクションでは、ユーザーグループをアプリに割り当てることで、アプリにアクセスできるユーザーを決定することができます。
+開始前に
+ワークフローアプリにユーザーグループを割り当てる前に、アプリポータルにアプリユーザーを追加する必要があります。
+Workatoでは、内部および外部のユーザーをアプリケーションに追加することができます。つまり、アプリユーザーはWorkatoアカウントを持っていなくても、アプリポータルに参加することができます。
+ユーザーの招待方法については、
+管理ガイド
+をご覧ください。
+アプリのアクセスを管理するには：
+1
+アプリの名前の下には、このワークフローアプリにすでに割り当てられているユーザーグループの数が表示されます（
+前の例
+では
+6つのグループ、81人のユーザー
+です）。
+このフィールドをクリックして
+アクセスを管理
+モーダルを開きます。
+2
++
+（プラス）
+グループを追加
+をクリックします。
+アプリにユーザーグループを割り当てる
+3
+ピックリストからユーザーグループを選択します。
+4
+各グループに役割を割り当てます。役割によって、ユーザーグループがアプリとの対話に対する権限が決まります。
+ユーザーグループのアクセスを管理
+以下の役割が利用可能です：
+メンバー
+メンバーは新しいリクエストを作成し、自分に割り当てられたタスクに対応することができます。
+アプリポータルでは、
+メンバー
+役割のユーザーは
+自分に割り当てられたタスク
+、
+自分が作成したタスク
+、
+今日の期限
+タブのタスクにのみアクセスできます。
+すべてのリクエスト
+タブは
+メンバー
+役割のユーザーにも表示されますが、ユーザーが割り当てられた/作成したタスクのみが含まれます。
+マネージャー
+メンバーの権限に加えて、マネージャーはアプリ内のユーザーが作成したすべてのリクエストを表示および更新することができます。
+アプリポータルでは、
+マネージャー
+役割のユーザーは
+すべてのリクエスト
+、
+自分に割り当てられたタスク
+、
+自分が作成したタスク
+、
+今日の期限
+タブのタスクにアクセスできます。
+役割によってアプリポータルでアクセスできるタスクが決まります
+5
+変更を保存
+をクリックします。
+ユーザーグループの設定
+ユーザーグループは
+ツール > アプリポータル > ユーザーとグループ
+で設定することができます。
+詳細については、
+ユーザーとグループの整理
+を参照してください。
+←
+アプリの設定
+アプリインターフェース
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+名前とアイコン
+アプリのアクセスを管理する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

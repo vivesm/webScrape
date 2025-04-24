@@ -1,0 +1,146 @@
+Data tables - データテーブルをCSVとしてダウンロードする | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+CSVとして新しいテーブルをダウンロードする
+データテーブル
+インターフェースでデータテーブルをCSVとしてダウンロードすることができます。
+以下の手順に従って行ってください：
+1
+データテーブルを選択します。
+2
+データテーブルの右上隅にある
+Download as CSV
+ボタンをクリックします。
+Download as CSV
+ボタンの場所
+3
+CSVファイルは
+data_table_{name}.csv
+としてダウンロードされます。ここで、**{name}**はスネークケースでのデータテーブルの名前です。
+#
+ダウンロードされたCSVの特徴
+Workatoは、データテーブルをCSVとしてダウンロードする際に「見たまま」のアプローチを取っています。したがって：
+日付と日時のデータ型は、ワークスペースのタイムゾーンに従います。これは、データテーブルインターフェースで表示される内容と一致します。
+日付の形式は
+YYYY-MM-DD
+で、日時の形式は
+YYYY-MM-DD hh:mm:ss.sss
+です。
+=
+で始まる値（例：
+=10530
+）は、
+=
+宣言の前に
+'
+が付いてエスケープされます（例：
+'
+=10530`）。
+,
+を含む値（例：「33 Main Rd, USA 01349」）は、
+"
+で囲まれます。
+ブール値は
+true
+または
+false
+で表示されます。
+データテーブルで表示されている列のみがCSVファイルに含まれます。
+列の順序は、データテーブルインターフェースで表示されている順序に従います。
+Last updated:
+2024/9/11 4:23:13
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

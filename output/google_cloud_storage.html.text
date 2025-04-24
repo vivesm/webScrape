@@ -1,0 +1,221 @@
+Workato コネクター - Google Cloud Storage | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Google Cloud Storage コネクター
+Google Cloud Storage
+(opens new window)
+は、Google Cloud Platform 上でのデータ保存およびアクセスに向けた RESTful なオンラインファイルストレージ Web サービスです。
+#
+API バージョン
+このコネクターは
+Cloud Storage JSON API v1
+(opens new window)
+を使用します。
+Google Cloud Storage API の有効化
+ご使用の Google Cloud Platform API セットにおいて Google Cloud Storage API が有効化されていることを確認してください。この API を有効化する方法については、
+こちら
+(opens new window)
+を参照してください。
+Google Cloud Platform で Google Cloud Storage API を有効化
+#
+Workato での Google Cloud Storage への接続方法
+Google Cloud Storage コネクターでは、
+サービスアカウント
+を使用した接続のみが可能です。
+項目
+説明
+Connection name
+このコネクションに対して、接続先の Google Cloud Storage インスタンスを識別する一意の名前を付けます。
+Project identifier
+このコネクターで使われる、有効なクラウドプラットフォームプロジェクト ID を入力します。これは
+Google Cloud コンソール
+(opens new window)
+から見つけることができます。
+GCS Project service account email
+サービスアカウントのメールアドレス。
+Private key
+ダウンロードした JSON ファイルにある秘密鍵を入力します。
+Google サービスアカウントについて詳しくは、
+こちら
+を参照してください。
+Advanced settings
+コネクションのスコープを調整します。
+#
+Google サービスアカウントとは
+Google サービスアカウント
+(opens new window)
+とは、Google Cloud プロジェクトに関連付けられている特別な種類の Google アカウントのことであり、ユーザーに代わって API リクエストを実行する場合に使用できます。Google Cloud Storage でサービスアカウントを使用することで、個々のユーザーの権限が変更された場合でも、ソリューションが継続して実行されるようになります。
+サービスアカウントを作成するには、Google Cloud Platform (GCP) コンソールにログインする必要があります。GCP プロジェクトの新しいサービスアカウントを作成するには、
+こちら
+(opens new window)
+のガイドに従ってください。続いて、新しい秘密鍵を追加して JSON 形式でダウンロードするには、
+こちら
+(opens new window)
+のガイドに従ってください。
+WARNING
+鍵ファイルは作成時にのみダウンロードできます。その後は入手できなくなるため、安全な場所に保存しておいてください。
+#
+権限
+すべてのアクションとトリガーを使用するために推奨されるサービスアカウントロールは、
+Storage Admin
+ロールです。
+Google Cloud Storage コネクションに許可するアクションを制限する場合は、以下のようなより狭いスコープのロールを使用することができます。
+Storage Object Admin
+: このロールでは、アクションの対象が Google Cloud Storage オブジェクトに制限されます。
+Storage Object Viewer
+: このロールでは、アクションが Google Cloud Storage オブジェクトの閲覧とダウンロードのみに制限されます。
+カスタムロール:
+カスタムロール
+(opens new window)
+を使用して Google Cloud Storage コネクションに対する権限を定義します。
+すべてのアクションとトリガーを使用するには、次の24種類の権限が必要となります。Google Cloud Storage の権限の詳細については、
+こちら
+(opens new window)
+を参照してください。
+firebase.projects.get
+resourcemanager.projects.get
+resourcemanager.projects.list
+storage.buckets.create
+storage.buckets.createTagBinding
+storage.buckets.delete
+storage.buckets.deleteTagBinding
+storage.buckets.get
+storage.buckets.getIamPolicy
+storage.buckets.list
+storage.buckets.listTagBindings
+storage.buckets.setIamPolicy
+storage.buckets.update
+storage.multipartUploads.abort
+storage.multipartUploads.create
+storage.multipartUploads.list
+storage.multipartUploads.listParts
+storage.objects.create
+storage.objects.delete
+storage.objects.get
+storage.objects.getIamPolicy
+storage.objects.list
+storage.objects.setIamPolicy
+storage.objects.update
+不十分な権限
+与えられたアクセス権を越えるリソースの取得や更新がコネクションによって試みられた場合、このコネクターのアクションは失敗します (アクセスエラーを返します)。
+#
+詳細情報
+以下の章を参照できます。
+Create bucket
+Delete bucket
+Delete object
+Download object
+Get bucket
+List buckets
+List objects
+Update bucket
+Update object metadata
+Upload object with file streaming
+←
+クエリージョブの出力の取得
+バケットの作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Google Cloud Storage への接続方法
+権限
+詳細情報
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

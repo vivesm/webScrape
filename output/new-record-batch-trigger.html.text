@@ -1,0 +1,149 @@
+Open API - New/updated record batch trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+OpenAPI
+#
+Open API - New/updated record batch trigger
+The
+New/updated record batch
+trigger runs when a record of the selected object is created or updated. The list of objects is dynamically generated based on the API endpoints found in the
+OpenAPI document
+(opens new window)
+.
+New/updated record batch trigger
+#
+Input
+Input fields
+Description
+Trigger poll interval
+Select how frequently to check for new events.
+Object
+Select an object from the drop-down list of linked objects.
+Timestamp record field
+Determine the latest timestamp for filtering when retrieving the next batch of events.
+When first started, this recipe should pick up events from
+When you start recipe for the first time, it picks up trigger events from this specified date and time. Leave empty to get events created one hour ago.
+Filter
+Provide configuration and filter criteria for checking for new or updated records.
+Record list field
+Records in this field are available in the output of this trigger. Defaults to
+Results
+.
+Identifier record hold
+Use this field to uniquely identify individual records. This is required for deduplication to ensure each unique record is processed only once. Defaults to
+Id
+.
+Set trigger condition
+Define further guidelines added to a specific trigger to filter the type of trigger events selected for processing.
+#
+Output
+The output fields are determined by the object selected in the input. Map the relevant datapill from the data tree to subsequent steps.
+←
+New/updated record trigger
+Create record action
+→
+Last updated:
+1/27/2025, 1:45:51 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

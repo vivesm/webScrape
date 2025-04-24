@@ -1,0 +1,512 @@
+Salesforce and database syncs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+Syncing Salesforce with databases/data warehouses
+While there no current inbuilt option to connect directly to your database warehouse with Salesforce, Workato provides a range of actions to help users build powerful recipes.
+Integrations between Salesforce and databases are useful when there is a need to optimize organizational processes: Using an integration product to do so greatly reduces the cost of manually addressing inconsistencies of aligning data in different systems.
+#
+Get object schema action
+The 'Get object schema' action fetch schema information of a Salesforce object. This action can be used on both standard and custom objects. Use this action when you need to replicate a Salesforce object's fields to columns in your data warehouse.
+This action requires the user to specify the object to fetch object schema from. The example snippet below shows the output when a custom object, 'Commission__c' is used in the action.
+{
+"name"
+:
+"Commission__c"
+,
+"label"
+:
+"Commission"
+,
+"custom"
+:
+true
+,
+"fields"
+:
+[
+{
+"name"
+:
+"Id"
+,
+"label"
+:
+"Record ID"
+,
+"custom"
+:
+false
+,
+"length"
+:
+18
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"OwnerId"
+,
+"label"
+:
+"Owner ID"
+,
+"custom"
+:
+false
+,
+"length"
+:
+18
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"IsDeleted"
+,
+"label"
+:
+"Deleted"
+,
+"custom"
+:
+false
+,
+"length"
+:
+0
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"boolean"
+}
+,
+{
+"name"
+:
+"Name"
+,
+"label"
+:
+"Commission Name"
+,
+"custom"
+:
+false
+,
+"length"
+:
+80
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"CreatedDate"
+,
+"label"
+:
+"Created Date"
+,
+"custom"
+:
+false
+,
+"length"
+:
+0
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"CreatedById"
+,
+"label"
+:
+"Created By ID"
+,
+"custom"
+:
+false
+,
+"length"
+:
+18
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"LastModifiedDate"
+,
+"label"
+:
+"Last Modified Date"
+,
+"custom"
+:
+false
+,
+"length"
+:
+0
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"LastModifiedById"
+,
+"label"
+:
+"Last Modified By ID"
+,
+"custom"
+:
+false
+,
+"length"
+:
+18
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"SystemModstamp"
+,
+"label"
+:
+"System Modstamp"
+,
+"custom"
+:
+false
+,
+"length"
+:
+0
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"Rate__c"
+,
+"label"
+:
+"Rate"
+,
+"custom"
+:
+true
+,
+"length"
+:
+0
+,
+"scale"
+:
+0
+,
+"precision"
+:
+18
+,
+"type"
+:
+"string"
+}
+,
+{
+"name"
+:
+"Name__c"
+,
+"label"
+:
+"Name"
+,
+"custom"
+:
+true
+,
+"length"
+:
+0
+,
+"scale"
+:
+0
+,
+"precision"
+:
+18
+,
+"type"
+:
+"double"
+}
+,
+{
+"name"
+:
+"User__c"
+,
+"label"
+:
+"User"
+,
+"custom"
+:
+true
+,
+"length"
+:
+18
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"type"
+:
+"string"
+}
+]
+}
+The output provides the metadata of the sObject and the list of fields and their data types. The array contains only the fields that the user can view, as defined by the user's field-level security settings.
+For more details on the fields returned, please view this
+article
+(opens new window)
+.
+#
+Detect new or updated custom data
+This boolean field is available in Salesforce triggers for all single-record and batch New, New/Updated record triggers as well as Scheduled record search using SOQL. Use this field only if trying to replicate object records to a database.
+When 'Yes' is selected, the trigger output will include data of any newly added or modified custom fields. It is then used in conjunction with a replicate data action in the corresponding database. This is currently supported on the Snowflake adapter.
+When new/updated data is detected from the data source, Workato first inspects the new object definition against the existing Snowflake table schema. Any mismatches will be reconciled by updating the table definition in Snowflake. Following that, the data is then deduplicated and inserted/updated in the Snowflake table.
+View this
+recipe
+(opens new window)
+for an example of how this is done.
+←
+Batch create/update/upsert
+Approval processes
+→
+Last updated:
+5/18/2020, 12:22:52 PM
+On this page
+Get object schema action
+Detect new or updated custom data
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

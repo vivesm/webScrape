@@ -1,0 +1,134 @@
+Workato connectors - Percolate New or updated object trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Percolate
+#
+New or updated object trigger (real-time)
+The
+New or updated object
+real-time trigger activates when an object is created or updated in Percolate. This trigger operates in real-time.
+Percolate - New or updated object trigger
+#
+Input
+Input field
+Description
+Object name
+Select the object type you plan to monitor for new instances or updates.
+Team
+Choose the team or specify the team ID for the objects you plan to track.
+Team Metadata
+Choose this option if you require metadata for the team, particularly if your object is linked to the team ID input field or if you select more than 100 teams. Selecting a team overrides this field's input.
+Time to live (in seconds)
+Specify the retention period for undelivered event messages. The default is 0, which means there is no time limit. The maximum duration you can set is 72 hours (259200 seconds).
+#
+Output
+The output of this action varies based on the type of object you select.
+←
+New object
+Check content workflow step
+→
+Last updated:
+4/10/2024, 5:14:42 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

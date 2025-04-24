@@ -1,0 +1,152 @@
+Workato コネクター - Workday REST - New row トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Workday REST
+#
+Workday REST - New worker (新規ワーカー) トリガー
+このトリガーは、Workday インスタンス内で作成されたワーカーを処理します。各行は別個のジョブとして処理されます。初めて開始すると、すべての既存のワーカーが個別のジョブとして処理されます。その後は、ワーカーが作成されたタイミングでトリガーが起動します。ポーリング間隔ごとに新規行をチェックします。
+New worker トリガー
+#
+入力項目
+入力項目
+説明
+Name filter
+任意。
+ワーカーを名前でフィルタリングする場合に使用します。指定したテキストで始まる名前を持つワーカーのみが処理されます。
+#
+出力項目
+出力項目
+説明
+Descriptor
+ワーカーのフルネーム。
+ID
+ワーカーレコードの Workday ID。
+HREF
+ワーカーレコードの API リソースの URL。
+Primary supervisory organization
+このワーカーレコードの主な監督組織オブジェクト。記述子 (フルネーム)、Workday ID、および HREF が含まれます。
+Business title
+ワーカーレコードの役職。
+Primary work email
+ワーカーレコードの主な仕事用メールアドレス。
+Is manager
+ブール値。ワーカーレコードがマネージャーである場合は
+True
+です。
+Primary work phone
+ワーカーレコードの主な電話番号。
+Location
+このワーカーレコードの場所オブジェクト。記述子 (フルネーム) および Workday ID が含まれます。
+Primary work address text
+ワーカーレコードの主な勤務先住所。
+Supervisory organizations managed
+ワーカーレコードにより管理される監督組織。
+Years of service
+ワーカーの勤務年数 (整数)。
+Date of birth
+ワーカーレコードの生年月日。YYYY-MM-DD の形式です。
+←
+接続方法
+ID によるワーカーの取得
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

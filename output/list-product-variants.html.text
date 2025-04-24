@@ -1,0 +1,186 @@
+Workato connector - Shopify - List product variants | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Shopify
+#
+Shopify - List product variants
+This action lists all product variants in Shopify for a specified product.
+PRODUCT VARIANT RESOURCE DEPRECATION NOTICE
+Listing, creating, updating, and deleting product variants is deprecated as of Shopify REST API version
+2024-04
+. For more information, refer to the
+guide to the new product model
+(opens new window)
+.
+#
+Input
+Field
+Description
+Product ID
+This product ID. Can be found at the end URL of the product page.
+#
+Output
+The output to this action is a list of product variants. Each product variants includes the following datapills.
+Field
+Description
+ID
+The unique numeric identifier for the product variant.
+Product ID
+The unique numeric identifier for the product.
+Barcode
+The barcode, UPC, or ISBN number for the product.
+Compare at price
+The original price of the item before an adjustment or a sale.
+Fulfillment service
+The fulfillment service associated with the product variant. Valid values: manual or the handle of a fulfillment service.
+Grams
+The weight of the product variant in grams.
+Inventory management
+The fulfillment service that tracks the number of items in stock for the product variant.
+Inventory policy
+Whether customers are allowed to place an order for the product variant when it's out of stock.
+Position
+The order of the product variant in the list of product variants. The first position in the list is 1.
+Price
+The price of the product variant.
+Requires shipping
+Note: Shopify API states that this property is deprecated. Use the
+requires_shipping
+property on the InventoryItem resource instead.
+Taxable
+Whether a tax is charged when the product variant is sold.
+Title
+The title of the product variant. The title field is a concatenation of the Option 1, Option 2, and Option 3 fields. You can only update title indirectly using the option fields.
+Old inventory quantity (deprecated)
+Note: Shopify API states that this property is deprecated. Use the InventoryLevel resource instead.
+Image ID
+The unique numeric identifier for a product's image. The image must be associated to the same product as the variant.
+Weight
+The weight of the product variant.
+Weight unit
+Unit can be either 'g', 'kg', 'oz', or 'lb'
+Option 1
+Custom variants of the product defined in options.
+Option 2
+Custom variants of the product defined in options.
+Option 3
+Custom variants of the product defined in options.
+Sku
+A unique identifier for the product variant in the shop. Required to connect to a FulfillmentService.
+Inventory quantity (deprecated)
+An aggregate of inventory across all locations.
+Inventory item ID
+The unique identifier for the inventory item, which is used in the Inventory API to query for inventory information.
+Created at
+The date and time when the product variant was created.
+Updated at
+The date and time when the product variant was last updated.
+←
+List product images
+Search customers
+→
+Last updated:
+7/10/2024, 3:22:21 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

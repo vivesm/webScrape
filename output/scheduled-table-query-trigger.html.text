@@ -1,0 +1,196 @@
+Workato connectors - Quickbase scheduled record query trigger (batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Quickbase
+#
+Scheduled record search using query trigger (batch)
+This trigger executes a Quickbase query on a specified schedule. Records meeting the query are returned in lists of records for each trigger event.
+#
+Input fields
+Field
+Description
+Application
+Select an application in your Quickbase account.
+Application token
+Required if this application is configured to require tokens for data access. You can obtain this value from the application in
+Settings > App properties > Manage application token
+.
+Table
+Select the table to query.
+Schedule
+Specify the schedule for the query. You can choose between an hourly, daily, or monthly occurence.
+Time zone
+Select a timezone from the list.
+Hour
+Specify the hour you plan the query to occur. Hours are listed in 24-hour format. For example, 11 for 11am, 23 for 11pm. Defaults to 00 (12am) if left empty.
+Minute
+Minutes past the hour. For example, 00 for 0 minutes.
+Day of month
+Specify the day of the month you plan the query to occur. Numbers 1 - 31 are rounded down to the last day of month for shorter months. Defaults to first day of the month if left empty.
+Sunday
+Select
+Yes
+from the drop-down if you plan for the query to run on Sunday.
+Monday
+Select
+Yes
+from the drop-down if you plan for the query to run on Monday.
+Tuesday
+Select
+Yes
+from the drop-down if you plan for the query to run on Tuesday.
+Wednesday
+Select
+Yes
+from the drop-down if you plan for the query to run on Wednesday.
+Thursday
+Select
+Yes
+from the drop-down if you plan for the query to run on Thursday.
+Friday
+Select
+Yes
+from the drop-down if you plan for the query to run on Friday.
+Saturday
+Select
+Yes
+from the drop-down if you plan for the query to run on Saturday.
+Query
+Use a Quickbase query to fetch only records that match your query. Query syntax is
+{'fid'.operator.'matching_value'}
+. For example,
+{'7'.EX.'Test'}
+.
+Batch size
+Enter the number of records you plan for this action to return. The minimum is 1 and maximum is 1000.
+#
+Output fields
+The output datatree contains information about the records returned by the query. This includes the range of record IDs, the records themselves, and the scheduled time.
+Field
+Description
+Range
+The range of record IDs retrieved from the search.
+First record ID
+The ID of the first record in the batch.
+Last record ID
+The ID of the last record in the batch.
+Records
+This contains a list of records. Each record contains information about the fields of the record.
+Scheduled time
+The time the search was executed.
+Total number of records
+The number of records retrieved in this search.
+First batch
+Whether this is the first batch of records.
+Last batch
+Whether this is the last batch of records.
+Starting offset
+The offset number for the first record of this batch.
+Ending offset
+The offset number for the last record of this batch.
+←
+New/updated record trigger (real-time)
+Create record action
+→
+Last updated:
+7/8/2024, 5:46:41 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

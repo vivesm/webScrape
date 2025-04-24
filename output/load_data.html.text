@@ -1,0 +1,259 @@
+Workato connectors - Google BigQuery Insert action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google BigQuery
+#
+Google BigQuery - Inserting data into Google BigQuery
+The Google BigQuery
+Insert
+action allows you to insert millions of rows into a Google BigQuery table efficiently. If you're working with large flat files, this automation strategy allows you to see huge performance improvements to the number of rows you can insert into a table, and how long it takes to insert these rows.
+The Google BigQuery connector offers two ways to load file data into Google BigQuery. You can load file data from a file you downloaded in a previous recipe step or from a file that already exists in Google Cloud Storage. Workato recommends uploading your file to Google Cloud Storage before loading it from Google Cloud Storage to Google BigQuery.
+Beyond moving large amounts of rows, this is a powerful action that can sense changes in the number of columns in an incoming CSV or JSON file and extend the table schema in Google BigQuery to accept it.
+NOTE
+Google BigQuery can detect the schema of incoming CSV and JSON files, so you don't need to provide the table schema. When files have columns different from the destination table, you can configure the
+Alter table columns when required?
+field to allow Google BigQuery to extend the columns in the table.
+#
+Input
+Input field
+Description
+Project
+Select the project to bill for the query.
+Dataset
+Select the dataset to pull tables from.
+Table
+Select the table inside the dataset. To create a new table, toggle this field to
+Enter table ID
+and enter the new table name.
+Source URI (
+Load data from Google Cloud Storage into BigQuery
+action only)
+Enter the source URI of the file in Google Cloud Storage. The source URI of a file must follow this format
+gs://[BUCKET_NAME]/[FILE_NAME]
+.
+*
+Wild cards are allowed after the bucket name. For example,
+gs://my_sample_bucket/bulk_load_*.csv
+.
+File contents (
+Load data into BigQuery
+action only)
+Enter the file contents of the file to stream. This can be in the format - CSV, Datastore backup, New line delimited JSON, AVRO, PARQUET, ORC
+File size (
+Load data into BigQuery
+action only)
+Provide the exact file size of the file being loaded. This is required to stream the data into BigQuery.
+Schema
+Enter the schema of the file. Only needed if Autodetect is set to
+No
+.
+Autodetect
+Only applies to CSV and JSON files. Google BigQuery will introspect the file and detect the schema of the file automatically.
+Alter table columns when required?
+Allows Google BigQuery to update the schema of a table if the incoming file does not match the columns in the target table.
+Create disposition
+Tells Google BigQuery to create the table if needed or to throw an error.
+Write disposition
+Tells Google BigQuery to either truncate the table before writing, append the data to the end of the table or throw and error if the table already exists.
+Destination table
+Select the properties of the destination table if it does not exist. Use these inputs to configure the name, description and labels attached to the table.
+Null Marker
+Specifies a string that represents a null value in a CSV file. For example, if you specify
+\N
+, Google BigQuery interprets
+\N
+as a null value when loading a CSV file. The default value is the empty string.
+Field Delimiter
+Select the separator for fields in a CSV file. Google BigQuery also supports the escape sequence
+\t
+to specify a tab separator. The default value is a comma
+,
+.
+Skip leading rows
+Allows the following values:
+- Unspecified: Autodetect tries to detect headers in the first row. If they are not detected, the row is read as data. Otherwise, data is read starting from the second row.
+- 0: Instructs autodetect that there are no headers and data should be read starting from the first row.
+- N > 0: Autodetect skips N-1 rows and tries to detect headers in row N. If headers are not detected, row N is just skipped. Otherwise, row N is used to extract column names for the detected schema.
+encoding
+Select the character encoding of the data. The supported values are UTF-8 or ISO-8859-1. The default value is UTF-8.
+quote
+Enter the value that is used to quote data sections in a CSV file. The default value is a double-quote ("").
+If your data does not contain quoted sections, set the property value to an empty string. If your data contains quoted newline characters, you must also set the
+allowQuotedNewlines
+property to true.
+Max Bad Records
+Enter the maximum number of bad records that Google BigQuery can ignore when running the job. If the number of bad records exceeds this value, an invalid error is returned in the job result. The default value is 0.
+Allow Quoted Newlines
+Indicates if Google BigQuery should allow quoted data sections that contain newline characters in a CSV file. The default value is false.
+Allow Jagged Rows
+Indicates if we should automatically infer the options and schema for CSV and JSON sources.
+Ignore Unknown Values
+Indicates if Google BigQuery should allow extra values that are not represented in the table schema. If true, the extra values are ignored. If false, records with extra columns are treated as bad records. The default value is false.
+Projection Fields
+Select if the sourceFormat is set to 'DATASTORE_BACKUP', indicates which entity properties to load into Google BigQuery from a Cloud Datastore backup. Property names are case sensitive and must be top-level properties. If no properties are specified, Google BigQuery loads all properties. If any named property isn't found in the Cloud Datastore backup, an invalid error is returned in the job result.
+Time Partitioning
+Enter the time-based partitioning specification for the destination table. Only
+ONE
+of
+Time partitioning
+and
+Range partitioning
+should be specified.
+Range Partitioning
+Enter the range partitioning specification for the destination table. Only
+ONE
+of
+Time partitioning
+and
+Range partitioning
+should be specified.
+Clustering
+Select one or more fields on which data should be clustered. Only top-level, non-repeated, simple-type fields are supported. The ordering of the clustering fields should be prioritized from most to least important for filtering purposes. Refer to Google's documentation to learn more about
+clustered table limitations
+(opens new window)
+.
+Destination table encryption configuration
+Describes the Cloud KMS encryption key that will be used to protect destination Google BigQuery table. The Google BigQuery Service Account associated with your project requires access to this encryption key.
+Use Avro Logical Types
+If you select
+Yes
+, the action interprets logical types as the corresponding Google BigQuery data type (for example, TIMESTAMP) instead of using the raw type (for example, INTEGER).
+Reference File Schema URL
+Provide a reference file with the reader schema. This file is only loaded if it is part of source URIs, but is not loaded otherwise. Enabled for the following formats: AVRO, PARQUET, ORC.
+Hive Partitioning Options
+When set, this field configures hive partitioning support. Not all storage formats support hive partitioning, and requesting hive partitioning in an unsupported format or providing an invalid specification will lead to an error.
+Decimal target types
+Defines the list of possible SQL data types to which the source decimal values are converted. This list and the precision and the scale parameters of the decimal field determine the target type. Supported types are: NUMERIC, BIGNUMERIC, STRING
+Parquet Options
+Select additional properties to set if sourceFormat is set to PARQUET.
+Preserve Ascii Control Characters
+When sourceFormat is set to CSV, this indicates whether the embedded ASCII control characters (the first 32 characters in the ASCII-table) are preserved
+Chunk size
+Enter the size of the chunks in each packet sent to Google BigQuery.
+#
+Output
+Output field
+Description
+ID
+ID of the load job created.
+Kind
+The kind of Google BigQuery job created.
+Self link
+The link to the load job in the Google BigQuery console.
+Job reference
+Contains data about the job created.
+State
+Whether the job is completed. It should always be
+Done
+Statistics
+Statistics associated with the load job created.
+Status
+Contains information about any errors in the load job.
+User email
+Email of the user who created the job. This is the email of the user authenticated to this Workato connection.
+←
+Insert rows action
+Select rows action
+→
+Last updated:
+3/14/2025, 5:29:31 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

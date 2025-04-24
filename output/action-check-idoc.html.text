@@ -1,0 +1,143 @@
+Workato コネクター - SAP アクション - Check Idoc status | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+SAP RFC
+#
+SAP アクション - Check IDoc status (IDoc ステータスのチェック)
+このアクションを使用すると、IDoc が Workato から送信された後に SAP で正常に処理されたかどうかを確認できます。
+アクション
+Send IDoc
+を使用する場合、Workato は自動的に一意の
+Submission ID
+を Idoc に付加します。以下の入力項目でこの
+Submission ID
+を使用します。
+#
+入力項目
+項目名
+説明
+Submission ID
+Workato で IDoc を SAP に送信すると、その IDoc に
+Submission ID
+が付加されます。
+Send IDoc
+アクションの出力で、この
+Submission ID
+を見つけます。
+#
+出力項目
+項目名
+説明
+IDoc number
+IDoc の受信後、SAP がこの IDoc 番号を割り当てます。
+Status
+SAP により受信された後の IDoc のステータスです。
+Status code
+SAP により受信された後の IDoc のステータスコードです。
+Status description
+SAP により受信された後の IDoc のステータスの説明です。
+←
+IDoc の送信
+RFC の実行
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

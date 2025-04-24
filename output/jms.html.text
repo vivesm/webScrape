@@ -1,0 +1,155 @@
+Workato connectors - Java messaging service | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Java messaging service (JMS)
+The JMS connector allows Workato to interact with JMS providers. The adapter can subscribe to topic/queue and publish to topic/queue. The JMS connector is an on-premise connector.
+#
+Supported editions and versions
+The connector supports
+Amazon SQS
+(opens new window)
+,
+Apache MQ JMS
+(opens new window)
+, and
+Azure Service Bus
+(opens new window)
+implementations.
+#
+How to connect to the JMS connector on Workato
+The JMS connector is an on-premise connector, therefore requiring Workato's
+on-premise agent
+and
+JMS connection profiles
+to be set up before it can be used.
+#
+Working with the JMS connector
+In order to work with the JMS connector, users have to have a
+common data model
+to work with.
+#
+Using the new message in queue/topic trigger
+To use the trigger, enter the exact queue name and select the format of the message, as well as the schema of the message, which should have been previously defined as a
+common data model
+.
+New message in queue trigger
+The selected schema will create the output datatree for the trigger, for the message data to be used in the recipe for mapping to other systems.
+#
+Using the publish message in queue/topic action
+To use the action, enter the exact queue name and select the format of the message, as well as the schema of the message, which should have been previously defined as a
+common data model
+.
+Publish message action
+The selected schema will create the input fields for the action. Fill in these input fields to populate the message with the data you wish to send.
+The selected schema will also create the output datatree for the trigger, for the message data to be used in the recipe for mapping to other systems.
+←
+Get issues in queue action
+JumpCloud
+→
+Last updated:
+9/2/2022, 8:58:40 AM
+On this page
+Supported editions and versions
+How to connect to the JMS connector on Workato
+Working with the JMS connector
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,260 @@
+Customer managers | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Admin console
+#
+Customer managers
+The customer managers feature helps Embedded partners and their team members manage their customers. This feature is available on the Embedded
+Admin console
+under the
+Customer managers
+tab.
+#
+Who are customer managers?
+Customer managers are members of the Embedded partner's team. They may be members of your customer success teams, support personnel, or recipe and connector developers who help your customers with their integrations. Customer managers can access all or some customer workspaces as determined by the Embedded partner.
+Ensure that customer managers are trusted team members who have permission to view data in customer workspaces. In Workato, we manage the type and amount of data or tools users can view in customer teams through
+role-based access control
+.
+#
+Create a customer manager
+BEFORE YOU BEGIN
+Before you create a customer manager, consider the following issues:
+Ensure this person is a collaborator in the partner's admin team. Invite collaborators on the
+Teams page
+(opens new window)
+.
+Determine their
+role
+within all customer teams. Their role defines their access to customer recipes, jobs, and features.
+1
+Navigate to the
+Customer managers
+tab on the Embedded admin console.
+2
+Add a customer manager by clicking the
++ Assign customer manager
+button on the top right of the interface.
+Customer manager interface
+3
+Add the collaborator you plan to make a customer manager and assign them to a
+Role
+from the available list of system and inheritable roles.
+Assign a role to a customer manager
+ASSIGNED ROLES
+The role you assign applies to this customer manager in all customer workspaces and across all three environments (Development, Test, and Production) by default.
+If you plan to provide different collaborator roles for each environment, you must add the collaborator individually to each Customer workspace (not as a Customer manager), and then specify the collaborator role for each environment. You can assign these roles in the user interface or through the Workato API.
+4
+After you create a customer manager, you must add them to the customer team. Assign them to the same role that you specified in Step 3.
+Assign a customer manager to customer teams
+Assign customer managers to specific customers by selecting customers from the
+Choose customers
+drop-down or by searching for a particular customer team.
+Alternatively, assign a customer manager to all customer teams by toggling
+Manage all customers
+.
+5
+Click
+Assign customer manager
+.
+Customers who have access to their
+Teams
+page can see all customer managers who manage their account. This is to ensure customers are aware of all users who can access their account for security and audit purposes.
+List of customer managers from within a customer workspace
+CUSTOMER PERMISSIONS
+Customers cannot remove or edit a customer manager on their team. Workato denotes customer managers with a unique tag within customer workspaces.
+#
+Accessing customer workspaces
+After you create a customer manager, they can then access their customers' accounts from the
+Teams
+interface.
+Customer managers can also access a customer workspace from the
+Customer
+page.
+1
+Navigate to
+Admin console > Customers > Customer page
+.
+2
+Click
+Switch to this account
+.
+Access a customer workspace from the customer information page
+Both actions switch the customer manager from the current account to the selected customer. They can then perform actions in the customer workspace.
+#
+Audit tracking
+The
+activity audit log
+tracks all log ins, log outs, and work performed by customer managers.
+The log also tracks changes made to recipes by individual users.
+To view changes to recipes made by individual users:
+1
+Select a recipe.
+2
+Navigate to the
+Versions
+interface.
+3
+View the
+Modified by
+column.
+View changes to recipes
+#
+Edit or remove a customer manager
+To edit a customer manager:
+1
+Navigate to the
+Customer managers
+interface.
+2
+Click the
+more
+icon.
+Edit or remove customer manager
+3
+Select
+Edit customer manager
+.
+4
+Choose a new role for the user.
+You can also assign the user to different customer workspaces.
+5
+Click
+Save
+.
+Remove this user from the list of customer managers to revoke access to all customer workspaces.
+1
+Navigate to the
+Customer managers
+interface.
+2
+Click the
+more
+icon.
+3
+Select
+Remove customer manager
+.
+Remove customer manager
+When you remove a customer manager Workato prevents them from accessing customer workspaces in the future. Workato preserves all of the work they completed in customer workspaces.
+#
+FAQ
+How does the customer manager feature work if I already have Embedded partner team members in my customer workspace?
+Answer:
+There are two options to add Embedded partners to their customers' accounts. The first option is to invite them through the teams feature. The second option is to invite them through the customer manager feature.
+Both of these options can work together. Consider a situation where you already have Embedded partner team members on your customers' teams. To add them as customer managers, you must invite them to your customers' teams using the customer manager feature.
+Can my team member have two roles in a customer workspace?
+Answer:
+No. If you assign a team member to a role using the team feature, this role takes precedence over roles assigned through other methods.
+Consider a situation where a customer team invites a user to the team as an operator and also assigns the same user to an admin role through the customer manager feature. In this scenario, the user's role in the team is operator. They cannot access this customer team as an admin.
+You can remove the manual invite from the workspace. Then, the user can access the customer workspace with an admin role.
+←
+Customers
+Shared connectors
+→
+Last updated:
+7/23/2024, 3:40:34 PM
+On this page
+Who are customer managers?
+Create a customer manager
+Accessing customer workspaces
+Edit or remove a customer manager
+FAQ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

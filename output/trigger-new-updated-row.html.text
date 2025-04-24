@@ -1,0 +1,208 @@
+Workato connectors - Google Sheets New/updated row in sheet in My Drive trigger (real-time) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Sheets
+#
+New/updated row in sheet in My Drive trigger (real-time)
+This trigger detects changes to rows in your selected sheet and new rows added at the bottom in real time.
+This trigger can monitor up to 10,000 rows. New or updated rows after row 10,000 will not be picked up.
+LIMITATIONS
+Real-time triggers only work with OAuth 2.0 connections, not service accounts.
+This trigger works exclusively with My Drive. For Team Drive, use the
+New/updated row in sheet in Team Drive trigger
+instead.
+#
+Input fields
+Input field
+Description
+Spreadsheet
+Select the spreadsheet to monitor for new/updated rows.
+Sheet
+Choose the sheet to monitor for new/updated rows. The sheet must have at least one header row and one data row.
+Column to monitor
+Select the column to monitor for changes.
+Add column names manually?
+Indicate whether to add column names manually. Defaults to
+No
+.
+#
+Output fields
+Output field
+Description
+Spreadsheet ID
+The unique identifier for the spreadsheet.
+Spreadsheet name
+The name of the spreadsheet.
+Sheet name
+The sheet name.
+Row number
+The row number.
+#
+How to use this trigger
+Complete the following steps to set up and use the
+New/updated row in sheet in My Drive (real-time)
+trigger:
+#
+Set up the Google Sheet
+To retrieve sheet data, the sheet must include at least one header row and one data row:
+Sample Google Sheet with one header row and one data row
+#
+Configure the trigger
+1
+Select the
+New/updated row in sheet in My Drive (real-time)
+trigger.
+2
+Select a spreadsheet in the
+Spreadsheet
+drop-down menu to dynamically generate the list of sheets in your spreadsheet.
+Configured new/updated sheet row trigger
+3
+Select the specific sheet to monitor for new or updated rows in the
+Sheet
+field.
+4
+Select a column to monitor for changes in the
+Column to monitor
+field. Every time the data in a cell in this column changes, the recipe picks up the entire row of data.
+Alternatively, you can select the
+All columns
+option, which activates the trigger whenever a row is changed.
+#
+Test the trigger
+After configuring the trigger, you can finalize and run the recipe.
+This test aims to verify that the trigger detects new rows in the sheet. The action is not critical to this test, so you can use the
+Get current time
+Scheduler action.
+Click
+Start recipe
+to run your recipe. Your recipe should resemble the following screenshot:
+Configured recipe with Scheduler action for testing
+In this example, the trigger detects all four rows of data in the spreadsheet. You can
+customize the jobs report
+to display the information relevant to you:
+Customized job report displaying selected information about the trigger event processed
+The following shows the customization of the job report:
+Customizing the job recipe's job report with data from Google Sheets
+If the sheet is configured to monitor only changes to the
+Date registered
+column, changes to other columns (like Andy's shirt size) won't trigger the recipe.
+Edited sample sheet with changed field highlighted
+However, if you edit Xander's
+Date registered
+value in cell E5, the recipe detects it as a trigger event and processes row 5 with the latest data.
+Edited sheet. Cells in rows 3 and 5 (highlighted) have been updated with new values
+Row 5 is processed as a trigger event, as seen in the job details:
+Only row 5 will be picked up as "Date registered"- the only column we are monitoring changes for
+While the recipe is running, any new or updated rows are picked up almost immediately. If the recipe is stopped and restarted, it continues processing from where it left off. This means that any changes made while the recipe was stopped are detected and processed when the recipe starts again.
+Note that only the latest version of a row is picked up. For example, if a row is created and updated multiple times while the recipe is stopped, only the most recent version triggers an event when the recipe restarts.
+←
+New/updated row in sheet in My Drive trigger
+New row in sheet in Team Drive trigger
+→
+Last updated:
+8/29/2024, 3:00:41 PM
+On this page
+Input fields
+Output fields
+How to use this trigger
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

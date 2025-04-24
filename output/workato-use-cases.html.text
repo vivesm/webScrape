@@ -1,0 +1,250 @@
+Workato Use cases | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+#
+Use cases
+Streamline your integration and automation journey by exploring Workato use cases. Use cases offer step-by-step instructions on how to create integrations and automated processes between your applications.
+Use cases are designed to help you discover the power of automation through practical, real-world applications on Workato's low-code/no-code platform. This section contains a curated collection of use cases that showcase how diverse organizations use our platform to streamline operations, enhance workflows, and drive efficiency across various teams and departments.
+Use cases demonstrate the steps required to create effective automations and highlight the tangible benefits of automating routine tasks. These example recipes provide the inspiration and guidance you need to begin your automation journey. Our collection of use cases provides steps on how to achieve the following:
+Set up a connection for an app
+Configure a trigger
+Configure an action
+Use conditional statements
+Map datapills
+And much more
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+Use cases are intended to serve as examples. Recipe modifications such as trigger and action configuration and conditional logic may require adjustments if you plan to include these recipes in your own workflows.
+#
+AI and machine learning
+Generate Confluence release notes from merged GitHub PRs
+This use case integrates
+OpenAI, GitHub, and Confluence
+to create a recipe that creates release notes in Confluence based on merged pull requests in GitHub.
+#
+Customer service
+Create Zendesk and Jira issues with Workbot for Slack
+This use case integrates
+Zendesk, Jira, and Workbot for Slack
+to trigger the creation of a Zendesk ticket and Jira issue using Workbot for Slack.
+#
+Databases
+Sync MySQL records to Salesforce in batches
+This use case integrates
+MySQL and Salesforce
+to create a recipe that syncs records from MySQL to Salesforce in batches.
+Validate Salesforce contact information with JavaScript and upsert to Snowflake
+This use case integrates
+Salesforce, JavaScript snippets by Workato, and Snowflake
+to create a recipe that ensures phone numbers are validated before upserting contacts from Salesforce to Snowflake.
+Sync data between Amazon S3 and SQL Server
+This use case integrates
+Amazon S3 and SQL Server
+to create a recipe that syncs data on a recurring schedule.
+#
+Developer
+Create summarized Confluence notes and Jira comments from closed GitHub PRs
+This use case integrates
+GitHub, Jira, and Confluence
+to create a recipe that searches for closed issues in a GitHub repository, adds the identified issues to a list, and then creates a Confluence page summarizing the issues while also adding comments to related Jira tickets.
+Post GitHub milestones with Workbot for Slack
+This use case integrates
+GitHub and Workbot for Slack
+to create a recipe that monitors new or updated milestones in GitHub and automatically posts details to Slack.
+Update Quickbase records from SFTP CSV files
+This use case integrates
+SFTP, CSV tools by Workato, and Quickbase
+to create a recipe that fetches a CSV file from an SFTP server, parses its content, and updates records in a Quickbase table.
+#
+DevOps and IT
+Provision Jira and Okta users for new employees in Workday
+This use case integrates
+Workday, Jira, and Okta
+to monitor Workday for new employees and create new users in Jira and Okta.
+Create or update Jira issues from new PagerDuty incidents
+This use case integrates
+PagerDuty and Jira
+to create a recipe that synchronizes new incidents from PagerDuty to Jira.
+Upload a CSV of Active Directory entries to an SFTP server
+This use case integrates
+Active Directory, CSV tools by Workato, and SFTP
+to create a recipe that searches for specific entries in Active Directory, composes a CSV string from the results, and uploads the CSV file to an SFTP server.
+#
+Files
+Invite DocuSign signees to collaborate in Box and notify your team in Slack
+This use case integrates
+DocuSign, Box, and Slack
+to create a recipe that monitors DocuSign for newly signed documents.
+Load Box CSV data to Google BigQuery with Google Cloud Storage
+This use case integrates
+Box, Google Cloud Storage, and Google BigQuery
+to create a recipe that monitors a Box folder for new CSV files, downloads each file’s contents, uploads the content to Google Cloud Storage, and then loads the data into a Google BigQuery table.
+#
+Finance and accounting
+Sync Quickbase employees to Oracle EBS and notify your team in Slack
+This use case integrates
+Quickbase, Oracle EBS, and Slack
+to create a recipe that monitors Quickbase for new user records, creates a new employee in Oracle EBS, and posts a notification in Slack.
+#
+HR
+Sync Greenhouse new hires to SAP SuccessFactors
+This use case integrates
+Greenhouse and SAP SuccessFactors OData
+to create a recipe that monitors Greenhouse for new hires and creates new user accounts in SAP SuccessFactors in real time.
+Export Workday workers to CSV with Python and upload to Google Drive
+This use case integrates
+Workday, Python snippets by Workato, and Google Drive
+to create a recipe that performs a daily search for workers in Workday, converts the output data from JSON to CSV format using Python, and uploads the resulting CSV file to Google Drive.
+Sync Greenhouse offer letter to Box and create onboarding request in ServiceNow
+This use case integrates
+Greenhouse, Box, ServiceNow, and Workbot for Slack
+to create a recipe that automates offer letter generation, review, and delivery before initiating the onboarding process for new hires.
+#
+Product and project management
+Sync PlanGrid safety reports to Microsoft SharePoint
+This use case integrates
+PlanGrid and Microsoft SharePoint
+to create a recipe that synchronizes new and updated safety inspection field reports from PlanGrid to Microsoft SharePoint.
+Create Jira issues for new ServiceNow incidents
+This use case integrates
+ServiceNow and Jira
+to create a recipe that monitors ServiceNow for new incidents and creates a corresponding Jira issue if one does not already exist.
+Sync Zendesk tickets to Salesforce and notify your team in Slack
+This use case integrates
+Zendesk, Salesforce, and Slack
+to create a recipe that syncs tickets from Zendesk to Salesforce and then posts a notification in Slack.
+#
+Sales and marketing
+Display Salesforce account details with Workbot for Slack
+This use case integrates
+Salesforce and Workbot for Slack
+to create a recipe that displays Salesforce account details in Slack.
+Create Salesforce tasks and Snowflake rows from Marketo lead activity
+This use case integrates
+Marketo, Salesforce, and Snowflake
+to create a recipe that creates Salesforce tasks and inserts Snowflake rows when new lead activity is detected in Marketo.
+Create Salesforce leads from new HubSpot deals
+This use case integrates
+HubSpot, Salesforce, and Workbot for Microsoft Teams
+to build a recipe that creates new Salesforce leads from new HubSpot deals and posts a message in Microsoft Teams.
+#
+More resources
+Learn key concepts
+Create your first recipe
+Recipe design
+←
+Create your first recipe
+Generate Confluence release notes from merged GitHub PRs
+→
+Last updated:
+4/8/2025, 3:36:01 PM
+On this page
+AI and machine learning
+Customer service
+Databases
+Developer
+DevOps and IT
+Files
+Finance and accounting
+HR
+Product and project management
+Sales and marketing
+More resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

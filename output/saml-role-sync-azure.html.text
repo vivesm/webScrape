@@ -1,0 +1,216 @@
+Microsoft Azure Active DirectoryでのSAMLロール同期の設定 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+組織とワークスペース
+Workspace collaborators
+SAMLロール同期
+#
+Microsoft Azure Active Directory SAMLロール同期の設定
+Microsoft Azure Active Directoryを使用する場合、個々のユーザーではなく、グループのロールのみを同期できます。
+ここでは、基本的なWorkato環境（DEV（デフォルト）、PROD、TEST）のロール同期を設定します。
+#
+前提条件
+Azure AD組織のSAML SSOを設定していることを確認してください。
+Workato UIでジャストインタイムプロビジョニングが有効になっていることを確認してください。
+チームまたは組織でSAML SSOの強制を使用していることを確認してください。
+#
+ロール同期の設定
+1
+Microsoft Azureで、
+Enterprise Applications >> Workato >> Single Sign On >> Attributes & Claims >> Add a new claim
+に移動します。
+2
+グループメンバーシップに応じてクレーム条件を指定します。
+Azure ADでのSAMLクレームの設定
+3
+属性を指定してクレームを設定します。
+この例では、グループのすべてのメンバーが「DevOps_Admin」ロールを継承し、別のグループがWorkatoワークスペースで「Analyst」ロールを継承するように指定します。
+名前
+これはクレームの名前です。この場合、新しいロールの名前です。ここでは
+workato_role_prod
+を使用します。
+名前空間
+名前空間のためのオプションのURIです。
+名前の形式を選択
+形式の指定です。
+ソース
+属性
+（デフォルト）または
+変換
+のいずれか
+ソース属性
+リストからソース属性を指定します。
+クレーム条件
+このセクションでは、クレームを生成するために真である必要があるクレーム条件を定義します。
+クレーム条件のテーブルを指定します。各レコードについて、次の項目を選択します：
+ユーザータイプ
+ドロップダウンから選択します。ここでは
+Members
+を使用しています。
+スコープ付きグループ
+グループを選択します。
+ソース
+属性
+または
+変換
+のいずれかを選択します。
+値
+可能な値を選択します。ここでは、最初のクレーム条件には
+DevOps_Admin
+、2番目のクレーム条件には
+Analyst
+を選択しました。
+条件
+これらのフィールドを使用して、グループのメンバーが
+値
+を継承する方法を制御します。この例では、グループ
+DevOps_Admins
+のすべてのメンバーがWorkatoワークスペースで
+DevOps_Admin
+ロールを継承するように条件を設定しました。
+複数のグループ
+複数のグループに所属するユーザーの場合、Azure ADは指定された条件の順序に基づいてロールを割り当てます。
+条件に基づいてクレームを発行する
+(opens new window)
+を参照してください。
+4
+保存
+をクリックします。
+#
+Azure ADで環境固有のWorkatoロールを設定する
+Workatoワークスペースの環境の数に応じて、属性を追加します。
+Microsoft Azureでのworkato_roleの属性ステートメント
+この例では、Workatoの異なる環境でのロールを指定するために複数のクレームを使用します。一般的な
+workato_role
+に加えて、本番環境用に
+workato_role_prod
+、テスト環境用に
+workato_role_test
+を定義します。また、これらのロールの
+値
+フィールドには、グループメンバーシップに応じて複数の条件が含まれることにも注意してください。
+#
+Azure ADでユーザーロールを更新する
+ユーザーのロールを更新するには、ユーザーのグループメンバーシップを変更するか、クレーム属性のロール値を変更します。
+#
+ロールの変更を確認する
+組織がWorkatoのアクティビティ監査ログアドオンを使用している場合、ユーザーがSAML SSOを介してログインしたときに自動的なロール同期が確認できます。
+SAMLアサーションによってトリガーされるロールの変更は、
+ソース
+属性の下に表示され、値が
+saml_auto_sync
+となります。
+Workato UIで行われた手動のロール変更は、値が
+user
+となります。
+また、
+新しいロール
+と
+以前のロール
+の値も確認できます。
+←
+OktaでのSAMLロール同期
+OneLoginでのSAMLロール同期
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+前提条件
+ロール同期の設定
+Azure ADで環境固有のWorkatoロールを設定する
+Azure ADでユーザーロールを更新する
+ロールの変更を確認する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

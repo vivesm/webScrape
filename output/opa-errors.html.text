@@ -1,0 +1,248 @@
+On-prem Agent (OPA) error troubleshooting | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+Design-time errors
+#
+On-prem Agent (OPA) error troubleshooting
+Integrating the On-prem Agent (OPA) with your recipe requires careful setup. Use this guide to troubleshoot common OPA issues.
+#
+Understanding OPA logs
+You can start troubleshooting by checking the OPA logs. The OPA generates a new log file daily based on the on-premise system time. If a log file exceeds 20 MB within a day, a new one is created and numbered sequentially. For example, if
+/agent-2019-11-01.0.log
+is the first log of the day, additional logs for the same day are
+/agent-2019-11-01.1.log
+and
+/agent-2019-11-01.2.log
+. The OPA retains the latest 60 log files or a maximum of 20 GB of logs.
+#
+Locate OPA logs
+You must locate the log files to troubleshoot OPA issues. Depending on your operating system, complete the following instructions for Windows or Linux:
+#
+Windows
+For agents operating as a Windows service, find the log files at
+%SYSTEMROOT%\System32\LogFiles\Workato
+. You can also find a shortcut to the Workato log directory in the Workato group of the start menu.
+#
+Linux
+For OPAs set up as a Linux service using systemd, logs default to
+/var/log/messages
+. OPA logs may mix with other system logs, but you can use
+journalctl
+to access specific logs:
+journalctl
+-u
+[
+name of the OPA service
+]
+.service
+#
+Common issues when starting the OPA
+When starting the OPA (On-prem Agent), you may encounter several issues that prevent it from initializing correctly.
+Initialization error
+Common scenarios that cause OPA initialization issues include the following:
+#
+Issues with the connection details in the
+config.yml
+file
+The
+config.yml
+file is used by the on-prem agent installation and is typically stored in
+<INSTALL_HOME>/conf/config.yml
+. Incorrect authentication entries in the YAML file can prevent the agent from starting. Ensure your authentication details are accurate.
+#
+Issues with formatting of the
+config.yml
+file
+The
+config.yml
+file is sensitive to indentation and whitespaces. A misplaced space or newline can prevent the agent from starting. Use an online YAML validator to ensure your file is formatted correctly. Remove sensitive information before using online tools.
+#
+Issues with the account used to run the OPA
+The account used to start the OPA may not have the required permissions. To resolve this, change the account to one with higher privileges. For example, in Windows:
+1
+Open
+services.msc
+.
+2
+Right-click on the OPA agent and select
+properties
+.
+3
+Switch to the
+logon
+tab.
+4
+Change the account used to run the agent to one with higher privileges.
+Change your account
+#
+The agent lost access to the logs folder
+OPA log folders may be deleted due to clean-up actions by a Windows server, which prevents the OPA from launching.
+OPA error
+To resolve this, recreate the logs folder. Note that certain server applications or rules may repeatedly delete the OPA logs folder. Consider reinstalling the OPA using an account with higher privileges if this issue continues.
+#
+Common issues when upgrading the OPA
+Use the following best practices to ensure a smooth OPA agent upgrade:
+#
+Back up
+config.yml
+before upgrading the OPA
+Always create a backup of the
+config.yml
+file before upgrading.
+#
+Activate firewall ports
+Ensure additional firewall ports are active if upgrading the OPA from a version older than 2.11.0.
+#
+Service user account
+If the previous OPA service used a user account (such as the Local system account), it defaults to a local service post-upgrade. This change can disrupt existing connections, affecting SQL server connections with
+integrated security=true
+or file connections to shared drives.
+Connection error
+If you encounter related SQL errors, change the Windows service configuration back to the previously configured user account to resolve the issue.
+#
+Multiple agents
+For servers with multiple agents, ensure they don't share the same keys. For example:
+cert
+,
+key
+, and
+cert.pem
+. This prevents connection conflicts.
+#
+HA OPA setup
+Complete the following steps for HA OPA setups that involve adding a new agent post-upgrade:
+Manually copy the previous
+config.yml
+.
+Ensure the Windows service account user can access the configuration file's mount path.
+#
+Connection profiles with new versions
+If you upgrade an agent to version 2.15.0 or higher, avoid creating a cloud connection profile with the same on-prem group. Instead, establish a new group by selecting the
+Directly in Workato
+option, and then add a new agent to manage cloud profiles.
+Set up connections
+#
+Review OPA logs
+After confirming no connection issues exist, scan the OPA logs for potential problems:
+Repeated agent connected and disconnected errors suggest connectivity problems.
+Errors such as
+com.workato.agent.net.AgentNonRecoverableException: Error connecting to the gateway sg3.workato.com:443 javax.net.ssl.SSLHandshakeException: PKIX path building failed
+indicate firewall-related issues.
+#
+Job-specific troubleshooting
+To investigate specific job issues, search the OPA logs using the job ID. This allows you to trace the complete job and identify OPA-related operations from start to finish. For example:
+j-AHd9XdsW-JppW
+.
+Locate jobs
+←
+Incorrect formulas and code actions
+Run-time errors
+→
+Last updated:
+3/18/2025, 1:20:02 AM
+On this page
+Understanding OPA logs
+Common issues when starting the OPA
+Common issues when upgrading the OPA
+Review OPA logs
+Job-specific troubleshooting
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

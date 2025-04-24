@@ -1,0 +1,184 @@
+On-prem Group - Add Agent to Group | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem group
+#
+Add Agent to Group
+New on-prem group
+After you select an on-prem group or create a new group, Workato prompts you to create an agent.
+Operating systems
+We support the following operating systems:
+Windows
+Linux
+.tar.gz
+archive installer
+DEB package
+RPM package
+Docker image
+macOS
+Click
+Add on-prem agent
+to start an agent-creation wizard that sets up, runs, and verifies that your agent is active.
+#
+On-premise agent setup wizard
+For this example, we set up an on-prem agent on a Windows OS.
+Windows Service user account
+Starting from version
+2.18.0
+Workato on-prem agent windows service user account is set to
+Local Service
+instead of
+Local System
+used in previous versions.
+You can change the user account by editing the OPA windows service properties.
+#
+Step 1: Install On-prem agent
+1
+Open your On-prem group page and click
+Add new agent
+. Provide a meaningful agent name, and select your operating system (OS) for the agent installation.
+Choose OS
+2
+Read and accept the
+End User License Agreement
+.
+Accept Terms of Service
+3
+Download the installer file to the on-prem system and start installation. The wizard provides OS-specific installation instructions.
+Install agent
+#
+Step 2: Activate and start On-prem agent
+1
+During agent installation, you will be asked for an activation code. You can find it in Step 4 of the wizard in Workato. Just copy the code and paste it into the Windows installer.
+Please note that the traffic to Workato should be allowed from your server - see more information
+here
+.
+Alternatively, you can activate your agent later on by running
+activation.cmd
+script from the
+bin
+folder in your agent installation directory.
+Activate
+2
+After the agent becomes active, click
+Test agent
+to verify that the connection is successful.
+Test agent
+OPA Windows service account
+After installing OPA as the Windows service you can change its settings like user account. Navigate to the service configuration (
+Control Panel → System and Security → Administrative Tools → Services → WorkatoAgent
+) to change it. By default, OPA Windows service user account is set to
+Local Service
+.
+Learn more about
+Setting up On-prem Agent
+.
+←
+Create group
+Windows package
+→
+Last updated:
+11/18/2024, 6:56:14 PM
+On this page
+On-premise agent setup wizard
+Step 1: Install On-prem agent
+Step 2: Activate and start On-prem agent
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

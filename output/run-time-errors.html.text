@@ -1,0 +1,160 @@
+Run-time errors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+#
+Run-time errors
+Run-time errors are errors that occur during the execution of a recipe, specifically within its jobs. A job is an individual run of a recipe, beginning with a trigger and followed by a series of actions. These jobs may involve Workato’s internal functions or interactions with external systems. The following sections address potential errors in both scenarios.
+#
+How to identify run-time errors
+To identify run-time errors, monitor your recipe's execution and review the error messages in the job history.
+Complete the following steps to diagnose and resolve run-time errors:
+1
+Identify the error location by monitoring the
+job history
+in your Workato account.
+2
+Review the associated error messages and logs to gather more details about the failed job.
+3
+Determine whether the error is related to an action, trigger, or an external system.
+4
+Consult the appropriate troubleshooting guide based on the identified error type.
+#
+Common run-time errors
+Run-time errors occur while the recipe is running and prevent it from completing successfully. The following are some of the most common run-time errors you may encounter during recipe execution:
+#
+Action errors
+Action errors occur when a recipe action encounters a problem during execution. These errors can include data formatting errors, API call failures, or processing errors. Learn more about
+action errors
+.
+#
+Trigger errors
+Trigger errors occur when a recipe trigger fails to execute correctly. These errors can result from misconfigurations or external systems failing to provide the expected data. Learn more about
+trigger errors
+.
+#
+Internal and upstream/downstream application errors
+Errors may originate from within Workato (internal errors) or from external systems that the recipe interacts with (upstream/downstream application errors).
+#
+Internal errors
+Internal errors occur within the Workato platform, such as issues with SQL collections, parsers, readers, or lookup tables. Learn more about
+internal errors
+.
+#
+Upstream/downstream application errors
+Upstream/downstream application errors involve external systems connected to the recipe, such as APIs, databases, or on-prem systems. You can troubleshoot these issues by understanding HTTP status codes and reviewing specific error messages. Learn more
+upstream/downstream application errors
+.
+#
+APIM/webhooks
+Errors may also occur when calling Workato through APIM (API Management) or webhooks. You can troubleshoot these errors by analyzing HTTP status codes and ensuring correct data payloads. Learn more about
+APIM/webhooks errors
+.
+←
+On-prem Agent errors
+Action and trigger errors
+→
+Last updated:
+8/26/2024, 9:17:58 PM
+On this page
+How to identify run-time errors
+Common run-time errors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

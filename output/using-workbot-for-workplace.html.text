@@ -1,0 +1,159 @@
+Workbot for Workplace の使用 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Workplace
+Workbot for Workplace 入門
+#
+Workbot for Workplace の使用
+#
+Workbot コマンド
+Workplace 内から Workbot コマンドを送信することにより、アプリのアクション (GitHub の新規の課題の作成、Salesforce の商談リストの表示など) を実行することができます。
+Workplace 内で追加パラメータとともに「newissue」コマンドを送信し、Post 応答を受信する
+Workbot コマンドは、Workbot コマンドレシピの実行を可能にするトリガーです。
+レシピ内の「newissue」コマンドの例
+Workbot コマンドの詳細については、
+Workbot のコマンド
+を参照してください。
+#
+Workbot の help コマンド
+操作がわからなくなった場合には、いつでも Workbot に対して
+help
+コマンドを送信できます。Workbot から使用可能なコマンドのリストが返されます。
+Workbot にヘルプを求める
+#
+Workplace での Workbot コマンドの呼び出し
+Workbot コマンドは、以下の2つの方法で呼び出すことができます。
+Workbot へのダイレクトメッセージまたはチャンネルでコマンドを送信する (チャンネルで送信する場合は、
+@workbot your_command
+というように Workbot をメンションする必要があります)。
+チャンネルで Workbot コマンドを呼び出す
+ボタンのクリック時にコマンドを送信する。
+ボタンをクリックして Workbot コマンドを呼び出す
+コマンドにより、ユーザーに追加のパラメータの入力を求めることもできます。たとえば、新しい GitHub チケットを作成するには、ユーザーにインシデントのタイトルと説明を指定してもらう必要があります。この場合、
+title
+と
+description
+の2つのパラメータを追加します。コマンドが呼び出されると、Workbot がユーザーに各パラメータの入力を求めます。
+コマンドで追加のパラメータを指定すると、Workbot からユーザーに情報の入力を求めることができる
+#
+Post message アクションを使用したイベントの通知
+アプリでのイベントの発生時に通知を受け取るために、Workbot を使用することもできます。これは
+Post message
+アクションを使用して行えます。
+ServiceNow の新しいインシデントについてユーザーに通知する Post reply アクション
+Post message
+および
+Post simple message
+アクションを使用すると、ユーザーまたはチャンネルにメッセージを投稿することができます。
+ServiceNow インシデントのクローズ時に Post message アクションでユーザーに通知するレシピ
+Post message アクションの仕組みについては、
+Workbot のアクション
+を参照してください。
+#
+詳細
+Workbot のトリガー
+Workbot のアクション
+←
+Workbot for Workplace 入門
+トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Workbot コマンド
+Post message アクションを使用したイベントの通知
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

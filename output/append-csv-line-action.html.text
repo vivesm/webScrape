@@ -1,0 +1,138 @@
+Workato コネクター - On-prem files CSV ファイルへの行の追加アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+On-prem files
+#
+On-prem files - CSV ファイルへの行の追加
+このアクションは既存の CSV ファイルに新しい行を追加します。CSV ファイルを選択し、各列にデータをマッピングしてください。
+このアクションは、複数のレシピから同じ CSV ファイルに対して同時に使用したり、
+同時実行数の設定を1より大きく
+して使用したりしないように注意してください。その結果、ファイルが破損する恐れがあります。
+CSV ファイルへの行の追加アクション
+#
+入力項目
+入力項目
+説明
+CSV file
+最初に、処理する行が含まれる CSV ファイルを選択します。この CSV ファイルにはヘッダー行が含まれている必要があります。そのヘッダーの各列の値は、トリガーの入力スキーマを生成するために使用されます。
+Column delimiter
+次に、この選択された CSV ファイルの列区切り文字を選びます。利用できる区切り文字はコンマ、セミコロン、スペース、そしてタブです。
+Columns
+選択した CSV ファイルの各列が、ここで入力項目として利用できます。ファイルに追加する各列のデータをマッピングしてください。
+#
+出力項目
+出力項目
+説明
+File path
+ファイルのパスです。このパスは、コネクションプロファイルで定義したベースパスからの相対パスです。相対パスについての説明は、
+こちら
+を参照してください。
+File size (bytes)
+ファイルコンテンツのサイズ (バイト単位)。
+Last modified time
+ファイルの最終変更時間です。この値は OS によって更新されます。
+←
+フォルダーの削除
+オンプレミスファイルの URL の生成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

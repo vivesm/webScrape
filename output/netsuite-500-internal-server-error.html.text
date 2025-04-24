@@ -1,0 +1,128 @@
+Troubleshooting - NetSuite - 500 internal server error | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Solution articles
+#
+NetSuite - 500 internal server error
+During your workflow, if the target application fails to return a proper response, the recipe may encounter a
+500 internal server error
+. When this happens, the error details provided may not be sufficient to debug the problem.
+Non-descriptive 500 internal error message
+#
+Solution: Get error details from 500 internal error
+Use Workato's
+Monitor & Handle Errors
+block. Wrap the erroneous action in the Monitor block. This will provide more details about the error.
+Insert the actions raised the 500 internal error in a Error monitoring block.
+Run the job.
+When the action fails, look in to the
+On Error
+block to view the full error message.
+Full error message from the
+On error
+block
+←
+OPA no profile found
+Bamboo HR 403 trigger error
+→
+Last updated:
+3/19/2021, 4:08:08 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

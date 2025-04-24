@@ -1,0 +1,173 @@
+Workato コネクター SDK の使用 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+Workato コネクター SDK の使用
+Workato のコネクター SDK には、カスタムコネクターの作成、テスト、開発、および共有を可能にする多くの機能があります。この記事では、プラットフォームの基本的な機能と、さまざまな Workato 機能を活用してコネクター開発プロセスを簡素化する方法について説明します。
+#
+始める前に
+#
+SDK プラットフォームのホームページへの移動
+Workato レシピのメインページで、
+[Tools]
+タブ >
+[Connector SDK]
+を選択します。カスタムコネクターの登録ページに、これまで作成した、あるいは他から複製したすべてのカスタムコネクターが表示されます。サインインしている場合は、
+ここをクリック
+(opens new window)
+するとそのページが表示されます。
+Workato の最上位のナビゲーションバーに配置されています。サブスクリプションプランによって画面の表示が異なる場合があります。
+#
+新しいカスタムコネクターの作成
+メインの SDK ツールのホームページで、新しいコネクターの作成を開始します。自身で作成したコネクターやコミュニティからインストールしたコネクターを含め、すべてのコネクターがワークスペースに表示されます。
+新しいコネクターを作成するには、
+New connector
+ボタンをクリックします。表示されるウィザードから、次のいずれかの方法を選択できます。
+コネクターのサンプルコードを使用する
+OpenAPI 仕様をインポートする
+#
+サンプルコードを使用したコネクターの作成
+コネクターに適切な名前を付けます。多くの場合、これは接続先のアプリケーションの名前になります。コネクターのロゴを設定することもできます。このロゴは、接続先のアプリケーションのロゴに対応するものにしてください。これらの項目は、個人用登録ページでのカスタムコネクターの検索が容易になるように入力することをお勧めします。
+Workato には、
+Calendly
+(opens new window)
+用のサンプルコネクターが用意されています。Calendly は、コネクターの開発と使用を開始するために試用できる無料のスケジューリングソフトウェアです。認証、アクション、およびトリガーの詳しい設定方法については、コネクターコード内のコメントを参照してください。
+#
+OpenAPI 仕様のインポートによるコネクターの作成
+既存の OpenAPI 仕様から、すぐに使用できるコネクターを生成することができます。詳細については、
+こちら
+を参照してください。
+#
+コネクターのタイトル、説明、ロゴの変更
+カスタムコネクターの横にある鉛筆 (編集) アイコンをクリックし、名前を変更することで、カスタムコネクターのタイトルを変更できます。変更を保存するには、緑のチェックアイコン (確認) をクリックします。
+緑のチェックを選択するか、フィールドからフォーカスを外して保存します
+カスタムコネクターのロゴを変更するには、ロゴの画像をクリックします。これにより、ブラウザでシステムアップロードウィンドウが開き、アップロードする新しいロゴを選択できるようになります。このロゴは登録されているカスタムコネクターを表し、このカスタムコネクターをレシピで使用する際に表示されます。
+アイコンのロゴを選択し、ローカルマシンからアイコンをアップロードします
+コネクターの説明は、カスタムコネクターのホームページの [
+Settings
+] タブで変更できます。このタブには、コネクターの説明を入力するためのテキスト入力フィールドを含む情報が表示されています。この説明により、コミュニティライブラリで公開するコネクターについて、他のユーザーに詳しく紹介することができます。
+[Settings] タブで説明を変更します
+#
+Workato コードエディターの使用
+Workato SDK プラットフォームでは、
+CodeMirror
+(opens new window)
+を使用してコネクターコードを編集します。コネクターコードを記述する際に、すべての構文またはコードエラーをリアルタイムに確認することができます。Workato には、コードエディターで使用できる
+許可された Ruby メソッド
+のセットがあります。許可されたリストにない Ruby メソッドをコネクター内のコードで呼び出すと、エラーが強調表示されます。
+コードエディターには、操作を容易にする基本的なホットキーのセットもあります。
+持続検索
+PC: Ctrl-F
+MacOS: Cmd-F
+置換
+PC: Shift-Ctrl-F
+MacOS: Cmd-Option-F
+すべて置換
+PC: Shift-Ctrl-R
+MacOS: Shift-Cmd-Option-F
+#
+カスタムコネクターの削除
+Workato アカウントは、レジストリ内に任意の数のカスタムコネクターを持つことができます。ただし、カスタムコネクターを削除する必要がある場合、それがアクティブな実行中のレシピの一部である場合は削除できません。コネクターを削除するには、最初に表示されているレシピを停止する必要があります。
+これらのレシピを停止または編集してカスタムコネクターを削除します
+Workato は、このカスタムコネクターの削除が影響する停止中のレシピについて再度通知をします。カスタムコネクターを削除しても、その複製は削除されないことに注意してください。それらは個別のコピーであり、依存関係はありません。
+削除したカスタムコネクターは復元できません
+Last updated:
+2025/4/8 18:16:04
+On this page
+始める前に
+Workato コードエディターの使用
+カスタムコネクターの削除
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,482 @@
+Create Salesforce tasks and Snowflake rows from Marketo lead activity use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+Sales and marketing
+#
+Create Salesforce tasks and Snowflake rows from Marketo lead activity recipe
+This use case guides you through connecting
+Marketo
+,
+Salesforce
+, and
+Snowflake
+to Workato to create a powerful automation.
+#
+What does this recipe do?
+This recipe monitors Marketo for new lead activity. The recipe creates a new task in Salesforce and inserts a new row in Snowflake when new lead activity is detected in Marketo.
+flowchart TD
+subgraph M[" "]
+direction TB
+subgraph D[&nbsp Marketo New lead activity trigger &nbsp]
+direction RL
+x(setup) --- xx(Trigger)
+end
+subgraph H[Salesforce New task action]
+xxx(Action) --- E(setup)
+end
+subgraph R[&nbsp Snowflake Insert new row action &nbsp]
+AA(Action) --- EE(setup)
+end
+end
+A([Create recipe]) -- Configure your recipe --> M --> B([Automated workflow])
+D --> H
+H --> R
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class x,xx,xxx,E,AA,EE,A,B WorkatoTeal
+class D,H,R SubgraphDash
+#
+Create your recipe
+Complete the following steps to create a recipe that monitors Marketo for new lead activity and then creates a new task in Salesforce and inserts a new row with the lead information in Snowflake when activity is detected:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for Marketo, Salesforce, and Snowflake:
+Create a Marketo connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Marketo
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Marketo connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the base URL of your Marketo instance in the
+REST Endpoint
+field. Refer to the
+Marketo Base URL documentation
+(opens new window)
+for information on how to find your base URL.
+6
+Enter the ID for the custom service client in the
+Custom service client ID
+field.
+7
+Enter the password for the custom service client in the
+Custom service client secret
+field.
+8
+Click
+Connect
+.
+Create a Salesforce connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Salesforce
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Salesforce connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Auth type
+drop-down menu to select the authentication method. The default is OAuth 2.0.
+6
+Use the
+Sandbox
+drop-down menu to specify whether the Salesforce account is a sandbox account.
+7
+Optional. Expand
+Advanced settings
+to configure advanced connection options.
+8
+Optional. Use the
+Custom OAuth profile
+drop-down menu to select a custom OAuth profile for your connection.
+This custom OAuth profile ensures that the connection is restricted to the same set of scopes you selected for all users with the profile, and the authentication flow uses the client app linked to the custom profile.
+9
+Click
+Connect
+.
+10
+Enter your Salesforce account credentials and click
+Log In
+.
+Log in to your Salesforce account
+Create a Snowflake connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Snowflake
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Snowflake connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your account identifier in the
+Account identifier
+field. Snowflake has multiple methods of identifying an account. Workato supports all methods:
+Account name:
+https://{org.name}-{account_name}
+Connection name:
+https://{org.name}-{connectionname}
+Account locator:
+https://{account.locator}.{region}.{cloud}
+If you're using the account locator, note that
+{region}
+and
+{cloud}
+are only required for certain locations. For example:
+If your account is hosted in AWS US West (Oregon), use
+your-account-locator
+.
+If your account is hosted in AWS US East (Ohio), use
+your-account-locator.us-east-2
+.
+If your account is hosted in Azure West Europe, use
+your-account-locator.west-europe.azure
+.
+6
+Enter the full name of the warehouse where you plan to perform all operations for this connection in the
+Warehouse
+field. For example,
+compute_wh
+.
+7
+Enter the database you plan to use in your recipe connection in the
+Database name
+field.
+8
+Use the
+Authentication type
+drop-down menu to select your authentication type.
+Username/Password
+: Enter your username and password if you select this option.
+OAuth 2.0
+: Enter your Client ID and Client Secret if you select this option.
+9
+Click
+Connect
+.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+9
+Click
+Select an app and trigger event
+.
+10
+Set up your Marketo trigger.
+1
+Search for
+Marketo
+and select it as your app.
+2
+Select the
+New lead activity in Marketo batch
+trigger.
+Select the New lead activity in Marketo batch trigger
+3
+Use the calendar modal to select the date from which your recipe should begin to monitor events in the
+When first started, this recipe should pick up events from
+field. Learn more about this
+input field
+.
+New lead activity batch trigger
+4
+Search for
+New Lead
+in the
+Activity
+field.
+Select New lead as the activity
+5
+Use the
+List
+drop-down menu if you plan to limit lead activity monitoring to a specific list. Lead activities from all lists are included if this field is empty.
+6
+Select an option for
+Enrich lead data
+:
+Yes
+: The trigger output performs additional requests to supplement each activity record with the associated lead data.
+No
+: Excludes lead enrichment requests to reduce the number of API requests.
+7
+Click
+Save
+.
+11
+Click
++ Add step
+and select
+Action in app
+.
+Select Action in app
+12
+Set up your Salesforce action.
+1
+Search for
+Salesforce
+and select it as your app.
+Choose Salesforce as your app
+2
+Select the
+Create records in batches
+action.
+Select the Create records in batches action
+3
+Search for
+Task
+in the
+Object
+field.
+4
+Navigate to the
+Tasks
+section and map the Marketo
+Activities
+Step 1
+datapill into the
+Tasks source list
+field.
+Map the Activities datapill into the Tasks source list field
+5
+Click
+Save
+.
+13
+Click
++ Add step
+and select
+Repeat for each
+.
+Select Repeat for each
+How does the Repeat for each condition work?
+A
+Repeat for each
+loop
+repeats
+one or more actions
+for each
+item in a list. The loop ends automatically when the entire list is processed.
+flowchart TD
+A(["Start"]) --> B("New activity in Marketo?")
+B -- "Yes" --> C("Insert new row in Snowflake")
+B -- "No" --> D(["Exit loop"])
+C --> B
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+class A,D WorkatoPink
+14
+Set up your Repeat for each loop.
+1
+Map the Marketo
+Activities
+Step 1
+datapill into the
+Input list
+field.
+Configure Repeat for each
+15
+Set up your Snowflake action.
+The Snowflake action is nested within the Repeat for each condition in this use case.
+1
+Click
+Select an app and action
+under the
+For each
+condition.
+Click Select an app and action
+2
+Search for
+Snowflake
+and select it as your app.
+Search for Snowflake
+3
+Select
+Insert row
+for your action.
+Select Insert row
+4
+Use the
+Table
+drop-down menu to select the name of the Snowflake table in which you plan to insert rows.
+Select your Snowflake table
+5
+Click
+Save
+.
+Your
+Create Salesforce tasks and Snowflake rows from Marketo lead activity
+recipe is ready to test and implement.
+←
+Display Salesforce account details with Workbot for Slack
+Create Salesforce leads from new HubSpot deals
+→
+Last updated:
+1/17/2025, 6:16:43 PM
+On this page
+What does this recipe do?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,518 @@
+Workato connectors - Working with the Oracle Connector | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Oracle
+#
+Working with the Oracle connector
+In this guide, we'll cover some tips and tricks for working with our
+Oracle connector
+.
+#
+Table, view, and stored procedure
+After successfully connecting to your Oracle database and selecting an action/trigger in your recipe, you will often be prompted to select either a table, view, or stored procedure. This tells Workato where to pull or send data to.
+#
+Tables and Views
+The Oracle connector works with all tables and views. These are available in pick lists in each trigger/action or you can provide the exact name. Views can be called using this as well and be used in the same way as a table.
+Select a table/view from pick list
+Provide exact table/view name in a text field
+#
+Stored Procedures
+Stored procedures are custom written workflows that have to be written and saved within your Oracle database. They are able to do a range of functionalities including creating, updating, and deleting rows. They can also accept parameters.
+Click here if you want to know more about how Workato works with stored procedures.
+#
+Using
+WHERE
+conditions
+This input field is used to filter and identify rows to perform an action on. It is used in multiple triggers and actions in the following ways:
+filter rows to be picked up in triggers
+filter rows in
+Select rows
+action
+filter rows to be deleted in
+Delete rows
+action
+TIP
+Examples below showcase how to use WHERE conditions directly with user input. For added security, use WHERE conditions with parameters to prevent SQL injection.
+Learn more
+This clause will be used as a
+WHERE
+statement in each request. This should follow basic SQL syntax. Refer to this
+Oracle documentation
+(opens new window)
+for a full list of rules for writing Oracle statements.
+#
+Operators
+At the foundation of any
+WHERE
+statement, we have operators that help us filter and identify what rows we want returned in Workato. By chaining operators in the same way one would do it in SQL, you'll be able to use them to create robust and complex filters on your data directly from Workato.
+Click here for a list of operators
+Operator
+Description
+Example
+=
+Equal
+WHERE ID = 445
+!=
+<>
+Not equal
+WHERE ID <> 445
+>
+>=
+Greater than
+Greater than or equal to
+WHERE PRICE > 10000
+<
+<=
+Less than
+Less than or equal to
+WHERE PRICE > 10000
+IN(...)
+List of values
+WHERE ID IN(445, 600, 783)
+LIKE
+Pattern matching with wildcard characters (
+%
+and
+_
+)
+WHERE EMAIL LIKE '%@workato.com'
+BETWEEN
+Retrieve values with a range
+WHERE ID BETWEEN 445 AND 783
+IS NULL
+IS NOT NULL
+NULL values check
+Non-NULL values check
+WHERE NAME IS NOT NULL
+#
+Data types
+The other component of a
+WHERE
+condition would be to use these operators in conjunction with the proper datatypes. When writing
+WHERE
+statements, make sure you compare a variable of
+data type = integer
+in your table with a variable of
+data type = integer
+instead of
+data type = string
+.
+Workato also helps reveal the data types expected for each input field when you select
+Update rows
+actions
+Upsert rows
+actions
+They appear directly below the output field, allowing you to know the expected data type to be sent while building the recipe. Use these hints to send the proper data types over to your Oracle database as failing to do so might lead to unexpected behavior or failed jobs.
+Hints below each input field inform you about the data type expected
+Here are some common data types you can expect to see. A more comprehensive list can be found
+here
+(opens new window)
+Click here for a list of common data types
+Data type
+Description
+Example
+number
+The NUMBER data type stores zero, positive, and negative fixed numbers.
+-100
+,
+1
+,
+30,000
+FLOAT
+The FLOAT data type is a subtype of NUMBER. You can specify it with or without precision. Scale cannot be specified, but is interpreted from the data. Each FLOAT value requires from 1 to 22 bytes.
+1.11
+,
+2.0761
+,
+1.61803398875
+YEAR
+valid values are -4712 to 9999 excluding year 0
+1
+,
+245
+,
+100
+MONTH
+01-12
+1
+DAY
+01-31
+1
+,
+0
+,
+15
+VARCHAR2(n)
+Variable
+width character string of length
+n
+Foo_bar
+nchar(n)
+Fixed
+width character string of length
+n
+Foo
+where n = 3
+TIMESTAMP
+From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 milliseconds
+2011-09-16 13:23:18.767
+#
+Writing
+WHERE
+conditions
+Now that we've gone through operators and data types, we are ready to write our
+WHERE
+conditions. String values must be enclosed in single quotes (
+''
+) and columns used must exist in the table/view.
+A simple
+WHERE
+condition to filter rows based on values in a single column looks like this.
+currency
+=
+'USD'
+If used in a
+Select rows
+action, this
+WHERE
+condition will return all rows that have the value 'USD' in the
+currency
+column. Just remember to wrap datapills with single quotes in your inputs.
+Using datapills in
+WHERE
+condition
+Column names that do not conform to standard rules (includes spaces, lower-case letters or special characters) must be enclosed in double quotes (
+""
+). For example,
+PUBLISHER NAME
+must be enclosed in backquotes to be used as a valid identifier.
+"PUBLISHER NAME"
+=
+'USD'
+WHERE
+condition with enclosed identifier
+Click the tabs below for more details into the functionality you can explore with your
+WHERE
+conditions.
+Using
+AND
+and
+OR
+in your
+WHERE
+conditions
+WHERE
+conditions can also be used in conjunction with basic SQL logical operators like
+AND
+and
+OR
+to add more filters on the rows you return.
+("currency code" = 'USD' AND totalAmt >1000) OR totalAmt>2000
+When used together, this
+WHERE
+condition will return all rows that either have the value 'USD' in the
+currency code
+column
+AND
+more than 1000 in the
+totalAmt
+column
+OR
+more than 2000 in the
+totalAmt
+column
+Using sub-queries in your
+WHERE
+conditions
+Your
+WHERE
+condition can also contain subqueries. The following query can be used on the
+users
+table.
+ID IN (SELECT "USER ID" FROM TICKETS WHERE PRIORITY >= 2)
+When used in a
+Delete rows
+action, this will delete all rows in the
+users
+table where at least one associated row in the
+tickets
+table has a value of 2 in the
+priority
+column.
+Using datapills in
+WHERE
+condition with subquery
+#
+Using Parameters
+Parameters are used in conjunction with
+WHERE
+conditions to add an additional layer of security against SQL injection. To use parameters in your
+WHERE
+conditions, you will first need to declare bind variables in your input. Bind parameters must be declared in the form
+:bind_variable
+where the variable name is preceded with a
+:
+. After this is done, declare the parameter in the section directly below using the exact name you have given.
+TIP
+Bind variables should only be used in place of column values and not column names.
+WHERE
+condition with bind variable
+You can provide as many bind variables as you'd like and each one should have a unique name. We distinguish bind variables from column names and static values by ignoring any
+:
+inside single quotes (
+'
+), double quotes (
+"
+) and square brackets (
+[]
+).
+#
+Configuring triggers
+Oracle connector has triggers for both new and updated rows. For the triggers to work, both
+Unique keys
+must be configured.
+Sort columns
+need to be configured for triggers that find recently updated rows.
+A table must satisfy some constraints to be used in a trigger. The following sections contain more information about specific constraints.
+Read our best practices to find out how you can prepare your table for use with Workato
+#
+Unique keys
+In all triggers and some actions, this is a required input. Values from this selected column are used to uniquely identify rows in the selected table. As such, the values in the selected column must be unique. Typically, this column is the
+primary key
+of the table (for example,
+ID
+).
+When used in a trigger, this column must be incremental. This constraint is required because the trigger uses values from this column to look for new rows. In each poll, the trigger queries for rows with a unique key value greater than the previous greatest value.
+Click here for a detailed example
+Let's use a simple example to illustrate this behavior. We have a
+New row trigger
+that processed rows from a table. The
+unique key
+configured for this trigger is
+ID
+. The last row processed has
+100
+as it's
+ID
+value. In the next poll, the trigger will use
+>= 101
+as the condition to look for new rows.
+Performance of a trigger can be improved if the column selected to be used as the
+unique key
+is indexed.
+#
+Sort column
+This is required for
+New/updated row triggers
+. Values in this selected column are used to identify updated rows.
+When a row is updated, the
+Unique key
+value remains the same. However, it should have it's
+Sort column
+updated to reflect the last updated time. Following this logic, Workato keeps track of values in this column together with values in the selected
+Unique key
+column. When a change in the
+Sort column
+value is observed, an updated row event will be recorded and processed by the trigger.
+For Oracle database, only
+date
+,
+timestamp
+,
+timestamp with time zone
+and
+timestamp with local time zone
+column types can be used.
+Click here for a detailed example
+Let's use a simple example to illustrate this behavior. We have a
+new/updated row trigger
+that processed rows from a table. The
+Unique key
+and
+Sort column
+configured for this trigger is
+ID
+and
+UPDATED_AT
+respectively. The last row processed by the trigger has
+ID
+value of
+100
+and
+UPDATED_AT
+value of
+2018-05-09 16:00:00.000000
+. In the next poll, the trigger will query for new rows that satisfy either of the 2 conditions:
+1.
+UPDATED_AT'2018-05-09 16:00:00.000000'
+2.
+ID
+> 100 AND
+UPDATED_AT = '2018-05-09 16:00:00.000000'
+#
+Using single row actions/triggers vs using batch of rows actions/triggers
+Oracle connector can read or write to your database either as a single row or in batches. When using batch triggers/actions, you have to provide a batch size you wish to work with. The batch size can be any number between 1 and 100, with 100 being the maximum size limit. Batch triggers and actions are great for jobs when you expect to read, create, or update a large number of rows. Choosing to batch your job runs rather than having them split into separate jobs runs not only saves operations but
+reduces recipe runtimes and decreases load on your servers
+.
+Batch trigger inputs
+Besides the difference in input fields, there is also a difference between the outputs of these 2 types of operations. A trigger that processes rows one at a time will have an output datatree that allows you to map data from that single row.
+Single row output
+However, a trigger that processes rows in batches will output them as an array of rows. The
+Rows
+datapill indicates that the output is a list containing data for each row in that batch.
+Batch trigger output
+As a result, the output of batch triggers/actions needs to be handled differently. This
+recipe
+(opens new window)
+uses a batch trigger for new rows in the
+users
+table. The output of the trigger is used in a Salesforce bulk upsert action that requires mapping the
+Rows
+datapill into the source list.
+Using batch trigger output
+Outputs from batch triggers/actions can also be used outside of actions that work specifically with lists. By using Workato's repeat step, you'll be able to control batch outputs and
+use them with any action built for single rows.
+.
+Unsure when to use batch actions and single row actions?
+Check out our best practices section for recipe design tips!
+#
+Smart boolean conversion
+Oracle does not have a built-in boolean column type. A popular workaround is to use a
+NUMBER(1,0)
+column with a
+CHECK (COLUMN_NAME IN(1,0))
+constraint. Because of this, standard values from other applications will not map well to this column and may cause unexpected values or errors.
+This checkbox allows you to enable automatic smart conversion. If this is set to
+Yes
+, the conversion will be applied to all columns with
+NUMBER
+type and precision of
+1
+. This reduces the amount of configuration needed to transform datapills in a recipe. The following table describes the logic for the boolean conversion.
+Input value
+Converted value
+true
+1
+false
+0
+"true"
+1
+"false"
+0
+←
+Export Query Result
+Best Practices
+→
+Last updated:
+10/18/2023, 8:04:30 PM
+On this page
+Table, view, and stored procedure
+Tables and Views
+Stored Procedures
+Using WHERE conditions
+Data types
+Writing WHERE conditions
+Using Parameters
+Configuring triggers
+Using single row actions/triggers vs using batch of rows actions/triggers
+Smart boolean conversion
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

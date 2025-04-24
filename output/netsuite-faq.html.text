@@ -1,0 +1,171 @@
+Workato connectors - NetSuite - FAQ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite FAQ
+Read answers to frequently asked questions about NetSuite connector. If you need help with this connector, contact
+Workato Support
+(opens new window)
+.
+#
+How to create a NetSuite invoice from CSV file
+To setup a workflow that takes in a CSV import to create NetSuite invoices, first configure your CSV file. You can setup your recipe to trigger off new files in
+Google Drive
+.
+Next, use
+Workato CSV parser
+to parse the CSV lines. Lastly, you can use the
+Create records
+action to create invoices from the
+lines
+datapill.
+Example recipe: Create invoice from CSV
+#
+Missing fields from Search custom record type
+The custom action
+created
+and
+lastModified
+fields are not available by default. To enable these fields for use as datapills, you must enable them on the NetSuite UI. Ensure that the following options are checked.
+Custom record type: Show created date and lastModified
+#
+OAuth authentication for NetSuite connector
+The NetSuite connector and
+HTTP
+only supports OAuth2. Workato does not support OAuth1.0.
+#
+Error
+invalid subsidiary reference netsuite
+In NetSuite, a subsidiary object may itself contain child subsidiaries. The permission sets for each subsidiary is unique and distinct. If the Workato connection does not have the necessary permissions, it will cause an
+invalid subsidiary reference
+error.
+Using any CREATE, UPDATE, or UPSERT actions with a record that has a subsidiary inaccessible to the integration role results in an invalid subsidiary reference error. This causes the action to fail.
+When using the SEARCH action, the action will not be able to retrieve any records. Although the action will be fail and your will not have any indicative errors, this is not the desired behavior.
+To resolve this, ensure that the credentials provided have the necessary permissions to work with the subsidiary objects.
+#
+Error
+The restrictions on your role deny you access to this record
+If the NetSuite credentials do not have the appropriate permissions, the recipe cannot access cross-subsidiary records. To resolve this, update the permissions for the connection credentials and set
+Allow Cross-Subsidiary Record Viewing
+to True.
+Go to Setup> Users/Roles > Manage Roles
+Customize or Edit the Role
+Make sure that the Allow Cross-Subsidiary Record Viewing is checked
+Click Save
+#
+Does NetSuite API support dynamic fields in saved search?
+NetSuite API does not support custom fields from saved search. It is not possible to fetch formula fields with the NetSuite connector.
+←
+Connection setup
+Classification record
+→
+Last updated:
+3/29/2023, 2:00:59 PM
+On this page
+How to create a NetSuite invoice from CSV file
+Missing fields from Search custom record type
+OAuth authentication for NetSuite connector
+Error invalid subsidiary reference netsuite
+Error The restrictions on your role deny you access to this record
+Does NetSuite API support dynamic fields in saved search?
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

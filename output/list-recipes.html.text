@@ -1,0 +1,183 @@
+RecipeOps - レシピのリスト表示アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+RecipeOps by Workato
+#
+RecipeOps - レシピのリスト表示アクション
+このアクションは、レシピのリストを取得し、レシピ ID、名前、ジョブ数、存続期間中のタスク数などの情報を提供します。
+#
+制限事項
+結果には最大1,000件のレシピが表示されます。
+存続期間中のタスク数のデータは、2021年3月19日以降から取得できます。
+#
+入力
+項目
+説明
+Recipe status
+以下のステータスに基づいてレシピをフィルタリングします。
+All
+Active
+Inactive
+Stopped due to error
+Recipe IDs
+取得する特定のレシピの ID です。複数のレシピを取得するには、それらの ID のカンマ区切りリストを指定します。例 :
+362905, 362906
+レシピ ID は、使用しているブラウザーの URL にあります。レシピのページに移動し、
+https://app.workato.com/recipes/
+の後ろにある番号を探します。
+たとえば URL が
+https://app.workato.com/recipes/362905-timekeeper
+の場合、レシピ ID は
+362905
+になります。
+#
+出力
+項目
+説明
+Recipe ID
+レシピの ID。
+User ID
+レシピを作成したユーザーの ID。
+Name
+レシピの名前。
+Active
+true
+の場合、レシピは現在有効です。
+Parent ID
+レシピが複製されている場合、ここには複製元のレシピの ID が含まれます。
+Successful job count
+レシピが保有している成功したジョブの合計数。
+Failed job count
+レシピが保有している失敗したジョブの合計数。
+Lifetime task count
+レシピが存続期間中に使用したタスクの合計数。
+Version no
+レシピの現在のバージョン。
+Major version no
+Stopped due to error
+true
+の場合、レシピは前回エラーが原因で停止しています。
+Stop reason
+レシピが停止した理由。
+Last run at
+レシピが最後に実行された時間。
+Created at
+レシピが作成された時間。
+Updated at
+レシピが最後に更新された時間。
+List size
+結果セットにあるレシピの合計数。
+List index
+結果リスト内のレシピのインデックス (現在の位置)。
+#
+参考資料
+RecipeOps の概要
+RecipeOps のアクション
+RecipeOps のトリガー
+←
+コネクションのリスト表示
+ジョブの再実行
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+制限事項
+入力
+出力
+参考資料
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

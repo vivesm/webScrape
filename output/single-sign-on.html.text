@@ -1,0 +1,594 @@
+Workato チームのシングルサインオンを有効にする | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+組織とワークスペース
+Workspace collaborators
+#
+Workato チームのシングルサインオンを有効にする
+Workato では、SAML ベースのシングルサインオン (SSO) を使うことで、複数のチームメンバーに対して Workato にアクセスする権限を与えることができます。
+さらに
+ジャストインタイム (JIT) プロビジョニング
+も利用すれば、事前に Workato アカウントをプロビジョニングする必要がなくなり、オンボーディングがスムーズになります。
+SAML 認証の実施
+チームに対して SAML SSO を実施できます。SAML SSO を実施すると、チーム内の全メンバーが ID プロバイダを通じて認証を行う必要があります。Workato のユーザー名とパスワードを使用したログインでは、チームとそのリソースにアクセスできなくなります。
+#
+前提条件
+Workato の SSO の設定をすべて行うには、以下が必要となります。
+Workato での SAML SSO に関する権限
+アカウントをサポートする Workato
+データセンター
+に関する知識一部の設定値は、アカウントのデータセンターに応じて異なります。
+EU データセンター (EUDC)
+の場合、SAML アプリを設定するための URL は
+https://app.eu.workato.com
+で始まります。
+日本データセンター (JPDC)
+の場合、SAML アプリを設定するための URL は
+https://app.jp.workato.com
+で始まります。
+シンガポールデータセンター (SGDC)
+の場合、SAML アプリを設定するための URL は
+https://app.sg.workato.com
+で始まります。
+以下のことが可能な、SAML プロバイダでの権限
+SAML アプリケーションの作成と変更
+ユーザーに対するアプリケーションの割り当て
+#
+ステップ1 : Workato の SAML アプリケーションを作成する
+Workato の SSO を有効にするには、まず、使用する SAML プロバイダで Workato 用の SAML アプリケーションを作成します。
+SAML プロバイダごとの手順は、次のとおりです。
+Google G Suite
+Microsoft Azure Active Directory (AD)
+Okta
+OneLogin
+Workato データセンターの確認
+次に進む前に、Workato アカウントがある
+データセンター
+を確認してください。
+SAML アプリケーションをセットアップする際には、必ずお使いのデータセンター用の SSO URL を使用してください。
+#
+Google G Suite
+Google G Suite 用の手順を表示
+詳細については、
+Google Workspace 管理者向けのドキュメント
+(opens new window)
+を参照してください。
+1
+Workato アカウントで以下の操作を行います。
+1
+[Team management] > [Settings]
+に移動します。
+2
+[
+Authentication method
+] に [
+SAML based SSO
+] を選択します。
+3
+[
+SAML provider
+] に [
+Other SAML IdP
+] を選択します。
+4
+[
+Service provider (SP) entity ID
+] をコピーします。
+エンティティ ID の取得
+2
+Google 管理コンソールで以下の操作を行います。
+1
+[アプリ] > [ウェブアプリとモバイルアプリ]
+に移動します。
+2
+[アプリを追加] > [カスタム SAML アプリを追加]
+の順にクリックします。
+3
+[
+Google ID プロバイダの詳細
+] のページで、[
+メタデータをダウンロード
+] を右クリックしてから [
+リンクのアドレスをコピー
+] を選択します。
+この URL をどこかに保存しておいてください。
+Workato での SSO のセットアップ
+で必要になります。
+Azure AD のメタデータ URL
+4
+[
+Service Provider Details
+] ウィンドウで、各設定項目に以下のように入力します。
+ACS URL
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/consume
+EU データセンター :
+https://app.eu.workato.com/saml/consume
+JP データセンター :
+https://app.jp.workato.com/saml/consume
+SG データセンター :
+https://app.sg.workato.com/saml/consume
+エンティティ ID :
+ステップ1で Workato が生成した
+エンティティ ID
+です。
+Start URL
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/consume
+EU データセンター :
+https://app.eu.workato.com/saml/consume
+JP データセンター :
+https://app.jp.workato.com/saml/consume
+SG データセンター :
+https://app.sg.workato.com/saml/consume
+5
+アプリの設定を終了し、必要に応じて追加の設定を行います。
+ここまでの手順が終了したら、
+次のステップ
+に進んでセットアップを完了します。
+#
+Microsoft Azure Active Directory (AD)
+Azure AD 用の手順を表示
+手順の詳細については、Microsoft の
+Azure AD での SAML ベース SSO の設定
+(opens new window)
+に関するドキュメントを参照してください。
+1
+Workato アカウントで以下の操作を行います。
+1
+[Team management] > [Settings]
+に移動します。
+2
+[
+Authentication method
+] に [
+SAML based SSO
+] を選択します。
+3
+[
+SAML provider
+] に [
+Other SAML IdP
+] を選択します。
+4
+[
+Service provider (SP) entity ID
+] をコピーします。
+エンティティ ID の取得
+2
+Azure ポータルで以下の操作を行います。
+1
+Azure AD SSO を Workato に接続するために、
+ギャラリー以外のアプリケーション
+を作成します。
+[
+Azure Active Directory
+] > [
+エンタープライズアプリケーション
+] の順に選択します。
+[
+新しいアプリケーション
+] を作成し、[
+ギャラリー以外のアプリケーション
+] を選びます。
+詳細については、
+Azure のドキュメント
+(opens new window)
+を参照してください。
+2
+作成したアプリケーションの [
+シングルサインオン
+] タブに移動して、[
+SAML
+] を選択します。
+3
+各設定項目に以下のように入力します。
+識別子 (エンティティ ID)
+: ステップ1で Workato が生成した
+エンティティ ID
+です。
+応答 URL (Assertion Consumer Service URL)
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/consume
+EU データセンター :
+https://app.eu.workato.com/saml/consume
+JP データセンター :
+https://app.jp.workato.com/saml/consume
+SG データセンター :
+https://app.sg.workato.com/saml/consume
+3
+次は、
+Azure AD のメタデータ URL
+を取得します。
+Workato での SSO のセットアップ
+で必要になります。
+1
+[
+シングルサインオン
+] で [
+SAML 署名証明書
+] の詳細に移動します。
+2
+[フェデレーションメタデータ XML] > [ダウンロード]
+を右クリックし、メニューから [
+リンクのアドレスをコピー
+] を選択します。
+Azure AD のメタデータ URL
+ここまでの手順が終了したら、
+次のステップ
+に進んでセットアップを完了します。
+#
+Okta
+Okta 用の手順を表示
+1
+Okta インスタンスにログインします。
+2
+[Applications] > [Applications]
+に移動します。
+3
+[
+Add Application
+] をクリックします。
+Okta でアプリケーションを追加する
+詳細については、
+Okta のドキュメント
+(opens new window)
+を参照してください。
+4
+表示されるウィンドウで、[
+Sign on method
+] に [
+SAML 2.0
+] を選択します。
+Okta でアプリケーションを作成する
+5
+SAML の各設定項目に以下のように入力します。
+Single Sign-On URL
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/init
+EU データセンター :
+https://app.eu.workato.com/saml/init
+JP データセンター :
+https://app.jp.workato.com/saml/init
+SG データセンター :
+https://app.sg.workato.com/saml/init
+Use this for Recipient URL and Destination URL
+: チェックして有効にします。
+Allow this app to request other SSO URLs
+: チェックして有効にします。
+Requestable SSO URLs
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/consume
+EU データセンター :
+https://app.eu.workato.com/saml/consume
+JP データセンター :
+https://app.jp.workato.com/saml/consume
+SG データセンター :
+https://app.sg.workato.com/saml/consume
+Audience URI (SP Entity ID)
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/metadata
+EU データセンター :
+https://app.eu.workato.com/saml/metadata
+JP データセンター :
+https://app.jp.workato.com/saml/metadata
+SG データセンター :
+https://app.sg.workato.com/saml/metadata
+Okta 用の Workato サービスプロバイダの設定
+6
+次は、
+Okta のメタデータ URL
+を取得します。
+Workato での SSO のセットアップ
+で必要になります。
+1
+作成したアプリケーションのページに移動します。
+2
+[
+Sign On
+] タブに移動します。
+3
+[
+Identity Provider metadata
+] を右クリックしてから、[
+リンクのアドレスをコピー
+] を選択します。
+Okta のメタデータ URL
+ここまでの手順が終了したら、
+次のステップ
+に進んでセットアップを完了します。
+#
+OneLogin
+OneLogin 用の手順を表示
+1
+OneLogin のインスタンスにログインします。
+2
+[Applications] > [Applications]
+に移動します。
+3
+[アプリを追加する]
+をクリックします。
+OneLogin でアプリケーションを追加する
+詳細については、
+OneLogin のドキュメント
+(opens new window)
+を参照してください。
+4
+検索ボックスに「
+saml test connector
+」と入力し、結果の中から選んでクリックします。
+SAML テストコネクター
+5
+[
+Application details
+] で、各設定項目に以下のように入力します。
+Audience
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/metadata
+EU データセンター :
+https://app.eu.workato.com/saml/metadata
+JP データセンター :
+https://app.jp.workato.com/saml/metadata
+SG データセンター :
+https://app.sg.workato.com/saml/metadata
+Recipient
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/consume
+EU データセンター :
+https://app.eu.workato.com/saml/consume
+JP データセンター :
+https://app.jp.workato.com/saml/consume
+SG データセンター :
+https://app.sg.workato.com/saml/consume
+ACS (Consumer) URL Validator
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+^https:\/\/www.workato.com\/saml\/*$
+EU データセンター :
+^https:\/\/app.eu.workato.com\/saml\/*$
+JP データセンター :
+^https:\/\/app.jp.workato.com\/saml\/*$
+SG データセンター :
+^https:\/\/app.sg.workato.com\/saml\/*$
+ACS (Consumer) URL
+: 次の中から、お使いの Workato データセンターの URL を使用します。
+米国 データセンター :
+https://www.workato.com/saml/consume
+EU データセンター :
+https://app.eu.workato.com/saml/consume
+JP データセンター :
+https://app.jp.workato.com/saml/consume
+SG データセンター :
+https://app.sg.workato.com/saml/consume
+OneLogin 用の Workato サービスプロバイダの設定
+6
+[Save]
+をクリックします。
+7
+次は、
+OneLogin のメタデータ URL
+を取得します。
+Workato での SSO のセットアップ
+で必要になります。
+1
+アプリケーションのページで、[
+More Actions
+] をクリックします。
+2
+[
+SAML Metadata
+] にマウスカーソルを合わせ、
+右クリック
+してから、[
+リンクのアドレスをコピー
+] を選択します。
+OneLogin のメタデータ URL
+ここまでの手順が終了したら、
+次のステップ
+に進んでセットアップを完了します。
+#
+ステップ2 : Workato でのセットアップの完了
+メタデータ URL の取得
+次に進む前に、
+使用する SAML プロバイダのメタデータ URL
+を入手済みかどうか確認してください。次の例は、Okta アプリケーションのメタデータ URL です。
+IdP のメタデータ URL を入力する
+1
+まだの場合は、Workato アカウントにサインインします。
+2
+[Team management] > [Settings]
+に移動します。
+3
+[
+Settings
+] タブで、各項目に以下のように入力します。
+Team name
+:
+チーム名を入力します。
+Authentication method
+:
+[
+SAML based SSO
+] を選択します。
+Team ID
+:
+一意のチーム ID を入力します。ログイン時のチームの識別に使用されます。
+SAML provider
+:
+プルダウンメニューから、使用する SAML プロバイダを選択します。
+Do you have your identity provider metadata URL?
+:
+メタデータ URL が取得済みの場合
+SAML プロバイダのメタデータ URL を取得済みの場合は、以下のことを行ってください。
+この項目に [
+Yes
+] を選択します。
+[
+Metadata URL
+] にメタデータ URL を貼り付けます。
+メタデータ URL が未取得の場合
+メタデータ URL を取得していない場合、または SAML を手動で設定する場合は、以下のことを行う必要があります。
+この項目に [
+No
+] を選択します。
+以下の情報を SAML プロバイダから取得します。
+ID プロバイダのシングルサインオン URL
+ID プロバイダの発行者
+X.509証明書
+このページの各項目に適切な情報を入力します。
+注
+: 検証エラーが発生した場合は、
+sslshopper
+などのツールで証明書の有効性を確認してください。証明書は、「
+-----BEGIN CERTIFICATE-----
+」で始まり、「
+-----END CERTIFICATE-----
+」で終わっていなければなりません。
+Enable SAML JIT provisioning
+:
+詳細については、
+ジャストインタイムプロビジョニングに関するガイド
+を参照してください。
+SAML 認証の実施
+:
+すべてのユーザーに対する SAML SSO を実施します。
+4
+[
+Validate settings
+] をクリックします。
+5
+検証で問題がなければ、[
+Save
+] をクリックします。
+#
+ステップ3 : ユーザーに SAML を割り当てる
+SSO の設定が終わると、チームメンバーに SAML アプリケーションを割り当てることが可能になります。
+以下の例では、Okta アプリケーションを使用します。Okta で、
+[Assign] > [Assign to people]
+に移動します。
+Okta での Workato SAML アプリケーション
+次のように、表示されたリストから、アプリケーションを割り当てるチームメンバーを選択できます。
+SAML をメンバーに割り当てる
+#
+SSO を有効にした Workato チームにログインする
+Workato で SSO を有効にすると、Workato チームへのアクセス権を SAML プロバイダが制御するようになります。チームメンバーに Workato チームへのアクセス権を付与するには、まず
+SAML アプリケーションの割り当て
+を行う必要があります。
+そうすることで、チームメンバーが SAML プロバイダから Workato アカウントにアクセスできるようになります。たとえば、次のように Okta で Workato アプリケーションをクリックすると、Workato アプリに転送されます。
+Okta に表示されている Workato アプリ
+チームメンバーが個人アカウントから SSO を有効化したチームアカウントに切り替える際には、SAML プロバイダによる認証が必要となります。
+Okta 認証によるチームアカウントへの切り替え
+←
+コラボレータの削除
+ジャストインタイム(JIT) プロビジョニング
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+前提条件
+ステップ1 : Workato の SAML アプリケーションを作成する
+ステップ2 : Workato でのセットアップの完了
+ステップ3 : ユーザーに SAML を割り当てる
+SSO を有効にした Workato チームにログインする
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

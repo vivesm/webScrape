@@ -1,0 +1,420 @@
+Embedded コネクションウィジェット | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+CX オプション
+コネクションウィジェット
+#
+Embedded コネクションウィジェット
+Embedded コネクションウィジェットを使うことで、エンドカスタマーは各自のアカウントでアプリの認証を行いコネクションを作成することができるようになります。Embedded パートナーは、この機能を利用することで自らの製品内にカスタマーによるコネクションの作成を可能にする仕組みを組み込むことができます。
+一般的にこの機能は Embedded パートナーがカスタマーに代わってレシピを構築・保守するブラックボックス型での提供形態で役立ちます。この場合、カスタマーはウィジェットを使ってレシピに必要なコネクションをパートナーのアプリケーションから認証できます。アプリケーションを離れて Workato プラットフォームにアクセスする必要はありません。
+すべての Embedded パートナーは、このウィジェットをアドオンとして利用できます。
+#
+実装
+コネクションウィジェットを使用するには、以下を追加します。
+<
+iframe
+src
+=
+"
+https://www.workato.com/direct_link/embedded/connections/<connection_id>>?workato_dl_token=<jwt_token>
+"
+>
+</
+iframe
+>
+コネクションウィジェット API は、以下の形式で
+PostMessage API
+(opens new window)
+を利用して機能します。
+{ type: string, payload: object }
+注 :
+ウィジェットのテストを初めて行う際は、Workato のカスタマーサクセスマネージャーにオリジン URL をお伝えください。それによって、ウィンドウで PostMessage API 経由のメッセージを受信できるようになります。
+#
+サポートされている PostMessage
+以下の PostMessage が Workato (IFrame) からパートナーアプリケーションに送信されます。これにより、Embedded コネクションウィジェットのウィンドウで、さまざまな UI の状態をレンダリングできるようになります。
+種類
+ペイロード
+説明
+heightChange
+{ height: number }
+コンテンツの高さが変更されました。高さが変更された場合に、実装したウィジェットウィンドウがシームレスな遷移で拡張できるようにします。
+connectionStatusChange
+{ id: number, provider: string, connected?: boolean, error?: string }
+コネクションのステータスが変化しました (
+Connected
+から
+Disconnected
+へなど)。
+error
+{ message: string }
+エラーメッセージ
+#
+例
+<!
+DOCTYPE
+html
+>
+<
+html
+>
+<
+head
+>
+<
+meta
+charset
+=
+"
+UTF-8
+"
+/>
+<
+script
+>
+window
+.
+addEventListener
+(
+'message'
+,
+receiveMessage
+)
+;
+function
+receiveMessage
+(
+event
+)
+{
+var
+data
+=
+JSON
+.
+parse
+(
+event
+.
+data
+)
+;
+switch
+(
+data
+.
+type
+)
+{
+case
+'heightChange'
+:
+document
+.
+getElementById
+(
+'workatoId'
+)
+.
+style
+.
+height
+=
+data
+.
+payload
+.
+height
++
+'px'
+;
+break
+;
+case
+'connectionStatusChange'
+:
+var
+message
+=
+data
+.
+error
+||
+(
+data
+.
+payload
+.
+connected
+?
+'Connected'
+:
+'Disconnected'
+)
+;
+document
+.
+getElementById
+(
+'statusId'
+)
+.
+innerText
+=
+message
+;
+break
+;
+case
+'error'
+:
+console
+.
+log
+(
+data
+.
+payload
+.
+message
+)
+;
+}
+}
+</
+script
+>
+</
+head
+>
+<
+body
+>
+<
+h4
+>
+Status:
+<
+span
+id
+=
+"
+statusId
+"
+>
+</
+span
+>
+</
+h4
+>
+<
+iframe
+id
+=
+"
+workatoId
+"
+src
+=
+"
+https://www.workato.com/direct_link/embedded/connections/<connection_id>>?workato_dl_token=<token>
+"
+style
+=
+"
+width
+:
+500px
+;
+height
+:
+150px
+;
+border
+:
+0
+"
+>
+</
+iframe
+>
+</
+body
+>
+</
+html
+>
+#
+JWT ダイレクトリンク
+Embedded コネクションウィジェットを使用するすべてのカスタマーアカウントは、JWT ダイレクトリンクを通じて、対応する Workato アカウントに対して認証されます。これにより、特定のカスタマーアカウント内の安全なリソースへのアクセス (コネクション) が許可されます。
+#
+JWT 生成の例 :
+import
+nanoid
+from
+'nanoid'
+;
+import
+{
+sign
+}
+from
+'jsonwebtoken'
+;
+/**
+* @param WorkatoEmbeddedapiKey A unique key associated with the partner's account. This is provided by Workato.
+* @param customerAccountId ID of the customer's workspace. This is returned when the customer is created.
+* @param privateKey Private key using RS256 algorithm (This should match the public key provided to Workato).
+*/
+function
+getToken
+(
+WorkatoEmbeddedapiKey
+,
+customerAccountId
+,
+privateKey
+)
+{
+return
+sign
+(
+{
+sub
+:
+`
+${
+WorkatoEmbeddedapiKey
+}
+:
+${
+customerAccountId
+}
+`
+,
+jti
+:
+nanoid
+(
+)
+}
+,
+privateKey
+,
+{
+algorithm
+:
+'RS256'
+}
+)
+;
+}
+その他の例については、
+https://github.com/auth0/node-jsonwebtoken
+(opens new window)
+を参照してください。
+←
+ブランディング
+Fully embedded
+→
+Last updated:
+2024/4/25 17:58:27
+On this page
+実装
+サポートされている PostMessage
+JWT ダイレクトリンク
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

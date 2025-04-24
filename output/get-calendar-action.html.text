@@ -1,0 +1,158 @@
+Workato connectors - Outlook - Get calendar by ID action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Outlook
+#
+Get calendar by ID action
+This action retrieves calendar details from Outlook using the calendar ID.
+#
+Input fields
+Field
+Description
+Shared calendar
+Provide the email address of the user who owns the shared calendar so Workato can fetch the shared calendars. For example,
+[email protected]
+. If left blank, Workato shows your default calendars.
+Calendar
+Select the calendar from list.
+#
+Output fields
+Field
+Description
+ID
+The unique ID of the calendar.
+Name
+The name of the calendar.
+Color
+The color of the calendar.
+Hex color
+The hex color of the calendar.
+Is default calendar
+Indicates whether the calendar is the default calendar.
+Change key
+The change key of the calendar.
+Can share
+Indicates whether the calendar can be shared.
+Can edit
+Indicates whether the calendar can be edited.
+Allowed online meeting providers
+The allowed online meeting providers for the calendar.
+Default online meeting provider
+The default online meeting provider for the calendar.
+Can view private items
+Indicates whether private items can be viewed in the calendar.
+Is tallying responses
+Indicates whether responses are being tallied for the calendar.
+Is removable
+Indicates whether the calendar is removable.
+Owner
+The owner of the calendar.
+←
+Create calendar event action
+List calendars action
+→
+Last updated:
+7/10/2024, 4:00:51 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

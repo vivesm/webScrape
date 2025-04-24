@@ -1,0 +1,175 @@
+Workato customer experience options | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+#
+Customer experience options
+Workato's customer experience (CX) options offer embedded partners a seamless and integrated experience that scales with your business needs, whether through a
+managed service
+or
+self-service
+model.
+#
+Managed services
+Workato's managed services option provides a behind-the-scenes automation platform that empowers your service team to create and manage complex integrations seamlessly. This approach offers a hands-off experience for your customers, ensuring they benefit from automation without the need for direct involvement or understanding of the integration details.
+This service enables tailored integrations that enhance your product's value and customer experience, aligning with specific business needs while minimizing complexity for your end users.
+#
+Authenticate connections
+To offer integrations as a managed service, securely collecting your customers’ connector credentials within their workspaces is critical before activating recipes. Workato supports the following methods for authenticating these connections:
+Embedded connection widget
+Embed Workato's
+connection widget
+within your application, enabling your customers to seamlessly authenticate to their app connections from your application. We recommend using this method as it ensures a reliable connection process for your customers.
+Invite customers as collaborators with limited permissions
+Create
+roles
+with limited permissions in your Workato environment and invite your customers as collaborators, assigning them these roles. This method allows your customers to authenticate their connections securely while you control their access and actions.
+Collecting credentials offline
+Collect credentials from your customers and authenticate on their behalf. We do not recommend this method due to the risks associated with handling sensitive information offline.
+Workato's embedded connection widget
+#
+Self-service
+Workato's self-service options enable your customers to autonomously create their own automations. This approach allows your customers to take charge of their automation needs, while your team remains available to assist, support, and scale their efforts as necessary. Integrating your product with Workato encourages customer independence and offers customized automation solutions that directly meet their specific business requirements.
+#
+Branded access
+Workato's branded access option allows you to seamlessly integrate the automation experience under your company's brand. This approach lets your customers access and manage integrations within an environment that mirrors your brand identity.
+Workato's branded access integration
+You can offer Workato's branded access option to your customers in two ways:
+#
+Invite customers as collaborators
+Invite your customers to join your branded Workato environment as collaborators. They can register with a username and password, and then log in to Workato. This provides them with direct access tailored to their needs. You can grant a variety of
+roles and permissions
+, from basic access to more advanced controls, depending on their role and your discretion.
+#
+SSO with JWT Direct Linking
+Securely redirect your customers from your application to Workato and authenticate them programmatically using
+JWT direct linking
+. This streamlines access within a secure framework.
+After setting up your authentication method, you can also enhance your branded access experience with Workato's
+theme editor
+. This tool enables you to customize the Workato platform's interface, ensuring it matches your brand’s visual identity and offers a consistent brand experience throughout the customer journey.
+For more information on implementing Workato's branded access SSO option, refer to our
+Branded access SSO implementation
+guide.
+#
+Fully Embedded
+Embed Workato fully within your product to offer your customers comprehensive access to all Workato features, such as the recipe editor and dashboards, directly in your app's interface.
+Workato embedded in an
+iframe
+in Acme ERP
+Workato's Fully Embedded option allows your customers to build and manage integrations within your product. Setting up Fully Embedded involves embedding an
+iframe
+in your application's UI, delivering a deep integration that maintains a seamless user experience. This enables your customers to interact with a complete suite of Workato features without leaving your application, ensuring they stay engaged in your product environment while accessing Workato's automation tools.
+For more information on implementing fully embedded, refer to our
+fully embedded
+guide.
+←
+Workspace structure
+Embedding Workato
+→
+Last updated:
+12/2/2024, 6:19:46 PM
+On this page
+Managed services
+Authenticate connections
+Self-service
+Branded access
+Fully Embedded
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

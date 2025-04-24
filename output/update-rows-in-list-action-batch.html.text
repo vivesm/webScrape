@@ -1,0 +1,151 @@
+Workato connectors - Microsoft SharePoint update rows in SharePoint list action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SharePoint
+#
+Update rows in SharePoint list action (batch)
+This action updates a batch of rows in a SharePoint list you specify. To update multiple rows, select the list containing the rows you plan to update, provide the row/item IDs and the updated values of the list fields.
+#
+Input fields
+Field
+Description
+Site name
+Provide the name of the SharePoint site to which you plan to connect. If left blank, Workato connects to your default home site, as specified in your connection settings. The site name is located in the URL of the site page. For example, if the URL is
+https://company-name.sharepoint.com/sites/product
+, the site name is
+product
+.
+If you plan to connect to a different site, you can provide the absolute URL to override the base URL. For example, if the input is
+https://company-name.sharepoint.com/teams/product
+, Workato connects to the provided input.
+Alternatively, you can provide the absolute URL to connect to a different site. For example, entering
+https://company-name.sharepoint.com/teams/product
+connects Workato to the specified site directly.
+List
+Specify the list where you plan to update rows.
+Batch
+Specify the batch of rows you plan to update. Each row should contain the row ID and the fields you plan to update.
+Batch source list
+Input a list datapill to specify which rows to update.
+Learn more about list input
+.
+Row ID
+Provide the ID of the row or item you plan to update.
+{List fields}
+Provide input for the list fields you plan to update. These fields are dynamic and are determined by the list you select. For example, a list of employees could include fields for the employee name, title, and contact information.
+#
+Output fields
+The output datatree contains the status of the update operation for each row.
+Field
+Description
+Record status
+The status of the update operation for each row. This object contains the Row ID, whether the operation was successful, and the list size and list index.
+←
+Update row in list action
+Upload attachment in list action (file)
+→
+Last updated:
+7/25/2024, 5:12:40 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

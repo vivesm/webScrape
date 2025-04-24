@@ -1,0 +1,155 @@
+IBM Db2 - Update rows actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+IBM Db2 - Update actions
+Workato offers both
+batch
+and
+conditional
+update row actions. This flexibility enables you to closely match the actions necessary for your recipe, and to fulfill your business needs.
+#
+Update rows by condition
+Update the columns of multiple rows that match the
+WHERE
+condition.
+#
+Input fields
+Table
+Required field
+Select a table to update. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
+WHERE condition
+Optional field
+Row(s) that match this specified condition will be updated (e.g. <code>status = true</code>). SQL sub-queries are supported.
+Rows > Rows fields
+Optional field
+This is a dynamically generated list of input fields, based on the columns in the target table. Specify what data to insert into each column here.
+#
+Output fields
+Rows affected
+Number of rows that were updated
+#
+Update a batch of rows
+Update multiple rows to different values in one step, based on incoming data in a list datapill.
+This provides higher throughput when moving a large number of records from an external app to IBM Db2.
+#
+Input fields
+Table
+Required field
+Select a table to update. This can be done either by selecting a table from the pick list, or toggling the input field to text mode and typing the full table name.
+Rows > Rows source list
+Required field
+The datapill to input is the source of the batch of rows to update to the table. This can come from any trigger or action that outputs a list datapill.
+Rows > Rows fields
+Optional field
+This is a Dynamically generated list of input fields, based on the columns in the target table. Map data to be inserted from the Rows source list datapill.
+Unique key
+Required field
+Select a unique key column to identify rows for the update. Performance can be improved if the selected unique key is indexed.
+#
+Output fields
+Rows affected
+Number of rows that were updated
+Last updated:
+9/30/2022, 8:08:55 AM
+On this page
+Update rows by condition
+Update a batch of rows
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

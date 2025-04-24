@@ -1,0 +1,151 @@
+Workato connectors - Okta get groups by name action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Okta
+#
+Get groups by name action
+This action retrieves all groups that start with a given name.
+Get user groups action
+#
+Input fields
+Field
+Description
+Name
+Input a name. Workato will match groups starting with this name.
+#
+Output fields
+The output datatree contains a list of groups. Each group contains information like the group ID and group profile properties.
+Field
+Description
+ID
+The unique ID for the group.
+Creation time
+The timestamp when the group was created.
+Last modification time
+The timestamp when the group was last modified.
+Last membership updated time
+The timestamp when the group's membership was last updated.
+Object class
+An array of strings. This determines the group profile.
+Type
+This determines how a group's profile and membership are managed.
+Profile
+Information about the group, including the name and description of the group.
+Links
+This object contains a collection of link relations for the group. It includes lifecycle operations and related resources. Learn more about Okta group link objects
+here
+(opens new window)
+.
+List size
+The number of groups in the list.
+List index
+The index of this group in the list of groups.
+←
+Get user groups
+Get group members
+→
+Last updated:
+6/4/2020, 5:07:20 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

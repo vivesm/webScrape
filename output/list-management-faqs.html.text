@@ -1,0 +1,168 @@
+List management FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Modify recipe data
+List management
+#
+List management FAQs
+Get answers to frequently asked questions (FAQs) about list management.
+Why are lists important in app integrations with Workato?
+Lists
+, also known as arrays, are essential in app integrations because they allow you to work with structured data. Many integration tasks involve manipulating lists of items, such as syncing sales invoices with line items or syncing customer accounts with associated leads and contacts.
+Is there an example of list setup in Workato?
+Yes, in most examples, a CSV file is used as the sample list. You can find an example CSV file with columns like Manufacturer, Model, Category, and more. This CSV file serves as a reference for list management tasks. Refer to the
+Example list setup
+section for more information.
+How can I configure Workato to read and manipulate lists from a CSV file in a Box folder?
+To work with a CSV file in a
+Box folder
+, you can use the Box trigger
+New CSV file
+to read the file and parse it as a list of CSV lines. Ensure that the column names in the CSV file match the fields you plan to work with.
+What are some ways to map datapills from lists into Workato actions?
+You can
+map datapills
+from lists in three ways:
+Directly into an action without list processing.
+Into an action with a list input where the action handles list processing implicitly.
+Into an action with a Repeat step where list processing must be done explicitly at the recipe logic level.
+What happens when I use datapills directly from a list in an action without list processing?
+When you
+use datapills directly from a list without list processing
+, only the values of the first list item will be retrieved and used in the action. Subsequent list items won't be processed unless explicitly handled.
+Are there actions in Workato that accept lists as input?
+Yes, certain actions in Workato, such as Salesforce bulk insert and bulk update actions,
+accept lists as input
+. This can be useful for tasks like importing multiple records at the same time.
+How can I use datapills from lists in actions with list inputs?
+Actions that accept lists as input
+typically have a field called
+Source list
+that takes list datapills. You can map list datapills into this field to transfer the list from the source app to the target app based on the mapped fields.
+What is the purpose of the Repeat step when working with lists in Workato?
+The
+Repeat step
+is used when an action doesn't handle list processing automatically. It allows you to iterate through a list and carry out the same action multiple times, with different values from the list during each iteration.
+What is the List connector (Accumulator) in Workato used for?
+The
+List connector
+, known as the Accumulator, is used to create custom lists and store data within them for the duration of a job. This data can be used within the same job, typically for preparing data to be used in actions with list inputs.
+LISTS BY WORKATO DEPRECATION NOTICE
+Workato has deprecated the Lists by Workato connector. Although we continue to provide runtime support for active recipes using this connector, creating new recipes with it is no longer possible. Additionally, we will no longer fix bugs or enhance this connector in the future. We recommend that you transition recipes that use this connector to Variables by Workato, which provides enhanced list management capabilities. This tool enables you to define lists with custom schemas, offering dynamic control over list properties and items. For fixed count loops, you can use
+Repeat while
+loops with the
+Index
+datapill, enabling you to precisely control loop execution. For guidance and support, refer to our
+Variables by Workato
+and
+Repeat while loop
+documentation.
+How can I use the List connector (Accumulator) to create a custom list in Workato?
+To
+create a custom list
+with the Accumulator, define the list fields, ensure it is within a Repeat step, and map datapills from the Repeat step's output datatree to avoid duplication.
+←
+List management
+Formulas
+→
+Last updated:
+10/17/2024, 8:52:48 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

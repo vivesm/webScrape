@@ -1,0 +1,173 @@
+Workato connectors - Deputy | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Deputy
+Deputy
+(opens new window)
+is an all-in-one employee scheduling, time and attendance tracking, tasking, communication, and compliance platform.
+#
+API version
+The Deputy connector uses the
+Deputy V1 REST API
+(opens new window)
+with the base URL of
+https://{baseURI}.deputy.com/api/v1
+.
+#
+How to connect to Deputy on Workato
+The Deputy connector supports both OAuth2.0 and permanent access token authentications.
+#
+OAuth2.0 authentication
+When authenticating through OAuth2.0, follow these steps:
+Log into your Deputy instance using the account username and password in a separate window.
+Select the organization accessible to Workato.
+#
+Permanent access token authentication
+To set up permanent access token authentication, follow these steps:
+Get the
+permanent token
+(opens new window)
+for your Deputy instance.
+Navigate to the Workato connections setup page, and start a new connection.
+Use the token to fill the
+Permanent access token
+field.
+Specify the base URI found in the URL of your workspace in the
+Endpoint
+field. For example, if your workspace URL is
+eafaf305033125.na.deputy.com
+, then enter
+eafaf305033125.na
+.
+#
+Triggers and Actions
+#
+Triggers
+New employee trigger
+New leave trigger
+New timesheet trigger
+#
+Actions
+Create employee action
+Create sales data action
+Create resource action
+Create task action
+Get resource action
+Search employees action
+Search resources action
+Search operational units action
+Update employee action
+Update resource action
+Associate employee action
+Unassociate employee action
+←
+Run custom SQL action
+New employee trigger
+→
+Last updated:
+5/17/2024, 2:35:03 AM
+On this page
+API version
+How to connect to Deputy on Workato
+Triggers and Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

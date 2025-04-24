@@ -1,0 +1,227 @@
+Workflow apps- Administration | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+#
+Administration
+#
+App-user and group management
+You can manage app-users and groups in
+Platform > Workflow apps portal > Users and groups
+.
+Manage users and groups
+#
+Add users
+WORKFLOW APPS SEATS
+The number of end users allowed to interact with Workflow apps depends on your platform plan and any additional capacity you've purchased.
+Go to
+Platform > Workflow apps portal
+or use the
+Usage dashboard
+to track the number of authorized end users.
+Note that this is separate from the number of builders you can have or the apps you can create, as there are no limits on either.
+You have three different options to add app-users to the
+Workflow apps portal
+. You can add app-users to the
+Workflow apps portal
+by sending individual invitations, or
+SSO JIT (Just-in-time) provisioning
+. The first option enables you to invite external users and requires users to accept the invitation, while SSO JIT (Just-in-time) provisioning is only for your internal users.
+Your third option is to invite users programmatically using the
+Invite user action
+.
+#
+Individual invitations
+Complete the following steps to send an individual invitation:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Platform > Workflow apps portal > Users and groups
+.
+3
+Select
+Invite user
+.
+4
+Enter the
+Name
+and
+Email address
+of the user you plan to invite.
+5
+Click
+Add user
+.
+6
+New users appear in the
+Users and groups
+interface.
+Invite an individual user to the Workflow apps portal
+#
+Organize users and groups
+You can organize app-users into user groups. This enables you to apply permissions using
+role-based access controls
+, and assign workflow tasks to specific groups.
+By default, Workato places every user into the
+Everyone group
+.
+#
+Create a group
+To create additional groups:
+1
+Click the
++
+(plus).
+2
+Name the group.
+3
+Click the
+✓
+(checkmark) to save.
+#
+Add users to the group
+Select
+Add users to this group
+to add existing users to this group.
+Alternatively, you can invite new users into this group directly by clicking
+Invite user
+.
+Add users to a group
+#
+Edit/delete a user
+This interface enables you to edit a user's name and the groups to which they belong.
+You can also delete users. Deleted users lose access to the Workflow apps portal.
+To edit a user:
+1
+Click the user name you plan to edit.
+2
+Make the necessary changes.
+3
+Select
+Save changes
+.
+To delete a user:
+1
+Click the user name you plan to delete.
+Alternatively, click the
+☑
+(checkbox) to the left of the user name.
+2
+Click
+Delete user
+.
+FURTHER READING
+Learn how to set up the Workflow apps portal
+←
+Permissions
+Set up the Workflow apps portal
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+App-user and group management
+Add users
+Individual invitations
+Organize users and groups
+Create a group
+Add users to the group
+Edit/delete a user
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

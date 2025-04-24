@@ -1,0 +1,253 @@
+Workato API - Workspace details | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Developer API
+Resources
+#
+Workspace details
+Use this API to get details about your workspace.
+ENDPOINT ACCESS
+Your
+API client
+must be assigned privilege for the
+Get workspace details
+endpoint. This privilege is determined by your
+API client role
+.
+Additionally, if your workspace uses
+environments
+, this privilege is only available to API clients with
+DEV
+access.
+To enable endpoint access:
+You can enable access to this endpoint by editing an existing API client role or by creating a new API client role:
+1
+Navigate to
+Workspace admin > API clients > Client roles
+.
+Select the role you plan to edit.
+Alternatively, click
++ Add client role
+to create a new API client role.
+2
+Select
+Admin
+and navigate to
+Workspace details > Workspace details
+.
+3
+Select the checkbox next to the
+Get details
+GET /api/users/me
+endpoint.
+Select the endpoint you plan to enable
+#
+Quick reference
+Type
+Resource
+Description
+GET
+/api/users/me
+Get workspace details.
+#
+Get workspace details
+Get details about your workspace.
+GET /api/users/me
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/users/me
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"id"
+:
+17293
+,
+"name"
+:
+"ACME-API"
+,
+"created_at"
+:
+"2019-06-19T19:53:16.886-07:00"
+,
+"plan_id"
+:
+"oem_plan"
+,
+"current_billing_period_start"
+:
+"2020-09-22T19:15:11.372-07:00"
+,
+"current_billing_period_end"
+:
+"2020-10-22T19:15:11.372-07:00"
+,
+"expert"
+:
+false
+,
+"avatar_url"
+:
+"https://workato-assets.s3.amazonaws.com/profiles/avatars/000/089/005/large/logo.png?1562399288"
+,
+"recipes_count"
+:
+49
+,
+"interested_applications"
+:
+[
+]
+,
+"company_name"
+:
+null
+,
+"location"
+:
+null
+,
+"last_seen"
+:
+"2020-08-23T23:22:24.329-07:00"
+,
+"contact_phone"
+:
+null
+,
+"contact_email"
+:
+null
+,
+"about_me"
+:
+null
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"phone"
+:
+"xxxxxxxxxx"
+,
+"active_recipes_count"
+:
+1
+,
+"root_folder_id"
+:
+10294
+}
+←
+Get collaborator privileges
+Embedded
+→
+Last updated:
+7/18/2024, 8:15:13 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

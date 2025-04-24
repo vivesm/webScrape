@@ -1,0 +1,173 @@
+SAMLロール同期 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+組織とワークスペース
+Workspace collaborators
+#
+SAMLロール同期：アイデンティティプロバイダでのWorkatoロールの維持
+組織がWorkatoなどの多数のSaaSアプリケーションを使用する場合、アクセスの管理は非常に手間がかかり、エラーが発生する可能性があります。例えば、以下の懸念に対処するのが困難になる場合があります：
+ユーザーライフサイクル
+ユーザーライフサイクル（プロビジョニング、ユーザーロールの変更、非プロビジョニング）の完全な管理がますます困難になります。特に、組織が大きく、多くのカスタムロールを持つようになると、困難になります。
+セキュリティ
+アプリケーションレベルでのアクセスの設定に関与する手動の手順のため、Workatoへのアクセス保護のための組織全体のセキュリティポリシーの強制が困難になります。
+自動化の不足
+ほとんどのアプリは自動的なユーザープロビジョニングをサポートしていません。
+これらの困難に対処するために、アイデンティティプロバイダからWorkatoに直接ロールを同期する一度限りの設定を提供しています。
+組織は、SAMLアサーションにカスタム属性を含めることで、IdPからWorkatoのユーザーロールを同期できます。これは個々のユーザーだけでなく、グループにも適用されます。
+実装されると、Workatoは自動的にロールの割り当てを、アイデンティティプロバイダで構成したカスタムSAML属性と同期します。
+例えば、IdP内でユーザーの
+workato_role
+属性をアナリストから管理者に変更すると、Workato内のロールの権限も変更されます。
+同様に、「DevOps_Admins」というグループのメンバーをWorkato上のカスタムの「DevOps_Admin」ロールでプロビジョニングすることもできます。そのグループの新しいユーザーは、グループの優先順位または値の組み合わせを介してWorkatoの権限を継承します。
+Workatoは、シングルサインオン（SSO）を有効にするすべての顧客に対してSAMLロール同期をサポートしています。このドキュメントでは、次のアイデンティティプロバイダでSAMLロール同期を使用する方法について説明します：
+Okta
+Microsoft Azure
+OneLogin
+すべてのリージョンでSAMLロール同期をサポートしています。
+推奨事項
+Workatoは、ロール同期を設定した後、ユーザーロールの割り当てをアイデンティティプロバイダで管理することを強くお勧めします。なぜなら、システムが手動のロール変更を上書きするからです。
+#
+環境固有のロールのサポート
+Workatoで
+環境
+を有効にしている場合（ライフサイクル管理アドオンを介して）、アイデンティティプロバイダから環境固有のユーザーロールを同期できます。Workatoでは、次のカスタム属性が特定の環境ロールにマップされるように定義されています：
+DEV
+workato_role
+TEST
+workato_role_test
+PROD
+workato_role_prod
+#
+ロール同期の有効化
+アイデンティティプロバイダとのロール同期を使用するには、Workatoのインターフェースでこの機能を有効にする必要があります。
+推奨事項
+まだ有効になっていない場合、
+SAML認証の強制
+と
+SAML JITプロビジョニングの有効化
+オプションを同時に有効にすることをお勧めします。
+1
+Workatoで
+Team >> Settings
+に移動します。
+2
+スイッチの
+Enable role sync
+をONに切り替えます。
+Workatoでロール同期を有効にする
+3
+Validate settings
+をクリックします。
+4
+Save
+をクリックします。
+#
+次の手順
+アイデンティティプロバイダでのロール同期の設定を完了します。このセクションでは、次の接続方法について説明します：
+Okta
+Microsoft Azure
+OneLogin
+←
+ジャストインタイム(JIT) プロビジョニング
+OktaでのSAMLロール同期
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+環境固有のロールのサポート
+ロール同期の有効化
+次の手順
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

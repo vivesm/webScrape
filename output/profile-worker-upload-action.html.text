@@ -1,0 +1,188 @@
+SAP Fieldglass - Profile worker upload action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+SAP Fieldglass
+#
+SAP Fieldglass - Profile worker upload action
+The
+Profile worker upload
+action lets you upload profile worker details to SAP Fieldglass.
+Profile worker upload action
+#
+Input
+#
+Header
+Input fields
+Description
+Type
+Specify the upload file type.
+Transaction
+Specify the transaction type.
+Approval required
+Determine if approval rules must be followed.
+Send notification?
+Determine whether normal messaging workflow must be followed.
+Language
+Determine the language used for values in the file, such as drop-down lists and radio buttons. Column headers always default to the upload user's preferred language.
+Number format
+Determine the number format used in the file.
+Date format
+Determines the date format used in the file.
+Submit
+Determine the status in which the job postings are saved.
+MSP
+Determine if the custom field present in the file is associated with the respective MSP for a multiple MSP buyer.
+Comments
+Upload comments.
+#
+Data
+Input fields
+Description
+Supplier Code
+SAP Fieldglass supplier code for the buyer.
+First name
+First name of profile worker.
+Last name
+Last name of profile worker.
+Email Address
+Email address of the profile worker.
+Primary Contact Username
+Username of profile worker's SAP primary contact.
+Cost center code
+Associated cost center code for the profile worker.
+Business unit code
+Provide the associated business unit code for the profile worker.
+Site code
+Provide the associated site code for the profile worker.
+Location code
+Provide the associated location code for the profile worker.
+Start date
+Provide the start date of the profile worker.
+End date
+Provide the end date of the profile worker.
+Security ID
+Provide the security ID of the profile worker, if applicable to the buyer.
+Legal Entity Code
+Indicate the legal entity code associated with the profile worker.
+MSP Code
+A valid MSP code for the given supplier.
+OPTIONAL FIELDS
+You can specify the optional fields and
+custom fields
+(opens new window)
+as well, as per the requirement.
+#
+Output
+Output fields
+Description
+Transaction ID
+Transaction ID returned by SAP Fieldglass.
+←
+Location upload action
+Supplier worker download action
+→
+Last updated:
+1/15/2025, 10:39:46 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

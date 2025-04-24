@@ -1,0 +1,151 @@
+Workatoコネクター - Bamboo HR - 休暇申請の作成/更新アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Bamboo HR
+#
+Bamboo HR - 休暇申請の作成/更新アクション
+このアクションは、Bamboo HRインスタンス内の従業員の代わりに休暇申請を作成/更新します。
+#
+入力
+休暇申請の作成/更新アクション
+入力フィールド
+説明
+従業員ID
+必須
+休暇を申請する従業員のIDです。
+休暇の種類
+必須
+申請された休暇の種類です。提供されるオプションから選択するか、種類のIDを手動で入力します。
+開始日
+必須
+休暇の開始日です。日付を選択するか、YYYY-MM-DD形式で入力します。
+終了日
+必須
+休暇の終了日です。日付を選択するか、YYYY-MM-DD形式で入力します。
+ステータス
+必須
+休暇申請のステータスです。ピックリストから選択するか、approved、requested、deniedのいずれかを入力します。
+1日ごとの休暇時間の詳細
+必須
+有効にすると、従業員が1日ごとに取得した休暇時間の詳細を提供する必要があります。許可される値はtrueまたはfalseです。
+ノート
+リクエストに添付するメモを入力します。デフォルトでは、リクエストする従業員の代わりにメモが作成されます。
+前回のリクエストID
+既存のリクエストが選択された場合、更新が行われます。新しいリクエストを作成する場合は空白のままにします。
+日付
+日ごとの金額を指定する場合に必要
+日付を選択するか、YYYY-MM-DD形式で入力します。
+金額
+必須
+従業員の残高を更新するための日数/時間の整数を入力します。追加する単位を指定することはできません。単位は、休暇の種類が設定されているものになります。
+#
+出力
+出力フィールド
+説明
+ステータス
+リクエストの結果を示すステータスです。
+←
+従業員の作成
+従業員の更新
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,142 @@
+Workato コネクター - LinkedIn | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+LinkedIn
+LinkedIn は、人脈作りやビジネスに特化したソーシャルネットワーキングサイトです。LinkedIn を利用すれば、ビジネスプロフェッショナルがそれぞれの専門分野で最新情報を把握できます。また、マーケティング担当者が LinkedIn を利用して多種多様な広告を運用することで、新しいリードを獲得したり、販売している B2B 商品の認知度を高めたりすることもできます。
+Workato の LinkedIn コネクターを使用すると、マーケティングプロセス全体を自動化できます。これにより、LinkedIn のキャンペーンマネージャーからマーケティング自動化プラットフォームや CRM へとキャンペーンのパフォーマンスとリードがシームレスに流れるようになり、マーケティングへの投資を最大限の価値につなげることができます。
+#
+API バージョン
+LinkedIn コネクターは LinkedIn V2 REST API を使用します。
+#
+Workato での LinkedIn への接続方法
+LinkedIn コネクターは、LinkedIn に接続するために OAuth 2.0を使用します。LinkedIn コネクターですべてのトリガーとアクションを最大限に活用するには、会社の LinkedIn ページの管理者であり、なおかつ LinkedIn 広告アカウントのアカウントマネージャーでもある必要があります。このことを確認するには、以下の手順を実行します。
+#
+1. LinkedIn 会社ページの管理者になる
+広告アカウントはすべて、LinkedIn 内で特定のビジネスに関連付けられています。このため、まず LinkedIn 会社ページが作成されている必要があります。これにより、プラットフォーム上で運用中の広告を取り扱う LinkedIn の担当者が、会社の連絡先を把握できます。キャンペーンマネージャーを使用して広告の運用を初めて開始したとき、会社ページがすでに作成されているはずです。
+Workato でコネクションを作成する前に、LinkedIn 会社ページに自身が管理者として追加されていることを確認してください。ユーザーを管理者にすることができるのは、この会社ページの管理者のみです。LinkedIn 会社ページを開けば、管理者であるかどうかを確認できます。管理者であれば、以下のスクリーンショットのような「スーパー管理者ビュー」が表示されます。
+これが表示されない場合は、自身が管理者になる必要がある旨を LinkedIn 会社ページの管理者に伝えてください。
+#
+2. LinkedIn 広告アカウントのアカウントマネージャーになる
+広告アカウントは、LinkedIn のキャンペーングループ、キャンペーン、クリエイティブ、リード獲得フォームなどを中に含んでいます。また、アカウント内のキャンペーンすべての請求情報も取り扱います。LinkedIn コネクターを活用するには、Workato レシピを作成する対象の広告アカウントそれぞれのアカウントマネージャーになる必要があります。
+Workato で広告マネージャーになるには、自身を管理者として追加するよう、広告アカウントの既存のマネージャーに依頼する必要があります。これは、LinkedIn のキャンペーンマネージャーから実行できます。
+[Edit] をクリックすることで、この広告アカウントにマネージャーを追加できる
+#
+3. Workato での認証
+自身が会社ページと広告アカウントの管理者になっていることを確認したら、Workato でコネクションを作成できます。
+項目名
+説明
+Connection name
+この LinkedIn コネクションに、認証を受けたユーザーを識別する一意の名前を付けます。
+#
+接続の有効期限
+LinkedIn の API は、初回接続時から合計365日間のみ、有効な接続の維持を許可します。これにより、接続の長期的なセキュリティが保たれます。365日が過ぎた後、この接続をさらに1年間有効にするには、この接続の再認証を手動でもう一度行う必要があります。
+詳細については、
+こちらをクリックしてください。
+(opens new window)
+←
+LaunchDarkly
+送信された新規広告フォーム トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での LinkedIn への接続方法
+接続の有効期限
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

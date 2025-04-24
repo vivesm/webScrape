@@ -1,0 +1,162 @@
+Workato コネクター - Dropbox - フォルダーアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Dropbox
+#
+Dropbox - フォルダーアクション
+ここでは、Dropbox でフォルダーに対して実行できるアクションについて紹介します。
+#
+Create folder (フォルダーの作成)
+このアクションでは、Dropbox で新しいフォルダーを作成できます。追加したいフォルダーとまったく同じ名前のフォルダーが親フォルダーにすでに含まれる場合には、このアクションは失敗します。
+Create folder アクション
+#
+入力項目
+項目名
+説明
+Folder name
+作成するフォルダーの名前。
+Folder
+新たに作成するフォルダーを追加する親フォルダーの場所。
+#
+出力項目
+項目名
+説明
+ID
+作成されたフォルダーの ID。
+Name
+作成されたフォルダーの名前。
+Path
+作成されたフォルダーのパス。
+Is directory
+これがディレクトリ/フォルダーであるかどうか。
+#
+Search folder (フォルダーの検索)
+このアクションでは、入力したキーワードが名前に含まれるフォルダーのリストを取得できます。部分一致も返されます。
+Search folder アクション
+#
+入力項目
+項目名
+説明
+Search keywords
+キーワードをスペースで区切ります。検索では、入力したすべてのキーワードが名前に含まれるフォルダーが返されます。
+Folder
+このフォルダーおよびそのサブフォルダーに対して検索が実行されます。
+#
+出力項目
+項目名
+説明
+Folders
+取得されたフォルダーのリストおよび各フォルダーの内容。
+- ID
+取得したフォルダーの ID。
+- Name
+取得したフォルダーの名前。
+- Path
+取得したフォルダーのパス。
+- Is directory
+これがディレクトリ/フォルダーであるかどうか。
+←
+CSVファイル アクション
+Eloqua
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Create folder (フォルダーの作成)
+Search folder (フォルダーの検索)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

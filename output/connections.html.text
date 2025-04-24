@@ -1,0 +1,924 @@
+Embedded API - Connections | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded API
+Resources
+#
+Connections
+ENDPOINT AVAILABILITY
+The endpoints in this guide are Embedded Vendor APIs and require the
+oem_vendor
+privilege. Contact your Workato representative to enable this privilege in your account.
+The
+Connections
+resource enables you to programmatically manage connections for Embedded customers.
+#
+Quick reference
+Type
+Resource
+Description
+GET
+/api/managed_users/:managed_user_id/connections
+Returns a list of connections in Embedded user's account.
+POST
+/api/managed_users/:id/connections
+Allows the Embedded partner to add a shell connection in a customer's account.
+PUT
+/api/managed_users/:id/connections/:connection_id
+Updates a connection in a customer workspace.
+POST
+/api/managed_users/:id/connections/:connection_id/disconnect
+Disconnects a connection in a customer workspace.
+DELETE
+/api/managed_users/:id/connections/:connection_id
+Deletes a connection in a customer workspace.
+#
+List connections
+Returns all connections and associated data for the Embedded customer workspace.
+GET /api/managed_users/:managed_user_id/connections
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(ex:
+EA2300
+) and the resulting ID should be URL encoded.
+#
+Query parameters
+Name
+Type
+Description
+provider
+string
+optional
+The application type of the connection. For example:
+salesforce
+folder_id
+string
+optional
+The ID of the project or folder containing the connection.
+parent_id
+string
+optional
+The ID of the parent connection. The parent connection must be the same
+provider
+type.
+Learn more
+.
+external_id
+string
+optional
+The external ID assigned to the connection, usually given to the user who owns the connection.
+include_runtime_connections
+string
+optional
+When
+"true"
+is supplied, all runtime user connections are also returned.
+includes[]
+array of strings
+optional
+Specifies additional fields to include in the response. Accepts
+tags
+as a value. If
+tags
+is supplied in the request, the response includes a
+tags
+field for each connection. This field contains an array of zero or more tag handles (strings).
+#
+Sample request
+curl
+-X
+GET https://www.workato.com/api/managed_users/98178/connections?includes
+[
+]
+=
+tags
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"result"
+:
+[
+{
+"id"
+:
+36
+,
+"name"
+:
+"ACME Production Salesforce connection"
+,
+"provider"
+:
+"salesforce"
+,
+"authorized_at"
+:
+"2015-05-26T22:53:52.528Z"
+,
+"authorization_status"
+:
+"success"
+,
+"authorization_error"
+:
+null
+,
+"created_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"updated_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"external_id"
+:
+"U12904"
+,
+"folder_id"
+:
+4515
+,
+"identity"
+:
+null
+,
+"connection_lost_at"
+:
+null
+,
+"connection_lost_reason"
+:
+null
+,
+"parent_id"
+:
+22316
+,
+"tags"
+:
+[
+"tag-ANgeffPL-3gxQwA"
+]
+}
+,
+{
+"id"
+:
+37
+,
+"name"
+:
+"ACME google sheet account"
+,
+"provider"
+:
+"google_sheets"
+,
+"authorized_at"
+:
+"2015-05-26T22:53:52.528Z"
+,
+"authorization_status"
+:
+"success"
+,
+"authorization_error"
+:
+null
+,
+"created_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"updated_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"external_id"
+:
+"U12904"
+,
+"folder_id"
+:
+4515
+,
+"identity"
+:
+null
+,
+"connection_lost_at"
+:
+"2024-06-01T12:00:00Z"
+,
+"connection_lost_reason"
+:
+"network_failure"
+,
+"parent_id"
+:
+22317
+,
+"tags"
+:
+null
+}
+,
+{
+"id"
+:
+51234
+,
+"name"
+:
+"ACME Quickbooks account"
+,
+"provider"
+:
+"quickbooks"
+,
+"authorized_at"
+:
+"2015-05-26T22:53:52.528Z"
+,
+"authorization_status"
+:
+"success"
+,
+"authorization_error"
+:
+null
+,
+"created_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"updated_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"external_id"
+:
+"U12904"
+,
+"folder_id"
+:
+4515
+,
+"identity"
+:
+"
+[email protected]
+/1029384756102938"
+,
+"connection_lost_at"
+:
+null
+,
+"connection_lost_reason"
+:
+null
+,
+"parent_id"
+:
+22317
+,
+"tags"
+:
+[
+"tag-ANgeffPL-3gxQwA"
+]
+}
+]
+}
+RETRIEVE QUICKBOOKS REALM ID
+Retrieve your company's Quickbooks Realm ID using the
+List connections
+API. Disconnect and reconnect your Quickbooks connection in Workato before calling the API to ensure the latest information is retrieved. The API returns the Realm ID in the
+identity
+field of the response, following your email address. In the preceding example, ACME's Realm ID is
+1029384756102938
+. For other connections, the identity field is returned as
+null
+.
+Refer to the
+SDK identity lambda documentation
+for more details on setting up the
+identity
+field. The lambda’s output value is returned in the
+identity
+field of the list connections API.
+#
+Create a connection
+Creates a connection in a customer's account. This endpoint supports the following in customer workspaces:
+Adding a shell connection, OR
+Adding and authenticating a connection
+POST /api/managed_users/:managed_user_id/connections
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(ex:
+EA2300
+) and the resulting ID should be URL encoded.
+#
+Payload
+Name
+Type
+Description
+name
+string
+optional
+Name of the connection. Eg:
+Prod Salesforce connection
+provider
+string
+optional
+The application type of the connection. For example:
+salesforce
+parent_id
+string
+optional
+The ID of the parent connection. The parent connection must be the same
+provider
+type.
+Learn more
+.
+folder_id
+string
+optional
+The ID of the project or folder containing the connection.
+external_id
+string
+optional
+The external ID assigned to the connection, usually given to the user who owns the connection.
+shell_connection
+boolean
+optional
+Specifies whether the connection is a shell connection or an authenticated connection. Defaults to
+false
+if not specified. If
+shell_connection
+is
+false
+, credentials are passed, and the connection is tested and established. If
+shell_connection
+is
+true
+, credentials are passed, but the connection isn't tested or established, and additional actions are required for authentication.
+input
+Object
+optional
+Connection parameters.
+For a list of providers and connection parameters, refer to the
+Platform API Connection Parameter Reference
+.
+#
+Sample requests
+Shell connection (no credentials)
+Connection with credentials
+#
+Shell connection request
+This creates a connection in a
+Disconnected
+state.
+curl
+-X
+POST https://www.workato.com/api/managed_users/98178/connections
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "jira_connection",
+"provider": "jira",
+"folder_id": 1892,
+"external_id": "128904"
+}'
+#
+Connection with credentials
+This creates and authenticates a connection.
+curl
+-X
+POST https://www.workato.com/api/managed_users/98178/connections
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "jira_connection",
+"provider": "jira",
+"input": {
+"host_name": "acme.atlassian.net",
+"api_token_auth": "true",
+"email": "
+[email protected]
+",
+"apitoken": "XXXXXXXX"
+}
+}'
+#
+Response
+{
+"id"
+:
+36
+,
+"name"
+:
+"jira_connection"
+,
+"provider"
+:
+"jira"
+,
+"authorized_at"
+:
+"2015-05-26T22:53:52.528Z"
+,
+"authorization_status"
+:
+"success"
+,
+"authorization_error"
+:
+null
+,
+"created_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"updated_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"external_id"
+:
+"U12904"
+,
+"folder_id"
+:
+4515
+,
+"parent_id"
+:
+22318
+,
+"connection_lost_at"
+:
+null
+,
+"connection_lost_reason"
+:
+null
+}
+#
+Update a connection
+Updates a connection in a customer workspace.
+PUT /api/managed_users/:managed_user_id/connections/:connection_id
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(ex:
+EA2300
+) and the resulting ID should be URL encoded.
+connection_id
+string
+required
+The ID of the connection.
+#
+Payload
+Name
+Type
+Description
+name
+string
+optional
+Name of the connection. Ex:
+Prod Salesforce connection
+parent_id
+string
+optional
+The ID of the parent connection.
+Learn more
+.
+folder_id
+string
+optional
+The ID of the project or folder containing the connection.
+external_id
+string
+optional
+An external ID assigned to the connection. This value could reference a record in another of your applications.
+shell_connection
+boolean
+optional
+Specifies whether the connection is a shell connection or an authenticated connection. Defaults to
+false
+if not specified. If
+shell_connection
+is
+false
+, credentials are passed, and the connection is tested and established. If
+shell_connection
+is
+true
+, credentials are passed, but the connection isn't tested or established, and additional actions are required for authentication.
+input
+object
+optional
+Connection parameters.
+For a list of providers and connection parameters, refer to the
+Platform API Connection Parameter Reference
+.
+#
+Sample requests
+Update a Jira connection
+Update an Outreach connection
+#
+Update a Jira connection
+curl
+-X
+PUT https://www.workato.com/api/managed_users/98178/connections/1678
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "jira_connection_latest",
+"folder_id": 28940,
+"input": {
+"host_name": "acme.atlassian.net",
+"api_token_auth": "true",
+"email": "
+[email protected]
+",
+"apitoken": "XXXXXXXX"
+}
+}'
+#
+Response
+{
+"id"
+:
+36
+,
+"name"
+:
+"jira_connection"
+,
+"provider"
+:
+"jira"
+,
+"authorized_at"
+:
+"2015-05-26T22:53:52.528Z"
+,
+"authorization_status"
+:
+"success"
+,
+"authorization_error"
+:
+null
+,
+"created_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"updated_at"
+:
+"2015-05-26T22:53:52.532Z"
+,
+"external_id"
+:
+"U12904"
+,
+"folder_id"
+:
+4515
+,
+"parent_id"
+:
+22318
+,
+"connection_lost_at"
+:
+null
+,
+"connection_lost_reason"
+:
+null
+}
+#
+Update an Outreach connection
+curl
+-X
+PUT https://www.workato.com/api/managed_users/98178/connections/1678
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Outreach scope connection",
+"provider": "outreach",
+"input": {
+"advanced_settings": {
+"scopes": "sequences.all phoneNumbers.all"
+}
+}
+}'
+#
+Disconnect a connection
+Disconnects an active connection in a customer workspace. If the connection is already disconnected, then no action is taken.
+POST /api/managed_users/:managed_user_id/connections/:connection_id/disconnect
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(ex:
+EA2300
+) and the resulting ID should be URL encoded.
+connection_id
+string
+required
+The ID of the connection.
+force
+boolean
+optional
+Value must be
+true
+to forcefully disconnect an active connection used by active recipes. Defaults to
+false
+.
+#
+Payload
+No payload is expected
+#
+Sample request
+curl
+-X
+POST https://www.workato.com/api/managed_users/98178/connections/1678/disconnect?force
+=
+true
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+Successfully disconnected an active connection or connection already disconnected.
+{
+"result"
+:
+{
+"success"
+:
+true
+,
+"status"
+:
+"disconnected"
+}
+}
+Provided connection id does not exist
+{
+"message"
+:
+"Not found"
+}
+#
+Delete a connection
+Deletes a connection in a customer workspace. This method deletes active (authenticated) and disconnected connections. If the connection is used by active recipes, this API request fails.
+DELETE /api/managed_users/:managed_user_id/connections/:connection_id
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+External ID must be prefixed with an
+E
+(ex:
+EA2300
+) and the resulting ID should be URL encoded.
+connection_id
+string
+required
+The ID of the connection.
+#
+Sample request
+curl
+-X
+DELETE https://www.workato.com/api/managed_users/98178/connections/1678
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Responses
+Successful deletion of an active or disconnected connection
+Connection is used in active recipes
+Connection ID doesn't exist
+#
+Successful deletion of an active or disconnected connection
+When you successfully delete an active (authenticated) or disconnected connection, this endpoint returns the following response:
+{
+"result"
+:
+{
+"success"
+:
+true
+,
+"status"
+:
+"deleted"
+}
+}
+#
+Connection is used in active recipes
+When you try to delete a connection used by an active recipe, this request fails, and the endpoint returns the following response:
+{
+"success"
+:
+false
+,
+"status"
+:
+"rejected"
+,
+"message"
+:
+"You can't delete a connection used by active recipes"
+}
+#
+Connection ID doesn't exist
+If you provide a connection ID that doesn't exist in your customer's workspace, this request fails, and the endpoint returns the following response:
+{
+"message"
+:
+"Not found"
+}
+←
+List API portals
+Connection parameters reference
+→
+Last updated:
+3/14/2025, 2:54:33 PM
+On this page
+List connections
+Create a connection
+Update a connection
+Disconnect a connection
+Delete a connection
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

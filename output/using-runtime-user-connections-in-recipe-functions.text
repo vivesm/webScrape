@@ -1,0 +1,208 @@
+Using Runtime User Connections In Recipe Functions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Runtime user connections
+#
+Using Runtime User Connections In Recipe Functions
+This guide will walk you through using
+Runtime user connections
+in
+Recipe functions
+.
+In this guide, we'll cover:
+Prerequisites
+Creating a Recipe function
+Enabling the Runtime user connections setting
+Calling the recipe and swapping connections
+#
+Prerequisites
+To complete the steps in this guide, you need:
+The following privileges in Workato:
+Create/edit Recipes
+View/edit Runtime user connections
+Create/edit Connections
+#
+Step 1: Create A Recipe Function
+1
+In your account, create a new
+Recipe function
+.
+Note
+: The recipe must use the
+Recipe functions - New function call trigger
+.
+2
+Add steps and actions.
+3
+Save and test the recipe as you normally would.
+#
+Step 2: Enable The Recipe's Runtime User Connections Setting
+When finished creating the recipe, you'll need to enable the
+Runtime user connections
+setting:
+1
+Navigate to the
+Settings
+tab of the recipe you created in
+Step 1
+.
+2
+In the
+Runtime user connections
+section, click the toggle next to the connection you want to enable.
+When this recipe is run, users will be prompted to provide their credentials for this connection.
+#
+Step 3: Calling The Recipe And Swapping Connections
+The last step is to define how recipes using the
+recipe from Step 1
+use runtime user connections:
+1
+Create a new recipe OR open an existing recipe.
+2
+Add a new step using the
+Action in an app
+option.
+3
+In the
+App
+tab, select the
+Recipe function by Workato
+app.
+4
+Select either of the
+Call recipe function (synchronous)
+or
+Call recipe function (asynchronous)
+actions.
+5
+In the
+Recipe to call
+field, select the recipe you created in
+Step 1
+.
+6
+In the
+Connection overrides
+section, configure the connections to be used at runtime.
+7
+When finished editing the recipe, click
+Save
+.
+#
+What's Next?
+Recipe functions
+Runtime user connections
+Using runtime user connections in Workbot recipes
+Managing runtime user connections
+←
+Managing connections
+Workbot recipes
+→
+Last updated:
+1/27/2025, 7:41:20 PM
+On this page
+Prerequisites
+Step 1: Create A Recipe Function
+Step 2: Enable The Recipe's Runtime User Connections Setting
+Step 3: Calling The Recipe And Swapping Connections
+What's Next?
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

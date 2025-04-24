@@ -1,0 +1,341 @@
+API Recipes - Configuring Endpoints To Handle Raw Content | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API endpoints
+API recipe endpoints
+#
+API Recipes - Configuring Endpoints To Handle Raw Content
+USING CALLABLE RECIPES?
+This guide is also applicable to
+Callable recipes
+set up as API endpoints.
+Note
+: Callable recipes have been deprecated. They'll continue to function, but you won't be able to create new callable recipes. This guide uses the
+API platform
+connector, which functions exactly like the API functionality in callable recipes.
+With the API Platform, you can configure your API recipes to accept raw content. This allows you to integrate more data types into your workflow, such as XML/SOAP.
+This guide demonstrates how to create an API endpoint that accepts raw content.
+#
+Prerequisites
+To follow the steps in this guide, you must have:
+Access to the API platform feature
+. The API platform feature is available to customers on specific pricing plans. Refer to your pricing plan and contract to learn more.
+API platform privileges.
+#
+Step 1: Create an API recipe
+Complete the following steps to create an API recipe:
+1
+Sign into your Workato account. The Orchestrate platform displays by default.
+2
+Create a new recipe using the
+API Platform - New API request trigger
+.
+3
+Navigate to the trigger's
+Request
+input fields and select
+Text/XML
+for the
+Content type
+. This setting allows the endpoint to accept XML data.
+4
+Configure the trigger's
+Response
+:
+1
+Select
+Text/XML
+for the
+Content type
+.
+2
+Add the
+Responses
+that the endpoint can return. For example, a
+Success
+response can return a
+200 - OK
+HTTP status code.
+3
+Optional. Add a nested schema response to the
+Response schema
+section if you plan for your endpoint to return a complex response. You can create a nested schema by dragging and dropping the properties between parents, including the root. Alternatively, click the
+Edit schema
+button and provide the nested schema you plan to use.
+Add a nested schema
+Nested schema example
+[
+{
+"name"
+:
+"Accounts"
+,
+"type"
+:
+"array"
+,
+"of"
+:
+"object"
+,
+"label"
+:
+"Accounts"
+,
+"optional"
+:
+false
+,
+"hint"
+:
+"Found Salesforce accounts"
+,
+"properties"
+:
+[
+{
+"control_type"
+:
+"text"
+,
+"label"
+:
+"ID"
+,
+"name"
+:
+"ID"
+,
+"type"
+:
+"string"
+,
+"optional"
+:
+false
+,
+"hint"
+:
+"Account ID"
+}
+,
+{
+"control_type"
+:
+"text"
+,
+"label"
+:
+"Name"
+,
+"name"
+:
+"Name"
+,
+"type"
+:
+"string"
+,
+"optional"
+:
+false
+,
+"hint"
+:
+"Account name"
+}
+]
+}
+]
+5
+Define other parameters for the endpoint as required.
+#
+Step 2: Parse The Request Body
+THIS STEP IS OPTIONAL
+If you don't plan to use data received by the endpoint as datapills, skip to
+Step 3
+.
+If you plan to use data received by the endpoint as individual datapills, you can use Workato's data parsers. While Workato supports JSON parsing, it also supports
+CSV
+,
+XML
+, and
+YAML
+.
+For example: Our endpoint receives XML content, including a
+fileId
+property. We want to use the
+fileId
+to retrieve a file from Google Drive. Using the
+XML tools
+connector's
+parse XML
+action, we can parse the request body and convert the data into datapills we can use in subsequent steps.
+1
+Add an action step to the recipe, selecting the required parser as the
+App
+. In our example, that's the
+XML tools
+connector's
+parse XML
+action.
+2
+Provide a
+Sample document
+in the action's input.
+3
+Go to the action's
+Document
+field and map the
+Request body
+Step 1
+datapill from the trigger's output.
+#
+Step 3: Define Response Bodies
+In this step, you must define response bodies for the responses you created in
+Step 1
+.
+Note
+: If your endpoint has multiple responses, you must repeat the steps in this section for each response type.
+1
+Add the
+API platform - Response to API request action
+as a recipe step.
+2
+Use the
+Response
+menu to select the response you created in
+Step 1
+.
+3
+Go to the
+Body
+field and add the data you plan for the endpoint to return in the response body.
+#
+Step 4: Create An API Platform Endpoint
+The last step is to expose the API recipe as an endpoint in the API platform. This allows you to test it before releasing it to production, ensuring it behaves as expected.
+1
+Go to
+Platform > API platform > API collections
+in the Orchestrate platform.
+2
+Create a new
+API collection
+if you don't have an existing collection in your workspace.
+3
+Follow the steps in the
+Configuring a new API endpoint guide
+to add the recipe as an endpoint.
+You can now test the endpoint with raw content.
+Test REST endpoints with raw content
+←
+Configure API recipe endpoints
+SOAP API walkthrough
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Prerequisites
+Step 1: Create an API recipe
+Step 2: Parse The Request Body
+Step 3: Define Response Bodies
+Step 4: Create An API Platform Endpoint
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

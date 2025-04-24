@@ -1,0 +1,186 @@
+Twilio connector - Send SMS action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Twilio
+#
+Send SMS action
+This action sends an SMS (text) message.
+Send SMS action
+#
+Input
+Input field
+Description
+From
+The Twilio phone number from which the SMS is sent. You can use an
+alphanumeric value
+(opens new window)
+rather than a phone number to improve deliverability, for example
+Acme-Corporation
+.
+To
+The phone number to which the SMS is sent. The phone number must include the country code. For example,
++14235550001
+.
+Message
+The message you plan to send. This field is limited to 160 characters.
+#
+Output
+Output field
+Description
+Body
+The content of the SMS.
+num_segments
+The number of segments within the SMS.
+Direction
+The direction (inbound or outbound) of the SMS. Sent messages are outbound.
+From
+The phone number or alphanumeric value from which the SMS was sent. For example,
++14325550001
+or
+Acme-Corporation
+.
+Date_updated
+The date the message was updated. For example,
+Tue, 05 Dec 2023 18:57:20 +0000
+.
+Price
+The amount it cost to send the SMS. This value is null if there is no cost per message for the phone plan.
+Error message
+This value is null if the message is sent successfully.
+URI
+The unique identifier for the SMS.
+Account_SID
+This is the string identifier. This provides unique key that is used to identify specific resources. Each SID has 34 digits.
+Num media
+The multimedia (for example, images or emojis) within the SMS. This value is null if the SMS contains no media.
+To
+The phone number to which the SMS was sent.
+Date_created
+The date the SMS was created.
+Status
+The status of the SMS. For example, failed, success, or queued.
+SID
+This is the string identifier. This provides a unique key that is used to identify specific resources. Each SID has 34 digits.
+Date sent
+The date the SMS was sent.
+Messaging service SID
+The SID of the messaging service. This value is null if a messaging service wasn't used.
+Error_code
+The error code if the message failed.
+Price_unit
+The unit used to identify the price to send the message, for example, USD.
+API_version
+The Twilio API version used by the sender. For example,
+2010-04-01
+.
+Subresource URIs
+If subresources, such as recordings or notifications, are present, the URIs display in the subresource URIs property. This value is blank if no subresource URIs are present.
+←
+Make phone call action
+Webhooks
+→
+Last updated:
+9/10/2024, 5:39:50 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

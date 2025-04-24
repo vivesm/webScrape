@@ -1,0 +1,257 @@
+JWT direct linking troubleshooting | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Customer experience options
+Implementation
+#
+JWT direct linking troubleshooting
+This guide contains common issues and error codes you may encounter when implementing JWT direct linking. This document is organized into two sections:
+Common issues
+Error codes
+HTTP request errors
+JWT header/payload errors
+Account-related errors
+#
+Common issues
+App refused to connect
+If you receive this error when rendering the connection
+<iframe>
+, it is usually because your browser security settings do not allow third-party cookies. Configure your browser to enable cookie access in a third-party context.
+Google Chrome:
+Enable all cookies. Google Chrome blocks third-party cookies in Incognito mode by default. Enable third-party cookies in Incognito mode by going to
+Settings
+>
+Privacy and security
+>
+General settings
+and select
+Allow all cookies
+.
+Select
+Allow all cookies
+to allow the Workato
+iframe
+to load
+Apple Safari:
+Disable
+prevent cross-site tracking
+in
+Preferences > Privacy.
+Browser compatibility
+Workato supports all leading browsers, including Chrome, Firefox, Edge, and Safari. Workato does not support Internet Explorer. If you currently use Internet Explorer, switch to Microsoft Edge to test Embedded functionality.
+Workato iframe not receiving connection events
+Workato uses the
+PostMessage API
+to send event information from the connection
+iframe
+to the partner application. These messages include connection status changes, height changes, error messages and more. The
+iframe
+'s origin URL must be allowlisted in Workato. Contact your Workato Success Representative to configure the backend environment if you cannot receive these messages.
+MULTIPLE ORIGINS
+Some use cases require you to receive PostMessages in multiple origins, including embedding the Connection Widget in multiple customer workspaces. In this scenario, your Workato Customer Success Representative cannot configure the URL for you. Update the Embedding Origin configuration in each individual customer workspace by navigating to
+Admin > Manage Customers > Choose Customer > Settings > Embedding Origin.
+Alternatively, update the origin URL by calling our
+update customer API.
+(opens new window)
+#
+Error codes
+You may encounter the following errors when implementing JWT direct linking. We organized this list by error category.
+HTTP request errors
+JWT header/payload errors
+Account-related errors
+#
+HTTP request errors
+http_request_invalid
+Requests sent to our servers must meet the following conditions: it is a valid HTTP request, it is in HTML format, and it is not in XHR format. Verify that the request meets the specified conditions to resolve this error.
+path_invalid
+The path provided must be valid and secured with HTTPS. To resolve this error, verify that the URL/path is valid and begins with
+https://
+.
+#
+JWT header/payload errors
+alg_invalid
+The signing algorithm used in the header of the JWT is not
+RS256
+. To resolve this error, verify that the
+alg
+claim in the header of the JWT has the value RS256.
+iat_invalid
+The
+iat
+(issued at) claim in the payload of the JWT is not an integer. To resolve this error, verify that the
+iat
+claim in the payload is an integer.
+iat_missing
+The
+iat
+(issued at) code in the payload of the JWT is not present. Verify that the
+iat
+claim in the payload is present to resolve this error.
+jti_invalid
+The
+jti
+(JWT ID) claim is not a string or an integer. To resolve this error, verify that the
+jti
+claim in the payload is either a string or an integer.
+jti_missing
+The
+jti
+(JWT ID) claim is missing from the payload of the JWT. To resolve this error, verify that the
+jti
+is present.
+jti_reused
+The
+jti
+(JWT ID) claim in the JWT payload has been used more than one time to render an iframe. The
+jti
+claim is a unique identifier that allows a JWT to be used one time. To resolve this error, use a globally unique
+jti
+claim value when generating the JWT token.
+token_expired
+The generated JWT token is valid for 30 seconds. Verify the token generates in real-time and that the
+iat
+claim in the payload has a value of +/- 30 secs from the current time to resolve this error.
+token_invalid
+This error suggests that one of the JWT components is missing or incorrectly formatted. In its compact form, a correctly structured JWT contains a header, payload, and signature in the following format:
+header.payload.signature
+. To resolve this error, decode the JWT and verify that the header and payload are properly formatted.
+token_missing
+The JWT is missing. Verify that the JWT is present in the request to resolve this error.
+token_signature_invalid
+The signature (private key) used to sign the JWT is invalid. To resolve this error, decode the JWT and verify that the signature used to sign the JWT is correctly configured.
+#
+Account-related errors
+member_invalid
+This error occurs when the user attempting to access the workspace is not a valid workspace member. Verify that the user trying to access Workato has been added to the customer team correctly.
+member_unconfirmed
+The workspace member's account is not confirmed. Confirm the customer workspace member's email to resolve this error. If this is not possible, contact your Workato Success Representative for assistance.
+team_direct_team_link_disabled
+This error occurs when the customer uses an old account to test Embedded, meaning that the account existed before the OEM was configured. The OEM configuration doesn’t apply to accounts created before the change. To resolve this error, create a new customer. If the error persists in the new account, contact your Workato Success Representative for assistance.
+team_missing
+This error occurs when a user tries to access Workato and does not belong to a customer team. Verify that the user trying to access Workato has been added to the customer team correctly.
+team_not_allowed
+This error occurs when the admin account ID is used while generating the JWT. Embedded does not let an
+iframe
+render if you use your admin account ID while generating the JWT. To resolve this, change the ID of the account to a customer ID. If the error persists, contact your Workato Representative for assistance.
+team_saml_required
+This error occurs when a user tries to access a team that has SAML SSO enabled. The user must enable SAML SSO and log in through the SAML IdP. Contact a team admin to ensure this user is SAML SSO enabled and that they have access to log in through the SAML IdP.
+team_unconfirmed
+The team account is not confirmed. Confirm the customer team’s email to resolve this error. If this is not possible, contact your Workato Success Representative for assistance.
+vendor_admin_missing
+The Embedded partner's account is not properly configured. To resolve this error, contact your Workato Success Representative for assistance.
+vendor_direct_team_link_disabled
+The Embedded partner's account is not properly configured. Contact your Workato representative for assistance.
+vendor_key_missing
+This error occurs when the Embedded partner's account is not assigned a unique key. If the error persists, contact your Workato representative for assistance.
+vendor_missing
+This error occurs when the Embedded Vendor ID used to generate the JWT token is incorrect, or the public key does not match the private key used to sign the JWT token. Verify that the API and public keys match Workato’s backend configs. If the error persists, contact your Workato Success Representative for assistance.
+X-frame-options: same_origin
+Embedded does not let an iFrame render if the user ID passed into the JWT references the Embedded admin user (owner of the admin account) or an Embedded customer manager (from within the admin account). If you pass a customer workspace ID into the payload of the JWT, verify that the customer ID was created in the customer workspace referenced. If the error persists while using the correct customer ID, clear the browser cache/cookies and try again.
+←
+Create a JWT
+Branded access SSO
+→
+Last updated:
+4/25/2024, 5:58:27 PM
+On this page
+Common issues
+Error codes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

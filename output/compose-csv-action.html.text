@@ -1,0 +1,146 @@
+CSV tools by Workato – Compose CSV action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+CSV tools by Workato
+#
+CSV tools by Workato – Compose CSV action (batch)
+The
+Compose CSV
+batch action converts a list of objects into a CSV-formatted string. You can use this action to prepare structured data for export, transfer, or storage as a CSV file.
+#
+Input
+Input fields
+Description
+CSV column names
+Enter one column name per line. This defines the order and structure of the CSV.
+Create header line
+Set to
+Yes
+to include a header line at the top of the CSV using the column names provided.
+Column delimiter
+Select the character used to separate columns in the CSV output.
+Force quotes
+Set to
+Yes
+to wrap all values in quotes. Set to
+No
+to quote only when necessary.
+CSV data lines
+Provide the list datapill that contains the rows for the CSV. Then, map the corresponding fields to each column you defined in the
+CSV column names
+field.
+#
+Output
+Output fields
+Description
+CSV contents
+A text string that represents the formatted CSV. Use this value to upload the file or pass it to another system.
+←
+Parse CSV action (batch)
+JSON tools by Workato
+→
+Last updated:
+3/25/2025, 2:44:40 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,598 @@
+Microsoft Dynamics 365 - Get Object Schema アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Microsoft Dynamics 365
+#
+Microsoft Dynamics 365 - Get Object Schema (オブジェクトスキーマの取得) アクション
+このアクションは、Microsoft Dynamics 365 の特定のオブジェクトの名前とスキーマを取得します。このアクションを使用して、スキーマを取得し、データベースまたはデータウェアハウスに複製することができます。
+#
+動作の仕組み
+基本情報
+データ型の定義
+#
+基本情報
+このアクションが実行されると、Workato は Microsoft Dynamics 365 API に対して、指定されたオブジェクトのスキーマを要求します。
+リクエストが成功すると、Microsoft Dynamics 365 API は、オブジェクトの
+name
+、
+label
+、および含まれる
+fields
+のリストで応答します。
+例 :
+account
+オブジェクトには、
+name
+、
+emailaddress
+、および
+alternate_address
+フィールドが含まれます。このオブジェクトの例に対する JSON レスポンスを表示するには、以下をクリックしてください。
+JSON レスポンスの例を表示
+{
+"name"
+:
+"account"
+,
+"label"
+:
+"Account"
+,
+"fields"
+:
+[
+{
+"name"
+:
+"name"
+,
+"label"
+:
+"Name"
+,
+"length"
+:
+100
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"original_type"
+:
+"#Microsoft.Dynamics.CRM.StringAttributeMetadata"
+,
+"mapped_type"
+:
+"STRING"
+,
+"custom"
+:
+false
+}
+,
+{
+"name"
+:
+"emailaddress"
+,
+"label"
+:
+"Email address "
+,
+"length"
+:
+100
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"original_type"
+:
+"#Microsoft.Dynamics.CRM.StringAttributeMetadata"
+,
+"mapped_type"
+:
+"STRING"
+,
+"custom"
+:
+false
+}
+,
+{
+"name"
+:
+"alternate_address"
+,
+"label"
+:
+"Alternate Address"
+,
+"length"
+:
+0
+,
+"precision"
+:
+0
+,
+"scale"
+:
+0
+,
+"original_type"
+:
+"#Microsoft.Dynamics.CRM.PicklistAttributeMetadata"
+,
+"mapped_type"
+:
+"STRING"
+,
+"custom"
+:
+true
+,
+"fields"
+:
+[
+{
+"name"
+:
+"label"
+,
+"label"
+:
+"Label"
+,
+"length"
+:
+0
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"original_type"
+:
+null
+,
+"mapped_type"
+:
+"STRING"
+,
+"custom"
+:
+false
+}
+,
+{
+"name"
+:
+"value"
+,
+"label"
+:
+"Internal value"
+,
+"length"
+:
+0
+,
+"scale"
+:
+0
+,
+"precision"
+:
+0
+,
+"original_type"
+:
+null
+,
+"mapped_type"
+:
+"INTEGER"
+,
+"custom"
+:
+false
+}
+]
+}
+]
+}
+#
+データ型の定義
+すべての
+field
+オブジェクトには、
+original_type
+と
+mapped_type
+プロパティも含まれます。これらのプロパティは、Microsoft Dynamics 365 でのフィールドのデータ型、および Workato でどのデータ型にマッピングされるかを示します。これらのプロパティは、データベースへの読み込み時にデータ型がどのように定義されるかを決定します。
+例 :
+{
+"name"
+:
+"budget_amount"
+,
+"label"
+:
+"Budget Amount"
+,
+"length"
+:
+1000
+,
+"scale"
+:
+0
+,
+"precision"
+:
+10000
+,
+"original_type"
+:
+"#Microsoft.Dynamics.CRM.MoneyAttributeMetadata"
+,
+"mapped_type"
+:
+"DECIMAL"
+,
+"custom"
+:
+false
+}
+この例では、
+budget_amount
+フィールドは、Microsoft Dynamics 365 で
+MoneyAttributeMetadata
+型と定義され、Workato の
+DECIMAL
+にマッピングされます。
+詳細については、
+データ型のマッピング
+を参照してください。
+#
+入力
+項目
+説明
+Object
+Microsoft Dynamics 365 から取得するオブジェクト。使用可能なオブジェクトのリストから選択するか、オブジェクトの名前を入力できます。
+オブジェクトの名前を入力する場合
+は、まずアプリから名前を取得する必要がある可能性があります。
+アプリの手順の表示
+Microsoft Dynamics 365 アプリで、[
+Settings
+] (歯車アイコン) > [
+Advanced Settings
+] に移動します。
+[
+Settings
+] メニューで、[
+Customization
+] > [
+Customizations
+] をクリックします。
+次に、[
+Customize the System
+] > [
+Entities
+] の順に選択します。
+ページ左側のナビゲーションで、エンティティを探して選択します。
+エンティティに対する [
+General
+] タブで、[
+Name
+] フィールドを探します。
+#
+出力
+このレシピの
+出力
+は、Microsoft Dynamics 365 オブジェクトのスキーマの詳細を示すオブジェクトになります。このオブジェクトには、オブジェクトのフィールドを記述する
+フィールド
+オブジェクトのリストが含まれます。
+オブジェクトスキーマ
+フィールドスキーマ
+JSON オブジェクトの例については、
+基本情報
+を参照してください。
+#
+オブジェクト
+項目
+説明
+Name
+オブジェクトの名前。例 :
+account
+Label
+オブジェクトの表示ラベル。例 :
+Account
+Custom
+true
+の場合、オブジェクトはユーザーにより作成されています。
+Fields
+オブジェクトに含まれるフィールドのリスト。フィールドのスキーマについては、
+フィールドオブジェクト
+を参照してください。
+#
+フィールド
+取得した
+オブジェクト
+の各フィールドには、以下の項目が含まれます。
+項目
+説明
+Name
+フィールドの名前。例 :
+emailaddress
+Label
+フィールドの表示ラベル。例 :
+Email Address
+Length
+フィールドに格納できる最大文字数。
+BOOLEAN
+フィールドや制限なしのフィールドについては、この値は
+0
+になります。
+Scale
+小数点の右側の最大桁数。非数値フィールドについては、この値は
+0
+になります。
+Precision
+列に格納できる最大桁数。小数点の左側と右側の桁数を含みます。非数値フィールドについては、この値は
+0
+になります。
+Original type
+Microsoft Dynamics 365 でのこのフィールドのデータ型。例 :
+StringAttributeMetadata
+Mapped type
+original_type
+が Workato でマッピングされるデータ型。この型を使用して、データベースへの読み込み時に列のデータ型が判断されます。詳細については、
+こちら
+を参照してください。
+Custom
+true
+の場合、このフィールドはユーザーにより作成されています。
+Fields
+Original type
+の値が、
+BooleanAttributeMetadata
+、
+PicklistAttributeMetadata
+、
+StatusAttributeMetadata
+、または
+StateAttributeMetadata
+のフィールドにのみ当てはまります。
+存在する場合、
+fields
+プロパティには、
+label
+と
+value
+という2つのネストされたフィールドが含まれます。これらのフィールドは、トップレベルフィールドと同じスキーマを持ちます。以下に例を示します。
+{
+[...],
+"fields":[
+{
+"name":"label",
+"label":"Label",
+"length":0,
+"scale":0,
+"precision":0,
+"original_type":null,
+"mapped_type":"STRING",
+"custom":false
+},
+{
+"name":"value",
+"label":"Internal value",
+"length":0,
+"scale":0,
+"precision":0,
+"original_type":null,
+"mapped_type":"INTEGER",
+"custom":false
+}
+]
+}
+注
+: ネストされたフィールドに対する
+mapped_type
+値は、ネストされたフィールドの
+name
+に依存します。
+label
+- この値は
+STRING
+になります。
+value
+- 親フィールドの
+Original type
+の値が
+BooleanAttributeMetadata
+であれば、この値は
+BOOLEAN
+になります。それ以外の場合は、この値は
+INTEGER
+になります。
+#
+リファレンス
+データ型のマッピング
+#
+データ型のマッピング
+以下の表は、Microsoft Dynamics 365 のデータ型が Workato のデータ型にどのようにマッピングされるかを示しています。
+この表の列は以下のとおりです。
+Microsoft Dynamics 365 のデータ型
+- フィールドの
+original_type
+値
+Workato のマッピング型
+- フィールドの
+mapped_type
+値
+例 : 値が
+original_type: BigIntAttributeMetadata
+のフィールドは、値
+mapped_type: BIGINT
+にマッピングされます。
+Microsoft Dynamics 365 のデータ型
+Workato のマッピング型
+BigIntAttributeMetadata
+BIGINT
+BooleanAttributeMetadata
+STRING
+DateTimeAttributeMetadata
+DATETIME_TZ
+DecimalAttributeMetadata
+DECIMAL
+DoubleAttributeMetadata
+FLOAT
+EntityNameAttributeMetadata
+STRING
+FileAttributeMetadata
+STRING
+ImageAttributeMetadata
+STRING
+IntegerAttributeMetadata
+INTEGER
+LookupAttributeMetadata
+STRING
+MemoAttributeMetadaMemoAttributeMetadatata
+STRING
+MoneyAttributeMetadata
+DECIMAL
+MultiSelectPicklistAttributeMetadata
+STRING
+PicklistAttributeMetadata
+STRING
+StateAttributeMetadata
+STRING
+StatusAttributeMetadata
+STRING
+StringAttributeMetadata
+STRING
+UniqueIdentifierAttributeMetadata
+STRING
+←
+キャッシュされたピックリストのルックアップ
+MongoDB Atlas
+→
+Last updated:
+2025/1/6 17:18:09
+On this page
+動作の仕組み
+入力
+出力
+リファレンス
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

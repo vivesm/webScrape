@@ -1,0 +1,147 @@
+Workato connector - Gong - New call trigger (real-time) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Gong
+#
+Gong - New call trigger (real-time)
+The
+New call
+trigger monitors Gong for new calls in real-time. You must
+create an automation rule
+(opens new window)
+in Gong to use this trigger. You can assign filters to this rule to only pick up calls that match the criteria you specify.
+#
+Input
+Field
+Description
+Event name
+Required
+Provide a unique event name to generate endpoint URL.
+#
+Output
+Call specific output fields will be dynamically rendered base on the calls you select. A sample response structure is below.
+Field
+Description
+Collaboration
+An object containing a list of public comments. Each public comment contains details like audio start time, audio end time, comment user ID, and the comment text, among other fields.
+Content
+An object with the information pertaining to structure, topic, trackers, and points of interest.
+Context
+List of objects that contains the relevant fields, object ID, object type, as well as source system details.
+Interaction
+An object with the information pertaining to interaction stats, questions, speakers, and video.
+Media
+An object containing the video and audio URL of the call, as applicable.
+Metadata
+Contains all the metadata of the call including title, duration, workspace, etc.
+Parties
+List of parties that were involved in the call. Each party object contains details like name, email address, affiliation, etc.
+←
+Gong
+Add call
+→
+Last updated:
+1/9/2025, 7:20:03 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,191 @@
+暗号化キーの管理 - エンタープライズキーの管理 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+暗号キーの管理
+#
+エンタープライズキーの管理
+この機能は誰が使用できますか？
+エンタープライズキーの管理はWorkatoの高度な機能です。詳細については、Workatoのカスタマーサクセスマネージャーにお問い合わせください。
+Workatoがデフォルトで提供する堅牢なセキュリティ
+の外で追加の制御が必要な場合、Workatoの**エンタープライズキーの管理 (EKM)** 機能を利用することができます。EKMを使用すると、ワークスペースの暗号化キーを直接管理することで、データを完全に制御することができます。
+このガイドでは、以下の内容を説明します：
+EKMの動作方法
+EKMと環境の連携
+キーの管理方法
+セットアップ方法
+トラブルシューティングリソース
+#
+動作方法
+再確認が必要ですか？
+Workatoの暗号化キーの階層については、
+暗号化キーの管理ガイド
+を参照してください。
+Workato EKMでは、ワークスペースの最上位の
+顧客メインキー
+を直接制御し、ワークスペースのキー階層内の他のキーを暗号化するために使用します。
+Amazon Web Services (AWS) KMSなどの
+キー管理サービス (KMS)
+を使用して、キーを保持し、アクセスポリシーを介してWorkatoにアクセス権を付与します。これは
+自分自身のキーを持ち込む (BYOK)
+と呼ばれます。
+自分自身のキーを持ち込む場合のEKMの動作方法を見てみましょう：
+1
+新しいキーを生成し、Workatoにアクセス権を付与します。
+これは、AWS KMSを使用してアクセスポリシーを作成するか、キーマテリアルファイルをWorkatoにアップロードすることで行うことができます。
+2
+Workatoはキーにアクセスし、ワークスペースのキー階層内の他のキーを暗号化に使用します。
+Workatoの内部キー管理システムは、キーアクセスが許可された後、このプロセスを自動的に完了します。
+#
+キーと環境
+注意
+このセクションは、アカウントに
+環境機能
+が有効になっている場合に適用されます。
+EKMは
+環境機能
+とシームレスに連携します。EKMを使用すると、ワークスペースの各環境を独自の顧客メインキーで構成することができます：
+#
+キーの管理
+環境を使用していますか？
+環境機能
+を使用している場合、このセクションの情報はワークスペース全体ではなく、単一の環境に適用されます。
+デフォルトで使用されるWorkato管理キーとは異なり、自分自身のキーを持ち込むことで、ワークスペースの顧客メインキーのすべての側面を制御することができます：
+ローテーション
+アクセス制限
+取り消しと削除
+#
+ローテーション
+キーのローテーション/置換は、KMSで自動ローテーションが有効になっていない限り、手動のプロセスです。自動ローテーションを有効にすることをお勧めします。
+Workatoでキーを置換する場合は、次の点に注意してください：
+Workatoでは、24時間ごとにキーの置換が許可されています。
+キーが置換されると、Workatoはキー階層を
+再パック
+します。このプロセスには時間がかかる場合があります。
+KMSで自動ローテーションが有効になっている場合、Workatoは自動的に最新のキーの世代を使用します。Workatoでの置換は必要ありません。
+#
+アクセス制限
+キーアクセスが制限されている場合、
+暗号化されたデータ
+はキャッシュのため一時的に利用できます。キーキャッシュの現在の有効期間は5分です。
+#
+取り消しと削除
+キーが削除または取り消されると、
+暗号化されたデータ
+はワークスペースのすべてのユーザーには利用できなくなります。
+#
+サポートされているキー管理サービス
+Workato EKMは現在、以下をサポートしています：
+Custom Key
+Amazon Key Management Service (KMS)
+#
+トラブルシューティング
+ヘルプが必要ですか？アシストを求める場合は、
+EKMトラブルシューティングガイド
+を参照してください。
+←
+暗号キーの管理
+Amazon KMS の EKM 接続方法
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+動作方法
+キーと環境
+キーの管理
+サポートされているキー管理サービス
+トラブルシューティング
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

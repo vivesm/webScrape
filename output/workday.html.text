@@ -1,0 +1,426 @@
+Workato コネクター - Workday 統合 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Workday
+Workday
+(opens new window)
+は、財務と人事をシームレスに統合し、ビジネスパフォーマンスと組織データの可視性を向上させる、クラウド型財務・人事管理ソフトウェアです。
+Workday には、データの統合に使用できる主に3つのサービスがあります。1つ目の Workday Web Services は、ユーザーが Workday との間でデータを読み書きできるようにする一連の SOAP API です。2つ目の Workday REST は、主にカスタムオブジェクトの操作に使用される一連の REST API です。3つ目の Workday Report-as-a-Service (RaaS) は、すべてのカスタムレポートからのデータの読み取りを可能にします (まず Web サービスを有効にする必要があります)。
+Workato は、これらのサービスを使用して強力な統合シナリオを作成し、Workday インスタンスとその他のクラウドアプリケーションとの間でデータを同期します。
+#
+API バージョン
+Workato が各 Workday サービスで使用/サポートするバージョンを以下に示します。
+#
+Workday Web Services
+v29.0
+v32.2
+v34.0
+v35.2
+v36.2
+v38.2
+v39.0
+#
+Workday REST
+v1
+#
+Workday Report-as-a-Service (RaaS)
+Workday RaaS に関連付けられたバージョンはありません。
+#
+Workato での Workday への接続方法
+#
+Workday に接続する前に
+Workday では、Workato などのサードパーティサービスを使用した統合には、
+統合システムユーザー (ISU)
+を使用することを推奨しています。これにはいくつかの理由があります。まず、統合により実行されるすべての操作は、統合およびワークフロープロセス専用のワーカーではなく、このワーカーの下に記録されます。さらに、このワーカーのセキュリティプロファイルが変更されたり、ワーカーが終了されたりすると、このワーカーのユーザーアカウントに依存する統合は機能しなくなります。セキュリティ上の理由から、それぞれの ISU を設定する対象は1つの統合システム (Workato など) に限定する必要があります。
+さらに、
+カスタムオブジェクト
+を使用する場合は、
+Workday API クライアント
+の登録が必要になることがあります。これは、Workday REST API を使用するための認証に OAuth クライアントの設定が必要になるためです。
+#
+統合システムユーザーの登録
+ISU には、統合シナリオに必須のアクションを実行するために必要な権限をすべて与える必要があります。レシピの作成時に
+403
+エラーが発生することがありますが、これは ISU にそのアクションに対する十分な権限がないことを意味します。
+ISU に十分な権限がない場合のエラーメッセージ
+ステップ
+説明
+セキュリティグループを作成する
+[Create Security Group]
+タスクにアクセスし、統合システムセキュリティグループを作成します。
+セキュリティグループの追加
+セキュリティグループにドメインへのアクセス権を付与する
+セキュリティグループに統合で必要なドメインへのアクセス権を付与するには、ドメインごとに以下のステップを実行します。
+[View Domain]
+レポートにアクセスしてドメインを見つけます。
+ドメインに対する関連するアクションとして、
+[Domain]
+>
+[Edit Security Policy Permissions]
+を選択します。
+前のステップで作成したセキュリティグループを
+[Integration Permissions]
+に追加し、
+[GET]
+、
+[POST]
+、および
+[PUT]
+操作を選択します。
+また、以下の
+[Domain Security Policies]
+に対して
+[GET]
+操作を付与します。
+Integration Build
+Integration Process
+Integration Debug
+Integration Event
+次に、
+[Activate Pending Security Policy Changes]
+タスクにアクセスし、これらの変更を有効にします。
+セキュリティポリシーの権限の編集
+ISU アカウントを作成する
+[Create Integration System User]
+タスクにアクセスし、統合のための Workday ユーザーアカウントを設定します。
+統合システムユーザーの作成
+セッションの有効期限が切れないようにするには、
+[Session Timeout Minutes]
+をデフォルト値の0のままにします。セッションの有効期限が切れると、正常に完了する前に統合がタイムアウトになる可能性があります。
+統合システムユーザーが UI を介して Workday にサインインしないようにするには、
+[Do Not Allow UI Sessions]
+チェックボックスにチェックを入れます。
+有効期限の切れたパスワードによる統合エラーが発生しないようにするため、Workday では Workday ユーザーパスワードの有効期限が切れないようにすることを推奨しています。
+[Maintain Password Rules]
+タスクにアクセスし、
+[System Users exempt from password expiration]
+フィールドに統合システムユーザーを追加します。
+セキュリティグループを ISU に割り当てる
+Workday ユーザーに対する関連するアクションとして、
+[Security Profile]
+>
+[Assign Integration System Security Groups]
+を選択します。
+[Integration System Security Group to Assign]
+プロンプトが表示されたら、作成したセキュリティグループを選択します。
+[View Integration System]
+レポートにアクセスし、
+[Connector or Studio integration]
+にアクセスします。
+統合システムに対する関連するアクションとして
+[Workday Account]
+>
+[Edit]
+を選択します。
+[Edit Account for Integration System]
+タスクで、作成した ISU アカウントを選択します。
+任意
+[Global Preferences]
+領域で、統合システムユーザーの優先ロケールと表示言語を選択します。これらの設定により、Workday が統合データに使用する言語が制御されます。アウトバウンド統合は優先言語でデータを送信し、インバウンド統合は優先言語でデータを保存します。
+これらのフィールドを空白のままにすると、Workday は統合データにデフォルトのロケールと表示言語を使用します。
+ISU の設定の詳細については、
+Workday のドキュメント
+(opens new window)
+を参照してください。
+#
+API クライアントの登録
+このステップは、Workday でカスタムオブジェクトを操作する場合のみ必要です。
+新しいクライアントの登録
+Workday インスタンスで [Register API Client] に移動します。
+[Authorization Code Grant] を選択します。
+リダイレクト URL として
+https://www.workato.com/oauth/callback
+を使用します。
+アクセス権を付与する必要なスコープを追加します。
+API クライアントの資格情報
+[Client ID]
+、
+[Client Secret]
+、
+[Authorization Endpoint]
+、および
+[Token Endpoint]
+を忘れずに保存してください。これらは Workday 統合コネクターの
+設定
+で必要になります。
+#
+Workday へのコネクションの設定
+Workday コネクターは現在、メインの Workday コネクター、Workday Web Services コネクター、および Workday REST コネクターの3つに分けられます。一般に、これらはすべて同じ認証パターンに従いますが、各コネクターでサポートされているものには若干の違いがあります。
+#
+Workday コネクター
+Workday コネクターは基本認証をサポートします。また、カスタムオブジェクトを使用するための OAuth クライアントの設定もサポートしています。
+Workday コネクターのコネクション項目
+コネクション項目
+説明
+Connection name
+この Workday コネクションに対して、接続先の Workday テナントを識別する一意の名前を付けます。
+Login name
+これは
+ISU
+のログイン名である必要があります。
+Password
+これは
+ISU
+のログインパスワードである必要があります。
+Workday web services version
+サポートされる Web サービスのリストから、使用する Web サービスのバージョンを選択します。
+Tenant ID
+テナント ID は、Workday にログインした際の URL で確認できます。たとえば、Workday テナントの URL が
+https://impl.workday.com/sample_company/d/home.html
+(opens new window)
+である場合、テナント ID は
+sample_company
+です。
+WSDL URL
+この URL はスキーマの生成に使用され、あらゆる API リクエストのベース URI を形成します。この URL を取得する方法の詳細については、
+Workday の記事
+(opens new window)
+を参照してください。デフォルトは
+https://wd2-impl-services1.workday.com/ccx/service/
+(opens new window)
+です。
+Use custom objects?
+ユースケースにカスタムオブジェクトが含まれない場合は
+[No]
+を、含まれる場合は
+[Yes]
+を選択します。
+追加の
+クライアント情報
+が必要になります。
+[任意]
+Client ID
+Workato に接続するために作成した API クライアントのクライアント ID。
+カスタムオブジェクトを使用する場合にのみ必須です。
+[任意]
+Client secret
+Workato に接続するために作成した API クライアントのクライアントシークレット。
+カスタムオブジェクトを使用する場合にのみ必須です。
+[任意]
+Refresh token
+Workato に接続するために作成した API クライアントのリフレッシュトークン。
+カスタムオブジェクトを使用する場合にのみ必須です。
+[任意]
+Authorization endpoint
+Workato に接続するために作成した API クライアントの認可エンドポイント。
+カスタムオブジェクトを使用する場合にのみ必須です。
+[任意]
+Token endpoint
+Workato に接続するために作成した API クライアントのトークンエンドポイント。
+カスタムオブジェクトを使用する場合にのみ必須です。
+[任意]
+Workday tenant timezone
+Workday テナント設定のタイムゾーン。デフォルトでは、Workday は太平洋標準時の現在の日付で有効なデータを返します。これは、Workday テナントのタイムゾーンとは異なる場合があります。
+[任意]
+Advanced XML payload for multiple ID values
+デフォルトでは、Workato が入力した内容から XML を作成する際、複数の値を持つ項目はそれぞれコンテナー内にラップされます。以下に例を示します。
+<languages><language>english</language></languages><languages><language>chinese</language></languages>
+値を
+[yes]
+に設定すると、以下のようにラップが解除されます。
+<languages><language>english</language><language>chinese</language></languages>
+最新の Workday Web Services バージョンの場合、または無効なペイロードのエラーが発生した場合は、これを有効にすることを考慮してください。
+#
+Workday Web Services コネクター
+Workday Web Services コネクターは、基本認証と OAuth 2.0認証の両方をサポートします。
+Workday Web Services コネクターのコネクション項目
+コネクション項目
+説明
+Connection name
+この Workday コネクションに対して、接続先の Workday テナントを識別する一意の名前を付けます。
+Workday web services version
+サポートされる Web サービスのリストから、使用する Web サービスのバージョンを選択します。
+Tenant ID
+テナント ID は、Workday にログインした際の URL で確認できます。たとえば、Workday テナントの URL が
+https://impl.workday.com/sample_company/d/home.html
+(opens new window)
+である場合、テナント ID は
+sample_company
+です。
+WSDL URL
+この URL はスキーマの生成に使用され、あらゆる API リクエストのベース URI を形成します。この URL を取得する方法の詳細については、
+Workday の記事
+(opens new window)
+を参照してください。デフォルトは
+https://wd2-impl-services1.workday.com/ccx/service/
+(opens new window)
+です。
+Authentication type
+基本認証 (ユーザー名/パスワード) または OAuth 2.0をサポートします。
+[任意]
+Login name
+これは
+ISU
+のログイン名である必要があります。
+基本認証で認証する場合は必須です。
+[任意]
+Password
+これは
+ISU
+のログインパスワードである必要があります。
+基本認証で認証する場合は必須です。
+[任意]
+Client ID
+Workato に接続するために作成した API クライアントのクライアント ID。
+OAuth 2.0で認証する場合は必須です。
+[任意]
+Client secret
+Workato に接続するために作成した API クライアントのクライアントシークレット。
+OAuth 2.0で認証する場合は必須です。
+[任意]
+Refresh token
+Workato に接続するために作成した API クライアントのリフレッシュトークン。
+OAuth 2.0で認証する場合は必須です。
+[任意]
+Authorization endpoint
+Workato に接続するために作成した API クライアントの認可エンドポイント。
+OAuth 2.0で認証する場合は必須です。
+[任意]
+Token endpoint
+Workato に接続するために作成した API クライアントのトークンエンドポイント。
+OAuth 2.0で認証する場合は必須です。
+[任意]
+Workday tenant timezone
+Workday テナント設定のタイムゾーン。デフォルトでは、Workday は太平洋標準時の現在の日付で有効なデータを返します。これは、Workday テナントのタイムゾーンとは異なる場合があります。
+#
+Workday REST コネクター
+Workday REST コネクターは、OAuth クライアントの設定を介した認証をサポートします。
+Workday REST コネクターのコネクション項目
+コネクション項目
+説明
+Connection name
+この Workday コネクションに対して、接続先の Workday テナントを識別する一意の名前を付けます。
+REST API endpoint
+使用する REST エンドポイントの API。API クライアントの詳細ページで確認できます。
+Authorization endpoint
+Workato に接続するために作成した API クライアントの認可エンドポイント。
+Token endpoint
+Workato に接続するために作成した API クライアントのトークンエンドポイント。
+Client ID
+Workato に接続するために作成した API クライアントのクライアント ID。
+Client secret
+Workato に接続するために作成した API クライアントのクライアントシークレット。
+Refresh token
+Workato に接続するために作成した API クライアントのリフレッシュトークン。
+#
+次のステップ
+Workday コネクターの機能の詳細については、以下のセクションを参照してください。
+#
+トリガー
+New/Updated business object (新規/更新されたビジネスオブジェクト) トリガー
+New/updated business object batch (新規/更新されたビジネスオブジェクト (バッチ)) トリガー
+Scheduled report (特定の時間に実行するレポート) トリガー
+#
+アクション
+Get report (レポートの取得) アクション
+Call operation (操作の呼び出し) アクション
+#
+Wiki
+Workday Report-as-a-Service (RaaS)
+←
+よくあるエラーのデバッグ
+新規/更新されたビジネスオブジェクトトリガー
+→
+Last updated:
+2025/4/5 19:32:10
+On this page
+API バージョン
+Workato での Workday への接続方法
+次のステップ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

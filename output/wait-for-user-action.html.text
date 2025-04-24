@@ -1,0 +1,343 @@
+Workbot actions for Slack - Wait for user action in messages | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Slack
+Build your first Workbot
+#
+Wait for user action in messages
+FEATURE COMPATIBILITY
+Only specific Workbot actions and modals support the
+Wait for user action
+feature. These include:
+Post command reply
+Post message
+Open/update or push modal view
+The
+Section with button (new version)
+message block and
+Button (new version)
+option in Actions message block support the
+Wait for user action
+feature. This enables you to specify multiple steps of Workbot-user interaction in one recipe, which streamlines the logic, reduces the number of recipes, and avoids unnecessary and redundant bot commands. We recommend to always handle user action in the same recipe.
+This guide explains how to configure the
+Wait for user action
+feature in Post command reply and Post message workbot actions.
+#
+How to configure wait for user action
+1
+Select
+Section with button (new version)
+from the
+Type
+drop-down.
+2
+Configure the following fields:
+Section text
+Display text. Supports markdown.
+Action to take on button-click
+Select the
+Action
+you plan to happen when a user clicks the button.
+The
+Action
+you select here determines which additional fields you must configure.
+See
+Step 3
+for details.
+Available actions include:
+Continue recipe
+Use this option when the conversation flow continues after the user presses the button. Typically, this button can only be pressed once. For example, you can present
+Approve
+and
+Reject
+buttons to the user and configure Workbot to perform other actions after the user provides a response.
+When you select
+Continue recipe
+, additional datapills, such as
+Selected button
+and
+Selected Block ID
+become available in recipe data for use in subsequent steps.
+CONTINUE RECIPE BUTTON BEHAVIOR
+When a user clicks the
+Continue recipe
+button, Workbot deletes the current message to avoid the user clicking on the same button multiple times. If you plan to keep some information in front of the user after the button is clicked, consider splitting the message into two pieces. For example, you can have one message with the information that must remain and one message with the
+Continue recipe
+buttons.
+Run bot command
+Use this option when the button starts a separate flow outside of the main conversation. For example, you can present a
+Refresh data
+button to the user that loads the data from an external service and updates the message. Typically, users can press this type of button multiple times.
+Open URL
+Open a URL after the user performs an action.
+Select a button action
+Button title
+Button display text.
+Block ID
+Reference this ID in downstream bot recipes to update block contents. If you leave this field blank, Slack randomly generates a value. 255 characters maximum.
+Button style
+Determine the style of your button. Choose from the following options:
+Select from list
+Select from a list of predefined options. These include:
+Default
+The button style for default states.
+Primary
+The button style for primary actions and states.
+Danger
+The button style for danger states.
+Enter a custom value
+Workbot Block Kit custom values. Available values include default, primary, and danger.
+3
+Configure additional fields depending on the
+Action
+you selected in
+Action to take on button-click
+.
+The following is the list of button actions and their required fields.
+Continue recipe
+Run bot command
+Bot command
+Workbot runs this command when a Slack user selects this option from the drop-down.
+Select
+from list
+Select a command from a list of commands you pre-specify.
+Enter a custom
+value
+Enter a custom value for the command.
+Command input values
+Pass values for the command input. For example,
+Name:
+John Smith
+Age: 42
+.
+Open URL
+URL
+The URL that opens when the user clicks the button.
+#
+How to use Wait for user action in downstream steps
+If you chose the
+Continue recipe
+button action in
+Step 2 of the preceding section
+, you must determine what happens next.
+This section describes how to build recipe logic around wait for user action in downstream steps.
+1
+Click the
++
+(plus) button.
+2
+Select
+IF condition
+.
+3
+Select an app (Workbot for Slack) and action (Post message or Post command reply).
+4
+Configure the
+IF condition
+by mapping in the button action you determined in the preceding recipe step.
+Data field
+Map the
+Selected button
+Step 2
+datapill to this field. The
+Selected button
+represents the button you chose for the
+Action to take on button-click
+.
+Condition
+Choose a condition, for example,
+equals
+.
+Value
+Determine a value. Determine a value that corresponds to the button title of the selected button(s).
+In our example, we have chosen
+Continue recipe
+, which is also the button title from recipe Step 2.
+Map the
+Selected button
+Step 2
+datapill
+5
+Determine what happens next.
+In our example,
+IF Selected button
+datapill from Step 2 contains
+Continue recipe
+, Workato adds a row to a sheet in Google Sheets.
+6
+IF else
+, Workato performs other actions.
+In our example, we have another
+IF condition
+. You must configure the
+IF condition
+to handle the expiry date set for the user action.
+Map the
+Expired
+Step 2
+datapill
+Data field
+Map the
+Expired
+Step 2
+datapill to this field.
+Condition
+Choose a condition. Since the
+Expired
+Step 2
+datapill has a boolean (true/false) value, select
+is true
+.
+7
+Configure the following optional field:
+Continue recipe if user does not click the button within
+Specify a time interval in minutes. After this time, no one can click the button. The recipe stops waiting, sets the value of the
+Expired
+Step 2
+datapill to
+TRUE
+, and automatically moves to the next step.
+Default value:
+43200 minutes (30 days).
+You can enter custom values in minutes.
+8
+Determine what happens next.
+In our example,
+IF Expired is true
+we have configured Workbot to send a message stating the action expired.
+9
+IF else
+, Workbot sends a message.
+DATAPILLS
+The following datapills are available when
+Action to take on button-click
+is set to
+Continue recipe
+and enable you to build downstream recipe logic.
+Selected button
+: This datapill corresponds to the value of the **Section text** field (selected button name).
+Selected Block ID
+: This datapill corresponds to the ID of the block containing selected button.
+User
+: Information about the user who made the selection (useful when the message was posted in channel):
+User ID
+: Slack ID of the user
+User handle
+: User handle in Slack, used for @mentioning the user
+User name
+: Full name of the user in Slack
+Team ID
+: Slack ID of user's team
+The following datapill is only available when you configure the
+Continue recipe if user does not click the button within
+input field.
+Expired
+: This datapill corresponds to the **Expired** field. Its value is true if the time specified in **Continue recipe if user does not click the button within** has expired.
+←
+Create a command reply
+Designing Workbot interfaces
+→
+Last updated:
+1/30/2025, 12:15:49 AM
+On this page
+How to configure wait for user action
+How to use Wait for user action in downstream steps
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

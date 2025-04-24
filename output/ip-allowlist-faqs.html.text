@@ -1,0 +1,211 @@
+IP allowlists FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data & security
+#
+IP allowlists FAQs
+Get answers to frequently asked IP allowlist questions.
+VIRTUAL PRIVATE WORKATO (VPW) CUSTOMERS
+This page provides general guidance for all Workato users. If you're a Virtual Private Workato (VPW) customer, refer to your private documentation for detailed configuration guidance specific to your instances.
+Why should I add Workato's IP addresses to my allowlist?
+Adding
+Workato's IP addresses
+to your allowlist enhances connection security by helping prevent traffic hijacking to and from Workato by malicious websites.
+How can I configure my database to allowlist Workato's IP addresses?
+You can
+use SQL commands
+to allowlist Workato's IP addresses in your database. Run the following SQL command on your database to allowlist the Workato IP addresses:
+GRANT
+ALL
+ON
+db1
+.
+*
+TO
+'integrationuser'
+@'52.5.142.59'
+,
+'integrationuser'
+@'34.226.132.221'
+,
+'integrationuser'
+@'52.54.43.157'
+;
+What should I consider when adding IP addresses to the allowlist for OPA version 2.11.0 or newer?
+For
+OPA version 2.11.0 or later
+, you must add specific FQDNs and IP addresses to the allowlist. It's important to use both the sg3 and sg4 versions for load balancing.
+How do I configure firewall allowlists for on-premise gateway IP addresses?
+To
+configure firewall allowlists
+for on-premise gateway IP addresses, you must enable outbound TCP connections from the OPA to port 443.
+What should I do if my organization restricts DNS resolutions for the OPA?
+Ensure that the machine where OPA runs can resolve the IP addresses of the on-premise gateway's FQDNs if your organization
+restricts DNS resolutions
+.
+Which IP addresses should I add to the allowlist when using custom domains for API recipes in Workato?
+The
+IP addresses for custom domains
+vary by data center. Refer to the following list to determine which IP address to use.
+US data center
+52.5.142.59, 34.226.132.221, 52.54.43.157
+EU data center
+3.65.225.246, 3.66.45.94, 18.198.249.58
+JP data center
+52.193.168.95, 13.113.30.44, 18.176.45.101
+SG data center
+13.215.42.244, 18.141.131.114, 52.74.226.121
+AU data center
+54.253.214.156, 13.236.115.248, 13.238.90.15
+What IP addresses are used for browser-based user interaction and webhooks to Workato?
+The
+IP addresses for browser-based user interaction and webhooks
+depend on the data center where your account is located.
+US Data Center
+:
+https://www.workato.com
+(opens new window)
+EU Data Center
+:
+https://app.eu.workato.com/
+(opens new window)
+JP Data Center
+:
+https://app.jp.workato.com
+(opens new window)
+SG Data Center
+:
+https://app.sg.workato.com/
+(opens new window)
+AU Data Center
+:
+https://app.au.workato.com/
+(opens new window)
+Where can I find the API endpoint IP addresses for Workato?
+The
+API endpoint IP address
+differs depending on the location of your data center.
+US Data Center
+:
+https://www.apim.workato.com
+(opens new window)
+EU Data Center
+:
+https://app.eu.apim.workato.com/
+(opens new window)
+JP Data Center
+:
+https://app.jp.apim.workato.com
+(opens new window)
+SG Data Center
+:
+https://app.sg.apim.workato.com/
+(opens new window)
+AU Data Center
+:
+https://app.au.apim.workato.com/
+(opens new window)
+←
+IP Allowlists
+Supported cloud regions
+→
+Last updated:
+1/30/2025, 7:39:05 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

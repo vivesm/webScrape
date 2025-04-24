@@ -1,0 +1,258 @@
+Naming conventions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+#
+Naming conventions
+We recommend using clear and consistent naming conventions for your projects and integration assets to ensure that other users can quickly understand what your project involves, the assets it includes, and how it's structured.
+AVOID SPECIAL CHARACTERS
+When naming projects and assets, avoid using the following special characters:
+Single quotes (
+'
+)
+Double quotes (
+"
+)
+Emojis
+Additionally, avoid including numbers in project codes.
+#
+Projects
+Use the following naming convention for projects:
+[DEPARTMENT_CODE] [PROJECT_CODE] PROJECT_NAME
+Replace the following:
+DEPARTMENT_CODE
+: A two-character shortcode for the department or team responsible for the project. For example,
+HR
+.
+PROJECT_CODE
+: A two- to five-letter, uppercase, alphabetical code for the project. This value is typically an acronym made from the words in the project name. Don't use numbers, single quotes (
+'
+), double quotes (
+"
+), or emojis. For example,
+TM
+.
+PROJECT_NAME
+: A descriptive name for the project. For example,
+Talent Management
+.
+UNIQUE PROJECT CODES
+Ensure that all project codes within a workspace are unique.
+#
+Example
+[HR] [TM] Talent Management
+#
+Folders
+Use the following naming convention for folders:
+[PROJECT_CODE] FOLDER_NAME
+Replace the following:
+PROJECT_CODE
+: A two- to five-letter, uppercase, alphabetical code for the project. This value is typically an acronym made from the words in the project name. Don't use numbers, single quotes (
+'
+), double quotes (
+"
+), or emojis. For example,
+TM
+.
+FOLDER_NAME
+: A descriptive name for the folder. For example,
+Resume Screening
+.
+All folder and subfolder names should include the project code to facilitate searching when creating
+manifests
+.
+#
+Example
+[TM] Resume Screening
+#
+Folder structure
+Create folders and subfolders using the following structures:
+Simple projects
+|-- [DEPARTMENT_CODE] [PROJECT_CODE] PROJECT_NAME
+|-- [PROJECT_CODE] Functions
+|-- [PROJECT_CODE] Recipes
+Complex projects with subfunctions
+|-- [DEPARTMENT_CODE] [PROJECT_CODE] PROJECT_NAME
+|-- [PROJECT_CODE] SUBFUNCTION_NAME_1
+|-- [PROJECT_CODE] Functions
+|-- [PROJECT_CODE] Recipes
+|-- [PROJECT_CODE] SUBFUNCTION_NAME_2
+|-- [PROJECT_CODE] Functions
+|-- [PROJECT_CODE] Recipes
+#
+Example
+|-- [HR] [TM] Talent Management
+|-- [TM] Resume Screening
+|-- [TM] Functions
+|-- [TM] Recipes
+|-- [TM] Interview Scheduling
+|-- [TM] Functions
+|-- [TM] Recipes
+|-- [TM] Offers
+|-- [TM] Functions
+|-- [TM] Recipes
+#
+Connections
+Use the following naming convention for connections:
+APP_NAME (USERNAME)
+Replace the following:
+APP_NAME
+: The name of the app connector. For example,
+Greenhouse
+.
+USERNAME
+: Optional. The account username if the connection uses a specific user account. For example,
+[email protected]
+Connection names should not include the lifecycle state (for example, whether the connection is for a development or production environment) to ensure they can be used across environments.
+#
+Example
+Greenhouse (
+[email protected]
+)
+#
+Recipes
+Use the following naming convention for recipes:
+PROJECT_CODE ASSET_CODE | RECIPE_SEQUENCE_NUMBER RECIPE_NAME
+Replace the following:
+PROJECT_CODE
+: A two- to five-letter, uppercase, alphabetical code for the project. This value is typically an acronym made from the words in the project name. Don't use numbers, single quotes (
+'
+), double quotes (
+"
+), or emojis. For example,
+TM
+.
+ASSET_CODE
+: An acronym specifying the recipe type. All recipes should have an asset type in the recipe name to confirm that the builder intended the recipe to be of this asset type.
+RECIPE_SEQUENCE_NUMBER
+: Optional. If your recipes must run sequentially, you can indicate the sequence or order of the recipes. This especially applies to bot recipes but isn't required if your recipes aren't required to run sequentially.
+RECIPE_NAME
+: A descriptive name that communicates what the recipe is supposed to achieve.
+Refer to the following table for guidance on labeling the different types of recipes you might have:
+Asset type
+Asset code
+Description
+Recipe
+REC
+Core Workato recipe.
+Global function
+GF
+Recipe triggered by another recipe. Designed for reuse across automation projects.
+Local function
+LF
+Recipe triggered by another recipe. Designed for modular development within the same project.
+API endpoint
+API
+Recipe with an API trigger.
+#
+Example
+[TM] REC | 1. New application detected in Greenhouse
+←
+Tasks FAQS
+AI features
+→
+Last updated:
+9/19/2024, 4:01:12 PM
+On this page
+Projects
+Folders
+Connections
+Recipes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

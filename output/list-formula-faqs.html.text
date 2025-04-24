@@ -1,0 +1,172 @@
+List and hash formulas FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Modify recipe data
+Formulas
+#
+List and hash formulas FAQs
+Get answers to frequently asked list and hash formula questions.
+How are lists used in Workato?
+A
+list in Workato
+is an ordered, integer-indexed collection of objects, similar to arrays in other programming languages.
+How do you access items inside a list in Workato?
+You can
+access items in a list
+using indexing, starting at 0. For example,
+number_list[0]
+would access the first line item.
+Does Workato support negative indexes for lists?
+Yes,
+Workato supports negative indexes
+for lists. For example,
+number_list[-1]
+would access the last item in a list.
+What do the first and last formulas do?
+The
+first
+formula
+returns the first item in a list. The
+last
+formula
+returns the last item in a list.
+What is a hash, and how does it differ from a list?
+A
+hash in Workato
+is a collection of unique keys and their corresponding values. Unlike lists, hashes allow you to use any object type as keys.
+How are lists of hashes used?
+Lists of hashes
+represent complex data structures where each item in the list is a hash with multiple key-value pairs. Lists of hashes are often used for organizing and processing structured data.
+How do you access values in a hash?
+You can
+access values in a hash
+using the keys. For example,
+line_item["item_name"]
+accesses the value associated with the
+item_name
+key.
+Is there a direct union (&) operand for combining lists in Workato?
+Workato doesn't support a direct union (&) operand. To achieve a similar result, you can combine lists using the
+concat
+formula
+and then remove duplicates with the
+uniq
+formula
+.
+Learn how
+.
+How can you find the difference between two lists?
+To find
+the difference between two lists
+, you can use the subtraction (-) operand. For example,
+list - updated_list
+returns the items present in
+list
+but not in
+updated_list
+.
+←
+List formulas
+Other formulas
+→
+Last updated:
+3/20/2024, 7:37:41 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

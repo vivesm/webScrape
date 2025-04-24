@@ -1,0 +1,133 @@
+Workato コネクター - Coupa のサプライヤアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Coupa
+#
+Coupa - サプライヤアクション
+Workato では、サプライヤに基づいて Coupa のサプライヤのサイトを取得する機能がサポートされています。汎用オブジェクトアクションを使用して、その他のサプライヤアクションも実行できます。Coupa でサプライヤを作成、更新、または照会する場合は、
+汎用アクションを使用
+し、オブジェクトを選択するように求められたらサプライヤを選択します。
+サプライヤ固有のアクション
+Get supplier sites by supplier
+#
+サプライヤアクション用の入力項目
+このアクションでは、どのサプライヤに対するサイトデータを取得するかのみを定義する必要があります。Workato が Coupa アカウントから取得するサプライヤのドロップダウンリストからサプライヤを選択するか、レシピの前のステップからのデータピルを追加する設定を切り替えて動的に生成します。2つ目のオプション (
+Use custom value
+) については、この項目は Coupa の内部サプライヤ ID を受け付けるため、レシピで予期しない動作が発生しないように、サプライヤの名前ではなく ID を使用してください。
+Coupa コネクターでのオブジェクトの選択
+#
+Get supplier sites by supplier (サプライヤに基づくサプライヤサイトの取得)
+このアクションを実行すると、Coupa で特定のサプライヤが検索され、そのサプライヤに関連付けられたすべてのサプライヤサイトが返されます。
+#
+出力項目
+このアクションは、サプライヤに関連付けられているサプライヤサイトのリストを返します。
+#
+トリガーとアクションのリスト
+Workato は現在、以下のトリガーとアクションをサポートしています。それぞれの詳細については、以下のリンクをクリックしてください。リンク先にはサイドバーから移動することもできます。
+概要
+オブジェクトアクション
+オブジェクトトリガー
+注文書アクション
+統合アクション
+←
+注文書アクション
+統合アクション
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,183 @@
+Workatoコネクター - Apache Kafka | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Apache Kafka
+Apache Kafka
+(opens new window)
+は、オープンソースの分散イベントストリーミングプラットフォームです。多くの産業や組織で使用され、リアルタイムで支払い処理や他の金融取引を行い、顧客の相互作用や注文に直ちに反応し、データプラットフォームやマイクロサービスの基盤として使用されています。
+Workato Apache Kafkaコネクターを使用すると、ローカルまたはWebのKafkaクラスターインスタンスとリンクすることができます。以下の操作が可能です：
+新しいメッセージトリガー
+を使用してメッセージを消費する。
+メッセージを公開するアクション
+を使用してメッセージを送信する。
+Apache Kafkaコネクターはオンプレミスコネクターです。
+#
+WorkatoでApache Kafkaに接続する方法
+Apache Kafkaには他のクライアントと同様に接続します。基本的な情報のみが必要で、すぐに使用することができます。
+Workatoでクラウドプロファイルを使用して接続を設定する場合
+オンプレミスの設定ファイルを編集する必要はありません。以下に示すように、すべてのプロパティを直接Workatoで設定します。
+接続の詳細を設定するために引き続きconfig.ymlファイルを使用している場合は、
+この設定ページ
+を参照してください。
+以下のプロパティを設定して、Workatoで直接Kafka接続を構成します：
+プロパティ名
+説明
+url
+プロトコルが
+kafka
+または
+kafka+ssl
+のサーバーURLのカンマ区切りリスト。
+timeout
+一般的な操作のタイムアウト（ミリ秒）。
+サーバー証明書
+.pem
+形式のX509サーバー証明書
+SSL証明書
+.pem
+形式のX509クライアント証明書
+SSL証明書キー
+.pem
+形式のRSAクライアントキー
+前述の証明書オプションは、SSL/TLSを使用してKafkaに接続する場合に使用できます。
+パスワードで保護された秘密鍵はインラインできません。
+Kafkaの
+プロデューサー
+(opens new window)
+や
+コンシューマー
+(opens new window)
+の設定プロパティを指定できます。たとえば、
+bootstrap.servers
+や
+batch_size
+などです。
+ただし、一部のプロパティはオンプレミスエージェントによって上書きされ、設定できません。保護されたプロパティを再定義しようとすると、警告が表示されます。保護されたプロパティには以下が含まれます：
+プロパティ名
+コメント
+key.serializer
+エージェントでサポートされるのは
+StringSerializer
+のみです
+value.serializer
+エージェントでサポートされるのは
+StringSerializer
+のみです
+key.deserializer
+エージェントでサポートされるのは
+StringSerializer
+のみです
+value.deserializer
+エージェントでサポートされるのは
+StringSerializer
+のみです
+auto.offset.reset
+レシピで定義されます
+enable.auto.commit
+内部で定義されます
+Kafkaコネクターは、バイナリシリアライゼーション形式であるApache Avroをサポートしています。Avroは、JSONでフィールドが存在し、その型が定義されているスキーマに依存しています。コネクターは、データをスキーマレジストリに格納することに依存しています。Kafkaコネクターは、スキーマレジストリバージョン6.1.4以上でのみ動作します。
+例：
+スキーマレジストリのURLを含むKafka接続の構成
+←
+メッセージの削除
+新規メッセージトリガー
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

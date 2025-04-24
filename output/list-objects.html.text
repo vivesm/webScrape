@@ -1,0 +1,147 @@
+Workato connector - Google cloud storage - List Objects | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Cloud Storage
+#
+Google cloud storage Connector - List Objects
+This action will list the details of all objects within a bucket in the Google cloud storage system.
+#
+Input
+Field
+Description
+Bucket name
+Required
+The name of the bucket.
+Folder path
+List files and folders in a particular folder. If blank, it will list all objects in the selected bucket.
+Define the full path, for example
+folder_1/subfolder_1
+.
+Delimiter
+Default Delimiter is set to “/”. If you have a customized delimiter, please add it here.
+Start offset
+Filter results to objects at or after startOffset.
+If endOffset is also set, the objects listed have names between startOffset (inclusive) and endOffset (exclusive).
+End offset
+Filter results to objects before endOffset.
+If startOffset is also set, the objects listed have names between startOffset (inclusive) and endOffset (exclusive).
+Projection
+Set of properties to return. Defaults to No ACL.
+Max results
+Maximum results to be returned from API. Default value and maximum allowed value is 200
+Page token
+Token to specify the next page in a query. This can be found from the output of an earlier List buckets action. If the page token is null, there are no more pages.
+Versions
+If ‘Yes’, lists all versions of an object as distinct results in order of increasing generation number. Set as ‘No’ by default.
+#
+Output
+Object specific output fields will be dynamically rendered base on the objects you select.
+←
+List buckets
+Update bucket
+→
+Last updated:
+10/12/2021, 9:01:23 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

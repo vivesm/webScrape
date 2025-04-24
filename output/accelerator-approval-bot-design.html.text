@@ -1,0 +1,125 @@
+承認ボットアクセラレーター - デザイン | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+Slack/Microsoft Teams用承認ボット
+#
+ソリューションデザインの概要
+Workatoの
+承認ボットアクセラレーター
+は、複数のレシピとルックアップテーブルで構成されています。SlackまたはMicrosoft Teamsへの接続と選択したソースアプリケーションとの連携を使用して、承認ボットマニフェストを実装します。このフレームワークにより、承認ボットは以下のアクションを実行できます：
+異なるアプリケーションからの承認を中央の場所で同期する
+保留中の承認に対してリマインダーを送信する
+承認リクエストの全体像を表示するダッシュボードを提供する
+#
+指定したアプリケーションからの承認を同期する
+Workatoは、指定した複数のソースアプリケーションからの承認を、SlackまたはMicrosoft Teams内の中央の承認ボットにルーティングします。承認者がリクエストを処理すると、Workatoはレコードを更新し、Slackのリクエスターにメッセージを送信します。その後、指定した承認者はコメント付きでリクエストを承認または拒否できます。Workatoはこれらのコメントをリクエスターとソースアプリケーションに配信します。
+承認リクエストには、リクエストされたアプリケーション、リクエスター、リクエストの説明、およびリクエストの日付が含まれています。
+#
+保留中の承認に対してリマインダーを送信する
+承認ボットを設定して、指定した承認者に定期的にリマインダーを送信できます。
+リマインダーには、リクエスター、リクエストの日付、およびリクエストされたアプリケーションが含まれています。
+#
+承認リクエストの全体像を表示するダッシュボードを提供する
+承認ボットは、指定した承認者に対して承認リクエストのデフォルトのダッシュボード全体像を提供します。承認者はダッシュボードからリクエストを処理できます。
+概要には、すべての保留中のリクエストのリストが含まれており、リクエストの日付、リクエストされたアプリケーション、説明、およびリクエスターの名前が表示されます。
+←
+Slack/Microsoft Teams用承認ボット
+インストール
+→
+Last updated:
+2024/2/22 23:17:11
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

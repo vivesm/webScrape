@@ -1,0 +1,276 @@
+Testing API Endpoints | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API endpoints
+#
+Testing API endpoints
+Workato allows you to test
+API endpoints
+, whether they are
+recipe-based
+or
+proxy-based
+.
+#
+Test a recipe endpoint
+If you want to
+test a recipe endpoint
+, you must configure the corresponding
+API recipe
+first.
+1
+Make sure the endpoint's corresponding API recipe is running. You can do this by
+starting the recipe
+or
+enabling the recipe's test mode
+.
+2
+From the API recipe collection page, open the endpoint you want to test.
+3
+Recipe-based endpoints must be active before you can test them. If you haven't activated the endpoint yet, select the
+Inactive
+toggle in the upper right of the page to change it to
+Active
+.
+Activate API recipe endpoint
+For more information about activating endpoints, see
+Activating or deactivating an endpoint
+.
+4
+Select the
+Try it out
+button to the right of the
+Parameters
+section.
+Try it out button on an API recipe endpoint
+5
+Enter any required path, query, or body parameters in the
+Parameters
+section.
+The following screenshot shows a recipe endpoint with its required
+username
+path parameter filled out:
+Entering a path parameter for a recipe endpoint
+6
+Select
+Execute
+to send the test request.
+The following screenshot of a recipe endpoint shows a test response with a
+200
+success code:
+Successful test response
+USING THE EXAMPLE CURL COMMAND
+The
+Responses
+section includes an example curl command you can copy and run in your terminal to test the recipe endpoint. Note that before you run the command in your terminal, you must complete the following steps:
+Create an API client.
+Create an access profile
+to grant the client access to the collection with the recipe endpoint you want to test.
+Copy the auth token that was generated when you created the access profile.
+Add
+-H 'api-token: <your-api-token>'
+to the example curl command yourself. For example:
+curl
+-X
+'GET'
+\
+'https://api.na.workato.com/exampleuser/subscription-api-v1/user/rsloan'
+\
+-H
+'accept: application/json'
+\
+-H
+'api-token: 1234567890abcdefgh'
+7
+View the
+Jobs
+tab for the corresponding recipe to see the test job you just executed. Select the job to see more details, as shown in the following screenshot:
+Successful test job details
+#
+Test a proxy endpoint
+You can
+test a proxy endpoint
+immediately after you create the collection from an OpenAPI specification because Workato simply forwards the request to the specified target URL.
+1
+Create an API client
+if you don't already have one.
+2
+Create a new access profile
+or edit an existing one to give the API client access to the API proxy collection containing the endpoint you want to test.
+3
+From the API proxy collection page, open the endpoint you want to test and navigate to the
+Test
+tab.
+4
+Select the
+Try it out
+button in the
+Parameters
+section:
+API proxy endpoint Try it out button
+5
+Enter any required path, query, or body parameters in the
+Parameters
+section.
+The following screenshot shows a proxy endpoint with its required
+orderId
+path parameter set to the value
+1
+:
+Entering a path parameter for a proxy endpoint
+6
+In the
+Authentication
+box, select the
+Edit token
+button:
+Select the Edit token button
+7
+Select an authentication method from the
+Auth method
+picklist and enter the access or auth token for your client in the
+Token
+field.
+8
+Select
+Set token
+to confirm the auth token.
+9
+Select
+Execute
+to send the test request.
+The following screenshot of a proxy endpoint shows a test response with a
+200
+success code and a downloadable response body:
+Successful test response
+USING THE EXAMPLE CURL COMMAND
+The
+Responses
+section includes an example curl command you can copy and run in your terminal. Note that you must add
+-H 'API-TOKEN: <your-API-TOKEN>'
+to the command yourself. For example:
+curl
+-X
+'GET'
+\
+'https://api.na.workato.com/exampleuser/store/order/1'
+\
+-H
+'accept: application/json'
+\
+-H
+'api-token: 1234567890abcdefgh'
+#
+Errors
+If the response value is not 2XX, the test results in an error. There can be numerous reasons for an error.
+The most common error when performing a test from the same account that owns the API recipe is "Invalid request" (400). This usually indicates that the input parameters were incorrect, not all required parameters were supplied, or contained values that are invalid for the target recipe.
+If you are configuring an endpoint, proceed to the next section to activate the endpoint.
+←
+Endpoint path guidelines
+Caching
+→
+Last updated:
+7/10/2024, 6:18:20 PM
+On this page
+Test a recipe endpoint
+Test a proxy endpoint
+Errors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

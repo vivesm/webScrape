@@ -1,0 +1,189 @@
+Tango Card | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Tango Card: リワードの提供を簡単に
+Tango Card
+(opens new window)
+はリワードの提供を簡単にします。
+このコネクターを使用して Tango Card に接続すれば、最新のアプリやプラットフォームでリワードやインセンティブを提供できます。簡単に送信でき、受け取って嬉しいギフトカードを活用して、消費者と従業員のエンゲージメントを高めましょう。
+#
+API バージョン
+Tango Card コネクターは、
+Tango Card RaaS® API
+(opens new window)
+を使用します。
+#
+Workato での Tango Card の接続方法
+Tango Card コネクターは、RaaS API での認証に BasicAuth 認証を使用します。
+コネクションの項目
+説明
+Connection name
+この Tango Card コネクションに一意の名前を付けます。
+Platform name
+無料の Rewards Genius アカウント内で Tango Card によって提供された値を入力します。Rewards Genius アカウントを持っていない場合は、
+こちらで登録
+(opens new window)
+してください。
+Platform access key (API キー)
+Rewards Genius アカウント内で Tango Card によって安全に提供された値を入力します。
+[email protected]
+にメールを送信して、キーへのアクセス権を取得します。
+Environment
+模擬の資金を使用してテストを行う場合は
+Sandbox
+を選択します。
+実際の注文を行う場合は
+Production
+を選択します。これにより、Tango Card の残高から資金が引き落とされます。
+#
+Tango Card コネクターの使用方法
+必要なトリガーはありません。プライマリアクションは
+Create an order in Tango Card
+です。
+プライマリアクション
+Create an order in Tango Card
+: 受信者にメールで送信する注文を作成します。
+セカンダリアクション
+Search orders in Tango Card
+: 処理済みの注文のリストを取得します。
+Resend an order in Tango Card
+: 同じメールアドレスまたは別のメールアドレスに、処理済みの注文を再送します。
+Get account by ID in Tango Card
+: 現在のアカウントの残高など、特定の Tango Card アカウントに関する情報を取得します。
+#
+Tango Card コネクターを使用した注文の作成
+1
+まず、Tango Card アカウント識別子、ギフトカードの金額、カスタマー識別子を入力します。
+2
+次に、メールと一意の Tango Card ID の項目を設定します。
+Send Email
+設定に
+Yes
+を選択すると、Tango Card から受信者にリワードメールが送信されます。
+ほとんどのプログラムでは、このオプションをお勧めします。
+このオプションの詳細については、Tango Card にお問い合わせください。
+送信するギフトカード品目の一意の Tango Card ID (UTID) を入力します。この ID は、Rewards Genius 内で確認できます。
+#
+Tango Card の用語
+Tango Card コネクターを使用する際に重要な用語とその意味を以下に示します。
+用語
+意味
+UTID
+Unique Tango ID (一意の Tango ID)。送信する店舗のギフトカードを決定します。
+ETID
+Email Template ID (メールテンプレート ID)。ギフトカードの送信に使用されるメールテンプレートを決定します。
+Account Identifier (アカウント識別子)
+Tango Card のアカウント ID。
+Customer Identifier (カスタマー識別子)
+Tango Card のカスタマー ID。Rewards Genius では Group Identifier (グループ識別子) とも呼ばれます。
+Send Email (メールの送信)
+ブール値。Tango Card からリワードメールを送信するかどうかを示します。No に設定した場合、リワードの送信は別のステップで処理する必要があります。
+←
+SurveyMonkey
+Webhooks
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Tango Card の接続方法
+Tango Card コネクターの使用方法
+Tango Card コネクターを使用した注文の作成
+Tango Card の用語
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

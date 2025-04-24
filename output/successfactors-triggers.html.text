@@ -1,0 +1,206 @@
+SuccessFactors triggers | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP SuccessFactors
+#
+Triggers
+#
+New or updated object
+This
+polling trigger
+runs the recipe when you create or update a specific SuccessFactors object, such as a user.
+Trigger poll interval
+Enter a value to instruct the recipe how frequently to check for new events. If you leave this blank, the recipe defaults to checking every 10 minutes.
+This is an optional field.
+Object
+Select a SuccessFactor object from the drop-down list. Because many objects have identical names, the list includes the object's internal names.
+Object unique key
+Select the ID that the recipe uses to identify the monitored object.
+When first started, this recipe should pick up events from
+Specify the date and time for the trigger to start monitoring for events, using the format
+MM/DD/YYYY HH:MM am/pm
+.
+If you leave this field empty, the default condition is one hour: the recipe retrieves records that were created or updated one hour ago.
+You cannot change this value after you run or test the recipe.
+This is an optional field. Learn more about this
+input field
+.
+Output fields
+By default, Workato will fetch all available fields in the selected record. You may use this input to filter for only the output fields you need.
+This is an optional field.
+Query
+Enter the OData query filters.
+See
+SAP documentation
+to learn more about filtering with the OData v2 API.
+This is an optional field.
+From date
+Pick a date or enter it in MM/DD/YYYY format. SuccessFactors returns records from “from date” to the effective end date. You must not use “from date” together with “as of date”.
+This is an optional field.
+To date
+Pick a date or enter it in MM/DD/YYYY format. SuccessFactors returns records from the effective start date to the “to date”. You must not use “to date” together with “as of date”.
+This is an optional field.
+As of date
+Pick a date or enter it in MM/DD/YYYY format. You must not use "as of date" together with “from date” or “to date”.
+This is an optional field.
+Set trigger condition
+Set a
+Trigger condition
+to define additional rules for trigger events to run a recipe.
+This is an optional field.
+#
+New or updated objects in batch
+This
+batch trigger
+retrieves a list of records created or updated after the last time the recipe was triggered.
+Trigger poll interval
+Enter a value to instruct the recipe how frequently to check for new events. If you leave this blank, the recipe defaults to checking every 10 minutes.
+This is an optional field.
+Object
+Select a SuccessFactor object from the drop-down list. Because many objects have identical names, the list includes the object's internal names.
+Object unique key
+Select the ID that the recipe uses to identify the monitored object.
+When first started, this recipe should pick up events from
+Specify the date and time for the trigger to start monitoring for events, using the format
+MM/DD/YYYY HH:MM am/pm
+.
+If you leave this field empty, the default condition is one hour: the recipe retrieves records that were created or updated one hour ago.
+You cannot change this value after you run or test the recipe.
+This is an optional field. Learn more about this
+input field
+.
+Batch size
+Specifies the maximum number of records per trigger event. Minimum is 1, maximum is 500, default is 500.
+This is an optional field.
+Output fields
+By default, Workato will fetch all available fields in the selected record. You may use this input to filter for only the output fields you need.
+This is an optional field.
+Query
+Enter the OData query filters.
+See
+SAP documentation
+to learn more about filtering with the OData v2 API.
+This is an optional field.
+From date
+Pick a date or enter it in MM/DD/YYYY format. SuccessFactors returns records from “from date” to the effective end date. You must not use “from date” together with “as of date”.
+This is an optional field.
+To date
+Pick a date or enter it in MM/DD/YYYY format. SuccessFactors returns records from the effective start date to the “to date”. You must not use “to date” together with “as of date”.
+This is an optional field.
+As of date
+Pick a date or enter it in MM/DD/YYYY format. You must not use "as of date" together with “from date” or “to date”.
+This is an optional field.
+Set trigger condition
+Set a
+Trigger condition
+to define additional rules for trigger events to run a recipe.
+This is an optional field.
+←
+Using navigation fields
+Create record action
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+New or updated object
+New or updated objects in batch
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

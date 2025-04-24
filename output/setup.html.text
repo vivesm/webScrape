@@ -1,0 +1,220 @@
+Workato コネクター - MongoDB Atlas の接続 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+MongoDB Atlas
+#
+MongoDB Atlas の接続
+このガイドでは、MongoDB Atlas データベースを Workato ワークスペースに接続する方法について説明します。
+#
+設定要件
+MongoDB Atlas を接続するには、以下が必要です。
+アクティブなクラスターがデプロイメントされた
+MongoDB Atlas アカウント
+(opens new window)
+。
+接続するデータベースに対する
+読み取りと書き込み
+の権限を付与された
+データベースユーザー
+(opens new window)
+。
+IP アクセスリストエントリの管理を許可する MongoDB Atlas の権限。これは通常
+Project Owner ロール
+(opens new window)
+に関連付けられています。
+#
+ステップ1 : Workato の IP アドレスの許可リストへの追加
+TIP
+このステップを実行するには、IP アクセスリストエントリの管理を許可する MongoDB Atlas の権限が必要です。
+Workato が MongoDB Atlas インスタンスに正しく接続できるようにするには、Workato の
+IP アドレス
+(opens new window)
+をデータベースの IP アクセスリストに追加する必要があります。
+こちらの手順
+(opens new window)
+を実行して、Workato のすべての IP アドレスを追加します。
+#
+ステップ2 : MongoDB Atlas クラスターの URI の取得
+次に、MongoDB Atlas インスタンスのクラスター URI を取得します。これは、Workato への接続を確立するための最後のステップで使用します。
+1
+MongoDB Atlas アカウントにログインします。
+2
+接続するクラスターで、
+[Connect]
+ボタンをクリックします。
+3
+[Connect with the Mongo Shell]
+をクリックします。
+4
+[Run your connection string in your command line]
+ステップで、クラスターの URI を探します。以下の図でハイライトしている箇所がクラスターの URI になります。
+5
+クラスターの URI をコピーします。次のステップで必要になるため、すぐに使用できるようにしておいてください。
+#
+ステップ3 : Workato でのセットアップの完了
+Workato で、以下の項目に必要な情報を入力します。設定を終えたら、
+[Connect]
+をクリックして接続を完了します。
+項目
+必須
+説明
+Connection name
+必須
+接続の名前。この接続で使用する MongoDB Atlas クラスターを識別する名前を選択することをお勧めします。
+Cluster URI
+必須
+ステップ2
+で取得したクラスター URI を貼り付けます。これは、
+cluster0.6rk8t.mongodb.net
+のような形式になります。
+Database name
+必須
+Workato が接続する Mongo クラスター内のデータベースの名前。
+Username
+必須
+Workato が Mongo クラスターへの接続に使用するデータベースユーザーの名前。このユーザーには、
+読み取りと書き込み
+の権限が必要です。
+Password
+必須
+データベースユーザーのパスワード。
+Retry writes
+任意
+特定の問題の発生時に書き込み操作を自動的に再試行します。詳細については、
+MongoDB に関するドキュメント
+を参照してください。
+Retry reads
+任意
+ネットワークまたはサーバーエラー発生時に読み取り操作を自動的に再試行します。詳細については、
+MongoDB に関するドキュメント
+を参照してください。
+App name
+任意
+任意のカスタムアプリ名。詳細については、
+MongoDB に関するドキュメント
+を参照してください。
+Replica set
+任意
+レプリカセット
+に接続する場合は、レプリカセットの名前を入力します。
+Auth source
+任意
+Workato が
+データベースユーザー
+の認証に使用する、Mongo クラスター内のデータベースの名前。デフォルトは
+admin
+です。
+Read concern
+任意
+レプリカセットおよびレプリカセットシャードから読み取られたデータの整合性と分離プロパティの制御を可能にします。デフォルトは
+majority
+です。詳細については、
+MongoDB に関するドキュメント
+を参照してください。
+←
+MongoDB Atlas
+ドキュメントの削除
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+設定要件
+ステップ1 : Workato の IP アドレスの許可リストへの追加
+ステップ2 : MongoDB Atlas クラスターの URI の取得
+ステップ3 : Workato でのセットアップの完了
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

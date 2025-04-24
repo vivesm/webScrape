@@ -1,0 +1,997 @@
+Embedded API - Jobs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded API
+Resources
+#
+Jobs
+Use the following endpoints to view jobs for recipes in customer workspaces.
+To use this API, you must first
+edit the API client's role
+to enable access to jobs in the customer workspace.
+1
+Navigate to
+Workspace admin > API clients > Client roles
+and select the role you plan to edit.
+2
+Select
+Projects
+in the
+Customer workspaces
+section.
+3
+Check the box for
+List
+and/or
+Get details
+to give the API client access to list jobs or get a single job's details.
+Editing an API client's role to allow access to the jobs API
+#
+Quick reference
+Type
+Resource
+Description
+GET
+/api/managed_users/:id/recipes/:recipe_id/jobs
+List jobs for a recipe.
+GET
+/api/managed_users/:id/recipes/:recipe_id/jobs/:job_id
+Get job details.
+#
+List jobs
+Returns aggregated job information for a recipe you specify within a customer workspace.
+GET /api/managed_users/:id/recipes/:recipe_id/jobs
+RUNTIME DATA NOT AVAILABLE
+Runtime data is the data that flows through the recipe at the time of job execution. This includes the input and output data from individual steps.
+This data is available through the Workato platform on the
+job details page
+.
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+The External ID must be URL encoded and prefixed with an
+E
+(for example,
+EA2300
+).
+recipe_id
+integer
+required
+ID of the recipe with the jobs you plan to retrieve.
+#
+Query parameters
+Name
+Type
+Description
+offset_job_id
+string
+optional
+Offset job ID.
+prev
+boolean
+optional
+Defaults to
+false
+. When
+prev=false
+, this call returns jobs completed prior to the
+offset_job_id
+. If
+prev=true
+, jobs newer than the
+offset_job_id
+are returned.
+status
+string
+optional
+Filter by status -
+succeeded
+,
+failed
+, or
+pending
+.
+rerun_only
+boolean
+optional
+If
+true
+, returns jobs that were rerun only.
+offset_run_id
+integer
+(deprecated)
+Offset run ID. This parameter has been deprecated.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/23456/recipes/28904/jobs'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"job_succeeded_count"
+:
+2
+,
+"job_failed_count"
+:
+0
+,
+"job_count"
+:
+2
+,
+"job_scope_count"
+:
+2
+,
+"items"
+:
+[
+{
+"id"
+:
+"j-AJMfQh8c-hsCXcs"
+,
+"completed_at"
+:
+"2023-08-31T02:25:11.000-07:00"
+,
+"started_at"
+:
+"2023-08-31T02:25:11.000-07:00"
+,
+"title"
+:
+"API platform by Workato: new api request: Calling IP address=129.1.1.1, Access profile ID=12345, and Access profile name=Created from API Call after fix"
+,
+"is_poll_error"
+:
+false
+,
+"error"
+:
+null
+,
+"is_error"
+:
+false
+}
+,
+{
+"id"
+:
+"j-AJMfNar9-L96nTm"
+,
+"completed_at"
+:
+"2023-08-31T02:22:09.000-07:00"
+,
+"started_at"
+:
+"2023-08-31T02:22:09.000-07:00"
+,
+"title"
+:
+"API platform by Workato: new api request: Calling IP address=129.1.1.1, Access profile ID=12345, and Access profile name=Created from API Call after fix"
+,
+"is_poll_error"
+:
+false
+,
+"error"
+:
+null
+,
+"is_error"
+:
+false
+}
+]
+}
+#
+Get job details
+Returns a single job's metadata by its job handle.
+GET /api/managed_users/:id/recipes/:recipe_id/jobs/:job_handle
+RUNTIME DATA NOT AVAILABLE
+Runtime data is the data that flows through the recipe at the time of job execution. This includes the input and output data from individual steps.
+This data is available through the Workato platform on the
+job details page
+.
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+The External ID must be URL encoded and prefixed with an
+E
+(for example,
+EA2300
+).
+recipe_id
+integer
+required
+ID of the recipe with the job you plan to retrieve.
+job_handle
+string
+required
+The job's unique identifier.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/23456/recipes/28904/jobs/j-AJMfQh8c-hsCXcs'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Response
+{
+"id"
+:
+"j-AJMfQh8c-hsCXcs"
+,
+"handle"
+:
+"j-AJMfQh8c-hsCXcs"
+,
+"recipe_id"
+:
+169891
+,
+"completed_at"
+:
+"2023-08-31T02:25:11.599-07:00"
+,
+"started_at"
+:
+"2023-08-31T02:25:11.519-07:00"
+,
+"title"
+:
+"API platform by Workato: new api request: Calling IP address=129.1.1.1, Access profile ID=12345, and Access profile name=Created from API Call after fix"
+,
+"is_poll_error"
+:
+false
+,
+"lines"
+:
+[
+{
+"recipe_line_number"
+:
+0
+,
+"adapter_name"
+:
+"workato_api_platform"
+,
+"adapter_operation"
+:
+"receive_request"
+,
+"input"
+:
+{
+"request"
+:
+{
+"content_type"
+:
+"json"
+}
+,
+"response"
+:
+{
+"content_type"
+:
+"json"
+,
+"responses"
+:
+[
+{
+"name"
+:
+"succ"
+,
+"http_status_code"
+:
+"200"
+}
+]
+}
+}
+,
+"output"
+:
+{
+"context"
+:
+{
+"calling_ip"
+:
+"129.1.1.1"
+,
+"jwt_payload"
+:
+null
+,
+"headers"
+:
+{
+}
+,
+"access_profile"
+:
+{
+"id"
+:
+12345
+,
+"name"
+:
+"Created from API Call after fix"
+,
+"type"
+:
+"token"
+}
+,
+"client"
+:
+{
+"id"
+:
+4593
+,
+"name"
+:
+"API Client"
+}
+}
+,
+"request"
+:
+{
+}
+}
+,
+"mask_data"
+:
+false
+,
+"line_stat"
+:
+{
+"total"
+:
+0.013507305964594707
+,
+"details"
+:
+[
+{
+"name"
+:
+"map_input"
+,
+"count"
+:
+1
+,
+"average"
+:
+0.012967139977263287
+,
+"total"
+:
+0.012967139977263287
+,
+"min"
+:
+0.012967139977263287
+,
+"max"
+:
+0.012967139977263287
+}
+,
+{
+"name"
+:
+"summarize_output_report"
+,
+"count"
+:
+1
+,
+"average"
+:
+0.000336808996507898
+,
+"total"
+:
+0.000336808996507898
+,
+"min"
+:
+0.000336808996507898
+,
+"max"
+:
+0.000336808996507898
+}
+,
+{
+"name"
+:
+"event_title"
+,
+"count"
+:
+1
+,
+"average"
+:
+0.00018715299665927887
+,
+"total"
+:
+0.00018715299665927887
+,
+"min"
+:
+0.00018715299665927887
+,
+"max"
+:
+0.00018715299665927887
+}
+,
+{
+"name"
+:
+"summarize_input_report"
+,
+"count"
+:
+1
+,
+"average"
+:
+1.620399416424334e-05
+,
+"total"
+:
+1.620399416424334e-05
+,
+"min"
+:
+1.620399416424334e-05
+,
+"max"
+:
+1.620399416424334e-05
+}
+]
+}
+}
+,
+{
+"recipe_line_number"
+:
+1
+,
+"adapter_name"
+:
+"workato_api_platform"
+,
+"adapter_operation"
+:
+"return_response"
+,
+"input"
+:
+{
+"http_status_code"
+:
+"200"
+,
+"response"
+:
+null
+}
+,
+"output"
+:
+{
+"http_status_code"
+:
+"200"
+,
+"response"
+:
+null
+}
+,
+"mask_data"
+:
+false
+,
+"line_stat"
+:
+{
+"total"
+:
+0.0006757620139978826
+,
+"details"
+:
+[
+{
+"name"
+:
+"map_input"
+,
+"count"
+:
+1
+,
+"average"
+:
+7.455993909388781e-06
+,
+"total"
+:
+7.455993909388781e-06
+,
+"min"
+:
+7.455993909388781e-06
+,
+"max"
+:
+7.455993909388781e-06
+}
+,
+{
+"name"
+:
+"normalize_input"
+,
+"count"
+:
+2
+,
+"average"
+:
+1.2408505426719785e-05
+,
+"total"
+:
+2.481701085343957e-05
+,
+"min"
+:
+7.836992153897882e-06
+,
+"max"
+:
+1.6980018699541688e-05
+}
+,
+{
+"name"
+:
+"trim_input"
+,
+"count"
+:
+1
+,
+"average"
+:
+1.774102565832436e-05
+,
+"total"
+:
+1.774102565832436e-05
+,
+"min"
+:
+1.774102565832436e-05
+,
+"max"
+:
+1.774102565832436e-05
+}
+,
+{
+"name"
+:
+"input_with_indifferent_access"
+,
+"count"
+:
+1
+,
+"average"
+:
+5.086010787636042e-06
+,
+"total"
+:
+5.086010787636042e-06
+,
+"min"
+:
+5.086010787636042e-06
+,
+"max"
+:
+5.086010787636042e-06
+}
+,
+{
+"name"
+:
+"render_input"
+,
+"count"
+:
+1
+,
+"average"
+:
+3.654300235211849e-05
+,
+"total"
+:
+3.654300235211849e-05
+,
+"min"
+:
+3.654300235211849e-05
+,
+"max"
+:
+3.654300235211849e-05
+}
+,
+{
+"name"
+:
+"input_flattened"
+,
+"count"
+:
+1
+,
+"average"
+:
+4.6549830585718155e-06
+,
+"total"
+:
+4.6549830585718155e-06
+,
+"min"
+:
+4.6549830585718155e-06
+,
+"max"
+:
+4.6549830585718155e-06
+}
+,
+{
+"name"
+:
+"execute"
+,
+"count"
+:
+1
+,
+"average"
+:
+0.0003469760122243315
+,
+"total"
+:
+0.0003469760122243315
+,
+"min"
+:
+0.0003469760122243315
+,
+"max"
+:
+0.0003469760122243315
+}
+,
+{
+"name"
+:
+"parse_output"
+,
+"count"
+:
+1
+,
+"average"
+:
+1.7682992620393634e-05
+,
+"total"
+:
+1.7682992620393634e-05
+,
+"min"
+:
+1.7682992620393634e-05
+,
+"max"
+:
+1.7682992620393634e-05
+}
+,
+{
+"name"
+:
+"normalize_output"
+,
+"count"
+:
+1
+,
+"average"
+:
+6.82898098602891e-06
+,
+"total"
+:
+6.82898098602891e-06
+,
+"min"
+:
+6.82898098602891e-06
+,
+"max"
+:
+6.82898098602891e-06
+}
+,
+{
+"name"
+:
+"summarize_input_report"
+,
+"count"
+:
+1
+,
+"average"
+:
+0.0001418020110577345
+,
+"total"
+:
+0.0001418020110577345
+,
+"min"
+:
+0.0001418020110577345
+,
+"max"
+:
+0.0001418020110577345
+}
+,
+{
+"name"
+:
+"summarize_output_report"
+,
+"count"
+:
+1
+,
+"average"
+:
+6.617399048991501e-05
+,
+"total"
+:
+6.617399048991501e-05
+,
+"min"
+:
+6.617399048991501e-05
+,
+"max"
+:
+6.617399048991501e-05
+}
+]
+}
+}
+]
+,
+"error"
+:
+null
+,
+"is_error"
+:
+false
+,
+"is_repeat"
+:
+false
+,
+"is_test"
+:
+false
+,
+"is_test_case_job"
+:
+false
+,
+"master_job_id"
+:
+"j-AJMfQh8c-hsCXcs"
+,
+"master_job_handle"
+:
+"j-AJMfQh8c-hsCXcs"
+,
+"status"
+:
+"succeeded"
+,
+"calling_recipe_id"
+:
+null
+,
+"calling_job_id"
+:
+null
+,
+"calling_job_handle"
+:
+null
+,
+"root_recipe_id"
+:
+null
+,
+"root_job_id"
+:
+null
+}
+←
+Delete a folder
+JWT public key
+→
+Last updated:
+2/25/2025, 8:49:49 PM
+On this page
+List jobs
+Get job details
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

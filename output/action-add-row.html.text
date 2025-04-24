@@ -1,0 +1,209 @@
+Workato connectors - Google Sheets Add row action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Sheets
+#
+Add row action
+This action adds a new row to a Google Sheet you select.
+LIMITATION WITH GOOGLE SHEETS ACTIONS
+Avoid including a colon (
+:
+) in the names of sheets you plan to use with the
+Add row
+action. A colon in the sheet name causes an
+Unable to parse sheet
+error. This is a known limitation within Google Sheets. Specifically, attempting to update multiple cells in a sheet with a colon in its name results in an error, allowing only one cell to update successfully.
+#
+Input fields
+Input field
+Description
+Google Drive
+Select either your personal drive or a team drive. Your personal drive is selected by default.
+Spreadsheet
+Choose the spreadsheet where you plan to add the new row.
+Enforce top-left insert
+Choose to insert the new row into the leftmost logical table if multiple tables exist on the same sheet. The default is set to
+No
+.
+Sheet
+Specify the sheet where you plan to add the new row. Ensure the sheet contains at least one header row and one data row.
+Columns
+Enter the values for the new row.
+#
+Output fields
+Output field
+Description
+Spreadsheet ID
+The unique identifier of the spreadsheet.
+Spreadsheet name
+The name of the spreadsheet.
+Sheet name
+The name of the sheet within the spreadsheet.
+Updated range
+The range of updated cells, as specified in A1 notation.
+Updated rows
+The number of updated rows.
+Updated columns
+The number of updated columns.
+Updated cells
+The total number of updated cells.
+#
+How to use this action
+Complete the following steps to set up and use the
+Add row
+action:
+#
+Set up the Google Sheet
+To retrieve sheet data, the sheet must include at least one header row and one data row:
+Sample Google Sheet with one header row and one data row
+#
+Configure the action
+Complete the following steps to configure the action:
+1
+Select the
+Add row
+action.
+Use the add row action
+2
+Select a spreadsheet in the
+Spreadsheet
+drop-down menu to dynamically generate the list of sheets in your spreadsheet.
+3
+Select a sheet in the
+Sheet
+drop-down menu to dynamically generate the input fields for the
+Columns
+field.
+Configured row actions
+#
+Example scenario
+In this scenario, we plan to transfer new contacts created in Salesforce to Google Sheets.
+The following outlines the data mapping configuration used to direct data from Salesforce to the corresponding fields in Google Sheets:
+Available columns are derived from the selected Google Sheet in the trigger
+#
+Test the action
+After configuring the trigger and action, you can finalize and run the recipe.
+Configured recipe for testing
+After running the recipe, the trigger detected a new contact named Anna Sharpay created in Salesforce. We mapped
+Name
+,
+Email
+, and
+Date created
+in the recipe, and these values were passed to the
+Add row
+action.
+The trigger data received for a specific contact, as viewed in the job details page output tab
+The data input into the create row action, as viewed from the job details page input tab
+The recipe output appears as an added row in Google Sheets:
+Edited sample sheet with added row
+←
+New/updated row in sheet in Team Drive trigger
+Add rows in bulk action
+→
+Last updated:
+8/29/2024, 3:00:41 PM
+On this page
+Input fields
+Output fields
+How to use this action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

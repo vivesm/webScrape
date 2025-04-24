@@ -1,0 +1,214 @@
+Workato connectors - Xero Add person(s) to contact action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - Add person(s) to contact action
+The
+Add person(s) to contact
+action allows you to add up to five individuals to a contact's record in Xero. You can either append these new entries to the existing list or replace the current list with the new one.
+Xero - Add person(s) to contact action
+#
+Input
+Input field
+Description
+Contact ID
+Input the unique identifier (ID) of the Xero contact you plan to add persons to.
+Replace all
+Select
+Yes
+to replace the existing list of contact persons with new entries or
+No
+to add to the current list.
+Contact persons source list
+Provide a list datapill containing the details of the contact persons.
+Learn more about list input
+.
+First name
+Enter the first name of each contact person.
+Last name
+Enter the last name of each contact person.
+Email address
+Provide the email address of each contact person.
+Include in emails
+Specify whether to include a specific contact's email address in the email distribution when sending invoices, receipts, or other documents through the Xero platform. Select
+Yes
+to include or
+No
+to exclude.
+#
+Output
+Output field
+Description
+Contact ID
+The unique identifier for the contact within Xero.
+Contact number
+The contact number assigned in Xero.
+Contact status
+The status of the contact.
+Account number
+The account number associated with the contact.
+Contact name
+The full name of the contact.
+First name
+The first name of the contact.
+Last name
+The last name of the contact.
+Email address
+The email address of the contact.
+Skype user name
+The Skype username associated with the contact.
+Is supplier
+Indicates if the contact is marked as a supplier.
+Is customer
+Indicates if the contact is marked as a customer.
+Updated date
+The date when the contact's information was last updated.
+Bank account number
+The bank account number related to the contact.
+Tax number
+The tax identification number for the contact.
+Accounts receivable tax type
+The tax type used for the contact's accounts receivable.
+Accounts payable tax type
+The tax type used for the contact's accounts payable.
+Street address
+The street address details for the contact.
+Postal address
+The postal address details for the contact.
+Default phone details
+The default phone information for the contact.
+DDI phone details
+Direct dial-in phone information for the contact.
+Mobile phone details
+The contact's mobile phone information.
+Fax phone details
+Fax phone information for the contact.
+Batch payments
+Details for batch payments associated with the contact.
+Website
+The URL of the contact's website.
+Default currency
+The default currency for transactions with the contact. See
+ISO 4217 Currency Codes
+(opens new window)
+for more information.
+Balances
+A summary of the financial balances associated with the contact.
+Xero network key
+The contact's Xero network key, used for secure transactions.
+Sales default account code
+The default account code for sales transactions.
+Purchases default account code
+The default account code for purchase transactions.
+Payment terms
+Payment terms set for the contact.
+←
+New/updated prepayment
+Create bank transaction
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

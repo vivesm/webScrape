@@ -1,0 +1,143 @@
+Workato connectors - TrackVia - Deleted record trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+TrackVia
+#
+TrackVia - Deleted record trigger
+The
+Deleted record
+trigger monitors TrackVia in real-time for deleted records.
+#
+Input
+Input field
+Description
+Application
+Select the TrackVia application that contains the view you plan to monitor.
+View
+Select the TrackVia view you plan to monitor for deleted records. A TrackVia view is a set of filters and customizations linked to a data table in TrackVia.
+#
+Output
+Output field
+Description
+Record ID
+The TrackVia ID of the record.
+ID
+A numerical identifier indicating the creation order of records.
+ADDITIONAL OUTPUT FIELDS
+The
+Deleted record
+trigger generates additional output fields that contain values, metadata, or associated properties for each record element in your selected TrackVia
+View
+. Refer to TrackVia's
+Field Types
+(opens new window)
+guide for more information on the elements of TrackVia records.
+←
+Connection setup
+New record trigger
+→
+Last updated:
+1/8/2025, 3:05:38 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

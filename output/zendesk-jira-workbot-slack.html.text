@@ -1,0 +1,940 @@
+Create Zendesk and Jira issues with Workbot for Slack use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+Customer service
+#
+Create Zendesk and Jira issues with Workbot for Slack recipe
+This use case guides you through connecting
+Zendesk
+,
+Jira
+, and
+Workbot for Slack
+to Workato to create a powerful automation.
+#
+What does this recipe do?
+This recipe enables you to execute a message action in Workbot for Slack, which creates a Zendesk ticket and a Jira issue using the input fields from the trigger's command. After creating these tickets, the details are posted in Slack to a channel or direct message of your choice.
+flowchart TD
+subgraph M[" "]
+direction TB
+subgraph D[&nbsp Workbot for Slack New shortcut trigger &nbsp]
+direction RL
+s1(setup) --- t1(Trigger)
+end
+subgraph H[&nbsp Jira Create issue action &nbsp]
+a1(Action) --- E[setup]
+end
+subgraph R[&nbsp Jira Get issue details action &nbsp]
+AA[Action] --- EE[setup]
+end
+subgraph L[&nbsp Zendesk Create ticket action &nbsp]
+AB[Action] --- EF[setup]
+end
+subgraph S[&nbsp Workbot for Slack Post message action &nbsp]
+AC[Action] --- EG[setup]
+end
+end
+A([Create recipe]) -- Configure your recipe --> M --> B([Automated workflow])
+D --> H
+H --> R
+R --> L
+L --> S
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class s1,t1,a1,E,AA,EE,AB,EF,AC,EG,A,B WorkatoTeal
+class D,H,R,L,S SubgraphDash
+#
+Create your recipe
+Complete the following steps to design a recipe that creates a Zendesk ticket and a Jira issue when you run an action command in Workbot for Slack.
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for Zendesk, Jira, and Workbot for Slack:
+Create a Zendesk connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Zendesk
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Zendesk connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the
+Subdomain
+for your Zendesk URL. For example, if your Zendesk URL is
+https://acme.zendesk.com
+, your subdomain is
+acme
+.
+6
+Use the
+Authentication type
+drop-down menu to select the authentication type you plan to use for your connection.
+7
+Optional. Provide your
+Custom OAuth profile
+.
+8
+Click
+Connect
+.
+Create a Jira connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Jira
+on the
+New connection
+page.
+3
+Enter a name for your Jira connection in the
+Connection name
+field.
+Jira connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Select your
+Connection type
+.
+6
+Use the
+Auth type
+drop-down menu to select your authentication method. Supported options include
+Basic
+,
+API token
+,
+OAuth 2.0
+, and
+Personal access token
+.
+7
+Provide your
+Host name
+. For example, if your Jira URL is
+https://acme.atlassian.net
+, your host name is
+acme.atlassian.net
+.
+8
+Click
+Connect
+.
+Create a Workbot for Slack connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Workbot for Slack
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Name
+field.
+Workbot for Slack connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Optional. Select the NLU provider you plan to use, such as DialogFlow or Amazon Lex NLU. You must connect to the NLU provider for it to appear in the drop-down menu.
+6
+Optional. Click
+Advanced
+to configure
+Slash commands verification tokens
+,
+custom help
+content, your
+Slack app status
+(classic or not), and your
+Custom OAuth profile
+.
+7
+Click
+Connect
+, sign in to your Slack workspace when prompted, and click
+Continue
+to verify the connection.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+9
+Click
+Select an app and trigger event
+.
+10
+Set up your Workbot for Slack trigger.
+1
+Search for
+Workbot for Slack
+and select it as your app.
+Choose Workbot for Slack as your app
+2
+Select the
+New Shortcut
+trigger.
+New Shortcut trigger
+3
+Use the
+Shortcut type
+drop-down menu to select
+Message
+.
+Set up your Shortcut trigger
+4
+Enter a name in the
+Shortcut name
+field. For example,
+Create issue & ticket
+.
+5
+Click
+Add field
+in the
+Parameters
+section.
+6
+Enter
+Summary
+in the
+Name
+field.
+7
+Enter a label in the
+Label
+field.
+8
+Select
+String
+from the
+Data type
+drop-down menu.
+9
+Select
+No
+from the
+Optional?
+drop-down menu.
+10
+Enter additional help text in the
+Hint
+field.
+11
+Select
+Text
+from the
+Dialog control type
+drop-down menu.
+Summary
+input field
+12
+Click
+Add field
+under
+Parameters
+to add a second input field.
+13
+Enter
+Description
+in the
+Name
+field.
+14
+Enter a label in the
+Label
+field.
+15
+Select
+String
+from the
+Data type
+drop-down menu.
+16
+Select
+No
+from the
+Optional?
+drop-down menu.
+17
+Enter additional help text in the
+Hint
+field.
+18
+Select
+Textarea
+from the
+Dialog control type
+drop-down menu.
+Description
+input field
+19
+Click
+Add field
+under
+Parameters
+to add a third input field.
+20
+Enter
+Priority
+in the
+Name
+field.
+21
+Enter a label in the
+Label
+field.
+22
+Select
+String
+from the
+Data type
+drop-down menu.
+23
+Select
+No
+from the
+Optional?
+drop-down menu.
+24
+Enter additional help text in the
+Hint
+drop-down menu.
+25
+Select
+Static
+from the
+Menu options
+drop-down menu.
+26
+Enter a list of comma-separated priority levels in the
+Options
+field.
+Priority
+input field
+27
+Click the
+Add field
+button under
+Parameters
+to add a fourth input field.
+28
+Name
+your input field
+notify-user
+> add a
+Label
+> set
+Data type
+to
+String
+> set
+Optional?
+to
+No
+> provide a
+Hint
+for your input field > set
+Menu options
+to
+Conversations
+> and then click
+Save
+.
+notify_user
+input field
+29
+Use the
+Copy original text into dialog field
+drop-down menu to select
+Description
+.
+Select Description
+30
+Click
+Save
+.
+11
+Click
++ Add step
+and select
+Action in app
+.
+Click
+Add step > Add action in app
+12
+Set up your Jira Create issue action.
+1
+Search for
+Jira
+and select it as your app.
+Choose Jira as your app
+2
+Select the
+Create issue
+action.
+3
+Use the
+Project issue type
+drop-down menu to select the issue type you plan to create. For example: task, bug fix, or onboarding.
+Select your issue type
+4
+Map the Workbot for Slack
+Summary
+Step 1
+datapill to the
+Summary
+field.
+5
+Map the Workbot for Slack
+Description
+Step 1
+datapill to the
+Description
+field.
+6
+Map the Workbot for Slack
+Priority
+Step 1
+datapill to the
+Priority name
+field.
+7
+Click
+Save
+.
+13
+Click
++ Add step
+and select
+Action in app
+.
+14
+Set up your Jira Get issue action.
+1
+Search for
+Jira
+and select it as your app.
+Choose Jira as your app
+2
+Select the
+Get issue
+action.
+Select the Get issue action
+3
+Map the Jira
+ID
+Step 2
+datapill to the
+Issue ID or key
+field.
+Configure the Issue ID or key field
+4
+Click
+Save
+.
+15
+Click
++ Add step
+and select
+Action in app
+.
+16
+Set up your Zendesk Create ticket action.
+1
+Search for
+Zendesk
+and select it as your app.
+Choose Zendesk as your app
+2
+Select the
+Create ticket
+action.
+Select the Create ticket action
+3
+Map the Jira
+Summary
+Step 3
+datapill to the
+Subject
+field.
+4
+Use the
+Priority
+drop-down menu to select
+Enter custom value
+and then click
+Formula
+.
+Set the Priority field to Formula
+5
+Copy and paste the following formula into the
+Priority
+field:
+=["Higher", "Highest"].include?(_dp('{"pill_type":"output","provider":"jira","line":"9e7af602","path":["fields","priority","name"]}')) ? "urgent" : "Medium" == _dp('{"pill_type":"output","provider":"jira","line":"9e7af602","path":["fields","priority","name"]}') ? "normal" : _dp('{"pill_type":"output","provider":"jira","line":"9e7af602","path":["fields","priority","name"]}') == "High" ? "high" : "low"
+Priority formula
+6
+Use the
+Status
+drop-down menu to select
+Open
+.
+7
+Map the Jira
+Due date
+Step 3
+datapill to the
+Due at
+field.
+Configure the Due at field
+8
+Map the Workbot for Slack
+Description
+Step 1
+datapill to the
+Text comment
+field.
+Configure the Text comment field
+9
+Click
+Save
+.
+17
+Click
++ Add step
+and select
+Action in app
+.
+18
+Set up your Workbot for Slack Post message action.
+1
+Search for
+Workbot for Slack
+and select it as your app.
+2
+Select the
+Post message
+action.
+3
+Map the Workbot for Slack
+Notify user
+Step 1
+datapill to the
+Channel name/DM
+field.
+Configure the Channel name/DM field
+4
+Click
+Add block to message
+and use the
+Type
+drop-down menu to select
+Section with text
+.
+Click the
+Add block to message
+button
+5
+Map the Zendesk
+Subject
+Step 4
+datapill, the Zendesk
+Ticket ID
+Step 4
+datapill, and the Workbot for Slack
+User ID
+Step 1
+datapill to the
+Section text
+field.
+Map the
+Section text
+field
+6
+Click
+Add block to message
+and use the
+Type
+drop-down menu to
+Section with fields
+.
+Section with fields
+7
+Locate the
+Attachment fields
+section and click
+Add field
+.
+Click the
+Add field
+button
+8
+Enter
+Subject
+in the
+Title
+field.
+9
+Map the Zendesk
+Subject
+Step 4
+datapill to the
+Value
+field.
+Add a Subject field
+10
+Click
+Add field
+to add a second field.
+11
+Enter
+Priority
+in the
+Title
+field.
+12
+Map the Zendesk
+Priority
+Step 4
+datapill to the
+Value
+field.
+13
+Click
+Add field
+to add a third field.
+14
+Enter
+Description
+in the
+Title
+field.
+15
+Switch the
+Value
+field to
+formula mode
+and copy and paste the following formula:
+="\n"+_dp('{"pill_type":"output","provider":"zendesk","line":"create_ticket","path":["description"]}')[0...65]+"..."
+Add a Description field
+16
+Click
+Add field
+to add a fourth field.
+17
+Enter
+Status
+in the
+Title
+field.
+18
+Map the Zendesk
+Status
+Step 4
+datapill to the
+Value
+field.
+19
+Expand the
+Divider
+section and use the
+Type
+drop-down menu to select
+Divider
+.
+Select Divider
+20
+Click
+Save
+.
+19
+Click
++ Add step
+and select
+Action in app
+.
+20
+Set up your second Workbot for Slack Post message action.
+1
+Search for
+Workbot for Slack
+and select it as your app.
+2
+Map the Workbot for Slack
+Notify user
+Step 1
+datapill into the
+Channel name/DM
+field.
+Configure the Channel name/DM field
+3
+Click
+Add block to message
+and use the
+Type
+menu to select
+Section with text
+.
+Click the
+Add block to message
+button
+4
+Map the Jira
+Key
+Step 3
+datapill and the Workbot for Slack
+User ID
+Step 1
+datapill to the
+Section text
+field.
+Map the
+Section with text
+field
+5
+Click
+Add block to message
+and use the
+Type
+drop-down menu to select
+Section with fields
+.
+6
+Locate the
+Attachment fields
+section and click
+Add field
+.
+Click the
+Add field
+button
+7
+Enter
+Summary
+in the
+Title
+field.
+8
+Map the Jira
+Summary
+Step 3
+datapill to the
+Value
+field.
+Add a Summary field
+9
+Click
+Add field
+to add a second field.
+10
+Enter
+Priority
+in the
+Title
+field,
+11
+Map the Jira
+Name
+Step 3
+datapill to the
+Value
+field.
+12
+Click
+Add field
+to add a third field.
+13
+Enter
+Description
+in the
+Title
+field.
+14
+Switch the
+Value
+field to
+formula mode
+and copy and paste the following formula:
+="\n"+ _dp('{"pill_type":"output","provider":"jira","line":"9e7af602","path":["fields","description"]}')[0...65]+"..."
+Add a Description field
+15
+Click
+Add field
+to add a fourth field.
+16
+Enter
+Status
+in the
+Title
+field.
+17
+Map the Jira
+Name
+Step 3
+datapill to the
+Value
+field.
+18
+Click
+Save
+.
+Your
+Create Zendesk and Jira issues with Workbot for Slack
+recipe is ready to test and implement.
+←
+Customer service
+Databases
+→
+Last updated:
+2/27/2025, 4:32:55 PM
+On this page
+What does this recipe do?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,231 @@
+ワークフローアプリ - アプリポータルの設定 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workflow Apps
+管理
+#
+アプリポータルの設定
+ワークアトでアプリポータルを設定するには、
+ツール > アプリポータル > 設定
+に移動します。
+設定
+タブには3つのセクションがあります：
+一般
+ブランディング
+セキュリティ
+#
+一般
+このセクションでは、
+ポータル名
+を設定し、一意のURLプレフィックスを選択して
+ポータルURL
+をカスタマイズすることができます。
+ポータル名
+アプリポータルとメール通知で表示されるアプリポータルのビジネス名。
+ポータルURL
+URLプレフィックスをカスタマイズします。使用するデータセンターによって、アプリポータルがホストされる場所が決まります。例：
+https://acme.workato.app
+米国データセンター：
+workato.app
+EUデータセンター：
+eu.workato.app
+SGデータセンター：
+sg.workato.app
+JPデータセンター：
+jp.workato.app
+AUデータセンター：
+au.workato.app
+#
+ブランディング
+このセクションでは、
+アプリポータル
+をカスタマイズして、ブランドのロゴを含め、組織に合わせてブランディングの色を変更することができます。
+ブランドロゴ
+PNGおよびSVGファイル形式に対応しています。
+最大サイズ：
+10 MB。
+ブランドカラー
+ヘッダー、ボタン、ナビゲーション要素の色を選択します。
+16進数のカラーコードを入力するか、カラーピッカーを使用できます。
+サンプル値：
+#739ad9
+補完テキストカラー
+ブランドカラーに対して補完的な色を選択してコントラストを最適化します。
+16進数のカラーコードを入力するか、カラーピッカーを使用できます。
+サンプル値：
+#d3ce31
+#
+プレビュー
+プレビュー機能を使用すると、
+ブランドカラー
+、
+補完テキストカラー
+、
+ブランドロゴ
+がアプリポータルで実装される前にどのように連携するかをプレビューできます。
+プレビューは静的で、
+設定
+インターフェース内に含まれています。
+アプリポータルのブランディング選択肢をプレビューする
+#
+セキュリティ
+セキュリティセクションでは、ポータルの認証を設定し、ポータルページを外部のウェブサイトに埋め込むことができるかどうかを制御できます。
+#
+認証
+Workatoは以下の認証方式をサポートしています：
+パスワード認証
+SAMLベースのSSO
+アプリポータルのセキュリティ設定を設定する
+#
+埋め込み
+ポータルページを組織の内部ポータル、Salesforceなどに埋め込むことができます。
+iframe埋め込みを有効にする
+を切り替えて、ポータルページを
+iframe
+に埋め込むことを許可します。ここから、ポータルページを任意の
+iframe
+に埋め込むか、指定したドメイン内のみに埋め込むかを設定できます。
+ポータルページの埋め込みを特定のドメインに制限する場合は、
+フレームの祖先を指定
+フィールドに1つ以上のURLを指定できます。これらのURLはContent-Security-Policy HTTPヘッダーで使用され、ワークフローアプリの
+iframe
+でのレンダリングを許可します。
+または、このフィールドを空白のままにして、任意の
+iframe
+にページを埋め込むことを許可します。
+埋め込みを有効にする
+#
+埋め込み用にポータルをカスタマイズ
+外部サイト内にポータルページを埋め込む場合、特定のクエリパラメータを使用してポータルの外観をカスタマイズすることができます。これにより、トップバナーを非表示にしたり、すべての側面のパディングをカスタマイズしたりすることができます。
+ポータルURL
+に特定のクエリパラメータを追加します。
+これらのパラメータは、URLエンコードされたJSON形式で次のようになります：
+例：
+{"showHeader": false, "layoutPadding": "0 10px 10px 0"}
+showHeader
+ブール値（true/false）。ポータルのトップヘッダーを非表示にするには、
+false
+に設定します。
+layoutPadding
+ポータルのパディングをすべての側面で決定します。前述の例では、上部のパディングは
+0
+、右側は
+10px
+、下部は
+10px
+、左側は
+0
+です。
+以下は、ブラウザのコンソールでパラメータ値を生成する方法の例です：
+encodeURIComponent(JSON.stringify({"showHeader": false, "layoutPadding": "0 10px 10px 0"}))
+これにより、次のパラメータが生成されます。これをポータルURLに追加します：
+?embedding_params=%7B%22showHeader%22%3Afalse%2C%22layoutPadding%22%3A%220%200%200%200%22%7D
+すべてをまとめると、次のようになります：
+<iframe src="https://mycompany.workato.app/app-name/?embedding_params=%7B%22showHeader%22%3Afalse%2C%22layoutPadding%22%3A%220%200%200%200%22%7D"></iframe>
+←
+管理
+SAML認証
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+一般
+ブランディング
+プレビュー
+セキュリティ
+認証
+埋め込み
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

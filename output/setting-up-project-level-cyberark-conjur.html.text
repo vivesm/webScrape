@@ -1,0 +1,552 @@
+Setting up project-level CyberArk Conjur secrets | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data & security
+Connection credentials
+CyberArk Conjur
+#
+Set up CyberArk Conjur for project-level secrets management
+SECRETS MANAGEMENT SCOPE
+Existing external secrets references that are scoped to the workspace level will stop working when you switch to project-specific secrets management.
+FEATURE AVAILABILITY
+Secrets management is available to customers on specific pricing plans. Refer to your pricing plan and contract to learn more.
+#
+Conjur host configuration for Workato
+Integration between Workato and Conjur is based on the host/workload API key authentication.
+For Workato to retrieve a secret from your Conjur instance, an API authentication request is first sent to your Conjur server based on the parameters specified when configuring the CyberArk Conjur connector. If the credentials are valid, Conjur responds with a short-lived access token. Workato then uses this access token to retrieve the actual secret value stored in Conjur if the host has the necessary
+execute
+and
+read
+permissions.
+Policies on Conjur are written as
+.yml
+files. Visit the CyberArk Conjur documentation for
+policy best practices
+(opens new window)
+. The following steps describe how to develop a policy file.
+For more information on policy syntax operators, refer to the
+CyberArk Conjur documentation
+(opens new window)
+.
+1
+Declare a group at the root policy:
+-
+!policy
+id
+:
+workato
+-
+app
+body
+:
+-
+!group
+workato
+-
+secret
+-
+users
+2
+Declare variables and assign the group
+[read, execute]
+permissions.
+This example creates the
+sql-password-prod
+and
+sql-host-prod
+variables which store the password for a SQL database as well as the host name:
+-
+&variables
+-
+!variable
+id
+:
+sql
+-
+password
+-
+prod
+kind
+:
+password
+-
+!variable
+id
+:
+sql
+-
+host
+-
+prod
+kind
+:
+password
+-
+!permit
+role
+:
+!group
+/workato
+-
+app/workato
+-
+secret
+-
+users
+# group declared earlier
+privileges
+:
+[
+read
+,
+execute
+]
+resources
+:
+*variables
+3
+Declare the host, a layer, and assign membership of the host into the layer:
+-
+!host
+workato
+-
+us
+-
+prod
+-
+1
+-
+!layer
+workato
+-
+us
+-
+prod
+-
+!grant
+role
+:
+!layer
+workato
+-
+us
+-
+prod
+members
+:
+-
+!host
+workato
+-
+us
+-
+prod
+-
+1
+Host documentation
+(opens new window)
+Layer documentation
+(opens new window)
+4
+Grant membership of the layer into the group:
+-
+!grant
+role
+:
+!group
+workato
+-
+app/workato
+-
+secret
+-
+users
+member
+:
+!layer
+workato
+-
+app/ workato
+-
+us
+-
+prod
+Grant documentation
+(opens new window)
+5
+Create a new secret on Conjur:
+-
+!variable
+id
+:
+ddog
+-
+api
+-
+key
+kind
+:
+password
+Variable documentation
+(opens new window)
+6
+Grant
+execute
+and
+read
+permissions to group on selected variables:
+-
+!permit
+role
+:
+!group
+/workato
+-
+app/workato
+-
+secret
+-
+users
+# layer declared earlier
+privileges
+:
+[
+read
+,
+execute
+]
+resources
+:
+!variable
+ddog
+-
+api
+-
+key
+Permit documentation
+(opens new window)
+Expand for an example of a full policy
+-
+!policy
+id
+:
+workato
+-
+app
+-
+dev
+body
+:
+-
+!group
+workato
+-
+secrets
+-
+dev
+-
+&variables
+-
+!variable
+id
+:
+sql
+-
+password
+-
+prod
+kind
+:
+password
+-
+!variable
+id
+:
+sql
+-
+host
+-
+prod
+kind
+:
+password
+-
+!permit
+role
+:
+!group
+/workato
+-
+app
+-
+dev/workato
+-
+secrets
+-
+dev
+# group declared earlier
+privileges
+:
+[
+read
+,
+execute
+]
+resources
+:
+*variables
+-
+!host
+workato
+-
+us
+-
+dev
+-
+1
+-
+!layer
+workato
+-
+us
+-
+dev
+-
+!grant
+role
+:
+!layer
+workato
+-
+us
+-
+dev
+members
+:
+-
+!host
+workato
+-
+us
+-
+dev
+-
+1
+-
+!grant
+role
+:
+!group
+workato
+-
+secrets
+-
+dev
+member
+:
+!layer
+workato
+-
+us
+-
+dev
+To which the expected response would be:
+{
+"created_roles"
+:
+{
+"workato:host:workato-app-dev/workato-us-dev-1"
+:
+{
+"id"
+:
+"workato:host:workato-app-dev/workato-us-dev-1"
+,
+"api_key"
+:
+"1q3ye3gxxxx"
+}
+}
+,
+"version"
+:
+1
+}
+#
+Select project-level scope for secrets management
+1
+Sign in to your Workato workspace.
+2
+Navigate to
+Workspace admin > Settings > Security > External secrets manager
+.
+3
+In
+Scope
+, select the option
+Set up secrets management for each project individually
+.
+Set up secrets management for each project individually
+4
+Select
+Save
+.
+#
+Select the project
+1
+In Workato, navigate to your projects.
+2
+Select the project that you plan to configure with secrets management.
+3
+In the project, navigate to
+Workspace admin > Settings > External secrets manager
+.
+4
+In the
+Which secrets manager do you want to use?
+field, select
+CyberArk Conjur
+.
+5
+Click
+Set up connection
+#
+Configure the connection in Workato
+1
+Configure the following fields in Workato:
+Configure CyberArk Conjur connection
+Connection name
+Name your CyberArk Conjur connection.
+Connection type
+Workato supports both cloud and on-prem connection types. If you plan to use an on-prem group, select one from the drop-down.
+Server URL
+To connect to Conjur Cloud, the server URL must follow this format:
+https://
+<
+subdomain
+>
+.secretsmgr.cyberark.cloud/api/
+Organization account name
+To connect to Conjur Cloud, input
+conjur
+.
+Login ID
+For host authentication, the ID must be prefixed with
+host/
+, for example:
+host/workato-app/workato-user-1
+.
+API key
+Conjur generates an API key for every user when the user resource is created. Learn more about generating an API key in
+CyberArk Conjur's documentation
+(opens new window)
+.
+←
+Set up CyberArk Conjur for workspaces
+Use CyberArk Conjur
+→
+Last updated:
+3/18/2025, 5:45:08 PM
+On this page
+Conjur host configuration for Workato
+Select project-level scope for secrets management
+Select the project
+Configure the connection in Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

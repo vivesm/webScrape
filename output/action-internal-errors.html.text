@@ -1,0 +1,173 @@
+Action and trigger errors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+Run-time errors
+#
+Action and trigger errors
+This section helps identify whether an error occurs in a trigger or an action within Workato. A trigger initiates a job's execution, while actions are the steps within these jobs.
+#
+Action errors
+You can identify action errors in the Jobs tab when a recipe encounters a problem during execution. These errors appear in two forms: uncaught and caught.
+Uncaught errors are immediately visible, denoted by the job time highlighted in red.
+Action error
+Caught errors aren't immediately visible in the
+Jobs
+tab but can be identified by examining the specific job. A well-structured error-handling approach is essential for detecting and troubleshooting these errors effectively.
+Note that an unaddressed error within a job does not stop or affect the ongoing recipe or subsequent jobs. Each job operates in isolation.
+#
+How to identify action errors
+Complete the following steps to identify an action error in the
+Jobs
+tab:
+1
+Click on the specific job where the error occurred and locate the step with the error.
+Locate step
+2
+Click on the step to view details. Locate the error message in the
+Error
+tab.
+Error tab
+#
+Trigger errors
+Trigger errors can be categorized into
+misconfigured trigger errors
+and
+true trigger errors
+.
+#
+Misconfigured trigger errors
+Misconfigured triggers can result in unexpected job outcomes, such as a recipe failing to pick up any jobs or picking up more jobs than expected.
+Complete the following steps to identify and resolve a misconfigured trigger error:
+1
+Verify trigger parameters to ensure they are correct. For example, a
+When first started, this recipe should pick up events from
+parameter should accurately reflect when the trigger begins scanning for records.
+Verify trigger parameters
+2
+Review your trigger conditions (if applicable) to ensure they are not too restrictive. Overly restrictive trigger conditions can delay job detection.
+Review filter restrictions
+3
+Check for underlying permission issues related to the account used for the connection, even if the connection is already established.
+4
+Check for job overload. Ensure that parameters or filters are not overly inclusive if a trigger is collecting more jobs than expected.
+#
+True trigger errors
+True trigger errors typically display in the
+Jobs
+tab. For example, if a trigger logs 60 consecutive errors, it automatically stops the recipe.
+Complete the following steps to identify and resolve a true trigger error:
+1
+Review trigger parameters to ensure that all settings and configurations are accurate.
+2
+Examine the upstream application for any error signals from the system that precedes Workato in the workflow.
+3
+Contact Workato support for assistance in retrieving logs for stopped recipes, as direct access to logs may not be available.
+←
+Run-time errors
+Internal and upstream/downstream errors
+→
+Last updated:
+8/26/2024, 9:17:58 PM
+On this page
+Action errors
+Trigger errors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

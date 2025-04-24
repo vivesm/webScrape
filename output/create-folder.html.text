@@ -1,0 +1,157 @@
+Workato connectors - SMB create folder action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SMB
+#
+SMB - Create folder action
+This action creates a new folder in your SMB network location. You can select whether to overwrite an existing folder.
+You can use this action with the
+Upload file
+action to upload files into a new folder.
+#
+Input
+Input field
+Description
+Folder path
+Provide the complete path of the folder you plan to create, for example:
+/folder1/folder2/new_folder_name
+. If any folders on the path do not exist, they will be created automatically.
+Folder name
+Provide a name for the new folder.
+Require folder to not exist?
+Select whether to fail the action if the folder already exists.
+#
+Output
+Output field
+Description
+Path
+The full path of the folder, including the folder name, for example:
+/folder1/folder2/newFolder
+.
+Kind
+Indicates whether this item is a folder.
+Size
+The size of the created folder.
+Attributes
+Attributes attached to the created folder.
+Name
+The name of the created folder.
+Directory
+The complete path of the created folder, for example:
+/folder1/folder2/
+.
+Creation time
+The time the folder was created.
+Change time
+The time the folder was last changed.
+Access time
+The time the folder was accessed.
+←
+New/updated file trigger
+Delete resource action
+→
+Last updated:
+3/25/2025, 10:57:31 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

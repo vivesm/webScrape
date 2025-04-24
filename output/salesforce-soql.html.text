@@ -1,0 +1,371 @@
+Salesforce SOQL | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+Working with SOQL in Salesforce
+Salesforce Object Query Language (SOQL)
+is used to search your Salesforce data for specific records. SOQL is similar to the
+SELECT
+statement in the widely used Structured Query Language (SQL) but is designed specifically for Salesforce data.
+The following query shows the basic syntax of a SOQL query:
+SELECT
+(list of fields)
+FROM
+(an object)
+WHERE
+(filter statements and optional sorting)
+For a list of standard fields for major Salesforce objects, see
+Salesforce Fields Reference
+(opens new window)
+.
+#
+Inputting SOQL WHERE Conditions (Syntax)
+The SOQL
+WHERE
+clause follows field expression syntax. A
+fieldExpression
+is defined as
+<fieldName> <comparisonOperator> <value>
+. The following sections show examples of valid SOQL
+WHERE
+queries.
+#
+Comparison operators
+The following list contains all SOQL comparison operators:
+=
+!=
+<
+<=
+>
+>=
+LIKE
+IN
+NOT IN
+INCLUDES
+EXCLUDES
+The following example uses
+fieldExpression
+syntax with a valid SOQL comparison operator:
+Example of using fieldExpression syntax with a comparison operator
+For detailed information on how to use each comparison operator, see
+Comparison Operators
+(opens new window)
+.
+#
+Logical operators
+Multiple field expressions can be joined using logical operators. These include:
+AND
+,
+OR
+, and
+NOT
+. The following list contains basic syntax for each operator:
+fieldExpressionX AND fieldExpressionY
+fieldExpressionX OR fieldExpressionY
+NOT fieldExpressionX
+The following example uses two
+fieldExpressions
+joined by a logical operator:
+Example of joining two fieldExpressions using a logical operator
+For more information on logical operators, see
+Logical Operators
+(opens new window)
+.
+#
+Other SOQL clauses
+LIMIT
+: Limits the number of results returned in the search.
+OFFSET
+: Skips a specified number of rows before returning results.
+The maximum value for both clauses is 2,000. Requesting an offset greater than 2,000 results in a
+NUMBER_OUTSIDE_VALID_RANGE
+error.
+#
+Date formats and date literals
+You must use formula mode to query a date or dateTime field. Formula mode converts your timestamp to the ISO8601 format expected in SOQL.
+To filter on date fields in a query, you must use Date only format. The syntax for this is
+YYYY-MM-DD
+.
+To filter on dateTime fields in a query, you must use a format including date, time, and time zone offset. There are three possible dateTime formats:
+YYYY-MM-DDThh:mm:ss+hh:mm
+YYYY-MM-DDThh:mm:ss-hh:mm
+YYYY-MM-DDThh:mm:ssZ
+FORMAT FOR DATE AND DATETIME VALUES
+Single quotes around date or dateTime values are not required. For date fields, add
+.to_date
+at the end of your date formula to convert your date or timestamp to the correct format.
+The following two examples demonstrate how to use
+.to_date
+in SOQL queries.
+Example of using .to_date in a query
+Example of using .to_date in a query
+For dateTime fields, the
+YYYY-MM-DDThh:mm:ssZ
+format is the preferred format to use in queries. After using the formula to get your desired timestamp, such as
+now
+or
+2.weeks.ago.beginning_of_day
+, add
+.strftime("%Y-%m-%dT%H:%M:%S%z")
+to the end of the query.
+Example of using .strftime in a query
+For more information on date formats and date literals, see
+Date Formats and Date Literals
+(opens new window)
+.
+#
+Triggers and actions that use SOQL
+#
+Querying with a WHERE clause
+Use one of the following triggers or actions to set up a SOQL query where SOQL input is automatically configured using the fields you provide in the Workato UI.
+To quickly setup a SOQL query with the input configured using fields available in the Workato UI, use one of the triggers or actions below:
+Triggers
+Scheduled record search using SOQL query
+WHERE
+clause
+Actions
+Search records in bulk using SOQL query (API 1.0)
+Search records using SOQL query
+WHERE
+clause
+When using triggers or actions that require a
+WHERE
+clause, the recipe automatically handles the
+SELECT FROM
+portion of your query. The recipe uses the object you chose in the
+Fields to retrieve
+picklist to
+SELECT
+all fields
+FROM
+the object.
+You can also specify values for the
+LIMIT
+and
+OFFSET
+fields, if available. The
+LIMIT
+and
+OFFSET
+fields are not supported in bulk actions.
+#
+Querying with a full SOQL query
+To use a full SOQL query in Workato, use one of the triggers or actions below:
+Triggers
+Scheduled record search using SOQL query
+Actions
+Search records in bulk using SOQL query (API 2.0)
+Search for records using SOQL query
+#
+Scheduled records search using SOQL query
+The following steps demonstrate how to use the
+Scheduled records search using SOQL query
+trigger:
+1
+Enter your full SOQL query in the
+SOQL Query
+field. You must select
+ID
+using your
+SELECT
+statement for this trigger to work.
+Example of valid query in scheduled records search
+2
+Select a schedule and timezone for when the query runs using the
+Schedule
+and
+Time zone
+drop-downs.
+3
+Select a time for when the query runs using the
+Hour
+,
+Minute
+, and
+Day of month
+fields.
+4
+Optional. Select which days of the week the query runs on using the drop-downs for each day of the week. Selecting
+Yes
+for a specific day of the week allows the query to run that day.
+5
+Enter a
+Batch size
+. The
+Batch size
+determines the maximum number of records returned every time the recipe is triggered.
+6
+Select
+Use SOQL
+in the
+Output schema
+section. Use the same SOQL that you entered in the
+SOQL Query
+field in the
+Provide SOQL Query
+field.
+7
+Proceed to the
+Review data
+stage of the
+Output schema
+section and select
+Generate schema
+to generate the output schema.
+In subsequent recipe steps, the SOQL query output is accessible in the data tree.
+SELECT CLAUSE IN SOQL
+SOQL queries do not support the
+SELECT *
+operation often used in SQL queries. You must specify specific fields to retrieve in the SELECT clause.
+#
+Using a full SOQL query in an action
+The following example shows a SOQL query for the
+Search records in bulk using SOQL query (API 2.0)
+or
+Search for records using SOQL query
+actions.
+Example SOQL query for actions
+To generate the output schema, select
+Use SOQL
+. Use the same SOQL that you entered in the
+SOQL Query
+field in the
+Provide SOQL Query
+field.
+In the
+Review data
+stage of the
+Output schema
+section, the query runs and returns sample rows. Select
+Generate schema
+to generate the output schema.
+Example of generating schema
+In subsequent recipe steps, the SOQL query output is accessible in the data tree.
+MAXIMUM LENGTH OF SOQL QUERY
+The maximum length of a SOQL query is 16,000 characters.
+#
+Additional documentation
+For additional SOQL resources, see the following Salesforce documentation:
+SOQL
+(opens new window)
+WHERE Clause Syntax
+(opens new window)
+←
+Handling attachments
+SOQL FAQs
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+Inputting SOQL WHERE Conditions (Syntax)
+Comparison operators
+Logical operators
+Other SOQL clauses
+Date formats and date literals
+Triggers and actions that use SOQL
+Querying with a WHERE clause
+Querying with a full SOQL query
+Scheduled records search using SOQL query
+Using a full SOQL query in an action
+Additional documentation
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

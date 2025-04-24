@@ -1,0 +1,289 @@
+Workato connectors - Stripe - Stripe extension to Stripe Apps migration guide | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Stripe
+#
+Migrate your connection to Stripe Apps
+This guide explains how to migrate your Stripe connection from the Stripe extension to
+Stripe Apps
+(opens new window)
+. Stripe extensions will no longer be supported after
+January 1, 2025
+.
+STRIPE APPS
+If you created your Stripe connection
+on or after December 10, 2024
+, it is already configured to use Stripe Apps. No additional action is required.
+Similarly, no action is needed if your Stripe connection uses
+API key authentication
+.
+#
+Review active Stripe connections
+Refer to the email you received for a list of your active Stripe connections. Alternatively, you can locate your active Stripe connections in Workato by completing the following steps:
+1
+Sign in to your Workato account.
+2
+Go to
+Assets > Connections
+.
+Click the Connections tab
+3
+Click the
+All apps
+filter, then search for
+Stripe
+and select it.
+Filter for Stripe connections
+4
+Click the
+All statuses
+filter and select
+Connected
+to view active Stripe connections in your workspace.
+View your active Stripe connections
+#
+Review dependent recipes
+Evaluate the number of recipes that use your active Stripe connections by completing the following steps:
+1
+Click the Stripe connection.
+2
+Confirm that the
+Authentication type
+is set to
+Authorization code grant
+.
+API KEY AUTHENTICATION
+If the connection uses API key authentication, this guide does not apply, and no action is needed.
+3
+Locate the
+Dependencies
+section to view the number of recipes using your Stripe connection.
+4
+Click the link to open the
+Dependency graph
+for more details about the dependent recipes.
+Click the link to view dependencies
+5
+Assess the number and status of dependent recipes to determine the scope of your migration.
+Repeat these steps for all Stripe connections created or connected before December 10, 2024.
+#
+Prepare your recipes for testing
+Before you
+test your recipes
+, ensure you're working with a version that uses the extension-based Stripe connection. Testing a version that mirrors your current setup helps you identify migration-related issues early.
+For workspaces with Environments enabled
+: Open the version of your active recipe in the test environment.
+For workspaces without Environments
+: Clone your active recipe to create a separate version for testing.
+#
+Test your Stripe recipes
+Create a demo Stripe connection
+Replace the connection in test recipes
+Test the recipe
+#
+Create a demo Stripe connection
+Complete the following steps to connect to a demo Stripe account:
+1
+Provide a name for your Stripe connection in the
+Connection name
+field.
+2
+Use the
+Location
+drop-down menu to specify where you plan to store this connection.
+3
+Select
+Authorization code grant
+from the
+Authentication type
+drop-down menu.
+4
+Select
+Yes
+from the
+Demo
+drop-down menu.
+5
+Click
+Connect
+. The Stripe sign-in dialog opens and prompts you to enter your credentials.
+Create your connection
+6
+Sign in to your Stripe account and approve the connection.
+#
+Replace the connection in test recipes
+Complete the following steps to replace the Stripe connection in a cloned recipe or an active recipe in a test environment:
+1
+Open the recipe you’re testing and click the
+Connections
+tab.
+2
+Select the current Stripe connection.
+Select the existing Stripe connection
+3
+Click
+Switch
+.
+Click Switch
+4
+Choose the demo Stripe connection you created.
+#
+Test the recipe
+Complete the following steps to ensure your recipe is functioning correctly:
+1
+Open the recipe in the recipe editor.
+2
+Click
+Test recipe
+to initiate the test run.
+3
+Monitor the recipe's execution to verify that it processes data correctly at each step. Ensure all inputs and outputs align with your expectations.
+Repeat these steps for each recipe that requires an updated Stripe connection.
+#
+Replace the connection in production recipes
+After confirming that your recipes function correctly with the demo Stripe connection, replace the connections in your active production recipes.
+1
+Create a new Stripe connection
+using the
+Authorization code grant
+authentication method. Select
+No
+from the
+Demo
+drop-down menu to specify that the connection is for a live account.
+2
+Open a recipe that uses an extension-based Stripe connection and click the
+Connections
+tab.
+3
+Choose the Stripe connection.
+Select the existing Stripe connection
+4
+Click
+Switch
+.
+Click Switch
+5
+Select the new Stripe connection you created.
+LIMITATIONS
+Stripe allows only one connection per Stripe account and Stripe App pair. When you create a new App-based Stripe connection for the
+same Stripe account
+, it invalidates the tokens of any previously connected App-based Stripe connections for that account, making them inactive. However, if the connection is linked to a
+different Stripe account
+, existing connections remain unaffected.
+This limitation does not impact pre-existing extension-based Stripe connections in Workato, which can coexist with App-based connections.
+←
+Connection setup
+New charge trigger
+→
+Last updated:
+12/9/2024, 7:24:01 PM
+On this page
+Review active Stripe connections
+Review dependent recipes
+Prepare your recipes for testing
+Test your Stripe recipes
+Create a demo Stripe connection
+Replace the connection in test recipes
+Test the recipe
+Replace the connection in production recipes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,893 @@
+コネクターの構築 - アクションの構築 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+Workato コネクター構築ガイド 上級
+#
+コネクターの構築 - アクションの構築
+メソッド内でオブジェクトのスキーマ定義を済ませたので、次はいま定義したばかりのスキーマメソッドを参照する CRUDS アクションの構築を始めましょう。
+#
+コンフィギュレーション項目の定義
+オブジェクトベースのアクションに取り組むときは、まずはコンフィギュレーション項目と呼ばれるものを定義する必要があります。
+コンフィギュレーション項目
+は入力内容によって他の入力項目が動的に生成されるように定義できる、特別な入力項目です。
+config_fields
+:
+[
+{
+name
+:
+'object'
+,
+optional
+:
+false
+,
+label
+:
+'Object type'
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+'object_list_create'
+,
+hint
+:
+'Select the object type from picklist.'
+}
+]
+,
+[Invoice (請求書)] を選択すると請求書に関連した入力項目が表示される
+ここには
+ピックリスト
+も導入しています。これにより、別のオブジェクトのサポートを追加するときは、そのオブジェクトをリストに簡単に追加できます。
+ほかにもコンフィギュレーション項目はさまざまな方法で使用して、ユーザーが選択した内容に基づいて動的に入力項目を生成することができます。的確な入力項目がユーザーに表示される前に、選択されたオブジェクトの情報がさらに必要となるケースについては、このガイドの以降でいくつかのパターンを説明します。
+#
+タイトル、サブタイトル、説明、ヘルプテキストの定義
+アクションに対して、助けになるタイトルや説明を定義することも非常に重要であり、強く推奨されます。オブジェクトベースのアクションに取り組むときはこのような配慮をしておくことで、そのコネクターを使ったレシピが読みやすくなるだけでなく、そのコネクターでレシピを構築する人にとってもユーザーエクスペリエンスが向上します。
+actions
+:
+{
+create_object
+:
+{
+title
+:
+'Create object'
+,
+subtitle
+:
+'Supports the creation of invoices, payments, and customers'
+,
+description
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+"Create a <span class='provider'>"
+\
+"
+#{
+picklist_label
+[
+'object'
+]
+||
+'object'
+}
+</span> in "
+\
+"<span class='provider'>XYZ Accounting</span>"
+end
+,
+help
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+"Creates an
+#{
+picklist_label
+[
+'object'
+]
+||
+'object'
+}
+in XYZ. First, select from a list of "
+\
+'objects that we currently support. After selecting your object,'
+\
+' dynamic input fields specific to the object selected '
+\
+'will be populated.'
+end
+,
+config_fields
+:
+[
+{
+name
+:
+'object'
+,
+optional
+:
+false
+,
+label
+:
+'Object type'
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+'object_list_create'
+,
+hint
+:
+'Select the object type from picklist.'
+}
+]
+,
+# More code truncated here
+}
+}
+コネクターにさまざまなアクションがある中で、このアクションがどういったものであるのかをユーザーが理解できるよう、この箇所ではタイトルとサブタイトルを定義しています。タイトルは簡潔なものにしておき、同時にサブタイトルでもう少し詳しい情報を提供するようにしてください。
+説明については、lambda 関数を使用することで、ユーザーが config_field (コンフィギュレーション項目) で選択を行ったタイミングでアクションの説明を動的に変更できるようになっています (上の例を参照)。同様のことはヘルプテキストでも行えます。これについても上の例を参照してください。
+説明が動的に変更されない悪い例
+説明が動的に変更される良い例
+#
+入力項目の定義
+クリーンでスケーラブルな入力項目を作成することには、1つのアクションの
+object_definitions
+を1度呼び出すだけで複数のオブジェクトに対応できるという利点もあります。コンフィギュレーション項目の値には object_definitions メソッドを通してでしかアクセスできないため、まずは汎用的な object_definitions メソッドを呼び出し、後からそのメソッドを通じて、ユーザーが選択したオブジェクトに応じた適切なスキーマを取得するようお勧めします。
+#
+入力項目
+input_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+input_schema
+=
+object_definitions
+[
+object
+]
+# If user select invoice, evaluates to object_definitions['invoice']
+case
+object
+when
+'invoice'
+input_schema
+.
+where
+(
+'name !='
+:
+'Id'
+)
+else
+input_schema
+end
+end
+,
+#
+オブジェクト定義
+object_definitions
+:
+{
+invoice
+:
+lambda
+do
+|
+connection
+,
+config_fields
+,
+object_definitions
+|
+[
+{
+name
+:
+"Id"
+}
+,
+{
+name
+:
+"TxnDate"
+}
+,
+{
+name
+:
+"TotalAmt"
+,
+type
+:
+"number"
+}
+,
+{
+name
+:
+"Line"
+,
+type
+:
+"array"
+,
+of
+:
+"object"
+,
+properties
+:
+[
+{
+name
+:
+"Description"
+}
+,
+{
+name
+:
+"SalesItemLineDetail"
+,
+type
+:
+"object"
+,
+properties
+:
+[
+{
+name
+:
+"Qty"
+,
+type
+:
+"number"
+}
+,
+{
+name
+:
+"UnitPrice"
+,
+type
+:
+"number"
+}
+]
+}
+,
+{
+name
+:
+"Line-Num"
+,
+type
+:
+"number"
+}
+,
+{
+name
+:
+"Amount"
+,
+type
+:
+"number"
+}
+,
+{
+name
+:
+"Id"
+}
+]
+}
+,
+# More schema
+]
+end
+}
+オブジェクト定義
+invoice
+が呼び出されると、invoice (請求書) に関連するスキーマが返されます。そして
+input_fields
+では、
+id
+フィールドは invoice の作成に利用されず、表示すべきではないため、条件を使ってフィルタリングして除外することにします。
+#
+execute ブロックの定義
+execute (実行) ブロックを定義するときは、まずデータの前処理や後処理を行う汎用メソッドすべてを execute ブロックに置きます。以下の例では、ペイロードをターゲット API に送信する前にフォーマットする汎用メソッドを使用しています。ペイロードをフォーマットした後は、
+action
+-
+object
+レベルで行う必要のある個別のデータ処理メソッドと、適切なエンドポイントに対する最終的な HTTP コールが呼び出されます。
+もう1つ注目すべき点は、コネクターのユーザーに対して適切なエラーメッセージを表示する、エラーハンドリングを使用していることです。レシピの設計時やエラーのデバッグ時に、こうしたエラーメッセージがあると、ユーザーは大幅に時間を節約できます。
+#
+execute ブロック
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+object_name
+=
+input
+.
+delete
+(
+'object'
+)
+response
+=
+call
+(
+'create_
+#{
+object_name
+}
+_execute'
+,
+payload
+)
+.
+after_error_response
+(
+/.*/
+)
+do
+|
+_code
+,
+body
+,
+_header
+,
+message
+|
+error
+(
+"
+#{
+message
+}
+:
+#{
+body
+}
+"
+)
+end
+formatted_response
+end
+,
+#
+action
+-
+object
+メソッド
+create_invoice_execute
+:
+lambda
+do
+|
+payload
+|
+post
+(
+'api/invoice/create'
+,
+payload
+)
+end
+,
+#
+出力項目の定義
+出力項目は、入力項目と同じように、先ほど利用したのと同一のスキーマメソッドを使用して定義できます。そのスキーマメソッドを呼び出すときは、パラメータ
+output
+を渡すことを忘れないようにしてください。このパラメータが渡されることで、そのメソッドは、自身が返すべきなのはレスポンスで想定される項目であると知ることができます。多くの場合、それにはユーザーによる変更が不可能な、オブジェクトに関するメタデータ (
+created_at
+や
+updated_at
+といったタイムスタンプなど) が含まれます。
+#
+出力項目
+output_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+input_schema
+=
+object_definitions
+[
+object
+]
+# If user select invoice, evaluates to object_definitions['invoice']
+end
+,
+object_definition['invoice']
+に含まれる invoice スキーマは API から返される項目と完全に一致するため、これ以上の操作は必要ありません。
+#
+例1: XYZ 会計の請求書更新アクション
+以下に、XYZ 会計のオブジェクト更新アクションのサンプルコード全体を示します。
+#
+サンプルコード
+methods
+:
+{
+update_invoice_execute
+:
+lambda
+do
+|
+payload
+|
+patch
+(
+'api/invoice/update'
+,
+payload
+)
+end
+,
+}
+,
+object_definitions
+:
+{
+invoice
+:
+{
+fields
+:
+lambda
+do
+|
+connection
+,
+config_fields
+,
+object_definitions
+|
+# same schema as above
+end
+}
+,
+}
+,
+actions
+:
+{
+update_object
+:
+{
+title
+:
+'Update object'
+,
+subtitle
+:
+'Updates an object in XYZ accounting.'
+,
+description
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+"Update a <span class='provider'>"
+\
+"
+#{
+picklist_label
+[
+'object'
+]
+||
+'object'
+}
+</span> in "
+\
+"<span class='provider'>XYZ Accounting</span>"
+end
+,
+help
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+{
+body
+:
+"Updates an
+#{
+picklist_label
+[
+'object'
+]
+||
+'object'
+}
+in XYZ. First, select from a list of "
+\
+'objects that we currently support. After selecting your object,'
+\
+' dynamic input fields specific to the object selected '
+\
+'will be populated.'
+}
+end
+,
+config_fields
+:
+[
+{
+name
+:
+'object'
+,
+optional
+:
+false
+,
+label
+:
+'Object type'
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+'object_list_update'
+,
+hint
+:
+'Select the object type from picklist.'
+}
+]
+,
+input_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+input_schema
+=
+object_definitions
+[
+object
+]
+end
+,
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+object_name
+=
+input
+.
+delete
+(
+'object'
+)
+response
+=
+call
+(
+'update_
+#{
+object_name
+}
+_execute'
+,
+payload
+)
+.
+after_error_response
+(
+/.*/
+)
+do
+|
+_code
+,
+body
+,
+_header
+,
+message
+|
+error
+(
+"
+#{
+message
+}
+:
+#{
+body
+}
+"
+)
+end
+response
+end
+,
+output_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+input_schema
+=
+object_definitions
+[
+object
+]
+end
+,
+sample_output
+:
+lambda
+do
+|
+connection
+,
+input
+|
+payload
+=
+{
+"limit"
+=>
+1
+,
+"status"
+=>
+"closed"
+}
+call
+(
+"search_
+#{
+input
+[
+'object'
+]
+}
+_execute"
+,
+payload
+)
+end
+}
+# More actions below
+}
+,
+pick_lists
+:
+{
+object_list_update
+:
+lambda
+do
+[
+[
+"Invoice"
+,
+"invoice"
+]
+]
+end
+,
+# More picklists below
+}
+この例は、オブジェクト更新アクションを作成するのに必要となる手順すべてを表しています。現在、このコードは、ただ1種類のオブジェクト
+Invoices
+のサポートのみを表現しています。このオブジェクト更新アクションの構造は、オブジェクト作成アクションとほぼ同じであり、コンフィギュレーション項目、タイトル、サブタイトル、説明、ヘルプテキスト、入力項目、出力項目、実行、サンプル出力といったブロックの定義に特に変わったところはありません。際立っている部分は、オブジェクト定義とメソッドです。そこではオブジェクト特有のコードを導入することで、固有のスキーマを取得し、そのオブジェクトに関連するエンドポイントへの HTTP コールを行っています。
+#
+トリガーの作成
+それでは、オブジェクトベースのトリガーを構築する方法に進みましょう。
+←
+コネクターの構築 - スキーマの定義
+コネクターの構築 - トリガーの構築
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+コンフィギュレーション項目の定義
+タイトル、サブタイトル、説明、ヘルプテキストの定義
+入力項目の定義
+execute ブロックの定義
+出力項目の定義
+例1: XYZ 会計の請求書更新アクション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

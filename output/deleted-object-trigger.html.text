@@ -1,0 +1,141 @@
+Workato connectors - Microsoft Dynamics 365 Deleted object trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Microsoft Dynamics 365
+#
+Deleted object trigger
+This trigger checks for deleted objects in Microsoft Dynamics 365 after a specified interval lapses and processes each deleted object as a single trigger event.
+You must enable
+Auditing
+for Lead to use this trigger. You can enable auditing by visiting
+Lead view page > Customize Entity > Enable Auditing
+.
+#
+Input fields
+Field
+Description
+Object
+Select a standard or custom Microsoft Dynamics 365 object to monitor. For example,
+Lead
+.
+Trigger poll interval
+Determine how frequently to check for new events. This defaults to five minutes if left blank. The minimum value allowed is five minutes.
+When first started, this recipe should pick up events from
+Specify the date and time to start processing events. This value can't be changed after you run or test the recipe.
+#
+Output fields
+Field
+Description
+ID
+The ID of the deleted object.
+Deleted time
+The time when the object was deleted.
+←
+On-premise Setup
+Export new or new/updated records trigger (bulk)
+→
+Last updated:
+10/24/2024, 9:08:28 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

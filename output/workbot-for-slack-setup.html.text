@@ -1,0 +1,396 @@
+Workbot for Slack の設定 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Slack
+#
+Workbot for Slack の設定
+代わりに2分間の動画ガイドもご覧いただけます
+このページでは、Workbot レシピやユーザー操作を作成できるように、Slack オーガナイゼーション内で Workbot を設定する手順について説明します。
+ステップ1 : Workbot の対話型インターフェイスに対して NLU プロバイダを使用する場合は、
+NLU プロバイダに接続
+します。使用しない場合は、このステップは飛ばします。
+ステップ2 :
+Enterprise Workbot
+を作成する場合は、
+カスタム OAuth プロファイルを設定
+します。作成しない場合は、このステップは飛ばします。
+ステップ3 :
+Workbot for Slack コネクションを作成
+します。
+ステップ4 :
+Workbot をチャンネルに招待
+します。
+#
+準備として行うこと
+接続する権限があることを確認します。これは、オーガナイゼーションの Slack ワークスペースの設定により決まります。Slack ワークスペースのすべてのメンバーにサードパーティアプリのインストールを許可するオーガナイゼーションもあれば、この権限を管理者にのみ制限しているオーガナイゼーションもあります。
+コネクションの設定には、人が使用しているアカウントではなく、
+統合ユーザー
+アカウントを使用することをお勧めします。
+#
+権限
+トークンのタイプ
+スコープ
+説明
+User
+users:read
+ユーザーのアイデンティティについての情報を表示します。
+users:read.email
+ユーザーの情報をメールで取得します。
+Bot
+app_mentions:read
+ボットが参加している会話で、ボットのメンションをリッスンします。
+channels:read
+公開されている会話のリストを取得します。
+chat:write
+公開されている会話を作成または更新します。
+files:read
+プライベートの会話のリストを取得します。
+files:write
+プライベートの会話を作成または更新します。
+groups:read
+ダイレクトメッセージの会話のリストを取得します。
+im:history
+ダイレクトメッセージの会話を作成または更新します。
+im:write
+多人数グループの会話を作成または更新します。
+mpim:read
+多人数グループの会話のリストを取得します。
+users:read
+ユーザーの情報を取得します。
+users:read.email
+ユーザーの情報をメールで取得します。
+#
+1. NLU プロバイダに接続する
+Workbot for Slack では、Google DialogFlow と Amazon Lex がサポートされています。いずれかの NLU プロバイダを使用する場合は、Workbot for Slack に接続する前に、NLU プロバイダを Workato に接続する必要があります。
+NLU プロバイダに接続するには、[
+App Connections
+] に移動し、[
+Create a new connection
+] を選択します。NLU プロバイダを選択します。
+#
+2. カスタム OAuth プロファイルを設定する
+カスタム OAuth プロファイルを使用すると、Workbot for Slack の名称やアイコン (ボット名、ボットのロゴ、背景色)、権限などをカスタマイズできます。新しいカスタム OAuth プロファイルを設定するには、[
+Tools
+] > [
+Custom OAuth profiles
+] に移動し、[
+Create custom profile
+] をクリックします。
+1
+[
+Application
+] フィールドで [
+Workbot for Slack
+] を選択します。[
+Create new app
+] をクリックします。
+これにより、新しいタブで
+Slack アプリ
+(opens new window)
+が開きます。
+2
+Slack ウィンドウで [
+Create new app
+] を選択します。
+3
+[
+From scratch
+] を選択します。これにより、ユースケースに応じてスコープと権限を定義できるようになります。
+4
+アプリのわかりやすい名前を入力し、このアプリのデプロイメント先の Slack ワークスペースを選択します。
+[
+Create App
+] をクリックします。
+5
+新たに作成された Slack アプリの [
+Basic Information
+] ページにリダイレクトされます。
+6
+[
+App credentials
+] セクションまでスクロールし、以下の情報を保存します。
+クライアント ID
+クライアントシークレット
+検証トークン
+7
+Workato の設定に戻ります。Slack アプリからのアプリの資格情報を入力します。完了したら、[
+Save
+] をクリックします。
+[Application token] フィールド
+このフィールドは空のままにします。[Application token] はオーガナイゼーションレベルのアプリ用の設定です。
+8
+Slack の設定に戻ります。左側のナビゲーションで [
+OAuth & Permission
+] を選択します。
+9
+Add a new Redirect URL
+を選択します。コールバック URL をコピーして、Slack の設定に貼り付けます。[
+Save URLS
+] をクリックします。
+https://workato.com/oauth/callback
+This doesn’t seem like a proper link
+「This doesn’t seem like a proper link」というエラーが表示された場合は、リンクの先頭または最後に余分なスペースが入っていないことを確認してください。
+10
+[
+OAuth & Permissions
+] の設定を続けます。[
+Scopes
+] に移動し、[
+Bot Token Scopes
+] で以下のスコープを選択します。
+app_mentions:read
+chat:write
+channels:read
+commands
+files:read
+files:write
+groups:read
+im:history
+im:write
+mpim:read
+users:read
+users:read.email
+11
+[
+OAuth & Permissions
+] の設定を続けます。[
+Scopes
+] の下の [
+User Token Scopes
+] で以下のスコープを選択します。
+users:read
+users:read.email
+12
+左側のナビゲーションで [
+App home
+] を選択します。
+表示名とデフォルトのユーザー名を指定します。
+[
+Always Show My Bot as Online
+] を
+ON
+にします。
+13
+[
+App home
+] の設定を続けます。[
+Show tabs
+] > [
+Messages Tab
+] に移動します。
+allow users to send message
+オプションが選択されていることを確認します。これにより、ユーザーが Slackbot にメッセージを送信することが可能になります。
+14
+左側のナビゲーションで [
+Event Subscriptions
+] を選択します。
+ON
+を選択します。
+Workato 設定で指定されているリクエスト URL を [
+Request URL
+] に入力します。以下は URL の例です。
+https://app.workato.com/slack_webhooks/event?coak_id=9690
+15
+[
+Event Subscriptions
+] の設定を続けます。[
+Subscribe to Bot Events
+] サブセクションに移動します。以下の
+ボットユーザーイベント
+を追加します。
+app_mention
+file_shared
+message.
+im
+app_home_opened
+ページの一番下で [
+Save Changes
+] を選択します。
+16
+左側のナビゲーションで [
+Interactivity & Shortcuts
+] を選択します。
+ON
+を選択します。
+Workato 設定で指定されている URL を [
+Request URL
+] と [
+Options Load URL
+] に入力します。以下は URL の例です。
+https://app.workato.com/slack_webhooks/event?coak_id=9690
+ページの一番下で [
+Save Changes
+] を選択します。
+17
+最後に、Slack アプリをワークスペースにインストールします。
+左側のナビゲーションで [
+Install App
+] を選択します。
+[
+Install to Workspace
+] を選択します。
+メッセージが表示されたら、[
+Allow
+] をクリックします。
+#
+3. Workbot for Slack コネクションを作成する
+Workbot for Slack コネクションを接続すると、Slack チームに Workbot が追加されます。新しい Workbot for Slack コネクションを作成するには、[
+App Connections
+] に移動し、[
+Create a new connection
+] をクリックします。まず、[
+Workbot for Slack
+] を選択します。
+Workbot for Slack コネクションの項目
+Application
+Workbot for Slack
+Connection name
+このコネクションに対する適切な名前を選択します。
+NLU provider
+必要に応じて、DialogFlow または Amazon Lex NLU を選択できます。NLU プロバイダに接続していないと、プロバイダはドロップダウンリストには表示されません。
+Advanced
+Slash commands verification tokens
+従来のカスタムインテグレーションのスラッシュコマンドの呼び出しに使用します。各スラッシュコマンドにはトークンがあります。複数のスラッシュコマンドをサポートするには、各トークンをカンマで区切ります。
+詳細についてはこちらを参照してください。
+Custom help
+簡単なテキストヘルプまたは Slack メッセージに対応する JSON ドキュメントを使用した書式付きのヘルプを指定します。書式付きのヘルプメッセージは、
+Slack message builder
+を使用して作成できます。
+Is this a Classic Slack app?
+アプリをまだ移行していない場合は、[
+Yes
+] を選択します。
+Custom OAuth profile
+カスタム OAuth プロファイルを使用すると、Slack 側で作成した独自のカスタムアプリを Workato の Slack コネクターから利用できるようになります。選択すると、このアプリに対するすべてのリクエストで、指定したプロファイルが使用されます。
+詳細については、こちらを参照してください
+。
+Workbot を Slack チームにインストールすると、Workbot により Workato アカウントで最後に使用したアプリコネクションが検出され、自動的に接続されます。
+Workbot を Slack オーガナイゼーションに追加すると、ダイレクトメッセージを使用して Workbot とやり取りできるようになります。Workbot とのダイレクトメッセージは、Workbot を追加したユーザーにしか見えません。
+他のユーザーも Workbot とやり取りできるようにするか、Workbot が通知を投稿できるようにするには、Workbot を特定のチャンネルに招待する必要があります。次のセクションに進んでください。
+#
+4. Workbot をチャンネルに招待する
+チャンネル内での Workbot との会話は、そのチャンネルのすべてのチームメンバーから見えます。
+Workbot をチャンネルに招待するには、以下のいずれかの操作を実行します。
+@workbot
+を使って、Workbot をメンションする。
+チャンネルの詳細の [
+Invite new members to join
+] メニューオプションを使用する。
+Workbot をチャンネルに招待したら、
+@workbot
+を使ってやり取りを開始します。
+ダイレクトメッセージを使用して Workbot とやり取りする場合は、@workbot を使う必要はありません。
+#
+次のステップ
+Slack での Workbot の設定が完了したため、次は
+初めての Workbot を構築
+します。
+←
+Slack vs Workbot
+初めての Workbot の構築
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+準備として行うこと
+権限
+1. NLU プロバイダに接続する
+2. カスタム OAuth プロファイルを設定する
+3. Workbot for Slack コネクションを作成する
+4. Workbot をチャンネルに招待する
+次のステップ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

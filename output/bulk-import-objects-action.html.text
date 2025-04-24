@@ -1,0 +1,274 @@
+Workato connectors - Marketo Bulk import objects from file action (bulk) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Marketo
+#
+Bulk import objects from file action (bulk)
+This action imports objects from a file in bulk into your Marketo instance.
+Existing objects are updated if found; otherwise, new objects are created from the file data. Rows with failures and warnings are returned in the same format as the input, with an additional column for error or warning messages.
+#
+Input fields
+Field
+Description
+Object
+Select the object you plan to import in bulk. Options include
+Program members
+,
+Leads
+, and
+Custom objects
+.
+Refer to the relevant sections to learn how to configure the input fields for the object you plan to import in bulk:
+Program members
+Leads
+Custom objects
+#
+Program members input fields
+Field
+Description
+File input
+Expand to configure the file input for this action.
+File input (file input)
+Add the file contents containing the program members data to import into Marketo.
+Column separator (file input)
+Specify the delimiter used in your file. Options include
+comma
+,
+space
+,
+tab
+,
+colon
+,
+semicolon
+, and
+pipe
+.
+Contains header line? (file input)
+Select
+Yes
+if your file has a header line,
+No
+otherwise. The first line is skipped from import if a header exists.
+Column names (file input)
+Provide the column names in the same order as they appear in the CSV file.
+Program ID / Select program
+Enter the ID of the program to import members into, or select the program from the drop-down menu.
+Program member status
+Specify the status for members being added to the program.
+File to Marketo program members field mapping
+Define how columns in the input file map to Marketo fields.
+#
+Leads input fields
+Field
+Description
+File input
+Expand to configure the file input for this action.
+File input (file input)
+Add the file contents containing the leads data to import into Marketo.
+Column separator (file input)
+Specify the delimiter used in your file. Options include
+comma
+,
+space
+,
+tab
+,
+colon
+,
+semicolon
+, and
+pipe
+.
+Contains header line? (file input)
+Select
+Yes
+if your file has a header line,
+No
+otherwise. The first line is skipped from import if a header exists.
+Column names (file input)
+Provide the column names in the same order as they appear in the CSV file.
+Lookup field
+Select or enter the unique field to deduplicate leads. If a lead with this field exists, it is updated; otherwise, a new lead is created. Select
+ID
+to only update existing leads. If entering the lookup field, provide the API name of the field. You can locate the API name in Marketo by going to
+Admin > Database Management > Field Management
+and selecting the field.
+Partition name
+If specified, all imported leads become members of this partition.
+File to Marketo leads field mapping
+Define how columns in the input file map to Marketo fields.
+List / List name
+If specified, all imported leads become members of this static list. If entering the list name, the name should be exact. Not case-sensitive.
+#
+Custom objects input fields
+Field
+Description
+File input
+Expand to configure the file input for this action.
+File input (file input)
+Add the file contents containing the custom objects data to import into Marketo.
+Column separator (file input)
+Specify the delimiter used in your file. Options include
+comma
+,
+space
+,
+tab
+,
+colon
+,
+semicolon
+, and
+pipe
+.
+Contains header line? (file input)
+Select
+Yes
+if your file has a header line. Otherwise, select
+No
+. The first line is skipped from import if a header exists.
+Column names (file input)
+Provide the column names in the same order as they appear in the CSV file.
+Custom object name / Object name
+Select or enter the name of the custom object. If entering the object name, add the suffix
+_c
+.
+File to Marketo custom objects field mapping
+Select how your input file columns should map to your Marketo fields.
+#
+Output fields
+Field
+Description
+Result
+Array of individual records in the operation.
+Batch ID (result)
+Unique integer ID of the import batch.
+Import ID (result)
+Unique identifier for the import operation.
+Status (result)
+Current status of the batch.
+Message (result)
+Status message for the batch.
+Success
+Indicates if the action was successful.
+Number of rows failed
+Total number of rows that failed.
+Number of rows with warning
+Total number of rows with warnings.
+CSV content of failed rows
+CSV data for rows that failed.
+CSV content of warning rows
+CSV data for rows with warnings.
+←
+Bulk export objects to file action (bulk)
+Change lead program status action (batch)
+→
+Last updated:
+10/2/2024, 3:53:41 PM
+On this page
+Input fields
+Program members input fields
+Leads input fields
+Custom objects input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

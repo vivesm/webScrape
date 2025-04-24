@@ -1,0 +1,347 @@
+JavaScript コネクター | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+JavaScript
+JavaScript は人気の高い Web 開発言語です。Workato の JavaScript コネクターを使用すれば、レシピの一部としてカスタム JavaScript コードを記述できます。JavaScript 言語の力を利用して、データ変換や外部サービスの呼び出しなどを実現できるようになります。
+#
+JavaScript ランタイム
+Workato の JavaScript コネクターは Node.js バージョン14 上で動作します。Node.js バージョン14に含まれるすべての JavaScript ライブラリが JavaScript アクションで利用可能です。さらに、以下のライブラリも含まれています。
+node_fetch
+(opens new window)
+lodash
+(opens new window)
+gRPC
+(opens new window)
+Google Protobuf
+(opens new window)
+このアクションがサポートするスクリプトのサイズは最大1 MB です。1 MB のサイズ制限を超えるスクリプトも動作を続けられる場合がありますが、メモリ制限にかかる可能性があります。JavaScript アクションは30秒後にタイムアウトします。
+#
+JavaScript コネクターの使用
+#
+入力項目
+このアクションを設定する最初のステップは、アクションの入力項目を定義することです。[
+Input fields
+] セクションで [
+Add field
+] を選択し、新しい項目を追加します。JavaScript コードに渡したい入力項目すべてについてこの手順を繰り返し、レシピ内の前のステップから、これらの入力項目に値をマッピングします。
+入力項目を追加
+#
+Date 型の入力項目
+Date
+型の入力項目は、JavaScript コードに
+String
+として渡されます。そのような日付の入力は、以下のように使用することが推奨されます。
+exports
+.
+main
+=
+(
+{
+when
+}
+)
+=>
+{
+const
+whenDate
+=
+new
+Date
+(
+when
+)
+;
+// use whenDate
+}
+#
+出力項目
+JavaScript 実行アクションを使用するときは、呼び出される JavaScript の出力スキーマを定義する必要があります。この出力スキーマは、
+出力データツリー
+の構築に使用されます。このデータツリーにより、JavaScript 関数から返されるデータを後続のレシピのアクションで使用できるようになります。
+出力スキーマを定義するには、サンプルのレスポンスを入力してスキーマを生成します。出力データの型と構造は、このスキーマによって定義されます。出力スキーマを設定する方法には、次の2通りがあります。
+サンプルの JSON を使用する
+手動で項目を追加することでスキーマを定義する
+#
+JSON を使用する
+スキーマ生成のためのサンプルの JSON
+それでは、サンプルの JSON を使用して出力スキーマを定義してみましょう。[
+Use JSON
+] ボタンをクリックしてスキーマ生成ウィザードを表示させます。
+スキーマ生成のためのサンプルの JSON
+JSON サンプルをウィンドウ内に貼り付け、[Next] をクリックします。JSON サンプルを確認し、[Generate Schema] を選択します。これにより、[
+Output fields
+] に出力データツリーが表示されるはずです。
+サンプルの JSON から生成された出力データツリー
+このデータツリーを後続のアクションで利用して、JavaScript コードの出力を使用することができます。
+#
+手動でスキーマを定義する
+もう1つの方法として、手動で項目を追加してスキーマを定義することもできます。項目として、以下のデータ型がサポートされています。
+String
+Number
+Integer
+Date
+Time
+Boolean
+[
+add fields manually
+] を選択して項目を追加します。項目名を入力し、データ型を選択し、その項目が省略可能かどうかを選んでから [
+Add field
+] をクリックします。
+手動で出力項目を追加
+JavaScript コードが返す項目の数だけ、以上の手順を繰り返します。
+#
+main 関数
+JavaScript コネクターを使用する際、ユーザーのコードは
+exports.main
+関数内に記述する必要があります。デフォルトでは、サンプルコードスニペットがコードエディター内に表示されます。
+exports.main 関数を含むテンプレートコード
+コードは CommonJS 形式に従ったうえで、さらに
+main
+関数をエクスポートする必要があります。
+次のコード例では、入力に
+data
+を取り、そのデータを変換してから出力として返しています。
+const
+fetch
+=
+require
+(
+"node-fetch"
+)
+exports
+.
+main
+=
+(
+{
+data
+}
+)
+=>
+{
+const
+converter
+=
+new
+DataConverter
+(
+)
+;
+return
+converter
+.
+convert
+(
+data
+)
+;
+}
+;
+#
+gRPC サービスの使用
+gRPC
+(opens new window)
+はオープンソースの RPC フレームワークで、クライアント/サーバーアプリケーションを実装するための高性能フレームワークとして使用されています。Workato の JavaScript コネクターは、gRPC ベースのサービスを使用するために利用できます。このセクションでは、gRPC サービスを呼び出すクライアントコードを JavaScript 内に実装する手順について説明します。gRPC はデフォルトで
+Protocol Buffers
+(opens new window)
+を使用しています。Protocol Buffers は、Google が開発した構造化データをシリアライズするための成熟したオープンソースメカニズムです。
+Workato レシピでよく見られる gRPC サービスと JavaScript クライアントのアーキテクチャは、以下のようになります。
+Workato レシピと gRPC サービスのアーキテクチャ
+gRPC サービスを呼び出す手順について説明する前に、
+proto
+ファイル
+(opens new window)
+についての簡単な解説を引用します。
+Protocol Buffers を使うための最初のステップは、シリアライズするデータの構造を proto ファイルで定義することです。proto ファイルは .proto という拡張子を持つ通常のテキストファイルです。Protocol Buffers のデータはメッセージの集まりで構成されています。各メッセージは小さな論理レコードで、その情報として、フィールドと呼ばれる一連の名前と値のペアを含んでいます。
+#
+使用されるツール
+grpc-tools
+、
+@grpc/grpc-js
+、
+google-protobuf
+、
+browserify
+のパッケージをインストールします。
+npm
+i
+-g
+grpc-tools
+npm
+i @grpc/grpc-js
+npm
+i
+-g
+google-protobuf
+npm
+i
+-g
+browserify
+grpc-tools
+(opens new window)
+、
+npm grpc-tools
+(opens new window)
+npm @grpc/grpc-js
+(opens new window)
+npm google-protobuf
+(opens new window)
+browserify
+(opens new window)
+、
+npm browserify
+(opens new window)
+以下の手順に従ってスタブコードを生成し、JavaScript コネクターのコードエディターにコピーして貼り付けます。
+呼び出したいサービスの gRPC インターフェイス定義ファイル (proto ファイル) を入手します。
+grpc-tools
+を使って、その proto ファイルを JavaScript スタブに変換します。以下の例では、サービス定義
+contacts.proto
+に対する gRPC スタブを生成しています。
+grpc_tools_node_protoc
+--js_out
+=
+import_style
+=
+commonjs,binary:.
+--grpc_out
+=
+generate_package_definition:.
+<
+your proto file.proto
+>
+browserify
+を使って、生成されたコードをパッケージ化およびミニファイ処理します。
+browserify
+.
+--external
+@grpc/grpc-js
+--external
+google-protobuf
+-o
+<
+your bundle name.js
+>
+--node
+--im
+-s
+<
+your client code.js
+>
+browserify コマンドの中で、バンドル名とクライアントコード JavaScript ファイル名を置き換えます。
+ミニファイ処理された gRPC スタブを JavaScript アクションコードエディターにコピーして貼り付けます。
+JavaScript コネクターを使用する際、ユーザーのコードは
+exports.main
+関数内に記述する必要があります。デフォルトでは、サンプルコードスニペットがコードエディター内に表示されます。
+生成されたクライアントスタブを、JavaScript コードの
+main
+関数内で利用します。
+←
+アクション
+JDBC
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+JavaScript ランタイム
+JavaScript コネクターの使用
+入力項目
+出力項目
+main 関数
+gRPC サービスの使用
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

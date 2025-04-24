@@ -1,0 +1,170 @@
+Gmail | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Gmail
+Gmail
+(opens new window)
+は、一般ユーザーにもビジネスでも同様に使用されている、人気のメールサービスです。
+Gmail コネクターを使用すると、Gmail を中心とした強力な自動化を構築し、その他のアプリケーションに接続することができます。
+#
+API バージョン
+このコネクターは Gmail
+API v1
+(opens new window)
+を使用します。
+#
+Workato での Gmail への接続方法
+Gmail コネクターは OAuth 2.0認証を使用します。プロンプトが表示されたら、画面上の
+コネクションに関する指示
+に従って、Google アカウントにログインして接続します。
+Google の更新されたセキュリティポリシーに基づき、Gmail トリガーや添付ファイルのダウンロードアクションは、有料の G Suite アカウントでのみ使用できます。Gmail の
+New email トリガー
+または
+Download attachment アクション
+を使用する予定の場合は、アカウントをリンクする前に、Workato の Gmail コネクターアプリを許可リストに追加し、読み取り権限を付与する必要があります。以下に必要な手順を示します。
+#
+Workato Gmail コネクターの許可リストへの追加
+接続されたアプリへの OAuth に基づくアクセスの管理の詳細な手順については、
+こちら
+(opens new window)
+を参照してください。以下は、G Suite アカウントに対する Workato Gmail コネクターアプリを許可リストに追加する手順です。
+#
+ステップ1: Google Workspace の管理コンソールにログインする
+以下に示す操作を実行するには、Google Workspace の
+特権管理者
+(opens new window)
+としてサインインしている必要があります。
+Google Workspace の管理コンソールにログインする
+#
+ステップ2: [セキュリティ] 設定の [API の制御] に移動する
+管理コンソールのホームページで、
+[Security] > [API の制御]
+に移動します。これはページの一番下に表示されている場合もあります。
+API の制御
+#
+ステップ3: [サードパーティ製アプリのアクセスを管理] に移動する
+信頼できるアプリの選択
+[アプリを追加] を選択し、ドロップダウンから [OAuth アプリ名またはクライアント ID] を選択します。
+アプリの追加
+Workato Gmail コネクターに対する OAuth 2.0クライアント ID を入力します。
+763335457294-gp4359qrjgu7vl96eit0p2n725197oki.apps.googleusercontent.com
+OAuth 2.0クライアント ID の入力
+使用可能な OAuth クライアント ID を選択します。
+使用可能な OAuth クライアント ID の選択
+アプリのアクセスに対して、[信頼されている] を選択します。
+Workato アプリに対する信頼レベルを選択
+最後に、[
+Read email permission
+] を [
+Yes
+] に設定し、[
+Link your account
+] を選択します。
+メールの読み取り権限に対して [Yes] を選択
+←
+Github
+Gong
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Gmail への接続方法
+Workato Gmail コネクターの許可リストへの追加
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,180 @@
+Workato コネクター - Shopify - Update product | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Shopify
+#
+Shopify コネクター - Update product (商品の更新)
+このアクションは、Shopify 内で商品を更新します。
+#
+入力
+項目
+説明
+ID
+更新する商品。
+Body html
+商品の説明。HTML 形式をサポートしています。
+Product type
+商品のフィルターと検索に使用される、商品の分類。
+Title
+商品の名前。
+Handle
+商品をわかりやすく表す一意の文字列。商品の名称から自動的に生成されます。
+Published at
+商品が公開された日時。
+Published scope
+商品が POS チャネルに公開されているかどうかを示します。
+Template suffix
+商品ページに使用される Liquid テンプレートの接尾辞。
+Vendor
+商品のベンダーの名前。
+Tags
+フィルターと検索に使用されるカンマ区切りのタグの文字列。商品には最大250個のタグを付けることができ、各タグは最大255文字にすることができます。
+Options
+Size、Color、Material など、カスタムの商品プロパティ名。
+Variants
+商品バリエーションのリスト。各バリエーションは、商品の異なるバージョンを表します。
+Metafields
+商品のメタフィールドに関する情報。
+Created at
+商品が作成された日時。
+Updated at
+商品が最後に変更された日時。
+#
+出力
+項目
+説明
+ID
+商品の一意の識別子として使用される、符号なしの64ビット整数。各 ID は Shopify システム全体で一意です。
+Body html
+商品の説明。HTML 形式をサポートしています。
+Product type
+商品のフィルターと検索に使用される、商品の分類。
+Title
+商品の名前。
+Handle
+商品をわかりやすく表す一意の文字列。商品の名称から自動的に生成されます。
+Published at
+商品が公開された日時。
+Published scope
+商品が POS チャネルに公開されているかどうかを示します。
+Template suffix
+商品ページに使用される Liquid テンプレートの接尾辞。
+Vendor
+商品のベンダーの名前。
+Tags
+フィルターと検索に使用されるカンマ区切りのタグの文字列。商品には最大250個のタグを付けることができ、各タグは最大255文字にすることができます。
+Options
+Size、Color、Material など、カスタムの商品プロパティ名。
+Variants
+商品バリエーションのリスト。各バリエーションは、商品の異なるバージョンを表します。
+Metafields
+商品のメタフィールドに関する情報。
+Created at
+商品が作成された日時。
+Updated at
+商品が最後に変更された日時。
+←
+注文の更新
+商品画像の更新
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

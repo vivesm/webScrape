@@ -1,0 +1,140 @@
+Workato コネクター - Eloqua - Search records | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Eloqua
+#
+Eloqua アクション - Search records (レコードの検索)
+Search records
+アクションでは、Eloqua で標準のレコードまたはカスタムレコードを検索できます。まず、検索するレコードのオブジェクトのタイプを選択する必要があります。
+標準またはカスタムオブジェクトを選択可能
+#
+入力項目
+検索するオブジェクトを選択したら、任意のオブジェクト内の標準またはカスタムフィールドを検索するための検索条件を作成できます。
+入力項目
+説明
+Object
+オブジェクトのタイプ。標準またはカスタムオブジェクトを選択できます。
+Search criteria
+独自の検索クエリーを作成できます。検索条件の作成方法については、
+こちら
+(opens new window)
+のチュートリアルを参照してください。
+Depth
+Eloqua から返されるデータの量を制御します。詳細については、
+こちら
+(opens new window)
+を参照してください。
+Order by
+出力内でのレコードの順序を指定します。
+Count
+返されるレコードの数。最大数は1000です。
+Page
+多数のレコードをページネーションするために使用します。
+#
+出力項目
+検索するオブジェクトを選択すると、選択したオブジェクトに関連する出力項目が表示されます。標準またはカスタムオブジェクトに付加したカスタムフィールドがある場合は、それらも含まれます。データピルは、検索条件と一致したレコードのデータに対応しています。
+←
+レコードの更新
+レコードの取得
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

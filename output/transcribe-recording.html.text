@@ -1,0 +1,136 @@
+OpenAI - Transcribe Recording Action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+OpenAI
+#
+Transcribe recording action
+Transcribe Recording Action
+#
+Input
+Field
+Description
+File contents
+Provide the file contents to transcribe. Supported formats are: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
+File type
+Select the file type of the input to transcribe.
+Prompt
+An optional text to guide the model's style or continue a previous audio segment. You can use it to provide additional context to the model when transcribing and help specify the way certain words and phrases should be either omitted, included or written. Learn more
+here
+(opens new window)
+. The prompt should be in English and must be UTF-8 compatible.
+Temperature
+We generally recommend setting a value of 0. You can set a value between 0 and 2 to control the randomness of completions. Higher values will make the output more random, while lower values will make it more focused and deterministic. We recommend using this or top p but not both.
+#
+Output
+The output is a datapill containing the transcribed text. You can use this directly in further actions or send it to text-based OpenAI models for further processing.
+ENDPOINT CAPABILITIES
+We have observed that this endpoint can help transcribe text from other languages as well. For example, if the input language is in Japanese, the transcribed text is in Japanese as well. This seems to be an undocumented functionality of the endpoint. As the endpoint is in beta, we do not recommend leveraging this as a part of critical workflows because its behavior might change.
+←
+Send messages to OpenAI Models
+Translate recording action
+→
+Last updated:
+6/20/2023, 4:11:40 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

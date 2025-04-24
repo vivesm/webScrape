@@ -1,0 +1,116 @@
+Webhooks コネクター | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Webhooks コネクター
+Webhook は、イベントが発生すると直ちにアプリケーションからターゲット URL に送信される通知です。通常は、どのイベントの通知を受け取るのかを定義できます。
+たとえば「緊急」チケットが生成されたときに通知を行う Webhook トリガーを作成できます (対応するアカウントマネージャーに SMS が送信されます)。これにより、緊急チケットにタイムリーに対応することができます。
+このコネクターにはコネクションは必要ありません。
+Workato Webhook ゲートウェイは、すべてのイベントをリッスンします。イベントが受信されたら、ゲートウェイがそのイベントを適切なレシピに渡します。このトリガーイベントによってジョブが生成され、そのレシピでアクションが実行されます。
+#
+独自の Webhook トリガーの作成
+ウィザードを使用した Webhook の設定
+Webhook の設定
+よくあるエラーのデバッグ
+←
+Tango Card
+セットアップウィザード
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

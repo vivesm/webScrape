@@ -1,0 +1,1018 @@
+静的 Webhook トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+トリガーの作成
+#
+How to ガイド - 静的 Webhook トリガー
+静的 Webhook トリガーは、手動での登録が必要なトリガーです。これには通常、提供された Webhook URL を使用して、アプリケーションの UI で Webhook サブスクリプションを作成する必要があります。
+WARNING
+コネクターの静的 Webhook トリガーを定義する場合、動的 Webhook トリガーは定義できないことに注意してください。1つのコネクターで許容される Webhook トリガーは1種類のみです。コネクターには、ポーリングトリガーと1種類の Webhook トリガーの両方が含まれていることがあります。
+#
+サンプルコネクター - Greenhouse
+{
+title
+:
+'My Greenhouse connector'
+,
+# More connector code here
+webhook_keys
+:
+lambda
+do
+|
+params
+,
+headers
+,
+payload
+|
+"
+#{
+params
+[
+'org_id'
+]
+}
+@
+#{
+payload
+[
+'action'
+]
+}
+"
+end
+,
+triggers
+:
+{
+new_event
+:
+{
+title
+:
+'New Candidate Event'
+,
+subtitle
+:
+"Triggers when a Candidate event is received "
+\
+"from Greenhouse"
+,
+description
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+"New <span class='provider'>candidate event</span> "
+\
+"in <span class='provider'>Greenhouse</span>"
+end
+,
+help
+:
+lambda
+do
+|
+input
+,
+picklist_label
+,
+connection
+,
+webhook_base_url
+|
+next
+unless
+webhook_base_url
+.
+present
+?
+<<~
+HTML
+Creates an job when an event is received from Greenhouse. To set this webhook up,
+you will need to register the webhook below in Greenhouse under "settings" => "webhooks" => "new". <br>
+<b>Webhook endpoint URL</b>
+<b class="tips__highlight">
+#{
+webhook_base_url
+}
+?org_id=
+#{
+connection
+[
+'org_id'
+]
+}
+</b>
+HTML
+end
+,
+input_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+'event_type'
+,
+label
+:
+'Event'
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+'events'
+,
+optional
+:
+false
+,
+hint
+:
+'Select specific event.'
+}
+]
+end
+,
+webhook_key
+:
+lambda
+do
+|
+connection
+,
+input
+|
+"
+#{
+connection
+[
+'org_id'
+]
+}
+@
+#{
+input
+[
+'event_type'
+]
+}
+"
+end
+,
+webhook_notification
+:
+lambda
+do
+|
+input
+,
+payload
+,
+extended_input_schema
+,
+extended_output_schema
+,
+headers
+,
+params
+|
+payload
+.
+dig
+(
+'payload'
+,
+'candidate'
+)
+end
+,
+dedup
+:
+lambda
+do
+|
+record
+|
+record
+[
+'id'
+]
+end
+,
+output_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+'id'
+}
+,
+{
+name
+:
+'rejected_at'
+}
+,
+{
+name
+:
+'prospect'
+}
+,
+{
+name
+:
+'prospect_detail'
+,
+type
+:
+'object'
+,
+properties
+:
+[
+{
+name
+:
+'prospect_pool'
+,
+type
+:
+'object'
+,
+properties
+:
+[
+{
+name
+:
+'id'
+,
+type
+:
+'integer'
+,
+control_type
+:
+'integer'
+}
+,
+{
+name
+:
+'name'
+}
+]
+}
+,
+]
+}
+]
+end
+,
+sample_output
+:
+lambda
+do
+|
+connection
+,
+input
+|
+if
+input
+[
+'event_type'
+]
+==
+"candidate_stage_change"
+get
+(
+"v1/applications?per_page=1"
+)
+&.
+dig
+(
+0
+)
+||
+{
+}
+else
+get
+(
+"v1/
+#{
+input
+[
+'object'
+]
+&.
+pluralize
+}
+?per_page=1"
+)
+&.
+dig
+(
+0
+)
+||
+{
+}
+end
+end
+}
+}
+,
+pick_lists
+:
+{
+events
+:
+lambda
+do
+|
+connection
+|
+[
+[
+"Candidate Updated"
+,
+"update_candidate"
+]
+,
+[
+"Candidate Stage Changed"
+,
+"candidate_stage_change"
+]
+]
+end
+}
+# More connector code here
+}
+#
+ステップ :
+#
+ステップ1 - webhook_keys 属性の設定とコネクターの静的 Webhook URL の取得
+webhook_keys
+は最上位レベルのキーです (コネクター全体の定義)。この lambda 関数は、割り当てられた Webhook URL を介してコネクターが受け取る Webhook ごとに呼び出され、各受信 Webhook のルーティングキーを定義できるようにします。以下に例を示します。
+次の定義で、
+webhook_keys
+:
+lambda
+do
+|
+params
+,
+headers
+,
+payload
+|
+"
+#{
+params
+[
+'org_id'
+]
+}
+@
+#{
+payload
+[
+'action'
+]
+}
+"
+end
+,
+以下の短縮された本文を持つ Greenhouse からの受信 Webhook を受け取った場合、
+URL
+:
+https
+:
+/
+/
+www
+.
+workato
+.
+com
+/
+user
+/
+123
+/
+connector
+/
+abc
+?
+org_id
+=
+555
+{
+"action"
+:
+"candidate_stage_change"
+,
+"payload"
+:
+{
+"application"
+:
+{
+"id"
+:
+265277
+,
+"rejected_at"
+:
+null
+,
+"prospect"
+:
+false
+,
+"status"
+:
+"active"
+,
+"applied_at"
+:
+"2013-03-22T00:00:00Z"
+,
+"last_activity_at"
+:
+"2015-02-09T16:38:36Z"
+,
+"url"
+:
+"https://app.greenhouse.io/people/265772?application_id=265277"
+,
+"source"
+:
+{
+"id"
+:
+31
+,
+"name"
+:
+"Agency"
+}
+,
+# More information here
+}
+この Webhook ペイロードの結果の webhook_keys 出力は
+555@candidate_stage_change
+になります。このキーは、複数の静的 Webhook トリガーがある場合に、これらのイベントを適切なトリガーにルーティングするために使用されます。
+コネクターの静的 Webhook URL を取得するには、コネクター SDK コンソールのデバッガーに移動します。ここに静的 Webhook URL があります。
+デバッガーコンソールの静的 Webhook URL
+#
+ステップ2 - トリガーのタイトル、サブタイトル、説明
+優れたトリガーの作成に向けた最初のステップは、そのトリガーが何を実行するかを適切に伝え、さらにユーザーに追加のヘルプを提供することです。そのために Workato では、アクションのタイトルと説明を定義したり、ヒントを提供したりできるようにしています。簡単に言えば、タイトルはアクションの名称であり、サブタイトルはそのアクションのより詳しい内容を表します。続いて、アクションの説明は、接続先となるアプリケーションにおいてそのアクションがどのようなことを達成するかについて、仕様や解説を提供します。
+このステップの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ3 - help の定義と静的 Webhook URL の表示
+静的 Webhook トリガーを作成する際のもう1つの重要な部分は、Webhook URL を目立つように表示して、ユーザーが取得して登録できるようにすることです。これを行うには、
+help
+lambda を利用して、コネクターの静的 Webhook URL を表示できるようにします。さらに、表示された Webhook URL にクエリーパラメータを追加して、
+webhook_key
+や
+webhook_keys
+と組み合わせて使用すれば、イベントを特定のレシピにルーティングすることもできます。
+help
+:
+lambda
+do
+|
+input
+,
+picklist_label
+,
+connection
+,
+webhook_base_url
+|
+next
+unless
+webhook_base_url
+.
+present
+?
+<<~
+HTML
+Creates an job when an event is received from Greenhouse. To set this webhook up,
+you will need to register the webhook below in Greenhouse under "settings" => "webhooks" => "new". <br>
+<b>Webhook endpoint URL</b>
+<b class="tips__highlight">
+#{
+webhook_base_url
+}
+?org_id=
+#{
+connection
+[
+'org_id'
+]
+}
+</b>
+HTML
+end
+,
+この例では、このレシピで使用されるコネクションの特定の Greenhouse 組織を表す、コネクションから取得した
+org_id
+という入力を使用しています。これはコネクションが複数ある場合、この Webhook を正しいレシピにルーティングするために重要になります。
+help
+の詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ4 - 入力項目の定義
+この部分では、このトリガーを設定するユーザーに向けて表示すべき項目を Workato に指示します。この場合、Candidate イベントのタイプを選択できる単純な入力項目が必要です。これは、後でトリガーコードで使用され、トリガーの個人用 Webhook キーを作成します。
+input_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+'event_type'
+,
+label
+:
+'Event'
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+'events'
+,
+optional
+:
+false
+,
+hint
+:
+'Select specific event.'
+}
+]
+end
+,
+新規イベントの入力項目
+入力/出力項目に関しては、上記で定義したもの以外にも、さまざまなキーと値のペアが存在します。詳細については、
+こちら
+を参照してください。
+オブジェクトの定義
+引数として
+object_definitions
+が渡されていることに注意してください。Workato では、コネクターの作成者が "object_definitions" キー内でオブジェクトの定義を独立して記述できるようになっています。このキーは、オブジェクトの定義が長大である場合や、定義が動的に取得される場合に使用されます。
+この詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ5 - トリガーの Webhook キーの定義
+エンドユーザーからの入力を定義したら、コネクターの
+webhook_key
+lambda 関数の定義に移ります。この lambda 関数は、ユーザーのコネクションの設定値と、このトリガーの
+input_fields
+からの入力の、2つの引数を受け取ります。これにより、Webhook トリガーに固有のキーである文字列を作成できます。
+この
+webhook_key
+とステップ1の
+webhook_keys
+を使用して、2つの一意の文字列が生成されます。コネクターの Webhook URL に受信 Webhook を受け取ると、
+webhook_keys
+lambda 関数からの結果の出力文字列が、各トリガー内の
+webhook_key
+lambda 関数から生成された文字列と照合されます。一致する場合、Webhook はこのトリガー (および一致するその他すべて) にルーティングされます。
+webhook_key
+:
+lambda
+do
+|
+connection
+,
+input
+|
+"
+#{
+connection
+[
+'org_id'
+]
+}
+@
+#{
+input
+[
+'event_type'
+]
+}
+"
+end
+,
+ステップ1の Webhook の例では、
+webhook_keys
+の出力文字列は
+555@candidate_stage_change
+でした。
+connection['org_id']
+および
+input['event_type']
+を利用する
+webhook_key
+の出力が一致する場合、イベントはこのトリガーにルーティングされます。
+#
+ステップ6 - Webhook の処理方法の定義
+webhook_notification
+lambda 関数は、ルーティングされてきたすべての Webhook についてコネクターが実行すべき内容を示します。トリガーへのユーザー入力と Webhook 自体の両方を表すさまざまな引数を使用できます。Webhook のペイロードをジョブとして送信するには、単純に
+payload
+引数を渡します。必要に応じて
+headers
+から属性を追加することもできます。Greenhouse の場合は、
+ここ
+(opens new window)
+にあるペイロードから関係のない詳細をいくつか取り除いています。
+webhook_notification
+:
+lambda
+do
+|
+input
+,
+payload
+,
+extended_input_schema
+,
+extended_output_schema
+,
+headers
+,
+params
+|
+payload
+.
+dig
+(
+'payload'
+,
+'application'
+)
+end
+,
+webhook_key
+および
+webhook_notification
+キーの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ7 - 出力項目と dedup の定義
+このセクションでは、トリガーの出力として表示するデータピルと、重複レコードを回避してジョブが繰り返されないようにする方法を指示します。ジョブが繰り返されないようにする (これは Webhook が2回送信された場合に発生する可能性があります) には、レコードごとに一意の署名を作成する方法をコネクターに指示する
+dedup
+キーを使用します。この署名はレシピごとに保存され、同じ署名のレコードが見つかった場合、ジョブは作成されません。
+データピルの場合は、
+output_fields
+キーを使用します。各データピルの
+name
+属性は、単一の Webhook ペイロードのキーと一致する必要があります。
+dedup
+:
+lambda
+do
+|
+record
+|
+record
+[
+'id'
+]
+end
+,
+output_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+'id'
+}
+,
+{
+name
+:
+'rejected_at'
+}
+,
+{
+name
+:
+'prospect'
+}
+,
+{
+name
+:
+'prospect_detail'
+,
+type
+:
+'object'
+,
+properties
+:
+[
+{
+name
+:
+'prospect_pool'
+,
+type
+:
+'object'
+,
+properties
+:
+[
+{
+name
+:
+'id'
+,
+type
+:
+'integer'
+,
+control_type
+:
+'integer'
+}
+,
+{
+name
+:
+'name'
+}
+]
+}
+,
+]
+}
+]
+end
+,
+新規イベントの出力項目
+# Sample output of the webhook_notification: lambda function
+{
+"id"
+:
+"a1241"
+,
+"rejected_at"
+:
+"2020-01-12 10:57:03"
+,
+"prospect"
+:
+true
+,
+"prospect_detail"
+:
+{
+"id"
+:
+12491
+,
+"name"
+:
+"John Doe"
+}
+}
+出力項目キーの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+オブジェクトの定義
+引数として
+object_definitions
+が渡されていることに注意してください。Workato では、コネクターの作成者が "object_definitions" キー内でオブジェクトの定義を独立して記述できるようになっています。このキーは、オブジェクトの定義が長大である場合や、定義が動的に取得される場合に使用されます。
+この詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ8 - サンプル出力の定義
+サンプル出力キーは、トリガーにとって任意の補足的な要素ですが、想定されるデータピルの値について情報をユーザーに伝えることで、ユーザーエクスペリエンスを大幅に向上させます。これにより、ユーザーはより速やかにレシピを作成できるようになります。
+sample_output
+:
+lambda
+do
+|
+connection
+,
+input
+|
+if
+input
+[
+'event_type'
+]
+==
+"candidate_stage_change"
+get
+(
+"v1/applications?per_page=1"
+)
+&.
+dig
+(
+0
+)
+||
+{
+}
+else
+get
+(
+"v1/
+#{
+input
+[
+'object'
+]
+&.
+pluralize
+}
+?per_page=1"
+)
+&.
+dig
+(
+0
+)
+||
+{
+}
+end
+end
+サンプル出力キーの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ9 - Webhook イベントの保護
+Webhook を受け取るようになったら、チェックを追加して、受信 Webhook イベントの信頼性を検証することを検討してください。
+#
+レート制限
+このトリガーには、
+Webhook ゲートウェイの制限
+が適用されます。
+←
+ポーリングトリガー
+動的 Webhook トリガー
+→
+Last updated:
+2024/10/24 16:19:08
+On this page
+サンプルコネクター - Greenhouse
+ステップ :
+ステップ1 - webhook_keys 属性の設定とコネクターの静的 Webhook URL の取得
+ステップ2 - トリガーのタイトル、サブタイトル、説明
+ステップ3 - help の定義と静的 Webhook URL の表示
+ステップ4 - 入力項目の定義
+ステップ5 - トリガーの Webhook キーの定義
+ステップ6 - Webhook の処理方法の定義
+ステップ7 - 出力項目と dedup の定義
+ステップ8 - サンプル出力の定義
+ステップ9 - Webhook イベントの保護
+レート制限
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,365 @@
+Configure and use SCIM in OneLogin | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Workspace collaborators
+Automate account provisioning with SCIM 2.0
+#
+Configure SCIM in OneLogin
+Workato supports the SCIM 2.0 protocol with the OneLogin identity provider.
+#
+Prerequisites
+Your organization must have the
+Data Monitoring/Advanced Security & Compliance
+capability.
+You must have
+SAML SSO
+successfully set up with your identity provider.
+You already
+configured SCIM in Workato
+.
+#
+Configure for generic SAML applications
+If you are using a generic SAML application without provisioning on OneLogin, you must first add a new application that supports provisioning from the OneLogin app catalog.
+RECOMMENDATION
+We recommend that you also configure SAML SSO for the application, and then proceed to configure SCIM.
+Follow these steps:
+1
+Log into
+OneLogin
+.
+2
+Navigate to
+Apps > Add App
+.
+3
+Search for “SCIM”, and select the **SAML with SCIM Provisioner (core user 2.0)**option.
+4
+Add the application.
+#
+Configure SCIM
+1
+Navigate to the
+Provisioning
+interface, and select the following options:
+Enable provisioning
+Select this option.
+When users are deleted...
+Choose
+Suspend
+.
+When user accounts are suspended...
+Choose
+Suspend
+.
+Enable provisioning
+2
+Navigate to the
+Configuration
+interface, and add values to the following fields:
+SCIM Base URL
+This is the
+Base URL
+of the Workato SCIM API endpoint, that you copied when configuring SCIM in Workato.
+SCIM Bearer Token
+This is the
+SCIM token
+you copied when configuring SCIM in Workato.
+Supply Base URL and SCIM token from Workato
+3
+To update Workato user roles from OneLogin through SCIM provisioning, you must configure the standard JSON schema in OneLogin.
+Expand the SCIM JSON template and add in the following:
+As part of "schemas", add
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole
+After emails, within the rest of the schema, add the following code:
+"urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole": {
+"workato_role": "{$user.custom_fields.workato_role}",
+"workato_role_test": "{$user.custom_fields.workato_role_test}",
+"workato_role_prod": "{$user.custom_fields.workato_role_prod}"
+}
+Update Workato user roles
+4
+If you did not configure the custom user fields for updating Workato roles through SAML Roles Sync, complete the configuration of custom user attributes like “workato_role”, “workato_role_test”, and “workato_role_prod” before moving on to the next step. See
+SAML role sync
+.
+5
+Configure the parameters to reference these role attributes.
+Navigate to the
+Parameters
+interface, and edit the
+workato_role
+by adding the following fields to reference the
+workato_role
+attribute values:
+Select the
++
+(plus) icon, under
+Field name
+, ensuring that the value corresponds to the
+short name
+that you configured for the custom user attributes.
+Select the
+Include in SAML Assertion
+option.
+Select the
+Include in User Provisioning
+option.
+Click
+Save
+.
+Configure role attribute parameters
+If your organization has the
+Environment
+feature in Workato, repeat this step for all environment-specific roles, such as
+workato_role_prod
+,
+workato_role_test
+, and for any additional custom roles.
+6
+After you finish configuring the parameters, your interface should appear similar to this example:
+Parameters
+7
+Again, navigate back to the
+Configuration
+interface.
+Under
+API connection
+, select
+Enable
+.
+Enable API connection
+#
+Provision users
+If you already have users assigned to your Workato application for SAML SSO, you can trigger a provisioning job to sync your existing users between OneLogin and Workato. This ensures that you don't unintentionally create duplicate accounts on your Workato workspace.
+1
+In OneLogin, find the Workato application.
+2
+Navigate to
+Users
+, select
+Apply to all
+, then choose
+Reapply Mappings
+, and confirm by clicking
+Approve
+.
+Provision users
+This action triggers a bulk sync between Workato and OneLogin, and ensures that all existing collaborators are now managed through SCIM.
+3
+Navigate to the
+Users
+interface to see the
+Provisioning State
+for all users.
+Updated provisioning state for users
+4
+When assigning new users to Workato, you can either assign the application to them, or assign a OneLogin Role with the necessary access policy.
+5
+Workato sends an email invitation to the selected users. Instruct users to click the link in the email to verify their email address:
+Email invitation to join a workspace
+The collaborator can then sign in to the assigned workspace with the role(s) you configured.
+TROUBLESHOOTING
+If clicking on the invitation email redirects you to the Workato login page instead of your organization’s workspace, it is likely that you already have a Workato account associated with the same email. If you have forgotten your login credentials, reset your password.
+6
+You can check the Workato
+activity audit log
+to confirm the addition of the user:
+Activity audit log showing that a user has accepted an invitation
+#
+Update users
+To update Workato roles from OneLogin, you must update the user’s custom attributes.
+1
+In OneLogin, navigate to the
+Users
+interface.
+2
+Select the user that you plan to update.
+3
+Enter the name of the role you plan to provision.
+TIP
+Role names are case-sensitive.
+4
+Click
+Save
+.
+5
+To verify role changes on Workato, you can examine the activity-audit logs dashboard.
+We denote changes made through SCIM as
+scim_auto_sync
+.
+Confirming role change through SCIM
+#
+Deprovision users
+To deprovision users, you can use one of the three (3) available methods, depending on the circumstances and use case. In all these situations, the user cannot access the Workato workspace. The user’s recipes and connections remain available to the rest of the team.
+Each of these scenarios on OneLogin trigger a deprovisioning event on Workato:
+Remove App access
+In OneLogin, navigate to the Workato application.
+Select
+Users
+.
+Find the user that you plan to deprovision.
+Click
+Delete
+.
+Confirm.
+Deactivate the user
+In OneLogin, navigate to the
+Users
+interface.
+Select the user that you plan to deactivate.
+Toggle the
+Active
+switch to
+Inactive
+.
+Click
+Save
+.
+Delete the user
+In OneLogin, navigate to the
+Users
+interface.
+Select the user you plan to delete.
+Click
+More Actions
+and select
+Delete
+.
+Click
+Save
+.
+NOTE
+If users are deprovisioned during an active session, their next action locks them out from the workspace. Their data, such as recipes and connections, remain accessible to other users in the workspace.
+#
+Disable SCIM
+To disable SCIM, follow these steps in OneLogin. Alternatively, you can disable SCIM in
+Workato
+.:
+1
+In OneLogin, find the Workato application.
+2
+In the
+Provisioning
+interface, deselect the
+Enable provisioning
+option.
+3
+Disable SCIM by unselecting the
+Enable SCIM provisioning
+option, and then
+Save
+your action.
+This action breaks your SCIM connection. User data cannot be synced between OneLogin and Workato.
+Disabling SCIM
+←
+Configure and use SCIM with Okta
+Configure and use SCIM with Microsoft Entra ID
+→
+Last updated:
+11/5/2024, 6:04:00 PM
+On this page
+Prerequisites
+Configure for generic SAML applications
+Configure SCIM
+Provision users
+Update users
+Deprovision users
+Disable SCIM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

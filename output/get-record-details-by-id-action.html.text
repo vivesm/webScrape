@@ -1,0 +1,216 @@
+Mural - Get Record details by ID | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Mural
+#
+Mural - Get record details by ID
+The
+Get record details by ID
+action enables you to retrieve details of a specific record in Mural.
+#
+Input
+Input fields
+Description
+Object
+Specify the object to retrieve its details. Fields load dynamically based on the object you select.
+Mural ID
+Provide the ID of a Mural.
+#
+Output
+Output fields
+Description
+Canvas link
+The mural’s link.
+Title
+The title of the mural.
+Room ID
+ID of a room.
+ID
+The unique ID of the mural.
+Workspace ID
+The unique ID of the workspace containing the mural.
+Background color
+The background color of the mural.
+Height
+The height of the mural in px.
+Width
+The width of the mural in px.
+Timer sound theme
+The timer sound theme for the mural.
+Visitor avatar theme
+The visitor avatar theme for the mural.
+Created on
+The mural's creation timestamp in milliseconds.
+First name
+Child parameter of the
+Created by
+object. This is the first name of the object collaborator.
+Last name
+Child parameter of the
+Created by
+object. This is the last name of the object collaborator.
+ID
+Child parameter of the
+Created by
+object. This is the of the object collaborator.
+Visitors
+Child parameter of the
+Visitors Setting
+object. The visitor's permission for a collaborator on a mural.
+Workspace members
+Child parameter of the
+Visitors Setting
+object. This is the visitor's workspace permission for a collaborator on a mural.
+Link
+Child parameter of the
+Visitors Setting
+object. This is the link that a visitor can use to access a mural.
+Expires on
+Child parameter of the
+Visitors Setting
+object. The unix timestamp is in milliseconds, after which the visitor link becomes invalid.
+Confidential
+Child parameter of the
+Sharing Setting
+object. When true, the mural is confidential. Confidential murals do not allow a shared link and cannot be duplicated or moved to other workspaces.
+Link
+Child parameter of
+Sharing Setting
+object. This is the link that a visitor can use to access a mural.
+Folder ID
+The UUID of the folder this mural belongs to.
+Updated on
+The last time the mural was updated in milliseconds.
+First name
+Child parameter of the
+Updated by
+object. This is the first name of the object collaborator.
+Last name
+Child parameter of the
+Updated by
+object. The last name of the object collaborator.
+ID
+Child parameter of the
+Updated by
+object. This is the ID of the object collaborator.
+Thumbnail URL
+A URL pointing to the latest thumbnail generated for this mural.
+Embed link
+A URL pointing to the mural that can be embedded in a blog or any public web page.
+Favorite
+When true, the mural is favorited by the currently authenticated user.
+Infinite
+When true, this indicates that the mural canvas is borderless and grows as you add widgets to it.
+State
+The value used to authorize anonymous visitors.
+Status
+The current status of the mural.
+←
+Delete record action
+Update record action
+→
+Last updated:
+2/24/2025, 8:47:45 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

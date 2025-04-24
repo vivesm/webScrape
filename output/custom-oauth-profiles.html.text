@@ -1,0 +1,524 @@
+Workato API - カスタムOAuthプロファイル | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+開発者用 API
+リソース
+#
+カスタムOAuthプロファイル
+以下のエンドポイントを使用して、
+カスタムOAuthプロファイル
+をプログラムで管理します。
+#
+クイックリファレンス
+タイプ
+リソース
+説明
+GET
+/api/custom_oauth_profiles
+カスタムOAuthプロファイルの一覧を取得します。
+GET
+/api/custom_oauth_profiles/:id
+IDでカスタムOAuthプロファイルを取得します。
+POST
+/api/custom_oauth_profiles
+カスタムOAuthプロファイルを作成します。
+PUT
+/api/custom_oauth_profiles/:id
+カスタムOAuthプロファイルを更新します。
+DELETE
+/api/custom_oauth_profiles/:id
+カスタムOAuthプロファイルを削除します。
+#
+カスタムOAuthプロファイルの一覧取得
+カスタムOAuthプロファイルの一覧を取得します。クライアントのシークレットとトークンはレスポンスに含まれません。
+GET /api/custom_oauth_profiles
+#
+クエリパラメータ
+名前
+タイプ
+説明
+page
+integer
+ページ番号。デフォルトは1です。
+per_page
+integer
+ページサイズ。デフォルトは100です（最大100）。
+#
+サンプルリクエスト
+curl
+-X
+GET
+'https://www.workato.com/api/custom_oauth_profiles'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+レスポンス
+{
+"result"
+:
+[
+{
+"id"
+:
+321
+,
+"user_id"
+:
+123
+,
+"name"
+:
+"Acme HubSpot OAuthアプリ"
+,
+"provider"
+:
+"hubspot"
+,
+"data"
+:
+{
+"client_id"
+:
+"example_client_id"
+}
+,
+"shared_accounts_count"
+:
+1
+,
+"oem_customers_count"
+:
+5
+,
+"created_at"
+:
+"2023-01-15T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2023-01-15T11:50:32.986-07:00"
+}
+]
+}
+#
+IDでカスタムOAuthプロファイルを取得
+IDでカスタムOAuthプロファイルを取得します。クライアントのシークレットとトークンはレスポンスに含まれません。
+GET /api/custom_oauth_profiles/:id
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+integer
+required
+取得するカスタムOAuthプロファイルのID
+#
+サンプルリクエスト
+curl
+-X
+GET
+'https://www.workato.com/api/custom_oauth_profiles/321'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+レスポンス
+{
+"result"
+:
+{
+"id"
+:
+321
+,
+"user_id"
+:
+123
+,
+"name"
+:
+"Acme HubSpot OAuthアプリ"
+,
+"provider"
+:
+"hubspot"
+,
+"data"
+:
+{
+"client_id"
+:
+"example_client_id"
+}
+,
+"shared_accounts_count"
+:
+1
+,
+"oem_customers_count"
+:
+5
+,
+"created_at"
+:
+"2023-01-15T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2023-01-15T11:50:32.986-07:00"
+}
+}
+#
+カスタムOAuthプロファイルの作成
+カスタムOAuthプロファイルを作成します。
+POST /api/custom_oauth_profiles
+#
+ペイロード
+名前
+タイプ
+説明
+name
+string
+required
+OAuthプロファイルの名前。
+provider
+string
+required
+このカスタムOAuthプロファイルに関連付けられたアプリの名前。
+data.client_id
+string
+required
+カスタムOAuthアプリのクライアントID
+data.client_secret
+string
+required
+カスタムOAuthアプリのクライアントシークレット
+data.token
+string
+optional
+Slackアプリの場合にのみ必要です。カスタムOAuthアプリのトークン
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/custom_oauth_profiles
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "My new OAuth profile",
+"provider": "hubspot"
+"data": {
+"client_id": "new_client_id",
+"client_secret": "new_client_secret"
+}
+}'
+#
+レスポンス
+{
+"result"
+:
+{
+"id"
+:
+322
+,
+"user_id"
+:
+123
+,
+"name"
+:
+"My new OAuth profile"
+,
+"provider"
+:
+"hubspot"
+,
+"data"
+:
+{
+"client_id"
+:
+"example_client_id"
+}
+,
+"shared_accounts_count"
+:
+0
+,
+"oem_customers_count"
+:
+0
+,
+"created_at"
+:
+"2023-01-15T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2023-01-15T11:50:32.986-07:00"
+}
+}
+#
+カスタムOAuthプロファイルの更新
+カスタムOAuthプロファイルを更新します。
+PUT /api/custom_oauth_profiles/:id
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+integer
+required
+更新するカスタムOAuthプロファイルのID
+#
+ペイロード
+名前
+タイプ
+説明
+name
+string
+required
+OAuthプロファイルの名前。
+provider
+string
+required
+このカスタムOAuthプロファイルに関連付けられたアプリの名前。
+data.client_id
+string
+required
+カスタムOAuthアプリのクライアントID
+data.client_secret
+string
+必須
+カスタムOAuthアプリのクライアントシークレット
+data.token
+string
+オプション
+Slackアプリの場合のみ必要です。カスタムOAuthアプリのトークン
+#
+サンプルリクエスト
+curl
+-X
+PUT https://www.workato.com/api/custom_oauth_profiles/322
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "My updated OAuth profile",
+"provider": "hubspot"
+"data": {
+"client_id": "updated_client_id",
+"client_secret": "updated_client_secret"
+}
+}'
+#
+レスポンス
+{
+"result"
+:
+{
+"id"
+:
+322
+,
+"user_id"
+:
+123
+,
+"name"
+:
+"My updated OAuth profile"
+,
+"provider"
+:
+"hubspot"
+,
+"data"
+:
+{
+"client_id"
+:
+"updated_client_id"
+}
+,
+"shared_accounts_count"
+:
+0
+,
+"oem_customers_count"
+:
+0
+,
+"created_at"
+:
+"2023-01-15T11:50:32.986-07:00"
+,
+"updated_at"
+:
+"2023-01-15T11:50:32.986-07:00"
+}
+}
+#
+カスタムOAuthプロファイルの削除
+カスタムOAuthプロファイルを削除します。
+DELETE /api/custom_oauth_profiles/:id
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+integer
+削除するカスタムOAuthプロファイルのID
+#
+サンプルリクエスト
+curl
+-X
+DELETE https://www.workato.com/api/custom_oauth_profiles/322
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+レスポンス
+{
+"result"
+:
+{
+"success"
+:
+true
+}
+}
+←
+CSVからスキーマを生成
+フォルダー
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+カスタムOAuthプロファイルの一覧取得
+IDでカスタムOAuthプロファイルを取得
+カスタムOAuthプロファイルの作成
+カスタムOAuthプロファイルの更新
+カスタムOAuthプロファイルの削除
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

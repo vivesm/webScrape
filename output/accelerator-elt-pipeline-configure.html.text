@@ -1,0 +1,184 @@
+ELT Pipeline for Snowflake -configure | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+ELT Pipeline - Snowflake
+#
+Configure the ELT Pipeline for Snowflake accelerator
+Before you start this accelerator, you must configure your
+lookup tables
+,
+custom OAuth profile
+, and an
+OPA and OPG
+.
+#
+Set up your lookup tables
+You must set up the
+ELT | User Access lookup table
+and
+ELT | System Access lookup table
+before starting the accelerator.
+#
+Set up the
+ELT | User Access
+lookup table
+1
+Navigate to
+Tools > Lookup tables
+.
+2
+Select
+ELT | User Access
+from the list of available lookup tables.
+3
+Add a user to your lookup table. Assign them to an Admin role.
+#
+Set up the
+ELT | Systems
+lookup table
+Workato preconfigures the
+ELT | Systems
+lookup table with four sources:
+Salesforce
+SQL Server
+PostgreSQL
+On-prem files
+If you don't need to use some of these sources, you can remove them by editing this lookup table.
+1
+Navigate to
+Tools > Lookup tables
+.
+2
+Select
+ELT | System Access
+from the list of available lookup tables.
+3
+Edit or remove sources, as necessary.
+#
+Set up an OPA and OPG
+See our
+On-prem connectivity
+documentation for instructions on setting up your OPA (On-prem agent) and OPG (On-prem group).
+When setting up an OPA, you must create a
+connection profile
+for each application. The application profile uniquely identifies each application and contains the configuration information required to connect. See the
+ELT pipeline accelerator connections
+documentation for a list of profiles you must create.
+#
+Set up a Custom OAuth Profile for Workbot
+The ELT Pipeline Workbot requires a Custom OAuth profile. Create the profile before connecting to Slack or Microsoft Teams. See our
+Setting up a Slack Enterprise Workbot
+or
+Setting up an Microsoft Teams Workbot
+documentation for instructions.
+←
+Connect
+Start
+→
+Last updated:
+4/5/2024, 5:55:30 PM
+On this page
+Set up your lookup tables
+Set up the ELT | User Access lookup table
+Set up the ELT | Systems lookup table
+Set up an OPA and OPG
+Set up a Custom OAuth Profile for Workbot
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

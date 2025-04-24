@@ -1,0 +1,127 @@
+Parse EDI action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+EDI tools by Workato
+#
+Parse EDI action
+The Parse EDI action enables you to convert EDI documents into Workato datapills.
+Parse EDI action configuration
+To use this action you must select the EDI standard, provide a sample document, and the EDI document content to parse. A sample document is essential for Workato to generate the schema that is then used in configuring downstream actions of the recipe.
+#
+Input fields
+Input field
+Description
+EDI standard
+Specify the EDI document standard you plan to use. The following choices are available: EDIFACT, HL7, and X12.
+Sample document
+Provide the sample EDI document used to generate the schema. After providing a sample it is parsed and datapills appear in the recipe builder.
+Document
+Provide the EDI document you plan to parse.
+CharSet
+Specify the encoding of the file contents. Defaults to Unicode (UTF-8) if left blank.
+←
+Generate EDI action
+Regex
+→
+Last updated:
+10/18/2024, 12:23:02 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

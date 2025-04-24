@@ -1,0 +1,284 @@
+UKG Pro - Terminated employee trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+UKG Pro
+#
+UKG Pro - Terminated employee trigger
+The
+Terminated employee
+trigger monitors UKG Pro for employee terminations. This trigger requires the connected UKG Pro account to have the
+View
+Web Service role.
+#
+Input
+Input field
+Description
+Company
+Select the company to monitor.
+#
+Output
+Output field
+Description
+Company ID
+A unique identifier assigned to the company within UKG Pro.
+Company code
+A short code representing the company.
+Company name
+The official name of the company.
+Employee ID
+The system-generated unique identifier for the employee.
+Job description
+A brief description of the employee’s job role.
+Pay group description
+The pay group to which the employee belongs.
+Primary job code
+The unique job classification code for the employee’s primary job role.
+Org level 1 code
+A code representing the first organizational level.
+Org level 2 code
+A code representing the second organizational level.
+Org level 3 code
+A code representing the third organizational level.
+Org level 4 code
+A code representing the fourth organizational level.
+Original hire date
+The date the employee was first hired by the company.
+Last hire date
+The most recent date the employee was rehired.
+Full time or part time code
+A code indicating whether the employee is full-time or part-time.
+Primary work location code
+The code representing the employee’s primary work location.
+Language code
+The employee’s preferred language.
+Primary project code
+The primary project the employee is assigned to.
+Work phone number
+The employee’s work contact number.
+Work phone extension
+The extension number for the employee’s work phone.
+Work phone country
+The country associated with the employee’s work phone.
+Date in job
+The date the employee started their current job position.
+Date last worked
+The last recorded date the employee worked.
+Date of benefit seniority
+The date used for determining benefit eligibility.
+Date of seniority
+The date used to calculate the employee’s seniority.
+Deduction group code
+A code representing the employee’s deduction group.
+Earning group code
+A code representing the employee’s earning group.
+Employee type code
+A classification code for the employee type.
+Employee status code
+A code representing the employee’s current status.
+Employee number
+The employee’s unique payroll number.
+Job change reason code
+A code indicating the reason for the employee's job change.
+Job title
+The official title of the employee’s job.
+Leave reason code
+A code specifying the reason for the employee's leave.
+Supervisor ID
+The unique identifier of the employee’s direct supervisor.
+Supervisor first name
+The first name of the employee’s supervisor.
+Supervisor last name
+The last name of the employee’s supervisor.
+Auto allocate
+Indicates whether resources or costs are automatically allocated.
+Clock code
+A code associated with the employee’s time-tracking system.
+Date last pay date paid
+The last date on which the employee was paid.
+Date of early retirement
+The employee’s early retirement date, if applicable.
+Date of local union
+The date the employee joined the local union, if applicable.
+Date of national union
+The date the employee joined the national union, if applicable.
+Date of retirement
+The official retirement date of the employee.
+Date of suspension
+The date the employee was suspended, if applicable.
+Date of termination
+The date the employee was terminated, if applicable.
+Date paid thru
+The date through which the employee has been paid.
+Status start date
+The date the employee’s current status became effective.
+Hire source
+The source from which the employee was hired.
+Is auto allocated
+Indicates whether allocations are automatic.
+Is autopaid
+Indicates whether the employee is automatically paid.
+Is multiple job
+Indicates whether the employee holds multiple jobs.
+Job group code
+A code representing the job classification or category.
+Mailstop
+The internal mailing location for the employee, if applicable.
+Ok to rehire
+Indicates whether the employee is eligible for rehire.
+Pay group
+The employee’s pay group.
+Pay period
+The frequency of payroll processing.
+Planned leave reason
+The anticipated reason for an upcoming leave.
+Position code
+A unique identifier for the employee’s job position.
+Salary or hourly
+Specifies whether the employee is salaried or hourly.
+Scheduled annual hrs
+The number of hours the employee is scheduled to work annually.
+Scheduled FTE
+The full-time equivalent (FTE) for the employee’s position.
+Scheduled work hrs
+The number of work hours scheduled per week.
+Shift
+The assigned shift code for the employee.
+Shift group
+A grouping of shifts for scheduling purposes.
+Term reason
+The reason for the employee’s termination.
+Termination reason description
+A detailed description of the reason for termination.
+Term type
+Specifies the type of termination.
+Timeclock ID
+The identifier used for the employee’s time-tracking system.
+Union local
+The local union the employee is associated with.
+Union national
+The national union the employee is associated with.
+Weekly hours
+The number of hours the employee is scheduled to work per week.
+Date time created
+The timestamp when the employee record was created.
+Date time changed
+The timestamp when the employee record was last updated.
+Supervisor employee number
+The employee number of the supervisor.
+Supervisor COID
+The company ID associated with the supervisor.
+Supervisor company code
+The company code associated with the supervisor.
+Company GL segment
+The general ledger segment for the company.
+Location GL segment
+The general ledger segment for the employee’s work location.
+←
+New/updated record trigger
+Create record action
+→
+Last updated:
+3/19/2025, 2:46:30 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

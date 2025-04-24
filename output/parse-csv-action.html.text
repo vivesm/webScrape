@@ -1,0 +1,173 @@
+CSV tools by Workato – Parse CSV action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+CSV tools by Workato
+#
+CSV tools by Workato – Parse CSV action (batch)
+The
+Parse CSV
+batch action parses a CSV-formatted string into an array of lines. Each line becomes a row of datapills you can use in recipe steps. This action can extract tabular data from plain text and automate imports, transformations, and data transfers across systems.
+#
+Input
+Input fields
+Description
+CSV contents
+Paste the raw CSV string or map a
+File content
+datapill. A maximum of 50,000 lines is supported.
+Column delimiter
+Select the character that separates columns in the CSV file. Defaults to
+comma
+.
+CSV contents contain header line?
+Set to
+Yes
+if the first row of the CSV is a header and should not be parsed as data.
+Header schema
+Enter the column names that define the structure of the CSV. Click
+Add column name
+to add each column. Alternatively, use a sample CSV file to populate all headers at once.
+Keep track of columns by
+Choose
+Column order
+if your CSV has a fixed column order. Choose
+Column name
+if your CSV has fixed column names but not a fixed order.
+Quote character
+Select the character used to quote cell values. Set to
+None
+if no quote character is used.
+Encoding of the file content
+Specify the encoding format. Defaults to
+UTF-8
+if left blank.
+#
+Output
+Output fields
+Description
+Lines
+An array of lines parsed from the CSV content. Each line contains columns mapped according to the provided header schema.
+#
+Example usage
+This example recipe monitors Dropbox for new or updated CSV files. When a new or updated file is detected, the recipe downloads the file contents and uses the
+Parse CSV
+action to extract structured rows from the raw text. Each row contains product data, such as
+Model
+,
+Unit Cost
+, and
+Tax
+information. The recipe then loops through each row and creates a new inventory item in NetSuite.
+Recipe that parses a CSV file and creates inventory items in NetSuite. View the
+sample recipe
+(opens new window)
+.
+←
+CSV tools by Workato
+Compose CSV action (batch)
+→
+Last updated:
+3/25/2025, 2:44:40 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

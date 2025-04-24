@@ -1,0 +1,126 @@
+Okta Privileged Access | Okta Identity Engine
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter:
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Okta Privileged Access
+Protect servers, secrets, and service accounts and meet compliance or cyber-insurance requirements with
+Okta Privileged Access
+. Traditionally, organizations had to manually integrate multiple identity solutions to establish the necessary controls, but this approach is expensive and inefficient.
+Okta Privileged Access
+, part of
+Workforce Identity Cloud
+, extends access and governance controls to your infrastructure.
+Benefits
+Okta Privileged Access
+reduces an organization's risk by bringing critical Privileged Access Management (PAM) capabilities—including infrastructure access, privileged access governance, credential vaulting, and compliance reporting—into your core
+Workforce Identity Cloud
+and access management solution.
+Maintain least privilege for critical resources
+Okta Privileged Access
+reduces the attack surface and manages the risk of credential theft by eliminating standing access to servers and service accounts.
+Meet audit and compliance standards
+Privileged access to servers through SSH/RDP can be recorded. This prevents servers from being exposed to raw internet traffic. All access is routed to
+Okta
+System Log.
+Vault credentials
+Okta Privileged Access supports compliance requirements for eliminating standing access, secures shared accounts, and provides individual accountability for usage.
+Customize approval flows
+Create customizable
+Access Requests
+workflows that must be approved before resource access is granted.
+Manage access to service accounts
+Eliminate standing privileges to non-federated service accounts for top SaaS apps.
+How it works
+Okta Privileged Access
+is listed in the
+Okta
+Workforce Identity Cloud
+as a private app within the
+Okta Integration Network
+(OIN). This app uses OIDC for SSO and SCIM for provisioning.
+The following diagram shows the major components and capabilities of
+Okta Privileged Access
+.
+The following are the major components shown in the figure.
+Users are given access to
+Okta Privileged Access
+, which they use to access the privileged resources assigned to them.
+Okta Privileged Access
+administrators set up, install, and configure various privileged access components.
+Installable
+Okta Privileged Access
+components support the infrastructure.
+Client resides on the user workstation.
+Server Agent resides on the server.
+Gateway can be used for network proxying.
+The next layer is the
+Okta Privileged Access
+tenant, called a
+Team
+. This cloud service manages privileged access to resources through policies.
+The
+Okta
+Workforce Identity Cloud
+manages the identities (users and groups), using
+Okta
+Universal Directory
+and the
+Okta
+System Log. It integrates with the
+Okta Privileged Access
+tenant as an app in
+Okta
+for SSO and provisioning.
+Access Requests
+admins can further configure the request/approval flows that are used within
+Okta Privileged Access
+.
+The
+Okta
+Access Requests
+components (platform and portal) are used for the
+Okta Privileged Access
+governance capabilities and can be extended through
+Okta Identity Governance
+for wider governance use cases. Optionally,
+Okta Workflows
+can be used for custom process automation.
+Get started
+Set up Okta Privileged Access
+©
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

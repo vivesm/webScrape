@@ -1,0 +1,156 @@
+Workato connectors - Apache Kafka Publish message action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Apache Kafka
+#
+Apache Kafka - Publish message action
+#
+Publish message
+This action publishes a new message to the selected Kafka topic. You can select the schema in AVRO format for the Kafka message body and message key.
+Publish message action
+#
+Input fields
+Input field
+Description
+Topic
+Select a topic to which you want to publish a new message. Once a topic is loaded you can fill its fields with your data.
+Message schema source
+Define your message schema source. When the
+Common data model
+is selected you will use the schema defined in Workato. By selecting the
+Schema registry (on-prem)
+option you can use the schema that is defined in your Kafka cluster. This option requires the
+schema.registry.url
+property to be configured. Workato supports schemas in AVRO format.
+Message schema
+Select the message schema format based on the Message schema source input.
+Key schema type
+Similarly to the Message schema source, you can configure schema type for your message Keys. The
+Defined in schema registry (on-prem)
+option also requires
+schema.registry.url
+property to be configured. Workato supports schemas in AVRO format.
+#
+Output fields
+The output contains useful information after a successful action. To use the output in downstream steps, map in the relevant datapill.
+Publish message output fields
+Field name
+Description
+Size
+Size of the inserted message.
+Timestamp
+Timestamp of the inserted message.
+Partition
+ID of the partition topic where the message was added.
+Offset
+Message offset which is a unique message identifier in Kafka.
+←
+New Kafka message trigger
+Asana
+→
+Last updated:
+6/16/2023, 7:22:07 AM
+On this page
+Publish message
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

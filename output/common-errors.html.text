@@ -1,0 +1,210 @@
+Workato connectors - Webhooks - Debug common errors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Webhooks
+#
+Webhooks - Debug common errors
+This guide explains common errors encountered when using the Webhooks connector and how to resolve these errors.
+#
+Error generating schema for response
+This error occurs when there is a mismatch between the detected
+Content-Type
+in the webhook header and the actual payload data type.
+For example, if the webhook header indicates a JSON payload, but the actual payload is XML (such as
+<id>1</id>
+), an error occurs when Workato attempts to parse the data.
+#
+Cause
+This issue often arises with legacy or custom applications that do not adhere to standard HTTP practices, particularly when the
+Content-Type
+header does not match the payload format.
+#
+Resolution
+Check with the application owner to confirm that the webhook API is sending data in the correct format.
+If modifying the webhook format is not possible, click
+Skip guided setup
+and manually configure the payload schema.
+#
+Webhook events receiving a 400 Bad Request error
+A
+400 Bad Request
+error occurs when there is a mismatch between the expected and actual payload type or when the payload has incompatible character encoding.
+#
+Cause
+Workato validates JSON-based webhooks, as defined by the
+Webhook type
+setting. If the payload is not valid JSON, Workato returns a
+400 Bad Request
+error.
+Workato also ensures that JSON, Form, and XML-based webhooks are UTF-8 compatible. If the payload is not UTF-8 compatible, Workato returns a
+400 Bad Request
+error.
+#
+Resolution
+Verify that the incoming webhook payload matches the defined
+Webhook type
+.
+If the payload contains non-UTF-8 characters, use the
+Raw Binary Data
+option under
+Webhook Type
+.
+#
+Webhook trigger errors
+Webhook trigger errors occur when Workato fails to accept or process a webhook event. These errors fall into two categories:
+Webhook gateway errors
+: These occur at the gateway level due to rate limiting, verification failures, or invalid requests. These errors prevent the webhook event from being processed.
+Webhook processing errors
+: These occur after the event is accepted by the gateway and may result from data parsing issues, processing logic failures, or downstream service errors.
+ERROR LOGGING
+All webhook errors are automatically logged by the
+Workato Logging Service
+. The following example displays log data for a webhook error:
+Webhook errors
+#
+Cause
+Webhook trigger errors can occur due to:
+Invalid request formats
+Incorrect webhook URLs
+Server issues
+Data format mismatches between Workato and external systems
+For example, if Workato receives webhook events from Quickbase, which represents date fields differently than Workato, a schema mismatch can occur. If the Workato webhook schema expects a
+Date
+format but receives a
+String
+, the event may be received but not processed, leading to silent failures.
+TRIGGER ERRORS VISIBILITY
+When a trigger error occurs, no job is generated. As a result, there is no job ID or entry in the job history table. These errors are only visible on the
+logging service page
+(opens new window)
+. Data-related errors don't generate prompts or notifications because no job was created.
+Learn more about
+Workato data types
+.
+#
+Resolution
+Ensure that the data types in your Workato webhook schema match the expected format from the external application.
+Use the
+Workato Logging Service
+to analyze error logs and determine the cause of webhook trigger errors.
+Filter webhook trigger errors on the
+logging service page
+(opens new window)
+to identify and troubleshoot specific issues.
+Filter errors
+←
+New event via HTTP webhook trigger
+Webhooks FAQs
+→
+Last updated:
+2/6/2025, 6:39:10 PM
+On this page
+Error generating schema for response
+Cause
+Resolution
+Webhook events receiving a 400 Bad Request error
+Cause
+Resolution
+Webhook trigger errors
+Cause
+Resolution
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

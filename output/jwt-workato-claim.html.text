@@ -1,0 +1,165 @@
+JWT トークン | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+API プラットフォーム
+API アクセス
+アクセストークン
+#
+JWT の Workato クレーム
+ID プロバイダは、複数のアプリケーションに対する検証済みアクセス権の管理プロセスを効率化します。エンドユーザーは ID プロバイダによる1回の認証だけで済みます。その認証が完了すれば複数のアプリケーションやサービスにアクセスできるようになり、余分な資格情報を記憶しておく必要がなくなります。たとえば、ID プロバイダはエンドユーザーが Workato API プラットフォームへの認証済みリクエストを行えるようにする JWT トークンを発行します。
+ID プロバイダがエンドユーザーに JWT を発行し、エンドユーザーはこれを使用して Workato API プラットフォームへの検証済みアクセス権を取得する
+Workato はリクエストを受信すると、その JWT トークンに有効な API キーが含まれているかどうかを確認します。これは、リクエストが有効なアクセスプロファイルから送信されているかどうか判断するために実行されます。有効なトークンが見つからなかった場合、API リクエストは
+401 Unauthorized
+エラーを返します。
+Workato は、下表の JWT クレームを順番に検査します。空でない
+最初のクレーム
+を特定し、そのクレームの値を既知のアクセスプロファイルの内部リストと比較します。有効なトークンが見つからなかった場合、API リクエストは
+401 Unauthorized
+エラーを返します。そうではなく有効な API キーが見つかった場合は API リクエストが成功します。
+#
+アクセスプロファイルのトークンに対応するデフォルトのクレーム
+優先順位
+部分
+JWT クレーム
+説明
+第1位
+ペイロード
+https://www.workato.com/sub
+これは名前空間のクレームです。固有の名前を使用しているため、このクレームが ID プロバイダによって制限されることはほとんどないでしょう。
+第2位
+ペイロード
+workato_sub
+Workato は、これより上のクレームが空だった場合に、このクレームを検査します。
+第3位
+ペイロード
+sub
+これは JWT の主題を表します。一部の ID プロバイダはこの JWT クレームを予約済みにしており、ここで Workato API キーを使用できなくなっています。Workato は、これより上のクレームが空だった場合に、このクレームを検査します。
+第4位
+ヘッダー
+kid
+これはヘッダーのクレームです。Workato は、これより上のクレームが空だった場合に、このクレームを検査します。
+自身のユースケースにおいて、これらのクレームをほかの目的に使用する場合は、アクセスプロファイルのトークンを保持するためにカスタムクレームを利用するとよいでしょう。
+#
+高度な設定
+#
+[Reserved claims to enforce]
+この複数選択型の入力を利用すると、予約済みクレームの中でどれを強制にするか選択できます。API プラットフォームは、選択されたクレームすべてが JWT アクセストークンに含まれている状態を保持します。たとえば、有効期間が制限されているトークンのみを API へのアクセスに使用するには、
+exp
+を選択してください。
+#
+[Allowed issuers for iss claim]
+この追加的な入力は、
+[Reserved claims to enforce]
+で
+iss
+が選択されている場合に指定します。この項目では、許可される
+iss
+値のリストを指定できます。あらゆる
+iss
+を受け入れる場合、この項目は空欄のままにしてください。
+#
+[Custom claim for access profile key]
+デフォルトの4つのアクセスプロファイルクレームすべてがほかの目的のために使用済みとなっている場合は、JWT 内にアクセスプロファイルトークンを保持するために、カスタムクレームを利用するとよいでしょう。このカスタムクレームは、アクセスプロファイルの設定で指定されている必要があります。
+←
+OpenID 接続
+API ライブラリ
+→
+Last updated:
+2024/5/2 20:17:51
+On this page
+アクセスプロファイルのトークンに対応するデフォルトのクレーム
+高度な設定
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

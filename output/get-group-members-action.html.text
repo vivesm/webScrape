@@ -1,0 +1,164 @@
+Workato コネクター - Okta get group members アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Okta
+#
+Get user group members (ユーザーグループメンバーの取得) アクション
+このアクションは、Okta インスタンス内の指定されたグループのユーザーのリストを取得します。
+Get group members アクション
+#
+入力項目
+項目
+説明
+Group ID
+グループの一意の ID。
+Page size
+1回のレスポンスで返されるレコードの最大数。デフォルトは1000です。
+Next page token
+前のリストのリクエストを次のページに継続するためのトークン。前のレスポンスのトークンをここに指定します。
+Group ID
+グループの一意の ID。
+#
+出力項目
+出力データツリーには、メンバーのリストが含まれます。各メンバーには、ユーザー ID やステータスなどの情報が含まれます。
+項目
+説明
+ID
+ユーザーの一意の ID。
+Status
+ユーザーの現在のステータスです。
+Created time
+ユーザーが作成されたときのタイムスタンプ。
+Activated time
+ユーザーのステータスが
+Active
+に更新されたときのタイムスタンプ。
+Status changed time
+ユーザーのステータスが最後に更新されたときのタイムスタンプ。
+Last login time
+ユーザーが最後にログインしたときのタイムスタンプ。
+Last updated time
+ユーザーが最後に更新されたときのタイムスタンプ。
+Password changed time
+パスワードが最後に更新されたときのタイムスタンプ。
+Profile
+このオブジェクトには、ユーザーの姓名、メールアドレス、組織、および役職を含むユーザーのプロファイルについての情報が含まれています。Okta ユーザープロファイルの詳細については、
+こちら
+(opens new window)
+を参照してください。
+Credentials
+このオブジェクトは、ユーザーのプライマリ認証および復元の資格情報を指定します。復元の質問と資格情報のプロバイダーも含まれます。
+Links
+このオブジェクトには、ユーザーのリンク関係のコレクションが含まれます。これにはライフサイクルの操作と資格情報の操作が含まれます。Okta ユーザーリンクの詳細については、
+こちら
+(opens new window)
+を参照してください。
+List size
+グループ内のメンバーの数。
+List index
+メンバーのリスト内のこのユーザーのインデックス。
+←
+名前に基づいたユーザーの取得
+ユーザーに基づいた最近のログオンイベントの取得
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

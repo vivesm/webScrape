@@ -1,0 +1,209 @@
+Data tables - Permissions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Data tables
+#
+Permissions
+The roles that you assign to users in your workspace determine the permissions to create/view/edit records/delete data tables/modify data table structure.
+Similar to other Workato features, you can define granular access permissions to data tables by creating or editing a
+custom role
+.
+#
+Set up data tables permissions with RBAC
+Data tables permissions are available in the
+Recipe development
+section of the
+Roles
+interface.
+Assign data tables permissions
+Complete the following steps to configure data tables permissions:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Use the sidebar navigation to go to
+Team management > Roles > Create a new role
+.
+Alternatively, you can modify an existing role.
+3
+Determine which projects the role has access to. You can give this role access to all projects, or only projects you specify.
+4
+Navigate to
+Recipe development > Data storage > Data tables
+.
+5
+Determine the privileges to assign to this role.
+Full access
+Allows users all data table privileges: view, edit records, create, delete,
+and modify structure.
+View
+Allows users to view data tables and use them in their recipes.
+Edit records
+Allows users to add, edit, or delete rows in a data table.
+Create
+Allows users to create new data tables.
+Delete
+Allows users to delete data tables.
+Modify structure
+Allows users to modify the structure of data tables (add/edit/delete
+columns) and edit records.
+6
+Click
+Save changes
+.
+#
+Assign roles
+After you have determined permissions for the new/edited role, you must assign the role to a user. You must assign roles to a user when you invite them to a team. You can also edit a user’s role at any time.
+To invite a user to a team:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Workspace admin > Collaborators
+.
+3
+Click
+Invite Collaborator
+.
+4
+Enter the
+Full name
+and
+Email address
+of the collaborator.
+5
+Using the
+Collaborator role
+menu, select the role you plan to assign to the collaborator.
+6
+Click
+Send invitation
+.
+To edit an existing user’s role:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Team management > Collaborators
+.
+3
+Select the collaborator you plan to modify. This opens the
+Edit collaborator
+interface.
+4
+Select a new role from the
+Role
+drop-down.
+5
+Click
+Update
+.
+Learn more about assigning roles
+.
+←
+Data tables
+User interface
+→
+Last updated:
+4/1/2025, 5:13:02 PM
+On this page
+Set up data tables permissions with RBAC
+Assign roles
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

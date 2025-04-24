@@ -1,0 +1,241 @@
+Scheduler by Workato - New recurring event trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Scheduler by Workato
+#
+Scheduler by Workato - New recurring event trigger
+The
+New recurring event
+trigger allows you to define the interval at which your recipe runs.
+For example, you can schedule your recipe to run every 15 minutes or at a specific time, such as 9:00 AM every Monday. To use a more advanced schedule, select
+Custom schedule
+from the
+Time unit
+drop-down menu and enter a cron expression. The minimum supported interval is five minutes.
+TIMING IS APPROXIMATE
+Scheduled trigger times are approximate and may experience slight delays due to the trigger's processing queue design. For more precise scheduling, use a
+cron expression
+.
+New recurring event trigger
+#
+Input fields
+Field
+Description
+Time unit
+Choose the interval for your schedule. Options include
+Minutes
+,
+Hours
+,
+Days
+,
+Weeks
+,
+Months
+, or
+Custom schedule
+.
+Trigger every
+Specify how often to run the recipe. Enter whole numbers only. The minimum value is
+5
+minutes.
+Trigger at
+Available for Days, Weeks, and Months
+. Define the specific time to run the job.
+Days of the week
+Available for Weeks
+. Select the days on which the schedule repeats.
+Days of the month
+Available for Months
+. Select the days on which the schedule repeats.
+Cron expression
+Available for Custom schedule
+. Enter a
+cron expression
+to define an advanced schedule.
+Timezone
+Select the timezone for your schedule. The default is
+America/Los_Angeles
+.
+Start after
+Set the date and time to start the recipe. You can't change this value after the recipe has run or been tested.
+#
+Output fields
+Field
+Description
+Scheduled time
+The time at which the recipe is scheduled to run.
+Scheduled day
+The day on which the recipe is scheduled to run.
+Scheduled week
+The week on which the recipe is scheduled to run.
+Scheduled month
+The month on which the recipe is scheduled to run.
+Last job time
+The time when the recipe last ran.
+TIMEZONE
+The
+Scheduled time
+output field defaults to
+(GMT-08:00) Pacific Time (US & Canada)
+.
+To use a different timezone, adjust the
+Timezone
+input field accordingly.
+#
+Cron expressions
+Learn how to write cron expressions in 2 minutes
+A cron expression defines a schedule for automated tasks using a fixed and ordered syntax. To set a custom schedule, select
+Custom schedule
+from the
+Time unit
+drop-down menu.
+Cron expressions consist of five fields, each representing a specific time unit. Use the wildcard
+*
+to represent all possible values in a field. For more information, see
+Cron expressions
+(opens new window)
+.
+<Minute> <Hour> <Day of month> <Month> <Day of week>
+#
+Examples
+Cron expression
+Description
+0 0 * * *
+Every day at midnight (
+00:00
+).
+*/10 * * * *
+Every 10 minutes.
+0 0 1 * *
+The first day of every month at midnight (
+00:00
+).
+0 0 L * *
+The last day of every month at midnight (
+00:00
+).
+0 0 * * 1,5
+Every Monday and Friday at midnight (
+00:00
+).
+0,30 * * * *
+Twice every hour, at
+00
+and
+30
+minutes past.
+0 9 * * MON#1
+The first Monday of every month at
+09:00
+.
+←
+Scheduler by Workato
+Get current time action
+→
+Last updated:
+3/27/2025, 7:39:26 PM
+On this page
+Input fields
+Output fields
+Cron expressions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,250 @@
+Salesforce generic actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+Triggers/actions in Salesforce
+#
+Salesforce triggers
+In Workato, a Trigger refers to a condition that is set to start off a recipe. All the triggers on the Salesforce connector deals with
+Objects
+. The name of the trigger tells you exactly what event must occur for a recipe to take place. The Salesforce connector supports several different trigger types:
+Real-time triggers
+Polling triggers
+Bulk triggers
+Change data capture trigger
+Pushtopic trigger
+Deprecation Notice - Pertaining to Real-time triggers
+Currently, the real-time triggers configured in Workato rely on Salesforce Workflow rules. These existing Workflow rules will continue to be supported. However, we recommend all new recipes to use Salesforce Flows as Workflow Rules and Process Builder have now been
+deprecated
+(opens new window)
+by Salesforce. There is a
+migration tool
+(opens new window)
+to move your Workflow rules into Flows.
+As the outbound messages configured in Salesforce will remain the same, the process should not affect Workato recipes. Nevertheless, we recommend testing the migration in the Salesforce sandbox account first to ensure that there are no unexpected issues.
+#
+Configuring a trigger
+In the example below, we will configure a simple polling trigger. Polling triggers check the connected Salesforce account at a configurable set interval (as frequent as 5 minutes) for new or updated objects.
+All the triggers on the Salesforce connector deals with
+Objects
+. The name of the trigger tells you exactly what event must occur for a recipe to take place. The term "object" is exactly the same as how it is used within Salesforce itself, and refers to things such as leads, opportunities, accounts, as well as custom objects you may have created for your organization. Simply select the Object field's drop-down list and you will be able to see all the objects associated with the instance of Salesforce you have connected to a recipe. For example, you use the trigger
+"New/Updated Record"
+and select
+Lead
+as the object. Your recipe will trigger every time a new lead is created or updated.
+The recipe will now trigger when there is a new/updated lead
+#
+Fields input field
+The
+Fields
+list input field allows users to select the fields they wish to use in the recipe. This ensures that the recipe will be affected only by changes to these subset of fields, and therefore minimize impact on the recipe due to schema changes.
+The benefits of using the
+Fields
+list are:
+Improved recipe performance
+Improved recipe usability due to smaller datatree with only relevant datapills
+Minimizes impact on recipe by Salesforce object schema changes
+#
+How to use Fields list
+Salesforce triggers and actions have an optional input field called
+Fields
+. This is a multi-select field for you to select the data fields you want to use in the recipe. If left blank, the Salesforce trigger/action will retrieve all data fields in the datatree by default.
+Unconfigured fields selector. All Account fields are retrieved in the data tree by default.
+All data fields of your selected object will be available in the
+Fields
+list.
+Fields selector displays all available data fields for your selected object by default
+By selecting any subset of these fields, the data tree will be regenerated to display only the selected datapills.
+Configuring the fields selector - the data tree is regenerated when any fields are selected
+In Salesforce, you can choose to retrieve related objects' data as well, for example, if your trigger is a new opportunity in Salesforce, we can retrieve data about the Salesforce account the opportunity is related to. If your trigger is a new case, we can retrieve data about the Salesforce contact, lead, or account the opportunity is related to. To tell Workato the fields to select, first select the related objects you're interested in, then select the fields of this related object you're interested in.
+In the following example, we first selected
+account
+as the primary base object, then
+parent account
+as the join object. The
+Fields
+multi-select list is promptly populated with fields belonging to the parent account as well. Similarly, if the
+Fields
+list is not configured, all
+account
+and
+parent account
+fields will be fetched from Salesforce.
+Available join object fields will be shown when the related join objects is selected
+All data fields of your selected base and related join objects will be available in the
+Fields
+list. By selecting any subset of these fields, the datatree will be regenerated to display only the selected datapills.
+Configuring the fields selector containing base and related join object data fields - the datatree is regenerated when any fields are selected
+By limiting the datatree to the fields we're interested in using, we mitigate the effects of Salesforce schema changes on our recipe.
+#
+Deleted record trigger in Salesforce
+The deleted record trigger allows you to trigger a recipe when a record is deleted. The object picklist fetches only soft-deleted records which are still stored in Salesforce (usually for 15 days) after deletion.
+If you cannot find the object you need in the picklist, this may mean that the records for the object are hard deleted immediately when you delete them - Salesforce does not store them in the recycle bin. These objects cannot be supported by the Deleted object trigger.
+To try and resolve the issue, configure the object to have records be soft deleted (and placed on a deleted item list/Recycle Bin for 15 days), depending on the record setup. Note that junction records (records that create many-to-many relationships between objects) are usually hard deleted and cannot be configured for soft-deletion. Check with your Salesforce administrator if more information is needed regarding soft/hard deletions.
+#
+Create/update/search/upsert actions in Salesforce
+When working with Salesforce Actions on Workato, you should find it extremely easy if you are familiar with the fields in the objects on your Salesforce account.
+When you select an object to use in a create/update/search action, you will see all the fields associated with that object appearing in your action. For example, if you were to choose
+Lead
+you will see fields like phone, email, lead status etc. Simply drag and drop pills into the associated fields you want to populate in a create/update action, or for the field you want to search with in the search action.
+#
+Upsert Action
+Workato's upsert action allows users to perform create or update in Salesforce. That is, Salesforce will attempt to create an object with the provided values in the fields.However, when a Primary Key field is specified, and the object already exists with an identical value in the given Primary Key field, Salesforce will identify the existing object, and update the existing object with the values that were provided.
+Primary Key field
+- Specify a field that allows you to uniquely identify a specific record for the object. Next, make sure that the given field is filled with the value that would be used to look in Salesforce. Note that the provided primary key field and value should only match to one specific object. If more than one object was found, the recipe will throw an error.
+Can I use more than 1 Primary Key?
+Unfortunately that is not possible. However, there is a simple workaround. You can do a search action based on the first key, and have a conditional action stating if the size of the results (from the Search) is greater than 1. If this is true then there are multiple records matching the first primary key. If you would like to search for a record using 2 fields such as Full Name and Account, it would be best to use a Search action with both of those parameters and use conditional actions to check the size of the results before updating or creating.
+#
+Search Action
+The Search records action returns results that match all your search criteria. The number of returned records defaults to a limit of 150 and can be increased to a maximum of 2000 records.
+The action may fail due to a timeout if you only search by unindexed fields in Salesforce. This could be due to the system taking too long to find the requested object. In Salesforce, some fields are indexed and are "given higher priority" during a search function and hence a faster search output. When a custom object is created and not indexed, the time out issue might occur.
+To improve performance of the formula with custom indexes and how to create custom indexes, view the link
+here
+(opens new window)
+.
+#
+Attachments in Salesforce
+#
+Uploading
+To upload an attachment to Salesforce using Workato, you can use the
+Create Object
+Action, and select
+Attachment
+under the
+Object
+field. Before that however, you need to have a step that downloads the file that is to be uploaded to Salesforce. You may use an appropriate file connector action to get the file contents. You can check out
+this example here
+(opens new window)
+on how to download a file to Workato.
+#
+Downloading
+To download an attachment
+from
+Salesforce, you can use the
+Download file
+Action. The
+file ID
+must be obtained from a previous step, usually from the
+Get object details
+step. Once that step is properly set up, you will be able to use the attachment as a pill in the other steps of the recipe, for example, you can use an appropriate file connector action to upload the file contents.
+#
+Prevent schema errors with Fields list
+When using a Salesforce trigger/action in a recipe, all object fields (standard and custom fields) are requested from Salesforce by default,
+even if these fields are not used in the recipe
+.
+If a Salesforce admin changes the Salesforce object schema, for example, deletes fields in the object, the recipe throws an error when making API requests to Salesforce for that object. This is because these deleted fields are still being requested from Salesforce by the recipe, which is an invalid request. On the other hand, if fields are added to the Salesforce object, there will not be any recipe errors as Workato will simply not request for these additional fields.
+Such schema differences between Salesforce and Workato can be resolved by a schema refresh. However, if frequent schema changes are expected, we can utilize the
+Fields
+input field to control the fields that we request from Salesforce. This will ensure that schema changes unrelated to the recipe will not cause the recipe to break or experience errors.
+←
+Create a custom OAuth profile
+Real-time triggers
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+Salesforce triggers
+Deleted record trigger in Salesforce
+Create/update/search/upsert actions in Salesforce
+Attachments in Salesforce
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

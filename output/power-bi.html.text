@@ -1,0 +1,320 @@
+Workato connectors - Power BI | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Power BI
+Power BI
+(opens new window)
+is a Microsoft business analytics platform that offers interactive visualizations and business intelligence tools. It enables users to create reports and dashboards.
+#
+API version
+The Power BI connector uses the
+Power BI REST API v1.0
+(opens new window)
+.
+#
+Prerequisites
+Complete the following steps before you establish a connection to Power BI:
+Register an Application in Azure portal
+Generate a client ID (application ID)
+Generate a client secret
+Assign API permissions
+Retrieve a tenant ID (for single-tenant accounts)
+After you complete these prerequisites, proceed to
+connect to Power BI on Workato
+.
+#
+Register an application in Azure portal
+Complete the following steps to register an application in Azure portal:
+1
+Go to the
+Microsoft Entra admin center
+(opens new window)
+and sign in with your
+Azure admin credentials
+.
+2
+Go to
+Microsoft Entra ID
+(formerly Azure Active Directory) in the left-hand menu.
+3
+Click
+App registrations
+.
+4
+Click
+New registration
+.
+5
+Enter the following details:
+Name
+: Enter a unique name for your application.
+Supported Account Type
+: Choose
+Single Tenant
+(only your organization) or
+Multi-Tenant
+(multiple organizations).
+Redirect URI
+: Optional. Enter
+https://www.workato.com/oauth/callback
+6
+Click
+Register
+to create the app.
+#
+Generate a client ID (application ID)
+Complete the following steps to generate a client ID (application ID):
+1
+Go to the
+Overview
+page after the app is registered.
+2
+Copy the
+Application (client) ID
+. This is your
+Client ID
+. Refer to the
+Set up Power BI Embedded
+(opens new window)
+article for more information.
+#
+Generate a client secret
+1
+Go to
+Certificates & secrets
+.
+2
+Click
+New client secret
+in the
+Client secrets
+section.
+3
+Provide a
+Description
+and choose an
+Expiration period
+, such as 6 months, 1 year, or 2 years.
+4
+Click
+Add
+to generate the client secret.
+5
+Copy and save the
+client secret
+value immediately. You can't view it later.
+Power BI Certificate
+#
+Assign API Permissions
+Complete the following steps to assign API permissions for Power BI:
+1
+Go to
+API permissions
+.
+2
+Click
+Add a permission
+and select
+Power BI Service
+.
+3
+Select the required permissions, such as
+App.Read.All
+and
+Dataset.ReadWrite.All
+.
+4
+Click
+Add permissions
+, then "
+Grant admin consent
+" if required.
+#
+Retrieve a tenant ID (for single-tenant accounts)
+Complete the following steps to retrieve your tenant ID:
+Complete the following steps to retrieve your tenant ID:
+1
+Open Microsoft Entra ID, then select
+Overview
+.
+2
+Copy the
+Directory (tenant) ID
+. This is your
+tenant ID
+.
+Power BI Tenant ID
+#
+Connect to Power BI in Workato
+The Power BI connector supports OAuth 2.0 authentication. Choose one of the following authentication methods based on your Power BI setup:
+Power BI Connection
+Complete the following steps to connect Power BI using OAuth 2.0 Authorization Code:
+1
+Enter a unique
+Connection name
+to identify the connected instance.
+2
+Select
+OAuth2 Authorization code
+as the
+Auth type
+.
+3
+Enter the
+Client ID
+used for authentication with Power BI.
+4
+Provide the
+Client secret
+required for authentication with Power BI.
+5
+Specify the
+API version
+to use.
+6
+Select the registered
+Account type
+in Power BI.
+7
+Optional. Enter the
+Tenant ID
+for authentication if you plan to use a
+single tenant account
+.
+Complete the following steps to connect Power BI using OAuth 2.0 client credentials:
+1
+Enter a unique
+Connection name
+to identify the connected instance.
+2
+Select
+OAuth2 Client credentials
+as the
+Auth type
+.
+3
+Enter the
+Client ID
+used for authentication.
+4
+Enter the
+Client secret
+used for authentication.
+5
+Specify the
+API version
+to use.
+6
+Enter the
+Tenant ID
+. This can be in GUID format or a friendly name format.
+←
+Get record action
+Add row to a table action
+→
+Last updated:
+2/12/2025, 9:23:03 AM
+On this page
+API version
+Prerequisites
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,172 @@
+Data center overview | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data & security
+#
+Supported cloud regions
+You can choose the region where Workato stores and process your organization’s automation data. This includes recipes, connections, shared assets like lookup tables, and the job history. This data remains isolated in that specific region and can't be transferred to other regions.
+This approach allows you to localize your data and processing in specific locations when necessary for legal and regulatory compliance.
+SECURITY MEASURES ARE THE SAME ACROSS DATA CENTERS
+Refer to the
+Workato Security Overview
+(opens new window)
+to learn more about how Workato addresses security.
+Workato data center locations
+#
+Data center locations
+VIRTUAL PRIVATE WORKATO (VPW) CUSTOMERS
+This page provides general guidance for all Workato users. If you're a Virtual Private Workato (VPW) customer, refer to your private documentation for detailed configuration guidance specific to your instances.
+You can host your Workato data in the following regions:
+US data center
+The US data center is hosted on Amazon Web Services (AWS) in the US East region. It is available for Workato customers in the North America region.
+EU data center
+The European Union (EU) data center is available for customers in the European Economic Area (EEA) who prefer to store and process their data locally. The new data center is hosted in the AWS EU Central region.
+JP data center
+The JP data center is available for customers who require their data within Japan.
+SG data center
+The SG data center is available for customers who require their data within Singapore.
+AU data center
+The AU data center is available for customers who require their data within Australia.
+WORKATO ACROSS REGIONS
+Each Workato account is hosted in a single regional data center. If you want to use Workato across multiple regions, you must sign up for and maintain a Workato account in each of the desired regional data centers.
+Refer to the
+share assets across regions
+section for more information.
+#
+Share data between regions
+Workato does not share or transfer customer data across regions. Each data center independently hosts customer workspaces. Customer data in a workspace in one region cannot be shared with a workspace in a different region.
+Workato collects certain kinds of data to provide services. This data may be transferred to and stored in the US. This data includes:
+In-app chat
+Support tickets and other interactions with the Workato support
+Interactions with the Workato blog
+Interactions with Workato educational offerings, like the Automation Institute
+Refer to the
+Privacy policy
+(opens new window)
+for information about the data Workato collects.
+CUSTOMER SUPPORT
+Workato maintains a globally-distributed support team to offer product support to our customers in all timezones. Refer to the
+Workato Success Center
+(opens new window)
+to connect with the support team.
+#
+Can I share assets across data centers?
+The following cross-region interactions are not supported:
+Cross-region user collaboration
+To prevent customer data from transferring between different regions, Workato does not support cross-region collaboration. For example, a Workato user in the US data center cannot join a workspace in the EU data center as a collaborator.
+Cross-region recipe sharing using a private link
+Users can
+generate private sharing URLs
+that grant access to specific recipes. Recipe sharing URLs are specific to a workspace's data center and are only accessible by other users with a workspace in the same region.
+Cross-region custom connector sharing using a private link
+Similar to recipe sharing, users can
+generate private sharing URLs
+that grant access to their custom connectors. Recipe sharing URLs are specific to a workspace's data center and are only accessible by other users with a workspace in the same region.
+←
+IP Allowlists FAQs
+Cloud hosting editions
+→
+Last updated:
+2/5/2025, 7:14:44 PM
+On this page
+Data center locations
+Share data between regions
+Can I share assets across data centers?
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,258 @@
+Audit log streaming for Automation HQ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Automation HQ
+Usage
+#
+Audit log streaming for Automation HQ
+Enable an audit log streaming system for your entire organization. This includes all current and future workspaces that Automation HQ manages.
+NOTE
+You can't modify log settings within managed workspaces.
+Automation HQ adapts
+Audit log streaming
+to provide a single logging mechanism and destination for all workspaces in your organization.
+Automation HQ audit log streaming
+Complete the following steps to enable audit log streaming:
+1
+Go to
+Automation HQ
+.
+2
+Click the
+Settings
+tab.
+3
+Click
+Set up audit log streaming
+. The
+Stream logs from all workspaces to an external log provider
+interface appears.
+Set up audit log streaming
+4
+Choose an
+Audit log destination
+from the drop-down menu. Refer to
+Audit log streaming destinations
+for more information on destination types.
+Choose audit log streaming destination
+5
+Use the following tabs to complete the steps for your selected destination:
+Complete the following steps to configure Amazon S3 as your audit log destination:
+1
+Create a new connection
+for Amazon S3, or use an existing connection.
+Configure Amazon S3 as your audit log destination
+2
+Use the
+Choose a bucket
+drop-down menu to select a bucket from your Amazon S3 instance.
+3
+Choose the events that you plan to stream:
+Job status only
+: Logs whether a job succeeded or failed.
+Full job details
+: Logs job details, including status and data for each line action.
+User activity
+: Logs all user activity in the workspace.
+4
+Optional. Use the
+Customize log message
+field to define log messages using JSON format. You can add custom fields and structures. For more details, refer to the
+Customize log message
+documentation.
+5
+Click
+Save
+to enable streaming to the Amazon S3 bucket.
+Complete the following steps to configure Azure Monitor as your audit log destination:
+1
+Create a new connection
+for Azure Monitor, or select an existing connection.
+Configure Azure Monitor as your audit log destination
+2
+Specify the record type in the
+Log Type
+field. This value can only contain letters, numbers, and underscores and must not exceed 100 characters.
+3
+Enter the Azure
+Resource ID
+associated with the log data.
+4
+Choose the events that you plan to stream:
+Job status only
+: Logs whether a job succeeded or failed.
+Full job details
+: Logs job details, including status and data for each line action.
+User activity
+: Logs all user activity in the workspace.
+5
+Optional. Use the
+Customize log message
+field to define log messages using JSON format. You can add custom fields and structures. For more details, refer to the
+Customize log message
+documentation.
+6
+Click
+Save
+to enable streaming to Azure Monitor.
+Complete the following steps to configure Azure Blob Storage as your audit log destination:
+1
+Create a new connection
+for Azure Blob Storage, or select an existing connection.
+Configure Azure Blob Storage as your audit log destination
+2
+Use the
+Container name
+drop-down menu to select a container from your Azure Blob Storage instance. You can refresh the container list if your desired container isn't listed.
+3
+Choose the events that you plan to stream:
+Job status only
+: Logs whether a job succeeded or failed.
+Full job details
+: Logs job details, including status and data for each line action.
+User activity
+: Logs all user activity in the workspace.
+4
+Optional. Use the
+Customize log message
+field to define log messages using JSON format. You can add custom fields and structures. For more details, refer to the
+Customize log message
+documentation.
+5
+Click
+Save
+to enable streaming to Azure Blob Storage.
+Complete the following steps to configure a cloud based logging service as your audit log destination:
+1
+Provide the HTTP logging endpoint in the
+Destination URL
+field. For example, for Sumo Logic, this is the URL of an HTTP source.
+Configure a cloud based logging service
+2
+Enable the
+Requires authentication
+toggle if the endpoint requires authentication, and provide the necessary credentials.
+3
+Choose the events that you plan to stream:
+Job status only
+: Logs whether a job succeeded or failed.
+Full job details
+: Logs job details, including status and data for each line action.
+User activity
+: Logs all user activity in the workspace.
+4
+Optional. Use the
+Customize log message
+field to customize log messages using JSON format. You can use custom fields and define the JSON structure. For more details, refer to the
+Customize log message
+documentation.
+5
+Click
+Save
+to enable streaming to your cloud based logging service.
+Audit log streaming is now enabled and configured for all workspaces in Automation HQ.
+←
+Settings
+Workspace collaborators
+→
+Last updated:
+2/24/2025, 7:01:37 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

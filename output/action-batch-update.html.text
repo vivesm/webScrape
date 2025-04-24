@@ -1,0 +1,231 @@
+Workato connectors - NetSuite - Update records in bulk | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite Action - Update records in bulk
+The
+Update standard records in bulk
+and
+Update custom records in bulk
+actions enable you to update standard records or custom records in bulk.
+#
+Limitations
+These actions are subject to the following limitations:
+List size
+: These actions accept a list of a maximum of 200 records. Actions fail if you provide more than 200 records.
+Processing times
+: NetSuite bulk actions are processed in a single queue on NetSuite, which can lead to processing delays. These actions are asynchronous, meaning Workato must poll for job status updates. As a result, processing times can vary depending on the load and availability of the NetSuite system.
+#
+Input fields
+Select the
+Standard record
+or
+Custom record
+you want to update. In this example, we select
+Customer
+:
+After that, you can proceed to configure the next sections.
+#
+Field configuration
+This section allows you to shortlist which NetSuite fields you want to use. Only shortlisted fields are displayed in the action's input and output. This makes it easier to work with complex NetSuite objects containing hundreds of fields.
+In this example, we use the fields
+First name
+,
+Last name
+,
+Email
+, and
+phone
+from the
+Customer
+record:
+The followings are all input fields in this section:
+Fields
+The Netsuite record's main fields to be shortlisted.
+Custom fields
+The Netsuite record's custom fields to be shortlisted.
+Custom segment schema
+If your Netsuite record has a custom schema, you can define the custom schema here.
+Line item custom fields
+The Netsuite record's line item custom fields to be shortlisted.
+Line item custom segment schema
+If your Netsuite line item has a custom schema, you can define the custom schema here.
+#
+Record
+This section's name changes based on the
+Standard record
+or
+Custom record
+you select. In this section, provide data mappings to update the NetSuite records.
+In the following example, we map the data from the Box trigger
+New CSV file in directory
+into NetSuite record
+Customer
+. Notice that only the shortlisted fields
+First name
+,
+Last name
+,
+Email
+, and
+phone
+display here.
+You must also map the record's
+Internal ID
+so NetSuite knows which records to update. In this scenario, our CSV records from Box contain NetSuite IDs for mapping.
+The followings are all input fields in this section:
+Record source list
+Provide a
+list data pill
+here. For example, list of rows in a CSV file. The action automatically iterates through all items in the list and maps them to NetSuite records.
+Internal ID
+ID of the NetSuite record. NetSuite uses this to determine which record to update.
+Record fields
+Here you must map the datapills under the list datapill provided previously. For example, CSV column names under the
+CSV Rows
+list datapill. The action automatically iterates through all items in the list and maps them to NetSuite records.
+#
+Output fields
+Number of processed records
+Total number of records processed.
+Number of successful records
+Number of records successfully updated.
+Number of failed records
+Number of records failed to be updated.
+Successful records
+A list datapill containing all successful records. You can use this to
+iterate through all records in the list
+.
+The data fields of each record are:
+Internal ID
+Internal ID of this record.
+External ID
+External ID of this record.
+Record
+Contains all data fields of this record.
+List size
+Number of successful records in this list.
+Failed records
+A list data pill containing all failed records. You can use this to
+iterate through all records in the list
+.
+The data fields of each record are:
+Error
+A list data pill containing all errors of this record. You can use this to
+iterate through all errors in the list
+.
+Record
+Contains all data fields of this record.
+List size
+Number of failed records in this list.
+←
+Update records in batch
+Upsert records in batch
+→
+Last updated:
+9/26/2024, 5:30:27 PM
+On this page
+Limitations
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

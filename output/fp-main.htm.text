@@ -1,0 +1,106 @@
+Okta FastPass | Okta Identity Engine
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter:
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Okta FastPass
+Okta FastPass
+is a phishing-resistant, passwordless authenticator. It enables secure access to
+Okta
+-protected apps across all supported platforms on managed and unmanaged devices. To use
+Okta FastPass
+, users must install the latest version of the
+Okta Verify
+app and create an account on their desktops, laptops, or mobile devices.
+Okta Verify
+with
+Okta FastPass
+support is available for Android, iOS, macOS, and Windows.
+Benefits
+Phishing-resistant authentication
+You can configure phishing-resistant constraints in your authentication policy rules. When users sign in to apps,
+Okta FastPass
+verifies that the authentication request doesn't come from a malicious site. You can also configure a phishing-resistant authenticator enrollment for your users.
+Passwordless authentication
+Okta FastPass
+uses public key cryptography to authenticate users. By eliminating the need for passwords,
+Okta FastPass
+provides user-friendly authentication while reducing the risk of security incidents and the IT costs associated with factor enrollment and reset.
+Device posture evaluation
+For increased security, you can use device assurance policies to configure access to resources based on device attributes such as operating system and screen lock. During authentication,
+Okta FastPass
+collects security signals from
+Okta
+and third-party sources and evaluates the device posture according to the device assurance policy rules. Compliant devices are granted access to resources. On non-compliant devices, users are denied access unless they complete remediation actions.
+Consistent user experience
+Okta FastPass
+works with OIDC, SAML, and WS-Federation apps protected by
+Okta
+. It integrates with built-in device authenticators such as Windows Hello, Touch ID, or Face ID to facilitate biometric authentication.
+Okta FastPass
+is supported on managed and unmanaged devices on Android, iOS, macOS, and Windows.
+How it works
+In the following example, users authenticate with
+Okta FastPass
+without providing a username or password.
+The user initiates an authentication request by accessing an
+Okta
+-protected app.
+The
+Okta
+server issues a unique challenge for the authentication request.
+The
+Sign-In Widget
+on the browser or an OS-specific app forwards that challenge to
+Okta Verify
+with
+Okta FastPass
+enabled (installed on the same device).
+Okta FastPass
+collects device signals, generates a response, and signs it with the proof of possession private key that was issued during user enrollment.
+Okta FastPass
+sends the response to the server.
+The
+Okta
+server validates the signature and confirms that the response corresponds to the unique challenge that was issued.
+The
+Okta
+policies are evaluated based on the device context collected. If the policy conditions are met, the user is granted access to the app.
+Get started
+Configure Okta FastPass
+©
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

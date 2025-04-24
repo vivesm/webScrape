@@ -1,0 +1,364 @@
+Google Workspace - Get record action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Workspace
+#
+Google Workspace - Get record action
+The
+Get record
+action retrieves details about an object in a Google Workspace.. To configure the action, you must first select the type of
+Object
+you plan to add. The recipe editor generates additional fields based on your selection.
+The
+Get record
+action supports the following
+Object
+types:
+User
+User alias
+Group
+Organizational unit
+Member from group
+Role assignment
+App specific passwords
+Verification code
+Access token
+License
+#
+Get user
+The
+Get user
+Object
+selection retrieves details about a user in Google Workspace.
+#
+Input
+Input field
+Description
+Email address
+Enter the user's primary or alias email address.
+Projection type
+Select the projection type as
+Full
+or
+Basic
+. The default is
+Basic
+.
+View type
+Select the view type as
+admin_view
+or
+domain_public
+. The default is
+admin_view
+.
+Custom Field schemas
+Select the custom field schemas. The default is
+all fields
+.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get user alias
+The
+Get user alias
+Object
+selection gets details of an alias email address of the User in Google Workspace.
+#
+Input
+Input field
+Description
+Email address
+The user's primary email address,alias email address, or unique user ID.
+Alias
+The alias email address of the user.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get group
+The
+Get group
+**Object selection gets details of a group in Google Workspace.
+#
+Input
+Input field
+Description
+Email address
+The email address or alias email address of the group.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get organizational unit
+The
+Get organizational unit
+Object
+selection gets details of an organizational unit in Google Workspace.
+#
+Input
+Input field
+Description
+Organizational unit
+Select the organizational unit in Google Workspace.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get member from group
+The
+Get member from group
+Object
+selection gets details of a member from a group in Google Workspace.
+#
+Input
+Input field
+Description
+Group email address
+Enter the group email address, group alias, or unique group ID.
+Group member email address
+Enter email address of the user or a group that is part of the selected group.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get role assignment
+The
+Get role assignment
+Object
+selection gets details of the role assignment of a user in Google Workspace.
+#
+Input
+Input field
+Description
+Role
+Select the role assignment to retrieve details.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get App specific passwords
+The
+Get App specific passwords
+Object
+selection gets details of the app specific password of a user in Google Workspace.
+#
+Input
+Input field
+Description
+Email address
+Enter the user email address, including primary, alias, or a unique user ID.
+Code ID
+Enter the unique ID of the App specific password to be retrieved.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get verification code
+The
+Get verification code
+Object
+selection gets details of verification code associated with a user email address in Google Workspace.
+#
+Input
+Input field
+Description
+Email address
+Enter email address of the user, such as be the primary or alias address.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get access token
+The
+Get access token
+Object
+selection gets details of the access token issued to a client under a user.
+#
+Input
+Input field
+Description
+Email address
+Enter the user email address, such as primary, alias, or a unique user ID.
+Client ID
+Enter the client ID of the application to which the token is issued to.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+#
+Get license assigned to a user
+The
+Get license assigned to a user
+Object
+selection gets details of a product license assigned to a user in Google Workspace.
+#
+Input
+Input field
+Description
+Product ID
+Enter the name of the product associated with the user's license.
+SKU to update
+Enter the product SKU's unique identifier number.
+Email ID
+Provide the email ID of the user associated with the license. If there are any email ID updates, use the updated email ID.
+#
+Output
+The
+Get record
+action generates output fields relevant to the newly added user objects, including any custom fields defined in the
+Custom fields schema
+.
+←
+Delete record action
+Mobile device action
+→
+Last updated:
+3/17/2025, 6:35:48 PM
+On this page
+Get user
+Get user alias
+Get group
+Get organizational unit
+Get member from group
+Get role assignment
+Get App specific passwords
+Get verification code
+Get access token
+Get license assigned to a user
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

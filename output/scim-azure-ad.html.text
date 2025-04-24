@@ -1,0 +1,667 @@
+Azure Active DirectoryでSCIMを設定して使用する方法 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+Azure Active Directory (AD)でSCIMを設定する
+Workatoは、Azure Active Directory (AD)のIDプロバイダーとして、クロスドメインアイデンティティ管理システム（SCIM 2.0）プロトコルをサポートしています。
+AZURE ADの新しい名前
+MicrosoftはAzure Active Directoryの名前を
+Microsoft Entra ID
+(opens new window)
+に変更しています。移行期間中にAzure Portalでどちらの名前も表示される場合があります。
+Azure ADでSCIMを設定するには、次の手順が必要です：
+前提条件
+ステップ1：カスタム拡張属性を設定する
+ステップ2：Azure ADで自動プロビジョニングを設定する
+ステップ3：Azure ADとWorkatoの属性マッピングを設定する
+ステップ4：ユーザーをプロビジョニングする
+#
+前提条件
+Workatoでの設定:
+ワークスペースの管理者である必要があります。
+組織には
+高度なセキュリティとコンプライアンス
+アドオンが必要です。
+SAML SSO
+が正常に設定されている必要があります。
+WorkatoでSCIMを設定済み
+である必要があります。
+Microsoft Azureでの設定:
+Microsoft Graph
+(opens new window)
+APIにアクセスできる必要があります。
+十分な権限を持つAzure ADにアクセスできる必要があります。
+#
+ステップ1：カスタム拡張属性を設定する
+Azure ADからWorkatoにユーザーアカウントをプロビジョニングする前に、Azure ADのユーザースキーマを拡張して、ユーザーのWorkatoの役割を指定するカスタム属性を含める必要があります。
+拡張属性
+(opens new window)
+を作成するには、次の手順を実行してください。
+1
+Microsoft Graph Explorer
+(opens new window)
+に移動します。
+2
+AzureテナントのアプリケーションをリストするためのMicrosoft Graphクエリを実行します。
+HTTP動詞のドロップダウンメニューから
+GET
+を選択します。
+クエリボックスに
+https://graph.microsoft.com/v1.0/applications
+を入力します。
+Run query
+を選択します。
+Microsoft Graph Explorerを使用してアプリケーションをリストするリクエストの例
+3
+出力からアプリケーションの
+id
+フィールドを見つけます。
+idフィールドを見つける
+IDフィールド
+id
+フィールドは
+appId
+フィールドとは異なります。
+appId
+は使用しないでください。
+4
+workato_role
+という拡張属性を作成します。後の手順で、この属性を使用してユーザーの役割を割り当てます。
+Environments
+機能が有効なワークスペースでは、
+workato_role
+はデフォルトのDEV環境の役割を割り当てるために使用されます。
+HTTP動詞のドロップダウンメニューから
+POST
+を選択します。
+クエリボックスに以下のURLを入力し、
+{id}
+をアプリケーションのIDに置き換えます：
+https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
+次のJSONを
+Request body
+フィールドに貼り付けます：
+{
+"name"
+:
+"workato_role"
+,
+"dataType"
+:
+"string"
+,
+"targetObjects"
+:
+[
+"User"
+]
+}
+Run query
+を選択します。
+Microsoft Graph Explorerを使用して拡張属性を作成するリクエストの例
+5
+出力から
+name
+フィールドを見つけ、その値をコピーします。次のような形式になります：
+extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role
+出力からnameフィールドを見つける
+6
+組織が
+Environments
+機能を持っている場合:
+以下の例のリクエストボディを使用して、前の2つの手順を繰り返します。PROD環境用の拡張属性を作成するために1つのリクエストを送信し、TEST環境用の拡張属性を作成するために別のリクエストを送信します。
+{
+"name"
+:
+"workato_role_prod"
+,
+"dataType"
+:
+"string"
+,
+"targetObjects"
+:
+[
+"User"
+]
+}
+{
+"name"
+:
+"workato_role_test"
+,
+"dataType"
+:
+"string"
+,
+"targetObjects"
+:
+[
+"User"
+]
+}
+各レスポンスの
+name
+フィールドの値をコピーすることを確認してください。
+7
+WorkatoにプロビジョニングするユーザーのIDを見つけます：
+HTTP動詞のドロップダウンメニューから
+GET
+を選択します。
+クエリボックスに
+https://graph.microsoft.com/v1.0/users
+を入力します。
+Run query
+を選択します。
+出力からユーザーを探します。## ステップ1：ユーザーに拡張属性と役割を割り当てる
+ユーザーに拡張属性と役割を割り当てるには、次の手順を実行します。
+1
+ユーザーの
+id
+属性の値をコピーします。
+2
+拡張属性と所望の役割をユーザーに割り当てます。
+HTTP動詞のドロップダウンメニューから
+PATCH
+を選択します。
+次のURLをクエリボックスに入力し、
+{id}
+をユーザーのIDで置き換えます。
+https://graph.microsoft.com/v1.0/users/{id}
+次のJSONに基づいてリクエストボディを作成し、適切な値に置き換えて
+Request body
+フィールドに貼り付けます。
+{
+"{extension attribute name}"
+:
+"{ユーザーに割り当てるシステムの役割またはカスタムの役割}"
+}
+環境を使用しない場合の例のリクエストボディ
+次の例では、
+Environments
+機能が有効になっていないワークスペースでユーザーに
+Admin
+役割を割り当てます。
+{
+"extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role"
+:
+"Admin"
+}
+環境を使用する場合の例のリクエストボディ
+次の例では、各環境ごとに異なるシステムの役割をユーザーに割り当てます。
+{
+"extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role"
+:
+"Admin"
+,
+"extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role_prod"
+:
+"Operator"
+,
+"extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role_test"
+:
+"Analyst"
+}
+Run query
+を選択します。
+リクエストが成功した場合、レスポンスは単に
+{}
+です。
+役割の割り当てに成功しました
+3
+ユーザーに拡張属性が割り当てられたことを確認します。
+HTTP動詞のドロップダウンメニューから
+GET
+を選択します。
+次のURLを検索ボックスに入力し、
+{id}
+をユーザーのIDで置き換え、
+{extension attribute name}
+を確認したい拡張属性の名前に置き換えます。
+https://graph.microsoft.com/v1.0/users/{id}?$select={extension attribute name}
+例：
+https://graph.microsoft.com/v1.0/users/4a5b1db8-415b-4207-ab8d-1a2b3c4d5e6f?$select=extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role
+Run query
+を選択します。
+レスポンスを確認して、ユーザーに所望の役割を持つ拡張属性があることを確認します。次のような出力が表示されるはずです。
+{
+"@odata.context"
+:
+"https://graph.microsoft.com/v1.0/$metadata#users(extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role)/$entity"
+,
+"extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role"
+:
+"Admin"
+}
+#
+ステップ2：Azure ADで自動プロビジョニングを構成する
+Azure ADで自動プロビジョニングを構成するには、次の手順を実行します。
+1
+Azure ADで作成したWorkato SAMLアプリケーションに移動します。
+SAML SSOの構成
+WorkatoアプリケーションのSAML SSOをまだ構成していない場合は、
+Azure ADで非ギャラリーのSAMLアプリケーションを設定
+して、Workatoワークスペースにアクセスします。
+2
+Manage > Provisioning
+に移動します。
+3
+Provisioning Mode
+ドロップダウンメニューから
+Automatic
+を選択します。
+4
+Admin Credentials
+セクションに、
+WorkatoでSCIMを構成
+する際に生成したベースURLとSCIMトークンを使用して、
+Tenant URL
+と
+Secret Token
+フィールドに入力します。
+自動プロビジョニングの構成
+5
+Test Connection
+を選択します。テストが成功すると、Azureは「提供された資格情報はプロビジョニングを有効にするために承認されています」というメッセージが表示されます。
+接続のテストに成功しました
+6
+Save
+を選択します。
+#
+ステップ3：Azure ADとWorkatoの属性マッピングを構成する
+次のステップは、Azure ADの属性マッピングを前に作成した拡張属性で更新することです。
+1
+Azure ADのWorkato SAMLアプリケーションに移動します。
+2
+Mappings
+セクションを展開し、
+Provision Azure Active Directory Users
+を選択します。
+Provision Azure Active Directory Usersの設定
+3
+Enabled
+が
+Yes
+に設定されていることを確認します。
+4
+Target Object Actions
+セクションで、
+Create
+と
+Update
+のチェックボックスをオンにします。
+5
+ページの一番下で、
+Show advanced options
+チェックボックスを選択します。
+6
+Edit attribute list for customappsso
+を選択します。
+7
+customappsso User Attributes
+リストの一番下に、次の属性名を
+Name
+フィールドに追加し、
+Type
+を
+String
+に設定します。
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole:workato_role
+8
+もし組織が
+Environments
+機能を有している場合は、次の手順を実行します。
+customappsso User Attributes
+リストの一番下に、次の属性名を
+Name
+フィールドに追加し、
+Type
+を
+String
+に設定します。
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole:workato_role_prod
+customappsso User Attributes
+リストの一番下に、次の属性名を
+Name
+フィールドに追加し、
+Type
+を
+String
+に設定します。
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole:workato_role_test
+9
+Save
+を選択します。
+## ステップ3: 属性のマッピング {: #step-3-attribute-mapping :}
+1
+もし組織が
+Environments
+機能を持っている場合:
+Type
+を
+String
+に設定して、以下の属性名を使用してTEST環境とPROD環境のための拡張属性を追加するために、前のステップを繰り返します。
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole:workato_role_test
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole:workato_role_prod
+Environments機能が有効な組織のための拡張属性
+2
+保存
+を選択し、変更を行うことを確認するために
+はい
+を選択します。
+属性マッピング
+ページに戻ります。
+3
+新しいマッピングを追加
+を選択します。
+4
+マッピングタイプ
+フィールドで
+Direct
+を選択します。
+5
+ソース属性
+フィールドで、前に設定した
+workato_role
+拡張属性を選択します。以下の例に示すように：
+workato_role (extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role)
+6
+ターゲット属性
+フィールドで、設定した対応する属性を選択します。以下の例に示すように：
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole:workato_role
+7
+Apply this mapping
+ドロップダウンメニューから
+Always
+を選択します（まだ選択されていない場合）。
+workato_roleの属性マッピングを編集
+8
+OK
+を選択します。
+9
+もし組織が
+Environments
+機能を持っている場合:
+新しいマッピングを追加
+を選択し、前のステップを繰り返してTEST環境とPROD環境のための拡張属性をマッピングします：
+TEST環境のための拡張属性のマッピング
+例のソース属性：
+workato_role (extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role_test)
+例のターゲット属性：
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole:workato_role_test
+PROD環境のための拡張属性のマッピング
+例のソース属性：
+workato_role (extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role_prod)
+例のターゲット属性：
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole:workato_role_prod
+属性マッピング
+ページは以下の画像のようになります：
+Environments機能が有効なワークスペースのためのマッピングされた拡張属性
+10
+保存
+を選択し、変更を保存することを確認するために
+はい
+を選択します。
+#
+ステップ4: ユーザーのプロビジョニング
+自動プロビジョニングを設定した後、Azure ADのユーザーやグループをWorkatoアプリケーションに割り当て、それらをプロビジョニングすることができます。
+1
+Azure ADのWorkato SAMLアプリケーションの概要に移動します。
+2
+ユーザーとグループ
+を選択します。
+3
+ユーザー/グループの追加
+を選択します。
+4
+選択なし
+を選択し、Workatoにプロビジョニングしたいユーザーまたはグループを検索します。
+5
+ユーザーまたはグループを選択し、
+選択
+をクリックします。
+6
+割り当て
+を選択します。
+7
+サイドバーで
+プロビジョニング
+を選択します。
+8
+ユーザーを自動的にプロビジョニングするか、要求に応じてプロビジョニングするかを選択します：
+ユーザーを自動的にプロビジョニングする場合
+40分ごとにユーザーを自動的にプロビジョニングするサイクルを実行するには、
+プロビジョニングの開始
+を選択します。
+サイクルの間に、
+プロビジョニングの停止
+を選択し、その後
+プロビジョニングの開始
+を選択することで、即座にプロビジョニングリクエストをトリガーすることができます。
+ユーザーを要求に応じてプロビジョニングする場合
+要求に応じてユーザーをプロビジョニングするには：
+1
+要求に応じてプロビジョニング
+を選択します。
+2
+プロビジョニングしたいユーザーを検索し、その名前を選択します。
+3
+プロビジョニング
+を選択します。
+プロビジョニングが成功した場合、以下の確認画面が表示されます：
+ユーザーのプロビジョニングが成功しました
+9
+Workatoは選択したユーザーにメール招待を送信します。ユーザーには、メール内のリンクをクリックしてメールアドレスを確認するように依頼してください：
+ワークスペースへの参加のためのメール招待
+その後、共同作業者は設定した役割で割り当てられたワークスペースにサインインすることができます。
+トラブルシューティング
+招待メールのリンクをクリックしても、組織のワークスペースではなくWorkatoのログインページにリダイレクトされる場合、同じメールに関連付けられたWorkatoアカウントがすでに存在している可能性があります。ログインの資格情報を忘れた場合は、パスワードをリセットしてください。
+:::
+8
+ユーザーがWorkatoの
+アクティビティ監査ログ
+から追加されたことをオプションで確認できます：
+ユーザーが招待を受け入れたことを示すアクティビティ監査ログ
+#
+ユーザーの更新
+Azure ADからユーザーのWorkatoの役割を更新するには、カスタム属性を更新する必要があります。
+1
+Microsoft Graph Explorer
+(opens new window)
+に移動します。
+2
+次のMicrosoft Graphクエリを実行して、対象のユーザーのカスタム属性を更新します：
+HTTP動詞のドロップダウンメニューから
+PATCH
+を選択します。
+クエリボックスに以下のURLを入力し、
+{id}
+をユーザーのIDに置き換えます：
+https://graph.microsoft.com/v1.0/users/{id}
+次のJSONを
+リクエスト本文
+フィールドに貼り付け、適切な値に置き換えます：
+{
+"{extension attribute name}"
+:
+"{system role or custom role to assign the user}"
+}
+たとえば、次のリクエスト本文は、
+Environments
+機能が有効なワークスペースのPROD環境でユーザーの役割を
+NoAccess
+に更新します：
+{
+"extension_ae58e98b4abd4da58d00abcd1234abcd_workato_role_prod"
+:
+"NoAccess"
+}
+クエリを実行
+を選択します。
+リクエストが成功すると、レスポンスは単に
+{}
+です。
+Microsoft Graph Explorerを使用してユーザーの属性を更新する
+3
+Azure ADで
+プロビジョニングサイクル
+をオンデマンドで実行するか、次のスケジュールされたサイクルを待ちます。
+#
+ユーザーの非プロビジョニング
+ユーザーの非プロビジョニングには2つの方法があります：
+アプリ割り当ての削除
+ユーザーの削除（ソフト）
+いずれの場合も、非プロビジョニングされたユーザーはWorkatoワークスペースにアクセスできなくなります。ただし、そのユーザーのレシピと接続は、チームの他のメンバーに引き続き利用可能です。
+アクティブなセッション中の非プロビジョニング
+アクティブなセッション中にユーザーが非プロビジョニングされると、次のアクションでワークスペースからロックアウトされます。ユーザーのデータ（レシピや接続など）は、ワークスペースの他のユーザーからアクセス可能です。
+#
+アプリ割り当ての削除
+1
+Azure ADで
+ユーザー
+に移動します。
+2
+非アクティブにするユーザーを選択します。
+3
+アプリケーション
+セクションからWorkato SAMLアプリケーションを選択します。
+4
+削除
+を選択します。
+ユーザーのアプリ割り当ての削除
+#
+ユーザーの削除（ソフト）
+ソフト削除を使用すると、必要に応じてユーザーアカウントを回復できます。
+1
+Azure ADで
+ユーザー
+に移動します。
+2
+非アクティブにするユーザーを選択します。
+3
+削除
+を選択します。
+4
+削除
+を再度選択します。
+#
+SCIMの無効化
+Azure AD内からSCIMを無効にするには：
+1
+Azure ADでWorkatoアプリケーションに移動します。
+2
+プロビジョニング
+インターフェースで、プロビジョニング方法を
+自動
+から
+手動
+に変更します。
+この操作により、SCIM接続が切断されます。Azure ADとWorkato間でユーザーデータを同期することはできません。
+Workato内からもSCIMを無効にすることができます。
+SCIMの無効化
+を参照してください。
+Last updated:
+2024/2/13 16:59:53
+On this page
+前提条件
+ステップ1：カスタム拡張属性を設定する
+ステップ2：Azure ADで自動プロビジョニングを構成する
+ステップ3：Azure ADとWorkatoの属性マッピングを構成する
+ステップ4: ユーザーのプロビジョニング
+ユーザーの更新
+ユーザーの非プロビジョニング
+SCIMの無効化
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

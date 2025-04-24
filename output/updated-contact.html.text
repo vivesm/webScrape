@@ -1,0 +1,257 @@
+Workato connectors - Intercom Updated contact trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Intercom
+#
+Intercom - Updated contact trigger
+The
+Updated contact
+trigger activates when a contact's details are updated in Intercom. This trigger initially retrieves contacts updated up to one hour before its activation. It then continues to check for updated contacts based on the trigger poll interval.
+Intercom - Updated contact trigger
+#
+Input
+Trigger poll interval
+Determines the frequency of the event check. You can choose a specific interval from the drop-down menu or leave it at the default setting.
+#
+Output
+Type
+The entity type.
+ID
+The unique identifier for the contact in Intercom.
+User ID
+The user identifier within Intercom.
+Anonymous
+Indicates whether the contact is anonymous.
+Email
+The contact's email address.
+Name
+The contact's full name.
+Avatar
+Type
+The type of avatar.
+Image URL
+The URL of the avatar image.
+App ID
+The identifier for the associated app within Intercom.
+Companies
+Type
+The type of related entity.
+Companies
+Type
+The type of company data.
+Company ID
+The unique identifier for the company.
+ID
+The unique identifier used within Intercom for the company.
+Company name
+The name of the company.
+List size
+The number of companies associated with the contact.
+List index
+The index of the company in the list of associated companies.
+Location data
+Type
+The type of location data provided.
+City name
+The city associated with the contact's location.
+Continent code
+The continent code for the contact's location.
+Country name
+The country name for the contact's location.
+Latitude
+The latitude coordinate for the contact's location.
+Longitude
+The longitude coordinate for the contact's location.
+Postal code
+The postal code for the contact's location.
+Region name
+The region name for the contact's location.
+Timezone
+The timezone for the contact's location.
+Country code
+The country code for the contact's location.
+Phone
+The contact's phone number.
+Pseudonym
+The pseudonym used by the contact, if applicable.
+Remote created at
+The timestamp of when the contact was created remotely.
+Session Count
+The total number of sessions logged by the contact.
+Owner ID
+The ID of the owner or responsible user for the contact in Intercom.
+Last request at
+The timestamp of the last request made by the contact.
+Created at
+The timestamp of when the contact was created in Intercom.
+Signed up at
+The timestamp when the contact signed up.
+Updated at
+The timestamp of when the contact's information was last updated.
+Unsubscribed from emails
+Indicates whether the contact has unsubscribed from emails.
+Marked email as spam
+Indicates whether the contact has marked an email as spam.
+Has hard bounced
+Indicates whether an email sent to the contact has hard bounced.
+Do not track
+Indicates whether the contact has enabled do not track.
+Referrer
+The URL of the referrer through which the contact was acquired, if applicable.
+Last Seen IP
+The last known IP address of the contact.
+User Agent Data
+Details about the contact's browser and operating system.
+Utm campaign
+The UTM campaign parameter associated with the contact.
+Utm content
+The UTM content parameter associated with the contact.
+Utm medium
+The UTM medium parameter associated with the contact.
+Utm source
+The UTM source parameter associated with the contact.
+Utm term
+The UTM term parameter associated with the contact.
+Social profiles
+Type
+The type of social profiles associated with the contact.
+Social profiles
+ID
+The unique identifier for the social profile.
+Name
+The name of the social network.
+Type
+The type of social profile.
+URL
+The URL of the social profile.
+Username
+The username of the contact on the social network.
+List size
+The total number of social profiles associated with the contact.
+List index
+The index of the social profile in the list.
+Custom attributes
+Any custom data attributes associated with the contact.
+Tags list
+A list of tags applied to the contact.
+Tags
+Sync
+Indicates the synchronization status of the tags.
+Segments list
+A list of segments the contact is part of.
+Segments
+Active
+Indicates if the segment is currently active.
+New
+Indicates if it is a new segment for the contact.
+Slipping Away
+Indicates if the contact is slipping away from the segment.
+←
+New user trigger
+Updated conversation trigger
+→
+Last updated:
+4/22/2024, 5:48:05 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

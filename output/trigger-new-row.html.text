@@ -1,0 +1,141 @@
+Google スプレッドシートトリガー - New row in sheet | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Sheets
+#
+Google スプレッドシートトリガー - New row in sheet (シート内の新規行)
+New row in sheet (シート内の新規行)
+トリガーは、選択されたシートの
+最下部に追加された
+新規行をリアルタイムで取得できます。
+シートの途中に追加された行は取得されないことに注意してください。また、このトリガーを一旦開始したら、シートから
+行を削除しない
+でください。削除すると、トリガーは正しく追跡できなくなります。
+#
+このトリガーの使用方法
+#
+Google シートの設定
+シート内のカスタムデータを取得するには、まず以下のスクリーンショットに示すように、シートに少なくとも1つのヘッダー行 (最初の行) と1つのデータ行 (2番目の行) が含まれている必要があります。
+1行のヘッダー行と1行のデータ行を含む Google シートのサンプル
+#
+New row in sheet トリガーの設定
+New row in sheet
+トリガーを選択します。
+アプリケーションとトリガーの設定。
+このトリガーを設定するには、スプレッドシートと、実際に処理するシートを選択する必要があります。特定のスプレッドシートを選択すると、そのスプレッドシート内のシートのリストが生成されます。
+新規行を監視する対象のスプレッドシートの選択
+新規行を監視する特定のシートを選択します。
+スプレッドシートを選択すると、どのシートを監視するか尋ねる追加のピックリストが生成される
+以下のようにアクションを設定します。
+スケジューラアクション
+#
+トリガーの実行
+トリガーの設定が済んだので、今度はレシピを完成させて実行してみましょう。
+トリガーがシート内の新規行を実際に取得するかどうかをテストするだけなので、アクションについてはあまり気にする必要はありません。このテストでは、スケジューラアクション "Get current time" を選択するだけです。
+以下のレシピを開始しましょう。新しいレシピは以下のようになります。
+テスト用に設定済みのスケジューラアクションを含むレシピ
+レシピの実行中に、
+シートの最下部に追加された新規行
+があれば、ほぼ即座に取得されます。レシピが何らかの時点で停止した場合、そのレシピをもう一度開始すると、中断したところからトリガージョブが再開されます。つまり、レシピの停止中に追加された新規行がある場合、レシピの再開時にはそれらも取得されます。
+←
+接続方法
+新規行/更新行 トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

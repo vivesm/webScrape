@@ -1,0 +1,153 @@
+Workato コネクター - PlanGrid | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+PlanGrid
+#
+PlanGrid オブジェクトのトリガーとアクション
+Workato の PlanGrid コネクターに用意されているトリガーとアクションでは、ステップを設定する際、操作するオブジェクトを選択できます。必須の入力項目は、選択したオブジェクトに基づいて動的に生成されます。
+以下のトリガーがサポートされています。
+New object (新規オブジェクト)
+New or updated object (新規または更新されたオブジェクト)
+サポートされる Plangrid トリガー
+以下のアクションがサポートされています。
+Create object (オブジェクトの作成)
+Download object (オブジェクトのダウンロード)
+Get object (オブジェクトの取得)
+Search object (オブジェクトの検索)
+Update object (オブジェクトの更新)
+Upload object (オブジェクトのアップロード)
+サポートされる Plangrid アクション
+#
+オブジェクト
+オブジェクト名
+利用可能なトリガー
+利用可能なアクション
+Document (ドキュメント)
+New
+Get、Update、Upload
+Photo (写真)
+New
+Get、Update、Upload
+RFI
+New、New/updated
+Create、Get、Get status、Update
+Annotation (注釈)
+New
+Field report (フィールドレポート)
+New、New/updated
+Get
+Project (プロジェクト)
+New、New/updated
+Create、Get、Update
+Sheet (シート)
+New
+Create version upload、Complete version upload、Create sheet packet、Get、Get sheet packet、Upload file to sheet version
+Snapshot (スナップショット)
+New
+Get
+Task (タスク)
+New、New/updated
+Create、Create task list、Get task、Get task list、Update task、Update task list
+以上のリストは、オブジェクトのすべてを網羅しているわけではありません。今後、さらなる強化が予定されています。Workato が現在サポートしていないオブジェクトに対しては、カスタム HTTP リクエストの送信を可能にするカスタムアクションを利用できます。
+←
+接続方法
+アクション
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

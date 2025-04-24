@@ -1,0 +1,210 @@
+Post command reply | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Slack
+Build your first Workbot
+#
+Creating a Command Reply
+Use either the
+Post command reply
+or
+Post message
+action to respond to the user on Slack. You can configure Workbot to return data that was queried by the command or to respond to the user with a message confirming whether the command was successful or not. See the graphic below for an example use case.
+Example of a Command reply
+This page guides you through the second part of building your first Workbot -
+create an issue in Github
+(opens new window)
+. If you have not already done so, follow the steps in
+configure the New command trigger
+.
+#
+Step two: Configure the Post command reply action
+In the following steps, you configure the
+Post command reply
+action with datapills from the GitHub action output.
+Under the Github action, click to add a new action. Select
+Workbot for Slack
+>
+Post command reply
+.
+Select the connection that you have established.
+In the
+Message text
+field, enter the message that Workbot will use in its reply: Issue
+Number
+created
+Use the
+Number
+Step 2
+Expand the
+Message attachment
+options and configure these fields with the following text and datapills:
+Title
+:
+Name of issue
+Title
+Step 2
+Title link
+:
+URL
+Step 2
+Attachment text
+:
+Description
+Body
+Step 2
+Assignee
+Username
+Attachment color
+: Select
+Good
+This sets the vertical bar to the left of the message to green.
+Click
+Save
+.
+This is how the
+Message attachment
+fields should look:
+This is how the message will appear to users in Slack:
+#
+Test the command
+To test the command, start the recipe and open the Slack workspace in which Workbot is installed.
+In Slack, send a direct message to Workbot, and enter
+github create issue
+.
+Workbot responds with
+Enter issue:
+as demonstrated in the screenshot below:
+Enter the issue title.
+Workbot responds with
+Enter description
+as demonstrated in the screenshot below:
+Enter the description of the issue.
+Workbot responds with
+Enter assignee:
+Enter your name.
+Workbot takes the information you provided, creates a new issue in Github, and returns a confirmation message. See the screenshot below for an example confirmation message:
+#
+Next
+You can make the command reply more interactive by including
+attachment fields
+,
+images
+,
+buttons
+, and message menus. To learn more, see
+Designing the Workbot experience
+.
+Explore other ways Workbot has automated tasks for our community of users in
+Community Recipes
+(opens new window)
+.
+←
+Create a new command
+Set up Wait for user action in messages
+→
+Last updated:
+1/30/2025, 12:56:23 AM
+On this page
+Step two: Configure the Post command reply action
+Test the command
+Next
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

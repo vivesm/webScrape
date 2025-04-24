@@ -1,0 +1,219 @@
+Workato connectors - Quickbase | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Quickbase
+Quickbase
+(opens new window)
+is a cloud service that helps organizations manage their projects and workflows.
+#
+Use cases
+Integrate Quickbase with your business applications to streamline data management and automate workflows. You can keep records up to date, sync employee data, and trigger real-time notifications with automated workflows. Explore our
+use cases
+to discover how you can enhance your Quickbase workflows:
+Update Quickbase records
+from SFTP CSV files.
+Sync Quickbase employees
+to Oracle EBS and notify your team in Slack.
+#
+API version
+The Quickbase connector uses the
+Quickbase API
+(opens new window)
+.
+#
+How to connect to Quickbase on Workato
+Workato supports user-token authentication and username/password authentication for connecting to Quickbase:
+User-token authentication
+Username/password authentication
+Workato recommends using user-token authentication for improved security in your connection. This also allows you to set up granular permissions to control resources Workato can access in Quickbase.
+#
+Roles and permissions required to connect
+Workato recommends that the user and API key used to connect to Workato have
+Administrator
+entitlements. Several triggers and actions require administrator privileges.
+#
+User-token authentication
+1
+Log in to your Workato account and navigate to the project where you plan to add your Quickbase connection.
+2
+Click
+Create > Connection >
+select
+Quickbase
+as your connection.
+3
+Provide a unique
+Connection name
+that identifies to which Quickbase instance it is connected.
+4
+Enter your Quickbase
+subdomain
+. This is most often your company name.
+5
+Select the
+Yes
+option from the
+User-token authentication?
+drop-down menu.
+6
+Provide your
+User token
+. You can generate this token in Quickbase by completing the
+following steps
+.
+#
+Generate a user token
+To generate a user token:
+1
+Sign in to your Quickbase account.
+2
+Navigate to
+Your profile > My preferences > Manage User Tokens
+.
+3
+Click
+Create new user token
+and follow the prompts to generate a new user token.
+4
+Copy the user token and enter it in Workato's
+Quickbase connection settings
+.
+#
+Username/password authentication
+1
+Log in to your Workato account and navigate to the project where you plan to add your Quickbase connection.
+2
+Click
+Create > Connection >
+. Select
+Quickbase
+as your connection.
+3
+Provide a unique
+Connection name
+that identifies the Quickbase instance you plan to use.
+4
+Enter your Quickbase
+subdomain
+. This is most often your company name.
+5
+Select the
+No
+option from the
+User-token authentication?
+drop-down menu.
+6
+Provide your Quickbase username and password.
+←
+Python FAQs
+New record trigger
+→
+Last updated:
+4/5/2025, 7:32:10 PM
+On this page
+Use cases
+API version
+How to connect to Quickbase on Workato
+User-token authentication
+Username/password authentication
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

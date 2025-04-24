@@ -1,0 +1,144 @@
+API Endpoints FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API endpoints
+#
+API endpoints management FAQs
+Get answers to frequently asked questions (FAQs) about API endpoints management.
+What does a 503 Service Unavailable error mean, and is it caused by an issue on my end when using the API?
+A 503 Service Unavailable error signifies that the server hosting the API is currently unable to process the request. This error is typically due to the server that is temporarily offline, undergoing maintenance, or experiencing an overload of requests.
+It is important to note that a 503 error is not caused by an issue on your end. It reflects a problem with the target API's server, indicating that the server is unreachable at the time of your request.
+How do I test the endpoint with raw content?
+After you create and configure the endpoint, you can
+test
+it using tools like Postman or curl by sending raw content to the endpoint and verifying the response.
+Are Callable recipes still supported?
+Callable recipes
+are deprecated but continue to function. The guide uses the API Platform connector, which functions similarly to Callable recipes.
+Can I secure API endpoints that handle raw content?
+Yes, you can secure API endpoints by implementing authentication and authorization mechanisms. Workato supports various methods, including API tokens and OAuth to ensure that only authorized clients can access the endpoints.
+How do I monitor API endpoint usage?
+You can monitor API endpoint usage through Workato’s API Platform logs. Navigate to
+API platform > Logs
+to view details about requests, responses, and performance metrics.
+Can I use these API endpoints with other Workato features?
+Yes, API endpoints configured to handle raw content can be integrated with other Workato features such as recipes, connectors, and triggers. This allows for seamless automation and data processing across different applications.
+How do I update an existing API endpoint to handle raw content?
+To update an existing API endpoint to handle raw content:
+1
+Navigate to
+API platform > API collections
+and select the collection containing the endpoint.
+2
+Select the endpoint you want to update and click
+Edit
+.
+3
+Update the Request and Response configurations to handle the new content type.
+4
+Save the changes and test the endpoint to ensure it functions as expected.
+←
+Caching
+API governance
+→
+Last updated:
+5/21/2024, 8:39:05 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

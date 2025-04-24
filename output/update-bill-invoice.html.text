@@ -1,0 +1,199 @@
+Workato connectors - Xero Update bill or invoice with line items action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - Update bill or invoice with line items action
+The
+Update bill or invoice with line items
+action allows you modify an existing bill or invoice with line items in Xero. This action allows you to append new line items or overwrite existing line items of the invoice or bill.
+Xero - Update bill or invoice header details action
+#
+Input
+Input field
+Description
+Invoice number
+Enter the unique number of the invoice you plan to update.
+Date
+Specify the date of the invoice.
+Due date
+Set the due date for the invoice. This field is required if the invoice status is set to
+AUTHORISED
+or
+SUBMITTED
+.
+Status
+Choose the current status of the invoice.
+Branding theme
+Select the branding theme to apply to the invoice.
+Amounts are
+Indicate how amounts are presented on the invoice.
+Currency code
+Enter the currency code for the invoice.
+URL
+Provide the URL to any relevant online resource or document related to the invoice.
+Reference
+Input a reference note or number for the invoice.
+#
+Output
+Output field
+Description
+Reference
+A reference note or number for the invoice or bill.
+Type
+The type of document (invoice or bill).
+Invoice ID
+The unique identifier for the invoice or bill.
+Invoice number
+The number of the invoice or bill.
+Amount due
+The total amount due on the invoice or bill.
+Amount paid
+The total amount paid against the invoice or bill.
+Amount credited
+The total amount credited to the invoice or bill.
+URL
+The link to the invoice or bill online.
+Currency code
+The currency code used for the invoice or bill.
+Currency rate
+The exchange rate applied to the invoice or bill.
+Has errors
+Indicates if there are errors associated with the invoice or bill.
+Is discounted
+Indicates if any discounts have been applied.
+Has attachments
+Indicates if there are attachments included with the invoice or bill.
+Contact
+The contact information related to the invoice or bill.
+Date
+The date the invoice or bill was issued.
+Due date
+The due date for payment of the invoice or bill.
+Branding theme ID
+The identifier for the branding theme applied to the invoice or bill.
+Status
+The current status of the invoice or bill.
+Line amount types
+The type of line amounts on the invoice or bill.
+Line items
+Details of each item listed on the invoice or bill.
+Sub total
+The subtotal amount of the invoice or bill before tax.
+Total tax
+The total tax amount for the invoice or bill.
+Total
+The total amount of the invoice or bill, including tax.
+Updated date
+The date on which the invoice or bill was last updated.
+Paid date
+The date when the invoice or bill was paid, if applicable.
+←
+Update bill or invoice header details
+Update item
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

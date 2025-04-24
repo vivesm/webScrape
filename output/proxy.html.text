@@ -1,0 +1,154 @@
+On-prem Agent - Proxy Server Support | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem agent
+#
+Proxy Server Support
+You can run an on-prem agent in an environment with limited internet connectivity by using a proxy server. Proxy settings are defined by adding a
+proxy
+section to the configuration file:
+proxy
+:
+host
+:
+192.168.1.1
+port
+:
+8080
+username
+:
+proxy_user
+password
+:
+proxy_password
+database
+:
+...
+jms
+:
+...
+In this setup, you can choose whether to provide the username and password; they are optional.
+When you use a proxy server for establishing a secure tunnel, you must support the
+CONNECT
+(opens new window)
+feature. Ensure that you configure the proxy server to allow
+CONNECT
+requests to the Workato gateway,
+sg3.workato.com
+and
+sg4.workato.com
+.
+PROXY USAGE
+You must pass additional parameters to the
+activate
+script if you are using a proxy to connect to the Workato on-prem gateway.
+Run the
+activate
+script with the
+-help
+parameter to display the full list of accepted input properties.
+←
+HashiCorp Vault
+Logging
+→
+Last updated:
+3/18/2025, 1:31:09 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

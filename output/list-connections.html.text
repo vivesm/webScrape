@@ -1,0 +1,190 @@
+RecipeOps - List connections action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+RecipeOps by Workato
+#
+RecipeOps - List connections action
+This action retrieves details about connections in the Workato account. Results can be filtered by name, recipe, and application type (for example, Salesforce).
+This action also supports retrieving runtime user connections. To search for these connections, provide an external ID or parent-child relationship.
+#
+Limitations
+Results are limited to 1,000 connections, ordered by most recently updated.
+#
+Input
+Field
+Description
+Connection name
+Searches for connections using the full name of the connection.
+Note
+: Search is case-sensitive.
+Recipe
+Filters connections by recipe. If defined, results will be limited to connections used in the selected recipe.
+Application
+Filters connections by application type. If defined, results will be limited to connections of this application type.
+For example: If
+Salesforce
+is selected, only
+Salesforce
+connections will be included in the results.
+Parent connection name
+Applicable when
+Runtime user connections
+are being used.
+Filters connections by their parent connection. If defined, results will be limited to connections linked to the selected parent connection.
+Note
+: If searching for child connections, the
+Search for child connections
+field should also be defined.
+Search for child connections
+If
+Yes
+, the action will search for child connections using the
+Parent connection name
+value.
+External ID
+Filters connections by their external ID. If defined, results will be limited to connections with the provided external ID.
+#
+Output
+Field
+Description
+Connection ID
+The ID of the connection.
+User ID
+This ID indicates the Workspace where the connection is located.
+Name
+The name of the connection.
+Application
+The application type of the connection. For example:
+salesforce
+Authorization status
+The current authorization status of the connection.
+Authorization error
+If the connection's
+Authorization status
+is in an error state, this will describe the reason for the error state.
+Authorized at
+The time the connection was authorized.
+Created at
+The time the connection was created.
+Updated at
+The time the connection was last updated.
+List size
+The total number of connections in the result set.
+List index
+The index (current position) of the connection in the list of results.
+#
+Resources
+RecipeOps overview
+RecipeOps actions
+RecipeOps triggers
+←
+Get recipe details
+List recipes
+→
+Last updated:
+9/25/2024, 3:28:34 PM
+On this page
+Limitations
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

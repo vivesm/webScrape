@@ -1,0 +1,161 @@
+Workatoコネクター - Shopify - 下書き注文の更新 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Shopify
+#
+Shopifyコネクター - 下書き注文の更新
+このアクションは、Shopify上の下書き注文を更新します。下書き注文は、顧客による注文の意図を表します。注文に移行することができます。
+下書き注文リソースの詳細については、
+Shopifyのドキュメント
+(opens new window)
+を参照してください。
+#
+入力
+フィールド
+説明
+下書き注文ID
+更新する下書き注文のIDです。
+ノート
+下書き注文に添付するノートです。
+オプションのフィールドです。
+ラインアイテム
+この注文の下で購入されるアイテムです。少なくとも1つのアイテムを下書き注文に追加する必要があります。現在、Workatoはカスタムアイテムの作成をサポートしていません。各ラインアイテムの構造については、以下を参照してください。
+適用される注文割引
+下書き注文に適用される割引額です。適用される割引の構造については、以下を参照してください。
+オプションのフィールドです。
+#
+ラインアイテム
+フィールド
+説明
+商品ID
+下書き注文に追加する商品のIDです。商品IDまたはバリアントIDのいずれかが存在する必要があります。バリアントIDも入力されている場合は、バリアントIDが使用されます。
+オプションのフィールドです。
+バリアントID
+下書き注文に追加する商品バリアントのIDです。商品IDまたはバリアントIDのいずれかが存在する必要があります。バリアントIDは商品IDよりも優先されます。
+オプションのフィールドです。
+数量
+アイテムの購入数量です。
+適用されるアイテム割引
+アイテムに適用される割引額です。適用される割引の構造については、以下を参照してください。
+オプションのフィールドです。
+#
+適用される割引
+フィールド
+説明
+説明
+適用される割引の説明テキストです。
+値のタイプ
+適用される割引のタイプです。文字列に設定されている場合、"percentage"または"fixed"を入力できます。
+値
+適用される割引額です。値のタイプが"percentage"の場合、値はパーセンテージの金額です。値のタイプが"fixed"の場合、値は元の価格から差し引かれる金額です。
+#
+出力
+このアクションの出力は、変更された下書き注文オブジェクトに関する情報を含むデータツリーです。
+下書き注文オブジェクト
+(opens new window)
+について詳しくはこちらをご覧ください。
+←
+カスタマーの更新
+オブジェクトメタフィールドの更新
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,204 @@
+Callable Recipes - Call Recipe Actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Callable recipes
+#
+Callable Recipes - Call Recipe Actions
+THIS ACTION IS DEPRECATED
+These actions have been replaced by the following actions:
+Recipe functions - Call recipe function (asynchronous)
+Recipe functions - Call recipe function (synchronous)
+While you can continue to use callable recipes in other recipes, new callable recipes can no longer be created. Check out the
+migration guide
+and
+Recipe functions FAQ
+for more info.
+There are two types of
+Call recipe
+actions:
+Synchronous
+Asynchronous
+#
+Requirements
+To use the actions in this guide, you need:
+A Callable recipe.
+Callable recipes are a type of recipe that can be called from another recipe. Refer to the
+Callable recipe docs
+to learn more.
+#
+Call Recipe (Synchronous)
+This action calls a recipe and waits for the response before proceeding to the next step in the recipe.
+#
+Limitations
+This action is subject to a
+timeout limit
+. If the timeout limit is exceeded, the job will fail. You can reduce the likelihood of timeout errors by
+calling the recipe asynchronously
+.
+#
+Input
+Field
+Description
+Recipe to call
+Select from a list of Callable recipes in your workspace.
+Recipe input
+The fields defined in the selected Callable recipe's
+Input schema
+.
+#
+Output fields
+Field
+Description
+Job ID
+The ID of the created job.
+Job URL
+The URL of the created job.
+Reply
+The callable recipe's
+Response schema
+configuration.
+#
+Call Recipe (Asynchronous)
+This action calls a recipe and then immediately proceeds to the next step in the recipe. Asynchronous calls are useful for use cases where the successive steps don't depend on the outcome of the callable recipe workflow.
+If your workflow involves follow-up steps that occur after long asynchronous calls, use the
+Wait for async calls action
+to ensure that all asynchronous calls have completed processing.
+#
+Limitations
+Asynchronous calls are not guaranteed to be executed in sequence. Use the
+Call recipe (synchronous)
+action if your workflow requires steps to be called in sequence.
+#
+Input
+Field
+Description
+Recipe to call
+Select from a list of Callable recipes in your workspace.
+Recipe input
+The fields defined in the selected Callable recipe's
+Input schema
+.
+#
+Output fields
+Note
+: Since this action does not wait for a response, there will not be any
+Reply
+output fields.
+Field
+Description
+Job ID ref
+A job ID reference.
+Note
+: This is not the job ID.
+Job URL
+The URL of the created job.
+←
+Return Response From Callable Recipe
+Wait For Async Calls
+→
+Last updated:
+12/3/2021, 4:03:28 PM
+On this page
+Requirements
+Call Recipe (Synchronous)
+Call Recipe (Asynchronous)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

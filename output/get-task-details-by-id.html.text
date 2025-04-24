@@ -1,0 +1,182 @@
+Workato connector - Asana - Get task details by ID | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Asana
+#
+Asana connector - Get task details by ID action
+This action allows you to retrieve the details of a task by ID in Asana.
+#
+Input
+Field
+Description
+Task ID
+Required
+The task ID can be found at the end of URL of the task page.
+Workspace ID
+Required
+The workspace ID.
+Projects
+The project this task is associated with.
+#
+Output
+Field
+Description
+Task ID
+The task ID.
+Assignee
+The people that are assigned to this task.
+Assignee status
+The status of the people assigned.
+Completed
+Whether the task is completed.
+Completed at
+The date and time when the task was completed.
+Created at
+The date and time when this record was created.
+Due on
+The date when the task is due.
+Due at
+The date and time when the task is due.
+Followers
+The people that follow this task.
+Heart this
+Shows whether the authorized user has hearted this task.
+Number of hearts
+The number of hearts added to the task.
+Hearts
+The people that have hearted this task.
+Start on
+The start date of this task.
+Like this
+Shows whether the authorized user has liked this task.
+Number of likes
+The number of likes added to the task.
+Likes
+The people that have liked this task.
+Modified at
+The date when the task was last modified.
+Task name
+The name of the task.
+Description
+The description of the task.
+Projects
+The projects that this task belongs to.
+Parent Task
+The parent task for this task.
+Workspace
+The workspace that this task belongs to.
+Memberships
+The membership details about this task.
+Tags
+The tags attached to this task.
+Created by
+The user that created this task.
+←
+Get project sections
+List all tasks with tag
+→
+Last updated:
+2/2/2024, 8:05:18 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

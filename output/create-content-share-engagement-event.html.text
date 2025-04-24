@@ -1,0 +1,162 @@
+Workato connector - Gong - Create content share engagement event | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Gong
+#
+Gong Connector - Create content share engagement event
+This action pushes engagement events into Gong when a Gong user shares content with external participants. For example when a contract was shared by an account executive to his prospects.
+#
+Input
+Field
+Description
+Content ID
+The ID of the content that was shared in the reporting system.
+Content title
+The name of the object that was shared.
+Content URL
+The url of the content that was shared in the reporting system. This is the url that is was accessed by the viewer.
+Event timestamp
+The date and time when the event happened in the ISO-8601 format (e.g., 2021-08-01T02:30:00+05:00 or 2021-08-01T08:00:00Z, where Z stands for UTC)
+Reporting system
+The unique identifier of the reporting system. It is the same value in all events originating from the same system.
+Action name
+The name of the action. For example, Shared the contract or Downloaded the presentation.
+Recipients
+Array of objects with name and email of recipients. Email is required
+Share ID
+The ID of the share action, in case there can be more than one share per content.
+Share info URL
+The link to a page that presents additional information about this event.
+Sharer
+Additional details about the sharer like email, name, and Gong ID.
+Sharing message body
+The share message body. Can contain HTML and will be cleaned when it is presented.
+Sharing message subject
+The subject of share email / message.
+Content properties
+Dynamic properties to display for the object fields and values that describe the object.
+Crm context
+A list of references to external systems such as CRM, Telephony System, Case Management, etc.
+Event ID
+Object ID. The original ID of the event as designated in the reporting system.
+Event properties
+Dynamic properties to display for the event fields and values that describe the event.
+Mobile app ID
+The application identification string in case of interaction via mobile application (bundle identifier or package name).
+Workspace ID
+If your Gong account has multiple Workspaces, enter here the relevant Workspace to send these events to. If left blank, this will be decided by Gong.
+#
+Output
+Field
+Description
+Request ID
+UUID of the request sent to Gong to create the content share engagement event.
+←
+Add call media
+Create content view event
+→
+Last updated:
+8/15/2022, 9:31:44 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

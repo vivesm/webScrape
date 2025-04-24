@@ -1,0 +1,227 @@
+Google スプレッドシートアクション - Search rows | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Sheets
+#
+Google スプレッドシートアクション - Search rows using query (クエリーを使用した行の検索) (旧バージョン)
+注
+: この記事は、近日中に廃止される Google Sheets API v3 を使用した、旧バージョンの Search rows (行の検索) アクションに関するものです。代わりに、こちらの
+新しい Search rows アクション
+を使用することをお勧めします。
+Search rows
+アクションを使用すると、検索クエリーを使用して特定の行を取得できます。
+このアクションは多くの場合、
+Update row
+アクションとともに使用されます。そうすることで、更新したい行をまず検索してから、それらの行を更新できます。
+#
+このアクションの使用方法
+#
+Google シートの設定
+シート内のカスタムデータを取得するには、まず以下のスクリーンショットに示すように、シートに少なくとも1つのヘッダー行と1つのデータ行が含まれている必要があります。
+1行のヘッダー行と1行のデータ行を含む Google シートのサンプル
+#
+Search rows アクションの設定
+このアクションを設定するには、スプレッドシートと、検索対象のシートを選択する必要があります。
+未設定の検索アクション
+スプレッドシートとシートが選択された設定済みの Search rows アクション
+#
+検索クエリーの構造
+以下のシートで検索を実行すると想定しましょう。
+API で処理できるようにするには、検索クエリーをある決まった形式の構造にする必要があります。たとえば、年齢が30歳以上、シャツのサイズが "M" である "Jennifer Avery" という名前の出席者を検索する場合、次のようなクエリーを入力します。
+name
+=
+"jennifer avery"
+and
+age
+>
+30
+and
+shirtsize
+=
+"M"
+クエリーを作成する際の一般的な注意事項を以下に示します。
+列名
+列名は1つの単語である必要があります。列名に複数の単語が含まれているとしても、スペースを削除すれば済みます。たとえば、"Shirt size" 列のラベルは "shirtsize" になります。
+クエリーでは大文字と小文字は区別されない
+列の名前または値では大文字と小文字を区別する必要はありません。
+演算子
+一般的な演算子は、等しい (=)、より大きい (>)、以上 (>=)、より小さい (<)、以下 (<=) です。これらすべての演算子は、数字および日時のタイムスタンプに使用できます (年齢を比較する場合など)。
+等しい (=) のみを文字列に使用できます (サンプルのシート内で名前やシャツのサイズを比較する場合など)。この場合では完全な一致のみが取得されます。
+AND および OR
+AND
+および
+OR
+を使用して、さまざまなクエリーを作成できます。これらは組み合わせて使用し、括弧を使って演算の順序を示すこともできます (括弧内にあるものが最初に評価されます)。
+たとえば、
+age < 35 or age > 50 and name = "jennifer avery"
+は何も返しませんが、
+age < 35 or (age > 50 and name = "jennifer avery")
+は3行目と5行目を返します。
+#
+クエリーエラー
+クエリーの構造が正しくないか、演算子が間違っている場合 (LIKE または CONTAINS などのサポートされていない演算子を使用しようとした場合など)、Search rows アクションは以下のエラーメッセージを返して失敗します。
+正しくない検索クエリーにより失敗したジョブ
+#
+Search rows アクションのテスト
+正しく設定されていれば、Search rows アクションは検索条件に一致する行のリストを返すはずです。このケースでは、一致する行は1つのみとなっています。
+ジョブの詳細ページに表示される Search rows アクションの入力
+ジョブの詳細ページの [Output] タブに表示される、Search rows アクションから取得された結果
+この特定のクエリーが機能することがわかりました。次に、Salesforce に新しい連絡先が追加されるたびに Jennifer Avery という名前のユーザーを検索しなくてもよいようにするため、これらのハードコードされた値を変数 (Workato ではデータツリーのピルと呼ばれている) で置き換える必要があります。次のシナリオにおいて、これらのハードコードされた値をピルで置き換えます。
+#
+サンプルのシナリオ
+このケースでは、Salesforce 内の新規または更新された連絡先を、この Google シートに移そうとしていると想定しましょう。
+以下の図は、あらかじめ準備しておいたレシピとデータマッピングを示しています。これによって、Google スプレッドシート内の適切な行が検索で見つかるようになっており、Salesforce からの新規データが Google スプレッドシート内の項目に対応付けられています。
+新規または更新された Salesforce の連絡先を選択された Google シートへと移動させる完成済みレシピ
+Search rows
+アクションを使用してシート内の行をクエリーで検索。ここでは、Salesforce の連絡先の
+Email
+と一致する
+email
+列を持つ Google スプレッドシート行を検索している。
+Search rows
+アクションの出力からこの
+Update row
+アクションに
+Row ID
+を渡し、更新する必要のある行を示す。その後、
+Salesforce new/updated Contact
+からのデータピルを
+Update row
+アクションにマッピングする。
+適切なデータツリーからデータを取得するように注意してください。よくある間違いは、
+Search rows
+アクションからのピルを使用することです。そうすると、Google スプレッドシートの行から既存のデータを取り、それをまったく同じ行に再び書き込むことになります。それは本質的に何も行っていないことになり、役に立ちません。
+#
+レシピの実行
+トリガーとアクションの設定が完了したので、いよいよレシピを実行してみましょう。
+テスト用に設定済みのレシピ
+Salesforce の連絡先の名前を
+Anna Sharpay
+から
+Anna Mccoy
+に更新してみます。メールアドレスが
+[email protected]
+であることに注意してください。
+ジョブレポートを見て、レシピでこの変更がどのように取得されたかを確認しましょう。
+更新された連絡先をトリガーが取得 (ジョブの詳細ページの [Output] タブに表示)
+Search rows
+アクションがメールアドレス
+[email protected]
+を見つけようと試みる。1行を検出し、その
+Row ID
+を
+Update row
+アクションに渡す。その後、
+Update row
+アクションが名前を
+Anna Mccoy
+に更新する。
+レシピが行を更新した後の結果のシートは以下のようになります。名前が
+Anna Sharpay
+から
+Anna Mccoy
+に変更されていることに注目してください。
+元のシート
+更新されたシート
+←
+行の更新
+行IDを使用した行の更新(旧バージョン)
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

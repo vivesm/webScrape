@@ -1,0 +1,156 @@
+Workato コネクター - SurveyMonkey | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+SurveyMonkey
+SurveyMonkey
+(opens new window)
+は幅広く利用されているオンラインフォーム/アンケートソフトウェアで、アンケートやフォームをユーザーが簡単に設計して送信でき、その結果を分析することもできます。
+#
+API バージョン
+SurveyMonkey コネクターは、
+SurveyMonkey REST API V3
+(opens new window)
+を使用します。
+#
+サポートされるエディションとバージョン
+SurveyMonkey コネクターは、すべての SurveyMonkey プランに対応します。ただし、SurveyMonkey からアンケートの回答を取得する (つまり、
+Completed survey response
+トリガーまたは
+Send survey invite via email and wait for response
+アクションを使用する) には、
+データの抽出
+機能
+(opens new window)
+が必要です。
+#
+Workato での SurveyMonkey への接続方法
+SurveyMonkey コネクターは、SurveyMonkey での認証に
+OAuth2 認証
+(opens new window)
+を使用します。
+まず、Workato の [connections] タブに移動し、接続先のアプリとして SurveyMonkey を選択します。
+認証ページが表示されます。この画面で、自分の資格情報を使用して SurveyMonkey にログインします。
+注 :
+権限に関する問題が生じないように、管理者アカウントを使用することをお勧めします。
+サービス条件を読み、[Authorize] を押します。
+注 :
+Workato で
+New Survey Responses
+トリガーを使用する場合は、必ず
+view answers along with responses
+を選択してください。
+#
+SurveyMonkey で Workato のリンクを解除する方法
+承認ページで選択した内容の変更が必要になった場合は、SurveyMonkey で現在のアプリのリンクを解除する必要が生じることがあります。
+accounts
+ページに移動すると、現在リンクされているアプリケーションが表示されます。
+Unlink
+を選択すれば、コネクションが削除されます。
+←
+レコードのアップサート
+Tango Card
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+サポートされるエディションとバージョン
+Workato での SurveyMonkey への接続方法
+SurveyMonkey で Workato のリンクを解除する方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,187 @@
+Workato connectors - Bynder - Update record | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Bynder
+#
+Bynder action - Update record
+This action allows you to update the values or content of any existing
+asset
+or
+collection
+.
+Note that updating an asset in Bynder requires the
+MEDIAEDIT
+security role and the
+MARKPUBLIC
+security role in order to change an asset's
+isPublic
+state.
+Updating collection in Bynder also requires the
+COLLECTIONS
+security role and the
+PUBLISHCOLLECTIONS
+security role in order to change a collection's
+isPublic
+state.
+#
+Input fields
+Field
+Description
+Object
+Select the object (asset or collection) you want this action to update.
+Object-specific search fields
+After selecting the object you want to search, you'll be shown search fields relating to the object. You can search using any standard fields.
+#
+Asset fields
+Field name
+Description
+Asset ID
+Required
+ID of the asset.
+Name
+Name of the asset
+Description
+Description of asset.
+Copyright
+Label for the copyright information of the asset.
+Date Published
+Date/time the asset is published
+Tags
+Comma-separated list of tags related to the asset.
+Metaproperty Id
+Metaproperty options to set on the asset.
+Brand Id
+Id of the brand associated with the asset
+Archive
+The archived state of the asset.
+Archive Date
+Archive datetime.
+Watermarked
+Indicates whether or not the asset is watermarked. When 0, the asset is not watermarked.
+Watermark Date
+Watermark datetime.
+Limited
+Indicates whether or not the asset is hidden for users who do not have the permission to access. When 0, the asset is not labeled Limited Use.
+Limited Date
+Limited datetime.
+isPublic
+Indicates whether or not the response should only contain assets marked as public.
+#
+Collection fields
+Field name
+Description
+Collection ID
+Required
+ID of the collection.
+Collection Name
+Name of the collection
+Collection Description
+Description of collection.
+Public state of the collection
+The state of whether the collection is public or not
+←
+Download asset action
+Celonis
+→
+Last updated:
+7/12/2021, 8:36:52 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,228 @@
+Enterprise Key Management - グロッサリー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+暗号キーの管理
+#
+Enterprise Key Management グロッサリー
+このガイドでは、Workatoの
+Enterprise Key Management (EKM)
+機能に関連する用語について説明します。
+Bring Your Own Key (BYOK)
+Connection Key (CK)
+Custom KMS key
+Customer-managed Key
+Customer Main Key (CMK)
+Data Key (DK)
+Hourly Key (HK)
+Key Management System (KMS)
+Repacking
+Workato KMS key
+Workato-managed key
+#
+Bring Your Own Key (BYOK)
+Bring Your Own Key (BYOK)
+(opens new window)
+は、顧客が
+独自の暗号化ソフトウェア
+を使用し、キーを外部で管理するデータ暗号化の手法です。
+Workatoの場合、これは
+Amazon Key Management Service (KMS)
+のようなサービスを使用して、Workatoがデータ暗号化を実行するために使用する
+Customer Main Key
+を管理することを意味します。
+#
+Connection Key
+Connection keys (CK)
+は、接続データを暗号化するために使用されるキーです。一意の接続固有のキーが各接続を暗号化します。
+Connection keysはアカウントの
+Customer Main Key (CMK)
+によって暗号化されます。
+#
+Custom KMS Key
+Customer-managed key
+を参照してください。
+#
+Customer-managed Key
+Customer-managed key
+は、作成し、所有し、管理するキーです（
+BYOK
+）。キーは
+Key Management System
+またはOpenSSLのようなライブラリを介して作成されます。
+Workato EKMで使用する場合、Workatoは提供されたキーを
+Customer Main Key
+として使用して、
+data keys
+を暗号化および復号化します。
+#
+Customer Main Key (CMK)
+Customer Main Key (CMK)
+は、
+Connection
+および
+Hourly keys
+を暗号化する最上位キーです。
+Workatoでは、CMKは次のいずれかになります：
+Customer-managed
+- CMKはWorkatoが生成し提供するキーです。キーはKMSで所有および管理され、Workatoに参照が提供されます。
+Workato-managed
+- CMKはWorkatoが生成および管理するキーです。Workatoが代わりにキーを所有および管理します。
+#
+Data Key (DK)
+Data keys (DK)
+は、ジョブデータを暗号化するために使用されるキーです。一意のジョブ固有のデータキーが各ジョブを暗号化します。
+Hourly key
+がジョブ固有のデータキーを暗号化します。
+#
+Hourly Key (HK)
+Hourly keys (HK)
+は、
+ジョブデータキー
+を暗号化するために使用されるキーです。新しいキーが毎時生成されます。
+#
+Key Management System (KMS)
+Key Management System (KMS)
+は、
+暗号鍵を安全に管理するシステム
+(opens new window)
+です。例：
+Amazon Key Management Service (KMS)
+#
+再パッケージ化
+再暗号化と同義で、
+再パッケージ化
+は、
+顧客メインキー
+がユーザーまたはWorkatoによって回転または置換された場合に発生します。
+例：
+新しいカスタムキーがWorkatoにアップロードされると、Workatoは現在使用中のすべての接続キー、時間キー、およびデータキーを再パッケージ化します。
+#
+Workato KMSキー
+Workato管理キー
+を参照してください。
+#
+Workato管理キー
+Workato管理キー
+は、Workatoが代理で作成、所有、管理するキーです。Workato管理キーは、
+Workato KMSキー
+と同義です。
+BYOK
+が完全に設定されていない場合、WorkatoはWorkato管理キーをアカウントの
+顧客メインキー
+として使用して、
+データキー
+を暗号化および復号化します。
+すべてのWorkato管理キーは、1年ごとに自動的に回転します。現在、この回転スケジュールは変更できません。
+←
+トラブルシューティング
+接続資格
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+Bring Your Own Key (BYOK)
+Connection Key
+Custom KMS Key
+Customer-managed Key
+Customer Main Key (CMK)
+Data Key (DK)
+Hourly Key (HK)
+Key Management System (KMS)
+再パッケージ化
+Workato KMSキー
+Workato管理キー
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

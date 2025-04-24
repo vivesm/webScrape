@@ -1,0 +1,160 @@
+Workato connectors- SAP RFC - Permissions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP RFC
+#
+Minimum permissions to run actions and triggers
+The following permissions are required to run actions and triggers.
+#
+New IDoc trigger
+Authorization Object
+Activity (ACTVT)
+Extension (EDI_CIM)
+Basic type (EDI_DOC)
+Transaction Code (EDI_TCD)
+S_IDOCDEFT
+03
+[extension of IDOC if any]
+[Basic type of IDoc - e.g. DEBMAS07]
+WE30
+#
+Send IDoc action
+Authorizations found in the
+permissions section of the setup guide
+Authorizations required for the preceding
+New IDoc trigger
+.
+Additionally, sending an IDoc requires the following authorization:
+Authorization Object
+Message Type (EDI_MES)
+B_ALE_RECV
+[Message type of IDoc - e.g. DEBMAS]
+#
+Run RFC action
+Unfortunately, the authorizations depend largely on the RFC chosen and its parameters as well. To this end, we would suggest using ST01 to find the absolute minimum permissions required. You can use t-code ST01 to set up a trace. Select
+Authorization check
+and provide the user name of the Workato user in
+General filters
+.
+Turn your trace on by selecting
+Trace On
+in the top bar. After this, get your OPA live and begin to attempt to run the triggers and actions. With only the minimum permissions set out to create the integration user, you should hit errors. You can observe the authorization errors by selecting
+Analysis
+in the top navigation bar.
+Select display and you should see where your permissions have failed. Add these permissions to the Authorization role you created for Workato in Step ... of the setup guide. The following example demonstrates how to read the
+Trace display
+. This enables you to determine additional required authorizations.
+TURN OFF TRACE
+When complete, ensure that you turn trace off. Turn off trace by selecting
+Trace Off
+in t-code ST01.
+←
+Create integration user
+Configure the Workato OPA
+→
+Last updated:
+2/26/2025, 9:17:11 PM
+On this page
+New IDoc trigger
+Send IDoc action
+Run RFC action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

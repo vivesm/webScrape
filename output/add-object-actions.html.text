@@ -1,0 +1,184 @@
+Workato コネクター - HubSpot コンタクトの追加アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+HubSpot
+#
+HubSpot - コンタクトの追加アクション
+これらのアクションを用いると、既存のコンタクトのレコードをリストやワークフローに追加できます。このページでは、コンタクトリストからコンタクトを削除するアクションの詳細についても説明しています。
+#
+Add contacts into contact list (コンタクトリストへのコンタクトの追加)
+このアクションは、システム内で作成済みのコンタクトレコードをコンタクトリストに追加します。VID またはメールアドレスを使って複数のレコードを一度に追加することもできます。1回のリクエストで最大500件のレコードをリストに追加できます。
+コンタクトレコードは静的リストにのみ手動で追加でき、動的リストにはそれを行えません。
+Add contacts to contact list アクション
+#
+入力項目
+入力項目
+説明
+List ID
+コンタクトを追加する対象となるコンタクトリストの ID。
+Identification method
+Contact email
+このメールアドレスに対応するコンタクトを追加します。
+Contact VID
+この VID に対応するコンタクトを追加します。
+#
+出力項目
+出力項目
+説明
+Updated
+リストに正常に追加されたコンタクトすべてのコンタクト ID。
+Discarded
+破棄されたコンタクトすべてのコンタクト ID。
+Invalid VIDs
+HubSpot インスタンス内でどの既存のコンタクトにも属していない ID。
+Invalid emails
+HubSpot インスタンス内でどの既存のコンタクトにも属していないメールアドレス。
+#
+Remove contact from contact list (コンタクトリストからのコンタクトの削除)
+このアクションは指定されたコンタクトリストからコンタクトを削除します。
+Remove contacts from contact list アクション
+#
+入力項目
+入力項目
+説明
+List ID
+コンタクトを削除する対象となるコンタクトリストの ID。
+Contacts
+Contacts source list
+リストから削除するコンタクトの配列。
+Contact ID
+この ID に対応するコンタクトを削除します。
+#
+出力項目
+出力項目
+説明
+Updated
+リストから正常に削除されたコンタクトすべてのコンタクト ID。
+Discarded
+破棄されたコンタクトすべてのコンタクト ID。
+Invalid VIDs
+HubSpot インスタンス内でどの既存のコンタクトにも属していない ID。
+Invalid emails
+HubSpot インスタンス内でどの既存のコンタクトにも属していないメールアドレス。
+#
+Add contact to workflow (ワークフローへのコンタクトの追加)
+このアクションは、一連の基準を満たすコンタクトをワークフローに追加する場合に便利です。
+例としては、ホワイトペーパーをダウンロードしたコンタクトを、そのホワイトペーパーの内容に基づいてメールを送信するワークフローに登録する場合などが挙げられます。
+Add contacts to workflow アクション
+#
+入力項目
+入力項目
+説明
+Workflow
+コンタクトを登録したいワークフローを選択します。
+Contact email
+ワークフローに追加されるコンタクトに対応するメールアドレス。
+#
+出力項目
+このアクションの応答に含まれる出力項目はありません。
+←
+オブジェクトの更新
+オブジェクトの取得
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Add contacts into contact list (コンタクトリストへのコンタクトの追加)
+Remove contact from contact list (コンタクトリストからのコンタクトの削除)
+Add contact to workflow (ワークフローへのコンタクトの追加)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

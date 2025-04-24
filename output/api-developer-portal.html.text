@@ -1,0 +1,373 @@
+API Portal | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+#
+API developer portal
+The API developer portal allows administrators to securely share API documentation, manage client access, and promote API adoption. Clients can use the portal to explore assigned APIs, view documentation, generate credentials, and test endpoints.
+The developer portal supports two key user flows:
+Administrators
+: Configure the portal’s branding, invite clients, and manage API access. For detailed setup instructions, refer to the
+Configure the developer portal
+guide.
+Clients
+: Access a personalized portal to explore assigned APIs, review documentation, and test endpoints. Learn more in the
+Access the developer portal
+section.
+#
+Configure the developer portal
+Administrators are responsible for setting up and managing the developer portal, which ensures a seamless and branded experience for clients. Administrators can customize the portal’s appearance, assign API collections, and manage client access. Use the following guides to configure and manage your portal effectively:
+Configure your developer portal
+Add clients to the portal
+Manage client access
+Review collection access requests
+Publish API collections
+#
+Configure your developer portal
+Complete the following steps to configure your client portal’s branding, URL, and appearance:
+1
+Go to
+Platform > API Platform > Settings > Developer portal
+.
+2
+Select
+Get started
+to open the portal setup wizard.
+Set up your developer portal
+3
+Enter a
+Portal name
+.
+Set up portal details
+4
+Specify a
+Portal URL
+by entering a custom subdomain. This becomes the URL your clients use to access the portal. For example
+https://acme_corporation.portal.workato.com
+.
+SUBDOMAIN REQUIREMENTS
+When creating a custom subdomain, ensure it meets the following criteria:
+Contains only lowercase letters (
+a-z
+), numbers (
+0-9
+), and hyphens (
+-
+).
+Starts with a letter.
+Doesn't end with a hyphen (
+-
+).
+Is a maximum of 63 characters.
+Custom domains
+aren't currently supported for the developer portal.
+5
+Upload a
+Portal logo
+image by dragging and dropping an image or selecting a file from your device. Accepted formats are PNG/JPG, with a maximum size of 10MB.
+6
+Set a
+Brand color
+for the portal. This color applies to headers, buttons, and other elements for consistent branding.
+7
+Review the
+Portal preview
+to see how your changes will appear to clients.
+8
+Click
+Next
+to proceed to select API collections to publish.
+9
+Use the
+API collections to include
+drop-down menu to select which API collections to publish in the portal. These collections appear in the Discover new APIs section of your API developer portal, where clients can search for and request access to them.
+Select which API collections to publish
+10
+Click
+Next
+to make your portal live.
+After you publish a portal, it remains live. There is no option to take the portal offline. You can still update configurations such as branding, collections, or client access at any time. To review changes, use the portal preview to see how it appears to your clients.
+PORTAL ACCESS REQUIREMENT
+You must configure an API client with portal access to preview the developer portal. Only registered API clients can access it. Refer to the
+Create a new API client
+guide for more information.
+Developer portal settings
+To manage client access, go to the
+Clients
+tab to
+add clients to your portal
+.
+#
+Add and configure clients in the portal
+You can add new clients to the portal and configure their access through email invitations. Each invitation includes a unique, time-sensitive link for secure access. During setup, you define the API collections the client can access and configure their authentication method. Clients use the portal to generate tokens and interact with the assigned APIs.
+Complete the following steps to add and configure clients in the portal:
+1
+Go to
+API Platform > Clients > All clients
+.
+2
+Click
++ Add new client
+.
+Add new client
+3
+Enter a
+Name
+for your client. Use a descriptive identifier, such as the client’s company or department name.
+Set up client details
+4
+Enter a
+Description
+for the client.
+5
+Upload a
+Client logo
+. Drag and drop a JPG/PNG image or click
+Upload from device
+to select a file. This logo visually identifies your client in the portal.
+6
+Enable the
+Grant client access to portal
+toggle to enable portal access. This grants your client permission to browse published API collections and manage their API keys. If your client doesn't require access to the developer portal, you can leave the toggle disabled.
+7
+Enter the
+Email
+address of the client. The system sends an invitation to this email, allowing your client to log in and access the portal.
+8
+Click
+Next
+to proceed to the
+Define access configuration
+screen, where you can configure your client’s API access.
+9
+Use the
+API collections to include
+drop-down menu to select one or more API collections. This defines the APIs your client can access and invoke. Each client must have access to at least one collection.
+Define access configuration
+10
+Choose an
+Authentication method
+for the client. For more information, refer to the
+available authentication methods
+.
+11
+Optional. Assign a
+Policy
+to control your client’s API usage. Policies define rules such as rate limits or usage quotas.
+12
+Click
+Next
+to complete the process. If portal access is enabled, the system sends an email invitation to the client's email address you specify. Permissions, such as API collections and authentication methods, are configured directly at the client level.
+Create client
+After receiving the email invitation, clients can use the time-sensitive link to access the portal. After logging in, they create
+API keys
+to generate authentication tokens for secure interaction with their assigned collections and endpoints. Each client can create up to a maximum of 10 API keys.
+#
+Manage client access
+The
+Clients
+tab provides access to the
+All clients
+page, where you can review client details, update access configurations, or revoke access as required. The page displays key information such as the client name, email, accessible collections, and assigned policies.
+All clients page
+To manage a specific client’s access, click on their name to open their details page. From here, you can configure the following settings:
+Edit client details
+Access configuration
+API keys
+Review collection access requests
+#
+Edit client details
+Click
+Edit client
+to update basic client information, such as the client’s name or email address, from the client details page.
+Edit client details
+#
+Access configuration
+The
+Access configuration
+tab allows you to manage your client’s access to API collections and set usage policies.
+From this tab, you can view and adjust the
+Accessible collections
+assigned to the client. Add or remove collections to tailor access based on the client's specific requirements.
+Edit accessible API collections
+CLIENT ACCESS LIMITATION
+Every client must have access to at least one API collection. When modifying a client's access to API collections, you can't remove a client’s last remaining accessible collection.
+If you try to remove the last collection and click
+Save
+, the action fails, and Workato displays an error message explaining the limitation. Ensure the client retains access to at least one collection before saving your changes.
+To enforce usage restrictions, add or edit a
+Policy
+that defines rules such as rate limits or usage quotas.
+#
+API keys
+The
+API keys
+tab enables you to create and manage authentication tokens. You can generate new keys with optional IP restrictions for enhanced security or manage existing keys by refreshing or deactivating them as needed.
+Manage API keys
+API keys provide secure authentication, allowing your clients to access their assigned API collections while maintaining strict access controls.
+#
+Review collection access requests
+When a portal client requests access to an API collection, the request appears in the
+Pending collection access requests
+section within the
+Clients
+tab.
+In this section, you can review the requested API collections and the client’s justification for needing access.
+Review requested API collections
+Choose to
+Approve
+or
+Reject
+requests directly from this page. Approving grants the client access to the requested collections, while rejecting keeps the client’s current permissions unchanged.
+#
+Publish API collections
+Only active collections appear in the portal catalog. A collection is active if it contains at least one active endpoint. Inactive collections with zero active endpoints don't appear in the
+Discover my APIs
+section, even if published.
+Complete the following steps to publish an API collection in the developer portal:
+1
+Go to
+Platform > API platform > API collections
+page and select the collection you plan to publish.
+2
+Locate the
+Visibility on portal
+section on the collection’s
+Endpoints
+page. Collections default to
+Private
+if they are not initially published to the portal.
+3
+Click
+Publish to portal
+to make the collection discoverable to your clients.
+Publish your API collection
+You can also publish collections from the
+API collections
+tab. Click
+•••
+(ellipsis) next to the collection and select
+Publish collection
+.
+Publish your API collection from the API collections tab
+#
+Access the developer portal
+The developer portal provides secure access to explore APIs, manage collections, and test endpoints. After receiving your invitation email, you can use the time-sensitive link to log in and access your dashboard. From the dashboard, you can browse assigned APIs, request access to additional collections, and manage API keys.
+For more information, refer to the
+Access the developer portal
+guide.
+←
+Library
+Access the developer portal
+→
+Last updated:
+3/7/2025, 8:53:34 PM
+On this page
+Configure the developer portal
+Configure your developer portal
+Add and configure clients in the portal
+Manage client access
+Edit client details
+Access configuration
+API keys
+Review collection access requests
+Publish API collections
+Access the developer portal
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

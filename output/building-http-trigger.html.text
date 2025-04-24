@@ -1,0 +1,362 @@
+HTTP connector - Building a HTTP trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+HTTP
+#
+Build an HTTP trigger
+You must create an
+HTTP connection
+before you can configure an HTTP trigger.
+The HTTP connector provides a
+New event via polling
+trigger. This trigger processes each new or updated record as a trigger event.
+REAL-TIME TRIGGER
+You can use the
+New event via webhook trigger
+if your use case requires your recipe to respond to trigger events in real-time.
+The number of events retrieved per poll depends on the API endpoint that you send the request to.
+PAGINATION NOT SUPPORTED
+This trigger only reads the first page of records in APIs that enforce pagination. You can set up a trigger with the
+connector SDK
+if your use case expects a paginated response.
+#
+New event via polling
+The
+New event via polling
+trigger fetches events at each polling interval. Workato makes a
+GET
+request to the URL you provide. The corresponding data returned is converted into usable datapills in subsequent actions.
+#
+Input
+New Event via Polling
+Input field
+Description
+Event name
+The name for this polled event.
+URL
+The HTTP endpoint that you are connecting to.
+Request headers
+Provide the HTTP request headers, if applicable.
+Response content type
+Select the expected response data type.
+Response body example
+Provide a sample of the response body. Ensure that this example follows the content type indicated. Please find valid sample payloads in the
+section below
+.
+Trigger poll interval
+Select how frequent to check for new events. Learn more about polling intervals
+here
+.
+#
+Response body example
+#
+JSON
+For JSON responses, please enclose the sample payload with square brackets. For example:
+[
+{
+"fullName"
+:
+"John Doe"
+,
+"firstName"
+:
+"John"
+,
+"lastName"
+:
+"Doe"
+}
+,
+{
+"company"
+:
+"Workato"
+,
+"legalName"
+:
+"Workato Inc"
+,
+"domain"
+:
+"workato.com"
+}
+]
+#
+XML
+The outermost tag should use the
+array
+type for XML responses. For example:
+<
+roles
+type
+=
+"
+array
+"
+>
+<
+role
+>
+<
+id.w_a-b
+type
+=
+"
+integer
+"
+>
+3
+</
+id.w_a-b
+>
+<
+name
+>
+User
+</
+name
+>
+<
+description
+>
+Standard role
+</
+description
+>
+<
+omnipotent
+type
+=
+"
+boolean
+"
+>
+false
+</
+omnipotent
+>
+<
+system-role
+type
+=
+"
+boolean
+"
+>
+true
+</
+system-role
+>
+<
+updated-by
+>
+<
+id.w_a-b
+type
+=
+"
+integer
+"
+>
+1
+</
+id.w_a-b
+>
+<
+login
+>
+sampleaccount
+</
+login
+>
+<
+email
+>
+[email protected]
+</
+email
+>
+<
+employee-number
+/>
+<
+firstname
+>
+Company
+</
+firstname
+>
+<
+lastname
+>
+X
+</
+lastname
+>
+<
+salesforce-id.w_a-b
+nil
+=
+"
+true
+"
+/>
+<
+avatar-thumb-url
+nil
+=
+"
+true
+"
+/>
+<
+custom-field-8
+/>
+<
+custom-field-7
+/>
+<
+gpo-entity
+/>
+<
+radio-button-test
+/>
+<
+subsidary
+/>
+<
+function
+/>
+<
+seg3default
+/>
+<
+username1
+/>
+</
+updated-by
+>
+</
+role
+>
+</
+roles
+>
+#
+Output
+The output of this trigger depends on the response schema provided.
+#
+More resources
+Build an HTTP action
+←
+Configure an HTTP base URL
+Build an HTTP action
+→
+Last updated:
+1/31/2025, 12:40:55 AM
+On this page
+New event via polling
+Input
+Response body example
+Output
+More resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

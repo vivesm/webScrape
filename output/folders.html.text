@@ -1,0 +1,318 @@
+Embedded API - フォルダー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workato Embedded API
+リソース
+#
+フォルダー
+カスタマーアカウント内のフォルダーを管理するには、以下のエンドポイントを使用します。
+#
+クイックリファレンス
+タイプ
+リソース
+説明
+GET
+/api/managed_users/:managed_user_id/folders
+フォルダーのリストを表示します。
+GET
+/api/managed_users/:managed_user_id/projects
+プロジェクトのリストを表示します.
+POST
+/api/managed_users/:managed_user_id/folders
+フォルダーを作成します。
+#
+フォルダーのリストの表示
+カスタマーアカウント内のすべてのフォルダーのリストを表示します。
+GET /api/managed_user_id/folders
+#
+URL パラメータ
+名前
+型
+説明
+managed_user_id
+string
+必須
+Embedded カスタマーアカウント ID または外部 ID。
+外部 ID は、E を先頭に付ける必要があります (例 : Ea2300)。結果として返される ID は URL エンコードされます。
+#
+クエリパラメータ
+名前
+型
+説明
+parent_id
+string
+親フォルダー ID。デフォルトでホームフォルダーに設定されます。
+page
+integer
+ページ番号。デフォルトで1に設定されます。
+per_page
+integer
+ページサイズ。デフォルトで100に設定されます (最大値は100です)。
+#
+サンプルリクエスト
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/1199/folders?parent_id=12323'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+レスポンス
+{
+"result"
+:
+[
+{
+"id"
+:
+1789
+,
+"name"
+:
+"Netsuite production"
+,
+"parent_id"
+:
+4515
+,
+"created_at"
+:
+"2020-07-16T10:49:53.337-07:00"
+,
+"updated_at"
+:
+"2020-07-16T10:49:53.347-07:00"
+}
+]
+}
+#
+プロジェクトの一覧
+すべてのプロジェクトを一覧表示します。プロジェクトは通常、単一のユースケースを包括するトップレベルのフォルダです。
+GET /api/managed_user_id/:managed_user_id/projects
+#
+URL パラメータ
+名前
+タイプ
+説明
+page
+integer
+ページ番号。デフォルトは 1 です。
+per_page
+integer
+ページサイズ。デフォルトは 100 です（最大は 100）。
+#
+サンプルリクエスト
+curl
+-X
+GET
+'https://www.workato.com/api/managed_user_id/:managed_user_id/projects'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+Response
+{
+"result"
+:
+[
+{
+"id"
+:
+649122
+,
+"description"
+:
+"Coupa to Netsuite automations"
+,
+"folder_id"
+:
+1563029
+,
+"name"
+:
+"Procure to Pay"
+}
+,
+{
+"id"
+:
+604202
+,
+"description"
+:
+"Salesforce to Netsuite automations"
+,
+"folder_id"
+:
+1486330
+,
+"name"
+:
+"Order to Cash"
+}
+,
+]
+}
+#
+フォルダーの作成
+指定された親フォルダーの中に新しいフォルダーを作成します。親フォルダー ID が指定されなかった場合は、作成されたフォルダーがトップレベルのフォルダー (ホームフォルダー内) になります。
+POST /api/managed_users/:managed_user_id/folders
+#
+URL パラメータ
+名前
+型
+説明
+managed_user_id
+string
+必須
+Embedded カスタマーアカウント ID または外部 ID。
+外部 ID は、E を先頭に付ける必要があります (例 : Ea2300)。結果として返される ID は URL エンコードされます。
+#
+ペイロード
+名前
+型
+説明
+name
+string
+必須
+フォルダーの名前。
+parent_id
+string
+親フォルダー ID。デフォルトでホームフォルダーに設定されます。
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/managed_users/1892/folders
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "Salesforce folder"
+}'
+#
+レスポンス
+{
+"id"
+:
+3498583
+,
+}
+←
+プロパティのアップサート
+ルックアップテーブル
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+フォルダーのリストの表示
+プロジェクトの一覧
+フォルダーの作成
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

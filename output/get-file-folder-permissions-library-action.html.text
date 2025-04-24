@@ -1,0 +1,181 @@
+Workato connectors - Microsoft SharePoint get file or folder permissions in SharePoint library action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SharePoint
+#
+Get file or folder permissions in SharePoint library action (batch)
+This action retrieves the permissions of a specific file or folder in a SharePoint library. The specified folder can also be a document library. All associated permissions (both individual and group permissions) are listed.
+#
+Input fields
+Field
+Description
+Document Library/Folder/Files
+Select which entity to provide the permissions for. If File or Folder is selected, select the file or folder from the drop-down in addition to selecting the document library.
+Site name
+Provide the name of the SharePoint site to which you plan to connect. If left blank, Workato connects to your default home site, as specified in your connection settings. The site name is located in the URL of the site page. For example, if the URL is
+https://company-name.sharepoint.com/sites/product
+, the site name is
+product
+.
+If you plan to connect to a different site, you can provide the absolute URL to override the base URL. For example, if the input is
+https://company-name.sharepoint.com/teams/product
+, Workato connects to the provided input.
+Alternatively, you can provide the absolute URL to connect to a different site. For example, entering
+https://company-name.sharepoint.com/teams/product
+connects Workato to the specified site directly.
+Document library
+Provide the document library containing the file or folder.
+Folder
+Select the folder for which you plan to retrieve permissions. Alternatively, you can provide the relative URL of the folder. For example,
+/sites/sitename/documentlibrary/foldername
+.
+File name
+The name of the file for which you plan to retrieve permissions. Alternatively, you can provide the relative URL of the file. For example,
+/sites/sitename/documentlibrary/foldername/filename
+.
+#
+Output fields
+The output datatree contains the permissions of the specified file or folder.
+Field
+Description
+Odata metadata
+Metadata providing details about the OData service endpoint.
+Value
+The specific permissions associated with the file or folder in SharePoint. The metadata is returned in the output.
+Member
+The specific users with permissions to access the file, folder, or document library.
+Odata type
+The type of the OData entity returned.
+Odata ID
+The unique identifier of the OData entity.
+Odata edit link
+The URL for editing the OData entity.
+Base permissions
+The base permissions assigned to the member.
+Description
+Additional descriptive information about the member.
+Hidden
+Indicates if the member is hidden.
+ID
+The identifier of the member.
+Name
+The name or title of the member.
+Order
+The order or sequence related to the member.
+Role type kind
+The kind of role or type of membership for the member.
+List size
+The size or count of items related to the member in a list context.
+List index
+The index position of the member in a list.
+Principal ID
+The principal identifier associated with the member.
+←
+Get file and folder details from library action
+List files or folders in library action (batch)
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

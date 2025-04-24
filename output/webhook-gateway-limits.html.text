@@ -1,0 +1,199 @@
+Troubleshooting - Webhook Rate Limits | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+#
+Webhook gateway limits
+When you use a real-time trigger, a webhooks connector, or build a webhook trigger on the connector SDK, events are sent to the webhook gateway before becoming jobs. Workato's webhook gateway enforces two limits at the
+Workspace level
+:
+Rate limits
+The number of events you can send in a given time interval.
+Byte limits
+The total memory size of webhook events allowed in a specific time interval.
+#
+Rate limits
+The webhook gateway uses rate limits to manage event processing efficiently. The following limits apply per environment, such as Dev, Test, or Prod:
+Steady rate
+: 20 events per second, equivalent to 72,000 events per hour.
+Burst allowance
+: 1,000 events that can be processed beyond the steady rate in a burst.
+#
+Leaky bucket rate limiting
+The webhook gateway uses a
+leaky bucket approach
+with the following process:
+If you receive
+more than 20 events
+in a second, the excess events consume your burst allowance.
+If you receive
+fewer than 20 events
+in a second, the remaining capacity refills your burst allowance, but only if the burst allowance is less than 1,000 events.
+BURST ALLOWANCE REFILL LIMIT
+The burst allowance does not refill if it has already reached the maximum limit of 1,000 events.
+If you exceed both the steady rate (20 events per second) and the burst allowance (1,000 events), the webhook gateway returns a
+429 Too Many Requests
+response for additional events until the rate falls within the limit.
+HANDLING 429 RESPONSES
+The webhook gateway sends
+429
+responses to maintain stability for all customers. The best practice for handling
+429
+responses is to retry webhooks until they are accepted.
+Learn more about handling 429 responses.
+#
+Example scenarios
+The following scenarios demonstrate how the webhook gateway processes different amounts of events:
+#
+Scenario 1: 25 events in one second
+When you receive 25 events in one second, the webhook gateway processes 20 events within the steady rate. The remaining 5 events consume part of your burst allowance.
+#
+Scenario 2: 10 events in one second
+If you receive 10 events in one second, the gateway processes all 10 events. The unused capacity (10 events) refills your burst allowance, provided it hasn’t reached the maximum limit.
+#
+Scenario 3: 1,050 events in one second
+In this scenario, you receive 1,050 events in one second. The gateway processes 20 events at the steady rate, and the next 1,000 events deplete your entire burst allowance. The remaining 30 events result in a
+429 Too Many Requests
+response, as both the steady rate and burst allowance are exceeded.
+#
+Byte limits
+Our webhook gateway has the following byte limits, which represents the total memory in all your webhooks:
+30MB per minute
+30MB in a burst
+You can imagine the byte limits per minute and burst in the same way as the rate limits.
+HANDLING 429 RESPONSES
+429 requests are meant to preserve the stability of our webhook gateway for all customers. Industry best practices for 429s are to retry webhooks until they are eventually accepted.
+In high volume scenarios, webhook gateway limits may be adjusted on a per-customer basis and subject to commercial terms and approval.
+Learn more about handling 429 responses.
+#
+Rate limit revisions
+We understand that each business has unique event processing needs. Our goal is to support your objectives by offering flexible rate limits tailored to your specific requirements.
+For existing customers, we recognize that some may have higher rate limits based on earlier versions of our documentation, including a steady rate of 20 events per second and a burst allowance of 18,000 events. We remain committed to honoring these higher limits. Any changes to your rate limits are communicated in advance.
+If the standard rate limits do not meet your requirements, we encourage you to contact our support team to discuss potential adjustments. We work with you to ensure that your usage aligns with your business objectives while maintaining platform stability.
+#
+Additional information for embedded partners
+For Embedded Partners using our shared connectors feature to distribute connectors to their customers, static webhook triggers in your customer workspaces have their own separate webhook rate limits. For example, webhook events to Customer A's workspace will not be counted to Customer B's workspace webhook rate limits.
+#
+Handling situations when your Webhook Gateway limits are exceeded
+When you exceed your rate limits, Workato's webhook gateway responds with 429 errors. In addition to this, Workato's webhook gateway responds to every event with 5 headers that help you understand when you can successfully send your next event.
+Retry-After
+- How many seconds to retry the same webhook before it will be accepted
+X-Rate-Limit-Remaining
+- How many events that can be sent before 429s will be returned
+X-Rate-Limit-Reset
+- How many seconds before your event burst allowance is refilled
+X-Byte-Limit-Remaining
+- How much cumulative data across all webhooks that can be sent before 429s are returned
+X-Byte-Limit-Reset
+- How many seconds before your Byte burst allowance is refilled
+Your API can use these headers to understand how and when to throttle webhook events.
+←
+422 Unprocessable entity
+OPA no profile found
+→
+Last updated:
+1/31/2025, 9:09:46 PM
+On this page
+Rate limits
+Byte limits
+Rate limit revisions
+Additional information for embedded partners
+Handling situations when your Webhook Gateway limits are exceeded
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

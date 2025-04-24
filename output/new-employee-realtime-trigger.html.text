@@ -1,0 +1,206 @@
+Workato connectors - Bamboo HR - New employee real time trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Bamboo HR
+#
+Bamboo HR - New employee trigger (real-time)
+This trigger picks up employees that are created in your Bamboo HR instance. Each employee is processed as a separate job.
+This trigger picks up events as soon as they occur. To set up this trigger, you have to configure webhooks in your Bamboo HR instance. Learn how to
+configure a webhook in Bamboo HR
+.
+Enable Webhooks on Bamboo HR
+Webhooks are not enabled by default. Contact Bamboo HR support to enable this feature.
+#
+Input
+After defining the
+Event name
+, a webhook endpoint URL will be generated. This will be needed to
+configure a webhook in Bamboo HR
+.
+New employee trigger (real-time)
+Input field
+Description
+Event name
+Provide a descriptive name for this event. It will be appended to the webhook endpoint URL.
+Output fields
+Select the fields that will be posted from Bamboo HR. Ensure that the fields selected are identical. Find out more about Bamboo HR
+employee fields
+(opens new window)
+.
+#
+Output
+The output of this action are fields defined by the Bamboo HR webhook. By default, Workato will retrieve the
+Employee ID
+.
+Output field.
+Description
+Employee ID
+The employee ID assigned by Bamboo HR.
+Output fields
+Output fields as defined in the Bamboo HR webhook.
+For a full list of employee fields, see
+field names
+(opens new window)
+.
+#
+How to setup a Webhook in Bamboo HR
+Steps
+Description
+1.
+Setup the Workato trigger. Select the event to generate an endpoint URL.
+Retrieve Workato webhook endpoint URL
+2.
+In your Bamboo HR instance, navigate to
+Account
+>
+Webhooks
+>
++ Add Hooks
+.
+Bamboo HR Webhooks
+3.
+Select which
+Webhook fields
+to monitor. Updates to this field will create a trigger event. Find out more about
+webhook fields
+(opens new window)
+.
+Select fields to monitor
+4.
+Select which
+Webhook fields
+to post. These fields will be sent to Workato as datapills. Find out more about
+Bamboo HR webhook fields
+(opens new window)
+.
+Ensure that the fields to post are identical to the ones configured in the
+trigger input
+.
+Select fields to post
+5.
+Select
+JSON
+format.
+Select JSON format
+6.
+Next, fill
+Post to URL
+with the endpoint provided by Workato.
+Select
+Save
+when done.
+Provide webhook endpoint URL
+Find out more about
+Bamboo HR Webhooks
+(opens new window)
+.
+←
+New employee trigger
+Updated employee trigger
+→
+Last updated:
+7/2/2021, 10:09:23 AM
+On this page
+Input
+Output
+How to setup a Webhook in Bamboo HR
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

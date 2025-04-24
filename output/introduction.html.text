@@ -1,0 +1,248 @@
+Workato connectors - Introduction | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Coupa
+#
+Coupa
+Coupa
+(opens new window)
+is a business spend management platform. It supports procurement, invoicing, expense, and payment functions for enterprises. Coupa enables users to create and approve procurement processes including requisitions and invoices. It also has an integrated expense module that enables users to submit expense reports and have them approved directly in Coupa. Traditionally, this information is then synced with ERP systems such as
+NetSuite
+,
+Oracle EBS
+or
+SAP
+for other business functions such as accounting or making payments.
+Workato's integration with Coupa helps you sync this data with any of these ERP systems to support your Procure To Pay, Procure To Order and Expense Management processes. Read on to find out how to set up your connection on Workato to your Coupa instance and how you can leverage Workato to increase the business value gained from Coupa through integrations with your other business applications.
+#
+How to connect to Coupa on Workato
+The Coupa connector allows three types of authentication: OAuth 2.0 Client Credentials, OAuth 2.0 Authorization Code Grant, and API key based connections. Workato recommends using an OAuth method to connect to Coupa.
+#
+Connecting with API keys
+API keys are keys you generate to let Coupa know this Workato connection is allowed to work with your information. Generate your API key in your Coupa instance by heading to https://[your-instance-name].coupacloud.com/api_keys or logging into your Coupa account.
+API keys are found under the
+Setup > Integrations > API Keys
+in the top navigation header in your Coupa instance.
+The connection configuration page for Coupa on Workato
+Connection name
+Give this Coupa connection a unique name that identifies which API key it is connected to.
+Host
+Enter the Coupa URL for your instance.
+API key
+Enter your API key which you have generated in your Coupa instance.
+#
+Working with the Coupa connector
+#
+Objects
+In Workato, we grouped Coupa data into objects in our actions and triggers. Objects refer to almost anything Workato currently supports in our Coupa actions or triggers. When selecting an action such as
+Create Object
+, you must clarify whether you want to create a purchase order or an invoice. Workato supports the following objects in Coupa.
+Account
+Trigger off, query, create, or update accounts that match your financial structure.
+Address
+Trigger off, query, create, or update personal or supplier remit-to address information.
+Approvals
+Trigger off or query approvals for requisitions or purchase orders.
+Contract
+Trigger off, query, create, or update a contract.
+Department
+Trigger off, query, create, or update department information. Departments are used to mimic your company's operating structure and to organize groups and users accordingly.
+Exchange rate
+Trigger off, query, create, or update exchange rates.
+Expense line
+Query or create expense report lines used for expense management.
+Expense report
+Trigger off, query, create, or update expense reports used for expense management.
+Integration
+Query or create integrations in Coupa.
+Integration error
+Query or create integrations errors in Coupa.
+Integration run
+Query or create integrations runs in Coupa.
+Integration history record
+Query or create integrations history records in Coupa.
+Invoice
+Trigger off, query, create, or update invoices in Coupa.
+Inventory Transaction
+Trigger off, query, or create inventory transactions. Receipts of goods are the same as inventory transactions in Coupa.
+Item
+Trigger off, query, create, or update items not provided by suppliers. If you intend to work with items provided by suppliers, use the supplier item object.
+Lookup value
+Trigger off, query, create, or update lookup values in Coupa.
+Purchase order
+Trigger off, query, create, or update purchase order in Coupa.
+Purchase order line
+Trigger off, query, or create purchase order lines in Coupa.
+Remit to address
+Trigger off, query, create, or update supplier remit-to addresses. This address is used to send payment to suppliers.
+Requisition
+Trigger off or query requisitions in Coupa.
+Supplier
+Trigger off, query, create, or update suppliers.
+Supplier information
+Trigger off, query, create, or update supplier information.
+Supplier item
+Trigger off, query, create, or update items provided by suppliers that users can select when creating a requisition.
+Supplier site
+Trigger off, query, create, or update supplier sites.
+User
+Trigger off, query, create, or update a user.
+The preceding list of Coupa objects is non-exhaustive. View additional
+available Coupa objects
+(opens new window)
+on Coupa's resource portal. If you see an object that we currently don't support, you can use custom actions that enable you to send
+custom HTTP requests
+.
+#
+Using Coupa actions and triggers on Workato
+The Coupa connector in Workato first requires you to select your action which is a mixture of generic actions and commonly used specific actions.
+Generic triggers
+New/updated object
+Generic actions
+Create object
+Update object
+Search object
+Get object by ID
+Get remit to addresses by object ID
+Specific actions
+Close purchase order
+Cancel purchase order
+Get supplier sites by supplier
+Set integration run status
+For generic actions and triggers, you can select the object you want to work with when configuring the step. The required input fields for the object you select are dynamically generated. This includes any custom fields that you or your team have defined in Coupa.
+Selecting an object in the Coupa connector
+#
+Custom object fields in Coupa
+The Coupa connector on Workato automatically pulls all custom fields whenever you request an object. Search for custom fields you or your team have defined in the
+Add/remove optional fields
+drop down.
+#
+Return types in Coupa
+Records in Coupa can be large due to its many attributes. Sometimes, retrieving a batch of records may result in time outs or slow performance. The Coupa connector enables you to control the amount of data retrieved per record to combat these cases. This can be done in the input field -
+Return Type
+. As the input field is toggled, the output datatree that describes the record changes as well. We provide three different options for return types in Coupa.
+Default
+This is the default option on the Coupa Connector. All fields and child attributes are returned.
+Shallow
+All attributes/fields of the object called and the IDs and natural keys of the one-deep associations are returned.
+Limited
+Only ID's are returned. This is supported for all commands.
+Return types change the output datatree.
+#
+List of triggers and actions
+Workato supports the following Coupa triggers and actions. Find out more details about each by clicking the following links. You can also navigate to them through the sidebar.
+Object actions
+Object triggers
+Purchase order actions
+Supplier actions
+Integration actions
+←
+Coupa
+OAuth connection setup
+→
+Last updated:
+2/17/2023, 8:44:26 AM
+On this page
+How to connect to Coupa on Workato
+Working with the Coupa connector
+List of triggers and actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

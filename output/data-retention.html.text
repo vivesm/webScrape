@@ -1,0 +1,181 @@
+Embedded API - Data retention | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded API
+Resources
+#
+Data retention
+This API allows you to manage
+data retention
+periods in customer workspaces that have the Configurable Data Retention capability enabled.
+#
+Quick reference
+Type
+Resource
+Description
+PUT
+/api/managed_users/:managed_user_id/update_data_retention
+Update a customer workspace's data retention period.
+#
+Update customer workspace's data retention period
+Updates the data retention period for customer workspaces where the Configurable Data Retention capability is enabled. Refer to the
+Data retention policies
+documentation for more information.
+PUT /api/managed_users/:managed_user_id/update_data_retention
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+The external ID must be URL encoded and prefixed with an
+E
+(for example,
+EA2300
+).
+#
+Payload
+Name
+Type
+Description
+data_retention_ttl_hours
+integer
+required
+The length of time to retain data for the specified customer workspace, in hours. The minimum data retention period is
+1
+hour and the maximum is determined by the Embedded customer's plan.
+#
+Sample request
+curl
+-X
+PUT
+'https://www.workato.com/api/managed_users/12345/update_data_retention'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"data_retention_ttl_hours": 720
+}'
+#
+Response
+{
+"data"
+:
+[
+]
+}
+←
+Invite collaborator to managed customer workspace
+Dynamic field mapping
+→
+Last updated:
+11/5/2024, 6:04:00 PM
+On this page
+Quick reference
+Update customer workspace's data retention period
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

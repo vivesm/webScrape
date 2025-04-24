@@ -1,0 +1,256 @@
+Dependency Graph | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの管理
+管理者ダッシュボード
+#
+Dependency Graph
+動画もあります
+概要を紹介する動画をご覧ください。
+チームの規模や Workato の使用量が拡大すると、Workato ワークスペース内のアセット間の依存関係も増加します。オートメーションのライフサイクル管理では、変更やアセットの使用状況を把握、分析することが極めて重要です。
+それでは、Workato の各種アセット間の関係はどのようにして分析、管理すればいいのでしょう。
+Dependency Graph
+を使用すれば簡単です。
+Workato の Dependency Graph は、ワークスペース内のアセットおよびリソース間の関係を視覚的に表示します。この機能を使用すれば、依存関係の分析や、1つのアセットに対する変更が他のアセットに与える影響の評価が可能になります。
+Workato の Dependency Graph
+#
+Dependency Graph の使用
+Dependency Graph は、ワークスペース内に存在する、すべてのアセットの上流および下流の依存関係を確認するときに使用します。
+Dependency Graph へのアクセス
+表示機能の使用
+#
+Dependency Graph へのアクセス
+1
+ワークスペースで
+[Dashboard] > [Dependency graph]
+に移動します。
+2
+[Connections]
+など
+[Asset]
+のタイプを選択します。
+3
+特定のアセットを選択すると、その相互依存関係が表示されます。
+たとえば次の図は、「
+My BambooHR account
+」というコネクションを選択して、その相互依存関係を表示しています。
+4
+以下の手順で依存関係を調べます。
+依存関係自体をクリック
+すると、その相互依存関係の表示画面が開きます。
+依存関係の上にマウスポインターを移動
+して
+(外向きリンク) アイコンをクリックします。これにより、ワークスペース内の新しいブラウザータブ内に依存関係のページが開きます。
+#
+表示機能の使用
+簡単に表示および移動するには、必要に応じて
+ズーム
+、
+ドラッグ
+、
+画面にフィット
+の機能を使用します。
+ズームイン/アウト
+: グラフの右上隅にある
++
+と
+-
+アイコンを使用すると、画面をズームイン/アウトできます。
+画面にフィット
+:
+-
+アイコンの下にあるアイコンを使用すると、現在のグラフを画面にちょうど収まるサイズに変更します。
+ドラッグ
+: グラフの内容を移動するには、グラフをクリックしたままマウスを移動します。
+#
+サポート対象のアセット
+Dependency Graph は、次のアセットタイプに対応しています。
+API コレクション
+アプリ
+共通データモデル
+コネクション
+Lookup table
+メッセージテンプレート
+プロパティ
+Pub/Sub トピック
+レシピ
+#
+API コレクション
+[API collections]
+フィルターを選択すると、API コレクションと API エンドポイントの間の関係が表示されます。
+#
+アプリ
+新機能
+最新リリースではアプリが Dependency Graph に表示されるようになりました。ご確認ください。
+[Apps]
+フィルターを選択すると、レシピが各種アプリタイプをどのように使用しているかが表示されます。デフォルトのグラフには
+アクティブ
+な
+レシピ内のアプリが表示されますが、これは
+レシピステータス
+のフィルターを使用することで変更できます。
+この表示から、次のようなことを判断できます。
+チームが統合/自動化しようとしているアプリ:
+アプリの Dependency Graph には、少なくとも1つの
+コネクション
+が設定されているアプリだけが表示されます。これにはカスタムアプリも含まれます。
+最も使用されているアプリ:
+アプリアイコンの下に表示される数字は、そのアプリが使用されているレシピの数を表します。たとえば、次の図の Salesforce アプリは
+11個のレシピ
+で使用されています。
+他のアプリと併用しているアプリ:
+アプリの Dependency Graph では、あるアプリが他のアプリと併用されている状態を接続線によって表示します。アプリの上にマウスポインターを移動すると、他のアプリに接続する線の上に数字が表示されます。この数字は、両方のアプリが使用されているレシピの数です。
+たとえば、次の図の Salesforce アプリは
+Box
+アプリとともに
+2個のレシピ
+で使用されています。
+1つのアプリに対して作成中のフロー:
+特定のアプリの使用状況、たとえば、そのアプリに設定された個々の
+コネクション
+や、各コネクションが使用されている
+レシピ
+など、アプリに関する概要を表示できます。
+アプリの概要を表示するには、次の2つの方法があります。
+[Apps] フィルターでアプリを選択する
+:
+グラフ内のアプリをクリックする
+:
+上記の例は Salesforce アプリの概要を表示するもので、
+9個のレシピ
+で
+5個のコネクション
+が使用されていることがわかります。
+#
+共通データモデル
+[Common data models]
+フィルターを選択すると、レシピで使用されているカスタムオブジェクトが表示されます。
+#
+コネクション
+[Connections]
+フィルターを選択すると、各タイプのコネクションを使用しているレシピの数がわかります。
+注
+: Dependency Graph にはカスタムコネクションも表示されます。
+#
+Lookup table
+[Lookup tables]
+フィルターを選択すると、Lookup table を使用しているレシピの数がわかります。
+#
+メッセージテンプレート
+[Message templates]
+フィルターを選択すると、レシピがメッセージテンプレートをどのように使用しているかが表示されます。
+#
+プロパティ
+[Properties]
+フィルターを選択すると、レシピがプロパティをどのように使用しているかが表示されます。
+#
+Pub/Sub トピック
+[Pub/Sub topics]
+フィルターを選択すると、レシピが Pub/Sub トピックをどのように使用しているかが表示されます。
+#
+レシピ
+[Recipes]
+フィルターを選択すると、レシピ、コネクション、その他のリソース間の関係が表示されます。
+←
+プランの使用量を監視
+アクティビティ監査ログ
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Dependency Graph の使用
+サポート対象のアセット
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

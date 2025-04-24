@@ -1,0 +1,230 @@
+Manage environment access | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Lifecycle & operations
+Environments
+#
+Manage environment access
+WHO CAN USE THIS FEATURE?
+This guide is applicable to accounts with the
+Environments
+feature enabled. Environments is available for direct and Embedded users. Learn more about
+Environments for Embedded customers
+.
+To perform the tasks in this guide, you'll need the following in your main workspace (
+DEV
+):
+The
+Admin
+system role
+, or
+Team
+and
+Custom team roles
+privileges
+We've set up collaborator roles to be shared, ensuring that
+role-based access control
+is maintained and consistent across your Workato environments.
+This guide covers the following topics:
+Manage collaborator roles
+Grant environment access
+Revoke environment access
+Resources
+#
+Manage collaborator roles
+Collaborator roles are managed in the main environment (
+DEV
+) and are enforced across all environments. To prevent duplicating roles, you can assign collaborators a different role for each environment. This ensures that you can define granular privileges that are appropriate for the nature of the environment.
+For example:
+In the main environment (
+DEV
+), a collaborator may need
+Admin
+privileges to build their recipes.
+In the
+TEST
+environment, the collaborator only needs to test and run their recipe. This can be done with the
+Operator
+role.
+In the
+PROD
+environment, the collaborator only needs to run their recipe. This can be done with the
+Operator
+role.
+Here's how this example would look in Workato:
+If a role needs to be updated or deleted, you'll do so in the main environment (
+DEV
+). The
+Workspace admin
+page is only available in this environment.
+#
+Grant environment access
+Assigning a role for an environment to a collaborator also grants them access to the environment.
+To grant access to an environment for a collaborator:
+1
+Go to
+Workspace admin > Collaborators
+(opens new window)
+in the (
+DEV
+) environment of your Workato account in the Orchestrate platform.
+2
+Click on the collaborator you want to modify. This will open the
+Edit collaborator
+page.
+3
+Locate the environment you want to grant access to. For example:
+TEST
+4
+In the
+Role
+menu below the environment, select the collaborator's role for that environment.
+To prevent or remove access to the environment
+, select
+No access
+.
+5
+Click
+Update
+.
+#
+Revoke environment access
+To revoke access to an environment for a collaborator:
+1
+Go to
+Workspace admin > Collaborators
+(opens new window)
+in the (
+DEV
+) environment of your Workato account in the Orchestrate platform.
+2
+Click on the collaborator you want to modify. This will open the
+Edit collaborator
+page.
+3
+Locate the environment you want to revoke access from. For example:
+TEST
+4
+In the
+Role
+menu below the environment, select
+No access
+.
+5
+Click
+Update
+.
+#
+Resources
+Environments
+Role-based access control
+Collaborator roles and privileges
+←
+Best practices
+Basics
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Manage collaborator roles
+Grant environment access
+Revoke environment access
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,154 @@
+ELT Pipeline for Snowflake インストールガイド | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+ELT パイプライン - Snowflake
+#
+ELT Pipeline for Snowflake アクセラレータのインストールガイド
+事前準備
+アクセラレータを開発、テスト、または本番環境にインストールすることをお勧めします。必要に応じて命名規則を変更して、自分のニーズに合わせてください。
+#
+前提条件
+Workatoのサブスクリプションが必要です。
+次のWorkatoアドオンが必要です：
+ELT/ETL
+Enterprise workbot for Slack/Microsoft Teams
+次のパッケージのいずれかが必要です：
+ELT Pipeline for Slack.zip (Slackの実装用)
+ELT Pipeline for Teams.zip (Microsoft Teamsの実装用)
+次のインスタンスが必要です：
+Snowflake
+Salesforce/ SQL/ Windows File System インスタンス
+ステージングデータ用のS3バケット
+Slack/Microsoft Teams ワークスペース
+OPA（オンプレミスエージェント）2つ
+OPG（オンプレミスグループ）1つ
+#
+アセットパッケージのインストール
+ワークスペースにパッケージをインストールするには：
+1
+Workatoで新しいプロジェクトを作成します。ELT Pipelineボットを実装する場所に応じて、プロジェクトの名前を
+ELT Pipeline for Snowflake
+または
+ELT Pipeline for Microsoft Teams
+とします。
+2
+新しく作成した
+ELT Pipeline for Snowflake
+プロジェクト内に、新しいフォルダを作成します。フォルダの名前を
+Slack
+または
+Microsoft Teams
+とします。
+3
+Recipe Lifecycle Management
+ツールを使用するか、
+フォルダにパッケージをインポートするAPI
+を使用して、
+ELT Pipeline for Slack.zip
+または
+ELT_Pipeline_for_MS_Teams.zip
+パッケージをインポートします。
+←
+設計
+接続
+→
+Last updated:
+2024/2/22 23:17:11
+On this page
+前提条件
+アセットパッケージのインストール
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

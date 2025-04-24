@@ -1,0 +1,159 @@
+Workato コネクター - Google ドライブトリガー - New file or folder | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Drive
+#
+Google ドライブアクション - Rename/move file or folder (ファイルまたはフォルダーの名前変更/移動)
+このアクションは、Google ドライブ内のファイルまたはフォルダーの名前変更/移動を行います。
+#
+入力項目
+項目名
+説明
+File or folder ID
+その他の Google ドライブトリガー/アクションの出力で確認できます。
+または、必要なフォルダーを選択すると、フォルダー ID は URL の末尾で確認できます。ファイル ID の場合、ファイルを右クリックして、[
+Get shareable link
+(共有可能なリンクを取得)] を選択します。共有可能なリンクは以下のような文字列になります:
+https://drive.google.com/file/d/1y1nxL1248oiyR2IjW_Rq84d3qEPYRoqh/view?usp=sharing
+(opens new window)
+。この場合、ファイル ID は
+1y1nxL1248oiyR2IjW_Rq84d3qEPYRoqh
+です。
+#
+出力項目
+Google Drive API では、
+folder
+(フォルダー) と
+file
+(ファイル) という言葉は区別なく用いられます。厳密に言えば、
+folder
+は特殊な
+file
+です。そのため、項目名または項目の説明に
+file
+と記載されている場合、それは
+folder
+にも適用されます。
+項目名
+説明
+Kind
+これがどのような種類のリソースであるかを識別します。たとえば、これがファイルであるかフォルダーであるかを示します。
+Name
+ファイル/フォルダーの名前。
+File ID
+ファイル/フォルダーの ID。
+Mime type
+Google のドキュメント
+(opens new window)
+に記載されている、ファイル/フォルダーの MIME タイプ。
+Parents
+ファイル/フォルダーを含んでいる親フォルダーのリスト。
+- ID
+この親フォルダーの ID。
+- List size
+このリスト内の親フォルダーの数。
+←
+ファイルのダウンロード
+ファイル・フォルダーの検索
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

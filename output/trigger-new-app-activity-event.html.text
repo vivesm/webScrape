@@ -1,0 +1,138 @@
+Google Workspace トリガー - New application event トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Workspace
+#
+New application event (新規アプリケーションイベント) トリガー
+このトリガーは、選択された Google Workspace アプリケーションにおいて特定のイベントが発生するたびにレシピを実行します。
+#
+入力項目
+項目
+説明
+When first started...
+このトリガーでイベントの監視を開始する日時。詳細については、
+When first started, this recipe should pick up events from トリガー
+を参照してください。
+Application name
+ドロップダウンリストから Google Workspaceアプリを選択します。
+Event name
+イベント名を確認するには、
+こちらのページ
+(opens new window)
+の左側のナビゲーションから、該当する Google Workspace アプリを探し出してください。監視したいアクティビティに対応する
+Event name
+(イベント名) 行の値を使用します。
+たとえば、カレンダーに対する変更を監視するためのトリガーを設定するには、
+change_calendar_acls
+と入力します。
+Filters
+返されるイベントのリストを絞り込みます。各フィルターを区切るにはカンマを使用します。詳細については、
+filters パラメータ
+(opens new window)
+を参照してください。
+指定したイベント名に基づいて、さらに項目が表示されます。
+#
+出力項目
+出力データツリーには、種類 (API リソースの種類)、リソースの eTag、アプリケーション名、およびタイムスタンプといった、イベントに関する情報が含まれます。
+←
+新規管理者アクティビティイベント トリガー
+新規ユーザーイベント トリガー
+→
+Last updated:
+2024/8/28 20:43:06
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

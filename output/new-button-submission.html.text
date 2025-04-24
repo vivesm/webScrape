@@ -1,0 +1,159 @@
+Workato connectors - Cisco Webex Teams New button submission trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Cisco Webex Teams
+#
+New button submission trigger (real-time)
+This trigger monitors new button submissions in your Cisco Webex Teams instance in real-time. Workato processes each submission as a separate job.
+#
+Input fields
+This trigger doesn't require user input.
+#
+Output fields
+Field
+Description
+Attachment action ID
+The unique identifier of the attachment action.
+Message ID
+The unique identifier of the message associated with the button submission.
+Actor ID
+The unique identifier of the actor who performed the button submission.
+Room ID
+The unique identifier of the room where the button was submitted.
+Created
+The timestamp when the button submission was created.
+Org ID
+The unique identifier of the organization.
+App ID
+The unique identifier of the application.
+Advanced
+An object that contains additional information about the button submission.
+Created by (advanced)
+The unique identifier of the user who created the button submission.
+Webhook ID (advanced)
+The unique identifier of the webhook associated with the button submission.
+Name of the webhook (advanced)
+The name of the webhook associated with the button submission.
+Type of received webhook (advanced)
+The type of webhook that was received. For example,
+submit
+.
+Type of event (advanced)
+The type of event associated with the button submission. For example,
+create
+.
+Owned by (advanced)
+The owner of the button submission.
+Status (advanced)
+The status of the button submission. For example,
+active
+.
+←
+New message trigger
+Add person to room action
+→
+Last updated:
+12/12/2024, 6:43:50 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

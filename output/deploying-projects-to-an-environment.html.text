@@ -1,0 +1,362 @@
+Environments - Deploying A Project To An Environment | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Lifecycle & operations
+Environments
+Deploying assets
+#
+Deploy a project to an environment
+FEATURE AVAILABILITY
+Environments are included in specific pricing plans for direct customers. Additionally, Environments are available for Embedded end customers, but access is controlled by the Embedded partner. Refer to your pricing plan and contract to learn more.
+Learn more about
+enablement for Embedded partners
+and
+Environments for Embedded customers
+.
+You can only deploy from Development to Test and from Development to Production.
+graph LR
+A(Development) --> B(Test)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+graph LR
+A(Development) --> B(Production)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+This guide outlines the following steps:
+Deployment prerequisites
+Set up the deployment
+Customize the deployment
+Review changes
+Add details
+Review and finalize deployment
+Deploy from the recipe page
+Re-establish connections
+#
+Prerequisites
+Ensure you have the following prerequisites to deploy a project to an environment:
+A Workato account with the
+Environments
+feature enabled.
+Access to the project you plan to deploy.
+The
+deployment privilege
+enabled in the main (Development) environment. You can only deploy projects from this environment.
+The
+deployment privilege
+enabled in the environment where you plan to deploy the project.
+SINGLE ENVIRONMENT ACCESS
+You cannot deploy projects if you only have access to one environment.
+#
+Set up the deployment
+Complete the following steps to set up your deployment:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to the main
+DEV
+environment.
+3
+Open the project you plan to deploy and click the
+Deployments
+tab.
+4
+Click
+Deploy to
+. The following options appear in the drop-down:
+TEST
+PROD
+Download
+. This option creates a
+ZIP file of the project
+.
+Deploy to environment
+Why can I only deploy from the Development environment?
+You can only deploy projects from the
+Development
+environment because the
+Test
+and
+Production
+environments are designed for specific purposes:
+Use the
+Test
+environment to test recipes.
+Use the
+Production
+environment to run finalized recipes.
+This restriction ensures consistency, prevents conflicts, and provides a complete, traceable deployment history in the
+Project > Deployments
+tab.
+#
+Customize the deployment
+After initiating the deployment, a popup appears, allowing you to customize the deployment:
+1
+Choose whether to select all assets or customize the deployment by selecting individual assets.
+2
+Select or clear the checkbox next to each asset to specify which assets you plan to include in the deployment.
+Customize deployment
+3
+Select or clear the checkboxes to include or exclude test cases.
+4
+Ensure that all dependent assets are included. If any dependencies are missing, a warning displays indicating the missing dependencies.
+5
+Click
+Next
+to review your changes.
+DEPLOYING CONNECTIONS
+When deploying connections for the first time, you must
+reconnect them in the target environment
+before recipes can run, regardless of the deployment type you select.
+#
+Review changes
+Next, complete the following steps to review the changes calculated and displayed by Workato:
+1
+Review the list of assets added or updated in the interface.
+Review changes
+2
+Click
+Customize
+to go back and make further adjustments, if required.
+3
+Click
+Next
+to
+add details
+to your deployment after reviewing the changes.
+Refer to the
+Understanding project deployment with environments
+guide to learn more about how changes are detected.
+#
+Add details
+After reviewing the changes, you can add the necessary details for your deployment:
+1
+Provide a name for your deployment in the
+Deployment name
+field. This name is used in the deployment history tab.
+Add deployment details
+2
+Summarize the changes for this version of the project in the
+Description
+field.
+3
+Click
+Deploy
+to initiate the deployment.
+#
+Review and finalize deployment
+After Workato deploys the changes, complete the following steps to review and finalize the deployment:
+1
+Click
+View project in [ENVIRONMENT]
+to review the deployment in the relevant environment.
+View deployment
+2
+Navigate to the
+Deployments
+tab to check the status of the deployment or to redeploy if necessary.
+3
+Use the
+Deploy to
+drop-down to deploy the project again to a different environment or download the package.
+Deploy again
+#
+Deploy from the recipe page
+You can deploy recipes directly from the recipe page with deployment permissions. This feature streamlines the deployment process and enables you to efficiently manage urgent updates.
+#
+Prerequisites
+Complete the following prerequisites before deploying from the recipe page:
+Ensure you have
+deployment privileges
+in both the source and target environments.
+#
+How to deploy an asset from the recipe page
+Complete the following steps to deploy directly from the recipe page:
+1
+Open the recipe you plan to deploy.
+2
+Click the
+Deploy to
+button at the top of the recipe page.
+Deploy from the recipe page
+3
+Select the target environment from the drop-down menu. Only environments where you have deployment privileges are available.
+4
+Review the deployment popup where the current asset is pre-selected. Dependent assets are automatically selected by default.
+REVIEW DEPENDENT ASSETS
+Review the dependent assets and customize the selection if needed to ensure only the necessary assets are included in the deployment.
+Customize assets
+5
+Click
+Next
+,
+review
+the changes,
+add details
+, and click
+Deploy
+to complete the deployment.
+After deployment, you can click
+View project in [ENVIRONMENT]
+to
+review the deployment
+in that environment.
+#
+Re-establish connections
+Deploying a project maintains
+dependent relationships in recipes
+. However, you must reconnect connections in the target environment the first time they are deployed. Recipes won't run until you re-establish connections.
+In the target environment, re-establish connections to ensure recipes run successfully.
+SANDBOX CREDENTIALS
+Use
+sandbox credentials
+when working in a non-production environment as a best practice.
+#
+Resolve post-deployment errors
+If you encounter an error message such as
+503 Service unavailable
+after deploying a project to the target environment and starting a recipe, you must refresh the recipe's schema. This allows you to fix any broken external dependencies.
+Complete the following steps to refresh the recipe schema:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Open the side panel and click your profile icon.
+3
+Select the environment you deployed the project to.
+4
+Select the project and the recipe where the error occurred.
+5
+Select
+Edit recipe
+.
+6
+Select
+Refresh
+to refresh the recipe schema.
+Select Refresh to refresh the recipe schema
+7
+Resolve any
+design-time recipe errors
+that Workato identifies. Fields with errors are outlined in red.
+8
+Click
+Save
+to save your changes.
+#
+Resources
+Environments overview
+Environments best practices
+Understanding deployment
+Managing environment access
+←
+Dependencies
+Review and approve deployments
+→
+Last updated:
+3/19/2025, 3:35:09 PM
+On this page
+Prerequisites
+Set up the deployment
+Customize the deployment
+Review changes
+Add details
+Review and finalize deployment
+Deploy from the recipe page
+Re-establish connections
+Resolve post-deployment errors
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

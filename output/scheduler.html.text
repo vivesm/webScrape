@@ -1,0 +1,226 @@
+スケジューラ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+#
+スケジューラ
+スケジューラは、Workato のネイティブアプリであり、事前に設定した時間間隔でレシピを実行できるようにするものです。スケジューラを使用すると、単純なスケジュール (毎時、毎日など) でレシピをトリガーしたり、複雑な時間間隔 (隔週の平日など) を設定したりできます。
+ワークフローのユースケースが他のアプリケーションのイベントでトリガーされるのではない場合、スケジューラを使用してカスタムのスケジュールを設定できます。
+#
+スケジューラトリガーを使用する
+New recurring event
+トリガーを選択します。
+New recurring event トリガー
+#
+スケジュール設定
+入力プロンプトでスケジュールを設定するか、CRON 式でカスタムスケジュールを定義します。
+new recurring event トリガーの入力フィールド
+入力
+説明
+Time unit
+最長の時間単位を選択します。
+たとえば、毎週月曜日と金曜日に実行するレシピであれば、
+Weeks
+を時間単位に選択します。
+Trigger every
+繰り返しのスケジュールを指定します。最短の間隔は
+5 mins
+です。
+その他の時間設定
+日、週、月の場合のみ
+時間単位に
+Day
+以上を選択した場合、追加の入力フィールドを使用してスケジュールを指定します。
+追加の設定には以下のものがあります。
+Trigger at (時間と分)
+Days of the week
+Days of the month
+Cron 式
+カスタムスケジュールの場合のみ
+この高度なオプションを使うと、CRON 式でカスタムスケジュールを設定できます。CRON 式の詳細については、後半で説明しています。
+Timezone
+タイムゾーンを選択します。
+タイムゾーン
+スケジュールされる時刻は、(GMT-08:00) 太平洋時間 (米国とカナダ) で表示されます。
+タイムゾーンを変更するには、オプションの入力フィールド
+[Timezone]
+を使用します。
+#
+CRON 式でカスタムスケジュールを設定する
+CRON の使用方法を2分で理解する
+[Time unit]
+として
+Custom schedule
+を選択します。
+カスタムスケジュールの CRON 式
+#
+CRON 式の記述方法
+CRON 式では、位置固定で順序のある構文を使用します。各要素は、必ず指定する必要があり、空白にはできません。「すべての可能な値」を表すには、ワイルドカード
+*
+を使用します。CRON 式の詳細については、
+こちら
+(opens new window)
+を参照してください。
+<Minute> <Hour> <Date> <Month> <Day>
+#
+CRON 式の例
+CRON 式
+例
+0 0 * * *
+毎日の深夜
+0000 hrs
+*/10 * * * *
+10分ごと
+0 0 1 * *
+毎月の初日の深夜
+0000 hrs
+0 0 L * *
+毎月の最終日の深夜
+0000 hrs
+0 0 * * 1,5
+毎月曜日と毎金曜日の深夜
+0000 hrs
+0,30 * * * *
+毎時2回 (
+00
+分と
+30
+分)
+0 9 * * MON#1
+毎月の最初の月曜日の
+0900 hrs
+#
+アクション
+以下の3つのアクションもサポートされています。
+Get current time
+ジョブでこのステップが実行された日時を返します。
+2017-01-30T05:30:33.479446+00:00
+のように UTC で表現されます。
+Wait for specified length of time
+レシピが次のステップに進む前に待機する秒数を指定します。
+Wait until the specified time
+次のステップに進む時刻を指定します (その時刻まで待機します)。指定された時刻を過ぎていた場合、レシピはすぐに次のステップに進みます。
+動的な時刻の設定
+次の月曜日の午前8時 (PST) になるまで待ってから次のステップに進む場合、
+[Time]
+入力フィールドを関数モードに切り替えて、値を
+today.beginning_of_week + 7.days + 8.hours
+に設定します。その他の例については、
+日付関数
+を参照してください。
+#
+非推奨のスケジューラトリガー
+古いスケジューラトリガーは非推奨となっています。非推奨となったトリガーを使用している既存のレシピは、引き続きサポートされます。ただし、非推奨となったトリガーを使用して新規のレシピを設定することはできません。
+以下のトリガーが非推奨となっています。
+New scheduled event トリガー
+New scheduled event (advanced) トリガー
+古いレシピへの影響
+非推奨となったトリガーも引き続き設定したとおりに動作します。古いレシピも問題なく実行し続けることができます。
+←
+更なる自動化
+Workato が提供するレシピファンクション
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+スケジューラトリガーを使用する
+スケジュール設定
+CRON 式でカスタムスケジュールを設定する
+CRON 式の記述方法
+アクション
+非推奨のスケジューラトリガー
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

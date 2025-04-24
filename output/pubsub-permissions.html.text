@@ -1,0 +1,149 @@
+Workato Event streams - permissions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Event streams
+Workato Event streams
+#
+Event streams permissions
+Workato enables you to set granular permissions for Event streams by creating a custom role and using
+role-based access control
+(RBAC). This allows you to
+manage access to the Event streams UI
+.
+#
+Configure collaborator access for Event streams
+Complete the following steps to configure collaborator access for Event streams:
+1
+Go to
+Workspace admin > Collaborator roles
+.
+2
+Click
++ Add collaborator role
+to set Event streams permissions for a new role or click an existing role to edit Event streams permissions.
+3
+Click the
+Platform tools
+tab > locate the
+Tools
+section > select the Event streams permissions options you plan to use for the collaborator role.
+Event streams permissions
+#
+Role-based access control for Event streams
+You can manage access to Event streams with role-based access control (RBAC). This enables you to control who has permission to view, edit, create, or delete Event topics in your workspace. You can also determine who has permission to view the message content in the Event topic messages list with the
+View history
+permission.
+SCOPE OF EVENT STREAMS PRIVILEGES
+The
+Collaborator roles
+interface allows you to manage access to the Event streams web interface. Collaborators can still view and edit Event topics through the Event streams connector.
+Collaborators with the
+Recipe lifecycle management
+privilege can view, create, and update other assets, including Event topics.
+←
+Example use cases
+Navigating the topics
+→
+Last updated:
+5/29/2024, 3:15:26 PM
+On this page
+Configure collaborator access for Event streams
+Role-based access control for Event streams
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

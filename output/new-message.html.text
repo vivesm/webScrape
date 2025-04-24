@@ -1,0 +1,147 @@
+Workato connectors - Cisco Webex Teams New message trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Cisco Webex Teams
+#
+New message trigger (real-time)
+This trigger monitors new messages in your Cisco Webex Teams instance in real-time. Workato processes each message as a separate job.
+USING THIS TRIGGER WITH BOT ACCESS TOKEN AUTHENTICATION
+To ensure new messages sent to the bot are processed, tag the bot in the message. For example,
+@bot_name new message
+.
+Additionally, due to API response times, this trigger may experience delays. To minimize delays, bot users should avoid sending messages less than three seconds apart. If a message doesn’t trigger a job, try sending another message to process the previous job.
+#
+Input fields
+Field
+Description
+Room name
+Select the room from which to receive messages. You can choose from a list of rooms or use a specific room ID.
+Max
+Specify the number of existing messages to retrieve starting from the latest. Defaults to 1.
+#
+Output fields
+Field
+Description
+Room type
+The type of room where the message was posted.
+Message
+The content of the message.
+Message ID
+The unique identifier of the message.
+Room ID
+The unique identifier of the room.
+Person ID
+The unique identifier of the person who sent the message.
+Person email
+The email address of the person who sent the message.
+Created
+The timestamp when the message was created.
+←
+Connection setup
+New button submission trigger
+→
+Last updated:
+12/12/2024, 6:43:50 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

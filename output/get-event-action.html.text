@@ -1,0 +1,145 @@
+Workato connectors - Eventbrite Get event attendees action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Eventbrite
+#
+Eventbrite - Get event attendees action (batch)
+The
+Get event attendees
+batch action
+allows you to retrieve a list of attendees for a specific event using the event's unique ID. The
+Eventbrite API
+(opens new window)
+typically limits the number of results to 50, but the actual number may be fewer if the attendee record has many custom fields.
+Eventbrite - Get event attendees action
+#
+Input
+Input field
+Description
+Event ID
+Enter the unique identifier for the event to fetch attendees.
+Status
+Specify the registration status of the attendees to retrieve.
+When first started, this recipe should pick up events from
+Choose the starting date and time to begin fetching new or updated attendees. Learn more about this
+input field
+.
+Attendee IDs
+Input the unique identifiers for specific attendees. Use a list datapill to fetch multiple attendee IDs.
+#
+Output
+Output field
+Description
+Attendees count
+The number of attendees retrieved for the event.
+Attendees
+A list of attendees, including details such as names, emails, and ticket information.
+←
+Create/update contact
+Search events
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

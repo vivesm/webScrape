@@ -1,0 +1,217 @@
+Environments for Embedded customers | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Features
+#
+Environments for Embedded customers
+The Embedded
+Environments
+feature integrates dedicated environments into your Workato workspace, allowing you to access all customer environments under the same Admin workspace. Embedded Environments aggregates usage metrics for your customers.
+Your customers have built-in access to
+Development, Test, and Production
+environments when the Environments feature is provisioned. You can define
+different roles
+to a single collaborator in each environment. Note that each environment operates as a
+separate and isolated workspace
+, essential for maintaining the integrity and independence of development, testing, and production activities. Each environment includes its own set of resources, ensuring a clear distinction and operational independence between them. These resources include:
+Assets
+Members
+Projects
+Recipes
+Connections
+Lookup tables
+Other asset types
+Environments for Embedded customers is compatible with
+Recipe Lifecycle Management
+API and UI tools.
+WHO CAN USE THIS FEATURE?
+The Embedded Environments feature is gradually being rolled out for Embedded partners. You can provision Environments for selected customers or across your entire customer base. Note that Admin workspaces are excluded from this feature. Contact your Customer Success Manager to access Environments. Embedded Environments is available at no additional cost.
+#
+Embedded Environments architecture
+The Admin workspace is the top level in the Embedded Environments architecture. Embedded Customer (EC) workspaces (with or without) Environments provisioned are nested beneath the Admin workspace.
+flowchart TD
+a["Admin"] --> b["Customer 1"]
+a --> c["Customer 2"]
+a --> d["Customer 3"]
+a --> e["Customer 4"]
+subgraph x[Environments]
+direction LR
+B["Development"]
+C["Test"]
+D["Production"]
+end
+subgraph z[Environments]
+direction LR
+BB["Development"]
+CC["Test"]
+DD["Production"]
+end
+e --> x
+d --> z
+B -..-> C
+B -..-> D
+BB -..-> CC
+BB -..-> DD
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+classDef LightTeal fill:#e1fffc,stroke:#b3e0e1,stroke-width:2px,color:#000;
+class x,z LightTeal
+class B,C,D,BB,CC,DD WorkatoPink
+#
+Environments
+Customer workspaces with the Environments feature provisioned have the following environments:
+Environment
+Description
+Development
+The Development environment serves as the primary area for the entire development process. Equipped with exclusive features, it allows for recipe development, project deployment to subsequent environments, and team and account settings management. The collaborators and API clients tabs are only accessible in the Development Environment, located under the workspace admin section.
+Test
+The Test environment is used to perform recipe testing, quality assurance reviews, and user acceptance testing.
+Production
+The Production environment is where automated processes are deployed after being tested, reviewed, and approved.
+#
+Deployment
+You can deploy projects from the Development environment to the Test environment and from the Development environment to the Production environment.
+graph LR
+A(Development) --> B(Test)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+graph LR
+A(Development) --> B(Production)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+We recommend that you always use
+Deploy entire project
+when using Embedded Environments.
+graph LR
+X["Admin"] --> Y["Project 1"]
+X --> Z["Project 2"]
+subgraph W["Embedded Customer 1"]
+B["Development"]
+C["Test"]
+D["Production"]
+end
+B -..-> C
+B -..-> D
+Y -.RLCM..-> B
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef LightTeal fill:#e1fffc,stroke:#b3e0e1,stroke-width:2px,color:#000;
+class W LightTeal
+#
+Enable Environments
+Explore the
+benefits of using Embedded Environments
+.
+#
+More resources
+Deploy a project to an environment
+Environments best practices
+Environments collaborator access
+←
+Embedded RecipeOps
+Use Environments with Embedded
+→
+Last updated:
+11/4/2024, 6:09:46 PM
+On this page
+Embedded Environments architecture
+Environments
+Deployment
+Enable Environments
+More resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

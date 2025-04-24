@@ -1,0 +1,137 @@
+オンプレミスエージェント | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+オンプレミス接続
+#
+オンプレミスエージェント
+Workato のオンプレミスエージェントは、企業のファイアウォールのポートを開くことなく、お客様が権限を与えたオンプレミスのアプリ、データベース、フォルダーに選択的にアクセスするための安全な手段を提供します。
+ユーザーは保護されたサーバー内にエージェントをインストールすることで、Workato と安全に通信できます。
+オンプレミスエージェントによって接続が作成され、これを使用してレシピはリクエストを実行できます。このオンプレミス接続は、
+オンプレミスグループ
+内の1つ以上のエージェントとの間で構築できます。
+1つのオンプレミスグループに複数のオンプレミスエージェントを追加すると、フォールトトレランスと負荷分散の機能による高可用性を実現できます。
+オンプレミスメニューオプション
+#
+オンプレミスエージェント使用時のよくあるエラー
+オンプレミスアプリケーションへの接続が失敗した場合は、以下の点を確認してください。
+選択したエージェントがアクティブである
+アプリのコネクションに指定された資格情報が正しい
+アプリのコネクションにユーザーが指定した資格情報に、接続するための正しいロールと権限がある
+オンプレミスデータベースへの接続が失敗した場合は、以下の点を確認してください。
+選択したエージェントがアクティブである
+コネクションプロファイルで指定された資格情報が正しい
+コネクションプロファイルで指定されたデータベースの名前とタイプが正しい
+#
+このセクションの内容
+エージェントの設定
+エージェントの実行
+プロファイル
+エージェントのアップグレード
+オンプレミス接続
+パスワードの暗号化
+プロキシサーバー
+ロギング
+拡張機能
+←
+設定ファイル
+エージェントの設定
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+オンプレミスエージェント使用時のよくあるエラー
+このセクションの内容
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

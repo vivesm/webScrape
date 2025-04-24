@@ -1,0 +1,380 @@
+Google Workspace - Search record action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Workspace
+#
+Google Workspace - Search record action (batch)
+The
+Search record
+action searches for specific objects in the Google Workspace. To configure the action, you must first select the type of
+Object
+you plan to add. The recipe editor generates additional fields based on your selection.
+The
+Search record
+action supports the following
+Object
+types:
+User
+User alias
+Group
+Organizational unit
+Member to group
+Role assignment
+App specific passwords
+Access token
+License
+Mobile device resources
+Roles
+#
+Search user
+The
+Search User
+Object
+selection searches for users in Google Workspace.
+#
+Input
+Input field
+Description
+Domain
+Provide the domain name where you plan to search for users.
+Projection type
+Select the type of subset of fields to display for the user's list.
+Fields
+Provide the user's given name, family name, and the primary email.
+Custom query
+Set matching attributes in a custom query to search for users.
+Max result
+Enter value of maximum results to return.
+Custom fields schema
+Select customer fields which can be passed on to search for the users.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search user alias
+The
+Search user alias
+Object
+selection searches for alias email addresses in Google Workspace.
+#
+Input
+Input field
+Description
+Email address
+Enter the user's primary email address, alias email address, or unique user ID.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search group
+The
+Search group
+Object
+selection searches for groups in Google Workspace.
+#
+Input
+Input field
+Description
+Group name
+Enter the name of the group.
+Group email
+Enter the email address of the group.
+Group member email
+Enter the email address of a group member. Do not provide if
+Group name
+or
+Group email
+is already provided.
+Custom Query
+Set matching attributes in a custom query to search for groups.
+Maximum Result
+Provide the value of maximum results to return.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search organizational unit
+The
+Search organizational unit
+Object
+selection searches for an organizational unit in Google Workspace.
+#
+Input
+Input field
+Description
+Organizational unit
+Select the organizational unit.
+Type
+Select to return all organizations or only the child organizations.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search members of a group
+The
+Search members of a group
+Object
+selection searches for members of a group in Google Workspace.
+#
+Input
+Input field
+Description
+Group email
+Enter the group email address, group alias, or unique group ID.
+Include derived membership
+Select if indirect memberships must be included in the results.
+Max results
+Select the maximum results to return in the response.
+Page token
+Provide the token to the next page in the list.
+Role
+Select a role to return results based on user roles. The allowed roles are Owner, Manager, and Member.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search role assignment
+The
+Search role assignment
+Object
+selection searches for role assignments in Google Workspace.
+#
+Input
+Input field
+Description
+Role ID
+Enter the
+Role ID
+to only return assignments related to the selected role.
+Email address
+Enter the user's email address, alias address, or unique ID to return role assignments related to a user.
+Max results
+Select the maximum results to return in the response.
+Page token
+Provide the token to the next page in the list.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search app specific passwords
+The
+Search app specific passwords
+Object
+selection searches for information relating to the app specific password of a user in Google Workspace.
+#
+Input
+Input field
+Description
+Email address
+Enter the user email address, such as primary, alias, or unique user ID.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search access token
+The
+Search access token
+Object
+selection searches for action tokens relating to a user email address in Google Workspace.
+#
+Input
+Input field
+Description
+Email address
+Enter the user's primary or alias email address or their unique user ID.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search licenses assigned
+The
+Search licenses assigned
+Object
+selection searches for product licenses assigned to a user in Google Workspace.
+#
+Input
+Input field
+Description
+Product ID
+Enter the name of the product to search for licenses.
+Domain Name
+Enter the domain name where the licenses reside.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search mobile device resources
+The
+Search mobile device resources
+Object
+selection searches for mobile device resources assigned to a user in Google Workspace.
+#
+Input
+Input field
+Description
+Max results
+Select the maximum results to return in the response.
+Query
+Add a search string if required for retrieving results.
+Page token
+Provide the token to the next page in the list.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+#
+Search roles
+The
+Search roles
+Object
+selection searches for roles in the Google Workspace.
+#
+Input
+Input field
+Description
+Max results
+Select the maximum results to return in the response.
+Page token
+Provide the token to the next page in the list.
+#
+Output
+The
+Search record
+action generates output fields relevant to the newly added group object.
+←
+Mobile device action
+Transfer data action
+→
+Last updated:
+3/17/2025, 6:35:48 PM
+On this page
+Search user
+Search user alias
+Search group
+Search organizational unit
+Search members of a group
+Search role assignment
+Search app specific passwords
+Search access token
+Search licenses assigned
+Search mobile device resources
+Search roles
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

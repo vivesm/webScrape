@@ -1,0 +1,231 @@
+Load data | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data orchestration
+#
+Load data
+Load data in
+batch
+or
+bulk
+into your target destination, such as a data lake or warehouse. Workato supports a variety of design patterns for loading data to different destinations, ensuring data is ready for analysis or reporting. This section guides you through leveraging Workato's data loading capabilities to optimize your data orchestration processes.
+#
+Snowflake connector actions
+Workato provides comprehensive support for loading data into Snowflake using various actions. These actions enable you to insert, update, upsert, and delete records efficiently. Explore the following actions for detailed instructions:
+Select rows batch action
+Insert row action
+Update rows action
+Upsert rows action
+Delete rows action
+Run long query using custom SQL action
+Run custom SQL action
+Export query result action
+Upload file to internal stage action
+Bulk load to table from stage action
+Replicate rows action
+Replicate schema action
+Merge rows action
+#
+Sample recipe: Batch load data from Salesforce into Snowflake
+This recipe demonstrates Workato's batch-loading capabilities. It exports new leads in batches from Salesforce and loads the data into Snowflake.
+Batch load into Snowflake
+#
+Recipe walkthrough
+1
+Configure the
+New records batch
+trigger in Salesforce to export new leads in batches.
+2
+Upsert the new records by mapping the output datapill of the list of leads from Salesforce in batches to the
+Rows source list
+input using the
+Upsert rows batch
+action in Snowflake.
+#
+SQL Server connector actions
+Workato provides comprehensive support for loading data into SQL Server using various actions. These actions enable you to insert, update, upsert, and delete records efficiently. Explore the following actions for detailed instructions:
+Select rows batch action
+Select rows using custom SQL batch action
+Insert row action
+Insert rows batch action
+Update rows action
+Update rows batch action
+Upsert row action
+Upsert rows batch action
+Delete rows batch action
+Replicate rows batch action
+Bulk load from on-prem file action
+Run custom SQL action
+Run long query using custom SQL action
+Execute stored procedure action
+Export query result action
+#
+Sample recipe: Bulk fetch data from Salesforce and load to on-prem SQL Server
+The following example uses bulk fetch to extract sales order data from Salesforce and loads it to an on-premise SQL Server.
+Bulk fetch from Salesforce cloud and load to on-prem SQL Server
+#
+Recipe walkthrough
+1
+Configure the
+Export new records in Salesforce (bulk)
+trigger to fetch newly created records in bulk from Salesforce as CSV data.
+2
+Load the CSV data to the on-prem folder using the
+On-prem files - Upload file
+action.
+3
+Generate a URL for the CSV file created in the on-prem systems using the
+On-prem files - Generate on-prem file URL
+action.
+4
+Map the URL generated in the previous step to the
+SQL Server - Bulk load from an on-prem file
+action. This action fetches the file from the on-prem folder and loads it into the table directly.
+#
+Sample recipe: Bulk load data from SQL Server to Amazon S3
+The following example uses bulk load to extract data from SQL Server and loads it to Amazon S3.
+Bulk load data from SQL Server to Amazon S3
+#
+Recipe walkthrough
+1
+Set up a
+Scheduler
+trigger and determine the frequency for bulk loading the data.
+2
+Use the
+Export query result
+action in SQL Server to run a custom SQL query on the database and export the results in bulk as a CSV file.
+3
+Map the contents of the file from the previous step to the
+Upload file streaming
+action in Amazon S3 to stream and upload the data into the cloud store.
+#
+Supported connectors
+The following connectors support bulk uploads:
+All file connectors:
+On-prem files
+Workato FileStorage
+SFTP
+FTP/FTPS
+Google Drive
+Microsoft OneDrive
+Microsoft Sharepoint
+Box
+Dropbox
+BIM 360
+Egnyte
+All data lake connectors:
+AWS S3
+Azure Blob Storage
+Google Cloud Storage
+#
+Incremental loading
+Use incremental loading to maintain up-to-date data in the target destination without the overhead of full loads. It involves tracking changes in the source data, often through timestamps, version keys, or triggers, and only loading the data that has been added or modified since the last load. This strategy is essential for real-time data orchestration and minimizing the impact on system resources.
+←
+Change data capture
+Data transformation
+→
+Last updated:
+7/2/2024, 2:04:29 AM
+On this page
+Snowflake connector actions
+SQL Server connector actions
+Incremental loading
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

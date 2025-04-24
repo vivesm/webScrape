@@ -1,0 +1,141 @@
+API concurrency | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+Settings
+#
+API concurrency
+API concurrency refers to the number of requests that can be processed simultaneously by your workspace at a given time. API concurrency enables you to manage high volumes of API requests by defining how your workspace handles requests when the concurrency limit is reached.
+API concurrency settings
+#
+Configure API concurrency
+To manage your API concurrency settings:
+1
+Go to
+Platform > API Platform > Settings
+in the Orchestrate platform and click the
+API concurrency
+tab within your Workato account.
+2
+Review the
+Concurrency limit
+. This field displays the number of API requests your workspace can process simultaneously. Contact your Customer Success Manager to increase this limit.
+3
+Select your preferred method for managing requests when the concurrency limit is exceeded. Requests are queued by default.
+Queue requests
+: Select this option to queue incoming requests that exceed the concurrency limit. Requests in the queue are throttled and processed when other concurrent requests complete.
+Reject requests
+: Select this option to immediately reject any new requests that exceed the concurrency limit.
+Specify the
+Queue size
+if you chose to
+Queue requests
+. This determines how many requests are queued after the concurrency limit is exceeded. The queue size can be a value between 1 and 100.
+4
+Click
+Save
+to apply your settings.
+←
+API path prefix
+API traffic mirroring
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

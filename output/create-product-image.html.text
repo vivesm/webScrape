@@ -1,0 +1,139 @@
+Workato connector - Shopify - Create product image | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Shopify
+#
+Shopify - Create product image
+This action will upload and attach an image to an existing product.
+#
+Input
+Field
+Description
+Product ID
+The ID of the product to which the image is attached.
+Image data
+The image to be uploaded, which can be in the form of either the data string or the URL from which the image can be downloaded.
+Image file name
+Optional. The name of the image file.
+Position
+Optional. The placement of this new image among other existing product images. 1 denotes primary image. By default the position is 1 (primary image).
+Alt text
+Optional. The alt tag of the image.
+Variant IDs
+Optional. The list of IDs of the product variants to attach the product image to.
+#
+Output
+The output of this action is a datatree that contains information about the new product image object.
+Learn more about the
+product image object
+(opens new window)
+.
+←
+Create product
+Create product variant
+→
+Last updated:
+7/10/2024, 3:22:21 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

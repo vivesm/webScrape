@@ -1,0 +1,212 @@
+Insights - Data sources | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Reference
+#
+Data sources
+Insights supports a variety of data sources, including:
+Workspace usage
+Projects in all environments
+Recipes in all environments
+Job history with full job list of your entire workspace (all environments) for the last 365 days.
+Individual recipe job history for the last 365 days, with
+calculated columns
+Data tables
+Workflow apps
+Select a data source
+The specific data sources available depend on your configured access in Workato. For example, you can only see
+data tables
+in the projects in which you can access. Refer to
+Manage roles and privileges
+for more information.
+#
+Available data
+The following table describes the type of data available for each data source.
+Data source
+Description
+Available data
+Workspace data (Projects)
+View data related to all the projects in your workspace.
+ID
+Name
+Created at
+Updated at
+Environment
+Workspace data (Recipes)
+View data related to all recipes within your workspace.
+ID
+Name
+Project ID
+Project name
+Folder ID
+Folder name
+Task count
+Environment
+Is active
+Type (the type of the recipe. Can be one of: App, Workbot, API Endpoint, Function, Callable [legacy value])
+Workspace data (Full job history)
+View the full job history data for your workspace for the last 365 days.
+Job ID
+Recipe ID
+Recipe Name
+Project ID
+Project Name
+Started at
+Completed at
+Is successful
+Is test
+Error type
+Error message
+Task count
+Individual recipe job history
+View the recipe job history data for the last 365 days for a recipe you specify.
+Job ID
+Started at
+Completed at
+Is successful
+Is test
+Error type
+Error message
+Task count
+All
+calculated columns
+Data tables
+View data from a
+data table
+you specify.
+Record ID
+Created time
+Last modified time
+Additional data. This additional data depends on the
+columns
+present in your
+data table
+.
+Workflow apps
+View data from a
+workflow app
+you specify.
+Record ID
+Created time
+Last modified time
+Current stage
+Current stage ID
+Assigned to (the user or user group to which the request is assigned)
+Assigned to user ID (the user ID, when the request is assigned to a user)
+Assigned to user group ID (the group ID, when the request is assigned to a group)
+Due on
+Created by (name of the user who created the request)
+Created by ID (the ID of the user who created the request)
+Additional data. This additional data depends on the
+columns
+present in your workflow app's corresponding
+data table
+.
+FURTHER READING
+Queries
+Chart types
+←
+Manage roles and privileges
+Query components
+→
+Last updated:
+3/24/2025, 2:43:01 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,211 @@
+Workatoコネクター - NetSuite - 一括でレコードを作成する | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+NetSuiteアクション - 一括でレコードを作成する
+「一括で標準レコードを作成する」および「一括でカスタムレコードを作成する」アクションを使用すると、複数の標準レコードまたはカスタムレコードを同時に作成できます。
+#
+制限事項
+これらのアクションは最大で400件のレコードのリストを受け入れます。400件以上のレコードを提供すると、アクションは失敗します。
+#
+入力フィールド
+作成する
+標準レコード
+または
+カスタムレコード
+を選択します。この例では、
+顧客
+を選択します:
+次のセクションの設定を行ってください:
+#
+フィールドの設定
+このセクションでは、使用するNetSuiteフィールドを絞り込むことができます。アクションの入力と出力は、これらのフィールドのみを表示します。これにより、数百のフィールドを持つ複雑なNetSuiteオブジェクトで作業するのが容易になります。
+この例では、
+名前
+、
+姓
+、
+メール
+、および
+電話
+のフィールドを
+顧客
+レコードから使用します:
+このセクションのすべての入力フィールドは以下の通りです:
+フィールド
+絞り込む予定のNetsuiteレコードのメインフィールド。
+カスタムフィールド
+絞り込む予定のNetsuiteレコードのカスタムフィールド。
+カスタムセグメントスキーマ
+Netsuiteレコードにカスタムスキーマがある場合、ここでカスタムスキーマを定義できます。
+行アイテムのカスタムフィールド
+絞り込む予定のNetsuiteレコードの行アイテムのカスタムフィールド。
+行アイテムのカスタムセグメントスキーマ
+Netsuiteの行アイテムにカスタムスキーマがある場合、ここでカスタムスキーマを定義できます。
+#
+レコード
+このセクションの名前は選択した
+標準レコード
+または
+カスタムレコード
+によって変わります。NetSuiteレコードを作成するためのデータマッピングは次のとおりです。
+次の例では、Boxトリガーの
+ディレクトリ内の新しいCSVファイル
+のデータをNetSuiteレコード
+顧客
+にマッピングしています。絞り込まれたフィールド
+名前
+、
+姓
+、
+メール
+、および
+電話
+のみが表示されることに注意してください。
+以下が入力フィールドです:
+レコードソースリスト
+リストデータピル
+を提供します。
+たとえば、CSVファイルの行のリストを使用します。アクションはリスト内のすべてのアイテムを自動的に反復処理し、それらをNetSuiteレコードにマッピングします。
+レコードフィールド
+前述のリストデータピルの下にあるデータピルをマッピングします。
+たとえば、
+CSV行
+リストデータピルの下のCSV列名です。このアクションはリスト内のすべてのアイテムを自動的に反復処理し、それらをNetSuiteレコードにマッピングします。
+#
+出力フィールド
+処理されたレコードの数
+処理されたレコードの総数。
+成功したレコードの数
+正常に作成されたレコードの数。
+失敗したレコードの数
+作成に失敗したレコードの数。
+成功したレコード
+すべての成功したレコードを含むリストデータピル。
+これを使用して、リスト内のすべてのレコードを
+反復処理
+できます。
+各レコードのデータフィールドは次のとおりです:
+内部ID
+このレコードの内部ID。
+外部ID
+このレコードの外部ID。
+レコード
+このレコードのすべてのデータフィールドを含みます。
+リストサイズ
+このリスト内の成功したレコードの数。
+失敗したレコード
+すべての失敗したレコードを含むリストデータピル。
+これを使用して、リスト内のすべてのレコードを
+反復処理
+できます。
+各レコードのデータフィールドは次のとおりです:
+エラー
+このレコードのすべてのエラーを含むリストデータピル。
+これを使用して、リスト内のすべてのエラーを
+反復処理
+できます。
+レコード
+このレコードのすべてのデータフィールドを含みます。
+リストサイズ
+このリスト内の失敗したレコードの数。
+Last updated:
+2025/4/9 3:16:38
+On this page
+制限事項
+入力フィールド
+出力フィールド
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

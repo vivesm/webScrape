@@ -1,0 +1,290 @@
+Workatoコネクター - Jira Service Desk | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Jira Service Desk
+Jira Service Desk
+(opens new window)
+は、チームが優れたサービス体験を提供し、従業員や顧客が迅速にヘルプを得ることができるようにします。これにより、顧客と従業員の両方が直感的なセルフサービスポータルを提供され、迅速にヘルプを得るための1つの場所を提供されます。
+#
+APIバージョン
+Jira Service Deskコネクターは
+Jira Service Desk Cloud REST API
+(opens new window)
+を使用しています。
+#
+サポートされているエディションとバージョン
+Jira Service Deskコネクターは、クラウドおよびオンプレミスの両方のインスタンスと、7.x以降のバージョンと互換性があります。
+#
+WorkatoでJira Service Deskに接続する方法
+Jira Service Deskに接続する方法は3つあります。
+APIトークン
+、
+パスワードによる基本認証
+、および
+OAuth 2.0
+です。
+2018年12月1日以降、AtlassianはJira Service Desk（クラウドのみ）でのパスワードによる基本認証を廃止し、
+APIトークン
+を推奨しています。オンプレミスのJira Service Deskには影響はありません。
+APIトークンまたはOAuth 2.0を使用してWorkatoに接続することを強くお勧めします。
+#
+APIトークン
+APIトークンはJira Service Deskとの認証の主な方法です。オンプレミスのJira Service Deskでは、パスワードによる基本認証のみを使用できます。
+APIトークン認証
+接続名
+このJira Service Desk接続に一意の名前を付けて、接続されているJira Service Deskインスタンスを識別します。
+ホスト名
+Jira Service Deskにログインするために使用する完全なJira Service DeskインスタンスのURL。
+APIトークン認証を使用しますか？
+APIトークンを使用して認証する場合は、「はい」に設定します。その後、メールアドレスとAPIトークンを提供する必要があります。パスワードによる基本認証を使用して認証する場合は、「いいえ」に設定します。
+メールアドレス
+WorkatoにリンクするためのJira Service Deskアカウントのメールアドレス。
+APIトークン
+AtlassianアカウントからAPIトークンを作成するには：
+https://id.atlassian.com/manage-profile/security/api-tokens
+(opens new window)
+に移動します。
+APIトークンを作成をクリックします。
+APIトークンにラベルを追加します。
+クリップボードにコピーして、次にWorkatoのJira Service Desk接続に戻り、このフィールドにAPIトークンを貼り付けます。
+このアプリはプライベートネットワーク内ですか？
+オンプレミスのJira Service Deskインスタンスに接続するには、
+オンプレミスエージェント
+(opens new window)
+をセットアップします。オンプレミスアクセス機能を使用できるかどうかは、Workatoに申し込まれたプランに依存します。
+#
+OAuth 2.0
+OAuth 2.0認証
+OAuth 2.0を介して認証する場合は、次の手順に従ってください：
+認証タイプとしてOAuth 2.0を選択し、Jira Service Deskのサブドメインを入力します。
+詳細設定で、要求する認可スコープを選択することもできます。それ以外の場合、Workatoはデフォルトで以下のスコープを要求します：
+read:jira-user
+read:jira-work
+write:jira-work
+manage:jira-project
+manage:jira-project
+manage:jira-configuration
+manage:jira-webhook
+read:servicedesk-request
+write:servicedesk-request
+manage:servicedesk-customer
+「接続」をクリックし、別のウィンドウでアカウントのユーザー名とパスワードを使用してJira Service Deskインスタンスにログインするように求められます。
+WorkatoのJira Service Deskインスタンスへのアクセスを許可します。
+#
+パスワードによる基本認証
+パスワードによる基本認証を使用してJira Service Deskに認証することができます。
+2018年12月1日以降、AtlassianはJira Service Desk（クラウドのみ）でのパスワードによる基本認証を廃止し、
+APIトークン
+を推奨しています。オンプレミスのJira Service Deskには影響はありません。
+基本認証パスワード認証
+接続名
+このJira Service Desk接続に一意の名前を付けて、接続されているJira Service Deskインスタンスを識別します。
+ホスト名
+Jira Service Deskにログインするために使用する完全なJira Service DeskインスタンスのURL。
+APIトークン認証を使用しますか？
+パスワードによる基本認証を使用して認証する場合は、「いいえ」に設定します。その後、ユーザー名とパスワードを提供する必要があります。APIトークンを使用して認証する場合は、「はい」に設定します。
+ユーザー名
+Jira Service Deskに接続するためのユーザー名。
+パスワード
+Jira Service Deskに接続するためのパスワード。
+このアプリはプライベートネットワーク内ですか？
+オンプレミスのJira Service Deskインスタンスに接続するには、
+オンプレミスエージェント
+(opens new window)
+をセットアップします。オンプレミスアクセス機能を使用できるかどうかは、Workatoに申し込まれたプランに依存します。
+#
+接続に必要な役割と権限
+Jira Service Desk インスタンスへのログインアクセス権を持っている Jira Service Desk ユーザーは、その認証情報を使用して Workato に接続できます。ただし、統合のために別のユーザー（Jira Service Desk 管理者のグローバル権限を持つ）を作成することをお勧めします。
+#
+People
+ユーザーは、2つの方法でプロジェクトに追加できます（
+プロジェクト設定 → ユーザー
+を参照）：
+特定のユーザーを検索して選択し、そのユーザーのプロジェクトロールを指定します。
+ユーザーJan Donyadaのプロジェクトロールの選択
+プロジェクトロールは、ユーザーを機能的な役割に関連付けることができます。たとえば、組織がすべてのソフトウェア開発の問題をクローズする前に「QA」の人物によるテストを要求する場合、次のようにすることができます：
+「QA」というプロジェクトロールを作成します。
+「ソフトウェア開発」という名前の権限スキームを作成し、「QA」ロールに「問題をクローズする」権限を割り当てます。
+「ソフトウェア開発」の権限スキームをすべてのソフトウェア開発プロジェクトに関連付けます。
+各ソフトウェア開発プロジェクトに、QAエンジニアを追加し、「QA」プロジェクトロールを割り当てます。
+グループを検索し、グループのプロジェクトロールを指定します。
+Jira管理者グループのプロジェクトロールの選択
+「グループ」には複数のメンバーが含まれます。グループはプロジェクトロールと似ていますが、1つの重要な違いがあります。グループのメンバーシップはグローバルであり、プロジェクトロールのメンバーシップはプロジェクト固有です。また、グループのメンバーシップはJira管理者のみが変更できますが、プロジェクトロールのメンバーシップはプロジェクト管理者が変更できます。
+#
+Issue Security Schemes
+Issue security schemes
+(opens new window)
+は、各プロジェクトに作成および追加でき、プロジェクトの問題を表示および編集できるユーザーを制御することができます。
+スキームには複数のセキュリティレベルがあり、各セキュリティレベルにユーザーまたはユーザーグループを割り当てることができます。これにより、適切なセキュリティレベルに割り当てられたユーザーのみが問題を表示できるようになります。
+プロジェクトに定義された問題のセキュリティスキームがある場合、リンクされたJiraアカウントはセキュリティスキームの適切なセキュリティレベルのメンバーである必要があります。通常、セキュリティレベルのメンバーには次のようなものがあります：
+個々のメンバー
+グループ
+プロジェクトロール
+'報告者'、'プロジェクトリード'、'現在の担当者'などの問題ロール
+'Anyone'（匿名アクセスを許可するため）
+以下の例では、問題のセキュリティスキームには、特定のユーザー、グループ、およびプロジェクトロールのみがアクセスできるセキュリティレベルが定義されています。
+ユーザー「Jan Donyada」、Jira管理者グループのユーザー、および「QA」プロジェクトロールのユーザーのみが、'Top-secret'セキュリティレベルで定義された問題にアクセスできます
+#
+Permission Schemes
+プロジェクトの権限は、Jira管理者によって特定のプロジェクトに割り当てられる
+権限スキーム
+内で作成されます。
+権限は、問題の作成、問題の編集、問題の割り当てなどの特定のアクションに対して付与することができます。権限は、
+プロジェクト設定 → 権限
+を選択することで見つけることができます。
+各権限は以下の範囲で付与することができます：
+プロジェクトロール
+アプリケーション（JIRA、JIRA Service Deskなど）
+グループ
+#
+1. プロジェクトロール
+プロジェクトに関連付けられた権限スキームが特定のアクションに対してロール固有の権限を定義している場合、リンクされたJiraアカウントは同じロールに割り当てられている必要があり、Workatoのレシピでそのアクションを使用するために承認される必要があります。
+たとえば、以下のプロジェクト権限スキームでは、「QA」ロールのみが「問題をクローズする」アクションを実行できるように許可されています。
+したがって、Workatoのレシピが「問題をクローズする」アクションを実行する場合、リンクされたJiraアカウントはアクションを承認するために「QA」の役割も割り当てられている必要があります。
+#
+2. アプリケーションアクセス
+アプリケーションアクセス設定を使用すると、どの人物がどの製品にアクセスできるかを制御することができます。サイトに1つの製品のみがある場合（たとえば、ConfluenceのみまたはJiraのみのインスタンスがある場合）、ユーザーはサインアップ時にその製品へのアクセスが自動的に許可されます。
+WorkatoのレシピがJira Service Deskインスタンスで特定のアクションのみを実行する必要がある場合、それらのアクションには必ず
+Jira Service Desk
+が選択されている必要があります。
+Jira Service Deskのユーザーのみが課題を割り当てることが許可されています
+同様に、WorkatoのレシピがJira Softwareの特定のアクションのみを実行する場合、それらのアクションには
+Jira Software
+が選択されている必要があります。
+WorkatoのレシピがJira Service DeskとJira Softwareの両方で特定のアクションを実行する場合、それらのアクションには
+ログインしているユーザー
+が選択されている必要があります。
+Jira Service DeskまたはJira Softwareのログインしているユーザーは、課題を割り当てることが許可されています
+#
+3. グループ
+プロジェクトに関連付けられた権限スキームが特定のアクションに対してグループ固有の権限を定義している場合、リンクされたJira Service Deskアカウントは、Workatoのレシピでそれらのアクションを使用するためにそのグループのメンバーである必要があります。
+Jira管理者グループはスプリントの管理が許可されています
+#
+Jira権限ヘルパー
+Jira権限ヘルパーを使用して、ユーザーが特定のプロジェクトやフィールドを表示/編集できない理由を調べることができます。
+これを利用するには、Jira Service DeskインスタンスへのJira管理者アクセス権が必要です。詳細については、
+Jiraの権限ヘルパーガイド
+(opens new window)
+を参照してください。
+#
+トリガーとアクション
+他の章を閲覧することができます:
+#
+Jira Service Deskのアクション
+顧客の作成アクション
+顧客リクエストの作成アクション
+コメントの作成アクション
+コメントの一覧表示アクション
+IDでコメントを取得するアクション
+キューの取得アクション
+キュー内の課題の取得アクション
+←
+新しい/更新された作業ログ(リアルタイム) トリガー
+顧客作成
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+APIバージョン
+サポートされているエディションとバージョン
+WorkatoでJira Service Deskに接続する方法
+接続に必要な役割と権限
+Jira権限ヘルパー
+トリガーとアクション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,207 @@
+Workato コネクター - Xero | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+Xero
+Xero
+(opens new window)
+は、中小企業向けのクラウドベースの会計ソフトウェアで、請求書、銀行勘定調整、簿記などの管理に使用されます。
+Workato を使用すれば、Xero と社内で使用しているその他のアプリの間でデータを同期できます。たとえば、Xero の連絡先データをカスタマーデータとして CRM アプリと同期したり、Xero の売上データを POS アプリと同期したり、Xero の在庫データを ERP アプリと同期したりすることができます。
+#
+サポートされるトリガーとアクション
+最新のトリガーとアクションは、
+Xero コネクターのページ
+(opens new window)
+に記載されています。
+#
+Xero で Create/update items アクションを使用する場合の売上税のタイプ
+Xero で
+Create/update items
+アクションを使用する際に入力する売上税のタイプを確認するには、ボックスの下に表示されている URL を選択できます (画像の中でハイライトされている)。
+各種の売上税のリスト
+これにより、以下に示す
+[Tax type]
+ページが表示されます。この内容は手動で入力する必要があります。
+税金タイプのリスト
+#
+Xero の API レート制限
+Xero Developer Help Center
+(opens new window)
+によれば、プロバイダーが特定の Xero 組織に対して連続した24時間以内に実行できる API 呼び出しの数は、1日あたり1,000件に制限されています。このレート制限を超えると HTTP 401レスポンスが返され、HTTP レスポンス本文にはメッセージ
+oauth_problem=rate%20limit%20exceeded&oauth_problem_advice=please%20wait%20before%20retrying%20the%20xero%20api
+が出力されます。
+#
+Xero で各種 ID を確認する方法
+Xero ID は、API 内のレコードに対応する一意の識別子です。すべての ID は2通りの方法で取得できます。
+ID を確認する方法は2通りあります。1つ目の方法は Xero サイトから直接 ID を取り出すことですが、Workato レシピではあまり一般的ではありません。
+連絡先
+や
+手動仕訳
+など特定の項目の ID は、Xero 内でそれぞれ対応するページの URL の末尾で確認できます。この方法を使用する場合は、レシピをハードコーディングしてこの ID を常に使用します。この方法は通常、テスト用途のみに限られます。
+より一般的な2つ目の方法では、
+Search
+、
+Create
+、または
+Update
+のアクションを使用します。Workato が Xero 内のレコードを操作する際には必ず、API レスポンス内でレコードの ID を受け取ります。次のアクションでは、Xero データツリーからのデータピルを使用して前のアクションで返された ID を取得し、このステップで Workato が操作するレコードを指定できます。いくつかの例を以下に示します。
+#
+Contact ID
+Contact ID
+は、Xero 内のそれぞれの連絡先に対応する一意の識別子です。この ID は、特定の連絡先ページの URL の末尾で確認できます。
+連絡先ページの URL に含まれる
+Contact ID
+ワークフローに応じて、以下のアクションからの出力データピルを使用して
+Contact ID
+を取得することもできます。
+Xero の
+New/updated contact (新規/更新された連絡先)
+Search contacts (連絡先の検索)
+Create contact (連絡先の作成)
+たとえば、連絡先に担当者を追加する場合は、以下に示すように連絡先の名前またはメールアドレスに基づいて
+Search contact
+を実行し、出力データピルを使用できます。
+名前またはメールアドレスに基づく連絡先の検索
+#
+Manual Journal ID
+Manual journal ID
+は、Xero 内のそれぞれの手動仕訳に対応する一意の識別子です。
+ワークフローに応じて、以下のアクションからの出力データピルを使用して
+Manual journal ID
+を取得できます。
+Create manual journal (手動仕訳の作成)
+Search manual journal (手動仕訳の検索)
+Update manual journal (手動仕訳の更新)
+Manual journal ID
+識別子
+#
+Payment ID
+ワークフローに応じて、以下のアクションからの出力データピルを使用して
+Payment ID
+を取得できます。
+Create payment (支払いの作成)
+Search payments (支払いの検索)
+Payment ID
+#
+Employee ID
+ワークフローに応じて、以下のトリガー/アクションからの出力データピルを使用して
+Employee ID
+を取得できます。
+New/updated employee (新規/更新された従業員)
+Create employee (従業員の作成)
+#
+Account ID
+ワークフローに応じて、以下のトリガー/アクションからの出力データピルを使用して
+Account ID
+を取得できます。
+New/updated payment (新規/更新された支払い)
+Create invoice payment (請求書払いの作成)
+Get payment (支払いの取得)
+また、トグルを
+[Account code]
+に切り替えることもできます。このコードは、
+[Xero settings]
+>
+[Chart of accounts]
+で確認できます。
+Last updated:
+2023/8/31 1:07:14
+On this page
+サポートされるトリガーとアクション
+Xero で Create/update items アクションを使用する場合の売上税のタイプ
+Xero の API レート制限
+Xero で各種 ID を確認する方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

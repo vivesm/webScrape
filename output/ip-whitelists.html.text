@@ -1,0 +1,273 @@
+IPアローリスト | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+#
+IPアローリスト
+IPアローリストにIPを追加することで、悪意のあるウェブサイトによるWorkatoへのトラフィックの乗っ取りを防ぐことができます。
+#
+Workatoからのトラフィック
+Workatoからのトラフィックは以下のIPアドレスを使用します。各
+data center
+は固有のIPアドレスセットを使用します。
+米国データセンター
+52.5.142.59, 34.226.132.221, 52.54.43.157
+EUデータセンター
+3.65.225.246, 3.66.45.94, 18.198.249.58
+JPデータセンター
+52.193.168.95, 13.113.30.44, 18.176.45.101
+SGデータセンター
+13.215.42.244, 18.141.131.114, 52.74.226.121
+AUデータセンター
+54.253.214.156, 13.236.115.248, 13.238.90.15
+これらのIPアドレスをアプリケーションまたはファイアウォールのアローリストに追加することができます。連続的なアクセスを確保するために、すべての3つのIPアドレスを追加してください。
+#
+アローリストの設定例
+Amazon EC2マシン上で実行されるMySQLサーバーにアクセスするレシピがある場合、特別な
+integrationuser
+ユーザーで次のSQLコマンドをデータベースで実行して、WorkatoのIPアドレスをアローリストに追加することができます。
+GRANT
+ALL
+ON
+db1
+.
+*
+TO
+'integrationuser'
+@'52.5.142.59'
+,
+'integrationuser'
+@'34.226.132.221'
+,
+'integrationuser'
+@'52.54.43.157'
+;
+#
+Workatoへのトラフィック
+#
+オンプレミスエージェント
+Workatoの
+オンプレミスエージェント
+（OPA）は、企業のファイアウォールに入力ポートを開けることなく、Workatoから顧客認可済みのオンプレミスアプリ、データベース、フォルダへのセキュアな選択的アクセスを提供します。
+OPAは、以下のドメイン名とIPアドレスを使用して、Workatoクラウドのオンプレミスゲートウェイに対してアウトバウンド接続を行います。
+各
+data center
+は固有のIPアドレスセットを使用します。
+すべてのWorkatoのIPアドレスはTCPポート443を使用します。
+#
+OPAバージョン2.11.0以降のオンプレミスゲートウェイアドレス
+OPAバージョン2.11.0以降を使用している場合、以下のアドレスをアローリストに追加してください。負荷分散のために、
+sg3
+と
+sg4
+の両方のバージョンを使用する必要があります。
+米国: 米国データセンター
+FQDN
+sg3.workato.com
+sg4.workato.com
+IPs
+54.224.75.148, 52.206.161.203, 52.204.114.159
+54.91.65.247, 54.221.112.165, 3.216.209.184
+欧州連合: EUデータセンター
+FQDN
+sg3.eu.workato.com
+sg4.eu.workato.com
+IPs
+3.123.148.167, 18.192.102.156, 52.29.133.142
+3.72.205.158, 18.156.149.92, 52.58.222.49
+日本: JPデータセンター
+FQDN
+sg3.jp.workato.com
+sg4.jp.workato.com
+IPs
+35.79.205.155, 52.199.27.57, 35.78.12.221
+3.113.210.186, 3.113.92.57, 54.92.47.124
+シンガポール: SGデータセンター
+FQDN
+sg3.sg.workato.com
+sg4.sg.workato.com
+IPs
+52.76.214.244, 13.215.168.151, 54.255.216.78
+52.221.44.179, 52.221.46.218, 18.138.33.21
+オーストラリア: AUデータセンター
+FQDN
+sg3.au.workato.com
+sg4.au.workato.com
+IPs
+13.239.42.137, 3.105.83.213, 13.210.248.78
+54.206.76.14, 13.211.112.228, 3.24.233.233
+#
+オンプレミスゲートウェイのIPアドレスの許可リスト
+組織が厳格なアウトバウンドトラフィックのルールを持っている場合、ワークアトクラウドへのOPAのアクセスを許可リストに追加する必要があります。
+ファイアウォールの許可リストは、OPAのバージョンに基づいて、OPAからポート443へのアウトバウンドTCP接続を許可する必要があります。
+#
+FQDNのDNS解決
+一部の組織では、OPAが実行されるマシンやネットワークでDNS解決を制限しています。OPAが実行されるマシンがオンプレミスゲートウェイのFQDNのIPアドレスを解決できるようにしてください。
+#
+カスタムAPIMドメイン
+APIレシピで
+カスタムドメイン
+を使用する場合、Workatoはクライアントのトラフィックを以下の一連のIPアドレスにルーティングします。各
+データセンター
+は固有のIPアドレスセットを使用します。
+米国データセンター
+18.211.121.35, 34.232.254.255, 52.203.235.136
+EUデータセンター
+3.127.182.4, 3.64.168.57, 3.66.114.67
+JPデータセンター
+18.177.63.189, 52.194.114.232, 52.196.96.189
+SGデータセンター
+18.136.28.27, 13.215.62.220, 13.214.235.186
+AUデータセンター
+13.236.168.184, 13.238.90.32, 3.24.69.138
+#
+静的アセット
+レシピパッケージ、プロファイル写真、およびカスタマーアダプターロゴなどの特定のアセットは、リージョナルデータセンターの専用S3バケットから提供されます。各
+データセンター
+には独自のS3バケットがあります。アカウントがホストされているデータセンターに基づいて、ドメインをファイアウォールの許可リストに追加してください。
+米国データセンター
+FQDN
+workato-assets.s3.amazonaws.com
+EUデータセンター
+FQDN
+workato-assets-eu-2.s3.amazonaws.com
+JPデータセンター
+FQDN
+workato-assets-jp.s3.amazonaws.com
+SGデータセンター
+FQDN
+workato-assets-sg.s3.amazonaws.com
+AUデータセンター
+FQDN
+workato-assets-au.s3.amazonaws.com
+#
+ブラウザ、Webhook、APIエンドポイント
+ワークアトへのその他のトラフィックは、以前に説明したIPアドレスとは異なるIPアドレスセットによって提供される場合があります。
+ブラウザベースのユーザーインタラクションとWebhookは、アカウントが所在するデータセンターに依存します。
+米国データセンター
+https://www.workato.com
+EUデータセンター
+https://app.eu.workato.com/
+JPデータセンター
+https://app.jp.workato.com
+SGデータセンター
+https://app.sg.workato.com/
+AUデータセンター
+https://app.au.workato.com/
+APIエンドポイントのリクエストも、アカウントが所在するデータセンターに依存します。
+米国データセンター
+https://apim.workato.com/
+EUデータセンター
+https://apim.eu.workato.com/
+JPデータセンター
+https://apim.jp.workato.com/
+SGデータセンター
+https://apim.sg.workato.com/
+AUデータセンター
+https://apim.au.workato.com/
+←
+Azure ADへのアプリケーション登録
+データセンターの概要
+→
+Last updated:
+2025/4/5 20:05:46
+On this page
+Workatoからのトラフィック
+Workatoへのトラフィック
+カスタムAPIMドメイン
+静的アセット
+ブラウザ、Webhook、APIエンドポイント
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

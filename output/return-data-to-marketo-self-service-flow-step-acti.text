@@ -1,0 +1,155 @@
+Workato connectors - Marketo Return data to Marketo Self Service Flow Step action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Marketo
+#
+Return data to Marketo Self Service Flow Step action
+This action returns data to Marketo from a Self Service Flow Step invocation.
+It must be used with the
+New Marketo Self Service Flow Step trigger
+. Together, these create a
+Marketo Self Service Flow Step
+(opens new window)
+. The recipe must be started in Workato before you can continue setting up the flow step in Marketo.
+If any changes are made to the trigger or action configurations, a new flow step service must be created in Marketo, and the old service should be deprecated. To specify which values are returned to Marketo, you must first select the corresponding fields in the trigger configuration.
+#
+Input fields
+Field
+Description
+Callback URL
+The callback URL. This input field must be mapped from the
+New Marketo Self Service Flow Step trigger
+.
+Callback API key
+The callback API key. This input field must be mapped from the
+New Marketo Self Service Flow Step trigger
+.
+Callback token
+The callback token. This input field must be mapped from the
+New Marketo Self Service Flow Step trigger
+.
+Outgoing lead attributes
+Lead data that Workato sends to Marketo to update each lead.
+Outgoing lead attributes source list (outgoing lead attributes)
+Input a list datapill from which outgoing lead attributes are derived. Learn more about
+list input
+.
+Lead attributes (outgoing lead attributes)
+Expand to configure the lead attributes fields.
+ID (lead attributes)
+Provide the lead ID to specify which lead to update.
+#
+Output fields
+There is no output for this action.
+FURTHER READING
+Self-service Flow Steps
+New Marketo Self Service Flow Step trigger (real-time)
+←
+Remove leads from lead list action
+Schedule campaign or smart campaign action
+→
+Last updated:
+10/2/2024, 3:53:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

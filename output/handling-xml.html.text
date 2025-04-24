@@ -1,0 +1,331 @@
+XML Parser By Workato - XML の処理と解析 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+ファイルおよび添付ファイルの取り扱い
+#
+XML Parser By Workato - XML の処理と解析
+XML (eXtensible Markup Language) は、データを格納および転送するための構文であり、主に API で使用されます。XML データは、タグの体系的な階層に格納されます。
+データはレシピ内で入力項目およびデータピルとして表示されるため、Workato では XML データが表示されることはほとんどありません。ただしワークフローで Raw XML データの処理が必要になる場合は、
+XML Parser by Workato
+コネクターを使用できます。Raw XML データを使用可能なデータピルに変換するには、これが最も簡単な方法です。
+#
+設定
+このコネクターでは、コネクションを設定する必要はありません。
+#
+入力
+このコネクターを設定する際は、以下の入力項目を指定する必要があります。
+項目
+説明
+XML type
+XML を解析するための詳細レベル。データピルは、XML のデータ型 (たとえば
+string
+、
+integer
+など) を使用してタイプ分けされます。
+以下のオプションのいずれか1つを選択します。
+Simple XML without attributes
+- このオプションは、デフォルトの XML 構文と
+type
+属性を読み取ります。他の属性は処理されません。簡素化されたデータツリーが作成されます。
+Full XML with attributes
+- このオプションでは、作成されたデータツリー内にすべての属性が含まれます。各 XML タグは、
+content
+データピル内のタグ値が含まれる
+array
+データピルになります。
+これらのオプションを使用した XML データの解析のサンプルについては、以下の「
+出力
+」セクションを参照してください。
+Sample document
+解析される XML データと同じ形式のサンプル XML ドキュメント。
+Document
+解析される入力 XML データ。
+#
+出力
+出力は、解析された XML データです。出力データツリーの構造は、選択する
+XML タイプ
+によって異なります。
+たとえば、以下の XML を解析する必要があるとします。
+<
+list
+>
+<
+Contact
+>
+<
+Name
+type
+=
+"
+C
+"
+>
+<
+First
+>
+Donna
+</
+First
+>
+<
+Last
+>
+Noble
+</
+Last
+>
+</
+Name
+>
+</
+Contact
+>
+<
+Contact
+>
+<
+Name
+type
+=
+"
+C
+"
+>
+<
+First
+>
+Rose
+</
+First
+>
+<
+Last
+>
+Tyler
+</
+Last
+>
+</
+Name
+>
+</
+Contact
+>
+</
+list
+>
+以下をクリックして、各
+XML タイプ
+オプションのデータツリーの内容を確認してください。
+SIMPLE XML WITHOUT ATTRIBUTES
+.
+List
+└── Contact
+├── Name
+|
+├── Type
+(
+C
+)
+|
+├── First
+(
+Rose
+)
+|
+└── Last
+(
+Tyler
+)
+├── List size
+└── List index
+FULL XML WITH ATTRIBUTES
+.
+List
+├── Contact
+|
+├── Name
+|
+|
+├── Type
+(
+C
+)
+|
+|
+├── First
+|
+|
+|
+├── Content
+(
+Rose
+)
+|
+|
+|
+├── List size
+|
+|
+|
+└── List index
+|
+|
+├── Last
+|
+|
+|
+├── Content
+(
+Tyler
+)
+|
+|
+|
+├── List size
+|
+|
+|
+└── List index
+|
+|
+├── List size
+|
+|
+└── List index
+|
+├── List size
+|
+└── List index
+├── List size
+└── List index
+#
+ワークフローへの XML の統合
+レシピ内で Raw XML データを処理するには、2つのステップが必要です。つまりレシピアクションでデータを処理し、XML データを受け付けるようにレシピを設定する必要があります。
+後者を行うために、Workato では以下のようないくつかの方法を用意しています。
+Raw データを処理する API エンドポイントを作成する。
+API レシピ
+を使用して、Raw XML データを受け付ける API エンドポイントを作成して公開できます。詳細については、
+こちら
+を参照してください。
+カスタムコネクターを構築する。
+カスタムコネクターを使用すると、API 呼び出しを通してクラウドアプリケーションを受け付け、操作する方法をカスタマイズできます。コネクターを自分で構築するには、以下のオプションを使用できます。
+HTTP コネクター
+- このコネクターを使用すると、API から Raw データを簡単に処理できます。詳細については、
+HTTP コネクターのコース
+(opens new window)
+を参照してください。
+コネクター SDK
+- Workato フレームワークの拡張機能であるコネクター SDK は、開発者がコネクターを構築、管理、配備するために必要なあらゆるものを提供します。詳細については、
+Workato SDK のドキュメント
+を参照してください。
+適切なオプションの選択については、
+HTTP と SDK
+に関するガイドで、詳細な比較情報を参照してください。
+←
+JSON の処理
+XMLの転換
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+設定
+入力
+出力
+ワークフローへの XML の統合
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

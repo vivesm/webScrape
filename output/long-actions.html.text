@@ -1,0 +1,201 @@
+長時間実行アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+#
+長時間実行アクション
+長時間実行アクション（または長時間実行アクション）は、大量のデータを処理するのに優れた特別なクラスのWorkatoアクションです。長時間実行アクションは、完了するまで数分から数時間かかる場合があります。
+通常の場合、アクションは
+タイムアウトエラー
+を発生させます。しかし、長時間実行アクションでは、タイムアウトエラーを発生させずにアクションを完了させることができます。
+テストモードでは長時間実行アクションを実行できません
+長時間実行アクションでは、専用のユーザーが定期的にアクションが完了したかどうかを確認する必要があります。これは
+test mode
+では利用できません。
+レシピに長時間実行アクションが含まれている場合は、
+レシピの開始
+を使用してください。
+#
+この仕組みはどのように動作しますか？
+ジョブの実行が長時間実行アクションに到達すると、Workatoは一時的にジョブを保留し、定期的に長時間実行アクションの処理が完了したかどうかを確認します。アクションが完了した後、Workatoはレシピの次のステップに進みます。
+長時間アクションのジョブシーケンス
+レシピに長時間アクションのステップとジョブがある場合、
+アクションが保留された場合
+、Workatoは自動的にジョブシーケンスを無視します。前のジョブが完了していなくても、次のジョブが処理を開始し、レシピの同時実行数が
+1
+に設定されている場合でも処理が開始されます。
+#
+長時間実行アクションの一覧
+長時間実行アクションはSalesforceやNetSuite、データベースなどのアプリケーションでサポートされています。
+コネクタ
+アクション
+説明
+Anaplan
+データインポートを実行
+Anaplanでデータインポートプロセスを実行します
+データエクスポートを実行
+Anaplanでデータエクスポートプロセスを実行します
+削除を実行
+Anaplanで削除アクションを実行します
+プロセスを実行
+Anaplanでプロセスを実行します
+データベース
+クエリ結果をエクスポート
+クエリ結果をCSVとしてエクスポートします
+スケジューラ
+待機
+指定された時間の長さだけ待機します
+SQL変換
+CSVデータをクエリ
+SQLを使用して異なるソースからCSVデータをクエリし、結果を出力します
+Marketo
+リードをファイルに一括エクスポート
+カンマ、タブ、またはセミコロンで区切られた値としてMarketoのリードのリストを取得します
+ファイルからリードを一括インポート
+ファイルからMarketoにリードを一括インポートします
+アクティビティをファイルに一括エクスポート
+カンマ、タブ、またはセミコロンで区切られた値としてMarketoのアクティビティのリストを取得します
+NetSuite
+一括で追加/作成
+NetSuiteで一括で追加/作成します
+QuickBooks
+支払い済みの請求書を待機
+QuickBooksで支払い済みの請求書を待機します
+Salesforce
+CSVファイルから一括でレコードを作成/更新/アップサート
+CSVファイルから一括でレコードを作成/更新/アップサート（API 1.0）
+CSVファイルから失敗したレコードの一括ジョブを再試行
+Salesforceで失敗したレコードの一括ジョブを再試行します
+SOQLを使用して一括でレコードを検索
+SAP
+IDocを送信
+IDocをSAPに送信します
+SurveyMonkey
+メールでアンケート招待を送信し、回答を待機
+SurveyMonkeyでメールでアンケート招待を送信し、回答を待機します
+People Task
+タスクの承認をリクエスト
+People Taskを介して承認をリクエストします
+Google BigQuery
+行を挿入
+選択したテーブルに行を挿入します
+行を選択
+BigQueryのテーブルで行を選択します
+カスタムSQLを使用して行を選択
+BigQueryでカスタムSQLを使用して行を選択します
+カスタムSQLを実行
+BigQueryでカスタムSQLを実行します
+カスタムSQLを使用して行を選択し、テーブルに挿入
+カスタムSQLを使用して行を選択し、その結果をBigQueryのテーブルに挿入します
+Google Cloud Storageからデータをロード
+Google Cloud StorageからデータをBigQueryにロードします
+Zendesk
+オブジェクト/レコードを作成/更新します。一括アップサート
+オブジェクトまたはレコードを作成します。一括アップサート
+ワークボット for Slack
+ユーザーの入力/アクションを待機
+ユーザーが入力を提供するまで、ワークボットのレシピのジョブは一時停止されます。入力を受け取ると、ジョブは次のアクションに進みます。別個のコマンドとしては実行されず、レシピのトリガーとしては独立して実行されません。
+←
+ワークフロー (People Task)
+テスト自動化
+→
+Last updated:
+2024/7/30 18:26:21
+On this page
+この仕組みはどのように動作しますか？
+長時間実行アクションの一覧
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

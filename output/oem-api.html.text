@@ -1,0 +1,484 @@
+Embedded パートナー API | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+Embedded パートナー API
+この機能を使用できるユーザー
+Embedded パートナー API を使用するには、
+Embedded アカウント
+が必要です。詳細については、Workato の担当者までお問い合わせください。
+Workato の Embedded パートナープラットフォーム API を使用すれば、パートナーは、カスタマーアカウントやアセット (レシピやコネクションなど) をプログラムによって作成し、管理することができます。
+#
+認証
+API に対して認証を行うには、パートナーのメイン管理者アカウントの
+API キーとメールアドレス
+を使用します。
+資格情報を取得するには、アカウント内の
+[Settings] > [API key]
+(opens new window)
+ページに移動します。
+リクエストヘッダー
+または
+クエリーパラメータ
+を使用して認証できます。
+#
+リクエストヘッダーを使用した認証
+リクエストヘッダーを使用して認証するには、
+X-USER-TOKEN
+の値として API キーを、
+X-USER-EMAIL
+の値としてメールアドレスを含めます。
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/19029/properties?prefix=salesforce_sync.'
+\
+-H
+'x-user-email: <email>'
+\
+-H
+'x-user-token: <token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+クエリーパラメータを使用した認証
+クエリーパラメータを使用して認証するには、
+user_token
+の値として API キーを、
+user_email
+の値としてメールアドレスを含めます。
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/19029/connections?user_email=<EMAIL_ADDRESS>&user_token=<TOKEN>'
+#
+サポートされている形式
+API に送信するリクエストには、ヘッダーに
+Content-type: application/json
+を含める必要があります。
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/19029/properties?prefix=salesforce_sync.'
+\
+-H
+'x-user-email: <email>'
+\
+-H
+'x-user-token: <token>'
+\
+-H
+'Content-Type: application/json'
+\
+レスポンスは
+application/json; charset=utf-8
+を使用してエンコードされます。
+#
+HTTP レスポンスコード
+名前
+説明
+サンプルの応答
+200
+Success (成功)
+{"Success": true}
+400
+Bad request (不正なリクエスト)
+{"message": "Bad request"}
+401
+Unauthorized (認証が必要)
+{"message": "Unauthorized"}
+404
+Not found (見つからない)
+{"message": "Not found"}
+500
+Server error (サーバーエラー)
+{"message":"Server error","id":"3188c2d0-29a4-4080-908e-582e7ed82580"}
+#
+リソース
+コネクター
+カスタムコネクター
+コネクション
+ピックリスト
+フォルダー
+カスタマーアカウント
+レシピ
+レシピライフサイクル管理
+API プラットフォーム
+ロール
+アカウントプロパティ
+Lookup table
+#
+コネクター
+タイプ
+リソース
+説明
+GET
+/api/integrations
+コネクターメタデータのクエリーを実行します。
+#
+カスタムコネクター
+タイプ
+リソース
+説明
+GET
+/api/custom_connectors
+カスタムコネクターを取得します。
+GET
+/api/custom_connectors/:id
+ID に基づいてカスタムコネクターを取得します。
+POST
+/api/custom_connectors/:id/oem_share/:version
+共有コネクターを作成または更新します。
+DELETE
+/api/custom_connectors/:id/suppress_oem_version
+共有コネクターを削除します。
+#
+コネクション
+タイプ
+リソース
+説明
+GET
+/api/managed_users/:managed_user_id/connections
+カスタマーアカウント内のコネクションのリストを返します。
+POST
+/api/managed_users/:id/connections
+Embedded ベンダーにカスタマーアカウント内のシェルコネクションの追加を許可します。
+PUT
+/api/managed_users/:id/connections/:connection_id
+カスタマーアカウント内のコネクションを更新します。
+#
+ピックリスト
+タイプ
+リソース
+説明
+POST
+/managed_users/:id/connections/:connection_id/pick_list
+Embedded カスタマーアカウント内の指定されたコネクションのピックリスト値のリストを取得します。
+#
+フォルダー
+タイプ
+リソース
+説明
+GET
+/api/managed_users/:id/folders
+カスタマーアカウント内のフォルダーのリストを表示します。
+POST
+/api/managed_users/:id/folders
+カスタマーアカウント内に新しいフォルダーを作成します。
+#
+カスタマーアカウント
+タイプ
+リソース
+説明
+POST
+/api/managed_users
+カスタマーアカウントを作成します。
+PUT
+/api/managed_users
+カスタマーアカウントを更新します。
+DELETE
+/api/managed_users
+カスタマーアカウントを削除します。
+GET
+/api/managed_users/:id
+カスタマーアカウントを取得します。
+GET
+/api/managed_users/
+すべてのカスタマーアカウントのリストを取得します。
+GET
+/api/managed_users/members
+カスタマーアカウント内のすべてのメンバーのリストを取得します。
+GET
+/api/managed_users/members/:member_id
+カスタマーアカウント内のメンバーを取得します。
+POST
+/api/managed_users/:id/members
+カスタマーアカウントにメンバーを追加します。
+PUT
+/api/managed_users/members/:member_id
+カスタマーアカウント内のメンバーを更新します。
+DELETE
+/api/managed_users/:id/members/:member_id
+カスタマーアカウントからメンバーを削除します。
+GET
+/api/managed_users/:id/connections
+カスタマーのコネクションのリストを表示します。
+GET
+/api/managed_users/usage
+すべてのカスタマーアカウントの月ごとのタスク使用量を取得します。
+#
+レシピ
+タイプ
+リソース
+説明
+GET
+/api/managed_users/:id/recipes
+カスタマーアカウントに属しているレシピのリストを表示します。
+GET
+/api/managed_users/:id/recipes/:recipe_id
+カスタマーアカウントに属しているレシピの詳細を取得します。
+GET
+/api/recipes/search
+公開レシピを検索します。
+POST
+/api/managed_users/:managed_user_id/recipes
+カスタマーアカウント内にレシピを作成します。
+PUT
+/api/managed_users/:managed_user_id/recipes/:id
+カスタマーアカウント内のレシピを更新します。
+DELETE
+/api/managed_users/:id/recipes/:recipe_id
+カスタマーアカウント内のレシピを削除します。
+PUT
+/api/managed_users/:managed_user_id/recipes/:recipe_id/start
+カスタマーアカウント内のレシピを開始します。
+PUT
+/api/managed_users/:managed_user_id/recipes/:recipe_id/stop
+カスタマーアカウント内のレシピを停止します。
+#
+レシピライフサイクル管理
+これらのエンドポイントを使用できるユーザー
+このガイド内のエンドポイントは、Embedded パートナー API です。詳細については、Workato の担当者までお問い合わせください。
+パッケージをエクスポートする API を探すには、
+Workato API のドキュメント
+を参照してください。
+タイプ
+リソース
+説明
+POST
+/api/managed_users/:id/imports
+パッケージをカスタマーアカウント内のフォルダーにインポートします。
+GET
+/api/managed_users/:id/recipes
+インポートしたパッケージのステータスを取得します。
+#
+API プラットフォーム
+タイプ
+リソース
+説明
+GET
+/api/api_collections
+カスタマーアカウント内の
+API コレクション
+のリストを表示します。
+POST
+/api/api_collections
+カスタマーアカウント内に
+API コレクション
+を作成します。
+GET
+/api/api_endpoints
+コレクション内の
+API エンドポイント
+のリストを表示します。
+PUT
+/api/api_endpoints/:id/enable
+コレクション内の
+API エンドポイント
+を有効にします。
+PUT
+/api/api_endpoints/:id/disable
+コレクション内の
+API エンドポイント
+を無効にします。
+GET
+/api/api_clients
+カスタマーアカウント内の
+API クライアント
+のリストを表示します。
+POST
+/api/api_clients
+カスタマーアカウント内に
+API クライアント
+を作成します。
+GET
+/api/api_access_profiles
+カスタマーアカウント内の API クライアントに属している
+アクセスプロファイル
+のリストを表示します。
+POST
+/api/api_access_profiles
+カスタマーアカウント内の API クライアントに属している
+アクセスプロファイル
+を作成します。
+PUT
+/api/api_access_profiles
+カスタマーアカウント内の API クライアントに属している
+アクセスプロファイル
+を更新します。
+PUT
+/api/api_access_profiles/:api_access_profile_id/enable
+カスタマーアカウント内の API クライアントに属している
+アクセスプロファイル
+を有効にします。
+PUT
+/api/api_access_profiles
+カスタマーアカウント内の API クライアントに属している
+アクセスプロファイル
+を無効にします。
+PUT
+/api/api_access_profiles/:id/refresh_secret
+アクセスプロファイルの
+トークンまたはシークレット
+を更新します。
+#
+ロール
+タイプ
+リソース
+説明
+GET
+/api/managed_users/:id/roles
+カスタマーアカウント内のカスタムロールのリストを表示します。
+POST
+/api/managed_users/:id/roles/:role_id/copy
+カスタムロールのコピーを作成します。
+#
+アカウントプロパティ
+タイプ
+リソース
+説明
+GET
+/api/managed_users/:managed_user_id/properties
+接頭辞と一致するカスタマーアカウントに属しているアカウントプロパティのリストを返します。
+POST
+/api/managed_users/:managed_user_id/properties
+カスタマーアカウントにアカウントプロパティをアップサートします。
+#
+Lookup table
+タイプ
+リソース
+説明
+GET
+/api/managed_users/:managed_user_id/lookup_tables
+テーブルのリストを表示します。
+GET
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/lookup
+行を検索します。
+GET
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows
+行のリストを表示します。
+POST
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows
+行を追加します。
+PUT
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows/:row_id
+行を更新します。
+DELETE
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows/:row_id
+行を削除します。
+GET
+/api/managed_users/:managed_user_id/lookup_tables/
+:lookup_table_id/rows/:row_id
+行を取得します。
+←
+プライベート・コミュニティ
+API プラットフォーム
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+認証
+サポートされている形式
+HTTP レスポンスコード
+リソース
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

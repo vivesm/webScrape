@@ -1,0 +1,280 @@
+Workato connectors - Google Drive - Add file permission action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Drive
+#
+Google Drive - Add file permission action
+This action adds a permission to a particular file in Google Drive. Permissions are useful to transfer file ownership or to share a file with specific users, groups, or domains, or to make it accessible to anyone.
+Google Drive Add file permission action
+#
+Input
+Input fields
+Description
+File
+The file you plan to add permission to. Select a file or enter its ID. To find the file ID, right-click the file and select
+Share > Copy link
+. For example, if the URL is
+https://drive.google.com/file/d/123nyR2IjW_Rq84d3qEYRoq1/view
+, the file ID is
+123nyR2IjW_Rq84d3qEYRoq1
+.
+Alternatively, you can find the file ID in the output of other Google Drive triggers and actions.
+Role
+The role granted by this permission. Select a role or use a custom value. Allowed values:
+owner
+,
+organizer
+,
+fileOrganizer
+,
+writer
+,
+commenter
+,
+reader
+.
+Share with
+Who to grant the permission to. Select an entity or use a custom value. If this is set to a user or group, you must provide their email address. If it is set to a domain, you must provide a domain. Allowed values:
+user
+,
+group
+,
+domain
+,
+anyone
+.
+Email address
+Email address of the specific user or group the permission refers to. Required if
+Share with
+is set to
+user
+or
+group
+.
+Domain
+Domain the permission refers to. Required if
+Share with
+is set to
+domain
+.
+Allow file discovery?
+Determines if a file can be discovered through search. This is only applicable to permissions granted to
+domain
+or
+anyone
+. Defaults to
+Yes
+.
+Send notifications
+Determines if a notification is sent to a user or group about the permission. Not applicable if the file is shared to
+domain
+or
+anyone
+. Defaults to
+Yes
+for users and groups.
+Notification message
+A plain text custom message to include in the notification email.
+Transfer ownership
+Transfer ownership of the file to the user provided. Requires
+Share with
+to be set to
+user
+and
+Role
+to be set as
+owner
+. Defaults to
+No
+.
+Move file to root of the user
+Moves the file to the new owner's root folder. Requires
+Transfer ownership
+to be set to
+Yes
+. Defaults to
+No
+.
+Use domain admin access?
+Issues the request as a domain administrator, if the connected user is the admin of the domain owning a shared drive. This setting allows the domain admin to
+set permissions for shared drive files
+(opens new window)
+owned by their domain even if they aren't a member of the given shared drive. Default is set to
+No
+.
+#
+Output
+Output fields
+Description
+Kind
+The kind of resource this is:
+drive#permission
+Type
+The type of grantee:
+user
+,
+group
+,
+domain
+, or
+anyone
+.
+Permission ID
+The ID of this permission.
+Email address
+The email address of the user or group that was granted this permission.
+Domain
+The domain this permission refers to.
+Role
+The role granted by this permission.
+View
+The view for this permission.
+Allow file discovery
+Indicates whether this permission allows the file to be discovered through search. This is only applicable to permissions granted to
+domain
+or
+anyone
+.
+Display name
+The human-readable name for the permission grantee.
+user
+: User's full name.
+group
+: Name of the Google Group.
+Domain
+: Domain owning the shared drive. Not applicable to the type
+anyone
+.
+Photo link
+A link to the user's profile photo, if available.
+Team Drive permission details
+A list of permission details for the Team Drive. Contains the following output fields, in addition to
+List size
+and
+List index
+:
+Team Drive permission type: The permission type for this user. Team Drives only.
+Role: The primary role for this user. Team Drives only.
+Inherited from: The ID of the item from which this permission is inherited. Team Drives only.
+Inherited: Whether this permission is inherited. Team Drives only.
+Permission details
+A list of permission details for the shared drive. Contains the following output fields, in addition to
+List size
+and
+List index
+:
+Permission type: The permission type for this user. Shared drives only.
+Role: The primary role for this user. Shared drives only.
+Inherited from: The ID of the item from which this permission is inherited. Shared drives only.
+Inherited: Indicates whether this permission is inherited. Shared drives only.
+Deleted
+Whether the account associated with this permission has been deleted. This field only applies to user and group permissions.
+←
+New file/folder in folder hierarchy trigger
+Copy file action
+→
+Last updated:
+3/10/2025, 6:11:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

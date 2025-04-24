@@ -1,0 +1,253 @@
+Workato コネクター - Zendesk - オーガナイゼーション項目 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Zendesk
+#
+Zendesk - オーガナイゼーション項目
+Zendesk のオーガナイゼーションには、オーガナイゼーションに関する情報を追加する各種項目が含まれます。作成者による入力が必須の項目 (たとえば、Name) もあれば、システムによって生成される出力項目 (たとえば、Organization ID) もあります。
+#
+オーガナイゼーションの入力項目
+Zendesk インスタンスに新規オーガナイゼーションを登録するには、特定の情報を入力する必要があります。この情報は、「Name」などの識別情報や権限制御などです。
+#
+オーガナイゼーションのデフォルト入力項目
+Zendesk の事前設定のオーガナイゼーション項目は基本情報を収集します。デフォルトでは、「Name」のみが必須として設定されています。
+入力項目
+説明
+Name
+オーガナイゼーションの名前。
+External ID
+別のシステムから取得した一意の識別子。
+Domain name
+このオーガナイゼーションに関連付けられたドメイン名。
+Details
+オーガナイゼーションに関する詳細情報。
+Notes
+オーガナイゼーションに関するメモ。
+Group ID
+このオーガナイゼーションのグループの一意の Zendesk ID。
+Shared tickets
+このオーガナイゼーション内のエンドユーザーが互いのチケットを表示できる場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Shared comments
+このオーガナイゼーション内のエンドユーザーがチケットに付けられた互いのコメントを表示できる場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Tags
+このオーガナイゼーションに適用されるタグ。区切り文字
+,
+を使用して、複数のタグを追加できます。
+#
+オーガナイゼーションのカスタム入力項目
+事前設定の項目のほかに、Zendesk ではビジネスユースケースに合うようにオーガナイゼーション項目をカスタマイズできます。
+このオーガナイゼーションのカスタム項目のリストを表示するには、
+[settings]
+>
+[Manage]
+の下 >
+[Organization Fields]
+に移動します。
+オーガナイゼーションのカスタム項目
+オーガナイゼーションのカスタム項目の例を以下に示します。
+オーガナイゼーションのカスタム項目
+項目のタイプ
+必須
+Account manager
+ドロップダウン
+(
+list
+)
+はい
+School district
+テキスト
+(
+string
+)
+いいえ
+Key client
+チェックボックス
+(
+boolean
+)
+はい
+#
+オーガナイゼーションの出力項目
+手動の入力項目 (たとえば、Name) もあれば、システムによって生成される項目 (たとえば、Organization ID) もあります。
+#
+オーガナイゼーションのデフォルト出力項目
+その設定に応じて、
+null
+になったりデフォルト値に設定されたりする項目があります。
+出力項目
+説明
+Domain names
+このオーガナイゼーションに関連付けられたドメイン名。
+Details
+オーガナイゼーションに関する詳細情報。
+Notes
+オーガナイゼーションに関するメモ。
+External ID
+別のシステムから取得した一意の識別子。
+Group ID
+このオーガナイゼーションのグループの一意の Zendesk ID。
+Shared tickets
+このオーガナイゼーション内のエンドユーザーが互いのチケットを表示できる場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Shared comments
+このオーガナイゼーション内のエンドユーザーがチケットに付けられた互いのコメントを表示できる場合は
+Yes
+を、そうでない場合は
+No
+を選択します。
+Tags
+このオーガナイゼーションに適用されるタグ。 Y
+Tags list
+このオーガナイゼーションに適用できるタグの事前定義のリスト。
+Name
+オーガナイゼーションの名前。
+ID
+オーガナイゼーションの一意の Zendesk ID。これは、オーガナイゼーションの作成時に自動的に割り当てられます。
+URL
+オーガナイゼーションの API URL。
+Date created
+オーガナイゼーションが作成された日時。
+Date updated
+オーガナイゼーションが最後に更新された日時。
+Date deleted
+オーガナイゼーションが削除された日時。
+#
+オーガナイゼーションのカスタム出力項目
+カスタム項目を設定した場合は、対応する出力を取得できます。オーガナイゼーションのカスタム出力項目の例を以下に示します。
+オーガナイゼーションのカスタム項目
+項目のタイプ
+出力
+Account manager
+ドロップダウン
+(
+list
+)
+Sophia Midas
+School district
+テキスト
+(
+string
+)
+Plumas unified school district
+Key client
+チェックボックス
+(
+boolean
+)
+はい
+←
+ユーザー項目
+カスタムオブジェクト
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+オーガナイゼーションの入力項目
+オーガナイゼーションの出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

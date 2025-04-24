@@ -1,0 +1,237 @@
+Workato connectors - Walmart Seller Center | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Walmart Seller Center
+Walmart Seller Center
+(opens new window)
+​​is a platform that enables businesses to sell products on
+Walmart.com
+(opens new window)
+. Use this connector to manage product listings, track inventory, process customer orders, and utilize Walmart's fulfillment services.
+#
+Prerequisites
+Before using the Walmart Seller Center connector in Workato, ensure you have an active account with appropriate permissions to access APIs. If you don't already have an account, complete the following steps to register for one.
+Register for a Walmart Seller Center account
+Retrieve an API key
+#
+Register for a Walmart Seller Center account
+Complete the following steps to register for a new supplier account in the Walmart Seller Center:
+1
+Visit the
+registration
+(opens new window)
+page.
+2
+Enter details in each field as required.
+3
+Click the checkbox at the bottom of the form to agree to the terms and conditions.
+4
+Click
+Create account
+.
+After creating your account, you are redirected to the
+Seller Center
+(opens new window)
+page. Check your email for your portal login credentials.
+For more information, refer to the
+Walmart Seller help
+(opens new window)
+page.
+#
+Retrieve an API key
+Complete the following steps to retrieve an API key from the
+Developer Portal
+(opens new window)
+of your Walmart Seller Center account:
+1
+Sign in to your Seller Center account.
+2
+Click the grid on the navigation menu and select
+Developer Portal
+.
+Walmart Developer Portal
+3
+In the developer portal, navigate to the taskbar in the top right corner and select
+My Account
+.
+4
+Select the applicable login type.
+Walmart Login
+5
+Locate the
+My API Key
+section and copy the
+Client ID
+and
+Client Secret
+. These values are required to establish the connection in Workato.
+Walmart Credentials
+#
+How to connect to Walmart Seller Center
+The Walmart Seller Center connector supports client credentials grant authentication. Complete the following steps to connect to the Walmart Seller Center connector in Workato:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Walmart Seller Center
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Walmart Connection Setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the
+Client ID
+for your Walmart Seller Center account, which you saved during the previous steps.
+6
+Enter the
+Client Secret
+for your Walmart Seller Center account, which you saved during the previous steps.
+7
+Optional. Provide your
+Walmart Seller/Supplier ID
+, which can be retrieved by navigating to
+Settings
+on the home page of your Walmart account. On the settings page, you can copy the ID present in the top left corner under your name.
+8
+Optional. Provide your
+Walmart marketplace
+.
+9
+Provide the
+Walmart service name
+. For example,
+Walmart fulfillment service
+.
+10
+Click
+Connect
+.
+#
+Actions
+The Walmart Seller Center connector supports the following actions:
+Bulk update inventory
+Get record details by ID
+Search records
+Update record
+Walmart Seller Center connector actions
+←
+Update record action
+Bulk update inventory action
+→
+Last updated:
+2/9/2025, 12:23:05 PM
+On this page
+Prerequisites
+How to connect to Walmart Seller Center
+Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

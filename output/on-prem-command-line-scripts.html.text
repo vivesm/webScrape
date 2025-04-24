@@ -1,0 +1,209 @@
+Workato コネクター - On-prem command-line scripts | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+On-prem command-line scripts
+企業は多くの場合、オンプレミスのアプリケーションやデータベースを自社データセンター内にデプロイしています。
+Workato の
+On-prem command-line scripts
+コネクターを使用すると、ホワイトリストに登録されたコマンドラインスクリプトをユーザーのプライベートネットワーク内で実行できます。このコマンドはオンプレミスエージェントによって実行されます。ユーザーは、オンプレミスエージェントのあるマシンで実行可能なコマンドであれば、どのようなものでもホワイトリスト登録することができます。
+#
+設定と接続
+まず、
+こちらの説明
+に従ってオンプレミスエージェントを設定してください。
+次に、そのエージェントの
+config.yml
+ファイルを探し出し、
+On-prem command-line scripts
+用の
+コネクションプロファイルを設定
+します。ここではリンク先のドキュメント内で示されている例に従い、
+workday_reports
+という名前のプロファイルを作成したものとします。
+オンプレミスエージェントを実行します
+。続いて、
+オンプレミスエージェント管理ページ
+(opens new window)
+を開き、ご使用のエージェントが
+Active
+であることを確認します。
+エージェントがアクティブになっていることを確認したら、Workato の
+On-prem files
+コネクターを設定できます。コネクションプロファイル名を入力し、オンプレミスエージェントを選択します。今回の例では
+workday_reports
+と
+On-prem command-line scripts
+です。
+Link your account
+を選択します。すべてが正しく設定されていれば、
+Connection success
+というメッセージが表示されます。
+#
+コマンドラインスクリプト実行アクション
+#
+コマンド
+このコネクターで呼び出せるコマンドは、オンプレミスエージェントの
+config.yml
+ファイルにリストされているコマンドのみです。それらのコマンドは、このファイル内に含められた時点でホワイトリスト登録されたことになります。コネクションプロファイルの設定方法については、
+こちら
+を参照してください。
+#
+入力パラメータ
+入力パラメータは、オンプレミスエージェントの
+config.yml
+ファイルを作成するときに規定する必要があります。以下の例では、
+target_directory
+と
+source_file
+という2つのパラメータが規定されています。コネクションプロファイルの設定方法については、
+こちら
+を参照してください。
+エージェントの
+config.yml
+ファイルに記載されている入力パラメータ
+これに対応して、レシピ内でコマンドラインスクリプト「Append file to another」を選択すると、以下のように、2つのパラメータが必要な値として [Script input] に表示されます。
+レシピ内の入力パラメータ
+ユーザーはこれらのフィールドに、コマンドラインスクリプト内で利用したいデータピルまたは静的データを入力する必要があります。
+#
+その他のパラメータ
+Timeout
+オンプレミスエージェントのバージョン2.10.0より、
+timeout
+パラメータはアクション内で直接指定できるようになっています。このプロパティは、それぞれのスクリプト実行の最大期間 (分単位) を表します。このタイムアウトパラメータの値は、何も指定されていない場合、デフォルトで2分に設定されます。サポートされている値の最大値は1440分 (24時間) です。
+Concurrency limit
+concurrency_limit
+パラメータは
+config.yml
+ファイルで指定されます。この値は並列実行されるスクリプトの最大数を表し、何も指定されていない場合はデフォルトで10に設定されます。その制限に達した後のリクエストは、前のスクリプトの実行が済むまで順番待ちをすることになります。
+#
+パラメータの値のエスケープ
+パラメータの値をエスケープするには、オンプレミスエージェントの
+config.yml
+ファイルでプロファイルを定義する際にエスケープ文字を使用します。escape_char プロパティの値は、Unix では
+\
+、Windows では
+""
+が設定されます。
+エスケープ文字の使用
+上の画像に示されている例の場合、ファイル名
+target_file
+に含まれる値をバックスラッシュでエスケープすることができます。
+#
+起動方式 (同期/非同期)
+コマンドを非同期で起動するには、ドロップダウンリスト [Remove optional fields] までスクロールし、[Run script in background?] フィールドを選択します。コマンドをバックグラウンドで実行すると、そのコマンドの完了を待たずにレシピ内の残りのステップを続行できます (非同期)。
+このオプションを空白のままにするか [No] を選択すると、コマンドはフォアグラウンドで実行されます (同期)。この場合のレシピは、コマンドの実行が完了するのを待ってから後続のステップに進みます。
+#
+出力データ
+コマンドラインスクリプト実行アクションの出力は以下の通りです。
+Process ID
+実行されたコマンドラインスクリプトに対して一意の ID。
+Exit code
+どのコマンドも終了コードを返します。成功したコマンドは0を返し、失敗したコマンドはエラーコードとなる0以外の値を返します。
+System out
+System out は、コマンドラインスクリプトの実行後に返されるメッセージを表します。このメッセージには50,000字の文字数制限があります。
+←
+イベントの出力データツリー
+On-prem files
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+設定と接続
+コマンドラインスクリプト実行アクション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

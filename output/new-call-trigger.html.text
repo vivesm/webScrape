@@ -1,0 +1,210 @@
+Callable Recipes - New Call For Recipe Trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Callable recipes
+#
+Callable Recipes - New Call For Recipe Trigger
+THIS TRIGGER IS DEPRECATED
+This trigger has been replaced by the following triggers:
+Recipe functions - New function call trigger
+- Creates a recipe that can be called from another recipe
+API platform - New API request trigger
+- Creates a job based on API requests
+Recipes using this trigger will continue to function. Use the new
+Recipe functions
+and
+API platform
+triggers instead to take advantage of new features - check out the
+Recipe functions FAQ
+and
+API platform FAQ
+for more info.
+This trigger creates a job whenever it is called, in real-time. It can be called from
+another recipe
+or from another system as a
+API Platform REST endpoint
+.
+API Platform must be enabled for your account before a callable recipe can be exposed as a REST endpoint.
+New call for recipe trigger
+#
+Input fields
+Input field
+Description
+Name
+Give this callable recipe trigger a name that describes its function.
+Input schema
+If this recipe expects JSON, use this to describe the expected JSON structure.
+Response schema
+If this recipe responds with JSON data, use this to describe the JSON structure.
+Request type
+Select the request data format. Defaults to
+JSON request body
+if left blank.
+Response type
+Select the response data format. Defaults to
+JSON response
+if left blank.
+#
+Output fields
+Certain output fields are only available if the recipe is called as an API platform REST endpoint. More information can be found on the
+API platform
+documentation.
+Output field
+Description
+Calling job ID
+ID of the job in the parent recipe that made the call.
+Calling recipe ID
+ID of the parent recipe that made the call.
+Only available if called as an API Platform
+REST endpoint
+Calling IP address
+IP address of the client calling this recipe as a REST endpoint.
+Access profile
+Contains
+ID
+,
+name
+and
+authentication method
+of the access profile used to perform the request.
+API client
+Contains
+API client ID
+and
+API client name
+values to perform the request.
+JWT claims
+Only available a JWT token is used.
+Contains
+Audience
+,
+JWT ID
+,
+Issuer
+, and
+Expiration Time
+,
+Not before
+and
+Issued At
+values of the JWT used to authenticate the request.
+Only if request type is
+Raw request body
+Content type
+Content-Type
+header value from the incoming request.
+Request body (raw)
+Full raw request body.
+Recipe input
+This output object will contain all the fields defined in
+Input schema
+.
+←
+Walkthrough
+Return Response From Callable Recipe
+→
+Last updated:
+2/26/2025, 9:17:11 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

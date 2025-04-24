@@ -1,0 +1,166 @@
+レシピの説明におけるCopilot | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+AI機能
+Copilots
+#
+Docs Copilot
+レシピを本番環境にデプロイするには、複数の貢献者と、構築およびテストフェーズ以外のさまざまな活動が必要です。重要な活動の一つは、詳細な説明を使用してレシピを文書化することです。これにより、管理者は各レシピの機能を理解し、チームメンバーが将来的にレシピを拡張するのを支援します。
+Docs Copilotは初期のレシピ説明を生成します。これにより、ドキュメント作成に費やす時間を減らし、配信に集中することができます。
+#
+前提条件
+Copilot
+がワークスペースで有効になっていることを確認してください。Copilotを有効にするには、
+Admin
+システムロールが必要です。このロールが割り当てられていない場合は、ワークスペース管理者に連絡してこの機能を有効にしてもらってください。詳細については、
+Copilots
+のドキュメントを参照してください。
+PERMISSIONS
+Copilotsには詳細な権限設定がありません。ワークスペースで有効にすると、役割に関係なくワークスペース内のすべてのコラボレーターがアクセスできます。
+#
+レシピ説明を生成する
+レシピを保存、テスト、およびデバッグした後、次の状況でDocs Copilotを使用してレシピ説明を生成できます：
+レシピ説明が存在しない場合
+レシピ説明が存在する場合
+#
+レシピ説明が存在しない場合
+Docs Copilotを使用してレシピ説明を生成するには、次の手順を完了してください：
+1
+Add description
+をクリックして、Docs Copilotがレシピ説明を即座に生成するようにします。
+Trigger copilot with no description
+2
+ポップアップで必要に応じて説明を編集します。
+3
+Save
+をクリックして編集した説明をレシピに含めるか、使用しない場合は
+Clear description
+をクリックします。この説明は必要に応じて修正できるドラフトとして機能します。
+Generate recipe description
+#
+レシピ説明が存在する場合
+Docs Copilotを使用して新しいレシピ説明を生成するには、次の手順を完了してください：
+1
+Edit
+をクリックしてレシピ説明のポップアップを開きます。
+Trigger copilot with existing description
+2
+ポップアップでDocs Copilotを使用して新しい説明を生成します。
+3
+生成された説明を確認します。要件を満たしている場合は
+Save
+します。要件を満たしていない場合は生成を元に戻すことができます。
+#
+仕組み
+Docs Copilotは、ジョブデータを除くレシピに関する情報を受け取ることで説明を生成します。具体的には、レシピを構成する個々のアクションやトリガーであるレシピステップ、データが入力またはマッピングされる入力フィールド、およびレシピ内で統合されるアプリケーションを使用します。レシピが他のレシピを呼び出す場合、Docs Copilotはそれらのリンクされたレシピに関する情報も収集して、より正確な生成を提供します。
+カスタムアクションやHTTPアクションに関連する名前を提供することで、Docs Copilotが生成するレシピ説明を改善できます。
+#
+データ使用
+Docs Copilotが使用するデータについては、付録を参照してください。
+詳細はこちら
+.
+←
+レシピ作成におけるRecipe Copilot
+Formula Copilot
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+前提条件
+レシピ説明を生成する
+仕組み
+データ使用
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

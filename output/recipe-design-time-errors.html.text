@@ -1,0 +1,160 @@
+Recipe design-time errors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+Recipe design-time errors
+Recipe design-time errors refer to errors which are caught while building a recipe. These errors typically show up when you select recipe test or recipe start, and prevent you from testing or starting the recipe until they are resolved. This is because recipes with design-time errors will definitely result in job errors if ran. We go through common design-time errors in this section.
+Recipe design-time errors show up when recipe is tested or started
+#
+Missing required input fields at design-time
+Triggers and actions typically need configuration to be useful in a recipe. For example, to update a Zendesk organization, we need, at a minimum, the ID of the organization to update. Therefore, that's a required field in the recipe.
+If the recipe detects that a required input field is lacking values or datapills, it will raise a design-time error and refuse to start until the input field has been filled with a value or a datapill.
+You will be able to see the items needed to be fixed in the step details drawer.
+Recipe design error due to missing required input field
+Once you fix a specific error, the item will get crossed off your checklist.
+Fixed field
+#
+Design-time formula errors
+Every input field (except for list input fields) can be toggled between text and formula mode. When in formula mode, errors in formula syntax will raise design-time errors.
+Common design-time formula errors are:
+misspelled formulas (such as the above)
+lack of proper spacing between formulas and operators (for example, having 2 whitespaces instead of 1)
+formula syntax errors (for example, using curly braces
+{ }
+instead of square brackets
+[ ]
+)
+symbols in the wrong format (for example, when copying formulas and symbols from word processors like OpenOffice and Microsoft Word, these programs may format symbols like
+"
+,
+'
+and
+{ }
+differently and cause the Workato formula editor to not recognize these symbols)
+#
+Invalid datapills
+Datapills can become invalid when their source is missing, for example, if the trigger or action that the datapill comes from is changed, or if the field gets deleted from the app (for example, if the custom field
+Customer subscription plan
+in Salesforce object
+Account
+gets deleted in Salesforce, that datapill will become invalid for use in Workato). Invalid datapills will turn red.
+In the following example, design-time errors due to invalid datapills are raised when the Salesforce trigger is changed.
+Salesforce trigger is changed from New/updated object to New object
+To resolve issues with invalid datapills, you need to replace these pills with valid datapills or values.
+#
+Unavailable fields
+Sometimes you may receive a design time error if the recipe uses data fields that are not available in your app. In such cases, you will either have to add the fields in your app and perform a refresh schema in the recipe editor or remove the unavailable fields in your recipe.
+Field unavailable
+#
+App connection errors
+App connections can become invalid due to several reasons:
+app credentials were changed and the connection was not updated correspondingly in Workato
+connected user doesn't have the right set of permissions to read/write selected records
+permissions of the connected user was changed to a reduced scope
+In such cases, reconnecting, or verifying that the connected user has permissions to read/write records used in the recipes should work to re-establish the connection.
+Last updated:
+11/24/2022, 6:54:41 AM
+On this page
+Missing required input fields at design-time
+Design-time formula errors
+Invalid datapills
+Unavailable fields
+App connection errors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

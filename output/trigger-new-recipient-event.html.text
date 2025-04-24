@@ -1,0 +1,183 @@
+Workato connectors - Docusign - New recipient event trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Docusign
+#
+Docusign - New recipient event trigger
+The
+New recipient event
+trigger is based on the Recipient Connect feature in Docusign that allows you to listen on events where someone in your organization is a *receiver of a Docusign email. Use this trigger to relay these events to channels such as business messaging tools to notify the intended recipient further or log this event in your ERP system. To set up this trigger, you must claim the domain in Docusign. Refer to the
+Docusign guide
+(opens new window)
+for more information.
+#
+Input
+Select the events that you want to be notified about. If none are selected, the default value is
+All
+.
+Input field
+Description
+Recipient events
+Recipient sent
+Sent when an email notification is sent to the recipient saying that it's their turn to sign an envelope.
+Recipient auto responded
+Sent when Docusign receives a notification that an email delivery has failed. For example, because the email address is invalid, or the recipient has configured an automatic response.
+Recipient delivered
+Sent when the recipient has viewed the document(s) in an envelope on the Docusign website.
+Recipient completed
+Sent when the recipient has completed the required action, such as signing the envelope.
+Recipient declined
+Sent when the recipient declines to sign the envelope.
+Recipient authentication error
+Sent when the recipient fails an authentication check. If the recipient has multiple attempts to pass a check, the event is sent when the final attempt has failed.
+Recipient resent
+Sent when an envelope is resent to a recipient through the web application or via an API call.
+Recipient delegate
+A user assigned by a recipient to sign envelopes on their behalf to ensure document completion even when the original signer is unavailable.
+Recipient reassign
+allows a recipient to delegate signing responsibility to another person, provided the sender has enabled this feature.
+Recipient finish later
+Allows recipients to exit the signing process, saving their progress and any entered information, to return to the document later to complete signing using the link in the original email.
+Set trigger conditions
+Defines additional rules for trigger events to run a recipe. To learn more, see [Trigger conditions](https://docs.workato.com/recipes/triggers.html#trigger-conditions).
+For more details, see
+Webhook event triggers
+(opens new window)
+.
+#
+Output
+Output field
+Description
+Event
+The event. For example,
+Recipient sent
+,
+Recipient auto responded
+,
+Recipient delivered
+,
+Recipient completed
+, and more. For a complete list, see the input fields described earlier.
+Api version
+The specific version of the eSignature REST API that your application is using.
+URI
+The URI of the recipient.
+Retry count
+Indicates how many times Docusign has attempted to deliver a connect event to the listener after an initial failure, combining instances of failure into a single count.
+Configuration ID
+A unique identifier assigned to a specific identity verification configuration. This ID helps administrators define and manage different methods for verifying signers' identities.
+Generated date time
+The date and time the event was generated.
+Data
+The IDs of the account, user, envelope, and recipient.
+ADDITIONAL OUTPUT FIELDS
+This trigger provides a data tree with attributes and values for the specified object. Additional fields depend on the properties you select.
+←
+New document received trigger
+Send document using a template action
+→
+Last updated:
+3/20/2025, 6:24:45 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

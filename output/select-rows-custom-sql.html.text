@@ -1,0 +1,160 @@
+IBM Db2 - カスタムSQLを使用して行を選択する | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+IBM Db2
+#
+IBM Db2 - カスタムSQLを使用して行を選択する
+このアクションでは、カスタムSQLクエリに一致する行を選択することができます。
+SQLプロシージャのパフォーマンスの改善について
+(opens new window)
+について学びましょう。
+#
+カスタムSQLで行を選択する
+#
+入力フィールド
+SQL
+必須フィールド
+選択された行で実行されるカスタムSQLステートメント。これにより、出力データツリーが生成されます。
+データピルをシングルクォート文字（
+'
+）で囲んでください。
+SQLクエリの末尾に
+;
+を追加しないでください。これにより、ステップが失敗します。
+クエリサイズを制限するためにLIMIT句を追加しないでください。代わりに、Limit入力フィールドを使用してください。
+Parameters
+オプションフィールド
+バインド変数に値を割り当てます
+Order by
+オプションフィールド
+返される行の順序、例：
+updated_at DESC
+など
+Limit
+オプションフィールド
+返される行の最大数。デフォルトは
+100
+で、最大の行数は
+50000
+行です。
+Offset
+オプションフィールド
+結果セット全体から結果のページのみを取得するオプションです。
+たとえば、選択された結果セットの最初の100行をスキップするには、このフィールドに100を入力します。
+デフォルトは0です。
+Output fields
+オプションフィールド
+取得した各ドキュメントの予想されるフィールドを定義します。ユーザーは、ダウンストリームシステムで使用するためのデータピルを生成したり、レシピのロジックを駆動したりすることができます。
+Output CSV?
+オプションフィールド
+選択したデータのCSV文字列を出力するには、
+Yes
+を選択します。
+#
+出力フィールド
+rows
+JSONオブジェクトの配列で、各オブジェクトは取得された行を表します。
+rows_count
+取得された行の数。
+←
+行の選択
+行の更新
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

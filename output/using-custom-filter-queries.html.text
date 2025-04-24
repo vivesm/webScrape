@@ -1,0 +1,269 @@
+Workato connectors - Custom Filter Queries for MongoDB | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+MongoDB Atlas
+#
+Using Custom Filter Queries In MongoDB Actions
+Using the
+Custom filter query
+field, you can filter the documents used in MongoDB actions in your recipes.
+#
+Supported Actions
+Custom filter queries are supported for the following MongoDB actions:
+Delete documents
+Search documents
+Update documents
+#
+How it works
+Using MongoDB's
+Extended JSON
+(opens new window)
+, you can construct queries that return a subset of documents from a collection.
+Custom filter queries support:
+Using BSON types
+Using JSON types
+Using query operators
+#
+Using BSON Types
+Custom filter queries accept
+BSON types
+(opens new window)
+, with some
+limitations
+.
+For example: This query would return documents with an
+ObjectId
+(
+oid
+) value of
+5d505646cf6d4fe581014ab2
+:
+{
+"_id"
+:
+{
+"$oid"
+:
+"5d505646cf6d4fe581014ab2"
+}
+}
+#
+Using JSON Types
+Custom filter queries also accept
+JSON data types
+(opens new window)
+such as
+string
+,
+boolean
+,
+number
+, etc.
+For example: The following query returns documents where the document's
+manager_id
+value is a
+string
+type:
+{
+"manager_id"
+:
+"string"
+}
+#
+Using Query Operators
+You can also use
+query operators
+(opens new window)
+to perform comparison and logic operations.
+Note
+: There are some
+limitations
+on the operators that are currently supported.
+For example: We'll use this query to search for documents in an
+employees
+collection:
+{
+"manager_id"
+:
+{
+"$oid"
+:
+"5d505646cf6d4fe581014ab2"
+}
+,
+"sales_closed"
+:
+{
+"$gt"
+:
+{
+"$numberDecimal"
+:
+"1000000"
+}
+}
+,
+"date_hired"
+:
+{
+"$gt"
+:
+{
+"$date"
+:
+"2020-12-31T00:00:00.000Z"
+}
+}
+}
+The above query searches for documents - or employees - that:
+Have a
+manager_id
+value of
+5d505646cf6d4fe581014ab2
+)
+Have a total
+sales_closed
+value greater than
+$1,000,000
+, and
+Were hired after
+2020-12-31
+(December 31, 2020)
+#
+Limitations
+Only the following
+BSON types
+(opens new window)
+are currently supported:
+Decimal128
+, synonymous with
+$numberDecimal
+ObjectId
+, synonymous with
+$oid
+Date
+, synonymous with
+$date
+The
+$where
+(opens new window)
+query operator isn't currently supported
+#
+Resources
+MongoDB Extended JSON
+(opens new window)
+MongoDB Query Selectors
+(opens new window)
+MongoDB BSON Data Types
+(opens new window)
+←
+Update documents
+Data typing limitations
+→
+Last updated:
+1/11/2022, 5:21:18 PM
+On this page
+Supported Actions
+How it works
+Limitations
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

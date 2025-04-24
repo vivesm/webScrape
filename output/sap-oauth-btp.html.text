@@ -1,0 +1,317 @@
+Workato connectors - SAP OData | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP OData
+#
+OAuth Business Technology Platform (BTP) Authentication
+Workato supports OAuth 2.0 (Open Authorization 2.0) through SAP BTP Destination Authentication Method using OAuth2SAMLBearerAssertion. OAuth 2.0 SAML Bearer Assertion is a way of using Security Assertion Markup Language (SAML) assertions as authorization grants in OAuth 2.0. This flow allows systems that rely on SAML for authentication to leverage OAuth 2.0 for accessing OAuth-protected resources, combining the strengths of both protocols. This authentication is applicable for SAP S/4HANA Cloud, Public Edition.
+#
+Configuration prerequisites for OAuth BTP
+Access to SAP S/4HANA Cloud with the catalogs
+SAP_CORE_BC_EXT
+and
+SAP_CORE_BC_COM
+assigned to the business user.
+Access to SAP Business Technology Platform.
+Admin access to a SAP Cloud Identity provider such as SAP Cloud Identity Services.
+#
+Establish trust and federation
+Complete the steps to
+manually establish trust and federation between SAP Authorization and Trust Management Service and Identity Authentication
+(opens new window)
+and do the following:
+Establish Trust with an SAML 2.0 Identity Provider in a Subaccount
+: You must use a SAML 2.0 identity provider, for example, SAP Cloud Identity Services - Identity Authentication. The identity provider authenticates business users for SAP BTP.
+Register SAP BTP Subaccount in the SAML 2.0 Identity Provider
+: To establish trust between an identity provider and a Subaccount, you must register your subaccount by providing the SAML metadata to the identity provider. The identity provider is SAP Cloud Identity Services - Identity Authentication.
+#
+Create signing certificate from SAP BTP
+The SAML assertion sent to SAP S/4HANA Cloud is signed using the private key of the local service provider. To enable SAP S/4HANA Cloud to verify this signature, the relevant certificate is required.
+1
+Login to SAP BTP Cockpit.
+2
+Create a Signing Certificate from the SAP BTP Account by navigating to
+Destinations
+under Connectivity and clicking
+Download Trust
+.
+#
+Implementation steps in the SAP S/4HANA Cloud System
+Complete the steps to
+allow inbound communication to the SAP S/4HANA tenant
+(opens new window)
+and do the following:
+Create Communication System and User.
+Create Communication Arrangement.
+Maintain Business User in the SAP S/4HANA Cloud System.
+#
+Implementation steps on SAP Business Technology Platform
+1
+Complete these steps to
+create and configure a destination in SAP BTP
+(opens new window)
+.
+Maintain the values of the properties as suggested in the following sample table:
+Property
+Value
+Name
+Provide a unique name identifier, for example
+OAuth2Destination
+.
+Type
+HTTP
+Description
+Provide a description for the destination describing the purpose.
+URL
+Provide a service URL, for example:
+https://www.myS4HanaSystem.com/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV
+.
+Proxy Type
+Internet
+Authentication
+OAuth2SAMLBearerAssertion
+Audience
+Provide the base URL to your SAP S/4HANA Cloud system, for example
+https://myXXXXXX.s4hana.ondemand.com
+.
+AuthnContextClassRef
+urn:oasis:names:tc:SAML:2.0:ac:classes:X509
+Client Key
+Enter the communication user name.
+Token Service URL Type
+Dedicated
+Token Service URL
+Provide a token URL, for example:
+https://www.myS4HanaSystem.com/sap/bc/sec/oauth2/token
+.
+Token Service User
+Enter the communication user name.
+Token Service Password
+Enter the communication user password.
+Additional properties
+Value
+nameIdFormat
+urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+scope
+Provide scope ID, for example:
+API_PURCHASEORDER_PROCESS_SRV_0001
+.
+SystemUser
+The email ID of the business user.
+CLIENT KEY, TOKEN SERVICE USER, AND TOKEN SERVICE URL VALUES
+Navigate to the
+Communication Arrangements
+application and search for the arrangement that you created. Go to
+Inbound Communication
+and choose
+OAuth2.0 Details
+. The value of the
+Client Key
+and
+Token Service User
+are the same as the User Name. You can also obtain the
+Token Service URL
+from this interface.
+2
+Navigate to
+Instances and Subscriptions
+under
+Services
+and click
+Create
+to create a service instance.
+3
+Select
+Destination Service
+in Service,
+lite
+in Plan,
+Other
+in Runtime Environment and a description name in the Instance Name.
+4
+Once instance is created, click on it to proceed ahead for creation of Service Binding.
+5
+Click
+Create
+and provide a descriptive Binding Name.
+6
+After creating
+Service Binding
+, click
+View
+or
+Download
+to retrieve the Service Credentials.
+#
+Connection fields
+ODATA VERSIONS
+We recommend to create dedicated connections for V2 and V4 APIs.
+To finish establishing your connection, complete the following fields in Workato.
+Field
+Description
+Connection name
+Provide the connection with a descriptive name so you can reuse it in other recipes.
+Connection type
+Select
+Cloud
+.
+Authentication type
+Select
+OAuth BTP
+.
+OData version
+Select OData version for the API used in this connection -
+v2
+or
+v4
+.
+Client ID
+Enter the value as per the parameter
+clientid
+in Service Binding downloaded from SAP BTP.
+Client Secret
+Enter the value as per the parameter
+clientsecret
+in Service Binding downloaded from SAP BTP.
+Authentication URL
+Provide the authentication URL. This is the value of the
+url
+parameter in your Service Binding. For example:
+https://s-4hana-cloud.authentication.eu10.hana.ondemand.com
+.
+Destination URL
+Provide URL of the destination service. This is the value of the
+uri
+parameter in your Service Binding. For example:
+https://destination-configuration.cfapps.eu10.hana.ondemand.com
+.
+Destination Name
+Provide the unique name identifier of the destination as defined in SAP BTP cockpit under
+Connectivity > Destinations
+.
+Host
+Provide the host name of the SAP Application Server. For example: If
+https://www.myS4HanaSystem.com/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV
+is the service URL, your host is
+https://www.myS4HanaSystem.com/sap/opu/odata/sap/
+.
+Service
+Provide the service configured in the SAP system. For example: If
+https://www.myS4HanaSystem.com/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV
+​ is the service URL, your service is
+API_PURCHASEORDER_PROCESS_SRV
+.
+SAP client
+Leave it blank.
+←
+OAuth2 setup
+Actions & triggers
+→
+Last updated:
+7/8/2024, 2:16:42 PM
+On this page
+Establish trust and federation
+Create signing certificate from SAP BTP
+Implementation steps in the SAP S/4HANA Cloud System
+Implementation steps on SAP Business Technology Platform
+Connection fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

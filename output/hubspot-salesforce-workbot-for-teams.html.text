@@ -1,0 +1,797 @@
+New HubSpot deal creates new Salesforce lead use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+Sales and marketing
+#
+Create Salesforce leads from new HubSpot deals recipe
+This use case guides you through connecting
+HubSpot
+,
+Salesforce
+, and
+Workbot for Microsoft Teams
+to create a powerful automation.
+#
+What does this recipe do?
+This recipe monitors HubSpot for new deals. If the deal is associated with a contact in HubSpot, the recipe creates a new lead in Salesforce, and Workbot for Microsoft Teams posts a message containing details about the new Salesforce lead.
+flowchart TD
+subgraph Configuration[" "]
+direction TB
+subgraph NewDeal[&nbsp HubSpot New deal trigger &nbsp]
+Trigger(Trigger) --- setup1(setup)
+end
+subgraph GetAssociations[&nbsp HubSpot Get associations batch action &nbsp]
+Action1(Action) --- setup2(setup)
+end
+subgraph GetContact[&nbsp HubSpot Get contact action &nbsp]
+Action2(Action) --- setup3(setup)
+end
+subgraph CreateLead[&nbsp Salesforce Create lead action &nbsp]
+Action3(Action) --- setup4(setup)
+end
+subgraph GetLeadDetails[&nbsp Salesforce Get lead details by ID action &nbsp]
+Action4(Action) --- setup5(setup)
+end
+subgraph Workbot[&nbsp Workbot for Microsoft Teams Post message action &nbsp]
+Action5(Action) --- setup6(setup)
+end
+end
+CreateRecipe([Create recipe]) -- Configure your recipe --> Configuration --> Workflow([Automated workflow])
+NewDeal --> GetAssociations --> GetContact --> CreateLead --> GetLeadDetails --> Workbot
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class CreateRecipe,Trigger,setup1,Action1,setup2,Action2,setup3,Action3,setup4,Action4,setup5,Action5,setup6,Workflow WorkatoTeal
+class NewDeal,GetAssociations,GetContact,CreateLead,GetLeadDetails,Workbot SubgraphDash
+#
+Create your recipe
+Complete the following steps to build a recipe that creates Salesforce leads from new HubSpot deals:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for HubSpot, Salesforce, and Workbot for Microsoft Teams:
+Create a HubSpot connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+HubSpot
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Connect to HubSpot
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Optional. Expand the
+Advanced settings
+section and use the
+Scopes
+drop-down menu to select permissions to request for the connection.
+6
+Optional. Select the profile for the connection in the
+Custom OAuth profile
+drop-down menu. Alternatively,
+create a new profile for HubSpot
+.
+7
+Click
+Connect
+.
+8
+Select the HubSpot account where you plan to authorize Workato and click
+Choose Account
+.
+Select an account
+Create a Salesforce connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Salesforce
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Salesforce connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Auth type
+drop-down menu to select the authentication method. The default is OAuth 2.0.
+6
+Use the
+Sandbox
+drop-down menu to specify whether the Salesforce account is a sandbox account.
+7
+Optional. Expand
+Advanced settings
+to configure advanced connection options.
+8
+Optional. Use the
+Custom OAuth profile
+drop-down menu to select a custom OAuth profile for your connection.
+This custom OAuth profile ensures that the connection is restricted to the same set of scopes you selected for all users with the profile, and the authentication flow uses the client app linked to the custom profile.
+9
+Click
+Connect
+.
+10
+Enter your Salesforce account credentials and click
+Log In
+.
+Log in to your Salesforce account
+Create a Workbot for Microsoft Teams connection.
+Note
+: You must
+add Workbot to Microsoft Teams
+before you can establish the connection in Workato.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Workbot for Microsoft Teams
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Image caption
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Auth type
+drop-down menu to select
+OAuth 2.0
+.
+6
+Optional. Expand the
+Advanced settings
+section to select permissions to request for the connection.
+7
+Optional. Select the custom OAuth profile for the connection in the
+Custom OAuth profile
+drop-down menu.
+8
+Click
+Sign in with Microsoft
+.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+6
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+7
+Set up your HubSpot New record (deal) trigger.
+1
+Search for and select the HubSpot connector.
+Choose HubSpot
+2
+Select the
+New record
+trigger.
+Select the New record trigger
+3
+Select
+Deal
+from the
+Object
+drop-down menu.
+4
+Select deal properties to retrieve from the
+Properties
+drop-down menu. This example selects
+Amount
+and
+Close Date
+.
+Configure the New deal trigger
+Step summary
+This trigger monitors HubSpot for new deals and retrieves details about the amount and close date.
+8
+Click
++ Add step
+and select
+Action in app
+.
+Click
+Add step > Action in app
+9
+Set up your HubSpot Get associations action (batch).
+1
+Search for and select the HubSpot connector.
+Choose HubSpot
+2
+Select the
+Get associations
+batch action.
+Select the Get associations batch action
+3
+Select
+Deal
+from the
+From object
+drop-down menu.
+4
+Select
+Contact
+from the
+To object
+drop-down menu.
+5
+Map the HubSpot
+ID
+Step 1
+datapill to the
+From object ID
+field.
+Configure the Get associations action
+Step summary
+This step retrieves the contact associated with the deal that triggered the recipe.
+10
+Click
++ Add step
+and select
+IF condition
+.
+Click
+Add step > IF condition
+How do IF conditions work?
+An
+IF condition
+lets you to make decisions based on specific conditions. You can control your recipe workflow by executing different actions depending on whether a condition you specify is true or false.
+flowchart TD
+A([Get associations action]) --> B(Is the HubSpot deal associated with a contact?)
+B -->|Yes| C(Get HubSpot contact information \n and create Salesforce lead)
+B ---->|No| E(No action is required)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+11
+Set up your IF condition.
+1
+Map the HubSpot
+List size
+Step 2
+datapill (under the
+Results
+list) to
+Data field
+.
+2
+Select
+greater than
+from the
+Condition
+drop-down menu.
+3
+Enter
+0
+in the
+Value
+field.
+Configure the IF condition
+Step summary
+This step checks if a contact is associated with the new HubSpot deal.
+12
+Click
+Select an app and action
+.
+13
+Set up your HubSpot Get record (contact) action.
+1
+Search for and select the HubSpot connector.
+Choose HubSpot
+2
+Select the
+Get record
+action.
+Select the Get record action
+3
+Select
+Contact
+from the
+Object
+drop-down menu.
+4
+Map the HubSpot
+To object ID
+Step 2
+datapill to the
+ID
+field. This instructs the recipe to retrieve information about the contact associated with the new deal.
+5
+Specify the fields you plan to retrieve in the
+Fields to retrieve
+field. This example selects the following fields:
+Company Name
+Last Name
+Annual Revenue
+City
+Country/Region
+Email
+First Name
+Phone Number
+State/Province
+Job Title
+You can select additional fields as required by your use case, or that you plan to sync when creating the lead in Salesforce.
+Configure the Get contact action
+Step summary
+This step retrieves information about the contact associated with the deal from HubSpot.
+14
+Click
++ Add step
+and select
+Action in app
+.
+Click
+Add step > Action in app
+15
+Set up your Salesforce Create record (lead) action.
+1
+Search for and select the Salesforce connector.
+Choose Salesforce
+2
+Select the
+Create record
+action.
+Select the Create record action
+3
+Select
+Lead
+from the
+Object
+drop-down menu.
+4
+Map datapills from the HubSpot
+Get contact
+action to the fields you plan to sync to the Salesforce lead. The
+Company
+and
+Last Name
+fields are required.
+For example, this recipe maps the following HubSpot datapills to their respective Salesforce fields:
+Company Name
+Step 4
+to the
+Company
+field.
+Last Name
+Step 4
+to the
+Last Name
+field.
+Annual Revenue
+Step 4
+to the
+Annual Revenue
+field.
+City
+Step 4
+to the
+City
+field.
+Country/Region
+Step 4
+to the
+Country
+field.
+Email
+Step 4
+to the
+Email
+field.
+First Name
+Step 4
+to the
+First Name
+field.
+Phone Number
+Step 4
+to the
+Phone
+field.
+Company Name
+Step 4
+to the
+Company
+field.
+State/Region
+Step 4
+to the
+State/Province
+field.
+Job Title
+Step 4
+to the
+Title
+field.
+Step summary
+This step creates the lead in Salesforce using information about the contact from HubSpot.
+16
+Click
++ Add step
+and select
+Action in app
+.
+17
+Set up your Salesforce Get record details by ID action.
+1
+Search for and select the Salesforce connector.
+Choose Salesforce
+2
+Select the
+Get record details by ID
+action.
+Select the Get record details by ID action
+3
+Select
+Lead
+from the
+Object
+drop-down menu.
+4
+Map the Salesforce
+Object ID
+Step 5
+datapill to the
+Object ID
+field.
+Configure the Get lead details by ID action
+Step summary
+This step retrieves details about the new lead created in Salesforce.
+18
+Click
++ Add step
+and select
+Action in app
+.
+19
+Set up your Workbot for Microsoft Teams Post message action.
+1
+Search for and select the Workbot for Microsoft Teams connector.
+Choose Workbot for Microsoft Teams
+2
+Select the
+Post message
+action.
+Select the Post message action
+3
+Select the channel where you plan to send the message from the
+Message recipient
+drop-down menu.
+4
+Locate the
+Message
+field and click
+Add block
+.
+5
+Fill out the following fields in the first block:
+Type
+: Select
+Text block
+.
+Block text
+: Enter
+🔔 New Salesforce Lead Created!
+.
+Text type
+: Select
+Header
+.
+6
+Click
+Add block
+.
+7
+Fill out the following fields in the second block:
+Type
+: Select
+Text block
+.
+Block text
+: Enter
+📌 Lead Name:
+and map the Salesforce
+Full Name
+Step 6
+datapill.
+Text type
+: Select
+Body text
+.
+8
+Click
+Add block
+.
+9
+Fill out the following fields in the third block:
+Type
+: Select
+Text block
+.
+Block text
+: Enter
+🏢 Company:
+and map the Salesforce
+Company
+Step 6
+datapill.
+Text type
+: Select
+Body text
+.
+10
+Click
+Add block
+.
+11
+Fill out the following fields in the fourth block:
+Type
+: Select
+Text block
+.
+Block text
+: Switch this field to
+formula mode
+, enter
+'📞 Phone: ' +
+, map the Salesforce
+Phone
+Step 6
+datapill, and append the
+.to_phone(area_code: true)
+formula.
+Text type
+: Select
+Body text
+.
+Configure the phone block
+12
+Click
+Add block
+.
+13
+Fill out the following fields in the fifth block:
+Type
+: Select
+Text block
+.
+Block text
+: Enter
+✉️ Email:
+and map the Salesforce
+Email
+Step 6
+datapill.
+Text type
+: Select
+Body text
+.
+14
+Click
+Add block
+.
+15
+Fill out the following fields in the sixth block:
+Type
+: Select
+Text block
+.
+Block text
+: Switch this field to
+formula mode
+, enter
+'💰 Deal Amount: ' +
+, map the HubSpot
+Amount
+Step 1
+datapill, and append the
+.to_i.to_currency
+formula.
+Text type
+: Select
+Body text
+.
+Configure the deal amount block
+16
+Click
+Add block
+.
+17
+Fill out the following fields in the seventh block:
+Type
+: Select
+Text block
+.
+Block text
+: Switch this field to
+formula mode
+, enter
+'📆 Close Date: ' +
+, map the HubSpot
+Close Date
+Step 1
+datapill, and append the
+.strftime("%m/%d/%Y")
+formula.
+Text type
+: Select
+Body text
+.
+Configure the close date block
+18
+Click
+Add block
+.
+19
+Fill out the following fields in the eighth and final block:
+Type
+: Select
+Text block
+.
+Block text
+: Enter
+🎯 Lead Source: HubSpot
+.
+Text type
+: Select
+Body text
+.
+Step summary
+This step posts a message in Microsoft Teams containing details about the new Salesforce lead.
+Example message containing Salesforce lead details
+20
+Click
+Save
+.
+Your
+Create Salesforce leads from new HubSpot deal
+recipe is ready to test and implement.
+Example recipe configuration.
+Create Salesforce leads from new HubSpot deal recipe
+←
+Create Salesforce tasks and Snowflake rows from Marketo lead activity
+Get Workato certified
+→
+Last updated:
+3/17/2025, 5:46:02 PM
+On this page
+What does this recipe do?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

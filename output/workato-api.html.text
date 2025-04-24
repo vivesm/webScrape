@@ -1,0 +1,187 @@
+Workato API - 概要 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+Workato API
+Workato の開発者用 API では、レシピ、コネクション、およびジョブの管理に使用するさまざまな Workato のリソースにアクセスできます。この API を使用することにより、開発から本番環境へのレシピのマニフェストのデプロイメントから、ネットワーク環境内での新しいオンプレミスエージェントのデプロイメントまで、Workato ワークスペースのあらゆる側面を自動化することができます。
+#
+ベース URL
+Workato API は、Workato ユーザーやレシピなどとやり取りするための API エンドポイントのコレクションです。各エンドポイントには、
+ベース URL
+と、オブジェクトに対する
+リソースパス
+が含まれます。
+API エンドポイントのベース URL は、使用している
+データセンター
+により決まります。以下に Workato のデータセンターを示します。
+US データセンター :
+https://www.workato.com/api/
+EU データセンター :
+https://app.eu.workato.com/api/
+JP データセンター :
+https://app.jp.workato.com/api/
+SG データセンター :
+https://app.sg.workato.com/api/
+#
+認証
+Workato API は、リクエストを認証するために API トークンを使用します。API トークンは、Workspace admin で API クライアントを作成し、クライアントロールとプロジェクトスコープを割り当てることにより生成できます。
+従来の API キーの廃止
+API クライアント以前は、Workato の API ではリクエストを認証するために、
+リクエストヘッダー
+または
+クエリーパラメータ
+で従来のフルアクセス API キーとメールアドレスを使用していました。API キーとメールアドレスを表す、移行された従来の API クライアントでは、この機能はサポートされ続けます。ただし、Workato API への認証には、API クライアントに移行することを強くお勧めします。詳細については、
+こちら
+を参照してください。
+従来の API キーは2024/1/1までサポートされ、それ以降は廃止されます。従来の API キーにより認証されたすべての API リクエストは、それ以降は拒否されるようになります。
+#
+Bearer トークンとしての API トークンの指定
+API クライアントの API トークンは、リクエストヘッダー内で
+bearer
+トークンとして指定します。
+curl -X GET https://www.workato.com/api/users/me \
+-H 'Authorization: Bearer <api_token>'
+#
+サポートされている形式
+Workato API では、
+application/json
+コンテンツタイプでのリクエスト本体の送信がサポートされています。すべての応答も
+application/json; charset=utf-8
+でエンコードされます。
+#
+API トークンの生成方法
+必要な権限
+API クライアントを作成または編集するには、以下の権限が必要です。
+Admin
+システムロール
+、または
+Workspace admin の下の
+API clients
+権限
+API トークンは、Workspace admin および [API Clients] タブで API クライアントを作成することにより生成できます。
+API クライアントとロールの設定の詳細については、こちらを参照してください。
+#
+HTTP レスポンスコード
+名前
+説明
+サンプルの応答
+200
+Success (成功)
+{"Success": true}
+400
+Bad request (不正なリクエスト)
+{"message": "Bad request"}
+401
+Unauthorized (認証が必要)
+{"message": "Unauthorized"}
+404
+Not found (見つからない)
+{"message": "Not found"}
+500
+Server error (サーバーエラー)
+{"message":"Server error","id":"3188c2d0-29a4-4080-908e-582e7ed82580"}
+←
+セキュリティガイドライン
+APIクライアントと役割
+→
+Last updated:
+2023/11/27 21:51:04
+On this page
+ベース URL
+認証
+API トークンの生成方法
+HTTP レスポンスコード
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

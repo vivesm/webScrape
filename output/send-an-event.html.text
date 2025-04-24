@@ -1,0 +1,153 @@
+Workato connector - PagerDuty - Send an event action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+PagerDuty
+#
+PagerDuty Connector - Send an event action
+This action sends PagerDuty a trigger event to report a new problem, or update an ongoing problem, depending on the event type.
+#
+Input
+Field
+Description
+Service key
+Required
+The GUID of one of your Events API V2 integrations. This is the "Integration Key" listed on the Events API V2 integration's detail page.
+Event type
+Required
+The type of event. Can be trigger, acknowledge, or resolve.
+Description
+Fields adding additional context about the location, impact, and character of the PagerDuty event. This field is required only for trigger events.
+Details
+This field is only used for trigger events. This object contains the following fields.
+Ping time
+Load avg
+Client
+The name of the monitoring client that is triggering this event. This field is only used for trigger events.
+Client URL
+The URL of the monitoring client that is triggering this event. This field is only used for trigger events.
+Contexts
+Contexts to be included with the trigger such as links to graphs or images. This field is only used for trigger events. This object contains the following fields.
+Type
+Href
+Text
+Incident key
+The incident's de-duplication key. This field is required for event type is acknowledge and resolve
+#
+Output
+Field
+Description
+Status
+Returns "success" if successful, or a short error message in case of a failure.
+Message
+A description of the problem, or "Event processed" if successful.
+Incident key
+The incident's de-duplication key.
+←
+Search incident
+Update incident
+→
+Last updated:
+7/2/2021, 8:18:31 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,166 @@
+Workato connector - Shopify - Create payment/refund | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Shopify
+#
+Shopify - Create payment/refund
+This action creates a payment or refund in Shopify.
+#
+Input
+Field
+Description
+Order ID
+The ID of the order to refund.
+Transaction
+A list of transactions to process as refunds.
+#
+Output
+Field
+Description
+ID
+The unique identifier for the refund.
+Order ID
+The unique identifier for the order that the order adjustment is associated with.
+Amount
+The value of the discrepancy between the calculated refund and the actual refund.
+Kind
+The order adjustment type. Valid values: shipping_refund and refund_discrepancy.
+Status
+The status of the payment/refund.
+Gateway
+The payment gateway.
+Message
+A message associated with this refund.
+Test
+Whether this is a test refund.
+Authorization
+The type of authorization
+Currency
+The currency for the refund.
+Location ID
+The ID of the location where the items should be restocked.
+User ID
+The unique identifier of the user who performed the refund.
+Parent ID
+The parent transaction ID.
+Device ID
+Information about the device used to create the order.
+Error code
+The error code.
+Source name
+The source of the refund transaction.
+Created at
+The date and time when this refund was created.
+Receipt
+The receipt associated with this refund.
+Payment details
+Information about the payment, including credit card company and credit card number.
+←
+Create product variant
+Create transaction
+→
+Last updated:
+7/10/2024, 3:22:21 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

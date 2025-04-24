@@ -1,0 +1,194 @@
+Workato connectors - Greenhouse | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Greenhouse
+Greenhouse
+(opens new window)
+is an applicant tracking system and recruiting software that is designed to help make companies great at hiring and hire for what's next.
+Workato's Greenhouse connector enables you to build even more automation around applicant and candidate workflow and connect with other human resource management systems.
+#
+Use cases
+Connect Greenhouse with your HR and IT systems to automate hiring and onboarding. You can integrate the Greenhouse connector with other apps to sync candidate data, automate onboarding, and improve efficiency across your HR and IT workflows. Explore our
+use cases
+to discover how you can use the Greenhouse connector to create powerful multi-app workflows:
+Sync Greenhouse offer letters
+to Box and create onboarding requests in ServiceNow.
+Sync Greenhouse new hires
+to SAP SuccessFactors.
+#
+API version
+The Greenhouse connector uses the
+Greenhouse Harvest API v1
+(opens new window)
+.
+#
+How to connect to Greenhouse on Workato
+Create a Workato connection to your Greenhouse instance using API token credentials.
+#
+API token credentials
+Use API token credentials to allow Workato access to your Greenhouse instance.
+Authentication using API token credentials
+Connection field
+Description
+Connection name
+Provide a unique name that identifies which Greenhouse instance it is connected to.
+API key
+The API token credential. Learn how to create an API key
+below
+.
+User email
+The user email this API token is generated from.
+Environment
+Use the drop-down menu to select a default domain (sandbox or production) or to provide a custom domain. If you leave this field blank, it defaults to production.
+#
+How to create an API token for Workato
+We recommended using an Integration System User (ISU) for integration with Workato. This ensures that permissions are consistent and all operations can be logged on a single account.
+1
+Navigate to
+Settings > Dev Center > API Credential Management
+.
+Greenhouse API credentials
+2
+Select
+Harvest
+to create a new API key for Workato.
+Create an API credential for Workato
+3
+Provide the necessary
+permissions
+for this API key.
+Select API credential permissions
+PERMISSIONS
+Ensure that you give this API credential the necessary permissions. If permissions are not configure correctly, certain Greenhouse connector actions and triggers may not work as intended even if the connection is successful. Refer to
+required permissions
+for more information.
+#
+Permissions for Harvest API
+The Greenhouse connector requires an API key with permissions to access specific Greenhouse objects. For example, the
+reject application
+action requires the
+Applications
+permission.
+#
+List of Greenhouse Harvest API permissions
+✅ Applications
+✅ Candidates
+✅ Education
+✅ Jobs
+✅ Scheduled Interviews
+✅ Users
+You can view and manage the permissions for each API key in the
+API Credential Management
+page.
+Manage API credential permissions
+←
+Get attendees from session action
+New object trigger
+→
+Last updated:
+3/6/2025, 12:34:39 AM
+On this page
+Use cases
+API version
+How to connect to Greenhouse on Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

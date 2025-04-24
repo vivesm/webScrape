@@ -1,0 +1,164 @@
+SAP Fieldglass - Worker upload action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+SAP Fieldglass
+#
+SAP Fieldglass - Worker upload action
+The
+Worker upload
+action enables you to upload workers to SAP Fieldglass.
+Worker upload action
+#
+Input
+#
+Header
+Input fields
+Description
+Transaction
+Specify the transaction type.
+Language
+Determines the language used for values in the file, such as drop-down lists and radio buttons. Column headers always default to the upload user's preferred language.
+Number format
+Determines the number format used in the file.
+Date format
+Determines the date format used in the file.
+Comments
+Upload comments.
+#
+Data
+Input fields
+Description
+Object ID
+SAP Fieldglass supplier code for the buyer.
+First name
+First name of profile worker.
+Last name
+Last name of profile worker.
+Email
+Email address of the profile worker.
+Username
+Username of profile worker's SAP primary contact.
+Calendar Start Day
+Start date of the profile worker.
+Current worker
+End date of the profile worker.
+CUSTOM FIELDS
+You can specify the optional fields and
+custom fields
+(opens new window)
+as required.
+#
+Output
+Output fields
+Description
+Transaction ID
+Transaction ID returned by SAP Fieldglass.
+←
+Supplier worker download action
+SAP SuccessFactors LMS
+→
+Last updated:
+1/15/2025, 10:39:46 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,309 @@
+Workflow apps- Builder experience - Datapill in pages | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Builder experience
+Pages
+#
+Datapills in pages
+Workflow apps enables you to use workflow-related data in your pages to create custom and dynamic forms that change in response to user input. This data is stored in the
+Page data
+modal (similar to the datatree in the recipe editor). You can use this modal to map datapills related to the request, application, or page components.
+Datapills enable you to create custom and personalized pages tailored to your users. You can also use datapills to
+configure
+IF
+conditions
+to control the behavior of
+page components
+, create dynamic URLs, and more.
+Map page data
+#
+Data types
+Workflow apps supports incorporating data from the following sources:
+Users
+: Use data related to the end-users of your Workflow app.
+Requests
+: Use data related to the workflow request. This data is dynamic and is based on the columns present in your app's primary data table. Request datapills contain current data that is already saved to your data table and do not change based on user provided input or action on your pages.
+Page components
+: Use data from your page. This data is collected from your users and can change.
+PAGE COMPONENT DATA
+Available data is dynamic and is based on the number and type of components that are editable or conditionally editable on your page. For example, if your page includes editable fields for
+Name
+,
+Phone number
+, and
+Date
+, the data users provide in these fields is available as a datapill.
+The following table describes the type of data available for app users and requests:
+Data category
+Data
+Description
+User
+User ID
+The ID of an end-user of your Workflow App.
+User
+User name
+The name of the end-user of your Workflow App.
+User
+User email
+The email of the end-user of your Workflow App.
+Request
+Data columns
+All columns in your Workflow App's primary
+data table
+. This includes user-generated and all auto-generated read-only columns, including:
+Record ID
+Created at
+Updated at
+.
+Request
+Created by
+A JSON object with the following attributes belonging to the user who created the request:
+User ID
+User name
+Email
+Request
+Stage
+A JSON object with the following attributes related to the workflow stage of the request:
+Stage ID
+Stage name
+PAGE COMPONENT DATA
+Available data is dynamic and is based on the number and type of components that are editable or conditionally editable on your page. For example, if your page includes editable fields for
+Name
+,
+Phone number
+, and
+Date
+, the data users provide in these fields is available as a datapill.
+#
+Conditional statements
+You can use datapills to configure conditional statements to control whether page components are editable, visible, or required only under the conditions you specify. For example, in an expense approval workflow, you might decide to make input fields editable only during a specific workflow stage. You might also decide to limit the visibility of particular components to a specific user. For example, if your workflow involves requiring users to upload receipts, you might decide that only a specific user, such as a supervisor within your organization, can view uploaded receipts.
+Configuring an
+IF
+condition in Workflow apps is similar to adding an
+IF condition
+to a recipe workflow.
+To set up an
+IF
+condition:
+1
+Select a component. Selecting a component opens the Properties panel (right panel).
+Open the Properties panel
+2
+Use the
+Page data
+modal to map data related to app users, requests, and page components into your
+IF
+condition.
+3
+Optional
+. Click plus to add more
+IF
+conditions. You can chain multiple
+IF
+conditions using
+AND
+or
+OR
+. For example, you can configure a component to be editable by a specific user
+only
+during a specific workflow stage.
+#
+Datapill compatibility
+Workflow apps supports datapill mapping during the page editing stage. All fields that accept text input also accept datapills, with the following exception:
+Placeholder
+fields
+#
+Examples
+The following examples demonstrate how you can use datapills to customize your pages, create dynamic forms, and more.
+Personalized page
+Conditional visibility
+#
+Example: Personalized page
+Datapills are particularly useful for customizing text fields to create pages that adapt to the current user.
+The following example demonstrates how to map datapills into a page to create a personalized page that provides a summary of approved expense reimbursements. This example also uses datapills to summarize approved expenses by mapping page component data from data collected from user input.
+To create a personalized page:
+1
+Select a component. Selecting a component opens the Properties panel (right panel).
+Open the Properties panel
+2
+Drag and drop one or more datapill(s) from the
+Page data
+modal into a field in the Properties panel.
+The following example demonstrates how to use datapills in a text field.
+Drag and drop datapills
+3
+Click
+Save
+to save your changes.
+4
+Click
+Preview
+to open your page in preview mode.
+5
+Preview your page. You can test out how different data table records appear using the
+Test preview using record {Name}
+menu.
+Preview your page
+#
+Example: Conditional visibility
+The following example uses conditional statements to make certain components visible and required based on how users fill out the page. In the following example, if the user clicks the
+Check this box if you are submitting this form on another employee's behalf.
+checkbox, additional input fields appear.
+To configure conditional visibility:
+1
+Select a component. When clicked, the Properties panel appears.
+This example applies this setting to a
+container
+component.
+2
+Set
+Visible
+to
+Conditional
+.
+Components nested within
+container
+components inherit the parent container's visibility settings. This means that all inputs (
+Employee name
+,
+Employee email
+,
+Employee title
+,
+Employee's supervisor
+, and
+Employee's department
+) inside of this container are also conditionally visible. You do not need to configure an
+IF
+condition for each component to update their visibility. However, if you plan to make the editability or required status of these components conditional, you must update them on an individual basis.
+Set Visibility to Conditional
+3
+Drag and drop relevant datapills from from the
+Page data
+modal into the
+Data
+field.
+Map page data
+4
+Optional
+. Click
++
+(plus) to chain additional
+IF
+conditions using
+AND
+or
+OR
+.
+←
+Component properties
+Modify page components
+→
+Last updated:
+12/16/2024, 1:44:05 AM
+On this page
+Data types
+Conditional statements
+Datapill compatibility
+Examples
+Example: Personalized page
+Example: Conditional visibility
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

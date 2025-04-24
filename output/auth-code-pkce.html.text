@@ -1,0 +1,930 @@
+How-to Guides - Authentication - Authorization Code Grant with PKCE | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connector SDK
+How-to guides
+API authorization
+#
+How-to Guide - OAuth 2.0 Authorization Code Variant with Proof Key for Code Exchange (PKCE)
+The OAuth 2.0 Authorization code flow is a way for Workato to impersonate a specific user when authenticating to an API. This is done by getting the user's consent via a browser popup when they first attempt to connect. In this variant with PKCE, there is an additional verification step where a challenge is presented in the authorization URL and the verifier is presented in the final token exchange request.
+#
+Sample Connector - Dropbox
+{
+title
+:
+"Dropbox pkce"
+,
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+'client_id'
+}
+,
+{
+name
+:
+'client_secret'
+}
+]
+,
+authorization
+:
+{
+type
+:
+"oauth2"
+,
+client_id
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+'client_id'
+]
+end
+,
+client_secret
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+'client_secret'
+]
+end
+,
+pkce
+:
+lambda
+do
+|
+verifier
+,
+challenge
+|
+{
+verifier
+:
+verifier
+,
+challenge
+:
+challenge
+,
+challenge_method
+:
+"S256"
+}
+end
+,
+authorization_url
+:
+lambda
+do
+|
+connection
+|
+"https://www.dropbox.com/oauth2/authorize?client_id=
+#{
+connection
+[
+'client_id'
+]
+}
+&response_type=code"
+end
+,
+token_url
+:
+lambda
+do
+|
+_connection
+|
+"https://api.dropbox.com/oauth2/token"
+end
+,
+apply
+:
+lambda
+do
+|
+_connection
+,
+access_token
+|
+headers
+(
+'Authorization'
+:
+"Bearer
+#{
+access_token
+}
+"
+)
+end
+}
+,
+}
+,
+test
+:
+lambda
+do
+|
+_connection
+|
+post
+(
+"https://api.dropboxapi.com/2/check/app"
+,
+{
+}
+)
+end
+,
+#More connector code here
+}
+Check out the
+Dropbox API
+(opens new window)
+#
+Step 1 - Defining connection fields
+This component tells Workato what fields to show to a user trying to establish a connection. In the case of authentication code grant with PKCE, you would need the Client ID and Client Secret that the user has generated in Dropbox's developer console.
+This is done in the
+fields
+key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
+fields
+:
+[
+{
+name
+:
+'client_id'
+,
+optional
+:
+false
+}
+,
+{
+name
+:
+'client_secret'
+,
+optional
+:
+false
+,
+control_type
+:
+'password'
+}
+]
+,
+TIP
+When defining fields, you need to at least provide the
+name
+key. Additional attributes like
+optional
+,
+hint
+and
+control_type
+allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the
+control_type
+as
+password
+.
+Learn more about how to
+define input fields
+in Workato.
+#
+Step 2 - Defining the authorization type
+This component instructs Workato what to do with the values received from the input fields to establish a connection. This is handled through your
+authorization
+key. In this key, you begin by first defining the
+type
+of authorization. In this case, you should use
+oauth2
+, similar to the Authorization Code Grant flow.
+type
+:
+"oauth2"
+,
+#
+Step 3 - Defining the Client ID, Client Secret and PKCE parameters
+These components tell the SDK framework what to use for the client ID, client secret and PKCE parameters later on.
+client_id
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+'client_id'
+]
+end
+,
+client_secret
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+'client_secret'
+]
+end
+,
+pkce
+:
+lambda
+do
+|
+verifier
+,
+challenge
+|
+{
+verifier
+:
+verifier
+,
+challenge
+:
+challenge
+,
+challenge_method
+:
+"S256"
+}
+end
+,
+In our example, we simple map the user's inputs for the client ID and secret to the relevant
+client_id
+and
+client_secret
+lambdas respectively. This is done with the
+connection
+argument which is a hash representing the user's inputs in the
+fields
+defined earlier.
+Next, you'll also need to define the
+pkce
+lambda, which is an important marker that signifies that this is an Authorization Code Grant Flow with PKCE. Within this lambda, you will receive 2 arguments which correspond to the
+verifier
+and
+challenge
+. You may simple use both of these arguments as-is and pass them as the output of the
+pkce
+lambda as seen in the example.
+#
+Step 4 - Defining authorization url, and token url
+With the PKCE variant of OAuth 2, you supply 2 the authorization url and the token url - similar to the normal auth code grant flow.
+The authorization url - where we will redirect the user via a browser popup to provide authorization.
+The token url - where this connector will send a request to receive an access token after receiving an auth code from the authorization url
+authorization_url
+:
+lambda
+do
+|
+connection
+|
+"https://www.dropbox.com/oauth2/authorize"
+end
+,
+token_url
+:
+lambda
+do
+|
+connection
+|
+"https://api.dropbox.com/oauth2/token"
+end
+,
+When defining the
+authorization_url
+lambda function, Workato automatically passes the following parameters:
+client ID
+redirect URI
+code challenge
+state
+In some cases, you may have to add scope to the URL as needed. If the application requires that you register the redirect URI beforehand, use the following URL:
+https://www.workato.com/oauth/callback
+.
+When defining the
+token_url
+lambda function, Workato automatically passes the following parameters:
+client ID
+client secret
+code verifier
+grant_type
+For the
+token_url
+request, we follow RFC standards and use a
+POST
+request with the relevant information in the payload body. When Workato exchanges the short-lived authorization code for a longer-living access token, we expect the response from the
+token_url
+endpoint to contain 2 main values -
+access_token
+and
+refresh_token
+. Here is a sample response:
+{
+"access_token"
+:
+"my-authentication-token"
+,
+"token_type"
+:
+"bearer"
+,
+"expires_in"
+:
+"seconds-until-expiration"
+,
+"refresh_token"
+:
+"my-refresh-token"
+,
+"error"
+:
+"optional-error-message"
+,
+"ref"
+:
+{
+"type"
+:
+"user"
+,
+"id"
+:
+USER_ID
+}
+}
+The authentication stores the values associated with
+access_token
+and
+refresh_token
+.
+#
+Step 5 - Applying the access token to subsequent HTTP requests
+In the apply key, we apply the acquired access token as a header input.
+We can retrieve the
+access_token
+by referencing simply passing in
+access_token
+as a parameter into the apply key. This argument
+access_token
+is automatically assigned from the output of the
+token_url
+lambda function.
+apply
+:
+lambda
+do
+|
+connection
+,
+access_token
+|
+headers
+(
+"Authorization"
+:
+"OAuth2
+#{
+access_token
+}
+"
+)
+end
+,
+To learn more about the available parameters and keys in the connection object, see
+SDK Reference - connection
+.
+#
+Step 6 - Defining token refresh behavior
+In most cases, OAuth 2.0 Authentication has both short-lived access tokens and long-lived refresh tokens. Sometimes, refresh tokens never expire.
+::: warn
+Note that not all APIs issue refresh token credentials. Check with the API about this requirement.
+:::
+When the access-token expires, you can define the behavior that your connector should take to refresh the access token using the refresh token.
+refresh_on
+:
+[
+401
+,
+403
+]
+,
+refresh
+:
+lambda
+do
+|
+connection
+,
+refresh_token
+|
+response
+=
+post
+(
+"https://api.dropbox.com/oauth2/token"
+)
+.
+payload
+(
+grant_type
+:
+"refresh_token"
+,
+client_id
+:
+connection
+[
+"client_id"
+]
+,
+client_secret
+:
+connection
+[
+"client_secret"
+]
+,
+refresh_token
+:
+refresh_token
+,
+redirect_uri
+:
+'https://www.workato.com/oauth/callback'
+)
+[
+{
+access_token
+:
+response
+[
+"access_token"
+]
+,
+refresh_token
+:
+response
+[
+"refresh_token"
+]
+}
+]
+end
+,
+To refresh your access token, you have to use two keys in the
+authorization
+key -
+refresh_on
+and
+refresh
+.
+refresh_on
+accepts an array that may contain HTTP response codes or regex strings. If an HTTP request in the connector receives any of the HTTP response codes, or if the body of the payload matches a regex string, it will execute the code in the
+refresh
+key to attempt to retrieve a new access token.
+In the
+refresh
+key, you have access to an argument that represents the
+refresh_token
+received from the initial token request. The expected output of this lambda function is an array where the first index is a hash denoting the new
+access_token
+as well as the new
+refresh_token
+if applicable. These will be used to update the initial values for a long lasting connection.
+To learn more about the refresh lambda, see
+SDK Reference - authorization
+.
+#
+Step 7 - Setting the API's base URI
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to
+configure your base URI
+.
+base_uri
+:
+lambda
+do
+|
+connection
+|
+'https://api.dropboxapi.com'
+end
+TIP
+This lambda function also has access to the
+connection
+argument. This is especially useful if the base URI of the API might change based on the user's instance. The
+connection
+argument can be accessed in the following format:
+base_uri
+:
+lambda
+do
+|
+connection
+|
+"https://
+#{
+connection
+[
+'domain'
+]
+.
+com
+/
+api
+}
+"
+end
+#
+Step 8 - Testing the connection
+Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the
+test
+key.
+test
+:
+lambda
+do
+post
+(
+"https://api.dropboxapi.com/2/check/app"
+,
+{
+}
+)
+end
+,
+In this block, you need to provide an endpoint that allows us to send a sample request using the new credentials we just received. If we receive a 200 OK HTTP response, we show the connection as Successful. In the example above, we are sending a
+POST
+request to the
+/2/check/app
+endpoint and expecting a 200 response if the access token we just received is valid.
+#
+Auth code grant PKCE variation
+In some cases, you may need to use the
+acquire
+lambda to complete the token request. Here we have an example with the same Dropbox connection, except using the
+acquire
+lambda.
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+'client_id'
+}
+,
+{
+name
+:
+'client_secret'
+}
+]
+,
+authorization
+:
+{
+type
+:
+"oauth2"
+,
+client_id
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+'client_id'
+]
+end
+,
+client_secret
+:
+lambda
+do
+|
+connection
+|
+connection
+[
+'client_secret'
+]
+end
+,
+pkce
+:
+lambda
+do
+|
+verifier
+,
+challenge
+|
+{
+verifier
+:
+verifier
+,
+challenge
+:
+challenge
+,
+challenge_method
+:
+"S256"
+}
+end
+,
+authorization_url
+:
+lambda
+do
+|
+connection
+|
+"https://www.dropbox.com/oauth2/authorize?client_id=
+#{
+connection
+[
+'client_id'
+]
+}
+&response_type=code"
+end
+,
+acquire
+:
+lambda
+do
+|
+connection
+,
+auth_code
+,
+redirect_uri
+,
+verifier
+|
+response
+=
+post
+(
+"https://api.dropbox.com/oauth2/token"
+,
+grant_type
+:
+"authorization_code"
+,
+code
+:
+auth_code
+,
+redirect_uri
+:
+redirect_uri
+,
+client_secret
+:
+connection
+[
+"client_secret"
+]
+,
+code_verifier
+:
+verifier
+,
+client_id
+:
+connection
+[
+"client_id"
+]
+)
+.
+request_format_www_form_urlencoded
+[
+{
+access_token
+:
+response
+[
+"access_token"
+]
+,
+refresh_token
+:
+response
+[
+"refresh_token"
+]
+,
+refresh_token_expires_in
+:
+response
+[
+"expires_in"
+]
+# Expiration time of the refresh token from now in seconds
+}
+,
+nil
+,
+{
+instance_id
+:
+nil
+}
+]
+end
+,
+apply
+:
+lambda
+do
+|
+_connection
+,
+access_token
+|
+headers
+(
+'Authorization'
+:
+"Bearer
+#{
+access_token
+}
+"
+)
+end
+}
+,
+}
+,
+Take note that you receive an additional argument,
+verifier
+in the
+acquire
+lambda which corresponds to the same verifier you passed as the output of the
+pkce
+lambda.
+#
+Connections SDK reference
+To be more familiar with the available keys within the
+connection
+key and their parameters, check out our
+SDK reference
+.
+←
+OAuth2 - Auth Code Grant
+OAuth2 - Client Credentials
+→
+Last updated:
+6/28/2023, 11:55:29 AM
+On this page
+Sample Connector - Dropbox
+Step 1 - Defining connection fields
+Step 2 - Defining the authorization type
+Step 3 - Defining the Client ID, Client Secret and PKCE parameters
+Step 4 - Defining authorization url, and token url
+Step 5 - Applying the access token to subsequent HTTP requests
+Step 6 - Defining token refresh behavior
+Step 7 - Setting the API's base URI
+Step 8 - Testing the connection
+Auth code grant PKCE variation
+Connections SDK reference
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

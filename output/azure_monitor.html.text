@@ -1,0 +1,145 @@
+Workato connectors - Azure Monitor | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Azure Monitor
+Azure Monitor
+(opens new window)
+, is Azure's logging service that allows you to collect logs from a variety of different sources and allows you to query these logs in Azure. With Workato, you'll be able to use the Azure Monitor connector to send any custom logs from your recipes to Azure monitor for logging purposes.
+You may also use the Azure Monitor connection to stream any audit logs from Workato using our
+Audit log streaming
+.
+#
+API version
+This connector uses the
+Azure Monitor REST API
+(opens new window)
+.
+#
+How to connect to Azure Monitor on Workato
+Field
+Description
+Connection name
+Give this connection a unique name so you can reuse it in other recipes.
+Workspace ID
+The ID of your log analytics workspace. See below for more details.
+Shared key
+The primary or secondary key of your log analytics workspace. See below for more details.
+#
+How to get your Workspace ID and Shared Key
+1
+Head over to your the log analytics workspace where you want to send logs to.
+2
+Select "Agents management".
+3
+You can find your Workspace ID and shared keys here. You may use your primary or secondary key as your shared key.
+←
+Blob Actions
+Azure OpenAI
+→
+Last updated:
+2/10/2025, 4:53:51 PM
+On this page
+API version
+How to connect to Azure Monitor on Workato
+How to get your Workspace ID and Shared Key
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

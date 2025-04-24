@@ -1,0 +1,287 @@
+Workato connectors - RingCentral | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+RingCentral
+RingCentral
+(opens new window)
+is a cloud-based communication and collaboration platform that provides voice, video, team messaging, and collaboration solutions for businesses.
+#
+API version
+The RingCentral connector uses
+RingCentral API v1
+(opens new window)
+.
+#
+How to connect to RingCentral
+Complete the following steps to connect to RingCentral:
+1
+Sign in to your Workato account.
+2
+Click
+Create
+, then click
+Connection
+.
+3
+Select
+RingCentral
+on the
+New connection
+page.
+4
+Enter a name for your connection in the
+Connection name
+field.
+Connect to RingCentral
+5
+Use the
+Location
+drop-down menu to specify the project or folder where you plan to store your connection.
+6
+Optional. Expand
+Advanced settings
+and enter the
+Client ID
+and
+Client secret
+associated with your RingCentral app. Refer to the
+Generate a client ID and secret
+section to learn how to obtain these values.
+7
+Optional. Use the
+Custom OAuth profile
+drop-down menu to select a profile to use for this connection.
+Create a new profile
+(opens new window)
+.
+8
+Click
+Connect
+.
+9
+Sign in to your RingCentral account in the dialog that appears.
+10
+Click
+Authorize
+to grant Workato or your RingCentral OAuth app access to your account with the following permissions:
+Control and manage phone calls in real-time
+View and update extension information, including name, extension number, phone number, email, etc.
+Send, and edit intra-company text messages
+View user account information, e.g. name, business name, and contact info
+View user call log records
+View personal address book contacts
+View message store data, including SMS, fax, voicemail, etc.
+View user presence status
+Perform two-legged ring out phone calls
+Send and receive SMS/MMS messages
+Manage and subscribe to webhook notifications
+Authorize Workato to access your RingCentral account
+#
+Generate a client ID and secret
+Complete the following steps to create a new RingCentral app, which generates a client ID and secret:
+1
+Sign in to the
+RingCentral Developer Portal
+(opens new window)
+.
+2
+Click
+Register App
+to register a new application.
+Register a new RingCentral app
+3
+Select
+REST API App
+as the
+App Type
+.
+4
+Click
+Next
+.
+5
+Enter a name for your app in the
+App Name
+field. For example,
+Workato
+.
+6
+Enter a description for your app in the
+App Description
+field. The description must contain a minimum of 20 characters.
+7
+Select
+No
+in the
+Do you intend to promote this app in the RingCentral App Gallery?
+field.
+8
+Select
+Server-side web app (most common)
+in the
+From what type of app will you be calling the API?
+field.
+9
+Enter the Workato callback URI that corresponds to your data center in the
+OAuth Redirect URI
+field:
+US Data Center:
+https://www.workato.com/oauth/callback
+EU Data Center:
+https://app.eu.workato.com/oauth/callback
+JP Data Center:
+https://app.jp.workato.com/oauth/callback
+SG Data Center:
+https://app.sg.workato.com/oauth/callback
+AU Data Center:
+https://app.au.workato.com/oauth/callback
+10
+Specify whether to enable refresh tokens in the
+Issue refresh tokens?
+field. When enabled, RingCentral can issue refresh tokens to extend session duration without requiring reauthentication.
+11
+Select the necessary OAuth 2.0 scopes for your application. The connection requires the following scopes:
+Call Control
+Edit Extensions
+Internal Messages
+Read Accounts
+Read Call Log
+Read Contacts
+Read Messages
+Read Presence
+Ring Out
+SMS
+Webhook Subscriptions
+12
+Choose one of the following options in the
+Who will be authorized to access your app?
+field:
+This app is public and will be callable via any RingCentral customer.
+This app is private and will only be callable using credentials from the same RingCentral account.
+13
+Click
+Create
+to create the application. RingCentral generates a
+Client ID
+and
+Client secret
+.
+14
+Copy the
+Client ID
+and
+Client secret
+. Use these credentials when
+connecting to RingCentral in Workato
+.
+←
+Updated timesheet trigger
+Call ended trigger
+→
+Last updated:
+1/6/2025, 6:35:03 PM
+On this page
+API version
+How to connect to RingCentral
+Generate a client ID and secret
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

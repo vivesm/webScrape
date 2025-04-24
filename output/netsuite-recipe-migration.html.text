@@ -1,0 +1,163 @@
+Workato connectors - NetSuite - Recipe Migrations | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+Migrating NetSuite recipes across environments
+On 19/5/2020, we deployed enhancements to the NetSuite connector. Users can now seamlessly migrate recipes across environments.
+Prior to the enhancement, changing your recipe's connection from a sandbox Netsuite account to a production NetSuite account only preserved mappings for all standard fields in NetSuite. This enhancement preserves mapping for custom fields when you switch connections.
+#
+Recipes created after 19/5/2020
+No action. When switching connections, Workato preserves all mappings.
+#
+Recipes created before 19/5/2020
+NOTE
+Complete the initial remapping of custom fields
+only if you plan to change the NetSuite connection for this recipe.
+Recommendation
+We recommend that you either save a reference of this recipe in another open browser tab, or make a back-up copy of this recipe.
+1
+For a specific recipe, in each relevant action, remap datapills that use custom fields.
+In the following example, we select the
+Update Purchase order
+action with a single custom field.
+Update Purchase Order with 1 Custom field
+Custom field mapping
+2
+To enable seamless migration, navigate to the
+Standard record
+selection, and
+re-select
+the
+Purchase Order
+object.
+3
+When searching, you can see two (2)
+Purchase Order
+options.
+Select the top option.
+4
+Your custom field selection clears out.
+Custom field mapping
+5
+Re-select the custom field, and remap all custom fields again.
+6
+Continue this for the rest of the actions in the recipe, and other recipes that use the custom field.
+#
+FAQ
+Must I migrate every action and every recipe?
+There is no requirement that you must migrate all existing recipes and/or actions. You can choose only to do this for selected recipes and actions where custom fields are used
+AND
+if this recipe is going to be migrated through recipe lifecycle management to a production Workato workspace. This enablement is unnecessary for actions and recipes that only interact with standard fields.
+Must I migrate recipes in my production Workspace?
+NetSuite recipes in production workspaces probably do not need to be migrated. In situations where you do not foresee changing this recipe's connection or exporting and importing it into another Workato workspace, this migration is unnecessary. Migration offers the value or NetSuite recipes in UAT environments that you plan to import into production environments eventually.
+←
+Upsert records in bulk
+Common NetSuite fields
+→
+Last updated:
+2/21/2023, 5:58:26 AM
+On this page
+Recipes created after 19/5/2020
+Recipes created before 19/5/2020
+FAQ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,157 @@
+Embedded Environments - Roles | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Features
+Environments
+#
+Collaborator roles and Environments
+You can assign specific permissions to each collaborator and customize roles for each environment as needed after you provision Environments for a customer. A collaborator's permission level determines which elements are visible to them. There are two permissions most relevant for Environments, both of which can be independent:
+Access to an environment
+Deployment permissions within an environment
+For example, a collaborator could have access to an environment without having the ability to deploy a project. The following image displays the UI for a collaborator with deployment permission for the Development and Production environments, but no deployment permission for the Test environment.
+Deployment permission in two environments
+CUSTOMER MANAGER ASSIGNED ROLES
+The role you assign applies to this customer manager in all customer workspaces and across all three environments (Development, Test, and Production) by default.
+If you plan to provide different collaborator roles for each environment, you must add the collaborator individually to each Customer workspace (not as a Customer manager), and then specify the collaborator role for each environment. You can assign these roles in the user interface or through the Workato API.
+#
+Deployments tab
+The
+Deployments
+tab is only visible to collaborators that have access to two or more environments with deployment permission in at least two environments they have access to.
+Deployments tab not visible
+Deployments tab visible
+#
+Add deployment permission to a collaborator role
+Complete the following steps to grant deployment permission to a collaborator role:
+1
+Log in to your Workato account and select the workspace in which you plan to grant deployment permission to a collaborator.
+2
+Click
+Workspace admin > Collaborator roles
+.
+Click Workspace admin > Collaborator roles
+3
+Select an existing role or click the
+Add collaborator role
+button to create a new role.
+4
+Select
+Recipe development
+, scroll down to the
+Deployment
+section, and then select the
+Deployment
+checkbox.
+Select the Deployment checkbox
+5
+Click
+Save changes
+when you are done editing or creating the collaborator role.
+←
+Environments APIs
+Environments FAQs
+→
+Last updated:
+7/23/2024, 3:40:34 PM
+On this page
+Deployments tab
+Add deployment permission to a collaborator role
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

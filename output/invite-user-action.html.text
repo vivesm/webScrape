@@ -1,0 +1,155 @@
+Workflow apps connector - invite user action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Builder experience
+Workflow apps connector
+#
+Invite user
+Invite a user by email to the Workflow apps portal. The user must accept the invitation before using the portal.
+#
+Input fields
+Name
+The name of the user you plan to invite to the portal.
+Email address
+Provide the email address to send the invite to.
+User groups
+Add the user to one or more user groups. If left blank, the user is added to the
+Everyone
+group by default.
+#
+Output
+Output is dynamic and may vary depending on the actions and triggers in your recipe, as well as the columns present in your Workflow app's corresponding
+data table
+.
+To use this data in downstream steps, map in the relevant
+datapill
+from the datatree.
+Users
+This JSON object contains the following available attributes.
+User ID
+The ID of the user.
+User name
+The user's name.
+User email
+The user's email address.
+Status
+The user's status.
+Groups
+A JSON object nested within the
+Users
+object.
+Available attributes include:
+Group ID
+The ID of the group this task is assigned to.
+Group name
+The name of the group this task is assigned to.
+List size
+List index
+←
+Get user data action
+Remove user action
+→
+Last updated:
+6/12/2024, 7:06:15 PM
+On this page
+Input fields
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

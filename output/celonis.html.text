@@ -1,0 +1,151 @@
+Workato コネクター - Celonis | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Celonis
+Celonis は、プロセスマイニングを通じて、世界中の企業が日常業務における非効率性を見つけ出すことができるよう支援しています。Workato と連携することで、非効率性の特定に加えて、これらのボトルネックを解決するためのアクションをリアルタイムで実行することも可能です。
+#
+Workato での Celonis への接続方法
+認証は必要ありません。
+項目
+説明
+Connection name
+このコネクションに対して、接続先の Celonis インスタンスを識別する一意の名前を付けます。
+#
+Celonis - New event トリガー
+このトリガーは、Celonis のプロセスオートメーションエンジンから Workato に送信されたイベントを処理します。
+New event トリガー
+#
+入力項目
+入力項目
+説明
+Event Name
+イベントにわかりやすい名前をつけます。この名前は、Celonis の Blocked purchase order イベントから受信したイベントを表すものにしてください。
+Payload Schema
+Celonis から Workato に送信されるイベントの予期される属性です。Celonis で定義されたペイロードと一致する必要があります。
+#
+出力項目
+出力項目は、ペイロードスキーマで定義した項目と正確に一致します。
+#
+Celonis の New event トリガーを設定する方法
+Celonis でシグナルを特定したら、それらを Action Engine のスキルに変換します。
+新しいスキルを設定した後、[Actions] をクリックし、次に [
+Add Action
+] をクリックして、新しいアクションを追加します。
+まだ作成していない場合は、新しいアクションを作成します。
+これにより、このシグナルに基づいてオートメーションをトリガーできる Celonis のプロセスオートメーションが表示されます。ここで、新しいレシピをトリガーできる Workato コネクターが表示されます。
+Workato コネクターの URL を入力するよう求められたら、Workato に移動して、Celonis トリガーで
+Webhook URL
+を取得する必要があります。
+Workato レシピが動作するのに十分な詳細情報が提供されるように、Celonis 側でペイロードを定義してください。これには、特定の発注番号などの詳細情報を含める必要があります。
+プロセスオートメーションを公開して、Celonis の Action Engine のプロジェクトに戻ります。順を追ってステップを確認し、新しいアクションを再度追加して、作成したカスタムアクションを選択します。
+新しいシグナルを取得したとき、このアクションが自動的に実行されるようにするには、[
+Execute for new Signals
+] チェックボックスにチェックを入れます。これにより、新しいシグナルが検出されるとすぐに Workato レシピがトリガーされるようになります。
+←
+コンテンツの更新
+Coupa
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Workato での Celonis への接続方法
+入力項目
+出力項目
+Celonis の New event トリガーを設定する方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

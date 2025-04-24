@@ -1,0 +1,144 @@
+Workato connectors - Amazon SQS - Send Message action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Amazon SQS
+#
+Amazon SQS - Send Message Action
+This action allows you to send a single message to a chosen SQS queue.
+#
+Input fields
+Field name
+Description
+Queue
+The queue to send messages to.
+Message body
+The message to send. The maximum string size is 256 KB. This is normally unstructured data
+Message attribute
+A list of message attributes sent in the message. Use this for structured data.
+Message system attribute
+Currently, the only supported message system attribute is AWSTraceHeader. Its type must be String and its value must be a correctly formatted AWS X-Ray trace header string. The size of a message system attribute doesn't count towards the total size of a message.
+#
+Output fields
+Field name
+Description
+Request ID
+The unique id of the request.
+MD5 of message attributes
+MD5 hash of message attribute
+MD5 of message body
+MD5 hash of message body
+MD5 of message system attributes
+MD5 hash of message system attribute
+Message ID
+The unique id of the message.
+Sequence number
+This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message.
+←
+New message trigger
+Receive message action
+→
+Last updated:
+2/24/2022, 4:32:25 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

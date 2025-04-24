@@ -1,0 +1,434 @@
+Create your first recipe | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+#
+Create your first recipe
+Build your first recipe with this video guide
+Recipes are automated workflows that connect your apps. Each recipe contains a trigger and one or more actions. When you start a recipe, it waits for a triggering event to run the actions.
+The following steps guide you through building a recipe that closes a case in Salesforce whenever an issue with the same name is closed in Jira.
+#
+Step 1: Create a new recipe
+Complete the following steps to create a new recipe:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to the
+Projects
+page.
+3
+Select an existing project or click
+Create project
+to create a new one.
+4
+Click
+Create
+, and then select
+Recipe
+.
+5
+Enter
+My first recipe
+in the
+Name
+field.
+6
+Use the
+Create in folder
+drop-down menu to select the folder where the recipe should be created.
+7
+Ensure
+Trigger from an app
+is selected as the recipe starting point, then click
+Start building
+.
+The
+Setup your recipe
+menu
+#
+Step 2: Connect to Jira
+1
+Search for and select
+Jira
+in the
+Choose an app
+search box.
+2
+Select the
+Updated issue
+trigger.
+3
+Enter a descriptive and unique name for the connection in the
+Connection name
+field.
+4
+Select
+API token
+in the
+Auth type
+field.
+5
+Enter the URL of your Jira account in the
+Host name
+field.
+6
+Enter your Jira account email in the
+Email
+field.
+7
+Enter your Atlassian API token in the
+API token
+field.
+How can I create an Atlassian API token?
+To create a new API token in Atlassian, complete the following steps:
+1
+Go to
+Account settings > Security
+.
+2
+Click
+Create and manage API tokens
+(opens new window)
+.
+3
+Click
+Create API token
+.
+4
+Enter a name for your token in the
+Name
+field, and then click
+Create
+.
+5
+Click
+Copy
+to retrieve your new API token.
+8
+Click
+Connect
+.
+#
+Step 3: Set up the trigger
+The following trigger activates whenever an issue is closed in Jira. When you start the recipe, it checks for matching events from the previous seven days.
+1
+Switch the
+When first started, this recipe should pick up events from
+field to
+formula mode
+and enter
+7.days.ago
+.
+2
+Click the
+Set trigger condition
+toggle.
+3
+Locate the Jira
+Name
+Step 1
+datapill in the
+Recipe data
+menu under
+Updated issue (Step 1 output) > Fields > Status
+and map it to the
+Trigger data
+field.
+Locate the
+Name
+datapill
+4
+Select
+contains
+in the
+Condition
+field.
+5
+Enter
+Closed
+in the
+Value
+field.
+Completed
+Updated issue
+trigger fields
+#
+Step 4: Connect to Salesforce
+1
+Click
++ Add step
+, and then select
+Action in app
+.
+The
+Add step
+button
+2
+Search for and select
+Salesforce
+in the
+Choose an app
+search box.
+3
+Select the
+Search records (batch)
+action.
+4
+Enter a descriptive and unique name for the connection in the
+Connection name
+field.
+5
+Select
+OAuth 2.0
+in the
+Auth type
+field.
+6
+Click
+Connect
+to open the Salesforce sign-in dialog.
+Completed Salesforce connection fields and the
+Connect
+button
+7
+Sign in to your Salesforce account.
+#
+Step 5: Set up the action
+The following action searches for cases in Salesforce with the same case name as the Jira issue.
+1
+Select
+Case
+in the
+Search for
+field.
+2
+Enter
+150
+in the
+Limit
+field to restrict the number of records the action returns.
+3
+Locate the Jira
+Summary
+Step 1
+datapill in the
+Recipe data
+menu under
+Updated issue (Step 1 output) > Fields > Parent > Fields
+and map it to the
+Subject
+field.
+Completed
+Search for Cases
+fields
+#
+Step 6: Set up the conditional statement
+The following
+IF condition
+checks if the matching Salesforce case from the previous step is open. If it is, the recipe closes the case.
+1
+Click
++ Add step
+, and then select
+IF condition
+.
+The
+Add step
+button
+2
+Locate the Salesforce
+Status
+Step 2
+datapill in the
+Recipe data
+menu under
+Search Cases (Step 2 output) > Cases
+and map it to
+Data field
+.
+3
+Select
+does not equal
+in the
+Condition
+field.
+4
+Enter
+Closed
+in the
+Value
+field.
+Completed IF condition fields
+5
+Click
+Select an app and action
+.
+6
+Search for and select
+Salesforce
+in the
+Choose an app
+search box.
+7
+Select the
+Update record
+action.
+8
+Select
+Case
+in the
+Object
+field.
+9
+Locate the Salesforce
+Case ID
+Step 2
+datapill in the
+Recipe data
+menu under
+Search Cases (Step 2 output) > Cases
+and map it to the
+Case ID
+field.
+10
+Select
+Closed
+in the
+Status
+field.
+Completed
+Update case
+fields
+#
+Step 7: Save and start your recipe
+1
+Click
+Save
+, then
+Exit
+.
+2
+Click
+Start recipe
+. Your completed recipe should resemble the following screenshot:
+Example recipe
+NEXT STEPS
+Explore the
+community library
+(opens new window)
+to find ready-to-use recipes built by other users.
+Learn about other types of triggers and actions in
+Recipe design
+.
+←
+Learn key concepts
+Use cases
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Step 1: Create a new recipe
+Step 2: Connect to Jira
+Step 3: Set up the trigger
+Step 4: Connect to Salesforce
+Step 5: Set up the action
+Step 6: Set up the conditional statement
+Step 7: Save and start your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,294 @@
+カスタムアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+ユニバーサルコネクター
+Customize Connectors
+#
+カスタムアクション
+Workato が既にサポートしているコネクターのアクションを作成する必要がある場合、カスタムアクションを使用すれば、
+HTTP ユニバーサルコネクター
+や
+SDK
+でゼロから作成することなく、既存のコネクターフレームワークに基づいて新しいアクションを作成できます。カスタムアクションは、どのようなリクエストとレスポンスが必要かを指定するだけで簡単に作成できます。このリクエストとレスポンスは API ドキュメントから入手できます。
+カスタムアクションは、HTTP コネクターを介するアクションを迅速に作成する手段になります。これは、カスタムアクションがコネクターに既存の認証フレームワークを使用し、対象アプリの API についても理解しているためです。
+#
+カスタムアクションに対するアプリのサポート
+Workato 上のアプリのほとんどはカスタムアクションに対応しています。カスタムアクションは、コネクターのアクションピックリストに表示されます。
+カスタムアクションの選択
+カスタムアクションを選択すると、使用可能なスコープがリストされます。通常、適用されるスコープ内のオブジェクトに対してのみ読み取りまたは書き込みを行うことができます。たとえば、下図のように Slack コネクターのカスタムアクションを選択した場合、次のスコープのみが使用可能であることがわかります。
+channels:read, channels:write, chat:write:bot, chat:write:user, groups:read, groups:write,
+users:read, users:read.email
+カスタムアクションで使用できるアプリのスコープ
+その他のスコープが必要なアクションを作成すると、API へのリクエスト送信を試みた時点でエラーがスローされます。たとえば、Slack のリマインダ作成アクションを作成しようとすると次のエラーが返されます。これは
+reminders:write
+権限を持っていないためです。
+呼び出し時に API によって返されたスコープエラー
+Workato のコネクターに追加されたカスタムアクションやスコープを確認したい場合は、Workato チームに問い合わせて、機能強化の要望を提出してください。
+#
+カスタムアクションの入力項目
+このセクションでは、カスタムアクションの入力項目の設定について説明します。
+入力項目
+説明
+Action name
+作成するカスタムアクションの名前を指定します。これはアクションのタイトルに表示されます。
+Request type
+呼び出す API エンドポイントの HTTP メソッドです。
+Path
+ベース URI の末尾に相対 URI が追加されます。ベース URI のデフォルトパスを上書きする必要がないかぎり、相対 URL の前に
+/
+を付けないでください。たとえば、Slack コネクターのベース URI は
+https://slack.com/api/
+です。ここに
+conversations.list
+という値を指定すると、リクエストは
+https://api.slack.com/methods/conversations.list
+に送信されます。
+しかし、
+/conversations.list
+を指定すると、リクエストは
+https://api.slack.com/conversations.list
+に送信されます。
+相対 URI 値の前の / は、異なるベースパス (古い API バージョンなど) を使用する場合に便利です。
+URL params (GET と DELETE 用)
+呼び出す API エンドポイントが GET または DELETE の場合、URL パラメータで渡すことができます。ここで指定した値は送信前に URL にエンコードされます。
+Input (POST、PUT、PATCH 用)
+呼び出す API エンドポイントが POST、PUT、PATCH のいずれかの場合、JSON のリクエスト本文で渡すことができます。
+Output
+API から返されることが期待される出力スキーマを Workato に伝えます。これは出力データツリーの生成に使用されます。
+#
+カスタムアクションの例 - Slack のチャネルリストアクションの作成
+Slack コネクターに、チャネルをリストするカスタムアクションを作成してみましょう。
+Slack API ドキュメント
+(opens new window)
+が参考になります。
+まず、Slack コネクターでカスタムアクションを選択します。
+Slack のカスタムアクションの選択
+アクションに名前を付けます。この例では「List conversations」という名前にします。これによってアクションのタイトルも変わることを確認してください。
+カスタムアクションの命名
+呼び出す API エンドポイントに応じて、リクエストの HTTP メソッドを選択します。HTTP メソッドについては、API ドキュメントで確認できます。Slack の API ドキュメントによれば、
+list conversations
+では GET メソッドの使用が推奨されています。
+チャネルのリストに関する Slack の API ドキュメント
+メソッドを選択すると、関連する入力項目がアクション内に自動的に表示されます。
+HTTP メソッドの選択時に表示される追加の項目
+API パスに
+conversations.list
+または
+https://api.slack.com/methods/conversations.list
+を入力します。
+チャネルのリストに関する
+URL エンドポイントの追加
+次に、送信されるリクエストを定義します。この API エンドポイントには認証トークン以外に必要な引数はありません。この認証トークンは、Slack コネクションの確立時に Workato で既に処理されています。
+チャネルのリストに関するエンドポイントの引数についての Slack API ドキュメント
+それでも、Slack API からのレスポンスを最適化するために引数を送信します。アーカイブ済みのチャネルとメンバーリストを除外し、返されるチャネル数を20に制限します。それには、値を実際に指定する前に、リクエストのパラメータを定義する必要があります。ここでは手動で
+exclude_archived
+、
+exclude_members
+、
+limit
+の3つのパラメータを定義しています。
+カスタムアクションの URL パラメータの追加
+パラメータの定義後、その値を指定する必要があります。この例では値をハードコードしていますが、変数で渡す必要がある場合は、これらの値をデータピルに置き換えることもできます。
+パラメータの値の入力
+最後に、もう一つだけ指定する必要がある項目があります。出力スキーマです。これは通常は、API ドキュメントからコピーして、Workato に貼り付けるだけで済みます。以下に、Slack API ドキュメントからコピーした JSON レスポンスを示します。
+{
+"ok": true,
+"channels": [
+{
+"id": "C0G9QF9GW",
+"name": "random",
+"is_channel": true,
+"created": 1449709280,
+"creator": "U0G9QF9C6",
+"is_archived": false,
+"is_general": false,
+"name_normalized": "random",
+"is_shared": false,
+"is_org_shared": false,
+"is_member": true,
+"is_private": false,
+"is_mpim": false,
+"members": [
+"U0G9QF9C6",
+"U0G9WFXNZ"
+],
+"topic": {
+"value": "Other stuff",
+"creator": "U0G9QF9C6",
+"last_set": 1449709352
+},
+"purpose": {
+"value": "A place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber you'd prefer to keep out of more focused work-related channels.",
+"creator": "",
+"last_set": 0
+},
+"previous_names": [],
+"num_members": 2
+},
+{
+"id": "C0G9QKBBL",
+"name": "general",
+"is_channel": true,
+"created": 1449709280,
+"creator": "U0G9QF9C6",
+"is_archived": false,
+"is_general": true,
+"name_normalized": "general",
+"is_shared": false,
+"is_org_shared": false,
+"is_member": true,
+"is_private": false,
+"is_mpim": false,
+"members": [
+"U0G9QF9C6",
+"U0G9WFXNZ"
+],
+"topic": {
+"value": "Talk about anything!",
+"creator": "U0G9QF9C6",
+"last_set": 1449709364
+},
+"purpose": {
+"value": "To talk about anything!",
+"creator": "U0G9QF9C6",
+"last_set": 1449709334
+},
+"previous_names": [],
+"num_members": 2
+}
+],
+"response_metadata": {
+"next_cursor": "dGVhbTpDMUg5UkVTR0w="
+}
+}
+これをコピーして Workato に貼り付ければ、出力データツリーが生成されます。
+API ドキュメントの JSON レスポンスのサンプルを使用して Workato に出力データツリーを生成する
+これにより、Workato にどのようなレスポンススキーマが想定されるかを伝え、生成されるデータピルをレシピの後続のステップで使用すれば、データを他のアプリに移動できるようになります。
+Workato で生成された出力データツリー
+ただし、このレスポンスのサンプルで指定したデータが実際のレスポンスに含まれていない場合、データピルには値が表示されません。
+たとえば、上記のレスポンス本体にはメンバーリストが含まれていますが、今回のカスタムアクションでは URL パラメータ
+exclude_members
+を
+true
+とすることでこれを除外しました。レスポンスのサンプルにメンバーリストを含めた場合、データツリー内にデータピルとして表示されるものの、
+exclude_members
+の値を
+false
+に変更しないかぎり、このデータピルには値が設定されません。
+Slack のカスタムアクションが完成したので、テストに進みましょう。トリガーなしでカスタムアクションを手早くテストするには、スケジューラの
+New scheduled event
+トリガーを使用します。
+チャネルをリストするための完成した Slack カスタムアクション
+上記のアクションをテストすると、詳細なジョブの履歴で、アクションに渡された入力を確認できます。
+ジョブの履歴 - 入力データ
+また、Slack API から返された詳細な出力も表示され、API 呼び出しが成功したかどうかを確認できます。
+ok
+が
+true
+であることから、呼び出しは成功したようです。
+ジョブの履歴 - 返されたチャネルデータを表示する出力
+←
+コネクター SDK
+新しいクライアントの登録
+→
+Last updated:
+2024/10/21 13:58:01
+On this page
+カスタムアクションに対するアプリのサポート
+カスタムアクションの入力項目
+カスタムアクションの例 - Slack のチャネルリストアクションの作成
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

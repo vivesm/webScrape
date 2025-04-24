@@ -1,0 +1,240 @@
+SAP Troubleshooting guide | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SAP RFC
+#
+SAP Troubleshooting guide
+You may encounter the following issues while setting up the SAP connector. If you don't find your issue listed here, check the
+agent.log
+file, or contact
+Workato Support
+(opens new window)
+.
+#
+Enable debug logging
+If you are experiencing issues when trying to connect to SAP RFC, we recommend you enable debug logging in your
+config.yml
+file as the first step. This enables you to see the errors your system encounters.
+#
+Example:
+logging
+:
+workato.sap.adapter
+:
+DEBUG
+This guide is organized into
+common issues
+and
+error messages
+.
+#
+Common issues
+#
+Agent does not start
+The file displays:
+JCo initialization failed with java.lang.UnsatisfiedLinkError: C:\Program Files\Workato Agent PROD\lib_ext\sapjco3.dll: Can't find dependent libraries"
+On Windows platforms, JCo 3.1 requires you to install the Microsoft Visual Studio 2015-2022 C/C++ runtime libraries on your agent server. If these libraries are not present, you must download and install the latest
+Microsoft Visual C++ 2015-2022 Redistributable Package
+from the
+Microsoft knowledge base article
+(opens new window)
+. Select the package that corresponds to your locale and JVM bit-width (x64 for 64-bit operating systems or x86 for 32-bit operating systems).
+#
+My OPA raises an error when attempting to connect to SAP.
+Check the logs of your OPA to know more. Learn how to
+enable debug logging
+.
+#
+I don't see the required IDocs in the drop-down list in Workato.
+You must
+configure the required IDoc in your SAP system
+before Workato can display them in a drop-down list.
+By default, the list of IDocs in Workato updates once every 24 hours. You can modify this interval during
+OPA connection profile setup
+by changing the
+metadata_refresh_interval
+.
+Contact Customer Success for assistance
+(opens new window)
+.
+#
+I am unable to call Workato's API platform through RFC.
+You may require additional configuration on your SAP system to enable TLS 1.2 if this hasn't been done already. Incoming web traffic to Workato is required TLS 1.2 encryption to better secure any information.
+Determine how to enable TLS 1.2 and establish a connection to Workato here.
+#
+Error messages
+#
+java.lang.UnsatisfiedLinkError: no sapjco3 in java.library.path
+You may have downloaded the Java Connector for the wrong operating system. Ensure that you have downloaded and imported the correct SDK.
+This error also displays on Mac OS systems if you have not imported the
+libsapjco3.dylib
+into the
+lib_ext
+folder.
+#
+Classpath entry lib/sap-connector-X.X.X.jar not found, skipped.
+Mac users must not move the
+sap-connector-X.X.X.jar
+to the
+lib_ext
+folder. Doing so causes errors.
+#
+Registration of tp <Program's name> from host ??? not allowed
+There may be a problem with your
+reg_info
+and
+sec_info
+files. To resolve this error follow this
+SAP note
+(opens new window)
+.
+Additionally, following these steps may resolve the error:
+Move or rename the
+reginfo
+and
+secinfo
+files.
+Confirm the path in OS level with the values of the parameters in RZ11 tcode on the application level:
+gw/reg_info
+and
+gw/sec_info
+.
+Set the parameter
+gw/reg_no_conn_info
+value to
+0
+.
+Set the parameter
+gw/acl_mode
+value to
+0
+.
+Your SAP server (
+gwhost
+) may not be accessible from the machine where the OPA is installed. To verify, use Terminal / Command Prompt to ping your SAP server's IP and verify that it's accessible.
+#
+java.lang.NoClassDefFoundError: com/sap/conn/jco/JCoException
+The SAP JCo library is missing or the classpath is not set up properly.
+#
+Cannot invoke "com.workato.agent.sap.impl.json.IDocTypeBean.getSegMap()" because "selected" is null
+This error occurs because you are trying to create a trigger faster than your OPA can fetch metadata from SAP. You must wait up to 90 seconds for your OPA to fetch the metadata from SAP.
+←
+Track IDoc status in SAP
+SAP OData
+→
+Last updated:
+12/20/2024, 6:06:00 PM
+On this page
+Enable debug logging
+Example:
+Common issues
+Agent does not start
+My OPA raises an error when attempting to connect to SAP.
+I don't see the required IDocs in the drop-down list in Workato.
+I am unable to call Workato's API platform through RFC.
+Error messages
+java.lang.UnsatisfiedLinkError: no sapjco3 in java.library.path
+Classpath entry lib/sap-connector-X.X.X.jar not found, skipped.
+Registration of tp from host ??? not allowed
+java.lang.NoClassDefFoundError: com/sap/conn/jco/JCoException
+Cannot invoke "com.workato.agent.sap.impl.json.IDocTypeBean.getSegMap()" because "selected" is null
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

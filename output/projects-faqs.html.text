@@ -1,0 +1,203 @@
+Projects FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Projects
+#
+Projects FAQs
+Get answers to frequently asked questions (FAQs) about projects.
+What is a project in Workato?
+A
+Project
+in Workato is a repository where you can store integration assets such as recipes, connections, and sub-folders. It serves as a container for organizing related assets, typically grouped by department, use case, application, or process.
+Projects
+allow you to manage and share integration components efficiently across teams.
+How should I organize projects in my workspace?
+We recommend that you organize projects based on
+use case
+,
+department
+,
+application
+, or
+process
+to maintain a clear structure. For example:
+By department
+: Organize projects for HR, Finance, and IT.
+By use case
+: Separate projects to automate onboarding, invoicing, or reporting.
+By app
+: Group all recipes and connections related to a specific application, such as Salesforce or NetSuite.
+Proper organization simplifies management and helps team members find assets. Refer to the
+Best practices for projects
+section for detailed recommendations.
+What are the key components of a project?
+Each project contains the following:
+Recipes
+: Automation workflows that perform tasks.
+Connections
+: Links between Workato and external applications, such as Salesforce or Slack.
+Folders and sub-folders
+: Structures for organizing recipes and connections within a project.
+Smart folders
+: Dynamic folders that display assets you can access based on their status (active/inactive).
+This structure enables flexible and efficient organization of all integration assets. Learn more about the
+key components of a project
+.
+How do I share connections across multiple projects?
+You can share connections across multiple projects in Workato to enable teams to reuse established integrations and avoid duplicating setup efforts. For example, a Salesforce connection used in a CRM project can be shared with a marketing automation project without creating a new connection. Refer to
+Connections
+for more information.
+What are the best practices for managing project lifecycles in Workato?
+Ensure the following when managing the
+lifecycle of a project
+:
+Consistency between workspaces
+: Before importing a project to a new workspace, verify that a project with the same name exists. If not, create one to maintain organization.
+Organize root-level assets properly
+: If you import a project into the
+All Projects
+destination, each folder converts into a separate project, which may clutter your workspace.
+Following these steps helps maintain a clean and efficient workspace.
+What is the home assets project, and how is it used?
+The
+Home assets
+project is a default folder where all imported and deployed assets are displayed when
+All Projects
+is selected. It is automatically created in older workspaces when the projects feature is introduced. If you import assets and do not specify a project, the assets are placed in the Home assets folder. This helps keep unorganized assets in one location for easier management.
+How can I create and organize a project in Workato?
+Complete the following steps to create a project:
+1
+Go to the
+Projects
+menu and select
+Create project
+.
+2
+Name the project and provide an optional description.
+3
+Create folders within the project to store your recipes and connections.
+Folders allow you to categorize assets within the project for better organization. For example, you can separate recipes by use case. Learn more about how to
+create a project
+.
+How do permissions work for projects in Workato?
+Permissions for projects are managed by assigning users specific roles, such as
+Admin
+,
+Analyst
+, or
+Custom roles
+. Admins can control who can create, view, edit, or delete projects and related assets. For example, an admin can limit access to sensitive recipes or connections while granting analysts view and analysis permissions. Refer to the
+Project permissions
+section for more information.
+What are Smart Folders, and how do they help manage projects?
+Smart Folders
+dynamically display all recipes and connections you can access across your projects. You can filter contents by various attributes such as active/inactive recipes or connected/disconnected connections. Smart folders improve asset management across different projects, particularly in larger workspaces with multiple integrations.
+Can I move assets between projects, and how does it impact dependencies?
+Yes. You can
+move assets
+, such as recipes, connections, and folders, between projects using a drag-and-drop interface. When you move an asset, all dependencies are resolved automatically, ensuring that workflows function correctly. For example, if a recipe relies on a connection, moving it to a different project maintains the connection.
+←
+Delete a project
+Recipes
+→
+Last updated:
+10/3/2024, 8:42:40 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

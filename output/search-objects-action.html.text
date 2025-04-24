@@ -1,0 +1,152 @@
+Workato connectors - Microsoft Dynamics 365 Search objects action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Microsoft Dynamics 365
+#
+Search objects action (batch)
+This action retrieves a list of objects in Microsoft Dynamics 365 that match the specified search criteria.
+#
+Input fields
+Field
+Description
+Object name
+Select a standard or custom Microsoft Dynamics 365 object to monitor. For example,
+Lead
+.
+Result list size
+Number of records retrieved. Minimum is 1, maximum is 5000. Defaults to 200.
+Output fields
+Select the fields of the selected objects you plan to use in your recipe.
+Filter condition
+Condition to filter the records. Use OData $filter syntax. For example,
+contains(name, 'sample')
+and
+revenue gt 1000000
+.
+Learn more about filters
+(opens new window)
+.
+Order by
+Specify the order in which items are returned.
+Expand
+Expand navigation properties in the related entity set.
+Next page URL
+Next page URL, returned by a previous call, to request the next page of results.
+#
+Output fields
+The output datatree contains a list of objects that match the search criteria. Each object contains information, such as ID and other attributes.
+Field
+Description
+Records
+A list of records that match the search criteria.
+Next page URL
+URL to fetch the next page of results.
+←
+Get object schema
+Update object action
+→
+Last updated:
+10/24/2024, 9:08:28 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

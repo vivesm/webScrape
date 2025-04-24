@@ -1,0 +1,237 @@
+Workato connectors - Azure Blob Storage - Blob action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Azure Blob Storage
+#
+Azure Blob Storage - Blob actions
+The Azure Blob Storage connector allows you to create and search blobs in your Azure Blob Storage Account.
+#
+Download Blob contents action
+This action downloads a blob in the connected Azure Blob Storage Account. This action is
+streaming compatible.
+Download blob action
+#
+Input
+Input field
+Description
+Container name
+The name of the container which contains the blob. Choose from the available picklist or toggle to provide the container name manually.
+Blob name
+The name of the blob to download. Choose from the available picklist or toggle to provide the container name manually.
+Chunk size
+The chunk size to download this file by.
+#
+Output
+The Blob contents as well as the size of the entire Blob.
+#
+Upload Blob action
+This action uploads a Blob in the connected Azure Blob Storage Account. This action is
+streaming compatible.
+Upload blob action
+#
+Input
+Input field
+Description
+Container name
+The name of the container which contains the blob. Choose from the available picklist or toggle to provide the container name manually.
+Blob name
+The name of the blob when uploaded. If a Blob with the same name already exists, the blob is replaced.
+Blob contents
+The file contents of the blob. Map this from an upstream action that downloads a file.
+Blob size
+The size of the entire Blob.
+Blob type
+Choose from the different types of Blobs such as Block, Page, or Append. The default and most common is Block.
+Custom metadata
+Custom metadata to attach to the container during creation.
+Content type
+The MIME type of the blob when uploaded.
+#
+Output
+The output of this action will be a datatree that contains information about the request sent to Azure Blob Storage.
+To get information about the Blob, use the search Blob or get Blob properties action.
+#
+Update Blob metadata action
+This action updates the metadata attached to a Blob in the connected Azure Blob Storage Account.
+Update blob metadata action
+#
+Input
+Input field
+Description
+Container name
+The name of the container which contains the blob. Choose from the available picklist or toggle to provide the container name manually.
+Blob name
+The name of the blob when uploaded. If a Blob with the same name already exists, the blob is replaced.
+Custom metadata
+Custom metadata to attach to the container during creation.
+#
+Output
+The output of this action will be a datatree that contains information about the request sent to Azure Blob Storage.
+To get information about the Blob, use the search Blob or get Blob properties action.
+#
+Get Blob properties action
+This action retrieves the properties of a Blob in the Azure Blob Storage Account including metadata.
+#
+Input
+Input field
+Description
+Container name
+The name of the container. Choose from the available picklist or toggle to provide the container name manually.
+Blob name
+The name of the Blob to download. Choose from the available picklist or toggle to provide the container name manually.
+#
+Output
+The properties of the Blob including custom metadata.
+#
+Search Blobs action
+This action search Blobs in your Azure Blob Storage Account.
+Search blob action
+#
+Input
+Input field
+Description
+Container name
+The name of the container. Choose from the available picklist or toggle to provide the container name manually.
+Prefix
+Prefix to filter Blobs by.
+Page size
+The max number of results returned from this action
+Next page marker
+Optional. Used for pagination.
+#
+Output
+The properties of the containers matching the search. The output also contains the "Next Marker" which can be used for pagination.
+#
+Generate pre-signed URL action
+This action generates a pre-signed URL for a Blob in the Azure Blob Storage.
+#
+Input
+Input field
+Description
+Container name
+The name of the container. Choose from the available picklist or toggle to provide the container name manually.
+Blob name
+The name of the Blob to download. Choose from the available picklist or toggle to provide the container name manually.
+Permissions
+Choose the permissions for the operations which the client using the pre-signed URL can perform on the Blob resource.
+Expiry time
+Choose the time till which the pre-signed URL stays valid.
+#
+Output
+Output field
+Description
+URL
+Returns the pre-signed URL of the associated blob resource.
+←
+Container Actions
+Azure Monitor
+→
+Last updated:
+9/28/2023, 3:45:26 PM
+On this page
+Download Blob contents action
+Upload Blob action
+Update Blob metadata action
+Get Blob properties action
+Search Blobs action
+Generate pre-signed URL action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

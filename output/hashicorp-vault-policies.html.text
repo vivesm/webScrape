@@ -1,0 +1,261 @@
+HashiCorp Vaultポリシーの設定 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+接続資格
+HashiCorp Vault
+#
+HashiCorp Vaultポリシーの設定
+HashiCorp Vaultでは、ポリシーはVault内の特定のパスと操作へのアクセスを決定します。ポリシーはデフォルトでアクセスを拒否するように設定されているため、Workatoがシークレットエンジンの設定を読み取る能力、および使用するシークレットへの読み取りアクセスを与えるポリシーを作成する必要があります。
+ポリシーはJSONまたはHCL形式で記述されます。典型的なポリシーには、HashiCorp Vaultでアクセスする予定のパスと、各パスに対して定義する機能が含まれます。
+パスは
+Key-Value (KV)エンジンのバージョン
+(opens new window)
+およびパスが完全修飾されているかどうかによって異なります。詳細については、
+Vaultポリシーの権限
+を参照してください。
+このドキュメントでは、WorkatoでHashiCorp Vaultシークレットを使用するためにポリシーに追加する必要のあるパスと機能について説明します。
+ポリシーについて詳しく学ぶ
+(opens new window)
+には、HashiCorp Vaultのドキュメントを参照してください。
+#
+HashiCorp Vaultポリシーの設定
+以下の手順では、
+制限的な
+HashiCorp Vaultポリシーを
+KV v1
+(opens new window)
+および
+KV v2
+(opens new window)
+の両方に設定する方法を示します。
+1
+HashiCorp Vaultインスタンスで
+ポリシー
+に移動します。
+2
+ACLポリシーの作成
+をクリックするか、既存のポリシーの編集を行います。
+3
+以下をポリシーに追加することで、Workatoがシークレットエンジンの設定を読み取ることができるようにします。ユーザーの理解を助けるために、パスの前に短い説明テキストを追加することをお勧めします（
+#
+で示されます）：
+# This allows read access to the secrets engine configuration, which is required to get the engine's version. Different versions have different APIs.
+path "sys/mounts/<secret_engine_name>" {
+capabilities = [ "read" ]
+}
+例：
+# This allows read access to the secrets engine configuration, which is required to get the engine's version. Different versions have different APIs.
+path "sys/mounts/workato_docs" {
+capabilities = [ "read" ]
+}
+4
+以下をポリシーに追加することで、Workatoがシークレットエンジンにアクセスできるようにします。使用している
+KVバージョン
+(opens new window)
+に応じて、以下をポリシーに追加します：
+KV v1
+KV v1
+(opens new window)
+の場合、次の構文を使用します：
+path "<secret_engine_name>/<secret_name>" {
+capabilities = [ "read" ]
+}
+例：
+# Read Zendesk secrets (KV v1)
+path "workato_docs/zendesk" {
+capabilities = [ "read" ]
+}
+KV v2
+KV v2
+(opens new window)
+の場合、エンジン名の後に
+data/
+をパスに含める必要があります：
+path "<secret_engine_name>/data/<secret_name>" {
+capabilities = [ "read" ]
+}
+例：
+# Read Zendesk secrets (KV v2)
+path "workato_docs/data/zendesk" {
+capabilities = [ "read" ]
+}
+5
+必要に応じて、ポリシーに追加のシークレットエンジンを追加します。
+#
+Vaultポリシーの権限
+Workatoがシークレットに対してアクセスするレベルを細かく制御するために、制限的なポリシーを指定するか、許可的なポリシーで広範なアクセスを与えることができます。構文はそれに応じて異なります。以下のセクションで示されています。
+#
+制限的なポリシー
+詳細な制限を設定するために、完全修飾パスを使用してWorkatoが読み取ることができる具体的なシークレットを指定します。
+ただし、完全修飾シークレットパスは使用している
+KVバージョン
+(opens new window)
+によって異なります。
+KV v2
+(opens new window)
+エンジンを使用するパスでは、エンジン名の後に
+data/
+を含める必要がありますが、
+KV v1
+(opens new window)
+を使用するパスでは含めません。
+例えば、以下の
+KV v2
+ポリシーは、
+workato_docs
+エンジンの
+zendesk
+シークレットに対してWorkatoに読み取り専用アクセスを許可します：
+# Read Zendesk secrets (KV v2)
+path "workato_docs/data/zendesk" {
+capabilities = [ "read" ]
+}
+以下の
+KV v1
+ポリシーも機能的に同じです：
+# Read Zendesk secrets (KV v1)
+path "workato_docs/zendesk" {
+capabilities = [ "read" ]
+}
+#
+許可的なポリシー
+より許可的なポリシーを作成するために、シークレットパスにグロブ（
+*
+）を使用して、Workatoがエンジン内のすべてのシークレットにアクセスできるようにします。例えば、以下のポリシーは、
+workato_docs
+エンジン内のすべてのシークレットに対してWorkatoに読み取り専用アクセスを許可します：
+# Read Zendesk secrets
+path "workato_docs/*" {
+capabilities = [ "read" ]
+}
+この場合、KV v1とv2で同じ構文を使用できます。なぜなら、ポリシーが完全修飾シークレットパスを使用していないためです。
+#
+サンプルポリシー
+以下はサンプルのポリシーです。以下は、複数のシークレットエンジンへの読み取り専用アクセスをWorkatoに許可する完全なHashiCorp Vaultポリシーの例です。
+# これにより、エンジンのバージョンを取得するために必要なシークレットエンジンの設定への読み取りアクセスが許可されます。異なるバージョンには異なるAPIがあります。
+path "sys/mounts/workato_zendesk" {
+capabilities = [ "read" ]
+}
+path "sys/mounts/workato_jira" {
+capabilities = [ "read" ]
+}
+path "sys/mounts/workato_db" {
+capabilities = [ "read" ]
+}
+# Zendeskシークレットの読み取り（KV v2）
+path "workato_zendesk/data/zendesk" {
+capabilities = [ "read" ]
+}
+# JIRAシークレットの読み取り（KV v1）
+path "workato_jira/jira" {
+capabilities = [ "read" ]
+}
+# DBシークレットの読み取り
+path "workato_db/*" {
+capabilities = [ "read" ]
+}
+←
+HashiCorp Vaultの使用
+ワークスペースのための Azure Key Vault の設定
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+HashiCorp Vaultポリシーの設定
+Vaultポリシーの権限
+サンプルポリシー
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

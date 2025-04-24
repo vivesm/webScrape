@@ -1,0 +1,129 @@
+Workato コネクター - Coupa の統合アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Coupa
+#
+Coupa - 統合アクション
+Workato は Coupa の統合実行ステータスを設定する機能をサポートしています。
+統合固有のアクション
+Set integration run status
+#
+統合アクション用の入力項目
+このアクションは、変更したい実行に関連付けられている統合実行 ID の入力を要求します。このアクションで設定できるのは、すでに存在している統合実行のステータスのみです。
+実行 ID だけでなく、ユーザーは Coupa から得られる統合実行ステータスのリストを選択することもできます。または入力項目をテキスト項目に切り替えて、統合ステータスを動的に設定することもできます。
+#
+Get supplier sites by supplier (サプライヤーに基づくサプライヤーサイトの取得)
+このアクションが実行されると、ユーザーが選択した統合実行が更新されます。
+#
+出力項目
+このアクションは、自身に関連付けられている属性すべてに影響を受ける統合オブジェクトを返します。
+#
+トリガーとアクションのリスト
+Workato は現在、以下のトリガーとアクションをサポートしています。それぞれの詳細については、以下のリンクをクリックしてください。リンク先にはサイドバーから移動することもできます。
+概要
+オブジェクトアクション
+オブジェクトトリガー
+注文書アクション
+サプライヤーアクション
+←
+サプライヤアクション
+Databricks
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

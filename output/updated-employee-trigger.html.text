@@ -1,0 +1,154 @@
+Workato connectors - Bamboo HR - Updated employee trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Bamboo HR
+#
+Bamboo HR - New/Updated employee trigger
+This trigger picks up employees that are created or updated. Each employee is processed as a separate job. It checks for new rows once every poll interval
+#
+Input
+New/Updated employee trigger
+Input field
+Description
+When first started, this recipe should pick up events from
+Employees created or updated after this time will be processed by the recipe. If left blank, the default date will be set to
+one hour
+before the recipe is first started. Learn more about this
+input field
+.
+Output field configuration
+Select custom fields that will be generated as outputs to this action. If left blank, all custom fields will be returned. This is not recommended as it may cause job runtime to increase.
+#
+Output
+The output of this action are all default employee fields and any custom fields selected. The commonly used employee fields are shown below.
+Output field.
+Description
+First name
+The first name of the employee.
+Last name
+The last name of the employee.
+Employee ID
+The employee ID assigned by Bamboo HR.
+Employee number
+The employee number assigned by your company.
+Job title
+The current job title of this employee.
+Department
+The current department of this employee.
+Supervisor ID
+The employee ID of the current supervisor of this employee.
+Supervisor E ID
+The employee number of the current supervisor of this employee.
+For a full list of employee fields, see
+here
+(opens new window)
+. |
+←
+New employee trigger (real-time)
+Updated employee trigger (real-time)
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,179 @@
+Workato コネクター - Amazon S3 アクション - Create bucket | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Amazon S3
+#
+Amazon S3 アクション - Create bucket
+このアクションは、Amazon S3 に新しいバケットを作成します。
+Amazon S3 - Create bucket アクション
+#
+入力項目
+項目名
+説明
+Bucket name
+バケット名は、3 ～ 63文字の長さである必要があります。
+Amazon S3 のバケットの名前付けルールについての記事
+(opens new window)
+を参照してください。
+Bucket region
+バケットを配置するリージョン。以下の「
+有効なバケットリージョンのリスト
+」を参照してください。
+Canned ACL
+Amazon の既定アクセス制御リスト
+(opens new window)
+を使用して、このバケットの権限を指定します。
+#
+出力項目
+このアクションには出力がありません。
+#
+有効なバケットリージョンのリスト
+Amazon S3 バケットは、以下のリージョンに配置するよう設定できます。
+リージョン名
+リージョンの値
+米国西部 (北カリフォルニア)
+us-west-1
+米国西部 (オレゴン)
+us-west-2
+カナダ (中部)
+ca-central-1
+欧州 (アイルランド)
+eu-west-1
+欧州 (ロンドン)
+eu-west-2
+欧州 (パリ)
+eu-west-3
+欧州 (フランクフルト)
+eu-central-1
+アジアパシフィック (ムンバイ)
+ap-south-1
+アジアパシフィック (シンガポール)
+ap-southeast-1
+アジアパシフィック (シドニー)
+ap-southeast-2
+アジアパシフィック (東京)
+ap-northeast-1
+アジアパシフィック (ソウル)
+ap-northeast-2
+アジアパシフィック (大阪)
+ap-northeast-3
+南米 (サンパウロ)
+sa-east-1
+米国東部 (バージニア北部)
+us-east-1
+米国東部 (オハイオ)
+us-east-2
+中国 (北京)
+cn-north-1
+中国 (寧夏)
+cn-northwest-1
+詳細については、
+Amazon S3 のドキュメント
+(opens new window)
+を参照してください。
+←
+file の削除
+一時URL の作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+有効なバケットリージョンのリスト
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

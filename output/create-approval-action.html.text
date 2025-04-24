@@ -1,0 +1,186 @@
+Workato connectors - Wrike - Create approval action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Create approval action
+The
+Create approval
+action starts a Wrike approval process for a folder or task that you specify.
+#
+Input
+Input field
+Description
+Folder ID
+Enter the ID of the folder where the approval is created. Toggle to
+Task ID
+to create approval on a task instead. This field is required.
+Description
+Provide a description for the approval.
+Due date
+Set a due date for the approval.
+Approvers
+Select a list of approver user IDs to assign to this approval request. If left blank, the approval is created in
+draft
+status.
+Attachments list
+Map a list of attachment IDs to include in the approval process.
+Auto finish on approve?
+Select
+Yes
+to automatically finish the approval when all approvers approve the request. Defaults to
+Yes
+.
+Auto finish on reject?
+Select
+Yes
+to automatically finish the approval when some approvers reject the request. Defaults to
+Yes
+.
+#
+Output
+Output field
+Description
+Approval ID
+Unique identifier for the created approval.
+Task ID
+Unique identifier for the associated task, if applicable.
+Folder ID
+Unique identifier for the associated folder.
+Author ID
+Unique identifier of the user who created the approval.
+Title
+Name of the approval.
+Description
+Description of the approval, if applicable.
+Updated date
+Timestamp indicating when the approval was last updated.
+Due date
+Timestamp indicating when the approval is due.
+Review ID
+Unique identifier for the associated review.
+Decisions
+List of decisions made on the approval.
+Status
+Current status of the approval.
+Attachment IDs
+List of attachments associated with the approval.
+Type
+Type of approval.
+Auto finish on approve
+Indicates whether the approval automatically finishes when approved.
+Auto finish on reject
+Indicates whether the approval automatically finishes when rejected.
+Finished
+Indicates whether the approval is marked as finished.
+Finisher ID
+Unique identifier of the user who finalized the approval.
+←
+Cancel approval action
+Create comment action
+→
+Last updated:
+2/26/2025, 10:21:24 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

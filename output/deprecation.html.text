@@ -1,0 +1,175 @@
+On-prem Agent Version Deprecation | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem agent
+#
+On-prem Agent version deprecation
+It is important to keep your Workato on-premise agent up to date. Below you can find information about reasons for deprecation, information on how to upgrade an agent, and a deprecation schedule. If you have any additional questions about deprecation or agent upgrade, contact your Workato Customer Success Manager.
+#
+Why deprecation
+We are constantly upgrading and releasing new versions of Workato on-prem agent (OPA).
+See here
+for more information about recent OPA changes.
+The following are some reasons to deprecate on-prem agents:
+Security:
+older versions may have known security vulnerabilities that have been fixed in newer versions.
+Performance:
+older versions may be less performant and less optimized than the newer versions.
+New features:
+older versions may not support the latest Workato platform features. We are constantly adding support for new
+connectors
+, updated triggers and actions, or improved ways to set up the
+on-prem connections
+.
+#
+How to upgrade OPA
+Refer to our documentation to
+upgrade your OPA
+to the latest version.
+#
+Deprecation schedule
+The following schedule lists the deprecation and sunset dates of the Workato on-prem agents.
+Deprecated
+versions will continue to work until the sunset date but we will no longer provide customer support.
+After the
+sunset
+date, OPA will no longer connect to Workato, which will affect your running recipes.
+Plan an upgrade of your OPA accordingly.
+TIP
+The deprecation will be a recurring process. Make sure to keep your on-prem agent no older than 1 year.
+Agent version
+Release date
+Deprecation date
+Sunset date
+Notes
+Older than 2.14.0
+7th September 2022 - May 2020
+30th September 2023
+31st December 2023
+31st January 2024
+These agents will be sunset due to the end of support for the internal web server that was replaced in version
+2.14.0
+. Also, agents older than 2.11.0 are using
+sg1.workato.com
+&
+sg2.workato.com
+Workato gateways, which will be shut down on
+31st of December 2023
+31st of January 2024
+.
+Older than 2.6.2
+< May 2020
+1st May 2023
+12th June 2023
+These agents were using
+sg.workato.com
+Workato gateway, which was shut down on 12th of June 2023.
+←
+Version notes
+On-prem connections
+→
+Last updated:
+12/13/2023, 11:36:50 PM
+On this page
+Why deprecation
+How to upgrade OPA
+Deprecation schedule
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

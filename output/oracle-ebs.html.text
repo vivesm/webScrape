@@ -1,0 +1,174 @@
+Workato コネクター - Oracle E-Business Suite | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Oracle E-Business Suite
+Oracle E-Business Suite
+(opens new window)
+(Applications/Apps または EB-Suite/EBS とも呼ばれる) は、エンタープライズリソースプランニング (ERP)、顧客関係管理 (CRM)、およびサプライチェーン管理 (SCM) コンピュータアプリケーションのスイートで、あらゆる規模の組織が効果的に業務を遂行し、業績を上げることを可能にします。
+#
+Workato での Oracle E-Business Suite への接続方法
+#
+前提条件
+Oracle E-Business Suite Integrated SOA Gateway
+(opens new window)
+をインストールします。
+Workato オンプレミスエージェント
+(opens new window)
+をインストールします。
+Oracle EBS で、「user」の名前で User PL/SQL REST サービス (内部名 : FND_USER_PKG) をデプロイメントします。PL/SQL REST サービスをインストールする手順は以下のとおりです。
+a. Oracle EBS にログインします。
+b. メインメニューから、
+[Integrated SOA Gateway]
+>
+[Integration Repository]
+を選択します。
+Oracle Applications のホームページ
+c.
+[Search]
+を選択します。
+[Search] の選択
+d. インターフェイス名「user」を検索し、内部名が
+FND_USER_PKG
+であるサービスを選択します。
+FND_USER_PKG の検索
+e.
+[REST Web Services]
+タブに移動します。サービス名に「user」と入力し、
+[Deploy]
+を選択します。
+REST Web サービスを検索し、「user」を入力する
+#
+Workato でのコネクションの確立
+レシピの
+[Connections]
+タブ、またはアカウントの
+コネクションページ
+(opens new window)
+から Oracle EBS コネクションを作成します。
+コネクションを作成するには、
+[Oracle E-Business Suite]
+を選択し、必要な項目に入力して、
+[Connect]
+をクリックします。この時点で、Workato は上記の
+User サービス名
+で指定された REST サービスを使用して、Oracle EBS インスタンスに対して単純な「hello world」テストを行います。
+テストが成功したら、ボタンの横に緑色の成功メッセージが表示されます。
+新しい Oracle E-Business Suite コネクションの作成
+項目は以下のとおりです。
+Connection name:
+特定の Oracle EBS インスタンスを識別する名前 (例 : HR Sandbox) を使用します。
+On-prem secure agent:
+Oracle EBS インスタンスにインターネットから直接アクセスできない場合、Workato は
+オンプレミスエージェント
+を介して接続する必要があります。この Oracle EBS インスタンスへのネットワークアクセスを持つ、適切なアクティブ状態のオンプレミスエージェントを選択します。
+Instance URL:
+Oracle SOA ゲートウェイ上で有効にされている REST サービスにアクセスできるベース URL。
+Username:
+Oracle SOA ゲートウェイ上の REST サービスにアクセスするために Workato で使用するユーザー名。
+Password:
+上記のユーザー名に対応するパスワード。
+User service name:
+これは接続性をテストするためにのみ使用されます。
+←
+トラブルシューティング
+Oracle Fusion Cloud
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

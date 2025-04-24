@@ -1,0 +1,171 @@
+Workato connector - Dropbox - New lines in CSV file trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Dropbox
+#
+Dropbox - New and new/updated lines in CSV file triggers
+#
+New lines in CSV file trigger (real-time)
+On recipe start, trigger will pick up all existing lines in the CSV file. Individual jobs will be processed for each new line updated. Trigger will not pick up lines subsequently added to the file.
+New lines in CSV file real-time trigger
+#
+Input fields
+Field name
+Description
+File / File path
+The CSV file to monitor for new lines.
+Column separator
+The delimiter separating the values.
+#
+Output fields
+The output fields of this trigger correspond to the values of updated columns of the chosen CSV file.
+#
+New lines in CSV file trigger (batch)
+On recipe start, trigger will pick up all existing lines in the CSV file. Each batch of new lines will be processed as a single trigger event.
+Trigger will not pick up lines subsequently added to the file.
+New lines in CSV file batch trigger
+#
+Input fields
+Field name
+Description
+File / File path
+The CSV file to monitor for new lines.
+Column separator
+The delimiter separating the values.
+Batch
+Number of CSV lines to be picked up in a single job. Defaults to 100.
+File encoding type
+Default encoding type is set to UTF-8, typically doesn't need to be changed.
+#
+Output fields
+The output fields of this trigger correspond to the values of updated columns of the chosen CSV file trigger and will output them as an array of rows. The Batch datapill indicates that the output is a list containing data for each row in that batch.
+Batch datapill
+#
+New/Updated lines in CSV file trigger (real-time)
+CSV file must have a column containing datetime that line was updated (create counts as an update). When recipe is first started, lines updated after the From datetime will be picked up. Subsequently, any line with an updated datetime will be picked up.
+New/Updated lines in CSV file real-time trigger
+#
+Input fields
+Field name
+Description
+File / File path
+The CSV file to monitor for new lines.
+Column separator
+The delimiter separating the values.
+From
+New/updated lines after this time will be processed by the recipe. If left blank, the default date will be set to
+one day
+before the recipe is first started.
+#
+Output fields
+The output fields of this trigger correspond to the values of updated columns of the chosen CSV file.
+←
+New/updated CSV trigger
+New file revision trigger
+→
+Last updated:
+8/29/2020, 3:26:57 PM
+On this page
+New lines in CSV file trigger (real-time)
+New lines in CSV file trigger (batch)
+New/Updated lines in CSV file trigger (real-time)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

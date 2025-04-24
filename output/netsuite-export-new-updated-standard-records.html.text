@@ -1,0 +1,147 @@
+Workato connectors - NetSuite - Export new/updated standard records | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite trigger - Export new/updated standard records
+This record exports a CSV of newly created or updated standard records from NetSuite every polling interval. Each field in the record represents a column in the resultant CSV. Use this trigger to replicate records from NetSuite to your data warehouse like Snowflake.
+#
+Input fields
+Input field
+Description
+Standard object
+The NetSuite standard object to export
+When first started, this recipe should pick up events from
+Optional
+When this recipe starts for the first time, this trigger picks up newly created or updated records from this specified date and time. These records will formatted as a single CSV for the first job of this recipe. Learn more about this
+input field
+.
+Schedule settings
+This allows you to schedule this trigger to run only every set time interval. We recommend exporting records on a longer time interval.
+Output field configuration
+Optional
+Select the standard fields, custom fields, line item custom fields, that you want to export.
+When exporting records to form the CSV, fetch them in batches of
+Optional
+The batch size when we export records from NetSuite. Make this batch size smaller if your recipe is facing timeout issues.
+#
+Output fields
+Output field
+Description
+File content
+The CSV file representing the records.
+Object name
+The name of the selected object
+Object schema
+An array representing the schema of the record, allowing you to replicate schema in our Database connectors.
+Created or Updated from
+The timestamp from which this trigger started pulling records from.
+←
+Export new custom records
+Export new/updated custom records
+→
+Last updated:
+4/11/2025, 3:43:24 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

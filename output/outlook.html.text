@@ -1,0 +1,507 @@
+Workato connectors - Outlook | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Outlook
+Outlook
+(opens new window)
+is a personal information manager from Microsoft that is part of the Microsoft Office suite. It includes email, calendaring, contacts, and task services.
+#
+API version
+The Outlook connector uses the
+Microsoft Graph API v1.0
+(opens new window)
+.
+#
+How to connect to Outlook
+Workato supports the following types of connections to Outlook:
+Authorization code grant authentication (OAuth 2.0)
+Client credentials-based authentication (OAuth 2.0)
+:
+Only available for tenant-specific connections
+#
+Authorization code grant authentication (OAuth 2.0)
+This authentication method requires the following value for tenant-specific account types:
+Tenant ID/Domain
+#
+Step 1: Register the Workato App in Azure portal
+Complete the following steps to register the Workato app and assign it permissions for authorization code grant connections.
+1
+Register the Workato app in the Azure Portal
+1
+Sign in to the
+Azure portal
+(opens new window)
+.
+2
+Select
+App registrations > + New registration
+, under
+Azure services
+.
+3
+Enter a unique name for the application and select a
+Supported account type
+.
+4
+Select
+Web
+from the
+Select a platform
+drop-down menu.
+5
+Enter
+https://www.workato.com/oauth/callback
+as the
+Redirect URI
+and select
+Register
+.
+Register an app
+2
+Assign permissions to your app
+1
+In the navigation sidebar, select
+Manage > API permissions
+.
+2
+Click
++ Add a permission
+and select
+Microsoft Graph APIs
+.
+3
+Add the required permissions as outlined in the
+Permissions required to connect
+section. Depending on your connection type, you must assign
+Application
+or
+Delegated
+permissions.
+Add permissions
+4
+Click
+Add permissions
+.
+Admin consent is required for specific permissions. Refer to the
+Granting admin consent
+section to learn more.
+3
+Obtain the Directory (tenant ID) from the Azure portal
+This step is required if you plan to use a tenant-specific account. You can skip this step if you plan to use a common, consumer, or organization account type for your connection.
+1
+Go to the
+Overview > Essentials
+section.
+App details
+2
+Copy the
+Directory (tenant) ID
+for use in Workato.
+#
+Step 2: Complete setup in Workato
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Outlook
+as your connection in the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Connection account type
+drop-down menu to select the type of account you plan to use. The available choices are
+Common
+,
+Tenant-specific
+,
+Consumer
+, and
+Organization
+.
+Common
+: This option allows you to sign in using enterprise and multi-tenant accounts that are not restricted to a specific organization (tenant).
+Common connections
+Tenant specific
+: This option is specifically designed for users who belong to a particular organization (tenant).
+Tenant specific connections
+Provide the
+tenant ID
+of the Microsoft Entra ID tenant (a GUID) or its
+tenant domain
+in the
+Tenant ID/Domain
+field. This ensures that you access resources specifically configured for that tenant.
+Learn how to obtain this value
+.
+Consumer
+: This option supports personal Microsoft accounts.
+Consumer connections
+Organization
+: This option supports work or school accounts.
+Organization connections
+6
+Select
+Authorization code grant
+as the
+Authentication type
+.
+7
+Optional.
+By default, the connector requests a set of scopes necessary for all triggers and actions to function properly. In the
+Advanced settings
+section, you can manually select the permissions instead. The minimum permissions required to establish a connection are
+User.Read
+and
+offline_access
+. Workato always requests these permissions regardless of the permissions you select. Refer to the
+permissions
+section for more information.
+8
+Click
+Sign in with Microsoft
+.
+#
+Client credentials-based authentication (OAuth 2.0)
+COMPATIBLE AUTHENTICATION
+Client credentials-based authentication is only compatible with tenant-specific connections.
+This method requires the following fields:
+Tenant ID/Domain
+User ID
+Client ID
+Client Secret
+#
+Step 1: Register the Workato App in the Azure Portal
+Complete the following steps to register the Workato app and assign it permissions for client credentials-based connections.
+1
+Register the Workato App in the Azure Portal
+1
+Sign in to the
+Azure portal
+(opens new window)
+.
+2
+Select
+App registrations > + New registration
+, under
+Azure services
+.
+3
+Enter a unique name for the application and select a
+Supported account type
+.
+4
+Select
+Web
+from the
+Select a platform
+drop-down menu.
+5
+Enter
+https://www.workato.com/oauth/callback
+as the
+Redirect URI
+and select
+Register
+.
+Register an app
+2
+Assign permissions to your app
+1
+In the navigation sidebar, select
+Manage > API permissions
+.
+2
+Click
++ Add a permission
+and select
+Microsoft Graph APIs
+.
+3
+Add the required permissions as outlined in the
+Permissions required to connect
+section. Depending on your connection type, you must assign
+Application
+or
+Delegated
+permissions.
+Add permissions
+4
+Click
+Add permissions
+.
+Admin consent is required for specific permissions. Refer to the
+Granting admin consent
+section to learn more.
+3
+Generate an API key
+1
+Go to
+Manage > Certificates & Secrets > Client secrets
+and click
++ New client secret
+.
+2
+Provide a
+Description
+for the client secret and specify an expiry date.
+3
+Click
+Add
+. Copy and save this secret for use in Workato.
+4
+Obtain the Application (client) ID, Object ID, and Directory (tenant) ID from the Azure Portal
+1
+Go to the
+Overview > Essentials
+section.
+App details
+2
+Copy the
+Application (client) ID
+,
+Object ID
+, and
+Directory (tenant) ID
+for use in Workato.
+5
+Obtain the User ID from the Azure Portal
+1
+Go to
+Home > Users
+to obtain the
+User ID
+.
+Select users
+2
+Search for and select the default user you plan to use to perform operations. This user does not establish the connection but is required for performing certain operations that an app can't perform. It is also required in picklists to pull user data. For example the folder picklist populates folders belonging to the default user.
+3
+Copy the
+User principal name
+. Use this value as the
+User ID
+in Workato.
+Return to Workato to finish setting up your connection.
+#
+Step 2: Complete setup in Workato
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Outlook
+as your connection in the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Select
+Tenant specific
+as the
+Connection account type
+. This option is specifically designed for users who belong to a particular organization (tenant).
+6
+Provide your
+Tenant ID/Domain
+. This is the
+Directory (tenant) ID
+for your app. Refer to the
+Register an app in Azure
+section to learn how to obtain this value.
+7
+Select
+Client credentials
+as the
+Authentication type
+.
+8
+Supply the
+User ID
+,
+Client ID
+, and
+Client secret
+for your app. Refer to the
+Register an app in Azure
+section to learn how to obtain these values.
+9
+Click
+Sign in with Microsoft
+.
+#
+Permissions required to connect
+#
+Default scopes for authorization code grant connections
+By default, the Outlook connector requests the following scopes for authorization code grant connections. These scopes are necessary to use all of this connector's triggers and actions. Additionally, you must assign these permissions to the Workato app as
+Delegated
+permissions in the Azure portal.
+Mail.Send
+Mail.ReadWrite
+Mail.ReadWrite.Shared
+Calendars.ReadWrite
+Calendars.ReadWrite.Shared
+User.Read
+offline_access
+#
+Minimum scopes for authorization code grant connections
+The following minimum scopes are required to establish a connection to Outlook using authorization code grant authentication:
+User.Read
+offline_access
+#
+Default scopes for client credential connections
+We recommend the following scopes for client credentials connections. These scopes are necessary to use all of this connector's triggers and actions. Additionally, you must assign these permissions to the Workato app as
+Application
+permissions in the Azure portal.
+Calendars.Read
+Calendars.ReadWrite
+Contacts.Read
+Contacts.ReadWrite
+Mail.Read
+Mail.ReadWrite
+Mail.Send
+#
+Minimum scopes for client credential connections
+The following minimum scopes are required to establish a connection to Outlook using client credentials-based authentication:
+Mail.Read
+#
+Connect Microsoft Entra ID to the Outlook connector
+To connect to the Outlook connector using a Microsoft Entra ID account, ensure that all the consent requests are granted by admins.
+Complete the following steps to grant admin consent using an admin account:
+1
+Sign in to your Azure portal and navigate to
+Enterprise Applications > Activity > Admin consent requests
+.
+2
+Approve the necessary consent requests.
+←
+Triggers
+Create a Custom OAuth profile
+→
+Last updated:
+1/16/2025, 3:49:14 PM
+On this page
+API version
+How to connect to Outlook
+Authorization code grant authentication (OAuth 2.0)
+Client credentials-based authentication (OAuth 2.0)
+Permissions required to connect
+Connect Microsoft Entra ID to the Outlook connector
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,201 @@
+Workato connectors - NetSuite | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+NetSuite
+NetSuite
+(opens new window)
+is a cloud business management suite that offers comprehensive software solutions for organizations, including support for ERP/Financials, CRM, and e-commerce.
+#
+API version
+The NetSuite connector uses the WSDL from the SuiteTalk 2024_1 API. This gives you the latest access to objects introduced in past API versions. A variety of new fields for objects have also been introduced.
+#
+Connect to NetSuite on Workato
+You can connect to NetSuite through token-based authentication. You must first generate an application ID, a consumer key, a consumer secret, a token ID, and a token secret.
+We recommend that you reference our video channel for instructions on "How to connect to NetSuite":
+See
+Connect to NetSuite on Workato
+for detailed steps on how to connect to Netsuite through token-based authentication.
+#
+Common NetSuite fields
+The NetSuite connector can retrieve your standard or custom NetSuite objects and the associated set of standard and custom fields. When you configure your trigger or action, you must first select the specific object for interaction.
+See
+Common NetSuite fields
+for details.
+#
+Triggers
+Workato has the following triggers for NetSuite:
+Export new and updated standard or custom records trigger (bulk)
+New classification object trigger
+New standard object and new custom object trigger
+Updated standard object and updated custom object trigger
+New standard object and new custom object batch trigger
+New saved search result for object trigger
+New/updated saved search result for object trigger
+Export new standard records
+Export new custom records
+Export new/updated standard records
+Export new/updated custom records
+#
+Actions
+Workato has the following actions for Netsuite:
+Create standard object and create custom object action
+Create standard object and create custom object in bulk action
+Create standard record and create custom record in batch action
+Get all standard objects action
+Get case comments action
+Search standard objects action
+Search custom objects action
+Update standard object and update custom object action
+Update records in batch
+Update records in bulk
+Upsert records in batch
+Upsert records in bulk
+Get case comments action
+#
+Unsupported records
+There are certain records that triggers and search actions do not support, as they cannot be queried via the NetSuite API.
+Users can use the
+Get all standard records
+action to retrieve these objects not found in search actions or triggers:
+Budget category
+Campaign audience
+Campaign category
+Campaign channel
+Campaign family
+Campaign offer
+Campaign search engine
+Campaign subscription
+Campaign vertical
+Currency
+Lead source
+State
+Support case issue
+Support case origin
+Support case priority
+Support case status
+Support case type
+Tax account
+The following records are not supported:
+Campaign response
+Item revision
+Landed cost
+Sales tax item
+Tax group
+Tax type
+Currency revaluation
+Payroll adjustment
+Inventory worksheet
+←
+Update people profile action
+Connection setup
+→
+Last updated:
+10/17/2024, 2:00:37 AM
+On this page
+API version
+Connect to NetSuite on Workato
+Common NetSuite fields
+Triggers
+Actions
+Unsupported records
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

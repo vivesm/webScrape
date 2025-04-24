@@ -1,0 +1,168 @@
+テーブルストレージ - 列の編集 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workflow Apps
+テーブルストレージ
+データテーブル
+#
+列の編集
+テーブルにデータがある場合、
+列のタイプ
+を変更することはできません。変更しようとすると、Workatoは警告メッセージを表示します。
+また、
+列を必須に設定
+した場合、テーブルにデータがあるとこの設定を変更することはできません。
+データが含まれている場合、列のタイプを変更できません
+列を編集するには、次の手順を実行します：
+1
+列名の上にカーソルを合わせます。
+2
+...（省略記号）をクリックします。
+3
+属性の編集
+を選択します。
+4
+列の属性を編集します。
+5
+変更を保存
+をクリックします。
+#
+キーボードショートカットを使用して列を編集する
+#
+macOS
+1
+列を編集するには、列のセルを選択し、
+enter
+キーを押します。
+2
+変更内容を保存するには、
+command + s
+を押します。
+#
+Windows
+1
+列を編集するには、列のセルを選択し、
+enter
+キーを押します。
+2
+変更内容を保存するには、
+ctrl + s
+を押します。
+データテーブルとの対話に使用できるキーボードショートカットの完全なリストについては、
+キーボードショートカット
+を参照してください。
+#
+列の順序を変更する
+テーブル内の列の順序を変更するには、列をドラッグアンドドロップして新しい位置に移動します。
+列の順序を変更するには、次の手順を実行します：
+1
+列名の上にカーソルを合わせます。
+2
+カーソルが手のイメージに変わるのを待ちます。
+3
+列をクリックして、新しい位置にドラッグします。
+←
+列の作成
+列の削除
+→
+Last updated:
+2025/1/27 16:16:23
+On this page
+キーボードショートカットを使用して列を編集する
+macOS
+Windows
+列の順序を変更する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

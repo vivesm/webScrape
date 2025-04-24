@@ -1,0 +1,207 @@
+Workato connectors - Box Create sign request action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Box
+#
+Create sign request action
+The
+Create sign request
+action allows you to create a sign request in Box. You can set up email notifications for signers, choose from predefined sign templates, and define the number of files for signature.
+Box - Create sign request action
+#
+Input
+Input field
+Description
+Name
+Enter a name for the sign request.
+Sign template
+Select a predefined sign template or input a template ID. This fetches signers, source files, and destination folder details.
+Files
+List the files you plan to include in the sign request. This field is limited to 10 files.
+Signers
+Add up to 35 signers for the request. Signers do not need an existing Box account.
+Destination folder
+Choose the folder where you plan to store the signed documents and signing log.
+Enable Reminders
+Toggle to send reminders to signers on predefined days.
+Enable text signature
+Toggle to allow text-based signatures.
+Validity days
+Specify the number of days before the request expires.
+Default declined redirect URL
+Set a URL where signers are redirected to if they decline to sign.
+Email message
+Write a message to include in the sign request email.
+Email subject
+Set a subject line for the sign request email.
+External ID
+Associate the sign request with an ID from an external system.
+Is document preparation needed?
+Indicate if document preparation is required before sending.
+Is phone verification needed?
+Decide if signers must verify their identity through text message.
+Prefill tags
+Set tags for prefilling document content.
+Redirect URL
+Provide a URL where signers are redirected to upon signing.
+#
+Output
+Output field
+Description
+ID
+Unique identifier for the sign request.
+Type
+The type of action performed.
+Are reminders enabled
+Status of reminder enablement.
+Are text signatures enabled
+Status of text signature enablement.
+Auto expire at
+Timestamp when the request will automatically expire.
+Days valid
+Number of days the request remains valid.
+Declined redirect URL
+URL where signers are redirected if they decline to sign a document.
+Email message
+Email message content sent with the sign request.
+Email subject
+Subject line of the sign request email.
+External ID
+An external identifier for the sign request.
+Is document preparation needed
+Indicates if document preparation is required.
+Is phone verification required to view
+Indicates if phone verification is required to view the document.
+Name
+Name given to the sign request.
+Parent folder
+Folder where the signed document is stored.
+Prefill tags
+Tags used for prefilling content in the document.
+Prepare URL
+URL provided for document preparation.
+Redirect URL
+URL for redirecting after the document is signed.
+Sign files
+Files that are part of the sign request.
+Signature color
+Color specified for the signature.
+Signers
+List of signers involved in the sign request.
+Signing log
+Log detailing the signing process.
+Source files
+Original files used for the sign request.
+Status
+Current status of the sign request.
+Template ID
+The ID of the template used in the request.
+←
+New/updated metadata trigger
+Cancel sign request action
+→
+Last updated:
+3/28/2024, 6:15:43 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

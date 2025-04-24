@@ -1,0 +1,146 @@
+Workato connectors - Zendesk get list of custom object records by external id action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Zendesk
+#
+Zendesk - Get list of custom object records by external id action
+Zendesk allows you to configure custom objects to model, store, and retrieve objects that are not native to Zendesk (for example, Tickets, Users, Organization). Find out more
+here
+.
+This action retrieves a list of custom object records that matches a search by external ID. Only results in your Zendesk instance that matches the criteria will be returned.
+Get list of custom object records by external ID action
+#
+Input fields
+Input field
+Description
+Custom object
+Select a custom object type for your search.
+External ID
+The external ID of the custom objects. You can query multiple external IDs with a
+,
+separator.
+#
+Output fields
+The output of this action contains the full set of columns from the selected custom object type.
+Output field
+Description
+Type
+The name of the custom object type.
+ID
+The unique Zendesk ID for the custom object record. This is automatically assigned when the record is created.
+External ID
+A unique identifier from another system.
+Date created
+The time the custom object record was created.
+Date updated
+The time the custom object record was updated.
+Attributes
+Includes data of custom object custom fields.
+List size
+The size of the list, corresponding to the number of custom objects retrieved.
+←
+Get organization details by ID
+Get custom object record by ID
+→
+Last updated:
+7/2/2021, 10:09:23 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

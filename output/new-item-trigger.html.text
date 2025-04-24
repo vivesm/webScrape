@@ -1,0 +1,156 @@
+Monday - New Item Trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Monday
+#
+Monday - New item trigger
+The
+New item
+trigger runs the recipe when a new item is created in Monday.
+#
+Input
+Input field
+Description
+Board name
+Enter the name of the board to monitor.
+When first started, this recipe should pick up events from
+Set the date and time for the trigger to start picking up items when the recipe runs for the first time. Defaults to 1 hour ago if left blank. You can't change this value after the recipe runs or tests successfully.
+#
+Output
+Output field
+Description
+ID
+The unique identifier of the item.
+Created at
+The time the item was created.
+Event
+Given event name.
+Entity
+Given entity name.
+Account ID
+The account’s unique identifier.
+User ID
+The user’s unique identifier.
+Board ID
+The board’s unique identifier.
+Group ID
+The group’s unique identifier.
+Group name
+Given group name.
+Group color
+The color associated with group.
+Is top group
+Indicates whether the item belongs to the top group.
+Item ID
+The item’s unique identifier.
+Pulse name
+Given pulse name.
+←
+Connection setup
+New moved item to group trigger
+→
+Last updated:
+2/26/2025, 6:26:37 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

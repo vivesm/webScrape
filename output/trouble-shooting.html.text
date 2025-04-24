@@ -1,0 +1,182 @@
+Workato connectors - Troubleshooting help | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SQL Server
+#
+Troubleshooting
+During the design stage of recipes, errors are bound to happen. Here are some more common ones relating to databases that we've seen so we decided to compile them into a list!
+Check out our troubleshooting section as well for more help.
+If it still doesn't work or you cant find your particular error over here, contact our customer support and they would be more than happy to help!
+#
+Recipe design-time errors
+#
+Timeouts
+Workato employs
+timeouts on jobs and actions
+when they take too long to execute. When working with databases, this could be a common occurrence since queries and stored procedures may too long to respond. When this happens, consider doing the following:
+#
+Action timeouts (One specific step times out)
+Limiting the number of rows returned further
+Introducing indexes in your database
+Optimizing custom SQL queries (i.e. eliminating unnecessary joins)
+#
+Job timeouts (One entire run of a recipe times out)
+Separating recipes and using
+Recipe functions
+to trigger workflows
+Use asynchronous calls when calling recipe functions
+Eliminating unnecessary actions
+#
+Unable to connect to existing database
+When your database connection returns an error when you try to connect, here are some possible reasons:
+On-premises agent is inactive (when using an on-premises agent) and needs to be
+restarted
+.
+Credentials to your database have changed. Contact your database administrator for help.
+Your database server does not accept network requests from Workato or the server that has our OPA installed. Configure your network access control to allow access to Workato or our OPAs.
+#
+Logic errors
+#
+Infinite loops
+Infinite loops can occur in Workato when actions inside a recipe trigger the recipe yet again. This is not exclusive to databases.
+Here are some ways you can detect and solve them
+.
+When building recipes that are triggered on new rows in a table as well as inserting rows into that same table i.e. performing some data enrichment or data transformation on existing data, here are some ways to prevent infinite loops from occurring:
+Creating a column in your table that denotes whether that same column as been processed by Workato (detailed further in our infinite loop documentation)
+Creating separate tables for raw unprocessed data and transformed data
+#
+Multiple copies of the same record
+When using insert actions, job runs that raise errors but have completed the insert row action step will reinsert rows when the job is repeated. This could result in multiple copies of the same record being inserted. Consider using upsert actions that can first search for an existing record before updating one if found or inserting a new record. Find out different use cases and when to use either in our
+best practices
+.
+#
+Missing values
+SQL server allows you to validate new data before inserting them into tables to ensure data integrity using
+CONSTRAINTS
+. Constraints on data can be defined in SQL server itself when tables are created or altered and are used to make sure data integrity is maintained. You may not be aware of these constraints when designing a recipe. For example, a column that has a UNIQUE constraint cannot be guaranteed until an actual job is run. During recipe run-time, errors will be raised when these constraints are violated. The following screenshot shows a job error when no input is given for a field that has a
+PRIMARY KEY
+constraint:
+Here are some possible reasons and fixes for missing values:
+Your primary key column is not auto-incrementing. Alter the column to be an identity column which auto-increments after every insert
+The column has an
+unique
+constraint and results duplicate values being rejected. Consider using the upsert action to update record instead of inserting a new one.
+The datapill entered during recipe run-time returned a
+NULL
+value. When this was inserted in a column with
+NOT NULL
+constraint, an error was thrown.
+More info here.
+Consider adding logical checks for
+NULL
+values and passing default values in when need. This can be accomplished with
+Workato's formula mode.
+←
+Use Cases
+Stripe
+→
+Last updated:
+7/10/2024, 4:00:51 AM
+On this page
+Recipe design-time errors
+Logic errors
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

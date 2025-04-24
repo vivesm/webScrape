@@ -1,0 +1,188 @@
+Workato connectors - Snowflake Bulk Load from stage | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Snowflake
+#
+Snowflake - Bulk load to table from stage
+Load a file from a Snowflake stage into a target table. This action uses the
+COPY
+(opens new window)
+command to load data directly from a stage to a target table. When working with internal stages, you should use this action together with "
+Bulk load to an internal stage
+".
+This action will execute the load and wait for completion before moving onto the next step. Load time depends on the size of source file, number of columns, additional validation in the target table and network speed (faster if loading data from S3 to an AWS-deployed Snowflake instance).
+1 GB
+CSV file with
+30 columns
+and
+3 million rows
+will take 60 seconds.
+The source file can contain data in CSV format, JSON, PARQUET, and
+other semi-structured file types
+(opens new window)
+.
+#
+Input fields
+Input field
+Description
+Table
+Select a target table to load data into. Typically, this is a staging table for loading data. Subsequently, rows in this table is merged into your production table.
+Stage name
+Select an existing stage in Snowflake. If a file is not specified in this stage, all new files will be loaded. If using an external stage, this external stage should contain information about file location, AWS credentials, encryption, and file format details.
+Learn how to create an
+S3 external stage
+.
+File name
+Specify a list of one or more file names (separated by commas) to be loaded. If left unspecified, all files from the stage will be loaded. Ensure that these files have already been staged in either the Snowflake internal or external stage.
+Learn more
+.
+File Format
+Specify the file format you would like to apply to the data. By default, the Snowflake default format will be applied to the
+COPY
+command.
+#
+Output Fields
+Output field
+Description
+Source file name
+Relative path and name of the source file.
+Sample Values:
+External Stage
+: s3://bucket-name/parent_folder/file_name.csv
+Internal Stage
+: @stage_name/folder/file_name.csv
+Status
+Values
+Description
+LOADED
+All rows successfully loaded.
+LOAD FAILED
+Unsuccessful load. Entire data file was not loaded.
+PARTIALLY LOADED
+Unsuccessful load. Data file was partially loaded. Use
+First error line
+to find out exactly where the load failed.
+Rows parsed
+Number of rows read from the source file.
+Rows loaded
+Number of rows successfully loaded from the source file into target table.
+Error limit
+If the number of errors reaches this limit, then abort the load. This is typically
+0
+, meaning that the load will abort on the first error.
+Errors seen
+Number of rows with error in the source file.
+First error
+Error details of the first error in the source file.
+First error line
+Line number of the first row that caused an error.
+First error character
+Position of the first character that caused an error.
+First error column name
+Column name where the first error occurred.
+←
+Upload file to internal stage
+Replicate rows action
+→
+Last updated:
+1/29/2024, 3:33:15 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

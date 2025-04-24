@@ -1,0 +1,192 @@
+Workato connectors - Wrike - List attachments batch action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - List attachments action (batch)
+The
+List attachments
+batch action retrieves Wrike attachments for the entire workspace or filtered by task or folder.
+#
+Input
+Input field
+Description
+Created date range
+Filter attachments by creation date. Required when retrieving attachments from the entire Wrike account. The date range must be less than
+31 days
+.
+Retrieve attachment URLs
+Select
+Yes
+to generate temporary URLs for the attachments. The URLs are valid for
+24 hours
+. Defaults to
+No
+.
+Retrieve past versions?
+Select
+Yes
+to include previous versions of the attachments. Defaults to
+No
+.
+Folder ID
+Enter a folder ID to retrieve attachments from a specific folder. Toggle to
+Task ID
+to retrieve attachments from a specific task.
+#
+Output
+Output field
+Description
+Attachments list
+List of retrieved attachments.
+Attachment ID
+Unique identifier for the attachment.
+Author ID
+Unique identifier of the user who uploaded the attachment.
+File name
+Name of the attachment file.
+Created date
+Timestamp indicating when the attachment was created.
+Version
+Version number of the attachment.
+Attachment type
+Type of attachment.
+Content type
+MIME type of the attachment.
+Size
+File size of the attachment in bytes.
+Task ID
+Unique identifier of the associated task, if applicable.
+Folder ID
+Unique identifier of the associated folder, if applicable.
+Comment ID
+Unique identifier of the associated comment, if applicable.
+ID of current attachment version
+Unique identifier of the most recent version of the attachment.
+Preview URL
+URL to preview the attachment.
+Download URL
+URL to download the attachment.
+Video playlist URL
+URL to access the attachment as a video playlist, if applicable.
+Review IDs
+List of review IDs associated with the attachment.
+Width
+Width of the attachment, if applicable.
+Height
+Height of the attachment, if applicable.
+ID of origin attachment version
+Unique identifier of the original version of the attachment.
+List size
+Total number of attachments retrieved in the batch.
+List index
+Position of the current attachment in the batch.
+←
+List approvals batch action
+List custom fields batch action
+→
+Last updated:
+2/26/2025, 10:21:24 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

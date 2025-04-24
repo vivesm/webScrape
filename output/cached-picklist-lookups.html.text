@@ -1,0 +1,127 @@
+Microsoft Dynamics 365 - キャッシュされたピックリストのルックアップ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Microsoft Dynamics 365
+#
+キャッシュされたピックリストのルックアップ
+Microsoft Dynamics 365 API では、ピックリストフィールドにはピックリストの選択肢の内部値のみが返されます。たとえば、取引先責任者が働く業種を示す [Contact industry] ピックリストでは、選択したピックリストオプションを表す値として、「Retail」、「Energy」、「Education」などのコンテキストに応じた値ではなく、「100000000」という内部値が返されます。
+このようなコンテキストに応じたピックリストラベルは統合に重要であり、Workato では一般的にアプリに依存しない値へと移行しているため (「100000000」は同一のピックアップリストを使用していない別のアプリでは意味を持たない)、キャッシュされたピックリストのルックアップサポートをコネクターに組み込んでいます。
+このようなルックアップは Workato に格納されている外部 Lookup table のように機能します。またこの機能は Dynamics 365 に対して API ルックアップ呼び出しを行うわけではないため、効率的です。Workato で特定のレコード (商談レコードや顧客レコードなど) を初めて操作すると、そのレコードに対するピックリストおよびピックリストのオプションセットが保存されます。これ以降、同じレコードを操作するたびに、Microsoft Dynamics 365 へのルックアップ呼び出しを行う代わりに、これらのピックリスト値が Workato のキャッシュから取得されます。
+#
+単一選択ピックリスト
+単一選択ピックリストは、オブジェクト内のデータピルとして表示されます。すでに使用しているデータピルは引き続き利用できるため、この新しい機能によってレシピが使用できなくなることはありません。ただし「(deprecated)」(非推奨) と記載されており、新しいデータピルの使用に切り替えることをお勧めします。
+データツリー内の追加の単一選択ピックリストと非推奨のピックリストデータピル
+#
+複数選択データピル
+複数選択ピックリストは、リスト内のデータピルとして表示されます。すでに使用しているデータピルは引き続き利用できるため、この新しい機能によってレシピが使用できなくなることはありません。ただし「(deprecated)」(非推奨) と記載されており、新しいデータピルの使用に切り替えることをお勧めします。
+データツリー内の追加の複数選択ピックリストと非推奨のピックリストデータピル
+#
+ピックリスト内の不足オプション
+特定のレコードタイプ (商談レコードや顧客レコードなど) を初めて操作すると、そのピックリストおよび選択可能なオプションが Workato によりキャッシュに入れられますが、Workato で保存されたピックリストは Microsoft Dynamics 365 アカウントで保存されているピックリストと必ずしも同期していません。
+スキーマの更新を実行しても、Workato のキャッシュに入っているピックリストは更新されません。更新するには、Microsoft Dynamics 365 アカウントを切断してから再接続してください。
+←
+オンプレミスの接続
+オブジェクトスキーマの取得
+→
+Last updated:
+2025/4/8 18:16:04
+On this page
+単一選択ピックリスト
+複数選択データピル
+ピックリスト内の不足オプション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

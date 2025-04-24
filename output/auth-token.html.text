@@ -1,0 +1,156 @@
+Auth Token | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API security
+Authentication
+#
+Auth token
+#
+Header
+An Auth token is the simplest way to authenticate an API request with Workato.
+How can I retrieve a new Auth token?
+You can retrieve an Auth token when you
+create a new access profile
+. You can only view this token once. If you lose the token, you will need to refresh and retrieve a new token.
+1
+Go to
+Platform > API Platform > Clients
+.
+2
+Click on the access profile you plan to retrieve an Auth token for.
+3
+Click the
+Refresh
+button next to the Auth token to generate a new one. Note that refreshing your Auth token will revoke access for clients using the current Auth token.
+Refresh the Auth token
+4
+Save your Auth token in a secure place.
+Configure a header with your Auth token. For example:
+-H
+'api-token: ed776fdfbf5003b4aa6bcaafea8f9003ffb6986454822ce7ebb3c1a8efc08348'
+Now, when an API request is made, Workato will read this header value and recognize that the request is from a verified access profile.
+#
+Basic authentication
+You can authenticate the API request using the
+basic auth scheme
+(opens new window)
+. Use
+api-token
+as the username and your token value as the password. For example, in curl, you can pass the following credentials with the
+-u
+option:
+-u
+api-token:ed776fdfbf5003b4aa6bcaafea8f9003ffb6986454822ce7ebb3c1a8efc08348
+This command automatically constructs the
+Authorization
+header in the following format:
+-H
+'Authorization: Basic <encoded api-token:token>'
+←
+Authentication
+OAuth 2.0
+→
+Last updated:
+9/18/2024, 11:07:51 PM
+On this page
+Header
+Basic authentication
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

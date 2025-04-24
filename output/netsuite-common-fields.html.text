@@ -1,0 +1,139 @@
+Workatoコネクター - NetSuite - 共通フィールド | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+NetSuite
+#
+共通のNetSuiteフィールド
+NetSuiteコネクターは、標準またはカスタムのNetSuiteオブジェクトと関連する一連の標準およびカスタムフィールドを取得することができます。トリガーまたはアクションを設定する際には、まず特定のオブジェクトを選択する必要があります。
+名前が変更されたオブジェクト；可能な不一致
+NetSuiteインスタンスのオブジェクトは名前が変更される場合があります。ただし、Workatoでは新しい名前ではなく元の名前で表示されます。NetSuiteの管理者と確認するか、オブジェクトがWorkato上で見つからない場合はお問い合わせください。
+アクションを設定する際には、選択したオブジェクトに属する標準およびカスタムフィールドのリストが表示されます。単に対話するためのフィールドを選択してください。
+NetSuiteフィールドセレクター
+これらのフィールドの一部は、NetSuiteのラベルではなく内部API名が表示されます。
+共通のNetSuiteフィールド
+のリストを参照してください。これらのフィールドの一部は、Workatoでは異なる名前で表示されます。
+内部ID
+すべてのNetSuiteレコードには一意の内部IDがあります。特定のNetSuiteレコードを表示する際にURLで見つけることができます。内部IDは通常、更新オブジェクトアクションの更新対象レコードを指定するために使用されます。作成オブジェクトアクションや検索オブジェクトアクションのデータツリーから取得できます。
+URLで表示される特定の販売注文の内部ID
+外部ID
+すべてのNetSuiteレコードには、他のシステムの対応するオブジェクトのIDを格納するための外部IDフィールドがあります。たとえば、NetSuiteの顧客の外部IDフィールドには、対応するSalesforceのIDを格納することができます。
+このフィールドはNetSuiteの標準フィールドですが、通常はデフォルトでは表示されません。
+ID
+Workatoでオブジェクトを別のオブジェクトにリンクする際には、通常、リンクするオブジェクトのIDをNetSuiteに要求されます。たとえば、トランザクションを作成し、このトランザクションをクラス、部門、または子会社にリンクしようとする場合、NetSuiteはオブジェクトのIDを要求します。これらのIDを見つけるには、通常、これらのオブジェクトを検索する必要があります。前述の例に従って、この状況ではクラス、部門、または子会社を検索する必要があります。または、NetSuiteインスタンスで検索を実行せずに簡単に参照するために、これらの値を
+ルックアップテーブル
+に保存することもできます。
+カスタムフィールド
+レシピは、選択したNetSuiteオブジェクトのカスタムフィールドを読み取ったり書き込んだりすることができます。すべてのカスタムフィールドは、親の
+カスタムフィールド
+の下にグループ化されます。
+NetSuiteの他のオブジェクトを参照するカスタムフィールドを使用する場合、内部IDまたは外部IDを使用してこれらのオブジェクトを参照することができます。外部IDを使用して別のオブジェクトを参照するには、指定された値に接頭辞を追加する必要があります。
+2020年5月19日の改善
+2020年5月19日以降、SandboxからProduction環境へのNetSuiteレシピの移行に関して重要な改善を行いました。これには、2020年5月19日以前に作成されたNetSuiteレシピに対して特定の手順を実行する必要があります。詳細は
+NetSuiteレシピの環境間移行
+をご覧ください。
+カスタムフィールドのTax Receipt No.とExternal ID
+アイテムリスト
+行アイテムを含むトランザクションオブジェクトの場合、各行アイテム内の利用可能なフィールドは、アイテムリストフィールド内にグループ化されています。
+作成された販売注文アクションで表示されるアイテムリスト
+←
+レシピの移行
+サポートされていないレコード
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

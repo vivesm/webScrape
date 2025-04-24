@@ -1,0 +1,143 @@
+Workato connectors - Wrike - List workflows batch action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - List workflows action (batch)
+The
+List workflows
+batch action retrieves all workflows and statuses in the connected Wrike instance. You can use workflow and status IDs in subsequent Wrike actions.
+#
+Input
+This action doesn't require any input.
+#
+Output
+Output field
+Description
+Workflow
+List of retrieved workflows.
+Workflow ID
+Unique identifier for the workflow.
+Space ID
+Unique identifier of the space associated with the workflow.
+Workflow name
+Name of the workflow.
+Standard workflow
+Indicates whether this is a standard workflow.
+Hidden
+Indicates whether the workflow is hidden from selection.
+Statuses
+List of statuses associated with the workflow.
+List size
+Total number of workflows retrieved in the batch.
+List index
+Position of the current workflow in the batch.
+←
+List users batch action
+Modify user action
+→
+Last updated:
+2/26/2025, 10:21:24 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

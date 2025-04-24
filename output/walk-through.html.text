@@ -1,0 +1,160 @@
+Callable Recipes - Walkthrough | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Callable recipes
+#
+Callable recipes - Walk-through
+THIS CONNECTOR IS DEPRECATED
+The
+Callable recipes
+connector has been replaced by the
+Recipe functions
+connector.
+Existing callable recipes will continue to function indefinitely
+, but new callable recipes can no longer be created. You can also continue to use callable recipes in other recipes.
+Check out the
+migration guide
+and
+Recipe functions FAQ
+for more info.
+Let’s take a look at an example to see how this works. Say you want to automate the process of creating an invoice in Quickbooks Online (QBO) when an opportunity is closed-won in Salesforce. The recipe logic would be
+Create a new customer if the customer does not exist
+.
+In order to create a QBO invoice, you’ll need to create a new customer if the customer does not already exist in QBO. Now, this snippet of logic: “creating a customer in QBO when they don’t already exist,” is a process that is necessary not only with your Salesforce to QBO integrations, but also when you have Point Of Sale (POS) transactions flowing into QBO, invoices you receive from your vendors and more. Instead of recreating the logic for “creating a customer in QBO when they don’t already exist,” you can make this snippet of logic into a Callable Recipe.
+#
+Create a new recipe
+Create a recipe as you normally would, and for the trigger, select
+Callable Recipe
+under the application picklist.
+Select callable recipe connector and call recipe action
+Fill in a Name for the recipe, and fill up the Input Schema and the Response Schema in the JSON Format.
+In simple terms, the input schema determines what fields will be shown and need to be filled in when a callable recipe action is created in the calling recipe. The Response schema determines what pills will be available for use in the calling recipes Output data.
+Learn more about
+New call for recipe
+trigger
+here
+.
+#
+Add steps to the recipe
+Next, create your set of actions for the recipe. For this example, you would create a set of standard de-duplication steps, run a search, and if the search gives no results, create a customer. If an existing customer is found, update the customer.
+#
+Call recipe
+Create a recipe that requires the logic from the callable recipe we created earlier. Set up the trigger as required, and when created the actions you need. When you need to call the callable recipe, simply select Add a new step, select
+call recipe
+, choose the recipe you created earlier, and you will see the fields from your
+input schema
+appear. Simply drag and drop the required pills and you'll be good to go!
+Learn more about
+Call recipe actions
+here
+.
+←
+Migrate To New Recipe Types
+Callable Recipe Trigger
+→
+Last updated:
+2/26/2025, 9:17:11 PM
+On this page
+Create a new recipe
+Add steps to the recipe
+Call recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,620 @@
+config_fields の使用 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+#
+How to ガイド - config_fields の使用
+入力/出力項目は、ユーザー入力によって変わることがあります。たとえば、アクションの入力項目が、同じアクションでのユーザー入力によって変わる場合などです。ここでは、
+config_fields
+について説明します。これは、アクションとトリガーの両方で利用できるオプションのキーであり、他の依存型の入力/出力項目を生成する際に使用できる、特殊なタイプの入力項目です。
+TIP
+config_fields キーをアクションとトリガーの両方で使用して、コネクターに動的な性質を持たせることができます。
+#
+サンプルコネクター - Chargebee
+{
+title
+:
+"Chargebee"
+,
+# More connector code here
+actions
+:
+{
+create_customer
+:
+{
+title
+:
+"Create object"
+,
+subtitle
+:
+"Create object in Chargebee"
+,
+description
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+"Create <span class='provider'>
+#{
+picklist_label
+[
+'object'
+]
+||
+'object'
+}
+</span> in <span class='provider'>Chargebee</span>"
+end
+,
+config_fields
+:
+[
+{
+name
+:
+"object"
+,
+label
+:
+"Object"
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+"objects"
+,
+optional
+:
+false
+}
+]
+,
+input_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+object_definitions
+[
+object
+]
+end
+,
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+post
+(
+"/api/v2/customers"
+,
+input
+)
+.
+request_format_www_form_urlencoded
+end
+,
+output_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+object_definitions
+[
+object
+]
+end
+}
+}
+,
+object_definitions
+:
+{
+customer
+:
+{
+fields
+:
+lambda
+do
+|
+connection
+,
+config_fields
+,
+object_definitions
+|
+get
+(
+"/api/v2/customers"
+,
+limit
+:
+1
+)
+.
+dig
+(
+'list'
+,
+0
+,
+'customer'
+)
+.
+map
+do
+|
+key
+,
+value
+|
+if
+value
+.
+is_a
+?
+(
+Integer
+)
+type
+=
+'integer'
+control_type
+=
+'number'
+else
+type
+=
+'string'
+control_type
+=
+'text'
+end
+{
+name
+:
+key
+,
+label
+:
+key
+.
+labelize
+,
+type
+:
+type
+,
+control_type
+:
+control_type
+,
+sticky
+:
+true
+}
+end
+end
+}
+}
+,
+pick_lists
+:
+{
+objects
+:
+lambda
+do
+[
+[
+"Subscription"
+,
+"subscription"
+]
+,
+[
+"Customer"
+,
+"customer"
+]
+,
+[
+"Plans"
+,
+"plan"
+]
+]
+end
+,
+}
+}
+Chargebee API
+(opens new window)
+#
+ステップ1 - アクションのタイトル、サブタイトル、説明、ヘルプ
+優れたアクションの作成に向けた最初のステップは、そのアクションが何をどのように実行するかを適切に伝え、さらにユーザーに追加のヘルプを提供することです。そのために Workato では、アクションのタイトルと説明を定義したり、ヒントを提供したりできるようにしています。簡単に言えば、タイトルはアクションの名称であり、サブタイトルはそのアクションのより詳しい内容を表します。続いて、アクションの説明は、接続先となるアプリケーションにおいてそのアクションがどのようなことを達成するかについて、仕様や解説を提供します。最後に、ヘルプのセグメントは、アクションをうまく機能させるために必要な追加情報をユーザーに提供します。
+このステップの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ2 - config_fields の定義
+config_fields
+キーを使用すると、最初にエンドユーザーから入力データを収集して、追加の入力項目を生成できます。このアクションでは、まずユーザーが作成したいオブジェクトを選択してから、その入力を使用して、選択したオブジェクトに関連する項目を生成します。
+config_fields
+:
+[
+{
+name
+:
+"object"
+,
+label
+:
+"Object"
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+"objects"
+,
+optional
+:
+false
+}
+]
+,
+ここでは、ドロップダウン入力項目の選択を示す
+select
+control_type を使用しています。このドロップダウンの有効なオプションは、
+objects
+ピックリストの
+Subscription
+、
+Customer
+、および
+Plans
+です。
+ユーザーには入力項目のように見える config_fields
+#
+ステップ3 - input_fields の定義
+config_fields が定義されると、
+input_fields
+lambda 関数に渡される
+config_fields
+引数を利用できるようになります。この引数から [Object] 入力ドロップダウンに指定された入力を参照して、適切な object_definitions にルーティングできます。
+input_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+object_definitions
+[
+object
+]
+end
+,
+たとえばユーザーがドロップダウンで
+Customer
+を選択した場合、
+input_fields
+キーが
+object_definition['customer']
+を呼び出します。
+object_definitions
+:
+{
+customer
+:
+{
+fields
+:
+lambda
+do
+|
+connection
+,
+config_fields
+,
+object_definitions
+|
+get
+(
+"/api/v2/customers"
+,
+limit
+:
+1
+)
+.
+dig
+(
+'list'
+,
+0
+,
+'customer'
+)
+.
+map
+do
+|
+key
+,
+value
+|
+if
+value
+.
+is_a
+?
+(
+Integer
+)
+type
+=
+'integer'
+control_type
+=
+'number'
+else
+type
+=
+'string'
+control_type
+=
+'text'
+end
+{
+name
+:
+key
+,
+label
+:
+key
+.
+labelize
+,
+type
+:
+type
+,
+control_type
+:
+control_type
+,
+sticky
+:
+true
+}
+end
+end
+}
+}
+,
+object_definition['customer']
+キーは2番目のリクエストを Chargebee に送信し、レスポンスを
+Workato スキーマ
+に変換します。
+Customerを選択すると追加の項目が作成される
+#
+ステップ4 - execute キーの定義
+execute キーでは、リクエスト送信先となるエンドポイントと、使用する HTTP リクエストメソッドを Workato に指示します。この例では、リクエストを
+/api/v2/customers
+エンドポイントに送信します。Chargebee では入力データを URL エンコード形式にする必要があるため、
+.request_format_www_form_urlencoded
+を使用します。
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+post
+(
+"/api/v2/customers"
+,
+input
+)
+.
+request_format_www_form_urlencoded
+end
+,
+#
+ステップ5 - 出力項目の定義
+出力項目については、ステップ3と同じロジックを使用して出力項目を作成します。
+output_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+object_definitions
+[
+object
+]
+end
+Customer を選択すると追加の項目が作成される
+オブジェクトの定義
+引数として
+object_definitions
+が渡されていることに注意してください。Workato では、コネクターの作成者が "object_definitions" キー内でオブジェクトの定義を独立して記述できるようになっています。このキーは、オブジェクトの定義が長大である場合や、定義が動的に取得される場合に使用されます。
+この詳細については、Workato の
+SDK リファレンス
+を参照してください。
+←
+コネクタのデバッグ
+Workato コネクター構築ガイド 上級
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サンプルコネクター - Chargebee
+ステップ1 - アクションのタイトル、サブタイトル、説明、ヘルプ
+ステップ2 - config_fields の定義
+ステップ3 - input_fields の定義
+ステップ4 - execute キーの定義
+ステップ5 - 出力項目の定義
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

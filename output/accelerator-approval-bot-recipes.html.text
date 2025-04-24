@@ -1,0 +1,157 @@
+Approvals bot accelerator- recipes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+Approval Bot, Slack/Microsoft Teams
+#
+Recipes for the Approval bot accelerator
+This accelerator contains a set of recipes to implement the Approval bot in Slack and a separate set of recipes to implement the Approval bot in Microsoft Teams.
+Recipes for Slack
+(located in approval-bot-slack.zip)
+Recipes for Microsoft Teams
+(located in approval-bot-msteams.zip)
+#
+Recipes for Slack
+ABS | REC-001 | Slack Request Parent Recipe
+This recipe triggers from a new/updated row in Google Sheets and calls the
+ABS | CALL-002 | Request to Slack
+recipe.
+ABS | CALL-002 | Request to Slack
+Sends the approval request to Slack.
+ABS | REC-003 | Approve/Reject Request from Slack
+After a request is approved or denied, this recipe updates the result and prompts the Slack workbot to post a message in Slack.
+ABS | REC-004 | Slack homepage Event
+This recipe calls the
+ABS | CALL-006 | Slack Update Homepage
+recipe.
+ABS | REC-005 | Pending Approval Summary
+Send reminders to the approvers you designate.
+ABS | CALL-006 | Slack Update Homepage
+Updates the dashboard overview with approval request outcomes.
+#
+Recipes for Microsoft Teams
+ABT | REC-001 | Requests from Source System
+This recipe triggers from a new/updated row in Google Sheets and calls the
+ABT | REC-002 | Approve/Reject Request from Microsoft Teams
+recipe.
+ABT | REC-002 | Approve/Reject Request from Microsoft Teams
+ends the approval request to Microsoft Teams.
+ABT | REC - 003 | Approvals Home Tab
+Searches for new approval requests and posts updates as workbot in Microsoft Teams.
+ABT | REC - 004 | Sub Menu items
+Updates
+Approval Bot- Microsoft Teams
+lookup table.
+ABT | REC - 005 | Show requests
+Posts requests to Microsoft Teams as workbot.
+ABT | REC-006 | Pending Requests Reminders
+Send reminders to the approvers you designate.
+ABT | CALL-007 | Request to Microsoft Teams
+Updates Microsoft Teams with approval request outcomes.
+←
+Start
+Assets
+→
+Last updated:
+2/22/2024, 11:17:11 PM
+On this page
+Recipes for Slack
+Recipes for Microsoft Teams
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

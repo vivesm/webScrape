@@ -1,0 +1,174 @@
+Workato connectors - PostgreSQL Run Long Query with Custom SQL | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+PostgreSQL
+#
+PostgreSQL - Run long query using custom SQL action
+This action allows you to run custom SQL queries asynchronously, within the timeout configured. It can be used to execute Data Manipulation Language (DML) statements like
+INSERT
+,
+UPDATE
+, and
+DELETE
+, as well as Data Definition Language (DDL) commands, like
+CREATE
+,
+ALTER
+, and
+DROP
+.
+After the custom SQL query begins processing, Workato checks periodically to see if the query results are ready to be retrieved. When the results have been successfully retrieved, Workato proceeds to the next steps in the recipe.
+#
+Why you should use long queries
+When a large dataset is being uploaded (
+INSERT
+) or updated (
+UPDATE
+), the action may take a long time to respond. If it exceeds the timeout limit, it will cause the recipe to fail due to a timeout error.
+Running the SQL query asynchronously allows you to execute queries on large datasets. The maximum time the action can take is 60 minutes. If the action takes longer than this upper limit, the job will time out.
+Run long query with custom SQL action
+#
+Input fields
+Input field
+Description
+SQL
+This field is required
+. Provide a valid SQL string to be executed. This SQL string will be executed in your PostgreSQL instance.
+If multiple SQL statements are provided, all of them will be executed. However, only results from the last statement will be returned. Make sure each statement is separated by a
+;
+character.
+You can map datapills here to execute dynamically changing SQL statements. Remember to wrap datapills in single quotes (
+' '
+).
+Parameters
+This field is used in conjunction with your SQL statement. First, declare the named bind variables in your WHERE input. Next, assign values to these variables using this input field. Parameter values can be static or datapills. Select the closest corresponding data type that your database is expecting for the bind variable.
+Timeout limit (minutes)
+Set an upper limit for this wait action. The job will return an error if this action takes longer than the specified timeout. The maximum timeout is 60 minutes.
+Output Fields
+Use this input to describe the columns that you are expecting from your SQL statement. If you do not expect any return values or do not need any, you may ignore this input field.
+#
+Output fields
+Output field
+Description
+Rows
+List of rows returned from the SQL execution. The fields in this list are defined by the
+Output fields
+input field.
+If left blank, this row will be available in the datatree as an array datapill.
+Rows affected
+Refers to the number of rows that are impacted or modified by the execution of a Data Manipulation Language (DML) statement.
+When executing a DDL(CREATE), the value
+0
+will be returned.
+Row count
+Refers to the number of rows returned.
+←
+Delete actions
+Run custom SQL action
+→
+Last updated:
+1/23/2024, 9:15:16 AM
+On this page
+Why you should use long queries
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

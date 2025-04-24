@@ -1,0 +1,151 @@
+GraphQL - レコードのクエリアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+ユニバーサルコネクター
+GraphQL
+#
+GraphQL - レコードのクエリアクション
+このアクションは、特定の条件に一致するレコードを取得するために使用できます。
+#
+入力フィールド
+最低限、トップレベルの
+Query
+を選択する必要があります。これにより、取得するレコードのタイプが決まります。
+クエリによっては、以下の追加の入力フィールドが提供される場合があります：
+クエリ引数
+取得するフィールド
+サブクエリ
+各サブクエリには、以下の入力フィールドがある場合があります：
+クエリ引数
+取得するフィールド
+サブクエリ
+サブクエリのパターンは再帰的に続く場合があります。
+GraphQLクエリレコードアクションの入力フィールドの例
+クエリ引数
+は、クエリによって返されるレコードをフィルタリングします。前述の例では、IDによって単一のレコードを取得したい場合、
+Id
+クエリ引数を入力できます。
+取得するフィールド
+は、クエリによって返されるフィールドを決定するために使用されます。たとえば、レコードのID、名前、最終更新日を取得したい場合、
+取得するフィールド
+セクションで
+Id
+、
+Name
+、
+Last updated
+フィールドを選択できます。これを空白のままにすると、すべてのフィールドが取得されます。
+取得するフィールド
+を表示するには、
+オプションフィールドを表示
+を選択する必要があることに注意してください。
+サブクエリ
+は、関連するレコードを取得するために使用されます。たとえば、レコードに関連するタグを取得したい場合、
+Tags
+サブクエリを選択できます。
+これにより、ニーズに合わせたクエリを構築することができます。
+#
+出力フィールド
+出力フィールドは、入力フィールドで選択されたクエリ、フィールド、サブクエリによって決まります。これらを後続のステップで使用するには、データツリーから関連するデータピルをマッピングします。
+GraphQLクエリレコードアクションの出力フィールドの例
+←
+接続方法
+レコードの変更アクション
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

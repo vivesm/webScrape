@@ -1,0 +1,260 @@
+Set up a Data Pipeline recipe: Connect to a source and destination | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data orchestration
+Data Pipeline recipes
+#
+Set up a Data Pipeline recipe: Connect to Salesforce and Snowflake
+AVAILABILITY
+Data Pipeline recipes are available to workspaces in the private preview program only.
+Contact your Workato representative to add Data Pipeline recipes to your workspace.
+If you already have established connections to Salesforce and Snowflake, skip to
+Create a Data Pipeline recipe
+.
+#
+Supported sources and destinations
+Data Pipeline recipes support multi-object trigger extracts from:
+Event streams
+File sources
+Jira
+Marketo
+NetSuite
+Salesforce
+ServiceNow
+Destination Data Pipeline recipes can move data to:
+Data Lakehouses like Iceberg or Delta Lake
+Databricks
+Google BigQuery
+Snowflake
+SQL Server
+Note that some sources and destinations may not be available during private preview. Contact your Workato representative for more information.
+#
+Connect to a Salesforce data source
+1
+Select
+Create > Connection
+.
+2
+Search for and select
+Salesforce
+in the
+New Connection
+page.
+3
+Provide a name for your connection in the
+Name
+field.
+Salesforce connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Sandbox
+drop-down menu to determine the account connection type.
+6
+Optional. Select
+Advanced
+to configure advanced connection options.
+7
+Optional. Select the
+Custom OAuth profile
+. App requests use the profile specified in Workato when you select this option. This ensures that the connection is restricted to the same set of scopes you selected for all users with the profile, and the authentication flow uses the client app linked to the custom profile.
+8
+Select
+Connect
+, enter your Salesforce account credentials when prompted, and then select
+Log In
+to verify the connection.
+Log in to your Salesforce account
+#
+Connect to a Snowflake destination
+1
+Go to your Workato workspace and select
+Create > Connection
+.
+2
+Search for and select Snowflake.
+3
+Enter the Snowflake connection information.
+Snowflake connection
+Field
+Description
+Connection name
+Give this Snowflake connection a unique name that identifies which Snowflake instance it is connected to.
+Account identifier
+Account identifier
+of your Snowflake instance. Snowflake has multiple methods of identifying an account. Workato supports all methods:
+account name, connection name, and account locator
+.
+Account name:
+https://{orgname}-{account_name}
+Connection name:
+https://{orgname}-{connectionname}
+Account locator:
+https://{accountlocator}.{region}.{cloud}
+If you're using the
+account locator
+, note that
+{region}
+and
+{cloud}
+are only required for certain locations. For example:
+If your account is hosted in AWS US West (Oregon), use
+your-account-locator
+If your account is hosted in AWS US East (Ohio), use
+your-account-locator.us-east-2
+If your account is hosted in Azure West Europe, use
+your-account-locator.west-europe.azure
+Learn more about
+connecting to your Snowflake account
+.
+Authentication type
+Choose an authentication type for this connection. Select between Username/Password and OAuth 2.0.
+Warehouse
+Name of the warehouse to use for performing all compute for this connection. See
+Warehouse considerations
+for more information.
+Database
+Name of the Snowflake database you plan to connect to.
+Username
+Username to connect to Snowflake.
+The role granted to the User should have SYSADMIN privileges or lower.
+Required
+if you selected Username/Password authentication type.
+Password
+Password to connect to Snowflake.
+The role granted to the User should have SYSADMIN privileges or lower.
+Required
+if you selected Username/Password authentication type.
+Client ID
+Client ID to be used for the OAuth 2.0 authorization flow and token request. Learn more about
+OAuth 2.0 setup
+.
+Required
+if you selected OAuth 2.0 authentication type.
+Client secret
+Client secret to be used for the OAuth 2.0 token request.
+Required
+if you selected OAuth 2.0 authentication type.
+Schema
+Optional
+. Name of the schema within the Snowflake database you wish to connect to. Defaults to
+public
+.
+Database timezone
+Optional
+. Apply this to all timestamps without timezone.
+4
+Select
+Connect
+.
+←
+Data Pipeline concepts
+Create and run a Data Pipeline recipe
+→
+Last updated:
+1/16/2025, 9:16:49 PM
+On this page
+Supported sources and destinations
+Connect to a Salesforce data source
+Connect to a Snowflake destination
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

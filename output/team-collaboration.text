@@ -1,0 +1,217 @@
+Workspace collaboration | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+#
+Workspace collaborators
+PREFER VIDEO GUIDES?
+Get a quick look at Workato workspaces in this video.
+When building integrations for an organization, the scale and complexity of the business processes may result in multiple people working on a set of recipes, or even collaborating on a single recipe.
+With workspace collaborators, multiple users can collaborate while maintaining development and security best practices. This feature ensures greater control over data governance, flexible workspace membership, and granularity over security enforcement. You can manage collaborators, pending invitations, and collaborator roles in
+Workspace admin > Collaborators
+.
+In this guide, we'll cover:
+Collaborator features
+Managing collaborators
+Switching between workspace accounts
+Leaving a workspace
+Tracking changes made by collaborators
+Recipe versions
+Exports/imports
+#
+Collaborator features
+Workspace collaborators facilitates agile, iterative, collaborative development without sacrificing security. With collaborators, admins can use the following tools to govern and keep things secure:
+Role-based access control (RBAC)
+: Set access at a granular level for assets and functions using pre-defined roles.
+RBAC supports creating
+custom roles
+and also includes a few
+pre-defined system roles
+.
+Support for multiple workspaces
+: A single user or account can be a part of multiple workspaces. This makes it easy for a single admin or expert to collaborate with or govern multiple departments.
+Enhanced security with Single Sign-on
+: Use SAML-based Single Sign-on (SSO) to easily manage and provision Workato accounts using apps like Okta or OneLogin. Workato also supports
+Just in time provisioning
+for custom roles.
+Track changes with the Audit Trail
+: When multiple people are working on something, it's important to be able to identify what each person did.
+Auto-versioning
+provides the ability to roll back or roll-forward changes without losing any work.
+Recipe ownership:
+Recipes created by users as part of a workspace are owned by the workspace. When a consultant leaves or an employee changes workspaces or jobs, their contribution doesn't go away with them.
+#
+Managing collaborators
+REQUIRED PRIVILEGE LEVELS
+Accessing
+Collaborators under the Workspace admin page
+requires:
+The
+Admin
+system role
+, or
+The
+Workspace admin
+privilege
+To configure
+collaborators
+(opens new window)
+page, click
+Workspace admin
+in the side navigation bar.
+Workspace admin allows you to:
+Invite and manage collaborators
+View pending invites to collaborators
+Manage collaborator roles
+Define workspace settings, like
+SSO
+#
+Switching between workspace accounts
+To view the teams you're collaborating with:
+1
+Click the current workspace name to open the workspace switcher.
+Open the workspace switcher by clicking on your profile icon on the top left
+2
+Select a workspace from the drop-down menu to switch to a different workspace.
+#
+Leaving a workspace
+When you leave a workspace, Workato revokes all access to that workspace. You won't be able to switch to the workspace
+with the workspace switcher
+. All recipes and assets that you previously contributed to the workspace remain.
+Additionally, the workspace admin is notified through email when a workspace member leaves their workspace.
+To leave a workspace you belong to:
+1
+Open your Workato account and navigate to
+Settings > Team membership
+(opens new window)
+.
+2
+Click
+Leave
+next to the workspace you want to leave.
+#
+Tracking changes made by collaborators
+When collaborating in a workspace, changes to recipes and exports/imports made by workspace members can be tracked. This establishes an audit trail so you can manage your workspace effectively and ensure they are making changes compliant with your security protocols.
+#
+Recipe versions
+Recipe changes are logged under
+Versions
+tab and attributed to the collaborator who made the change. Older versions of the recipe can be restored by users with admin or analyst roles.
+WANT THE QUICK VERSION?
+Get a quick look at recipe versions in this video.
+#
+Exports/imports
+Exports to and imports from your workspace during
+recipe lifecycle management
+are tracked on the export/import histories pages on every manifest and import folder.
+Recipe export history
+←
+Audit log streaming
+Role-based Access Control
+→
+Last updated:
+3/25/2025, 7:31:30 PM
+On this page
+Collaborator features
+Managing collaborators
+Switching between workspace accounts
+Leaving a workspace
+Tracking changes made by collaborators
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

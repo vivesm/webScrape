@@ -1,0 +1,161 @@
+Workato connectors - Facebook Lead Ads Get campaign insights action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Facebook Lead Ads
+#
+Facebook Lead Ads - Get campaign insights action
+The
+Get campaign insights
+action allows you to retrieve aggregate information across all ads and ad sets in Facebook by campaign ID.
+Facebook Lead Ads - Get campaign insights action
+#
+Input
+Field
+Description
+Campaign ID
+Enter the unique identifier of the Facebook campaign you plan to analyze.
+Time range
+Define the time range to retrieve campaign performance data. The time range fields do not support UNIX timestamps.
+Since
+Specify the start date for the data collection period.
+Until
+Specify the end date to conclude data collection.
+#
+Output
+Field
+Description
+Account ID
+The unique identifier for the advertising account.
+Campaign ID
+The identifier for the campaign.
+Date start
+The start date of the data retrieval period.
+Date stop
+The end date of the data retrieval period.
+Impressions
+The total number of times ads were displayed.
+Spend
+The total amount spent on the campaign.
+Campaign name
+The name of the campaign.
+Campaign objective
+The objective set for the campaign.
+Created time
+The time when the campaign was created.
+Adset ID
+The unique identifier for the ad set.
+Adset name
+The name of the ad set.
+List size
+The total number of items in the list.
+List index
+The index of the item within the list.
+←
+Get Adset insights
+List Adset
+→
+Last updated:
+1/26/2024, 2:43:28 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

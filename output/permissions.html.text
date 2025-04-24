@@ -1,0 +1,178 @@
+Workflow apps - Permissions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+#
+Permissions
+The ability to configure and create Workflow apps is determined by
+role based access control (RBAC)
+.
+By default, the system roles
+Admin
+and
+Analyst
+have full permissions to build Workflow apps, manage Workflow apps, and configure Workflow apps portal settings.
+Workato also enables you to assign granular Workflow apps permissions by creating a custom role in
+Workspace admin > Collaborators > Collaborator roles
+. This allows you to separate the permissions for building and managing Workflow apps. For example, you can create a role that allows users to create Workflow apps, but prevents them from modifying Workflow apps portal settings. This guide describes the permissions necessary to perform the following tasks:
+Create Workflow apps pages
+Create Workflow apps
+Configure Workflow apps
+Configure Workflow apps portal settings
+Configure Workflow apps users and groups
+DATA TABLES PERMISSIONS
+Access to Workflow apps also depends on the type of access your role has to
+data tables
+.
+#
+Minimum permissions to create Workflow apps pages
+Consider a situation where you plan to enable a user to create Workflow apps
+pages
+but do not plan for them to have permission to create new Workflow apps.
+In this scenario, you can create a custom role with the following minimum permissions:
+Recipe development > Projects
+: View and Edit
+Recipe development > Workflow apps > App development
+: Full access
+#
+Minimum permissions to create a Workflow app
+The following minimum permissions are required to create a Workflow apps:
+Recipe development > Workflow apps > App development
+: Full access
+Recipe development > Recipe creation > Projects
+: Create
+#
+Minimum permissions for managing Workflow apps access
+The following minimum permissions are required to manage Workflow apps access:
+Recipe development > Workflow apps > App access and role management
+: Full access
+Recipe development > Data storage > Data tables
+: Full access
+#
+Permissions to configure Workflow apps portal settings
+The following permission enables you to configure Workflow apps portal settings:
+Platform tools > Apps portal > Settings
+: Full access
+#
+Permissions to manage Workflow apps portal users
+The following permission enables you to manage Workflow apps portal users and groups
+from the user interface
+:
+Platform tools > Apps portal > Users and groups
+: Full access
+FURTHER READING
+Read more about collaborator
+roles
+and
+privileges
+.
+←
+Getting started
+Administration
+→
+Last updated:
+12/16/2024, 1:44:05 AM
+On this page
+Minimum permissions to create Workflow apps pages
+Minimum permissions to create a Workflow app
+Minimum permissions for managing Workflow apps access
+Permissions to configure Workflow apps portal settings
+Permissions to manage Workflow apps portal users
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

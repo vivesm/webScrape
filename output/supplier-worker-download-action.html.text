@@ -1,0 +1,189 @@
+SAP Fieldglass - Supplier worker download action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+SAP Fieldglass
+#
+SAP Fieldglass - Supplier worker download action
+The
+Supplier worker download
+action enables you to retrieve supplier worker details from SAP Fieldglass.
+Supplier worker download action
+#
+Input
+You can specify the
+custom fields
+(opens new window)
+that you plan to include in the result and the order that you plan to see in the result.
+#
+Output
+Output fields
+Description
+Job seeker ID
+SAP Fieldglass job seeker ID.
+Worker ID
+SAP Fieldglass worker ID.
+Status
+Status of the worker.
+First name
+First name of the worker as defined in SAP Fieldglass.
+Last name
+Last name of the worker as defined in SAP Fieldglass.
+Vendor number
+SAP Fieldglass supplier code.
+Vendor name
+Supplier name.
+Buyer code
+Buyer company code.
+Remit to address code
+Code as assigned to the RTA by the supplier.
+Cost center name
+Cost center name in SAP Fieldglass.
+Cost center code
+Cost center code in SAP Fieldglass.
+Task name
+Task name in SAP Fieldglass.
+Task code
+Task code in SAP Fieldglass.
+Billable per diem
+Expense amount that is billable per day.
+Start date
+Worker start date.
+End date
+Worker end date.
+Currency
+Currency designation (USD).
+Segmented object detail
+The segmented object detail feature allows buyers to accommodate complex accounting codes that need to be included with cost centers and passed to workers and work orders or SOW line items.
+Job code
+Worker’s job code.
+Cost center start date
+Worker cost center start date. Can be non-primary.
+Cost center end date
+Worker cost center end date. Can be non-primary.
+Worker country of origin
+Indicates worker's country of origin. The company configurations
+Security ID format by Worker country of origin
+and
+Security Information
+must be enabled.
+Time zone
+Time zone for the worker. If not entered, it defaults to the default setting of the buyer's time zone.
+Discount %
+Discount % from SOW Worker.
+[br] Rate category / UOM
+The base rate for rate category/UOM.
+[pr] Rate category / UOM
+Pay rate for rate category/UOM.
+Custom fields
+Custom fields
+(opens new window)
+can be defined following SAP's guidelines.
+←
+Profile worker upload action
+Worker upload action
+→
+Last updated:
+1/15/2025, 10:39:46 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

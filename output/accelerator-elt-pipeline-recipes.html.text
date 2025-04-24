@@ -1,0 +1,178 @@
+ELT Pipeline for Snowflake accelerator - Recipes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+ELT Pipeline - Snowflake
+#
+Recipes for the ELT Pipeline for Snowflake accelerator
+This accelerator contains a set of recipes to implement the ELT Pipeline for Snowflake bot in Slack and a collection of recipes to implement the bot in Microsoft Teams. The recipes relevant to you depend on which package you install.
+Recipes for Slack
+are located in
+ELT_Pipeline_for_Slack.zip
+Recipes for Microsoft Teams
+are located in
+ELT_Pipeline_for_MS_Teams.zip
+.
+#
+Recipes for Slack
+The recipes in this version of the accelerator are organized in the following folders:
+04 Functions
+03 Data Load
+02 Controller
+01 UI
+#
+04 Functions
+ELT | FUNC-005 | Error Handling [Slack]
+ELT | FUNC-004 | Get ELT Control Table Results [Slack]
+ELT | FUNC-003 | Notify ELT User [Slack]
+ELT | FUNC-002 | Pre-Processing before MERGE [Slack]
+ELT | FUNC-001 | Pre-Processing of Schema [Slack]
+#
+03 Data Load
+ELT | DTL-003 | Files | Extract and Load [Slack]
+ELT | DTL-002b | PostgreSQL | Extract and Load [Slack]
+ELT | DTL-002a | SQL Server | Extract and Load [Slack]
+ELT | DTL-001 | Salesforce | Extract and Load [Slack]
+#
+02 Controller
+ELT | REC-001 | Pipeline Scheduler [Slack]
+ELT | CAL-001 | Job Dispatcher [Slack]
+#
+01 UI
+ELT | SUI-002 | Manage Pipeline
+ELT | SUI-001 | App Home Page
+#
+Recipes for Microsoft Teams
+The recipes in this version of the accelerator are organized in the following folders:
+04 Functions
+03 Data Load
+02 Controller
+01 UI
+#
+04 Functions
+ELT | FUNC-005 | Error Handling [MicrosoftTeams]
+ELT | FUNC-004 | Get ELT Control Table Results [MicrosoftTeams]
+ELT | FUNC-003 | Notify ELT User [MicrosoftTeams]
+ELT | FUNC-002 | Pre-Processing before MERGE [MicrosoftTeams]
+ELT | FUNC-001 | Pre-Processing of Schema [MicrosoftTeams]
+#
+03 Data Load
+ELT | DTL-003 | Files | Extract and Load [MicrosoftTeams]
+ELT | DTL-002b | PostgreSQL | Extract and Load [MicrosoftTeams]
+ELT | DTL-002a | SQL Server | Extract and Load [MicrosoftTeams]
+ELT | DTL-001 | Salesforce | Extract and Load [MicrosoftTeams]
+#
+02 Controller
+ELT | REC-001 | Pipeline Scheduler [MicrosoftTeams]
+ELT | CAL-001 | Job Dispatcher [MicrosoftTeams]
+#
+01 UI
+ELT | SUI-002 | Manage Pipeline [MicrosoftTeams]
+ELT | SUI-001 | Microsoft Teams App Home Page
+←
+Start
+App homepage
+→
+Last updated:
+2/22/2024, 11:17:11 PM
+On this page
+Recipes for Slack
+Recipes for Microsoft Teams
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

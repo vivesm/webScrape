@@ -1,0 +1,144 @@
+API プラットフォーム - ダッシュボード | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+API プラットフォーム
+#
+API プラットフォームダッシュボード
+API プラットフォームの所有者は API プラットフォームダッシュボードを使用して、エンドポイントや API コレクションに関するリアルタイムデータを一目で確認できるように視覚化できます。
+API プラットフォームの [Dashboard] タブ
+API プラットフォーム全体のパフォーマンスを監視したり、特定のエンドポイントコレクションについて、あるいはリクエストを実行している顧客についてのきめ細かいデータを入手したりできます。
+[Successful requests]
+と
+[Errors]
+は API エンドポイントの正常性についての全体像を提供します。
+[Policy violations]
+は、異常な API 呼び出しを生成している主要なクライアントやコレクションを識別する指標として使用してください。詳細は、
+API アクセスポリシー
+のページをご覧ください。
+#
+フィルター
+ダッシュボードの出力の変更にはフィルターのパラメータを使用します。デフォルトでは、ダッシュボードは
+Last 30 days
+、
+All clients
+、
+All collections
+に設定されています。このフィルターを変更して、望み通りのダッシュボードを表示させることができます。ページを離れると、フィルターはリセットされます。
+API ダッシュボードのフィルター
+日付フィルター
+クライアントフィルター
+コレクションフィルター
+監視対象とする期間を選択します。
+特定のクライアントに絞り込みます。
+コレクションや特定のエンドポイントに絞り込んで詳細な洞察を取得します。
+#
+リクエスト数の上位
+ダッシュボード最後の項目は、最も積極的に API を利用しているユーザーや、最も人気のあるエンドポイントに関する集計データです。この表示は、上記で指定したフィルターに従って変化します。
+リクエスト数の上位
+それぞれのエンドポイントリクエストの詳細を表示するには
+[Logs]
+タブに移動します。
+←
+API プラットフォーム
+ベストプラクティス
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API プラットフォームダッシュボード
+フィルター
+リクエスト数の上位
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

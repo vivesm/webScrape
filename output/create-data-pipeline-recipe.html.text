@@ -1,0 +1,231 @@
+データパイプラインのレシピを作成する | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+データオーケストレーション
+Data Pipeline recipes
+#
+新しいデータパイプラインのレシピを作成する
+提供状況
+データパイプラインのレシピは、プライベートプレビュー・プログラムに参加しているワークスペースでのみ利用可能です。
+データパイプラインをワークスペースに追加したい場合は、Workato担当者にお問い合わせください。
+#
+Workatoデータパイプラインソースを設定する
+このセクションの手順では、例としてSalesforceをソースとして使用します。
+1
+データパイプラインで使用する予定のプロジェクトに移動します。
+2
+Create > Data pipeline
+を選択します。
+3
+Name
+フィールドにパイプラインの名前を入力し、
+Location
+ドロップダウンメニューからパイプラインを保存するプロジェクトを選択します。
+4
+Start building
+を選択します。
+5
+ソースアプリケーションを追加するために、
+Extract new/updated records from source app
+を選択します。
+Your connected source apps
+から
+Salesforce
+を選択します。
+接続されているソースアプリを選択します。
+6
+このパイプラインで使用するSalesforce接続を選択します：
+Salesforce接続を選択する
+7
+接続設定画面が接続内で利用可能なオブジェクトを読み込んだ後、パイプラインで使用する
+Sync objects
+を選択します。
+同期するオブジェクトを選択する
+各オブジェクトには関連するスキーマがあります。同期するオブジェクトを選択すると、Workatoデータパイプラインのレシピはそのオブジェクトのデータと関連するスキーマを自動的に取得します。
+8
+ソースで新しいフィールドが作成されたときに自動的に同期したい場合は、
+Autosync new fields
+を選択します。そうでない場合は、
+Block new fields
+を選択します。
+パイプラインは、スキーマドリフトと呼ばれるスキーマの変更を自動的に処理できます。パイプライン内でWorkatoがスキーマドリフトをどのように扱うかの詳細については、
+概念ページのスキーマドリフト
+を参照してください。
+9
+データを宛先に同期する頻度を設定するために、
+Sync frequency
+を選択します。
+同期頻度を設定する
+Time unit
+分、時間、または日から選択します。
+Trigger every
+同期間隔は少なくとも30分以上で入力します。例えば、時間を時間単位として選択し、ここで
+12
+と入力すると、12時間ごとに同期が行われます。
+10
+カレンダーモーダルを使用して、パイプラインがレコードの同期を開始する日付を
+When first started, this pipeline should pick up records from
+フィールドで選択します。
+この値はパイプラインを実行した後に変更できません。
+Learn more about this
+input field
+.
+11
+次のセクションに進む前に、
+Save
+を選択して進行状況を保存します。
+#
+Workatoデータパイプラインでデータのロード方法を設定する
+このセクションの手順では、例としてSnowflakeを宛先として使用します。
+1
+宛先を追加するために、
+Load data to target table in destination app
+を選択します。
+Choose a destination app
+から
+Snowflake
+を選択します。
+2
+このパイプラインで使用するSnowflake接続を選択します：
+Snowflake接続を選択する
+3
+接続で指定されたデータベーススキーマが宛先スキーマと一致している場合は、次のステップに進んでください。
+1
+Use a different schema than connection
+を切り替えて、宛先から新しいスキーマを選択するか、新しいスキーマを作成します。
+2
+Database schema
+ドロップダウンから既存のデータベーススキーマを選択するか、
+Create schema
+を選択して新しいスキーマに名前を付けます。
+Use a different schema than connection
+4
+Save
+を選択してパイプラインを保存します。
+5
+ステータスセクションには
+Inactive pipeline
+と表示され、パイプラインの場所を
+Move
+したり、パイプラインを
+Edit
+するオプションが提供されます。
+データパイプラインを開始するには、
+Start pipeline
+を選択します。パイプラインを開始すると、ページには
+Object syncs
+、
+Connections
+、
+Settings
+のタブが表示されます。パイプラインは最初の実行時に履歴データをロードすることに注意してください。
+6
+各オブジェクト同期のステータスを
+監視する
+ために、
+Object syncs
+を選択します。
+パイプラインページに新しいタブが表示される
+←
+ソースとデスティネーションの接続
+レシピのモニタリングとオブジェクト同期
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+Workatoデータパイプラインソースを設定する
+Workatoデータパイプラインでデータのロード方法を設定する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

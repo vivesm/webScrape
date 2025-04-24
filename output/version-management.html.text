@@ -1,0 +1,170 @@
+Recipe Version Management | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API governance
+#
+Recipe version management
+Every time a recipe is saved, a version of the recipe is created. Previous versions of a recipe can be restored at any time. Recipe versions can be viewed in the
+Versions
+tab and are denoted by their version number.
+In the version history view, each version is attributed to the user who made the change (relevant for multi-user team accounts), with a timestamp when the version was saved, as well as the change type associated with that version.
+Recipe versions as viewed from the Versions tab
+#
+Change Types
+There are two types of changes:
+Recipe changes
+Schema changes
+#
+Recipe Changes
+A
+Recipe change
+is logged when a user actively changes the recipe. For example, adding, or removing steps and changing field mappings, will create a new version of the recipe when the recipe is saved.
+#
+Schema Changes
+A
+Schema change
+is logged when Workato detects that the underlying schema of objects in the recipe have changed. For example, when a Salesforce custom object has a new field added.
+Such schema refreshes will automatically create a new version of the recipe.
+#
+Comparing And Reviewing Changes
+Using the
+Recipe Diff
+feature, you can visually compare two recipe versions and review the changes. Check out the
+Recipe Diff
+guide for more info.
+#
+Restoring A Version
+To restore a previous version of a recipe:
+1
+In your Workato account, open a recipe.
+2
+Click the
+Versions
+tab.
+3
+Click a
+non-current
+recipe version to open the
+Version details
+page.
+4
+Click the
+Restore this version
+button, located in the top right corner of the page:
+Restore this recipe button, located on the Version details page
+5
+When prompted, click
+Yes
+to restore the recipe version.
+If successful, the recipe version will be copied and made into the
+current
+version of the recipe.
+←
+API policy rate limit violation trigger
+API security
+→
+Last updated:
+5/25/2024, 12:46:29 AM
+On this page
+Change Types
+Comparing And Reviewing Changes
+Restoring A Version
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

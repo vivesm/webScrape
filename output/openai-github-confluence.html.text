@@ -1,0 +1,861 @@
+Generate Confluence release notes from merged GitHub PRs use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+AI and machine learning
+#
+Generate Confluence release notes from merged GitHub PRs recipe
+This use case guides you through connecting
+OpenAI
+,
+GitHub
+, and
+Confluence
+to create a powerful automation.
+#
+What does this recipe do?
+This recipe retrieves merged pull requests (PRs) weekly from GitHub, iterates through each one to check for a specific Jira project key in the PR body, and, if found, sends the PR body to ChatGPT for a summary of the changes. Each summarized PR is then added to a new release notes page in Confluence.
+flowchart TD
+subgraph Configuration[" "]
+direction TB
+subgraph Scheduler[&nbsp Scheduler by Workato New recurring event trigger &nbsp]
+t1(Trigger) --- setup1(setup)
+end
+subgraph GitHub[&nbsp GitHub Search issues/pull requests action &nbsp]
+Action1(Action) --- setup2(setup)
+end
+subgraph CreateVariable[&nbsp Variables by Workato Create variable action &nbsp]
+Action2(Action) --- setup3(setup)
+end
+subgraph OpenAI[&nbsp OpenAI Send messages to OpenAI models action &nbsp]
+Action3(Action) --- setup6(setup)
+end
+subgraph UpdateVariable[&nbsp Variables by Workato Update variable action &nbsp]
+Action4(Action) --- setup7(setup)
+end
+subgraph Confluence[&nbsp Confluence Create page action &nbsp]
+Action5(Action) --- setup8(setup)
+end
+end
+CreateRecipe([Create recipe]) -- Configure your recipe --> Configuration --> Workflow([Automated workflow])
+Scheduler --> GitHub --> CreateVariable --> OpenAI --> UpdateVariable --> Confluence
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class t1,setup1,setup2,setup3,setup4,setup5,setup6,setup7,setup8,Action1,Action2,Action3,Action4,Action5,CreateRecipe,Workflow,x,xx,y,yy WorkatoTeal
+class Scheduler,GitHub,CreateVariable,OpenAI,UpdateVariable,Confluence SubgraphDash
+#
+Create your recipe
+Complete the following steps to create a recipe that creates release notes in Confluence based on merged pull requests in GitHub:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for OpenAI, GitHub, and Confluence:
+Create a OpenAI connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+OpenAI
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+OpenAI connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your API key in the
+API key
+field. You can obtain this value from the
+OpenAI API keys page
+(opens new window)
+.
+6
+Click
+Connect
+.
+Create a GitHub connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+GitHub
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+GitHub connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Connection type
+drop-down menu to select the connection method you plan to use. You can select your
+on-premise group
+name or select
+Cloud
+to use a direct connection.
+6
+Select either
+OAuth App
+,
+GitHub App
+, or
+Personal Access Token
+in the
+Authentication type
+drop-down menu.
+If you selected GitHub App
+:
+1
+Provide your app ID in the
+GitHub App ID
+field.
+2
+Enter the private key in the
+GitHub App Private key
+field.
+3
+Fill in the
+Installation ID
+field.
+4
+Optional. Expand
+Advanced configuration
+to provide the
+API Root URL
+, which is applicable when using GitHub Enterprise Server.
+If you selected Personal Access Token
+:
+1
+Enter your personal access token in the
+Personal Access Token
+field.
+7
+Click
+Connect
+.
+Create a Confluence connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Confluence
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Confluence connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Connection type
+drop-down menu to select the connection method you plan to use. You can select your
+on-premise group
+name or select
+Cloud
+to use a direct connection.
+6
+Use the
+Auth type
+drop-down menu to select your authentication method. Options include
+Basic
+,
+API token
+, and
+OAuth 2.0
+.
+7
+Provide your connection information.
+If using a cloud connection
+: Enter your Confluence subdomain in the
+Confluence subdomain field
+.
+If using an on-prem connection
+: Enter the root URI (includes protocol, optional port, and hostname) of your Confluence host in the
+Confluence root URI
+field.
+8
+Provide your authentication information.
+If you selected Basic authentication
+:
+1
+Enter your username (not email) in the
+Username
+field.
+2
+Enter your password in the
+Password
+field.
+If you selected API token
+:
+1
+Enter your email in the
+Email
+field.
+2
+Enter your API token in the
+API token
+field. You can create one by going to your Atlassian account and selecting
+Security
+(opens new window)
+> API tokens > Create API token
+.
+If you selected OAuth 2.0
+:
+1
+Enter your client ID in the
+Client ID
+field.
+2
+Enter your client secret in the
+Client secret
+field.
+3
+Optional. Expand
+Advanced settings
+to select scopes to request for this connection. The following scopes are selected by default:
+read:confluence-groups
+read:confluence-content.summary
+write:confluence-content
+search:confluence
+9
+Click
+Connect
+.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+, then select
+Run on a schedule
+. This creates a new recipe with the Scheduler by Workato
+New recurring event trigger
+. This trigger doesn't require a connection.
+9
+Set up your Scheduler by Workato New recurring event trigger.
+1
+Click the trigger in the recipe editor.
+Click the trigger
+2
+Use the
+Time unit
+drop-down menu to select
+Weeks
+.
+Available options include
+Minutes
+,
+Hours
+,
+Days
+,
+Weeks
+,
+Months
+, or
+Custom schedule
+.
+3
+Enter
+1
+in the
+Trigger every
+field to run the recipe weekly.
+4
+Choose the days the recipe should run in the
+Days of the week
+field. For example, select
+Monday
+.
+5
+Specify the time for the recipe to run in the
+Trigger at
+field. For example, enter
+12:00 AM
+.
+6
+Optional. Select the timezone in the
+Timezone
+field. If left blank, the default is
+America/Los_Angeles
+.
+7
+Optional. Set the start date and time in the
+Start after
+field, or leave it blank to activate the trigger immediately after you start the recipe. You can't change this value after you run or test the recipe.
+Configure the trigger
+8
+Click
+Save
+.
+Step summary
+This trigger sets the interval for how frequently the recipe runs. The Scheduler by Workato trigger doesn't require connection setup.
+10
+Click
++ Add step
+and select
+Action in app
+.
+Click
+Add step > Add action in app
+11
+Set up your GitHub Search issues/pull requests (batch) action.
+1
+Search for
+GitHub
+and select it as your app.
+Choose GitHub
+2
+Select the
+Search issues/pull requests
+action.
+Select the Search issues/pull requests action
+3
+Select the GitHub connection you created in the preceding steps.
+4
+Use the
+Organization
+drop-down menu to select the organization containing the repository you plan to access.
+5
+Use the
+Repository name
+drop-down menu to select your repository.
+6
+Use the
+Type
+drop-down menu to select
+PR
+.
+7
+Use the
+Status
+drop-down menu to select
+Merged
+.
+8
+Switch the
+Closed after
+field to
+formula mode
+.
+9
+Map the Scheduler by Workato
+Scheduled time
+Step 1
+datapill to the
+Closed after
+field.
+10
+Append
+- 7.days
+in the
+Closed after
+field.
+Fill out the Closed after field
+This formula filters the search to retrieve only pull requests merged since the previous week.
+11
+Click
+Save
+.
+Step summary
+This step searches for pull requests in your selected GitHub repository that were merged since the previous week.
+12
+Click
++ Add step
+and select
+Action in app
+.
+13
+Set up your Variables by Workato Create variable action.
+1
+Search for
+Variables by Workato
+and select it as your app.
+Choose Variables by Workato
+2
+Select the
+Create variable
+action.
+Select the Create variable action
+3
+Click
+Add a variable
+.
+4
+Enter
+Content
+in the
+Label
+field.
+5
+Click
+Add variable
+.
+6
+Switch the
+Content
+field to
+formula mode
+and enter
+""
+to initialize the variable with an empty string.
+Fill out the Content field
+This initialization is necessary for a later step, as you can't append a string (the content generated from ChatGPT) to a
+nil
+variable.
+7
+Click
+Save
+.
+Step summary
+This step creates an empty variable named
+Content
+.
+14
+Click
++ Add step
+and select
+Repeat for each
+.
+Click
+Add step > Repeat for each
+How does the Repeat for each condition work?
+A
+Repeat for each
+loop
+repeats
+one or more actions
+for each
+item in a list. The loop ends automatically when the entire list is processed.
+flowchart TD
+A(["Start"]) --> B("Another merged GitHub pull \n request from the past week?")
+B -- "Yes" --> C("Check if PR body contains Jira project key") --> MoreSteps("Additional steps")
+B -- "No" --> D(["End loop"])
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+class A,D WorkatoPink
+15
+Set up your Repeat for each loop.
+1
+Map the GitHub
+Issues
+Step 2
+list datapill to the
+Input list
+field. This datapill contains a list of pull requests that match the search criteria specified in step 2.
+2
+Use the
+Repeat mode
+drop-down menu to select
+One item at a time
+.
+3
+Ensure
+No
+is selected in the
+Clear step output
+drop-down menu.
+Configure the Repeat for each loop
+4
+Click
+Save
+.
+Step summary
+This step iterates through each of the pull requests that were merged in the past week.
+16
+Click the
+…
+(ellipsis) next to the placeholder step in the recipe editor and select
+Delete
+.
+Delete the placeholder step
+17
+Click
++ Add step
+and select
+IF condition
+. Ensure this step is nested within the Repeat for each loop.
+Click
+Add step > IF condition
+How do IF conditions work?
+An
+IF condition
+enables you to make decisions based on specific conditions. You can control your recipe workflow by executing different actions depending on whether a condition you specify is true or false.
+flowchart TD
+B(Does the PR body contain a specific \n Jira project key string?)
+B -->|Yes| C(Send message to OpenAI model \n with merged PR details)
+B ---->|No| E(No action required)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+class E WorkatoPink
+18
+Set up your IF condition.
+1
+Map the Foreach
+Body
+Step 4
+datapill to
+Data field
+. Alternatively, you can use the
+Title
+Step 4
+datapill.
+2
+Use the
+Condition
+drop-down menu to select
+contains
+.
+3
+Enter the relevant Jira project key in the
+Value
+field. For example, to only include merged PRs with the Jira project key
+CT
+in release notes, enter
+CT-
+in this field.
+Configure the IF condition
+4
+Click
+Save
+.
+Step summary
+This step verifies if the GitHub pull request includes a specific Jira project key in its title or body, ensuring that only relevant pull requests linked to the designated Jira project are included in the release notes.
+19
+Click
+Select an app and action
+.
+20
+Set up your OpenAI Send messages to OpenAI models action.
+1
+Search for
+OpenAI
+and select it as your app.
+Choose OpenAI
+2
+Select the
+Send messages to OpenAI models
+action.
+Select the Send messages to OpenAI models action
+3
+Select the OpenAI connection you created in the preceding steps.
+4
+Use the
+Message type
+drop-down menu to select
+Single message
+.
+5
+Enter the following prompt in the
+Text to send
+field:
+Generate a clear, user-friendly description of the update using the details provided in the pull request description. Format each change as a standalone release note item without additional headings or introductory text. Keep it concise and use plain language.
+Description:
+6
+Append the Foreach
+Body
+Step 4
+datapill to the end of the message in the
+Text to send
+field.
+Map the Body datapill
+7
+Optional. Use the
+Model
+drop-down menu to select the GPT model to use. For example, select
+gpt-4o-mini
+. Defaults to
+gpt-3.5-turbo
+if left blank.
+8
+Click
+Save
+.
+Step summary
+This step sends a message to ChatGPT and asks it to generate a description of the merged pull request based on the PR body.
+21
+Click
++ Add step
+and select
+Action in app
+. Ensure this step is nested within the IF condition.
+22
+Set up your Variables by Workato Update variables action.
+1
+Search for
+Variables by Workato
+and select it as your app.
+Choose Variables by Workato
+2
+Select the
+Update variables
+action.
+Select the Update variables action
+3
+Use the
+Variable name
+drop-down menu to select
+Content (step 3)
+.
+4
+Switch the
+Content
+field to
+formula mode
+and perform the following actions:
+1
+Map the Variables by Workato
+Content
+Step 3
+datapill.
+2
+Enter
++ "\n" + "<a href='" +
+to place the link on a new line.
+3
+Map the Foreach
+Html URL
+Step 4
+datapill.
+4
+Enter
++ "'>" +
+.
+5
+Map the Foreach
+Title
+Step 4
+datapill.
+6
+Enter
++ "</a>" + "\n" +
+to add the closing link tag and begin a new line.
+7
+Map the OpenAI
+Best choice
+Step 6
+datapill.
+8
+Enter
++ "\n"
+to create a new line for details about the next merged PR.
+Update the Content variable
+5
+Click
+Save
+.
+Step summary
+This step appends the ChatGPT response to the
+Content
+variable. The step links each merged PR title to the corresponding GitHub pull request and adds bullet points that summarize the changes described in the PR body.
+23
+Click
++ Add step
+and select
+Action in app
+. Ensure this step is placed outside of the IF condition and Repeat for each loop.
+24
+Set up your Confluence Create page action.
+1
+Search for
+Confluence
+and select it as your app.
+Choose Confluence
+2
+Select the
+Create page
+action.
+Select the Create page action
+3
+Select the Confluence connection you created in the preceding steps.
+4
+Enter the space key in the
+Space key
+field. This tells Confluence in which space the page should be created.
+5
+Switch the
+Title
+field to
+formula mode
+and enter the following:
+"Release Notes for: "
++
+today
+.
+to_s
+This formula creates the title for the Confluence page in the following format:
+Release Notes for: YYYY-MM-DD
+.
+6
+Map the Variables by Workato
+Content
+Step 3
+datapill to the
+Body
+field.
+Example configuration of the Create page action
+7
+Click
+Save
+.
+Step summary
+This step creates the Confluence page with the release notes.
+Your
+Generate Confluence release notes from merged GitHub PRs
+recipe is ready to test and implement.
+Example recipe configuration.
+Generate Confluence release notes from merged GitHub PRs
+recipe
+←
+AI and machine learning
+Customer service
+→
+Last updated:
+1/16/2025, 9:16:49 PM
+On this page
+What does this recipe do?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

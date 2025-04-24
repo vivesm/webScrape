@@ -1,0 +1,208 @@
+Freshservice - Create service request action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Freshservice
+#
+Freshservice - Create service request action
+Creates a new service request in Freshservice.
+#
+Input
+Input field
+Description
+Service item
+Select the service item from the drop-down menu.
+Quantity
+Provide the quantity number.
+Email
+Provide the email ID of the requester.
+Requested for
+Provide the email ID of the requester on whose behalf the service request is created.
+Custom fields
+Provide custom fields in key-value pairs.
+Child service items
+Select the child service items from the drop-down menu.
+#
+Output
+Output field
+Description
+Service request ID
+A unique identifier assigned to the service request.
+Type
+The type of request, such as a Service Request or Incident.
+CC emails
+List of email addresses copied in the request.
+Forward emails
+List of email addresses the request has been forwarded to.
+Reply CC emails
+Email addresses copied in replies to the request.
+Fr escalated
+Indicates if the request was escalated for the first response.
+Spam
+Indicates if the request was marked as spam.
+Email config ID
+The identifier for the email configuration used.
+Group ID
+The unique identifier of the group handling the request.
+Priority
+The priority level of the request.
+Requester ID
+The unique identifier of the person who raised the request.
+Responder ID
+The unique identifier of the agent assigned to the request.
+Source
+The channel through which the request was created.
+Status
+The current status of the request.
+Subject
+The subject line or title of the request.
+To emails
+List of recipient email addresses in the request.
+SLA policy ID
+The identifier for the SLA (Service Level Agreement) applied to the request.
+Department ID
+The unique identifier of the department responsible for the request.
+Workspace ID
+The unique identifier of the workspace the request belongs to.
+Due by
+The deadline by which the request should be resolved.
+Fr due by
+The deadline for the first response to the request.
+Is escalated
+Indicates if the request has been escalated.
+Description
+A detailed explanation of the request.
+Description text
+A plain-text version of the request description.
+Created at
+The timestamp when the request was created.
+Updated at
+The timestamp when the request was last updated.
+Urgency
+The urgency level of the request, affecting prioritization.
+Impact
+The level of impact the request has on operations or users.
+Category
+The high-level classification of the request.
+Sub category
+A more specific classification under the main category.
+Item category
+The specific item or service related to the request.
+Deleted
+Indicates if the request has been deleted.
+Attachments
+Files or documents attached to the request.
+Approval status
+The current approval state of the request.
+Approval status name
+The name of the approval status for better readability.
+Custom fields
+Additional custom attributes associated with the request.
+←
+Create requester action
+Create task action
+→
+Last updated:
+3/24/2025, 4:44:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

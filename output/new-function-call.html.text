@@ -1,0 +1,162 @@
+Recipe Functions - New Call For Function Trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Recipe function by Workato
+#
+Recipe Functions - New Call For Function Trigger
+This trigger allows you to build a recipe that can be called from another recipe. When naming the recipe, keep in mind that the recipe name is what displays in the
+Recipe function
+menu of the
+Call recipe synchronously
+and
+asynchronously
+actions.
+Note
+: This trigger partially replaces the
+Callable Recipes - New call for recipe trigger
+. Use the
+API platform - New API request trigger
+to trigger recipes based on API requests.
+#
+Input
+Field
+Description
+Parameters schema
+Defines the schema of the input the recipe expects.
+Result schema
+Defines the schema of the recipe's response.
+Looking to test out this trigger? Check out
+manually testing triggers
+in the Testing recipes guide for more info.
+#
+Output
+Field
+Description
+Context
+Details about the job and recipe that triggered this recipe.
+This field has some additional sub-fields:
+Field
+Description
+Calling job ID
+The ID of the job that triggered this recipe.
+Calling recipe ID
+The ID of the recipe that called this recipe.
+Parameters
+The schema provided in the
+Parameters schema
+section.
+#
+Resources
+Recipe function overview
+Recipe function actions
+Recipe function triggers
+←
+Walkthrough
+Call recipe function asynchronously action
+→
+Last updated:
+3/8/2022, 9:39:51 PM
+On this page
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

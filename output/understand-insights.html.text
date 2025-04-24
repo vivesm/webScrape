@@ -1,0 +1,228 @@
+Insights- Thinking with Insights | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Getting started
+#
+Thinking with Insights
+This document builds upon the basic
+Insights concepts
+and provides an example scenario to help you conceptualize how to build impactful and meaningful dashboards that answer your business questions.
+Dashboard-building consists of these main steps:
+Start with a purpose
+Identify business questions
+Choose reporting metrics and group them effectively
+Select the right visualization technique
+#
+Start with a purpose
+To help illustrate this process, we use an example scenario that follows David, an Integration Lead responsible for ensuring that his team's automation and integration initiatives run smoothly. He also reports to senior leadership on his organization's usage and adoption of Workato as part of its automation strategy.
+Dashboard building begins with defining your dashboard's purpose and intended audience. It may be helpful to consider the following guiding questions:
+Who is the audience of your dashboard?
+What role do they hold in your organization and what type of decisions do they make?
+How will visualizing your data help them make these decisions?
+What level of data literacy do they have and how deeply will they engage with your data?
+The following flow chart can help you think through your decision:
+Option 1:
+flowchart TD
+A(Start) --> B{Who is your <br> primary<br> audience?}
+B --> B1[Tactical user]
+B --> B2[Business user]
+B1 --> C{What do they <br> need from <br> your report?} --> C1[Granular details]
+B2 --> C --> C2[Actionable insights]
+C1 --> D{What will they<br> do with it?} --> D1[Investigate issues <br> and solve problems]
+C2 --> D --> D2[Allocate resources <br> & plan initiatives]
+D1 --> E{What is <br> their data<br> literacy?} --> E1[Highly literate]
+D2 --> E --> E2[Just interested in the big picture]
+E1 --> F(Operational dashboard)
+E2 --> G(Strategic dashboard)
+classDef default fill:#67eadd,stroke:#67eadd,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+classDef LightTeal fill:#e1fffc,stroke:#67eadd,stroke-width:2px,color:#000;
+class A,B,C,D,E LightTeal
+class B2,C2,D2,E2,G WorkatoPink
+You should have a clearer understanding of your audience, their needs, and how a dashboard can help them accomplish their goals after considering these questions. For example:
+If your audience is tactical users, then you should make an
+operational dashboard
+with a high level of detail that focuses on operational metrics.
+If your audience is business users, then you should make a
+strategic dashboard
+that includes KPIs and other high-level metrics that provide actionable insights.
+Example operational dashboard
+Key aspects
+:
+The primary audience of this dashboard is David and his team (tactical users).
+David and his team need to monitor the operational health of their integrations and take action on issues.
+The dashboard's main purpose is to monitor workflows, track job activity, and troubleshoot job failures.
+It requires granular details to enable the team to investigate and solve problems.
+Example strategic dashboard
+Key aspects
+:
+The primary audience of this dashboard is senior leadership (business users).
+The leadership team need to understand how automation contributes to cost-savings and apply these insights to guide the direction of the company.
+The dashboard's main purpose is to provide an overview of how well automation is adopted, the value it delivers, and which teams are using it the most.
+It requires reporting on high-level KPIs (key performance indicators).
+#
+Identify your business questions
+Begin by identifying the key questions you aim to address with your data. Data has the power to tell a compelling story when used effectively. Consider your audience and their distinct needs.
+If your users require highly detailed reports that focus on operational metrics, think about what data enables them to take action.
+If your users require reports on KPIs and other key metrics, think about what data enables them to make strategic decisions.
+Key business questions
+:
+How many jobs ran this month?
+Are automations running smoothly?
+Which workflows are used the most?
+Which workflows fail the most?
+Key business questions
+:
+How many integrations have been built company-wide?
+How many are actually being used?
+How much time and money has the company saved?
+Which departments are using Workato the most?
+#
+Choose the right metrics and group them the right way
+Now that you've identified the questions you plan to answer, you must consider what data you are going to use and how to organize it effectively to support your narrative. During this step, it's important to consider the measures (values that you plan to analyze) and dimensions (how you contextualize these values) you plan to use.
+In an operational dashboard, you might start by answering:
+Which of my automations (metric) were used most this month (dimension)?
+At a high-level, answering this question consists of the following steps:
+Aggregate the number of tasks run per recipe.
+Sort by the highest task count to determine the most-used workflows.
+Consider how you plan to group this data, such as by day, week, or month, to contextualize it and report on trends over time. You can apply a filter within the chart editor, or use
+filter groups
+to apply a global date range to all charts within your dashboard or a specific container.
+In a strategic dashboard, you might start with the question:
+Which departments (dimension) are actively using Workato (metric)?
+Where activity is defined by the number of active recipes.
+At a high-level, answering this question consists of the following steps:
+Filter out inactive recipes.
+Count the number of active recipes.
+Consider how you plan to group this data, such as by project or department, to contextualize it and report on a specific team within your company. You can apply a filter within the chart editor, or use
+filter groups
+to apply a global project filter to all charts within your dashboard or a specific container.
+#
+Select the right visualization technique
+The appropriate visualization technique depends on the type of data you're presenting and the story you plan to tell. Different types of charts are better suited to conveying specific scenarios:
+Use tables to display detailed data breakdowns, such as the top used recipes along with their respective job counts in a workspace.
+Table displaying most used recipes in a workspace
+Use line charts to track trends over time, such as task consumption across environments for the past 30 days, quarter, or year.
+Task consumption over time
+Use area graphs to illustrate composition or parts of a whole, such as the amount each recipe contributes to overall task consumption.
+Task consumption by environment
+Use bar charts to compare categories, such as the top money-saving automation projects.
+Top money-saving projects
+Use pie charts to show composition, or parts of a whole, such as time saved by department.
+Departments saving the most money
+Use number graphs to highlight KPIs and high-level metrics, such as total money saved.
+Total money saved
+#
+Bring it all together
+Now that you understand your audience, business questions, key metrics, and the right visualization types, you're well-equipped to build your first dashboard. Focusing on these elements enables you to can create a dashboard that meets user needs, delivers valuable insights, and supports informed decision-making.
+←
+Chart editor
+Quickstart
+→
+Last updated:
+3/13/2025, 9:55:45 PM
+On this page
+Start with a purpose
+Identify your business questions
+Choose the right metrics and group them the right way
+Select the right visualization technique
+Bring it all together
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

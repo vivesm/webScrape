@@ -1,0 +1,225 @@
+Using a recipe diff to compare recipe changes | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Lifecycle & operations
+Recipe lifecycle management
+#
+Using a recipe diff to compare recipe changes
+Workato tracks all changes made to a recipe and whenever the recipe is saved, a new version is created. But how do you know what changed from one recipe version to another?
+With the Recipe Diff feature, you can visually compare two recipe versions and review the changes.
+In this guide, we'll cover:
+How the Recipe Diff feature works
+The types of changes included in Recipe Diffs
+How to access and use Recipe Diffs
+#
+How it works
+Check out this video guide
+The Recipe Diff (or difference) feature visually compares any two recipe versions and highlights their differences.
+In tools like GitHub, the diff feature shows a text comparison. For example:
+In Workato, the Recipe Diff feature shows a visual difference between two recipe versions. Recipe Diffs make it easier to review the changes and discuss them as part of the recipe development lifecycle. For example:
+How changes are displayed depends on the
+type of change
+.
+#
+Change types
+The Recipe Diff feature tracks the following types of recipe changes:
+Adding a step
+Deleting a step
+Moving a step
+Nesting or unnesting a step
+Updating a step's configuration
+Skipping or unskipping a step
+Note
+: Any combination of the following changes can happen in a single step. For example, a step's position or configuration can change, along with being (un)skipped or (un)nested.
+#
+Adding a step
+When a new step is added to a recipe version, the step will be highlighted in green:
+#
+Deleting a step
+When a step is deleted from a recipe version, the step will be highlighted in red:
+#
+Moving a step
+When a step is moved in a recipe version, the step is highlighted in blue and a label describing the movement will display:
+#
+Nesting or unnesting a step
+When a step is nested or unnested in a recipe version, the step is highlighted in blue and a
+Nested
+or
+Unnested
+label will display:
+#
+Updating a step's configuration
+When a step's configuration is changed, the step will be highlighted in blue and an
+Updated config
+label will display. Furthermore, within the step configuration, field addition, removal, and updates will be displayed.
+Viewing step-level changes
+Field updates and datapill changes will display in the recipe diff.
+Field addition (green)
+Field removal (red)
+Field updates (grey) - this includes switching datapills and formulas
+#
+Skipping or unskipping a step
+When
+a step is skipped or unskipped
+in a recipe version, the step will be highlighted in blue and a
+Skipped
+or
+Unskipped
+label will display:
+#
+Using recipe diffs
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Open a recipe.
+3
+Click the
+Versions
+tab.
+4
+You can access the Recipe Diff feature in the following ways:
+From the Version history page:
+1
+Check the
+checkboxes
+of the versions you want to compare:
+2
+Click the
+Compare VXX and VXX
+button:
+From the Version details page:
+1
+Click a recipe version.
+2
+On the
+Version details
+page, click
+Compare to current version
+near the top right corner of the page:
+If you're viewing the current version of the recipe, the button will read
+Compare to the previous version
+.
+5
+The Recipe Diff page will display:
+Changes between the versions will be highlighted
+depending on their type
+.
+You can also use interactions like
+Zoom
+by right-clicking or using keyboard shortcuts:
+6
+To change the versions you're comparing
+, use the
+Compare from
+and
+Compare to
+menus:
+The comparison views will automatically update with the selected version(s).
+←
+Recipe versions
+Exporting packages
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+How it works
+Change types
+Using recipe diffs
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

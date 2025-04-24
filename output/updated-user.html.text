@@ -1,0 +1,265 @@
+Workato connectors - Intercom Updated user trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Intercom
+#
+Intercom - Updated user trigger
+The
+Updated user
+trigger activates when a user is updated in Intercom. This trigger initially retrieves users updated up to one hour before its activation. It then continues to check for updated users based on the trigger poll interval.
+Intercom - Updated user trigger
+#
+Input
+Trigger poll interval
+Determines the frequency of the event check. You can choose a specific interval from the drop-down menu or leave it at the default setting.
+#
+Output
+Type
+The entity type of the record.
+ID
+The unique identifier for the user in Intercom.
+User ID
+The unique identifier for the user within the Intercom system.
+Anonymous
+Indicates whether the user is anonymous.
+Email
+The email address of the user.
+Name
+The full name of the user.
+Avatar
+Details about the user's avatar.
+Type
+The type of avatar, typically an image.
+Image URL
+The URL of the avatar image.
+App ID
+The application identifier in Intercom.
+Companies
+The list of companies associated with the user.
+Type
+The type of the associated entity.
+Companies
+The detailed list of companies.
+Type
+The type of company data.
+Company ID
+The unique identifier of the company.
+ID
+The unique identifier used within Intercom for the company.
+Company name
+The name of the company.
+List size
+The number of companies associated with the user.
+List index
+The index of the company in the list of companies associated with the user.
+Location data
+Geographic information about the user.
+Type
+The type of location data.
+City name
+The name of the city.
+Continent code
+The code for the continent.
+Country name
+The name of the country.
+Latitude
+The latitude coordinate.
+Longitude
+The longitude coordinate.
+Postal code
+The postal code for the user's location.
+Region name
+The name of the region.
+Timezone
+The timezone of the user's location.
+Country code
+The country code of the user's location.
+Phone
+The phone number of the user.
+Pseudonym
+The pseudonym of the user, if any.
+Remote created at
+The date and time when the user was created remotely.
+Session Count
+The count of sessions associated with the user.
+Owner ID
+The identifier of the owner of the user record in Intercom.
+Last request at
+The timestamp of the last request made by the user.
+Created at
+The date and time when the user was created in Intercom.
+Signed up at
+The date and time when the user signed up.
+Updated at
+The date and time when the user's record was last updated.
+Unsubscribed from emails
+Indicates whether the user has unsubscribed from emails.
+Marked email as spam
+Indicates whether the user has marked email as spam.
+Has hard bounced
+Indicates whether the user's email has hard bounced.
+Do not track
+Indicates whether the user has enabled do not track.
+Referrer
+The referrer URL if the user was referred.
+Last Seen IP
+The last seen IP address of the user.
+User Agent Data
+Information about the user's browser and device.
+Utm campaign
+The UTM campaign parameter, if any, associated with the user.
+Utm content
+The UTM content parameter, if any, associated with the user.
+Utm medium
+The UTM medium parameter, if any, associated with the user.
+Utm source
+The UTM source parameter, if any, associated with the user.
+Utm term
+The UTM term parameter, if any, associated with the user.
+Social profiles
+The social profiles associated with the user.
+Type
+The type of social profiles.
+Social profiles
+A list of social profiles.
+ID
+The identifier for each social profile.
+Name
+The name of the social profile.
+Type
+The type of each social profile.
+URL
+The URL of the social profile.
+Username
+The username associated with the social profile.
+List size
+The number of social profiles listed.
+List index
+The index of each profile in the list.
+Custom attributes
+Any custom attributes associated with the user.
+Tags list
+A list of tags associated with the user.
+Tags
+Details about the tags.
+Sync
+Sync status of the tags.
+Segments list
+A list of segments the user is part of.
+Segments
+Details about the segments.
+Active
+Indicates if the segment is active.
+New
+Indicates if the segment is new.
+Slipping Away
+Indicates if the user is slipping away from the segment.
+←
+Updated conversation trigger
+Add conversation note action
+→
+Last updated:
+4/22/2024, 5:48:05 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,172 @@
+Workato Connector - HubSpot Import CRM data action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+Import CRM data action (bulk)
+This action allows you to import data in HubSpot in bulk. Your file size must be less than 512 MB and must have less than 1,048,576 rows.
+Bulk CRM data import
+#
+Input
+Input field
+Description
+File name
+Provide a unique name for the file.
+Object
+Use the drop-down menu to choose
+Select an object
+or
+Enter object ID
+. You can select any standard HubSpot object, for example, contact, company, deal, and more.
+Operation
+Use the drop-down menu to choose
+Select operation
+or
+Enter operation
+. This sets the operation used for the import.
+Import name
+Enter a unique name for the import. This is used to identify the import.
+CSV file input
+Describe your CSV file and column names.
+File contents
+CSV file contents are used to bulk upload records in HubSpot. Ensure that the CSV contains unique column names for all fields. The import file must contain at least two rows.
+Column separator
+Use the drop-down menu to select the column separator you plan to use. For example, comma (
+,
+) or pipe (
+|
+).
+Column names
+Click
+Use a sample file
+to use a sample file to input all column names at the same time. If you do not have a sample file, click
+Add column name
+to manually enter your column names.
+Use CSV column names as HubSpot field names
+This field is optional. Select
+Yes
+if you plant to map CSV columns to HubSpot object fields automatically. The CSV file must have a header line with column names matching the object fields.
+Association
+This field is optional. Select the objects for association. If you have multiple associations, ensure that the CSV column names are unique and mapped to the correct object.
+Wait for HubSpot to process all records?
+Select
+Yes
+or
+No
+from the drop-down menu. If
+Yes
+is selected, the action returns when HubSpot processes all the rows in the CSV file. If
+No
+is selected, the action moves to the next recipe action after the CSV file is uploaded to HubSpot.
+#
+Output
+Workato returns a record representing each imported record so you can use its datapills in subsequent steps.
+←
+Search record actions
+Export CRM data action
+→
+Last updated:
+11/17/2023, 12:17:54 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

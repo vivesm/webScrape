@@ -1,0 +1,160 @@
+Workato connectors - SendGrid Send email action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SendGrid
+#
+SendGrid - Send email action
+The
+Send email
+action allows you to send an email in SendGrid.
+SendGrid - Send email action
+#
+Input
+Input field
+Description
+Personalizations
+List recipients and assign specific data for each email.
+From
+Enter the sender's email address and name.
+Reply to
+Provide a reply-to email address and name.
+Subject
+Write the email's subject line.
+Content
+Include the email's body content, specifying both the type and value.
+Attachments
+Attach files to the email, detailing the content, type, filename, disposition, and content ID.
+Template ID
+Use a specific SendGrid email template by adding its ID.
+Sections
+Replace text in the email sections with new text.
+Headers
+Add custom headers to the email.
+Categories
+Categorize your email for organization.
+Custom arguments
+Insert custom arguments for additional email metadata.
+Send at
+Schedule when to send the email.
+Batch ID
+Use a batch ID to group multiple sends.
+Asm
+Configure advanced suppression manager settings, including group IDs.
+IP pool name
+Select the IP pool for email sending.
+Mail settings
+Modify mail settings such as the bcc, footer, and spam check.
+Tracking settings
+Set up click tracking, open tracking, subscription tracking, and Google analytics.
+#
+Output
+This action does not have output fields.
+←
+Connection setup
+ServiceNow
+→
+Last updated:
+4/10/2024, 5:14:12 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

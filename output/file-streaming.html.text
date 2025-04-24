@@ -1,0 +1,165 @@
+Workato コネクター - ファイルストリーミング | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+ファイルおよび添付ファイルの取り扱い
+#
+ファイルストリーミング
+ファイルストリーミングとは、ファイルを小さな単位 (チャンク) で順次読み書きする方式のことです。ファイルストリーミングにより、送信システムや受信システムでファイルサイズの上限に達するのを気にすることなく、アプリやファイルシステム間で大きなファイルを転送できるようになります。共有ファイルシステム (SFTP) から分析用ファイルホスティングプラットフォーム (Amazon S3) へのレコード転送が、この一例として挙げられます。
+#
+動作の仕組み
+転送元アプリから転送先アプリへファイルを転送する際、Workato はファイルを小さなチャンクに分割してダウンロードします。これらのチャンクは、その後、個別のリクエストにより転送先アプリにアップロードされます。そのため、元ファイルの合計サイズにかかわらず、両アプリのファイルサイズの上限内に収めることができます。
+次の図は、この動作の仕組みを表したものです。
+その結果、Workato は、ストリーミングをサポートするアプリ間で、あらゆるサイズのファイルを転送することができます。
+#
+使用方法
+ファイルストリーミングは、転送元のダウンロードアクションと転送先のアップロードアクションでこの機能をサポートする場合にのみ、サポートされます。(転送元アプリからの)
+File contents
+データピルを (転送先アプリの)
+[File contents]
+入力フィールドへマッピングすると、ファイルストリーミングが自動的に開始されます。
+転送元のデータピルまたは転送先の入力フィールドで指定したファイルの内容のいずれかでストリーミングがサポートされていない場合、標準的なデータマッピングが行われます。つまり、チャンクなしでファイル全体がダウンロードされてから、アップロードされます。この場合、ファイル転送は、それぞれのアプリによって課されるサイズ上限の制約を受けます。2つのうち小さい方が、適用される制限値になります。
+どちらの場合でも、レシピに追加の設定は必要ありません。
+コネクター
+ファイルストリーミングをサポートするトリガーまたはアクション
+ダウンロード
+アップロード
+Amazon S3
+New file (新規ファイル) トリガー
+Download file (ファイルのダウンロード) アクション
+Upload file (ファイルのアップロード) アクション
+Anaplan
+Download file (ファイルのダウンロード) アクション
+Upload file (ファイルのアップロード) アクション
+BigQuery
+BigQuery へのデータのロード
+Box
+Download file (ファイルのダウンロード) アクション
+Bynder
+Download asset (アセットのダウンロード) アクション
+Upload asset (アセットのアップロード) アクション
+Microsoft Sharepoint
+Upload file to folder (フォルダーへのファイルのアップロード) アクション
+オンプレミスファイル
+New file in folder (フォルダー内の新規ファイル) トリガー
+Download file (ファイルのダウンロード) アクション
+Upload file (ファイルのアップロード) アクション
+QuickBase
+Create and update records in bulk from CSV file (CSV ファイルからの一括レコード作成と更新) アクション
+Salesforce
+Insert object in bulk from CSV file (CSV ファイルからの一括オブジェクト挿入) アクション
+Update object in bulk from CSV file アクション (CSV ファイルからの一括オブジェクト更新)
+Upsert object in bulk from CSV file (CSV ファイルからの一括オブジェクトアップサート) アクション
+SFTP
+Upload file (ファイルのアップロード) アクション
+Zoom
+クラウド録画のダウンロード
+現在ファイルストリーミングをサポートする全トリガー/アクションの一覧表。
+この
+サンプルレシピ
+(opens new window)
+では、ファイルストリーミングにより、オンプレミスのファイルシステムから Amazon S3 へファイルを転送します。
+←
+バイナリファイルの処理
+ファイル圧縮
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+動作の仕組み
+使用方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

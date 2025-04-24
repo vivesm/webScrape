@@ -1,0 +1,264 @@
+Workatoコネクター - Marketo - セルフサービスフローステップ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Marketo
+#
+Marketo - セルフサービスフローステップ
+セルフサービスフローステップ
+(opens new window)
+を使用すると、Marketo上で、スマートキャンペーンのフロー内から直接呼び出すことができるカスタムステップを作成できます。Workatoでは、リードデータを他のアプリケーションに一括で送信するレシピのフローステップの構築をサポートしています。
+#
+Workatoにおけるセルフサービスフローステップの利点
+このアプローチには、以下の利点があります：
+サービス間でのフローステップの再利用性
+セルフサービスフローステップを使用すると、マーケターが構築するカスタムフローに直接含めることができる再利用可能なフローステップを作成できます。以前は、Marketo内のリストを使用してWorkatoとの統合を開始する必要がありました。
+リード処理のスループットの向上
+セルフサービスフローステップを使用すると、MarketoのバッチキャンペーンにWorkatoのフローステップを追加できます。これにより、数千のリードを同時に処理するジョブとして処理できます。
+#
+ユースケース
+OutreachやSalesforceなどの他のツールにリードを追加するカスタムフローステップを作成します。
+Snowflakeから製品の使用データを取得し、Marketoのリードに同期させて高度なセグメンテーションを行います。
+ZoomInfoやClearbitなどのベンダーを使用して高度なリードエンリッチメントを実行します。
+6senseやDemandbaseなどのアカウントベースのマーケティングツールからデータを取得し、リードに同期させます。
+#
+Workatoでセルフサービスフローステップを構築する方法
+セルフサービスフローステップは、Workatoのトリガーとアクションのマッチングを組み合わせたもので、レシピの関数やAPIMコネクターと非常に似ています。Marketoコネクターでは、
+New Marketo Self flow Step
+トリガーと
+Return data to Marketo Self Service Flow Step
+アクションを使用します。これらは組み合わせて動作し、トリガーはMarketoのフローからデータを受け取り、アクションはデータを送信してリードを更新します。
+#
+セルフサービスフローステップの構成手順
+構築を開始する前に、各フローステップの目標を理解してください。このプロセスにより、必要なユーザー入力、Marketoのリード属性、およびジョブの最終ステップとしてMarketoで更新する必要がある内容が特定されます。
+1
+New Marketo Self Service Flow Step
+トリガーを使用して、このレシピをWorkatoで作成し、2番目のステップとして
+Return data to Marketo Self Service Flow Step
+アクションを追加します。
+この時点で、レシピは次のようになるでしょう：
+2
+関連する
+ドキュメント
+を参照して、トリガーを構成します。提供したAPIキーを保存することを忘れないでください。
+3
+他のアプリケーションにデータを送信したり、データを取得したりするために、レシピに追加のステップを追加します。
+4
+関連する
+ドキュメント
+を参照して、アクションを構成します。
+5
+Marketoのインスタンスに移動し、Admin => Integration => Service Providers => Add New Serviceに移動します。
+6
+次の2つのステップで、
+Swagger Endpoint URL
+（トリガーのヘルプセクションから取得）と
+APIキー
+（ステップ2で保存したもの）を提供します。続くステップでは、MarketoからWorkatoに送信されるフィールドとWorkatoから送信されるフィールドについて、Marketoで確認する必要があります。これは、Workatoでのトリガー構成で定義された入力と一致するはずです。
+7
+新しく登録したフローステップをテストするために、フローを持つキャンペーンを作成します。フローを通じてリードを送信すると、Workatoでジョブが作成されるはずです。
+8
+必要に応じて、レシピを繰り返し改善してください。Marketoから追加のリード属性やフロー入力が必要な場合は、トリガーの構成を変更できますが、トリガーの構成を変更するたびに、Marketoで新しいサービスを登録する必要があります。
+#
+トリガー - New Marketo Self flow Step
+このトリガーは、ほとんどの構成が行われる場所です。ヘルプテキストに含まれる重要な情報の1つは、「Swagger Endpoint URL」です。このURLは、レシピの構築が完了した後に使用し、Marketoでフローステップサービスを設定するために使用します。トリガーの入力は、MarketoがWorkatoに送信するデータを定義し、レシピがMarketoに送信するデータも定義します。
+セルフサービスフローステップの変更を行う際の注意点
+トリガーの構成を変更すると、Marketoが最新の変更を取得するためにWorkatoにアクセスするため、Marketoで新しいサービスを登録する必要があります。
+開発環境でWorkatoとMarketoのフローステップを繰り返し改善し、本番環境に移行することをお勧めします。
+#
+入力
+入力フィールド
+説明
+APIキー
+Marketoセルフサービスフローステップを保護するためのAPIキーを提供します。後で取得できないため、このAPIキーを保存しておいてください。
+フローステップの入力
+セルフサービスフローステップでは、フロービルダーによって設定可能な少なくとも1つのパラメータを提供する必要があります。
+受信リード属性
+リードがフローステップを通過すると、Marketoは選択した属性のリストをWorkatoに送信します。この場合、フローステップが機能するために必要なリード属性を選択する必要があります。
+リードIDは常にMarketoから送信されます
+送信リード属性
+これは、
+Return data to Marketo Self Service Flow Step
+アクションでMarketoに送信できる属性のリストを表します。例：外部ID
+プログラムコンテキスト
+このフローステップを呼び出すスマートキャンペーンの親プログラムに関連するデータを取得する場合は、はいを選択します。
+キャンペーンコンテキスト
+このフローステップを呼び出すスマートキャンペーンに関連するデータを取得する場合は、はいを選択します。
+トリガーコンテキスト
+このフローステップを呼び出すキャンペーンをトリガーしたイベントに関連するデータを取得する場合は、はいを選択します。これは、各リードごとに異なる場合があります。
+プログラムメンバーコンテキスト
+ステータス、成功、およびプログラムメンバーカスタムフィールドデータを含むプログラムメンバーシップに関連するデータを取得する場合は、はいを選択します。
+サブスクリプションコンテキスト
+Marketoサブスクリプションの識別子を取得する場合は、はいを選択します。REST API呼び出しのために呼び出しインスタンスを特定するために使用できます。
+ステップの出力
+(BETA) Marketoに返すことができるリードアクティビティデータ
+#
+Output
+このトリガーの出力には、
+Return data to Marketo Self Service Flow Step
+アクションに戻すための重要なデータと、MarketoフローからWorkatoに渡されたリードのリストが含まれます。
+ステップの単一の呼び出しでは、複数のリードが渡される場合があります。
+出力フィールド
+説明
+Callback URL
+Return data to Marketo Self Service Flow Step
+アクションのCallback URLにマップする必要があります。
+Callback api key
+Return data to Marketo Self Service Flow Step
+アクションのCallback APIキーにマップする必要があります。
+Callback token
+Return data to Marketo Self Service Flow Step
+アクションのCallbackトークンにマップする必要があります。
+Lead data.Flow attributes
+特定のフローから与えられたフローパラメータ。
+Flow step inputs
+入力フィールドで定義されます。
+Lead data.Lead attributes
+特定のリードのリード値。
+Incoming lead attributes
+で定義されます。
+Context object
+トリガーでコンテキストオブジェクトを選択した場合、ここに表示されます。
+#
+アクション - Return data to Marketo Self Service Flow Step
+これは、Self Service Flow Stepの構成の2番目の部分であり、設定する必要があります。このアクションは、Marketoのリードを更新するためにデータを送信するために使用されます。
+#
+入力
+入力フィールド
+説明
+Callback URL
+New Marketo Self flow Step
+トリガーのCallback URLからマップする必要があります。
+Callback token
+New Marketo Self flow Step
+トリガーのCallbackトークンからマップする必要があります。
+Callback API key
+New Marketo Self flow Step
+トリガーのCallback APIキーからマップする必要があります。
+Outgoing lead attributes
+Workatoがリードを更新するためにMarketoに送信する属性のリストです。
+#
+出力
+このアクションには出力はありません。
+#
+セットアップFAQ
+1. Marketo Self Service Flow Stepの受信または送信フィールドを更新しましたが、Marketoに登録されたステップに表示されません。
+Self Service Flow Stepsはサービスのセットアップ時にのみ一度だけ登録されるため、古いSelf Service Flow StepをMarketoで削除し、新しいものを登録する必要があります。
+2. 一部のリードフィールドがサービスのセットアップ中に正しくマッピングされていません。
+現在、Self Service Flow Stepsは
+string
+型のフィールドのみをサポートしています。すべてのフィールドタイプのサポートを導入するために積極的に取り組んでいます。または、「リードの取得」アクションを使用して必要なリードフィールドを取得し、「リードの更新」アクションを使用してリードフィールドを更新することもできます。
+3. Marketoから送信された一部のリードフィールドがWorkatoのトリガー出力に転送されていません。
+サービスのセットアップでフィールドを正しくマッピングしたことを確認してください。
+incoming lead attributes
+で選択した各フィールドは、サービスプロバイダのセットアップ中にMarketoのリード属性にマッピングする必要があります。
+4. なぜMarketoは名前の衝突を解決するように求めてくるのですか？
+サービス名とフローステップ名は、レシピ名から派生しています。そのため、他のフローステップとまったく同じ名前の衝突が発生する可能性があります。Marketoは異なる名前を提供するように求めるため、名前の衝突が発生します。既存のフローステップとは明確に区別できるようにしてください。
+←
+接続方法
+新規リード トリガー
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+Workatoにおけるセルフサービスフローステップの利点
+ユースケース
+Workatoでセルフサービスフローステップを構築する方法
+トリガー - New Marketo Self flow Step
+アクション - Return data to Marketo Self Service Flow Step
+セットアップFAQ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

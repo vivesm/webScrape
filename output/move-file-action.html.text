@@ -1,0 +1,151 @@
+Workato connectors - On-prem files move file action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+On-prem files
+#
+On-prem files - Move file
+This action moves an existing file to a different folder. The file and destination folder must exist for this action to work.
+Move file action
+#
+Input fields
+Input field
+Description
+File
+Select the file to move. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the file path. Only files can be moved.
+This should be relative to the base path you define in the connection profile. Learn about
+relative path
+.
+Destination folder
+Select the destination folder to move the selected file. This can be done either by selecting a folder from the pick list, or toggling the input field to text mode and providing the destination folder path.
+This should be relative to the base path you define in the connection profile. Learn about
+relative path
+.
+#
+Output fields
+Output field
+Description
+File name
+Name of the file, with extension.
+File path (original)
+This is the original path of the file. This path is relative to the base path you define in the connection profile. Learn about
+relative path
+.
+File path (new)
+This is the new path of the file. This path is relative to the base path you define in the connection profile. Learn about
+relative path
+.
+File size (bytes)
+Size of the file contents in bytes.
+Created time
+This is the time that the file was created. This value is set by your OS.
+Last modified time
+This is the last modified time of the file. This value is updated by your OS.
+←
+Download file action
+Rename file action
+→
+Last updated:
+2/4/2020, 3:08:11 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

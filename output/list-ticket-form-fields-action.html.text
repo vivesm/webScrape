@@ -1,0 +1,163 @@
+Freshservice - List ticket form fields action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Freshservice
+#
+Freshservice - List ticket form fields action
+This action returns a list of ticket form fields in Freshservice.
+#
+Input
+This action doesn’t require any input fields.
+#
+Output
+Output field
+Description
+Field ID
+Unique ID of the field.
+Label
+Display name of the field.
+Description
+Description of the field.
+Field type
+Type of the field.
+Created at
+Timestamp when the field was created.
+Updated at
+Timestamp when the field was last updated.
+Position
+Order in which the field appears.
+Required for closure
+Indicates if the field is mandatory for ticket closure.
+Name
+Internal name of the field.
+Default field
+Indicates whether this is a default system field.
+Required for agents
+Indicates if the field is mandatory for agents.
+Customers can edit
+Specifies if customers can edit the field.
+Label for customers
+Display label for customers.
+Required for customers
+Indicates if the field is mandatory for customers.
+Displayed to customers
+Specifies if the field is visible to customers.
+Belongs to section
+Specifies if the field is part of a section.
+Choices
+List of selectable values (if applicable).
+Nested fields
+Sub-fields associated with this field.
+Sections
+Sections where this field is used.
+Workspace ID
+Unique ID of the workspace the field belongs to.
+←
+List tasks action
+List tickets action
+→
+Last updated:
+3/17/2025, 12:26:03 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

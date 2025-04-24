@@ -1,0 +1,208 @@
+Community connectors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+#
+Community connectors
+COMMUNITY ASSETS ARE INTENDED AS EXAMPLES ONLY
+Platform Assets created and marked public in the community library are intended to serve as a reusable set of templates, best practices and guidelines for different types of solutions. You can learn from, modify, customize and enhance it to meet your specific requirements and business needs. It enables you to expedite the implementation and rollout of integration and orchestration solutions and projects across the organization.
+Community connectors are custom connectors built by members of the Workato community and shared on the
+community library
+. These connectors are designed to help you get a head-start on your integrations by providing pre-built solutions that can be customized to fit your specific requirements. This enables you to start building recipes immediately rather than building a connector from scratch.
+Anyone from the Workato community can build and contribute custom connectors using
+Workato's connector SDK
+, and there are no limits to the number of connectors you can install for your workspace.
+PARTNER CONNECTORS
+Are you interested in building a connector to your own application? Contact our partnerships team today to join our technology partner program. Partners receive a dedicated developer account as well as the tools and training to get your connector up and running.
+Learn more about building with Workato.
+#
+How to install community connectors
+REQUIRED PERMISSIONS
+Installing connectors from the community library requires
+full access to the Connector SDK
+. If you don't have the required permissions, contact your workspace admin to help install the connector.
+Complete the following steps to install a connector from the
+community library
+(opens new window)
+:
+1
+Open the recipe editor and search for a connector. Alternatively, you can search for a connector in the
+community library
+(opens new window)
+.
+Search for community connectors in the recipe editor
+2
+Select the community connector you plan to install.
+3
+Click
+Install
+to install the connector from the community library.
+Click
+Install
+4
+Select
+Release connector
+. Alternatively, select
+Review code
+to review and modify the connector code before releasing it to the workspace.
+Release the connector
+5
+Summarize any changes you made to the connector, then click
+Release
+to allow workspace collaborators to use the connector in recipes.
+The
+Confirm release
+dialog
+#
+Community recipes for community connectors
+Community recipes, created by the authors of the corresponding community connectors, serve as guides to help you understand how to use the connector and demonstrate common use cases.
+When attempting to clone a community recipe that uses a connector you haven't installed, Workato prompts you to install the community connector before using the recipe.
+#
+Best practices
+We recommend using the following best practices when installing platform assets from the community:
+Evaluate asset metrics
+: Assess assets by viewing the metrics on the asset landing page, such as the total number of installations and critical builder statistics.
+Evaluate asset's code or workflow logic
+: Always evaluate the quality of a connector's code before releasing it to your workspace. Releasing a connector allows anyone in your workspace to use it in recipes, so be sure to test its functionality and safety thoroughly. Similarly, make sure to evaluate the underlying workflow logic of community recipes before using them in your workspace.
+Test the asset
+: Test the asset before releasing it or using it widely in your workspace. You can test the functionality and security of community connectors through Workato's
+Test code tab
+, located in
+Tools > Connector SDK > Source code
+. Similarly, we recommend customizing community recipes and thoroughly testing them before using them in your workspace.
+Use Workato resources
+: If you encounter errors in integrations that use assets downloaded from the community, contact
+Workato support
+(opens new window)
+for guidance. Our support team can assess the points of failure, as well as reach out to the asset developer for clarification.
+#
+Community recipe FAQs
+Do I receive updates when the community connector is updated by the connector developer?
+Connectors installed from the community library always retain a relationship with their parent connector, which is the connector listed in the community. When the connector author publishes a new version of this connector, you will receive a notification to update your connector. Updating your connector to the latest version doesn't change the version that is released to your workspace. This allows you to test and ensure that the new connector version is stable and suitable for your recipes.
+How do community connectors work with other features in Workato?
+Using connectors from the community is highly complementary to other existing features in Workato.
+Recipe lifecycle management
+: The
+recipe lifecycle management (RLCM) feature
+enables you to install and test community connectors with recipes in your development workspaces. When you are ready to deploy to production, these connectors are exported along with your recipes. This ensures a stable and seamless integration experience even as you use and test connectors from the community.
+Connector SDK
+:
+Workato's robust connector SDK
+gives you the tools to extend these community connectors by adding new triggers, actions, or changing the way you authenticate. This allows you to freely customize your connector to suit your requirements. Additionally, our connector SDK works with various other Workato features such as
+On-prem groups
+to access applications behind firewalls or our
+API platform
+to turn your connector into a service API endpoint for your team or customers.
+Governance
+: Governance is a key feature of Workato that enables teams to work together securely without compromising company data. Workato imposes restrictions on who can install connectors from the community to ensure that only users with
+full Connector SDK privileges
+can install connectors from the community library. This ensures that teams have proper processes in place to assess the suitability of connectors installed in their workspace.
+←
+Demo apps
+Amplify
+→
+Last updated:
+1/29/2025, 3:20:58 PM
+On this page
+How to install community connectors
+Community recipes for community connectors
+Best practices
+Community recipe FAQs
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,121 @@
+埋め込みアカウントの構造 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+#
+埋め込みアカウントの構造
+Workatoの埋め込みパートナーとその顧客の典型的なアカウント構造は次のとおりです：
+Workato埋め込みアカウントの階層
+管理者アカウント
+これは埋め込みプラットフォームパートナーが所有するWorkatoアカウントです。このアカウントを使用して、顧客をサポートするための内部開発やテスト活動を管理し、管理者コンソールにアクセスして顧客アカウントを管理します。
+顧客アカウント
+顧客アカウントは、管理するWorkatoアカウントです。各顧客には個別の顧客アカウントがあります。チームやパートナーは、これらのアカウントを使用して顧客の代わりにビルドします。顧客はまた、このアカウントを使用して統合をビルドおよび管理することもできます。
+共同作業者
+Workatoアカウントへの招待を受けたユーザーです。共同作業者は管理者アカウントまたは顧客アカウントに存在することができます。共同作業者の役割によって、ユーザーの特権やフォルダー、機能、および
+管理者コンソール
+へのアクセスが決まります。
+顧客マネージャー
+顧客マネージャー
+は、すべての顧客アカウントにアクセス権を持つ埋め込みパートナーチームのメンバーです。顧客マネージャーは、顧客アカウントのデータを表示する権限を持つ信頼できるチームメンバーである必要があります。顧客チーム内で顧客マネージャーが表示できるデータやツールの種類や量を
+役割ベースのアクセス制御
+を通じて管理します。
+←
+Embedded
+管理コンソール
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

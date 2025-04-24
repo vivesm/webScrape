@@ -1,0 +1,205 @@
+Workato API - Environment properties | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Developer API
+Resources
+#
+Environment properties
+Use the endpoints below to manage
+environment properties
+programmatically.
+#
+Quick reference
+Type
+Resource
+Description
+GET
+/api/properties
+Lists environment properties that matches a prefix.
+POST
+/api/properties
+Upserts environment properties.
+#
+List properties by prefix
+Returns a list of environment properties belonging to a customer that matches a prefix. For example, if the prefix provided is
+salesforce_sync.
+, any environment property with a name
+beginning
+with 'salesforce_sync.' will be returned.
+GET /api/properties
+#
+Parameters
+Name
+Type
+Description
+prefix
+string
+required
+Return properties with the given prefix. E.g:
+salesforce_sync.
+.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/properties?prefix=salesforce_sync.'
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+#
+Response
+{
+"salesforce_sync.object_name"
+:
+"Account"
+,
+"salesforce_sync.object_field"
+:
+"Id"
+}
+#
+Upsert property
+Upserts environment properties. Matches by the names of the properties provided in the request.
+POST /api/properties
+#
+Payload
+Name
+Type
+Description
+properties
+Hash
+required
+Contains the names and values of the properties to upsert.
+#
+Sample request
+curl
+-X
+POST https://www.workato.com/api/properties
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{ "properties": { "zendesk.object": "Ticket", "zendesk.key": "ticket_id" }}'
+#
+Response
+{
+"success"
+:
+true
+}
+←
+Activity audit log API reference
+Folders
+→
+Last updated:
+4/25/2024, 5:58:27 PM
+On this page
+List properties by prefix
+Upsert property
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

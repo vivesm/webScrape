@@ -1,0 +1,274 @@
+Workflow apps connector - Complete workflow task programmatically action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Builder experience
+Workflow apps connector
+#
+Complete workflow task programmatically
+Use this action to complete a workflow task programmatically. For example, you can use it to perform a workflow task in a different UI (including Workbot for Slack or Microsoft Teams), or to close a task that is no longer valid.
+#
+Input
+Input fields
+Description
+Workflow app
+Select a Workflow app in which to complete a task.
+Record ID
+Choose a request (identified by its
+Record ID
+) to update. Use a datapill or enter the exact ID. Workato automatically generates a unique ID for each record in a Workflow app's corresponding data table.
+Task status
+Complete a task by approving, rejecting, or completing it.
+Custom task status
+Optional
+. Provide a custom task status label to customize what users see when a task is approved, rejected, or completed in the portal. For example, you can use a custom task status such as
+sent for rework
+to accompany a
+rejected
+status. This communicates clearly the reason the request was rejected and enables you to configure conditional logic to customize how your workflow handles requests assigned custom task status labels. When left empty, the label appears the same as the task status.
+Email address
+Optional
+. Provide the email address of the assignee you plan to complete the task. If this field is left empty, Workato defaults to the currently assigned user.
+#
+Output
+Output is dynamic and may vary depending on the actions and triggers in your recipe, as well as the columns present in your Workflow app's corresponding
+data table
+.
+To use this data in downstream steps, map in the relevant
+datapill
+from the datatree.
+Task
+This JSON object includes the following available attributes.
+Task ID
+Workato automatically generates a unique ID for each task in a Workflow app.
+Task name
+The name of the task.
+Status
+The task's status.
+Available values include:
+Approved:
+The status if the task was completed using a button with the
+Complete task
+action and its outcome is
+Approved
+.
+Rejected:
+If the task was completed using a button with the
+Complete Task
+action and its outcome is
+Rejected
+.
+Expired:
+If the task was not completed in time.
+Is approved
+Whether the task was completed with
+Approved
+status.
+Created at
+The date the task was created.
+Completed at
+The date the task was completed.
+Completed by
+A nested JSON object within the
+Task
+object describing the user that completed the task.
+If the task is expired, this object may be empty.
+Available attributes include
+User ID:
+The user's ID.
+Task name:
+The name of the user who completed the task.
+Email:
+The user's email address.
+Request
+This JSON object includes the following available attributes. Additional output is available depending on the Workflow app you select and its data table.
+Record ID
+Workato automatically generates a unique ID for each record in a Workflow app's corresponding data table.
+Active task
+A nested JSON object within the
+Request
+object.
+This object is empty if there is not an active task associated with the request.
+Available attributes include
+Task ID:
+The ID of the task.
+Task name:
+The name of the task.
+Status:
+The task's status.
+Assigned user:
+A nested JSON object within the
+Assigned task
+object.
+This object is empty if the task is assigned to a group.
+Available attributes include
+User ID:
+The ID of the user assigned to the task.
+User name:
+The name of the user assigned to the task.
+Email:
+The email of the user assigned to the task.
+Status:
+The status of the user assigned to the task.
+Assigned group:
+A nested JSON object within the
+Assigned task
+object.
+This object is empty if the task is assigned to an individual user.
+Available attributes include
+User ID:
+The ID of the user assigned to the task.
+User name:
+The name of the user assigned to the task.
+Email
+The email of the user assigned to the task.
+Status
+The status of the user assigned to the task.
+Due date:
+The due date of the task.
+Task URL:
+The URL for the task.
+Created by
+A nested JSON object within the
+Request
+object.
+Available attributes include
+User ID:
+The ID of the user who created the request.
+User name:
+The name of the user who created the request.
+Email:
+The email of the user who created the request.
+Status:
+The status of the user.
+Groups
+A nested JSON object within the
+Created by
+object.
+Available attributes include
+Group ID:
+The ID of the group this task is assigned to.
+Group name:
+The name of the group this task is assigned to.
+List size
+List index
+Stage
+A nested JSON object within the
+Request
+object.
+Available attributes include
+Stage ID:
+The ID of the group this task is assigned to.
+Group name:
+The name of the group this task is assigned to.
+Created at
+The date the record was created.
+Updated at
+The date the record was most recently updated.
+←
+Assign task to users action
+Delete request action
+→
+Last updated:
+3/4/2025, 7:43:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

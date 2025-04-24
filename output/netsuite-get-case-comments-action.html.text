@@ -1,0 +1,135 @@
+Workatoコネクター - NetSuite - アクション - ケースコメントの取得 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+NetSuiteアクション - ケースコメントの取得
+アクション「ケースコメントの取得」を使用すると、NetSuiteの特定のケースのコメントをケースIDで取得できます。
+#
+入力フィールド
+ケースID
+NetSuiteのケースのID
+結果リストのページサイズ
+返すレコードの数。最大は200で、デフォルトは25です。
+検索ID
+前の「ケースコメントの取得」アクションから返されます
+ページ番号
+検索IDと組み合わせて結果をページ送りするために使用します
+#
+出力フィールド
+検索ID
+結果をページ送りするために後続の「ケースコメントの取得」アクションで使用します
+ページ番号
+結果をページ送りするために後続の「ケースコメントの取得」アクションで使用します
+総ページ数
+検索結果の総ページ数
+メッセージ
+ケースの配列
+#
+すべてのケースコメントを取得するために結果をページ送りする
+Workatoの
+foreach
+ループを使用すると、すべてのケースコメントを簡単にページ送りしてデータベースにバックアップすることができます。
+詳細については、
+このサンプルレシピ
+(opens new window)
+をご覧ください。
+Last updated:
+2025/4/9 3:16:38
+On this page
+入力フィールド
+出力フィールド
+すべてのケースコメントを取得するために結果をページ送りする
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

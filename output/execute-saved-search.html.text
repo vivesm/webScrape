@@ -1,0 +1,177 @@
+Workato connectors - NetSuite SOAP - Execute saved search for record | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite SOAP - Execute saved search for record
+The
+Execute saved search for record
+action retrieves records from NetSuite based on a saved search, with optional filters to refine the results.
+Execute saved search for record action
+#
+Input
+Input field
+Description
+Record type
+Select the type of NetSuite record to retrieve saved searches for, such as
+Customer
+,
+Vendor
+, or
+Transaction
+.
+Saved search
+Select a saved search from the list or enter the
+Saved search ID
+if it’s not listed. Ensure the saved search is set up correctly in NetSuite.
+Record list
+Select the specific records to retrieve in the output. You must select
+Internal IDs
+of records to retrieve their data.
+Fields
+Select the fields from the selected records to include in the output. Only the fields you select appear in the output data. The
+Internal ID
+of all selected records must be included in the
+Record list
+.
+Results list page size
+Specify the number of records to retrieve per page. The default is 25 records per page. The minimum value is 5, and the maximum is 200. If the number of records exceeds the page size, use the
+Search ID
+and
+Page number
+fields to retrieve the remaining records.
+Search ID
+Provide the
+Search ID
+from a previous search to retrieve subsequent pages of results. When
+Search ID
+is specified, other search criteria are ignored.
+Page number
+Enter the page number to retrieve if the search returns more than one page. Use this field with
+Search ID
+to paginate through results.
+Search settings
+Configure additional operators to refine your search. For example, you can filter string fields with a
+Contains
+operator or integer fields with
+Equal to
+. Each operator applies to all fields of that type.
+#
+Output
+Output field
+Description
+Search ID
+The unique identifier for the search results.
+Page number
+The current page number of the results being retrieved.
+Total pages
+The total number of pages in the search result.
+←
+Create records in bulk
+Execute saved search for custom record action
+→
+Last updated:
+10/10/2024, 11:12:20 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

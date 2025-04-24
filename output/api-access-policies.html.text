@@ -1,0 +1,192 @@
+API Access Policies | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API governance
+#
+API access policies
+Access policies control how clients use APIs.
+This helps prevent the overuse of an API by a single client, which could result in degraded performance for the community of API users. While an access policy is optional, if you do not create and associate an access policy with a client, then there are no API usage limits on the client.
+Each access policy has two types of limits:
+Policy type
+Description
+Rate limit policy
+Restricts the number of API calls that can be made within a short time period, such as a minute.
+Request limit policy
+Restricts the number of API calls that can be made within a longer time period, such as 30 days.
+API PROXY LIMITS
+API policy limits currently do not apply to API proxy endpoints. Support for this feature may be included in a future update.
+Go to
+Platform
+>
+API platform
+>
+Policies
+to view existing and
+create new access policies
+.
+#
+Create new access policy
+Complete the following steps to create a new access policy:
+1
+Go to
+Platform
+>
+API platform
+>
+Policies
+in the Orchestrate platform.
+2
+Click
++ New policy
+. The
+Create New Policy
+dialog displays.
+Create new policy
+3
+Enter a unique
+Name
+for the policy.
+4
+Select the
+Time interval
+for rate limits.
+5
+Specify the
+Number of requests
+allowed per profile within the rate limit interval.
+6
+Select the
+Time interval
+for the usage quota.
+7
+Specify the
+Number of requests
+allowed per profile within the usage quota.
+8
+Click
+Create policy
+. The new policy appears on the
+Policies
+page.
+After creating the policy, associate it with an access profile. You can
+create a client
+or, if a client exists,
+create an access profile
+.
+#
+Manage policy usage
+When an API access policy exceeds rate limits or usage quotas, the server returns a
+429
+error. To assist clients with troubleshooting, responses for requests associated with an API access policy include additional details:
+Header
+Description
+retry-after
+Indicates the timestamp for the next valid request, based on rate limits or usage allowances.
+←
+API governance
+RecipeOps
+→
+Last updated:
+2/24/2025, 4:15:02 PM
+On this page
+Create new access policy
+Manage policy usage
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

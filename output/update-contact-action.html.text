@@ -1,0 +1,184 @@
+Workato connectors - Insightly update contact action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Insightly
+#
+Update contact action
+This action updates a contact in your Insightly instance.
+#
+Input fields
+Input field
+Description
+Contact ID
+The ID of the contact to be updated.
+First name
+The first name of the contact.
+Last name
+The last name of the contact.
+Salutation
+The salutation of the contact.
+Organization
+The organization of the contact.
+Role
+The role of the contact.
+Tags
+The tags of the contact.
+Tags source list
+The source list from which the contact tags are derived. This field accepts a
+list datapill
+as input.
+Tag name
+The name of the tag assigned to the contact.
+Background
+Background information or notes about the contact.
+Visible to
+Specifies who can see this contact (for example everyone, owner, or individuals)
+Visible user IDs
+The IDs of users who can see this contact.
+Work email
+The work email address of the contact.
+Personal email
+The personal email address of the contact.
+Other email
+Any other email addresses associated with the contact.
+Work phone
+The work phone number of the contact.
+Mobile
+The mobile phone number of the contact.
+Home phone
+The home phone number of the contact.
+Website
+The website associated with the contact.
+Addresses
+The addresses of the contact.
+Addresses source list
+The source list from which the addresses of the contact are derived. This field accepts a
+list datapill
+as input.
+Address type
+The type of address (for example, work, home, postal, or other).
+Street
+The street part of the contact's address.
+City
+The city part of the contact's address.
+State
+The state part of the contact's address.
+Post code
+The postal code part of the contact's address.
+Country
+The country part of the contact's address.
+#
+Output fields
+The output of this action is a datatree that contains information about the updated
+contact
+(opens new window)
+.
+←
+Create event action
+Add note to opportunity action
+→
+Last updated:
+6/25/2024, 10:57:45 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

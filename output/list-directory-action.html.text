@@ -1,0 +1,155 @@
+Workato connectors - SFTP list folder action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+SFTP
+#
+List folder action
+This action lists all items from a specified folder in your SFTP server. All files and subfolders in the specified path will be retrieved. However, items in the subfolders will not be retrieved.
+List folder action
+#
+Input
+Input field
+Description
+Folder path
+Provide the full path of the folder to list its contents. Example:
+/folder1/folder2
+#
+Output
+The output of this action is a
+list of records
+with each record containing the following details:
+Output field
+Description
+Name
+The name of the file.
+Symlink
+Whether this file contain links to other files.
+Size
+The size of the file.
+Owner
+The designated owner of the file.
+Group
+The group that this file belongs to.
+Permissions
+The permissions enabled on this file.
+Last accessed time
+The last time this file was accessed.
+Last modified time
+The last time this file was modified.
+Directory
+Whether this item is a folder.
+List size
+Total number of items in the list.
+List index
+Position of each item in the list, starting at
+0
+.
+←
+Get file information
+Rename/move file
+→
+Last updated:
+10/19/2023, 10:05:52 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

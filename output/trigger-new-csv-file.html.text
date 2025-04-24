@@ -1,0 +1,242 @@
+Workato connectors - Google Drive - New CSV file trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Drive
+#
+Google Drive - New CSV file trigger (batch)
+This trigger checks a specified folder for new CSV files every 5 minutes and processes the CSV lines in batches of 1000 by default. The maximum batch size is 1000.
+The trigger does not pick up newly uploaded versions of the same file.
+Google Drive New CSV file trigger
+#
+Input
+Input field
+Description
+When first started, this recipe should pick up events from
+When you start the recipe for the first time, it picks up activity from the specified date and time. Defaults to fetching activity an hour ago if left blank. After the recipe has been run or tested, the value cannot be changed. Learn more about this
+input field
+.
+Parent folder
+The parent folder where the file is placed. Select a folder from the picklist or enter the folder ID directly. You can find the folder ID at the end of the folder URL. If entering the folder ID for a shared drive (formerly Team Drive), this value must be in the form
+folder_id/shared_drive_id
+(for example,
+1fm6iCMYrN7roZZ-ynpVFRTVq9mellrWp/0AB6ZFCw3XdamUk9PAA
+).
+The uploaded file is saved in My Drive if this field is not specified.
+Sample CSV file
+Required for Workato to understand the data columns in your files. If you do not have a sample CSV file to upload, enter column names manually, with each name on a new line. This is used to build output column fields.
+Column delimiter
+The character used to separate column values within each CSV line.
+Contains header line?
+Set to
+Yes
+if the first CSV line is a header line containing column names that must be excluded in the output.
+Batch size
+Number of CSV rows per batch. Instead of reading rows one by one, Workato reads a batch of CSV rows at the same time to increase throughput. Refer to
+Batch processing
+for more information. Defaults to
+1000
+, which is the maximum batch size.
+Expected encoding
+The expected file encoding type. Defaults to
+UTF-8
+, and typically doesn't need to be changed.
+#
+Output
+Input field
+Description
+Events
+Details about the new CSV file in Google Drive. Contains the following output fields:
+ID: ID of the file.
+Name: Name of the file.
+MIME type: MIME type of the file, as stated in
+Google Drive's documentation
+(opens new window)
+.
+Description: Description of the file.
+Starred: Whether you have starred the file.
+Trashed: Whether the file has been trashed, either explicitly or from a trashed parent folder. Only the owner can trash a file. Other users cannot see files in the owner's trash.
+Explicitly trashed: Indicates whether the file has been explicitly trashed, as opposed to recursively trashed from a parent folder (for example, when you trash an entire parent folder).
+Parents: List of parent folders containing the file. Contains the following output fields, in addition to
+List size
+and
+List index
+:
+ID: ID of the parent folder.
+Version
+A version number for the file. This reflects every change made to the file on the server, even those not visible to the user.
+Web content link: A link for downloading the content of the file in a browser. This is only available for files with binary content in Google Drive.
+Web view link: A link for opening the file in a relevant Google editor or viewer in a browser.
+Icon link: A static, unauthenticated link to the file's icon.
+Thumbnail link: A short-lived link to the file's thumbnail, if available. Typically lasts on the order of hours. Only populated when the requesting app can access the file's content.
+Viewed by me: Whether the file has been viewed by this user.
+Viewed by me time: The last time the file was viewed by this user (RFC 3339 date-time).
+Created time: The time at which the file was created (RFC 3339 date-time).
+Modified time: The last time the file was modified by anyone (RFC 3339 date-time).
+Modified by me time: The last time the file was modified by this user (RFC 3339 date-time).
+Sharing user
+The user who shared the file with the requesting user, if applicable. Each user contains the following output fields:
+Display name: A plain text displayable name for this user.
+Email address: The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester.
+Permission ID: The user's ID as visible in Permission resources.
+Photo link: A link to the user's profile photo, if available.
+Me: Whether this user is the requesting user.
+Owners
+The list of owners of the file. Only certain legacy files can have more than one owner. This field is not populated for shared drive files. Each owner contains the following fields, in addition to
+List size
+and
+List index
+:
+Display name: A plain text displayable name for this user.
+Email address: The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester.
+Permission ID: The user's ID as visible in Permission resources.
+Photo link: A link to the user's profile photo, if available.
+Me: Whether this user is the requesting user.
+Last modifying user
+The last user to modify the file. Each user contains the following output fields:
+Display name: A plain text displayable name for this user.
+Email address: The email address of the user. This may not be present in certain contexts if the user has not made their email address visible to the requester.
+Permission ID: The user's ID as visible in Permission resources.
+Photo link: A link to the user's profile photo, if available.
+Me: Whether this user is the requesting user.
+Shared
+Indicates whether the file has been shared. This field is not populated for shared drive files.
+Owned by me
+Indicates whether the user owns the file. This field isn't populated for shared drive files.
+Viewers can copy content
+Indicates whether users with
+View
+access can copy the file contents.
+Writers can share
+Indicates whether users with
+Edit
+access can share the file. This field is not populated for shared drive files.
+Original filename
+The original filename of the file if available, or else the original value of the name field. This is only available for files with binary content in Google Drive.
+Full file extension
+The full file extension extracted from the name field. May contain multiple concatenated extensions (for example,
+tar.gz
+). This is only available for files with binary content in Google Drive. It is automatically updated when the name field changes, but it is not cleared if the new name does not contain a valid extension.
+File extension
+The final component of the full file extension (for example,
+gz
+.) This is only available for files with binary content in Google Drive.
+MD5 checksum
+The MD5 checksum for the content of the file. This is only applicable to files with binary content in Google Drive.
+Size
+The size of the file's content in bytes. This is only applicable to files with binary content in Google Drive.
+Quota bytes used
+The number of storage quota bytes used by the file. This includes the head revision as well as previous revisions with
+Keep Forever
+(opens new window)
+enabled.
+Head revision ID
+The ID of the file's most current version. This is only available for files with binary content in Google Drive.
+←
+New activity trigger
+New file/folder trigger
+→
+Last updated:
+3/10/2025, 6:11:59 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

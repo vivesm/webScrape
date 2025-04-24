@@ -1,0 +1,428 @@
+Workato connectors - Microsoft Dynamics 365 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Microsoft Dynamics 365
+Microsoft Dynamics 365
+(opens new window)
+is a customer relationship management software package developed by Microsoft. It is built on the Microsoft Dynamics 365 platform, allowing users to easily extend and tailor the application for their business.
+#
+API version
+The Microsoft Dynamics 365 connector uses the Microsoft Dynamics 365 API v8.0 and v9.0. Select your preferred version during connection.
+#
+Connection setup
+Complete the following steps to create a Microsoft Dynamics 365 connection in Workato.
+1
+Provide a
+Connection name
+that identifies which Microsoft Dynamics 365 instance Workato is connected to.
+DYNAMICS 365 CONNECTOR LIMITATIONS
+The Microsoft Dynamics 365 connector may not support all finance and HR use cases. To address these use cases, consider installing other SDK connectors, such as
+Microsoft Dynamics Business Central
+(opens new window)
+and
+Microsoft Dynamics Finance and Operations
+(opens new window)
+, from the community library.
+2
+Select the
+Location
+where you plan to use your connection.
+3
+Select your
+Connection type
+.
+CLOUD AND ON-PREMISE CONNECTION TYPES
+Learn how to create a connection to your Microsoft Dynamics 365 instance through the
+cloud app
+or through your
+on-premise application
+.
+4
+Select the
+Authentication type
+you plan to use for your connection:
+1
+Select
+Authorization code grant
+from the
+Authentication type
+drop-down menu.
+Select Authorization code grant
+2
+Provide your
+Subdomain
+. For example, if your Microsoft Dynamics 365 URL is
+https://abc.crm.dynamics.com
+, your subdomain is
+abc.crm.dynamics.com
+.
+3
+Select your
+Account type
+.
+4
+Provide your
+AD domain name
+.
+This field is required if your account type is On-premise.
+For example, if your AD server is
+https://abc.adfs.dynamics.com/adfs
+, your AD domain name is
+abc.adfs.dynamics.com
+. Note that Active Directory (AD) is now known as Microsoft Entra ID.
+5
+Enter your
+Client ID
+.
+6
+Enter your
+Client secret
+.
+7
+Select the
+Version
+of Microsoft Dynamics 365 you plan to use for your connection. Version 8 is selected by default.
+8
+Optional. Configure
+Advanced settings
+.
+9
+Optional. Configure your
+Custom OAuth profile
+.
+1
+Select
+Client credentials
+from the
+Authentication type
+drop-down menu.
+Select Client credentials
+2
+Provide your
+Subdomain
+. For example, if your Microsoft Dynamics 365 URL is
+https://abc.crm.dynamics.com
+, your subdomain is
+abc.crm.dynamics.com
+.
+3
+Select your
+Account type
+.
+4
+Provide your
+AD domain name
+.
+This field is required if your account type is On-premise.
+For example, if your AD server is
+https://abc.adfs.dynamics.com/adfs
+, your AD domain name is
+abc.adfs.dynamics.com
+. Note that Active Directory (AD) is now known as Microsoft Entra ID.
+5
+Enter your
+Client ID
+.
+6
+Enter your
+Client secret
+.
+7
+Enter your
+Tenant ID
+. You can find your tenant ID by going to your Azure portal and selecting Tenant properties. You must create an
+application user
+(opens new window)
+for Microsoft Dynamics 365 to use this tenant ID.
+8
+Select the
+Version
+of Microsoft Dynamics 365 you plan to use for your connection. Version 8 is selected by default.
+9
+Optional. Configure
+Advanced settings
+.
+10
+Optional. Configure your
+Custom OAuth profile
+.
+1
+Select
+Resource owner password credentials grant
+from the
+Authentication type
+drop-down menu.
+Select Resource owner password credentials grant
+2
+Provide your
+Subdomain
+. For example, if your Microsoft Dynamics 365 URL is
+https://abc.crm.dynamics.com
+, your subdomain is
+abc.crm.dynamics.com
+.
+3
+Select your
+Account type
+.
+4
+Provide your
+AD domain name
+.
+This field is required if your account type is On-premise.
+For example, if your AD server is
+https://abc.adfs.dynamics.com/adfs
+, your AD domain name is
+abc.adfs.dynamics.com
+. Note that Active Directory (AD) is now known as Microsoft Entra ID.
+5
+Enter your
+Client ID
+.
+6
+Enter your
+Client secret
+.
+7
+Enter the Microsoft Dynamics 365
+Username
+and
+Password
+of the individual who plans to use this connection. Do not enable multi-factor authentication for this user.
+8
+Enter your
+Tenant ID
+. You can find your tenant ID by going to your Azure portal and selecting Tenant properties. You must create an
+application user
+(opens new window)
+for Microsoft Dynamics 365 to use this tenant ID.
+9
+Select the
+Version
+of Microsoft Dynamics 365 you plan to use for your connection. Version 8 is selected by default.
+10
+Optional. Configure
+Advanced settings
+.
+11
+Optional. Configure your
+Custom OAuth profile
+.
+5
+Click
+Sign in with Microsoft
+to complete your connection setup.
+#
+Use a cloud connection
+You must obtain a client ID by registering your Microsoft 365 Dynamics app with Azure Active Directory to connect to Microsoft 365 Dynamics on Workato. Complete the following steps to register with Microsoft 365 Dynamics:
+1
+Sign in to the Microsoft Azure management portal using an account with administrator permission. You must use an account in the same Microsoft Office 365 subscription (tenant) that you plan to register the app with.
+Microsoft Azure homepage
+2
+Click
+App registrations > New registration
+.
+App registrations
+3
+Provide a
+Name
+for the application. For example, Workato.
+Register the application
+4
+Select
+Accounts in this organizational directory only (Nil only - Single tenant)
+in the
+Supported account types
+field.
+5
+Provide a
+Redirect URI
+. For example,
+https://www.workato.com/oauth/callback
+.
+6
+Click
+Register
+.
+Your new application displays on your app registrations page.
+7
+Select your new app to open the app details page.
+Select your newly created application
+8
+Go to the
+Certificates & Secrets
+section and create a
+Client Secret
+. This is required for the connection setup in Workato.
+Create a client secret
+9
+Click
+API permissions
+>
+Add a permission
+.
+Click Add a permission
+10
+Click the
+Microsoft APIs
+tab and select
+Dynamics 365
+.
+Select Dynamics 365 Online API access
+11
+Select
+Delegated permissions
+and the
+user_impersonation
+checkbox, then click
+Add permissions
+.
+Add permissions
+12
+Retrieve the
+Application (client) ID
+. The client ID is required to connect to Workato.
+Retrieve the Application ID
+13
+Retrieve the
+Client secret
+. The client secret is required to connect to Workato.
+Retrieve client secret
+14
+Extend the refresh token expiration time
+if required.
+#
+Use an on-premise connection
+You must obtain a client ID by registering your Microsoft 365 Dynamics app with the Active Directory Federation Service before you can connect to Microsoft 365 Dynamics on Workato. Learn more about
+how to register an on-premise Dynamics app
+(opens new window)
+with Active Directory Federation Service.
+Remember to
+extend the refresh token expiration time
+if required.
+#
+Extend the refresh token expiration time
+When you connect to a Dynamics app, Workato uses an access token to read and write to your Dynamics instance. This access token is valid until it reaches its expiry date. Workato receives an accompanying refresh token with the access token. When your access token expires, Workato uses the refresh token to request a new access token. Microsoft Dynamics 365 checks that the refresh token is still valid (the token has not been revoked), and provides a new pair of access and refresh tokens.
+Refresh tokens also have expiry date. If both the access token and refresh tokens expire before Workato requests new tokens, the Microsoft Dynamics 365 connection becomes invalid, and a re-connection is required. When this happens, a request from Workato to Microsoft Dynamics 365 receives a 400 response. If you are using a Microsoft Dynamics 365 trigger, this results in a recipe
+trigger error
+. If you are using a Microsoft Dynamics 365 action, this results in a
+job error
+.
+To ensure your recipes run continuously without requiring intervention, extend your refresh token expiration time, or set it to unlimited. You can apply and scope your token to an OAuth application instead of applying it to the entire organization.
+Learn more about token lifetimes in the
+Microsoft documentation
+(opens new window)
+.
+←
+Map to object action
+Deleted object trigger
+→
+Last updated:
+3/20/2025, 4:31:20 PM
+On this page
+API version
+Connection setup
+Use a cloud connection
+Use an on-premise connection
+Extend the refresh token expiration time
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

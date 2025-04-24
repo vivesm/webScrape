@@ -1,0 +1,145 @@
+Workato connectors - Bamboo HR - List time off requests action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Bamboo HR
+#
+Bamboo HR - List time off requests action
+This action lists all time off requests occurring between two specified dates. More filters can be specified to further narrow down the result.
+#
+Input
+List time off requests action
+Input field
+Description
+Start date
+required
+The start date of the time off. Select date or type it in YYYY-MM-DD format.
+End date
+required
+The end date of the time off. Select date or type it in YYYY-MM-DD format.
+Request ID
+Specify a request ID to narrow the result to just this particular request.
+Employee ID
+Specify an employee ID to narrow the result to just requests from this particular employee.
+Type
+Select the type(s) of time off to narrow the result to, or input ID of each of them manually separated by comma.
+Status
+Select the status(es) of time off to narrow the result to, or input each of them manually separated by comma.
+#
+Output
+The output of this action is a list of time off request objects, including the
+List size
+and
+List index
+. For more information on the structure of the time off request object, check out the
+BambooHR documentation
+(opens new window)
+.
+←
+List employees in directory action
+Get table records of employee action
+→
+Last updated:
+2/3/2023, 2:36:33 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

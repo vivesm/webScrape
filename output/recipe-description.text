@@ -1,0 +1,179 @@
+Copilot in recipe description | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+AI features
+Copilots
+#
+Docs Copilot
+FEATURE AVAILABILITY
+Copilot is available for all direct customers across all Workato data centers. It is available to Embedded partners in the admin workspace, but is not available in Embedded customer workspaces. All data is sent to OpenAI's servers in the US. You can opt-in to this feature by agreeing to our
+AI feature addendum
+(opens new window)
+. Contact your Customer Success representative to learn more.
+Deploying a recipe to production involves multiple contributors and various activities beyond the building and testing phases. One crucial activity is documenting your recipes using detailed descriptions. These descriptions enable administrators to comprehend each recipe's functionality and assist team members in extending your recipes in the future.
+Docs Copilot generates initial recipe descriptions. This allows you to concentrate more on delivery and less on documentation.
+#
+Prerequisites
+Ensure that you have
+Copilot
+enabled for your workspace. Enabling Copilots requires an
+Admin
+system role. If you are not assigned this role, contact your workspace administrator to enable this feature. For more information, refer to our
+Copilots
+documentation.
+PERMISSIONS
+Copilots do not have granular permission settings. When you enable it in your workspace, all collaborators within your workspace can access it, regardless of their role.
+#
+Generate your recipe descriptions
+After you save, test, and debug your recipe, you can use Docs Copilot to help you generate your recipe in the following situations:
+When no recipe description is present
+When a recipe description is present
+#
+No recipe description is present
+Complete the following steps to generate a recipe description using Docs Copilot:
+1
+Click
+Add description
+to immediately trigger Docs Copilot to generate a recipe description.
+Trigger copilot with no description
+2
+Edit the description as required in the popup.
+3
+Click
+Save
+to include the edited description in the recipe, or
+Clear description
+if you choose not to use it. This description serves as a draft that you can modify as needed.
+Generate recipe description
+#
+Recipe description is present
+Complete the following steps to generate a new recipe description using Docs Copilot:
+1
+Click
+Edit
+to open the recipe description popup.
+Trigger copilot with existing description
+2
+Use Docs Copilot to generate a new description in the popup.
+3
+Review the generated description. If it meets your requirements,
+Save
+it. You can revert the generation if it does not meet your requirements.
+#
+How it works
+Docs Copilot generates a description by receiving information about your recipe, excluding job data. Specifically, Docs Copilot uses the recipe steps, which are the individual actions and triggers that make up your recipe, the input fields where data is entered or mapped, and the applications integrated within your recipe. If your recipe calls other recipes, Docs Copilot also gathers information about those linked recipes to provide a more accurate generation.
+You can improve the recipe descriptions that Docs Copilot generates by providing relevant names for all custom actions or HTTP actions in your recipe.
+#
+Data usage
+Refer to our appendix to see the data that Docs Copilot uses.
+Learn more
+.
+←
+Recipe Copilot in recipe building
+Formula Copilot
+→
+Last updated:
+2/13/2025, 9:46:17 PM
+On this page
+Prerequisites
+Generate your recipe descriptions
+How it works
+Data usage
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

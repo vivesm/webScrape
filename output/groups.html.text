@@ -1,0 +1,132 @@
+オンプレミスグループ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+オンプレミス接続
+#
+オンプレミスグループ
+オンプレミスグループ
+オンプレミスグループとは、1つ以上のオンプレミスエージェントを、共通のコネクションプールに論理的にグループ化したものです。ワークロードは、オンプレミスグループのすべてのエージェントに均等に分散されます。複数のアクティブなエージェントで構成されるオンプレミスグループをレシピで使用すると、
+高可用性
+を実現できます。これにはいくつかのメリットがあります。
+#
+高可用性
+高可用性とは、システムを長期間継続的に運用できることを意味します。システムの可用性を高めるには、システム全体が稼働するために、システムのあらゆる部分が存在し、機能している必要があります。これは通常、
+フォールトトレランス
+と
+負荷分散
+により実現されます。
+#
+フォールトトレランス
+フォールトトレランスにより、システムは一部の要素で障害が発生しても問題なく稼働し続けることができます。オンプレミスグループでは、オンプレミスエージェントに冗長性を持たせることで、フォールトトレランスを実現します。エージェントをホストしている1つ以上のサーバーがオフラインになると、それらの各エージェントはバックアップまたはフェイルセーフとして機能します。
+#
+負荷分散
+負荷分散とは、ワークロードを複数のリソースに分散することです。オンプレミスグループにおいては、同じグループ内の複数のオンプレミスエージェントにリクエストを分散します。それにより、単一のサーバーが過負荷になるのを避け、オンプレミス接続を使用してレシピの応答と全体的なパフォーマンスを向上させることができます。
+#
+このセクションの内容
+グループの作成
+グループへのエージェントの追加
+グループのステータス
+エージェントの共通の設定
+←
+オンプレミス接続
+グループの作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+高可用性
+このセクションの内容
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

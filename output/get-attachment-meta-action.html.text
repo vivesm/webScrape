@@ -1,0 +1,178 @@
+Workato connectors - Wrike - Get attachment metadata batch action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Get attachment metadata batch action
+The
+Get attachment metadata
+batch action retrieves metadata information for an attachment in Wrike. Use the
+Get record ID action
+to obtain an attachment ID from its permalink URL.
+#
+Input
+Input field
+Description
+Attachment ID
+Enter the attachment ID to retrieve metadata for.
+Retrieve past versions?
+Select
+Yes
+to retrieve previous versions of the attachment. Defaults to
+No
+.
+#
+Output
+Output field
+Description
+Attachment ID
+Unique identifier for the attachment.
+Author ID
+Unique identifier of the user who uploaded the attachment.
+File name
+Name of the attachment file.
+Created date
+Timestamp indicating when the attachment was created.
+Version
+Version number of the attachment.
+Attachment type
+Type of attachment.
+Content type
+MIME type of the attachment.
+Size
+File size of the attachment in bytes.
+Task ID
+Unique identifier of the associated task, if applicable.
+Folder ID
+Unique identifier of the associated folder, if applicable.
+Comment ID
+Unique identifier of the associated comment, if applicable.
+ID of current attachment version
+Unique identifier of the most recent version of the attachment.
+Preview URL
+URL to preview the attachment.
+Download URL
+URL to download the attachment.
+Video playlist URL
+URL to access the attachment as a video playlist, if applicable.
+Review IDs
+List of review IDs associated with the attachment.
+Width
+Width of the attachment, if applicable.
+Height
+Height of the attachment, if applicable.
+ID of origin attachment version
+Unique identifier of the original version of the attachment.
+List size
+Total number of items in the batch.
+List index
+Position of the current attachment in the batch.
+←
+Get attachment URL action
+Get folder by ID action
+→
+Last updated:
+2/26/2025, 10:21:24 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

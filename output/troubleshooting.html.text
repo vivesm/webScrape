@@ -1,0 +1,194 @@
+Enterprise Key Managementのトラブルシューティング | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+暗号キーの管理
+エンタープライズキーの管理
+#
+Enterprise Key Management Troubleshooting
+Enterprise Key Management (EKM)
+に関するヘルプが必要ですか？このガイドでは、EKMの一般的な問題とトラブルシューティング方法について説明します。
+#
+キーの検証の失敗
+Workatoは提供されたキーを検証できません。
+注意:
+既存のキーを更新する場合、新しい有効なキーが提供されるまでデータは暗号化されたままになります。
+エラーメッセージ
+提供されたキーにアクセスできません
+適用対象
+AWS KMS
+カスタムキー
+発生する場合
+アカウント設定 > キー管理
+で
+キーの更新
+をクリックした後
+潜在的な原因
+Workatoがダウンしている
+AWS KMSを使用している場合:
+十分な権限がない
+誤ったキーの設定、例えば非対称キータイプの使用
+Workatoに提供されたキーのARNが正しくない
+AWSがダウンしている
+カスタムキーを使用している場合:
+無効なキーフォーマット
+トラブルシューティング手順
+まず、Workatoが
+ダウンしていないか
+を確認してください。
+AWS KMSを使用している場合:
+キーポリシーに
+必要な権限
+が含まれていることを確認してください
+キーが
+正しく設定されている
+ことを確認してください
+Workatoの
+キーARNが正しい
+ことを確認してください
+AWS
+がダウンしていないことを確認してください
+カスタムキーを使用している場合:
+Workatoの
+書式要件
+を満たしていることを確認します
+#
+データの暗号化の失敗
+Workatoは提供されたキーを使用してデータを正常に暗号化できませんでした。
+エラーメッセージ
+提供されたキーでデータを暗号化できませんでした
+発生する場合
+アカウント設定 > キー管理
+ページでカスタムキーマテリアルがアップロードされた後
+潜在的な原因
+カスタムキーマテリアルがWorkatoのフォーマット要件を満たしていない可能性があります。
+トラブルシューティング手順
+キーがWorkatoの
+フォーマット要件
+を満たしているか確認してください。
+#
+利用不可なキー
+Workatoは提供されたキーにアクセスできません。これは、Workatoのキーへのアクセスが取り消された場合やキーが削除された場合に発生することがあります。
+注意:
+これが発生した場合でもデータは暗号化されたままです。
+エラーメッセージ
+提供されたキーにアクセスできません
+発生する場合
+Workatoのキーへのアクセスが取り消された場合やキーが削除された場合
+症状
+レシピの開始やテストが失敗する
+連続したトリガーエラーの後にレシピが停止する
+接続の作成が失敗する
+既存の接続が機能しなくなる
+ジョブの詳細ページに「表示するデータがありません」というメッセージが表示される
+Troubleshooting steps
+キーアクセスが取り消された場合
+、可能であればアクセスを復元してください。暗号化されたデータへのアクセスとプラットフォームの機能（接続の作成など）が復元されます。
+キーが削除された場合
+、新しいキーを生成し、Workato内の既存のキーを置き換えてください。また、Workato KMSを使用することもできます。
+注意
+: 削除されたキーで暗号化されたデータは永久にアクセスできなくなります。これには既存の接続やジョブも含まれます。将来のデータやプラットフォームの機能（接続の作成、レシピの開始など）はアクセス可能になります。
+←
+カスタムキーの使用
+グロッサリー
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+キーの検証の失敗
+データの暗号化の失敗
+利用不可なキー
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

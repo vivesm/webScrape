@@ -1,0 +1,172 @@
+Workato コネクター - Okta | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Okta
+Okta
+(opens new window)
+は、従業員およびカスタマーの ID を管理するためのクラウドサービスです。
+企業が最新のアプリケーションでユーザー認証を安全に管理し、開発者がアプリケーション、Web サイトの Web サービスおよびデバイスに ID 管理を組み込めるようにするためのクラウドソフトウェアを提供します。
+#
+API バージョン
+Okta コネクターは、
+Okta API v1
+(opens new window)
+を使用します。
+#
+Okta への接続方法
+Okta コネクターは、Okta の認証に API キーを使用します。
+Okta コネクションの設定
+コネクションの項目
+説明
+Connection name
+このコネクションに対して、接続先の Okta インスタンスを識別する一意の名前を付けます。
+Okta domain
+Okta ドメイン名 (
+mycompany.okta.com
+(opens new window)
+または
+mytest.oktapreview.com
+(opens new window)
+など)。
+API Key
+API キー。API キーは、[Okta インスタンス] > [Security] > [API] > [Create token] から生成できます。
+API トークンの権限
+API トークンの [Creating API tokens (API トークンの作成)] の権限には、管理者特権が必要です。続行する前に、管理者としてログオンしていることを確認してください。詳細については、
+Okta のドキュメント
+(opens new window)
+を参照してください。
+#
+接続に必要なロールと権限
+Workato では、Workato に接続するために使用されるユーザー (および API キー) に、
+[Organization Administrator (組織の管理者)]
+または
+[Super Administrator (スーパー管理者)]
+のロールを付与することをお勧めします。一部のトリガーおよびアクションには、実行するのに管理者特権が必要になります。
+#
+関連する章
+以下の章では、Workato でサポートされるトリガーについて説明しています。
+New event (新しいイベント) トリガー
+Scheduled event search (スケジュールされたイベント検索) トリガー
+以下の章では、Workato でサポートされるユーザーライフサイクルアクションについて説明しています。
+Create user (ユーザーの作成)
+Activate user (ユーザーの有効化)
+Update user (ユーザーの更新)
+Add user to group (グループへのユーザーの追加)
+Remove user from group (グループからのユーザーの削除)
+Deactivate user (ユーザーの無効化)
+Delete user (ユーザーの削除)
+以下の章では、Workato でサポートされるリソース検出アクションについて説明しています。
+Get user by ID (ID に基づいたユーザーの取得)
+Get user groups (ユーザーグループの取得)
+Get groups by name (名前に基づいたグループの取得)
+Get group members (グループメンバーの取得)
+Get recent log on events by user (ユーザーに基づいた最近のログオンイベントの取得)
+Get recent log on events by IP address (IP アドレスに基づいた最近のログオンイベントの取得)
+←
+サポートされていないレコード
+新規イベント トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Okta への接続方法
+接続に必要なロールと権限
+関連する章
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

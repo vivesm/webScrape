@@ -1,0 +1,149 @@
+Javascript FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+JavaScript
+#
+Javascript FAQs
+Get answers to frequently asked Javascript connector questions.
+What is the Workato JavaScript connector used for?
+The
+Workato JavaScript connector
+allows you to write custom JavaScript code as part of your recipes. You can use it for tasks like data transformation and invoking external services.
+What JavaScript runtime does the Workato JavaScript connector use?
+The Workato JavaScript connector runs on
+Node.js version 14
+. It includes all JavaScript libraries available in Node.js version 14, as well as additional libraries such as:
+node_fetch
+lodash
+gRPC
+Google Protobuf
+Is there a limit to the size of JavaScript scripts in the connector?
+Yes. The JavaScript action supports
+runtime sizes up to 1 MB
+. Runtimes exceeding this limit continue to execute but may encounter memory limitations. The JavaScript action also times out after 30 seconds.
+How do I define input fields in the Workato JavaScript connector?
+Locate the
+Input fields
+section and select
+Add field
+to define input fields for your JavaScript code. You can map values to these input fields from previous steps in your recipe.
+How are Date input fields passed to the JavaScript code?
+Date input fields
+with the Date type are passed as strings to the JavaScript code. We recommend consuming date input by converting it to Date objects within your code.
+How do I define the output schema for the JavaScript code being called?
+To define the
+output schema
+, you can use one of two methods:
+Use a sample JSON for schema generation.
+Manually define the schema by adding fields, specifying data types, and determining which of these are optional.
+What format should my JavaScript code follow in the exports.main function?
+The JavaScript connector requires your code to be within the
+exports.main
+function
+. Your code must follow the CommonJS format and export the main function, which takes in data as input and returns the output.
+←
+Defining output fields
+JDBC
+→
+Last updated:
+4/18/2024, 10:24:27 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -12,6 +12,7 @@ from pyppeteer import launch
 from pyppeteer.errors import NetworkError
 from asyncio.exceptions import InvalidStateError
 from contextlib import suppress
+import langdetect
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -186,13 +187,17 @@ async def save_as_pdf_with_retry(page_url, output_path, retries=1):
             logging.error(f"Attempt {attempt + 1} failed for {page_url}: {e}")
     logging.error(f"Failed to save PDF after {retries} attempts: {page_url}")
 
-def save_as_text_with_comparison(page_url, output_path):
+def save_as_text_with_comparison(page_url, output_path, response=None):
     """
     Fetch page text content and compare with existing text if present.
+    Optionally accepts a pre-fetched response object.
     """
     try:
-        response = requests.get(page_url, headers=HEADERS, timeout=10)
-        response.raise_for_status()
+        # Use provided response or fetch content
+        if not response:
+            response = requests.get(page_url, headers=HEADERS, timeout=10)
+            response.raise_for_status()
+        
         new_text = response.text
         new_hash = hash_text(new_text)
 
@@ -212,9 +217,10 @@ def save_as_text_with_comparison(page_url, output_path):
     except Exception as e:
         logging.error(f"Failed to save text for {page_url}: {e}")
 
-async def process_link(sem, link, index, output_format, delay):
+async def process_link(sem, link, index, output_format, delay, language_filter=""):
     """
     Process a single link in PDF or text format with concurrency limiting.
+    Includes language filtering if specified.
     """
     async with sem:
         # Generate a filename
@@ -225,15 +231,71 @@ async def process_link(sem, link, index, output_format, delay):
         output_path = os.path.join(OUTPUT_DIR, filename)
 
         logging.info(f"Processing {link} -> {output_path}")
-        if output_format == "pdf":
-            await save_as_pdf_with_retry(link, output_path)
+        
+        # If language filter is enabled, check content language first for text output
+        if language_filter and output_format == "text":
+            try:
+                # Fetch content to detect language
+                response = requests.get(link, headers=HEADERS, timeout=10)
+                response.raise_for_status()
+                soup = BeautifulSoup(response.content, "html.parser")
+                
+                # Try to detect from HTML lang attribute first
+                html_tag = soup.find('html')
+                detected_lang = None
+                
+                if html_tag and html_tag.get('lang'):
+                    # Extract the main language code from the lang attribute (e.g., 'en-US' -> 'en')
+                    detected_lang = html_tag.get('lang').split('-')[0].lower()
+                    logging.info(f"Language detected from HTML tag: {detected_lang}")
+                
+                # If no lang attribute or we need confirmation, detect from text content
+                if not detected_lang or detected_lang != language_filter:
+                    # Extract text for language detection
+                    text_content = soup.get_text(separator=" ", strip=True)
+                    if text_content:
+                        # Only use a portion of the text for faster detection
+                        sample_text = text_content[:1000]
+                        detected_lang = detect_language(sample_text)
+                        logging.info(f"Language detected from content: {detected_lang}")
+                
+                # Skip if language doesn't match the filter
+                if detected_lang and detected_lang != language_filter:
+                    logging.info(f"Skipping {link} because language '{detected_lang}' doesn't match filter '{language_filter}'")
+                    return
+                
+                # If we couldn't detect the language but have a filter, process content anyway but warn
+                if not detected_lang and language_filter:
+                    logging.warning(f"Couldn't detect language for {link}, processing anyway with filter '{language_filter}'")
+                
+                # Save the content since we've already fetched it and it matches the filter
+                save_as_text_with_comparison(link, output_path, response)
+                
+            except Exception as e:
+                logging.error(f"Error checking language or processing {link}: {e}")
+                return
         else:
-            save_as_text_with_comparison(link, output_path)
+            # Process without language filtering
+            if output_format == "pdf":
+                await save_as_pdf_with_retry(link, output_path)
+            else:
+                save_as_text_with_comparison(link, output_path)
 
         # Delay after processing
         await asyncio.sleep(delay)
 
-async def scrape_section(base_url, output_format, test_mode=False, delay=1.0):
+def detect_language(text):
+    """
+    Detect the language of the provided text.
+    Returns the language code (e.g., 'en', 'ja', etc.)
+    """
+    try:
+        return langdetect.detect(text)
+    except (langdetect.lang_detect_exception.LangDetectException, Exception) as e:
+        logging.warning(f"Language detection failed: {e}")
+        return None
+
+async def scrape_section(base_url, output_format, test_mode=False, delay=1.0, test_count=2, language_filter=""):
     """
     Main scraping function: fetch links, process each, handle concurrency, etc.
     """
@@ -244,15 +306,22 @@ async def scrape_section(base_url, output_format, test_mode=False, delay=1.0):
             logging.warning("No links found. Exiting.")
             return
 
+        # Log language filter if provided
+        if language_filter:
+            logging.info(f"Language filter enabled: Only processing content in '{language_filter}' language")
+
         if test_mode:
-            first_link = next(iter(links))
+            # Process only a limited number of links in test mode
+            test_links = list(links)[:test_count]
+            logging.info(f"Test mode: Processing {len(test_links)} out of {len(links)} links")
             sem = asyncio.Semaphore(1)
-            await process_link(sem, first_link, 1, output_format, delay)
+            for i, link in enumerate(test_links, start=1):
+                await process_link(sem, link, i, output_format, delay, language_filter)
             return
 
         sem = asyncio.Semaphore(2)
         tasks = [
-            asyncio.ensure_future(process_link(sem, link, i, output_format, delay))
+            asyncio.ensure_future(process_link(sem, link, i, output_format, delay, language_filter))
             for i, link in enumerate(links, start=1)
         ]
         await asyncio.gather(*tasks)
@@ -262,11 +331,13 @@ async def scrape_section(base_url, output_format, test_mode=False, delay=1.0):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrape a section into PDFs or text files, with content comparison.")
     parser.add_argument("--base_url", default="https://docs.workato.com/projects.html", help="Base URL to scrape")
-    parser.add_argument("--output_format", choices=["pdf", "text"], default="pdf", help="Output file format")
-    parser.add_argument("--test", action="store_true", help="Test mode (process only one link)")
+    parser.add_argument("--output_format", choices=["pdf", "text"], default="text", help="Output file format")
+    parser.add_argument("--test", action="store_true", help="Test mode (process limited number of links)")
+    parser.add_argument("--test_count", type=int, default=2, help="Number of pages to process in test mode")
     parser.add_argument("--delay", type=float, default=1.0, help="Delay (in seconds) between downloads.")
+    parser.add_argument("--language", type=str, default="", help="Filter content by language code (e.g., 'en' for English, 'ja' for Japanese, leave empty for all languages)")
     args = parser.parse_args()
 
     asyncio.get_event_loop().run_until_complete(
-        scrape_section(args.base_url, args.output_format, args.test, args.delay)
+        scrape_section(args.base_url, args.output_format, args.test, args.delay, args.test_count, args.language)
     )

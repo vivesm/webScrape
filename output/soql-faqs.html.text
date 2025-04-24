@@ -1,0 +1,223 @@
+Salesforce SOQL FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+SOQL FAQs
+Get answers to frequently asked questions about Salesforce SOQL.
+What is Salesforce Object Query Language (SOQL)?
+SOQL
+is a query language used to search Salesforce data for specific records. It's similar to SQL but is specifically designed for querying Salesforce data, allowing users to select, filter, and sort data stored in Salesforce objects.
+What is the basic syntax of a SOQL query?
+The
+basic syntax
+of a SOQL query involves a SELECT statement to specify the fields, a FROM statement to define the object, and an optional WHERE statement for filtering criteria and sorting.
+How do I use the WHERE clause in SOQL?
+In SOQL, the
+WHERE clause
+is used to filter records based on specific conditions. The syntax follows a
+fieldExpression
+format, for example:
+<
+fieldName
+>
+<
+comparisonOperator
+>
+<
+value
+>
+What are the available SOQL comparison operators?
+SOQL includes
+comparison operators
+such as:
+=
+!=
+<
+<=
+>
+>=
+LIKE
+IN
+NOT IN
+INCLUDES
+EXCLUDES
+Each operator is used to compare field values in different ways.
+How can I use logical operators in SOQL?
+Logical operators
+like
+AND
+,
+OR
+, and
+NOT
+can be used to join multiple field expressions in SOQL queries. These operators help combine multiple conditions in a WHERE clause.
+What are other important SOQL clauses like LIMIT and OFFSET?
+The
+LIMIT clause
+restricts the number of records returned in a query, while
+OFFSET
+skips a specified number of records before starting to return results. The maximum value for both clauses is 2,000.
+How should I format dates and date-times in SOQL queries?
+Dates in SOQL
+queries must be formatted as YYYY-MM-DD. For
+dateTime
+fields, formats such as
+YYYY-MM-DDThh:mm:ss+hh:mm
+,
+YYYY-MM-DDThh:mm:ss-hh:mm
+, and
+YYYY-MM-DDThh:mm:ssZ
+are used. Single quotes around date or
+dateTime
+values are not required.
+How do I use SOQL in Salesforce triggers and actions?
+SOQL can be used in Salesforce
+triggers and actions
+to set up queries based on fields provided in the Workato UI. It's commonly used in scheduled record search and record search actions in Workato.
+How do I use a full SOQL query in Workato?
+To use a
+full SOQL query
+in Workato, enter the complete SOQL query in the SOQL Query field when setting up a trigger or action, ensuring that it follows the correct syntax and format.
+What is the maximum length of a SOQL query?
+The
+maximum length of a SOQL query
+is 16,000 characters.
+How can I handle the 2000 record limit in Salesforce actions?
+You must implement pagination to manage the 2000 record limit in Salesforce actions. Pagination allows you to divide your data into manageable chunks. You can achieve this by using the
+LIMIT and OFFSET fields
+inside a loop.
+Use
+LIMIT
+to define the number of records to retrieve in each batch.
+Use
+OFFSET
+to specify the starting point of each batch.
+Refer to the Salesforce documentation on
+pagination
+(opens new window)
+for more information.
+How can I retrieve archived or deleted records from Salesforce using a SOQL query in Workato?
+To retrieve archived or deleted records in Workato, set
+IsDeleted = true
+in the SOQL query:
+SELECT
+IsDeleted
+,
+Name
+,
+Id
+FROM
+Contact
+WHERE
+IsDeleted
+=
+true
+Ensure that the "Include deleted" option is set to "Yes."
+Retrieve archived or deleted records
+←
+Using SOQL
+Bulk data imports
+→
+Last updated:
+7/16/2024, 4:09:44 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

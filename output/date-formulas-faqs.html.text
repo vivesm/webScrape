@@ -1,0 +1,177 @@
+Date formulas FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Modify recipe data
+Formulas
+#
+Date formulas FAQs
+This page provides answers to frequently asked questions (FAQs) about date formulas.
+What are date and datetime formulas used for?
+Date and datetime formulas
+allow you to work with date and time datapills. These formulas are used to manipulate and perform calculations on date and time data in Workato.
+Are all Ruby methods supported by date formulas?
+No, not all Ruby methods are supported. You can reach out to Workato to add additional formulas to the allowlist. Refer to the
+Date formulas
+documentation for more information.
+How can I perform arithmetic with date and datetime data?
+You can use
+arithmetic
+keywords like
+seconds
+,
+minutes
+,
+days
+,
+months
+, and
+years
+in combination with date and datetime formulas to perform addition and subtraction operations.
+What units can I use with the from_now formula, and how does it work?
+The
+from_now
+formula
+returns a future timestamp by a specified time duration. It calculates the timestamp at runtime.
+You can use units like seconds, minutes, hours, days, months, or years with the
+from_now
+formula to calculate future timestamps. It calculates the current timestamp and offsets it by the specified time duration.
+What does the wday formula return?
+The
+wday
+formula
+returns the day of the week, with Sunday represented as
+0
+, Monday as
+1
+, and so on for each day of the week.
+How can I convert a string into a date datatype?
+You can use the
+to_date
+formula
+to convert a string into a date datatype. This formula allows you to specify the date format if necessary.
+What does the strftime formula do, and how can I use it?
+The
+strftime
+formula
+allows you to format a datetime input as a user-defined string. You can customize the output format using various codes, as specified in the parameters.
+How can I convert a string into an ISO timestamp?
+You can use the
+to_time
+formula
+to convert a string into an ISO timestamp, and it will use the UTC timezone.
+How can I convert a date or datetime to a different timezone?
+The
+in_time_zone
+formula
+can be used to convert a date or datetime to a different timezone using timezone names from the IANA time zone database.
+You can use the list of timezone names to determine which timezone to use.
+How do I determine if a datetime is within Daylight Savings Time (DST)?
+You can use the
+dst?
+formula
+to check if a datetime is within Daylight Savings Time.
+←
+Date formulas
+List formulas
+→
+Last updated:
+3/20/2024, 7:37:41 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

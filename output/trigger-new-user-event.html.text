@@ -1,0 +1,131 @@
+Google Workspace トリガー - New user event アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Workspace
+#
+Google Workspace トリガー - New user event (新規ユーザーイベント)
+この Google Workspace トリガーを設定すると、Google Workspace インスタンスで作成された新規ユーザー関連のイベントをリッスンすることができます。このトリガーは新規ユーザーに関連するイベントをチェックし、各ユーザー関連のイベントは別個のジョブとして処理されます。
+New user event トリガー
+#
+入力項目
+入力項目には、ユーザーイベントとドメインの選択が含まれます。
+#
+ユーザーイベントの種類
+ユーザーイベント
+説明
+User created
+Google Workspace の特定のドメインでユーザーが作成されるとトリガーされます。
+User deleted
+Google Workspace の特定のドメインでユーザーが削除されるとトリガーされます。
+User Admin status changed
+Google Workspace の特定のドメインでユーザーの管理者ステータスが変更されるとトリガーされます。
+User undeleted
+Google Workspace の特定のドメインでユーザーの削除が取り消されるとトリガーされます。
+User updated
+Google Workspace の特定のドメインでユーザーが更新されるとトリガーされます。
+ドメインを選択すると、その特定のドメイン下のユーザーが取得されます。空白のままにすると、すべてのドメインからユーザーが取得されます。
+#
+出力項目
+出力データツリーには、ユーザーリソースの一意の ID、プライマリメールアドレス、リソースタイプ、およびイベントタイプといった、ユーザーイベントに関する情報が含まれます。
+←
+新規アプリケーションイベント トリガー
+レコードの追加
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,177 @@
+SQL Transformations | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+データオーケストレーション
+データ変換
+#
+SQL Transformations
+See it in action
+SQL Transformations は、構造化クエリ言語（SQL）クエリを使用して大量のデータに変換を適用するための、強力で効率的なツールです。
+これは社内開発のユーティリティであり、複数の異なるソースから抽出されたデータに対して、大量で複雑な変換を実行するために必要なツールを提供します。このユーティリティを使用すると、シンプルな SQL SELECT ステートメントを使用して、さまざまな大容量データセットを結合し、必要なデータに変換することができます。
+#
+主な特徴
+任意の数のデータソースから取り込まれるデータをクエリします。
+フェッチおよび変換できるデータ量や生成されるデータ出力に制限はありません。つまり、数百万件のレコードを容易に処理できます。
+クエリの実行と出力データセットの生成において高いパフォーマンスを発揮します。SQL Transformations は数秒で完全な変換を実行できます。
+結合やその他の SQL 関数を含む複雑な SELECT クエリの使用をサポートします。
+#
+使用例のアイデア
+Sample use cases
+See our guides for step-by-step instructions on how to leverage SQL Transformations for the following use cases:
+Change data capture
+Data enrichment
+Data validation and cleansing
+さらに、SQL Transformations を使用すると、ユーザーは複雑なクエリを実行して次の状況に対処できます：
+Microsoft Dynamics 365 から定期的に新しいアカウント情報を取得し、Workato FileStorage にファイルとして保存された追加のルックアップデータとマージして、出力を BigQuery データウェアハウステーブルに直接ロードします。
+Salesforce から大量の販売詳細をエクスポートし、このデータを Workato FileStorage 内のファイルとして利用可能な製品詳細と結合して拡張し、特定の値以上の商談のみを出力データセットとしてフィルタリングして取得し、それをオンプレミスシステムにロードします。
+オンプレミスシステムから完全な従業員データを抽出し、特定の職種の従業員の詳細をフィルタリングして取得し、将来のレポート作成のために出力データセットを Workato FileStorage にファイルとして保存します。
+#
+仕組み
+SQL Transformations は、変換を実行する前に大量のコンテンツストリームを一時的にデータ保存するために、内部で Workato FileStorage システムを利用します。Workato FileStorage と深く統合されているため、任意の量のデータを高速かつ効率的に保存および処理することができます。
+#
+この機能を使用できる人は？
+コネクタがプロビジョニングされると、同じワークスペース内のすべてのロールで利用可能になります。現在、クエリされたファイルやクエリ出力から作成され、ワークスペースレベルで Workato FileStorage 内に保存されたすべてのファイルは、特定のワークスペース/テナント内のすべてのロールがアクセスできます。
+Feature availability
+SQL Transformations is currently available by invite only. Contact your customer success manager to indicate your interest.
+SQL Transformations utility connector
+#
+暗号化
+SQL Transformations は Workato FileStorage システムへのサービスとして構築されているため、FileStorage と同じ暗号化の原則に従います。FileStorage の暗号化に関する追加の詳細は
+こちら
+をご覧ください。
+#
+制限事項
+プライベートプレビューリリースでは、SQL Transformations には次の制限があります：
+クエリで使用される各データソースの最大サイズは
+1 GB
+です
+出力データを Workato FileStorage に保存する場合、
+ストレージ制限が適用されます
+。
+#
+データ保持
+SQL Transformations では、次のデータが一時的に保持されます：
+FileStorage 以外の異なるデータソースからの受信データ
+変換されたクエリ出力データ
+これらのデータはすべて、4 日以内にプライマリおよびバックアップドライブから自動的に消去されます。このデータをより長く保持するには、FileStorage に保存して SQL Transformations ユーティリティで使用することができます。
+#
+次に読む
+このコネクタを使用するには、次のガイドをお読みください：
+コネクタ概要
+データソースを設定する
+クエリを設定する
+出力を構成する
+出力フィールド
+特定のユースケースに関連する使用例のアイデアや手順については、次のガイドを参照してください。
+データキャプチャの変更
+データの検証とクレンジング
+データの強化
+←
+SQLベースの変換
+コネクタ概要
+→
+Last updated:
+2025/1/6 17:18:09
+On this page
+主な特徴
+使用例のアイデア
+仕組み
+この機能を使用できる人は？
+暗号化
+制限事項
+データ保持
+次に読む
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

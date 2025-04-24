@@ -1,0 +1,284 @@
+Activity audit log streaming | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Lifecycle & operations
+Operations hub dashboard
+Activity audit log
+#
+Audit log streaming
+FEATURE AVAILABILITY
+Audit log streaming is included in specific pricing plans for direct customers and is available to Embedded partners and their end customers for an additional fee. Refer to your pricing plan and contract to learn more.
+The Workato platform automatically stores all Activity audit logs for a period of
+one year
+from the date of each event. This ensures you have ample time to review and analyze your activity logs for security and operational insights.
+In addition to
+retaining
+audit logs in the Workato platform itself, you can also choose to stream these logs to a specified destination.
+When you enable audit log streaming, Workato stores the job history of all your recipes, as well as login and user activity, in an Amazon S3 bucket or any REST endpoint. You can use any log service provider (such as
+Sumo Logic
+(opens new window)
+,
+Datadog
+(opens new window)
+, or
+Splunk
+(opens new window)
+).
+Workato creates a JSON file for each event. The file size varies from 1 KB to 1 MB based on the details that are present in the logs.
+Workato retains your audit logs for the designated
+retention period
+for your account even if audit log streaming is not enabled. This retention is part of our commitment to data security and operational transparency.
+#
+Which audit log streaming destinations does Workato support?
+Workato supports the following
+streaming destinations
+:
+Amazon S3
+Azure Monitor
+Azure Blob Storage
+Cloud-based logging service, including Google Cloud Storage Buckets
+#
+Audit log size
+Log file size varies from 1 KB to 1 MB based on the details that are present in the logs.
+The file size limit for logs is 40 MB.
+When streaming full job details, the system does not send step-specific log lines if the overall file size exceeds 40 MB.
+If a file exceeds 40 MB, the system still sends contextual job information, such as
+user_id
+,
+recipe_id
+, and
+time_executed
+. However, the “lines” column displays the default text,
+Log lines exceed size limit
+.
+#
+Set up audit log streaming
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Workspace admin > Settings >
+Log streaming
+(opens new window)
+and select
+Set up audit log streaming
+:
+3
+Select the audit log destination.
+4
+Configure the streaming connection and options.
+5
+Choose the events to include in your audit log stream.
+Consult
+Audit log streaming types
+for more information about events.
+6
+Optional.
+Customize a log message
+if required.
+7
+Select
+Save
+.
+#
+Does data masking apply to audit log streaming?
+Yes. When data masking is enabled, Workato doesn't log or stream the input or output of any trigger or action. Instead, a placeholder replaces the data in both:
+Workato UI logs
+Audit log streaming destinations
+Refer to the
+Enable data masking
+section for instructions on enabling this feature.
+#
+How masked data appears in job logs
+When job logs are streamed to an external logging service through audit log streaming, masked data remains hidden. Instead of displaying sensitive information, Workato replaces it with a
+"masked"
+placeholder.
+The following example illustrates how masked data appears in a job details log:
+"lines"
+:
+[
+{
+"input"
+:
+{
+"data"
+:
+"masked"
+}
+,
+"output"
+:
+{
+"data"
+:
+"masked"
+}
+,
+"adapter_name"
+:
+"timer"
+,
+"adapter_operation"
+:
+"trigger_event"
+,
+"line_stat"
+:
+{
+"details"
+:
+[
+{
+"name"
+:
+"execution_time"
+,
+"average"
+:
+0.002
+,
+"total"
+:
+0.002
+,
+"min"
+:
+0.002
+,
+"max"
+:
+0.002
+,
+"count"
+:
+1
+}
+]
+,
+"total"
+:
+0.002
+}
+,
+"recipe_line_number"
+:
+1
+,
+"mask_data"
+:
+true
+}
+]
+Refer to the
+Activity audit log file details and sample data
+section for a complete example of a job details log.
+←
+View audit logs
+Customize streaming logs
+→
+Last updated:
+4/9/2025, 3:16:38 AM
+On this page
+Which audit log streaming destinations does Workato support?
+Audit log size
+Set up audit log streaming
+Does data masking apply to audit log streaming?
+How masked data appears in job logs
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

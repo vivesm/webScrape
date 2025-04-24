@@ -1,0 +1,189 @@
+Google スプレッドシート | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Google スプレッドシート
+Google スプレッドシート
+(opens new window)
+は、スプレッドシートでのリアルタイムのチームコラボレーションを可能にする強力なクラウドアプリケーションで、あらゆるデバイスで利用可能です。
+Workato では、ワークフローの中で、Google スプレッドシートにデータを自動的に書き込むことができます。たとえば、あるフォームに入力したリードの情報をスプレッドシートに移動させることができます。また、Google スプレッドシートからデータ行を読み取り、別のアプリに移動させることもできます。たとえば、Google フォームに記入した回答者の情報を Google スプレッドシートからマーケティングキャンペーンアプリや CRM に移動できます。
+#
+API バージョン
+Workato の Google スプレッドシートコネクターでは、現在、Google Sheets
+API v4
+(opens new window)
+と
+API v3
+(opens new window)
+の両方が使用されています。
+#
+Workato での Google スプレッドシートへの接続方法
+Google スプレッドシートコネクターでは、
+OAuth 2.0
+と
+サービスアカウント
+という2種類の認証方法を利用できます。
+TIP
+サービスアカウントで接続すると、接続を組織内の特定の人物にひも付けすることなく、Google スプレッドシートへの接続を認証できます。実稼働環境では、サービスアカウントでの認証を強くお勧めします。
+項目
+説明
+Connection name
+この Google スプレッドシートコネクションに対して、接続先の Google スプレッドシートインスタンスを識別する一意の名前を付けます。
+Authentication Type
+ユーザーアカウントを使用する場合は [Oauth 2.0] を選択し、サービスアカウントを使用して Google スプレッドシートに接続する場合は [Service Account] を選択します。
+GCP Project service account email (サービスアカウント認証の場合のみ)
+サービスアカウントのメールアドレス。
+Private key (サービスアカウント認証の場合のみ)
+サービスアカウントの秘密鍵。
+Advanced settings (サービスアカウント認証の場合のみ)
+接続のスコープを調整します。
+#
+OAuth 2.0
+Google スプレッドシートコネクターへの接続は、Google アカウントへのサインインと同じくらい簡単です。
+[
+Link your account
+] を選択します。
+Google アカウントにサインインします。そのアカウントには、Workato で使用するスプレッドシートすべてに対する
+Edit
+権限が必要です。
+これで準備ができました。
+#
+サービスアカウント
+Google スプレッドシートコネクターのサービスアカウントは、Google Cloud のサービスアカウントを利用して Google スプレッドシートへの認証を行うために使われます。サービスアカウントとは、Google Cloud プロジェクトに関連付けられる特別な種類の Google アカウントであり、ユーザーに代わって API リクエストを実行するために使用できます。
+サービスアカウントには以下のような多くの利点があります。
+Google スプレッドシート内で認証を利用し、個々のユーザーの権限が変更された場合でも、ソリューションの実行が継続されるようにできます。
+サービスアカウントには独自の権限があり、そのアカウントに共有されている Google スプレッドシートにのみアクセスできます。
+サービスアカウントは独自に API 割り当てを消費し、その割当量は GCP で管理できます。割り当ての増加を Google から直接リクエストすると、429レート上限エラーのリスクを減らすことができます。
+サービスアカウントの詳細については、
+こちら
+(opens new window)
+を参照してください。
+#
+Google Sheets API の有効化
+GCP (Google Cloud Platform) のコンソールにログインし、
+API ライブラリ
+(opens new window)
+で Google Sheets API を有効にします。
+#
+サービスアカウントの作成
+サービスアカウントを作成するには、こちらのガイドに従い、GCP プロジェクト内で
+新しいサービスアカウントを作成します
+(opens new window)
+。次に、
+秘密鍵を取得し
+(opens new window)
+、その鍵を JSON 形式でダウンロードします。鍵ファイルをダウンロードした後は、再度ダウンロードできないため注意してください。
+秘密鍵の
+-----BEGIN PRIVATE KEY-----
+から
+-----END PRIVATE KEY-----\n
+までをコピーし、Workato の入力として貼り付けます。
+#
+必要な Google スプレッドシートをサービスアカウントと共有
+最後に、作成されたサービスアカウントはまだどのスプレッドシートにもアクセスできないため、自動化で操作する必要のある Google スプレッドシートは明示的に共有しておく必要があります。
+これを行うには、Google スプレッドシートのユーザーインターフェイスから、サービスアカウントのメールアドレスを使って目的のスプレッドシートを共有します。
+←
+ファイルのアップロード
+新規行 トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Google スプレッドシートへの接続方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

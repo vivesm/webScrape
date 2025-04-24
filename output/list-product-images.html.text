@@ -1,0 +1,130 @@
+Workatoコネクター - Shopify - 商品画像の一覧表示 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Shopify
+#
+Shopifyコネクター - 商品画像の一覧表示
+このアクションは、Shopifyの商品に添付された画像の一覧を取得します。
+#
+入力
+フィールド
+説明
+商品ID
+画像が添付されている商品のIDです。
+IDの後に結果を取得
+指定された場合、このIDに続くIDを持つ画像のみが取得されます。
+オプションのフィールドです。
+全データを返す
+yes/1に設定すると、商品画像のソース全体が返されます。デフォルトはfalse/0です。
+オプションのフィールドです。
+#
+出力
+「全データを返す」がfalseに設定されている場合、出力は商品画像のIDの一覧です。それ以外の場合は、商品画像オブジェクトに関する情報を含むデータツリーの一覧を返します。
+商品画像オブジェクト
+(opens new window)
+について詳しくはこちらをご覧ください。
+←
+ロケーションの列挙
+商品バリエーションの列挙
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

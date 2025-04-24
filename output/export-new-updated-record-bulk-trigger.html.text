@@ -1,0 +1,143 @@
+Workato connectors - NetSuite - Export new or new/updated records trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+NetSuite SOAP
+#
+NetSuite trigger - Export new and updated standard or custom records (bulk)
+These triggers run when a record in a custom or standard NetSuite object is created or updated. These triggers retrieve the records in batches and stream them as a CSV.
+Workato has the following triggers:
+Export new standard records (bulk)
+Export new custom records (bulk)
+Export new/updated standard records (bulk)
+Export new/updated custom records (bulk)
+#
+Input
+Input field
+Description
+Standard or custom object
+Select a NetSuite object to fetch.
+When exporting records to form the CSV, fetch them in batches of
+Optional
+. Use this field to control the size of the batch. The minimum value is 50 and the maximum value is 100. Defaults to 100 records.
+When first started, this recipe should pick up events from
+When you start the recipe for the first time, it picks up trigger events from this specified date and time. Defaults to one hour after the recipe starts. After the recipe runs or is tested, you cannot change this value. Learn more about this
+input field
+.
+#
+Output
+Field
+Description
+File content
+This datapill contains the output of the trigger.
+Object name
+The name of the retrieved object.
+Object schema
+The schema of the retrieved object, based on the user-selected fields. Each field contains an associated name, label, original datatype, mapped datatype, length, precision, scale, and custom field. This allows for easy processing.
+Created or updated from
+The time and date the record was created or updated.
+←
+Classification record
+New record trigger
+→
+Last updated:
+4/11/2025, 3:43:24 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,217 @@
+API の呼び出し | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+API プラットフォーム
+#
+API の呼び出し
+API プラットフォームコンソールで公開されている API は、レシピを所有しているアカウントとは別のアカウントのレシピや、サードパーティのツール、プログラム、スクリプトから呼び出すことができます。API 管理者は、API コレクション内のエンドポイントを呼び出すクライアントに、Auth トークンまたは JWT トークンの値を提供しなければなりません。
+API プラットフォームは Raw コンテンツをサポートしており、クライアントはテキストベース (XML/SOAP など) のリクエストを送信したり、REST エンドポイントとして公開されている API レシピからカスタムのレスポンスを受信したりできます。これにより、Workato のレシピのセキュリティ上の利点が、他のシステムからの API 呼び出しでも得られるようになっています。詳細については、
+こちら
+を参照してください。
+#
+認証ヘッダー
+アクセスプロファイルで
+Auth トークン
+による認証方法が指定されている場合は、クライアントが Auth トークン値を
+API-TOKEN
+ヘッダーの値として渡す必要があります。認証方法が
+OAuth2.0
+または
+JSON Web Token
+である場合は、
+Bearer
+スキームを使用して、エンコードおよび署名されたトークンの値が
+Authorization
+ヘッダーで渡されます。
+ヘッダー
+認証方法
+cURL の例
+API-TOKEN
+Auth トークン
+-H 'API-TOKEN: 24ea2bf52b42b7345b9'
+Authorization
+OAuth 2.0 & JWT トークン
+-H 'Authorization: Bearer 12cb1a7d5233'
+#
+レシピから API エンドポイントを呼び出す
+別のユーザーに属する API エンドポイントは、HTTP コネクターを使用してレシピから呼び出すことができます。コネクターの
+[Send request]
+アクションを選択してください。次の画面は、このアクションの一般的な設定を示しています (このケースでは POST リクエスト)。
+API クライアントのリクエスト
+リクエストのタイプ (POST、PUT、GET) が、呼び出している API に対応していることを確認してください。必須フィールドは、リクエスト本文内に指定するか (POST および PUT の場合)、URL 内のクエリーパラメータとして指定する (GET の場合) 必要があります。
+また、リクエストヘッダー
+API-TOKEN
+が追加されていることにも注目してください。その値は、API 所有者から提供されたトークンに設定されている必要があります (これは認証方法として
+Auth トークン
+を選択している場合を想定しています)。
+WARNING
+API トークンを入力フィールドにハードコード
+しないでください。
+ガイダンスとして、推奨される
+セキュリティのベストプラクティス
+を参照してください。
+#
+レスポンスコード
+レシピのテスト機能を使用すると、レシピを1回実行し、そのレシピに REST API への呼び出しを生成させることができます。呼び出しが成功すると、API は
+200
+ステータスを返し、レシピは最後まで実行されます。何種類かのエラーが発生する可能性もあります。一般的なものを以下に示します。
+エラーコード
+エラーメッセージ
+詳細
+401
+Unauthorized
+"access to this API has been disallowed"
+API トークンやパスに問題があるか、アクセスポリシーの違反があります。
+404
+Not found
+リクエスト設定内の URL が正しくないか、呼び出しているレシピが動作していないか、API コレクションまたはクライアントの設定が
+Disabled
+に設定されています。
+422
+Processing error
+API レシピに問題があり、ジョブが失敗しました。リクエストの構文と、レシピに記述された想定される構文が一致していないことが原因である可能性があります。
+429
+Too many requests
+"concurrency limit exceeded"
+または
+"rate/quota limit exceeded"
+リクエストが、アクセスポリシーで設定された同時実行上限またはレート/割り当て制限を超過しました。
+500
+Server error
+リクエストパラメータが不足しているか、API に対して無効です。
+504
+Gateway timeout
+"recipe execution takes too long"
+ジョブの応答に時間がかかり過ぎました。API ジョブの最長時間は240秒です。
+#
+他のクライアントから API を呼び出す
+クライアントは、API の URL で
+GET
+リクエストを実行し、パスに
+/swagger
+を追加することで、サービスの Open API の説明にアクセスできます。この URL には、クエリーパラメータとして API トークンも設定する必要があります。
+たとえば API の URL が
+https://workato.com/doc/service/sales-api-v1
+の場合、Open API の説明には以下のような URL でアクセスできます。
+https://workato.com/doc/service/sales-api-v1/swagger?token
+=
+e6883d64843aaed62d48bcdf3cf4ebbf
+Open API の説明は、
+Swagger UI
+(opens new window)
+などのツールでリクエストを実行するために使用できます。プログラマーは、
+Swagger Codegen
+(opens new window)
+を使用して API クライアントコードを作成できます。
+コマンドラインツールの
+cURL
+(opens new window)
+や、よく使用されているオープンソースツールの
+Postman
+(opens new window)
+など、他の標準的な HTTP リクエストツールも、リクエストの実行に使用できます。
+←
+API の接頭辞
+イベントストリーム
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+認証ヘッダー
+レシピから API エンドポイントを呼び出す
+レスポンスコード
+他のクライアントから API を呼び出す
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,160 @@
+Workato connectors - Workday New/updated business object batch trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Workday
+#
+New/updated business object (batch) trigger
+New/updated business object (batch) trigger
+This trigger uses Workday Web Services (WWS) to check for new/updated business object in batches from a connected Workday instance. By defaults, objects will be processed in batches of
+50
+.
+Supported business objects are:
+Workers
+Organizations
+Job Profiles
+Payees
+Positions
+Job Requisitions
+Evergreen Requisitions
+Customer Contracts
+#
+Input
+Input field
+Description
+When first started, this recipe should pick up events from
+Workday objects that are created after this date and time will be processed in the trigger. If left blank, the trigger will pick up entries created 1 hour before the first time this recipe is started. Learn more about this
+input field
+.
+Business object
+The object type.
+[Optional]
+Batch size
+Number of records in a single trigger event, default and maximum batch size is 50.
+[Optional]
+Request criteria
+The request criteria element lets you apply additional criteria to identify the specific instance(s) desired.
+[Optional]
+Trigger poll interval
+Select how frequently to check for new events.
+Additional/advanced input fields may be present for specific business objects.
+#
+Output
+We will output the complete set of fields and attributes for the selected operation as the output datatree, except in cases where additional/advanced input fields dictate we return a subset of the available object data.
+#
+Limitations
+Based on the
+Workday documentation
+(opens new window)
+:
+Responses with attachments/images, the maximum size of each attachment/image is 30MB.
+Rich text string responses have a size limit of 1,048,576 characters or 1MB.
+←
+New/updated business object trigger
+Scheduled report trigger
+→
+Last updated:
+1/20/2025, 5:14:29 AM
+On this page
+Input
+Output
+Limitations
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,183 @@
+Workato コネクター - Freshdesk | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Freshdesk
+Freshdesk
+(opens new window)
+は、企業がより優れたカスタマーサポートエクスペリエンスを提供することを可能にする、カスタマーサポートソフトウェアおよびチケット管理システムです。担当者間のコラボレーションを容易にし、顧客がセルフサービスを実行することを可能にし、より多くの洞察をもたらしてチームのパフォーマンスを向上させるレポートおよび分析機能を提供します。
+#
+概要
+Workato では、さまざまなユースケースを通して、Freshdesk と1000を超えるその他のアプリ間の双方向同期が可能です。一般的に Freshdesk に統合されているアプリには、Salesforce、Google スプレッドシート、Trello、Intercom などがあります。
+Freshdesk の統合シナリオの例として、以下の新規または更新された項目間の双方向の同期が挙げられます。
+Freshdesk チケットと Salesforce ケース
+Freshdesk チケットと ServiceNow インシデント
+Freshdesk コンタクトと Salesforce 取引先責任者
+Freshdesk ユーザーと Intercom ユーザー
+Freshdesk チケットと Slack チャネルに投稿されたメッセージ
+30日間の無料トライアルを試すには、
+こちら
+(opens new window)
+をクリックしてください。
+#
+推奨されるレシピ
+新規の Freshdesk チケットにより Slack チャネルにメッセージを投稿する
+(opens new window)
+更新された Intercom ユーザーにより Freshdesk ユーザーを作成または更新する
+(opens new window)
+#
+サポートされるエディションとバージョン
+Freshdesk コネクターは、すべての Freshdesk プランに対応しています。
+#
+Workato での Freshdesk への接続方法
+Freshdesk レシピを検索します。
+上部のナビゲーションバーで
+[
+Browse Recipes
+]
+(opens new window)
+を選択し、「Freshdesk」を検索して、作成済みの
+Freshdesk レシピ
+(opens new window)
+のリストを表示します。
+作成済みの Freshdesk レシピのリスト
+使用する Freshdesk レシピを選択します。
+レシピを選択します。続いて、以下に示すように、右上隅にある [Use this recipe] ボタンを選択します。
+作成済みの Freshdesk レシピ
+設定項目を入力します。
+Workato での Freshdesk コネクションの設定
+Connection name
+この Freshdesk コネクションに対して、接続先の Freshdesk アカウントを識別する一意の名前を付けます。
+API key
+Freshdesk アカウントからの API キーを入力します。API キーは以下の手順で取得できます。
+ヘルプデスクの右上隅のドロップダウンメニューから [
+User Profile
+] を選択します。
+[
+Profile Settings
+] を選択します。
+Freshdesk でプロファイル設定に移動
+API キーが右上隅に表示されます。
+Freshdesk から API キーを取得
+Helpdesk name
+会社の Freshdesk URL が
+https://yourcompany.freshdesk.com
+(opens new window)
+であるとすると、フィールドにヘルプデスク名として「yourcompany」と入力します。
+[Connect] をクリックします。
+すべての必須フィールドに入力したら、[Connect] をクリックします。
+Freshdesk に接続したら、カスタマイズやテストなどの以降の手順を実行するか、スキップすることができます。これらの手順の後に、以下のレシピページが表示されます。右上隅の対応するボタンをクリックすることにより、レシピをテストまたは開始することを選択できます。
+#
+関連情報
+サポートされるトリガーとアクション
+(opens new window)
+今すぐ始める
+(opens new window)
+←
+行の削除
+FTP
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+概要
+推奨されるレシピ
+サポートされるエディションとバージョン
+Workato での Freshdesk への接続方法
+関連情報
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

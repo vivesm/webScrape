@@ -1,0 +1,163 @@
+Connect to data sources | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data orchestration
+Data sources
+#
+Connect to data sources
+When you start building a recipe, the first step is establishing a connection between Workato and an application.
+Each connection is associated with one instance of the application, such as a user account, and can be re-used across recipes.
+NetSuite
+Oracle
+Salesforce
+SAP OData
+SAP RFC
+SQL Server
+Workday
+Refer to the
+connectors
+documentation for more information.
+#
+Example: Connect Workato to Salesforce
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Salesforce
+in the
+New Connection
+page.
+3
+Provide a name for your connection in the
+Name
+field.
+Salesforce connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Sandbox
+drop-down menu to determine the account connection type.
+6
+Optional. Click
+Advanced
+to configure advanced connection options.
+7
+Optional. Select the
+Custom OAuth profile
+. App requests use the profile specified in Workato when you select this option. This ensures that the connection is restricted to the same set of scopes you selected for all users with the profile, and the authentication flow uses the client app linked to the custom profile.
+8
+Click
+Connect
+, enter your Salesforce account credentials when prompted, and then click
+Log In
+to verify the connection.
+Log in to your Salesforce account
+←
+Supported data sources
+Destinations
+→
+Last updated:
+1/16/2025, 9:16:49 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

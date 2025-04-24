@@ -1,0 +1,287 @@
+Copilot in formula mode | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+AI features
+Copilots
+#
+Formula Copilot
+FEATURE AVAILABILITY
+Copilot is available for all direct customers across all Workato data centers. It is available to Embedded partners in the admin workspace, but is not available in Embedded customer workspaces. All data is sent to OpenAI's servers in the US. You can opt-in to this feature by agreeing to our
+AI feature addendum
+(opens new window)
+. Contact your Customer Success representative to learn more.
+Workato’s Formula Copilot leverages Large Language Models (LLMs) to enhance your experience in formula mode. This AI-powered feature provides assistance based on your formula requirements. You can create complex data transformations or fine-tune your formatting by directly prompting Copilot, which offers tailored suggestions and examples.
+#
+Prerequisites
+Ensure that you have
+Copilot
+enabled for your workspace. Enabling Copilots requires an
+Admin
+system role. If you are not assigned this role, contact your workspace administrator to enable this feature. For more information, refer to our
+Copilots
+documentation.
+PERMISSIONS
+Copilots do not have granular permission settings. When you enable it in your workspace, all collaborators within your workspace can access it, regardless of their role.
+#
+Get started with Formula Copilot
+Workato’s Formula Copilot offers various ways to assist you in formula mode, depending on your specific situation in the recipe.
+#
+Direct assistance from Formula Copilot
+When starting a new or empty formula field, complete the following steps to get direct help from Formula Copilot:
+1
+Navigate to any trigger or action step within your recipe that requires data transformation.
+2
+Click on the
+Formula
+tab in the input field to dynamically set values based on your recipe data.
+Navigate to the
+Formula
+tab
+3
+Select the
+Ask Copilot to fill field
+button within the formula box for empty fields to allow Formula Copilot to generate your formula.
+Ask Formula Copilot to fill the input field
+#
+Overcome formula creation challenges
+If you encounter difficulties while creating a formula, complete the following steps for additional assistance from Formula Copilot:
+1
+Click on the
+Formula
+tab and begin formulating your input.
+2
+Click
+Ask Copilot for help
+if your input results in no function matches, indicated by
+No functions match your search
+.
+Ask Formula Copilot for help when no function matches
+#
+Hide Formula Copilot
+Click
+Hide
+at any point to minimize the Formula Copilot dialog. To restore the Formula Copilot interface, press
+Shift + Space
+.
+Press
+Shift + Space
+to restore the Formula Copilot interface
+#
+Quick formula editing with Formula Copilot
+When fine-tuning formulas, you can click the white box within any formula field to activate Formula Copilot. This feature ensures Formula Copilot is readily accessible to streamline your formula editing process.
+Click the white box to activate Formula Copilot for formula assistance
+#
+Generate formula suggestions
+After you activate Formula Copilot in formula mode, you can start generating specific formula prompts.
+HOW FORMULA COPILOT INTERPRETS DATA
+When generating formulas, Formula Copilot adjusts its approach based on the data present in the formula field:
+No input or generation: Formula Copilot only takes into account the prompt and the recipe.
+Input present: Formula Copilot takes into account the existing input, the prompt, and the recipe.
+Generation present: Formula Copilot takes into account the generation, the prompt, and the recipe.
+Input and generation present: Formula Copilot only takes into account the generation, the prompt and the recipe.
+1
+Type your formula requirements or a description of the transformation you require directly into the prompt. Select the
+Back
+option if you plan to revise your input or view previous suggestions.
+Generate a formula prompt in Formula Copilot
+2
+Click the green arrow to begin the formula generation process. The system will display
+Generating input…
+, indicating that it is processing your input for suggestions. You can also select
+Stop
+to cancel the process.
+Generate the formula in Formula Copilot
+3
+Examine the formula suggestion that Formula Copilot generates to ensure that the formula meets your transformation requirements.
+4
+Insert
+the suggested formula directly into your formula field or click
+Copy
+to clipboard to use it in another part of your recipe.
+Insert the generated formula into the input field
+5
+Use the provided suggestion or
+refine
+it to ensure it aligns with your specific data needs and preferred output format.
+#
+Refine existing input or Formula Copilot-generated formulas
+If you already have input in the formula field or need to refine a formula generated by Formula Copilot, complete the following steps to tailor the suggestions to your requirements:
+1
+Activate Formula Copilot by clicking
+Fill field with AI
+in the formula box. This step is crucial whether you're starting with a datapill, have existing input, or are refining a formula previously generated by Formula Copilot.
+Activate Formula Copilot for updating the formula prompt
+2
+Enter your specific requirements in the prompt to customize the formula suggestion.
+Type the new requirements for the formula
+3
+Examine the AI-generated formula suggestion to ensure it matches your intended output.
+Review the updated formula suggestion
+4
+Select
+Replace
+to adjust the formula.
+Replace the formula
+#
+Map step outputs with formula mode
+Workato's formula mode allows you to map outputs from one step to another within your recipes:
+1
+Switch to
+Formula
+mode in the input field where you plan to map the output from a previous step.
+2
+Type your mapping requirements in the prompt to automatically select the corresponding datapills from previous steps.
+Type your mapping requirements in Formula Copilot
+3
+Click
+Insert
+to map them to your current step’s field or click
+Copy
+to clipboard for use in another part of your recipe.
+Insert mapped output into the formula field
+4
+Edit the formula directly in the formula box or click
+Ask Copilot for help
+if you need assistance to refine the mapping.
+Edit the mapped formula in Formula Copilot
+#
+Remap unknown datapills
+If Formula Copilot does not find similar datapills for your formula, complete one of the following options:
+Delete
+the unmatched datapill and manually select a replacement from the data tree.
+Select
+Ask Copilot for help
+to get AI-assisted suggestions for remapping the datapills.
+Remap unknown datapills in Formula Copilot
+Following these steps ensures that your formula accurately references the correct datapills within your recipes.
+#
+Use formula recommendations
+When you insert a datapill in formula mode, Formula Copilot provides recommendations for functions in the input field. If you type a recognized function, such as
+.where
+, the footer displays a direct link to that function's detailed explanation in Workato's
+formula documentation
+. For additional support, you can click
+Fill field with AI
+in the footer to prompt Formula Copilot to generate a relevant formula for your needs.
+Link to a function in Workato’s formula documentation
+#
+Data usage
+For details on the data Formula Copilot uses, refer to our appendix. For more information, refer to our
+data usage
+documentation.
+#
+Limitations
+Copilot is designed to support a wide range of automation tasks, but there may be complex scenarios that require manual setup. For these cases, refer to Workato's
+formula documentation
+.
+←
+Docs Copilot
+Mapper Copilot
+→
+Last updated:
+2/13/2025, 9:46:17 PM
+On this page
+Prerequisites
+Get started with Formula Copilot
+Generate formula suggestions
+Use formula recommendations
+Data usage
+Limitations
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

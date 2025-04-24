@@ -1,0 +1,149 @@
+アクティビティ監査ログのストリーミング | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの管理
+管理者ダッシュボード
+アクティビティ監査ログ
+#
+アクティビティ監査ログのストリーミング
+Workatoプラットフォーム
+自体での監査ログの保持に加えて、Workatoは任意の宛先に監査ログをストリーミングすることもできます。監査ログストリーミングが有効になっている場合、WorkatoはAmazon S3バケットまたは任意のRESTエンドポイントに、すべてのレシピのジョブ履歴、ログインおよびユーザーアクティビティを保存します。
+Sumo Logic
+(opens new window)
+、
+Datadog
+(opens new window)
+、
+Splunk
+(opens new window)
+などのログサービスプロバイダーを使用できます。
+Workatoは各イベントに対してJSONファイルを作成します。ログに存在する詳細に基づいて、ファイルサイズは1kBから1MBまで変動します。
+なお、Workatoプラットフォームは、監査ログストリーミングが有効であろうと無かろうと、指定された
+保持期間
+の監査ログを保持します。
+ADD-ON FEATURE
+アクティビティ監査ログのストリーミングはアドオン機能です。この機能をアカウントで有効にするには、カスタマーサクセス担当者に連絡してください。
+#
+アクティビティ監査ログのストリーミングの設定
+1
+**アカウント設定 >
+デバッグ
+(opens new window)
+**に移動し、
+アクティビティ監査ログのストリーミング
+セクションのトグルボタンを使用して、アクティビティ監査ログのストリーミングを有効にします。
+2
+監査ログストリームに含めるイベントのタイプを選択します。ジョブ履歴をストリーミングする場合、監査ログストリームにレシピのステップの詳細を含める追加オプションがあります。
+3
+オプションで
+ログメッセージの形式をカスタマイズ
+します。
+4
+ピックリストから
+宛先タイプ
+を選択し、選択した
+宛先タイプ
+の必須フィールドを入力します。
+5
+保存
+を選択します。
+←
+ログ - 表示
+ログメッセージのカスタマイズ
+→
+Last updated:
+2025/4/9 3:16:38
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

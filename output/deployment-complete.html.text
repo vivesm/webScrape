@@ -1,0 +1,194 @@
+RecipeOps - Deployment complete trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+RecipeOps by Workato
+#
+RecipeOps - Deployment complete trigger
+PRIVATE BETA
+This trigger is in private beta. Private beta features are available in production but only to selected customers. Customers must opt in and be accepted into the beta.
+During the private beta, Workato may update its functionality or change its availability without prior notice.
+The
+Deployment complete
+trigger monitors project deployments successfully pushed to assigned environments in real-time.
+#
+Input
+This trigger doesn't require any input.
+#
+Output
+Field
+Description
+Deployment
+An object containing details about the deployment.
+ID (deployment)
+The unique identifier for the deployment.
+Name (deployment)
+The name of the deployment.
+Description (deployment)
+A brief description of the deployment.
+Author (deployment)
+An object containing information about the user who created the deployment.
+User ID (author)
+The workspace ID of the user who created the deployment.
+User name (author)
+The name of the user who created the deployment.
+User email (author)
+The email address of the user who created the deployment.
+Deployment state (deployment)
+The current state of the deployment. For example,
+pending_review
+.
+Reviews (deployment)
+A list of reviews associated with the deployment.
+Reviewer (reviews)
+An object containing details about the user assigned to review the deployment.
+User ID (reviewer)
+The workspace ID of the user assigned to review the deployment.
+User name (reviewer)
+The name of the user assigned to review the deployment.
+User email (reviewer)
+The email address of the user assigned to review the deployment.
+Status (reviews)
+The status of the review. For example,
+pending
+,
+approved
+, or
+rejected
+.
+Comment (reviews)
+Any comment added to the review.
+Project build ID (deployment)
+The unique identifier for the project build associated with the deployment.
+Target folder (deployment)
+An object containing details about the target folder.
+ID (target folder)
+The unique identifier of the target folder.
+Name (target folder)
+The name of the target folder.
+Path (target folder)
+The workspace path that indicates the location of the target folder.
+Deployed by
+An object containing information about the user who deployed the project.
+User ID (deployed by)
+The workspace ID of the user who deployed the project.
+User name (deployed by)
+The name of the user who deployed the project.
+User email (deployed by)
+The email address of the user who deployed the project.
+Deployed at
+The date and time the project was deployed.
+#
+Resources
+RecipeOps overview
+RecipeOps actions
+RecipeOps triggers
+←
+Deployment approved
+Deployment failed
+→
+Last updated:
+11/26/2024, 6:30:20 PM
+On this page
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

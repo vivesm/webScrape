@@ -1,0 +1,499 @@
+SDK - CLI - ガイド - ストリーミングのダウンロード | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+CLI
+ガイド
+#
+How-toガイド - CLIでのストリーミングダウンロードアクション/トリガーの実行方法
+このセグメントでは、Workato Gemを使用してファイルストリーミングを利用するアクションを実行し、簡単にデバッグする方法について説明します。ファイルストリーミングは、ダウンロードファイルアクションとアップロードファイルアクションの2つの主要なコンポーネントに分けることができます。以下では、CLIでのダウンロードファイルアクションの手順について説明します。
+#
+前提条件
+Workato SDK Gemをインストールし、実行できるようにしています。詳細については、
+入門ガイド
+を参照してください。
+SDKのファイルストリーミングの仕組みについて理解しています。詳細については、
+ガイド
+を参照してください。
+#
+ダウンロードファイル - サンプルコネクタ - Egnyte
+Egnyteコネクタ
+を例に説明します。
+#
+ダウンロードファイルアクションの
+execute
+ラムダの実行
+ダウンロードファイルアクションでは、アクション/トリガーがジョブで実行される際に、実際のファイルの内容のダウンロード（
+streams
+コールバックに含まれる）はその時点ではトリガーされません。ダウンロードファイルアクションの
+streams
+コールバックは、ファイルの内容を表すデータピルが下流のアクションで使用されたときにのみトリガーされます。
+そのため、SDK Gemでは、ダウンロードファイルアクションを通常のアクションとしてテストし、
+streams
+コールバックを別々にテストすることができます。まず、ダウンロードファイルアクションについて説明します。
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+file_path
+=
+input
+[
+'file_path'
+]
+&.
+gsub
+(
+/
+ja
+/%2F/
+,
+'/'
+)
+file_details
+=
+get
+(
+"/pubapi/v1/fs/
+#{
+file_path
+}
+"
+)
+file_details
+[
+'file_contents'
+]
+=
+workato
+.
+stream
+.
+out
+(
+"download_file_by_path"
+,
+{
+file_path
+:
+file_path
+}
+)
+file_details
+end
+,
+execute
+ラムダとともに、SDK CLIでダウンロードファイルアクションを実行する際には、
+egnyte_download_file_input.json
+という入力JSONファイルも必要です。
+{
+"file_path"
+:
+"/path/to/sample/file"
+}
+ダウンロードファイルアクションを実行するには、通常のアクションと同じコマンドを使用します。
+workato
+exec
+actions.download_object.execute
+--input
+=
+'egnyte_download_file_input.json'
+--verbose
+SETTINGS
+{
+"domain"
+:
+"acme.egnyte.com"
+,
+"client_id"
+:
+"client_id"
+,
+"client_secret"
+:
+"client_secret"
+,
+"access_token"
+:
+"valid_access_token"
+,
+"refresh_token"
+:
+"valid_refresh_token"
+,
+"expires_in"
+:
+3599
+,
+"token_type"
+:
+"Bearer"
+}
+INPUT
+{
+"file_path"
+:
+"/path/to/sample/file"
+}
+RestClient.get
+"https://acme.egnyte.com/pubapi/v1/fs/path/to/sample/file"
+,
+"Accept"
+=
+>
+"application/json"
+,
+"Accept-Encoding"
+=
+>
+"gzip, deflate"
+,
+"Authorization"
+=
+>
+"Bearer valid_access_token"
+,
+"Content-Length"
+=
+>
+"207"
+,
+"Content-Type"
+=
+>
+"application/json"
+,
+"User-Agent"
+=
+>
+"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
+# => 200 OK | application/json 176 bytes
+OUTPUT
+{
+"checksum"
+:
+"abc123"
+,
+"size"
+:
+1000
+,
+"path"
+:
+"/path/to/sample/file"
+,
+"name"
+:
+"file"
+,
+"file_contents"
+:
+{
+"__stream__"
+:
+true,
+"name"
+:
+"stream"
+,
+"input"
+:
+{
+"file_path"
+:
+"/path/to/sample/file"
+}
+}
+この時点では、Egnyteからのファイルの実際のダウンロードは実際には行われていません。CLIを介してアクションを呼び出す際には、
+download_file_by_path
+ストリームを除いた
+execute
+ラムダの評価のみが行われます。
+file_contents
+の出力は、ファイルストリームのための人工的な値です。
+TIP
+--output
+のような他のオプションも使用でき、関数の出力をJSONファイルに保存することもできます。
+#
+ダウンロードファイルアクションで使用される
+streams
+ラムダの実行
+次に、
+streams
+ラムダをデバッグおよびテストするために、CLIを使用して直接ラムダを呼び出すことができます。
+streams
+:
+{
+download_file_by_path
+:
+lambda
+do
+|
+input
+,
+starting_byte_range
+,
+ending_byte_range
+,
+requested_byte_size
+|
+# 例：starting_byte_range = 0
+# 例：ending_byte_range = 10485759
+# 例：requested_byte_size = 10485760 (10MB)
+chunk
+=
+get
+(
+"/pubapi/v1/fs-content/
+#{
+file_path
+}
+"
+)
+.
+headers
+(
+"Range"
+:
+"bytes=
+#{
+starting_byte_range
+}
+-
+#{
+ending_byte_range
+}
+"
+)
+.
+response_format_raw
+# chunk.sizeが要求されたbyte_sizeよりも小さい場合、
+# ファイルの終わりに達したことがわかります。
+[
+chunk
+,
+chunk
+.
+size
+<
+requested_byte_size
+]
+end
+}
+SDK Gemを使用すると、特定のストリーミングコールバックラムダを呼び出して単一のチャンクのダウンロードをシミュレートしたり、複数のチャンクを順次ダウンロードするためにダウンロードプロセス全体をループすることができます。
+単一のチャンクを読み取るには、3つのパラメータを使用して単純にストリームを呼び出すことができます。
+workato
+exec
+streams.download_file_by_path
+--input
+=
+'egnyte_download_file_input.json'
+--from
+=
+0
+--frame_size
+=
+256
+--verbose
+SETTINGS
+{
+"domain"
+:
+"acme.egnyte.com"
+,
+"client_id"
+:
+"client_id"
+,
+"client_secret"
+:
+"client_secret"
+,
+"access_token"
+:
+"valid_access_token"
+,
+"refresh_token"
+:
+"valid_refresh_token"
+,
+"expires_in"
+:
+3599
+,
+"token_type"
+:
+"Bearer"
+}
+INPUT
+{
+"file_path"
+:
+"/path/to/sample/file"
+}
+RestClient.get
+"https://acme.egnyte.com/pubapi/v1/fs-content/path/to/sample/file"
+,
+"Range"
+=
+>
+"bytes=0-255"
+,
+"Accept"
+=
+>
+"application/json"
+,
+"Accept-Encoding"
+=
+>
+"gzip, deflate"
+,
+"Authorization"
+=
+>
+"Bearer valid_access_token"
+,
+"Content-Length"
+=
+>
+"207"
+,
+"User-Agent"
+=
+>
+"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
+# => 206 PartialContent | text/csv 255 bytes, 1.85s
+OUTPUT
+[
+"256_byte_string"
+,
+false
+]
+すべてのチャンクを読み取るには、同じ3つのパラメータを使用してストリームを呼び出すことができますが、バン (
+!
+) メソッドを使用します。
+workato
+exec
+streams.download_file_by_path
+!
+--input
+=
+'egnyte_download_file_input.json'
+--frame_size
+=
+256
+--verbose
+TIP
+from
+引数はバン (
+!
+) メソッドでは機能しないことに注意してください。ダウンロードプロセスが終了するのを待つために長い時間を待つことを避けるために、小さいファイルでこれをテストすることをお勧めします。
+←
+CLI - マルチステップアクション
+CLI - ストリーミングのアップロード
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+前提条件
+ダウンロードファイル - サンプルコネクタ - Egnyte
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

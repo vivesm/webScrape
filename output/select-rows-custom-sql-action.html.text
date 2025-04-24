@@ -1,0 +1,181 @@
+Connectors - Databricks- Select rows via custom SQL action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Databricks
+#
+Databricks - Select rows via custom SQL action
+This action lets you select rows based on a custom SQL query. Rows that are returned from the query will be returned as the output of this action.
+Select rows via custom SQL action
+#
+Input fields
+To use this action, configure the following input fields.
+SQL
+Provide the SQL query you plan to use to select rows. The query is used to generate the output datatree. To do this, the SQL is executed when you provide it.
+Use bind variables. For example,
+ID = :id
+and the parameter field to parameterize inputs.
+You must manually define the schema when you use bind variables.
+CLAUSES TO AVOID
+Avoid using limit clauses like
+LIMIT
+or
+TOP(N)
+in your SQL. This is because the limit to the number of rows returned in the query is based on the value defined in the
+Limit input field
+. Adding your own limit clause causes the action to fail.
+Additionally, remove
+ORDER BY
+clauses from the query and place them in the
+Order by
+input field.
+Parameters
+This field is used in conjunction with your
+WHERE
+condition. First, declare the named bind variables in your
+WHERE
+input. Next, assign values to these variables using this input field.
+Parameter values can be static or datapills. Select the closest corresponding data type that your database is expecting for the bind variable.
+Order By
+Rows returned from this action can be ordered based on the
+Order by
+input field. This field is used to change the default ordering of rows from your Databricks database.
+You can also define the direction of order for each column you plan to order by. The following
+Order by
+statement orders rows by
+priority
+in ascending order followed by
+updated_at
+in descending order (latest first).
+PRIORITY
+ASC
+,
+UPDATED_AT
+DESC
+Limit
+This input field determines the maximum number of rows to return. The default limit is 100 and capped at a maximum of 50000 rows for a single
+Select rows using custom SQL
+action.
+Offset
+This input field gives you the option to skip rows before returning rows from the query expression. For example, to skip the first 100 rows of the selected results set, input
+100
+to this field. The default is
+0
+.
+Output fields
+Use this field to define the columns returned in your query. Workato does this dynamically, but you can use this field to override any columns in case of errors. The name of the fields defined here must match the column names in your query exactly.
+#
+Output
+This action creates the following output.
+rows
+A JSON array of objects. Each object describes one row of the selected data.
+rows_count
+The number of rows returned.
+←
+Select rows action
+Run custom SQL action
+→
+Last updated:
+4/5/2023, 2:25:23 AM
+On this page
+Input fields
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

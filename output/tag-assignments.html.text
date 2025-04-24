@@ -1,0 +1,192 @@
+Workato API - Tag assignments | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Developer API
+Resources
+#
+Tag assignments
+Use this endpoint to apply tags to or remove tags from assets in your workspace.
+TAG APIS
+To create, retrieve, update, and delete tags programmatically, refer to our
+Environment management
+API documentation.
+#
+Quick reference
+Type
+Resource
+Description
+POST
+/api/tags_assignments
+Apply tags to or remove tags from assets in your workspace.
+#
+Manage tag assignments
+Applies or removes tags from assets in your workspace. Assets that can be tagged through this endpoint include recipes and connections. You can assign one or more tags to these assets or remove existing tags.
+POST /api/tags_assignments
+#
+Payload
+Name
+Type
+Description
+add_tags
+array of strings
+optional
+An array of tag handles to be added. Each handle represents a tag to be applied to the specified assets.
+remove_tags
+array of strings
+optional
+An array of tag handles to be removed. Each handle represents a tag to be removed from the specified assets.
+recipe_ids
+array of integers
+conditional
+An array of recipe IDs to tag or untag.
+Required
+if
+connection_ids
+is not provided.
+connection_ids
+array of integers
+conditional
+An array of connection IDs to tag or untag.
+Required
+if
+recipe_ids
+is not provided.
+RETRIEVE TAG HANDLES WITH THE LIST TAGS ENDPOINT
+Use the
+List tags
+(
+GET /api/tags
+) endpoint to retrieve the handles of the tags you plan to apply or remove.
+#
+Sample request
+This request adds the
+Accounting
+tag with the handle
+tag-ANgdXgTF-bANz3H
+to both a connection and a recipe in Workato.
+curl
+-X
+POST
+"https://www.workato.com/api/tags_assignments"
+\
+-H
+"Authorization: Bearer <api_token>"
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{
+"add_tags": ["tag-ANgdXgTF-bANz3H"],
+"recipe_ids": [54525313],
+"connection_ids": [1571346]
+}'
+#
+Response
+If the request returns a
+200 OK
+status, the tag has been successfully added to or removed from the asset. No content is returned in the response body.
+←
+Copy a custom role
+Test Automation
+→
+Last updated:
+10/11/2024, 7:38:58 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

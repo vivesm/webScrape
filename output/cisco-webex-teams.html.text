@@ -1,0 +1,275 @@
+Workato connectors - Cisco Webex Teams | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Cisco Webex Teams
+Cisco Webex Teams
+(opens new window)
+is a collaboration platform that provides messaging, video meetings, and file sharing capabilities.
+#
+API version
+The Cisco Webex Teams connector uses
+Cisco Webex Teams API v1
+(opens new window)
+.
+#
+How to connect to Cisco Webex Teams
+Workato supports the following authentication methods for connecting to Cisco Webex Teams:
+OAuth 2.0
+Bot access token
+#
+OAuth 2.0
+Complete the following steps to connect to Cisco Webex Teams using OAuth 2.0 authentication:
+1
+Sign in to your Workato account.
+2
+Click
+Create
+, then select
+Connection
+.
+3
+Search for and select
+Cisco Webex Teams
+in the
+New connection
+page.
+4
+Enter a name for the connection in the
+Connection name
+field.
+Connect to Cisco Webex Teams
+5
+Use the
+Location
+drop-down menu to select the project where you plan to store this connection.
+6
+Use the
+Authentication type
+drop-down menu to select
+OAuth 2.0
+.
+7
+Click
+Connect
+.
+8
+Enter the email address associated with your Cisco Webex Teams account and click
+Sign in
+.
+9
+Click
+Accept
+. Workato requests the following permissions:
+List the people in rooms that you're in
+Read your company directory
+List the titles of spaces that you are in
+Post and delete messages on your behalf
+Invite people to rooms on your behalf
+Manage spaces on your behalf
+Read the content of rooms that you're in
+#
+Bot access token
+You can use bot access token authentication to connect Workato to Cisco Webex Teams. This method requires two main steps:
+Create a bot in the Webex Developer Portal
+Complete the connection setup in Workato
+#
+Create a bot in the Webex Developer Portal
+Complete the following steps to create a bot in the Webex Developer Portal:
+1
+Sign in to the
+Webex Developer Portal
+(opens new window)
+and click
+Start Building Apps
+.
+2
+Click
+Create a Bot
+to open the
+New Bot
+(opens new window)
+page.
+New bot page
+3
+Enter a name for your bot in the
+Bot name
+field. This is the bot name that appears in Webex and the Webex App Hub.
+4
+Enter a username for your bot in the
+Bot username
+field. Users use this username to add your bot to a space. This value cannot be changed later.
+5
+Upload a 512x512px JPEG or PNG file in the
+Icon
+field, or select a default option from Webex.
+6
+Provide an app description in 1024 characters or less in the
+App Hub Description
+field.
+7
+Click
+Add Bot
+to create your bot.
+8
+Click
+Copy Token
+to retrieve your bot access token. Store this value securely, as it is required to create your connection in Workato.
+Copy the bot access token
+#
+Complete the connection setup in Workato
+Complete the following steps to configure the Cisco Webex Teams connection in Workato:
+1
+Sign in to your Workato account.
+2
+Click
+Create
+, then select
+Connection
+.
+3
+Search for and select
+Cisco Webex Teams
+in the
+New connection
+page.
+4
+Enter a name for the connection in the
+Connection name
+field.
+Connect to Cisco Webex Teams
+5
+Use the
+Location
+drop-down menu to select the project where you plan to store this connection.
+6
+Use the
+Authentication type
+drop-down menu to select
+Bot access token
+.
+7
+Enter the bot access token in the
+Bot access token
+field. For detailed steps on how to obtain this value, see
+Create a bot in the Webex Developer Portal
+.
+8
+Click
+Connect
+.
+Refer to the Webex documentation for more information on
+Bots
+(opens new window)
+.
+←
+Celonis
+New message trigger
+→
+Last updated:
+12/12/2024, 6:43:50 PM
+On this page
+API version
+How to connect to Cisco Webex Teams
+OAuth 2.0
+Bot access token
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

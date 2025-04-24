@@ -1,0 +1,231 @@
+Workato connectors - HubSpot - Scopes for custom oauth profiles | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+Scopes for Custom OAuth profiles
+The scopes you define in Workato must either match or be a subset of the scopes that admins configure in the HubSpot app. This ensures a successful connection between Workato and HubSpot using Custom OAuth profiles. Scope mismatches can cause HubSpot connection setup errors. This
+additional security measure
+(opens new window)
+is required by HubSpot since October 21, 2024.
+Workato users can select scopes in
+Advanced settings
+during
+connection setup
+. These scopes are requested when establishing the HubSpot connection.
+Admins
+configure scopes
+by logging in to their HubSpot developer account, navigating to app settings, and then locating the
+Scopes
+section. Review
+HubSpot's documentation
+(opens new window)
+to learn more about configuring the scopes in your HubSpot OAuth public app's settings.
+#
+Configuration approaches
+Admins can use one of the following approaches to configure scopes in HubSpot. The approach you choose depends on whether you're configuring scopes for internal users or if you're a Workato Embedded partner serving customers.
+REQUIRED SCOPE
+The following scope is required for all connections, regardless of your configuration approach. You must assign the scope as required in your HubSpot app settings:
+crm.objects.contacts.read
+All other scopes should be categorized as optional in HubSpot.
+HubSpot scopes
+#
+Use default scopes and add more on demand
+You can use the default scopes and assign additional scopes on demand when required. This approach is common for admins that work with users who won't adjust scopes in
+Advanced settings
+when connecting to HubSpot from Workato.
+The connection can be established with no errors as long as no one on your team adjusts the scopes. If someone adjusts scopes during the connection setup, the connection fails with an error. In this case, you must contact the HubSpot admin who can request that the HubSpot Custom OAuth app owner adds the new scope. Alternatively, you can contact Workato support. You can't establish a connection to HubSpot until the scopes are in sync.
+Admins should add the following scopes as optional in HubSpot, as they are requested by Workato's connection by default:
+Workato default scopes
+crm.lists.read
+crm.lists.write
+crm.objects.companies.read
+crm.objects.companies.write
+crm.objects.contacts.write
+crm.objects.deals.read
+crm.objects.deals.write
+crm.objects.owners.read
+crm.schemas.companies.read
+crm.schemas.companies.write
+crm.schemas.contacts.read
+crm.schemas.contacts.write
+crm.schemas.deals.read
+crm.schemas.deals.write
+#
+Principle of least privilege
+The principle of least privilege approach is suitable if you're an admin and can configure a HubSpot Custom OAuth app in accordance with security best practices. This approach isn't suitable for Embedded partners who plan for their customers to connect to HubSpot using the profile.
+Admins work with users to identify the relevant triggers and actions in the connector. Admins use this input to select and mark the appropriate scopes as optional in the HubSpot OAuth app. Users configure their HubSpot connection in Workato using the same scopes after the app is updated. This setup ensures access stays limited to only the required data and prevents users from viewing HubSpot information outside their roles.
+#
+All scopes
+Admins must configure all available scopes as optional when using the all scopes approach. This eliminates potential connection errors when users configure additional scopes during the connection setup. Refer to the following list of optional scopes:
+#
+Full list of scopes
+The following list of scopes are available for users to choose when configuring a HubSpot connection in Workato:
+accounting
+automation
+business-intelligence
+content
+conversations.visitor_identification.tokens.create
+crm.export
+crm.import
+crm.lists.read
+crm.lists.write
+crm.objects.companies.read
+crm.objects.companies.write
+crm.objects.contacts.write
+crm.objects.custom.read
+crm.objects.custom.write
+crm.objects.deals.read
+crm.objects.deals.write
+crm.objects.marketing_events.read
+crm.objects.marketing_events.write
+crm.objects.owners.read
+crm.objects.quotes.read
+crm.objects.quotes.write
+crm.objects.users.read
+crm.objects.users.write
+crm.schemas.companies.read
+crm.schemas.companies.write
+crm.schemas.contacts.read
+crm.schemas.contacts.write
+crm.schemas.custom.read
+crm.schemas.custom.write
+*
+crm.schemas.deals.read
+crm.schemas.deals.write
+e-commerce
+files
+files.ui_hidden.read
+forms
+forms-uploaded-files
+hubdb
+integration-sync
+sales-email-read
+settings.billing.write
+settings.users.read
+settings.users.teams.read
+settings.users.teams.write
+settings.users.write
+social
+tickets
+timeline
+transactional-email
+AVAILABLE SCOPES
+* The
+crm.schemas.custom.write
+scope is not available by default. If you require this scope for your integration, you can request access to
+HubSpot's Custom Objects Schema pilot program
+(opens new window)
+.
+←
+Create a Custom OAuth profile
+New/updated record triggers
+→
+Last updated:
+4/14/2025, 2:55:29 PM
+On this page
+Configuration approaches
+Use default scopes and add more on demand
+Principle of least privilege
+All scopes
+Full list of scopes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

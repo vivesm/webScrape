@@ -1,0 +1,138 @@
+Workato コネクター - Zuora - Create record アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Zuora
+#
+Zuora - Update record (レコードの更新) アクション
+#
+Update record (レコードの更新) アクション
+このアクションは、レコードを選択し、指定されたデータを使用して更新します。レコードは一意の Zuora ID を使用して識別されます。まず、Zuora のオブジェクトタイプを選択して ID を指定します。その後、Workato が選択したオブジェクトに関連する入力項目を動的に生成します。
+更新パラメータは、選択したオブジェクトに基づいて動的に生成されます。
+#
+入力項目
+項目
+説明
+Object
+作成する Zuora のオブジェクトタイプを選択します。
+ID
+更新するオブジェクトの ID。Zuora の一意の内部 ID に対応します。
+オブジェクトレベルの入力項目
+更新するオブジェクトの属性。空白のままにした項目は、元の値から変更されません。
+#
+出力項目
+項目
+説明
+Success
+アクションが正常に実行された場合は「true」に評価されます。
+ID
+正常に作成された場合は、作成されたオブジェクトの内部 ID。
+Errors
+アクションが正常に実行されなかった場合のエラーの配列。
+#
+下流のアクション
+Zuora でレコードを更新する場合、そのオブジェクトの属性は即座には返されません。新しく更新されたレコードの属性を取得するには、「レコードの検索」アクションを使用し、このステップで返される ID を使用して検索を行います。
+←
+レコードの作成
+レコードの検索
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Update record (レコードの更新) アクション
+下流のアクション
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

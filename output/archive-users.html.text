@@ -1,0 +1,298 @@
+Workato connectors - Intercom Archive users action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Intercom
+#
+Intercom - Archive users action
+The
+Archive users
+action allows you to archive users in Intercom. This action archives users based on a list of email addresses or user IDs that you provide.
+Intercom - Archive users action
+#
+Input
+Parallel
+Specify the number of parallel requests to process. The minimum value is 1, and the maximum is 10.
+Requests per minute
+Set the target request rate per minute. The rate is calculated on a 10-second interval basis. For detailed rate limits, refer to the
+Intercom API rate limit documentation
+(opens new window)
+. Setting this field to zero, or leaving it empty, removes rate limiting.
+Users
+Provide the list of users to archive. You can specify users by their email address or user ID.
+#
+Output
+Successful
+Contains details of users successfully archived.
+Type
+The type of entity.
+ID
+The unique identifier for the user.
+User ID
+The identifier assigned to the user within Intercom.
+Anonymous
+Indicates if the user is anonymous.
+Email
+The email address of the user.
+Name
+The full name of the user.
+Avatar
+The avatar details of the user.
+Type
+The type of avatar.
+Image URL
+The URL link to the user's avatar image.
+App ID
+The identifier of the application within Intercom.
+Companies
+List of companies associated with the user.
+Type
+The type of associated entities.
+Companies
+The companies connected to the user.
+Type
+The type of company data.
+Company ID
+The unique identifier of the company.
+ID
+The unique identifier used within Intercom for the company.
+Company name
+The name of the company.
+List size
+The number of companies associated with the user.
+List index
+The index of the company in the associated list.
+Location data
+Contains geographic information about the user.
+Type
+The type of location data provided.
+City name
+The city associated with the user's location.
+Continent code
+The continent code for the user's location.
+Country name
+The country name for the user's location.
+Latitude
+The latitude coordinate for the user's location.
+Longitude
+The longitude coordinate for the user's location.
+Postal code
+The postal code for the user's location.
+Region name
+The region name for the user's location.
+Timezone
+The timezone for the user's location.
+Country code
+The country code for the user's location.
+Phone
+The phone number associated with the user.
+Pseudonym
+The pseudonym, if any, used by the user.
+Remote created at
+The timestamp when the user was created remotely.
+Session Count
+The number of sessions the user has logged.
+Owner ID
+The identifier of the user who owns the account within Intercom.
+Last request at
+The timestamp of the last request made by the user.
+Created at
+The timestamp when the user was created in Intercom.
+Signed up at
+The timestamp when the user signed up.
+Updated at
+The timestamp when the user's information was last updated.
+Unsubscribed from emails
+Indicates whether the user has unsubscribed from emails.
+Marked email as spam
+Indicates whether the user has marked an email as spam.
+Has hard bounced
+Indicates whether an email sent to the user has hard bounced.
+Do not track
+Indicates whether the user has enabled do not track.
+Referrer
+The referrer URL through which the user was acquired.
+Last Seen IP
+The last known IP address of the user.
+User Agent Data
+Information about the user's browser and operating system.
+Utm campaign
+The UTM campaign associated with the user.
+Utm content
+The UTM content parameter associated with the user.
+Utm medium
+The UTM medium parameter associated with the user.
+Utm source
+The UTM source parameter associated with the user.
+Utm term
+The UTM term parameter associated with the user.
+Social profiles
+Contains information about the social profiles linked to the user.
+Type
+The type of social profile information.
+Social profiles
+Detailed list of social profiles.
+ID
+The unique identifier for each social profile.
+Name
+The name of the social network.
+Type
+The type of the social network.
+URL
+The URL of the user's profile on the social network.
+Username
+The username of the user on the social network.
+List size
+The total number of social profiles associated with the user.
+List index
+The index of the social profile within the list.
+Custom attributes
+Custom data attributes associated with the user.
+Tags list
+A list of tags applied to the user.
+Tags
+Detailed information about the tags.
+Sync
+Indicates the synchronization status of the tags.
+Segments list
+A list of segments the user is part of.
+Segments
+Detailed information about the segments.
+Active
+Indicates if the segment is currently active.
+New
+Indicates if it is a new segment for the user.
+Slipping Away
+Indicates if the user is slipping away from the segment.
+List size
+The total number of records processed in the batch.
+List index
+The index of the current record in the batch.
+Failed
+Contains information about users that failed to archive.
+User
+The user information for the failed action.
+User ID
+The unique identifier of the user within Intercom.
+Email
+The email address associated with the user.
+Error
+The error message associated with the failed action.
+List size
+The total number of failed records.
+List index
+The index of the current failed record within the list of all failed records.
+All records in batch succeeded?
+Indicates whether all records in the batch were successfully processed.
+Number of records succeeded
+The count of records that were successfully processed.
+Number of records failed
+The count of records that failed to process.
+←
+Add conversation note action
+Create/update users action
+→
+Last updated:
+4/22/2024, 5:48:05 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

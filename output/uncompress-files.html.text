@@ -1,0 +1,217 @@
+File tools by Workato - Uncompress a file action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+File tools by Workato
+#
+Uncompress a file action
+The
+Uncompress a file
+action extracts files with .zip, .tar.gz, or .gz extensions. You can use source files from any app, such as
+Amazon S3
+,
+Dropbox
+, and
+Salesforce
+.
+Uncompress a file action
+#
+Input fields
+Field
+Description
+Compression format
+Specify the file's compression format. Choose
+Zip
+for .zip files or
+Gzip
+for .gzip and .tar.gz files. The default is
+Zip
+.
+Password
+Provide the password if the archive is encrypted. This input field is only displayed if
+Zip
+is selected.
+Archive format
+Specify the file's archive format. Choose
+None
+for .gzip files or
+Tar
+for .tar.gz files. This input field is only displayed if
+Gzip
+is selected.
+File contents
+Specify the source file to extract.
+#
+Output fields
+Output field
+Description
+File list
+The list of files that were extracted.
+File name (file list)
+The name of the file.
+File contents (file list)
+The content of the file.
+File size (file list)
+The size of the file in bytes.
+File directory (file list)
+The directory path of each extracted file. Files originally located in the root folder are represented by
+.
+#
+Example: Uncompress a zip file
+This recipe unzips a zip file and extracts the file contents.
+Uncompress file from S3
+Complete the following steps to create this recipe:
+1
+Create a recipe using the Amazon S3
+New file
+trigger.
+2
+Set a trigger condition that instructs the recipe to only process the new Amazon S3 file if it's a zip file.
+3
+Download the zip file using the Amazon S3
+Download file
+action.
+4
+Map the Amazon S3
+File content
+Step 2
+datapill to the
+File contents
+input field in the
+Uncompress a file
+action.
+5
+Add a
+Repeat for each
+step that processes every uncompressed file using the
+File list
+Step 3
+datapill from the
+Uncompress a file
+action.
+6
+Add an
+IF condition
+to only process extracted files ending in
+.csv
+.
+7
+Use the
+Parse CSV
+action to parse the file contents if the IF condition is true.
+8
+Use the NetSuite
+Upsert records in bulk
+to bulk upsert the CSV file records into NetSuite.
+The steps in the
+Repeat for each
+loop are repeated until all CSV files extracted from the zip file are processed.
+←
+Transform image file
+CSV tools by Workato
+→
+Last updated:
+1/6/2025, 4:11:55 PM
+On this page
+Input fields
+Output fields
+Example: Uncompress a zip file
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

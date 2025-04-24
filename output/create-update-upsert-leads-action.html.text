@@ -1,0 +1,172 @@
+Workato connectors - Marketo Create/update/upsert leads action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Marketo
+#
+Create/update/upsert leads action (batch)
+This action searches for leads in Marketo using a specified lookup field. If a matching lead is found, Workato updates the lead with the provided data. If no match is found, Workato creates new leads with the provided data. To create only new leads or to update only existing leads, configure the
+Operation type
+field. The action can handle a maximum of 300 leads in a single request. The action fails if more than 300 leads are provided.
+#
+Input fields
+Field
+Description
+Lookup field
+Select the field to identify unique leads. The default is email.
+Operation type
+Select the type of operation. The default is
+Create or update
+.
+Leads
+List of Lead objects. Select the leads fields you plan to create/update/upsert by clicking
+Show optional fields
+.
+Leads source list (leads)
+Input a list datapill. Learn more about
+list input
+.
+Refer to the Marketo documentation for a
+list of standard fields
+(opens new window)
+available through the API. This list includes common fields but may not cover all input fields specific to this action.
+#
+Output fields
+Field
+Description
+Request ID
+The ID associated with the request to create/update/upsert leads.
+Number of records processed
+The total number of lead records processed in the batch.
+Number of records created
+The total number of leads that were successfully created.
+Number of records updated
+The total number of leads that were successfully updated.
+Number of records skipped
+The total number of leads that were skipped due to errors or invalid data.
+Leads created
+A list of leads that were created in the batch.
+Lead (leads created)
+The individual lead details for each lead created.
+Leads updated
+A list of leads that were updated in the batch.
+Lead (leads updated)
+The individual lead details for each lead updated.
+Leads skipped
+A list of leads that were skipped in the batch.
+Lead (leads skipped)
+The individual lead details for each lead skipped.
+Error (leads skipped)
+A list of errors encountered for the leads that were skipped.
+Code (error)
+The error code for any issues encountered during processing.
+Message (error)
+A descriptive message explaining the error encountered.
+←
+Create object action
+Get objects action
+→
+Last updated:
+10/2/2024, 3:53:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,160 @@
+Mastercard - Enroll/unenroll merchants action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Mastercard
+#
+Mastercard - Enroll/unenroll merchants action
+The
+Enroll/unenroll merchants
+action enables you to add or delete merchants in Mastercard.
+#
+Input
+Input fields
+Description
+Merchant data
+Provide an array of merchant data objects containing the merchant details.
+Processor name
+Provide the name of the service provider or acquirer. For example,
+MPGS
+.
+Action
+Select the action to be performed, either add or delete.
+Acquirer BIN
+Provide the acquirer reference ID number.
+Acquirer CID
+Provide the acquirer company ID.
+Acquirer ICA
+Provide the acquirer ICA number.
+Acquirer Name
+Enter the acquirer name.
+Merchant ID
+Provide the acquirer Merchant ID.
+Merchant name
+Enter the name of the merchant.
+Identity Check Express
+Select a flag for Identity Check Express. Valid values are
+Y
+or
+N
+.
+Delete reason
+Provide a reason for deleting the merchant enrollment. This is only required if the selected action is delete.
+#
+Output
+Output fields
+Description
+Message type
+Type of the message.
+Total records
+Total number of records processed.
+Transaction ID
+Unique ID of the transaction.
+←
+Connection setup
+Get status of merchant enrollment action
+→
+Last updated:
+2/25/2025, 1:35:45 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

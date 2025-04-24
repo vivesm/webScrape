@@ -1,0 +1,292 @@
+2要素認証 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+組織とワークスペース
+ワークスペース
+#
+2要素認証
+2要素認証 (2FA) は、多層認証における業界標準の認証方式です。2要素認証では、本人確認のために2つの独立した認証方法が必要であり、知識要素 (ID とパスワード) と所有要素 (携帯電話にインストールされた
+認証アプリ
+) が要求されます。そのため、セキュリティを強化でき、他の人物が誰も Workato のアカウントにアクセスできないようになります。
+#
+動作の仕組み
+2要素認証 (2FA) を2分で設定
+ID とパスワードでログインすると、Workato は
+認証アプリ
+を介した認証を要求します。
+Workato からの2要素認証の要求
+Workato のアカウントにログインするたびに、一意の確認コードが生成されます。これは一時的に使用される6桁のコードであり、本人であることを証明するためのものです。その後、このコードの有効期限は切れて、再利用できなくなります。
+#
+認証アプリの選択
+Workato では、モバイルアプリケーションによる認証が可能です。一般的なものをいくつか示します。
+Google Authenticator (
+iOS
+(opens new window)
+または
+Android
+(opens new window)
+)
+Authy (
+iOS
+(opens new window)
+または
+Android
+(opens new window)
+)
+Microsoft Authenticator (
+iOS
+(opens new window)
+または
+Android
+(opens new window)
+)
+#
+2要素認証の設定
+2要素認証を有効にする手順について説明します。Workato のアカウントにログインし、
+認証アプリ
+(opens new window)
+を準備しておく必要があります。この例では、
+Google Authenticator
+を使用します。
+ステップ
+説明
+1
+[
+My profile
+] を開きます。
+プロファイルドロップダウン
+2
+[
+Two-Factor Authentication
+] > [
+Setup two-factor authentication
+] を選択します。
+2要素認証が無効
+3
+パスワードの確認画面が表示されたら、パスワードを入力して [
+Verify password
+] をクリックします。詳細については、
+こちら
+を参照してください。
+パスワードの確認
+4
+Google Authenticator を使用して、QR コードを
+スキャン
+します。スキャンしない場合は、画面に表示されたコードを登録することもできます。
+2要素認証の設定
+5
+Google Authenticator に表示された6桁の
+確認コード
+を Workato の設定画面にコピーします。
+Google Authenticator の一意の確認コード
+Workato
+{
+profile name
+} と表示されていることから、Google Authenticator と Workato プラットフォームが問題なく接続されていることがわかります。
+Workato のアカウントでの認証アプリの確認
+6
+回復コード
+のコピーを保存するか、ダウンロードします。
+回復コード
+必ず安全な場所に保管しておいてください。回復コードの詳細については、
+こちら
+を参照してください。
+7
+以上で終了です。これで Workato の2要素認証の設定が完了しました。この設定は一度しておけば以降も有効です。
+2要素認証が有効
+#
+2要素認証の無効化
+場合によっては2要素認証を無効にする必要があります。たとえば、デバイスが盗まれたり、新しい業務用デバイスに切り換えたりする場合です。
+ステップ
+説明
+1
+[
+Account Setting
+] を開きます。
+プロファイルドロップダウン
+2
+[
+Two-Factor Authentication
+] > [
+Disable Two-Factor Authentication
+] を選択します。
+2要素認証
+この操作により、認証アプリでログインした
+すべての信頼済みデバイス
+が削除されます。
+3
+パスワードの確認画面が表示されたら、パスワードを入力して [
+Verify password
+] をクリックします。詳細については、
+こちら
+を参照してください。
+パスワードの確認
+4
+[
+Disable 2FA
+] をクリックします。
+2要素認証の無効化
+#
+回復コード
+回復コードは、Workato のアカウントに一意にひも付けされた英数字の文字列です。6桁の確認コードの代わりに、回復コードを本人確認に使用できます。すべての回復コードは
+一度だけ
+使用できます。
+回復コードの使用
+2要素認証の設定時に12個の回復コードが自動生成されます。この回復コードは安全な場所に保管してください。できれば、認証アプリとは別の場所 (
+つまり、携帯電話以外の場所
+) に保管してください。
+#
+認証デバイスの紛失
+アプリを削除したり、デバイス (またはセキュリティキー) を変更または紛失したりした場合でも、Workato のアカウントにアクセスできます。回復コードを使用すれば、2要素認証が可能です。
+ログインしたら、2要素認証の設定を
+リセット
+することをお勧めします。2要素認証の設定を変更することで、盗まれたデバイスから自分のアカウントへの好ましくないアクセスを防ぐことができます。その場合、新しいデバイスに対して2要素認証を再設定します。
+まず、
+2要素認証を無効にします
+。次に、新しいデバイスで
+2要素認証を設定します
+。
+#
+回復コードの紛失
+回復コードを保管していなかった場合、あるいは誤って削除してしまった場合は、2要素認証の設定から回復コードを取得することができます。
+回復コードを表示するには、[
+Account settings
+] > [
+Two-Factor Authentication
+] > [
+View recovery codes
+] に移動します。
+回復コードの表示
+回復コードは、安全ですぐに確認できる場所に保管しておくことをお勧めします。
+#
+新しい回復コードの生成
+回復コードを紛失したことに気付いた場合は、新しいコードを生成することをお勧めします。他の人物が紛失した回復コードを使用して Workato のアカウントにアクセスできることを忘れてはなりません。
+回復コードを使い切ってしまった場合も、新しい回復コードを生成できます。2要素認証で
+一度だけ使える
+回復コードを使用すると、残りのコードの数が減ることになります。その場合も、新しい回復コードを生成すれば、Workato のアカウントからロックアウトされないようになります。
+[
+Account settings
+] > [
+Two-Factor Authentication
+] > [
+View recovery codes
+] > [
+Regenerate recovery codes
+] を選択してください。
+新しい回復コードの生成
+#
+信頼済みデバイス
+安全な業務用ノート PC などの信頼済みデバイスでは、2要素認証を一時的に無効にすることができます。これにより、そのデバイスに30日間、2要素認証なしでログインできるようになります。
+2要素認証の画面で、
+[Trust this device for 30 days]
+をチェックします。
+30日間このデバイスを信頼する
+信頼済みのデバイスは、
+2要素認証
+の設定ページに表示されます。認識できないデバイスや使用されなくなったデバイスへのアクセスは取り消すことができます。
+信頼済みデバイス
+#
+パスワードを確認する理由
+Workato でアカウントのセキュリティ設定の変更を開始すると、認証レベルを強化するためにパスワードの入力が求められます。2要素認証の有効化や回復コードの表示など、2要素認証の設定を変更する場合に、こうしたパスワードの入力が必要になります。
+パスワードの確認
+一度パスワードを確認すると、その後15分間は再確認を求められません。
+←
+管理者通知
+データのマスキング
+→
+Last updated:
+2024/2/8 19:31:44
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

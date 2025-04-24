@@ -1,0 +1,275 @@
+On-prem Agent - Upgrading to newer versions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem agent
+#
+Upgrading to newer versions
+We recommend upgrading your on-prem agent on a regular basis. With every release, we add new features along with improved performance, stability, and security. Refer to the
+release notes
+(opens new window)
+for more information about all the changes.
+HOW TO UPGRADE
+You have several ways to upgrade your existing on-prem agent:
+Upgrade an existing agent with zero downtime
+Upgrade an existing agent by stopping and replacing the old one
+Upgrade an existing agent older than 2.15.0 and configure connections directly in Workato
+PRIVATE KEY
+Workato does not have access to your private key file,
+cert.key
+, in the OPA
+conf
+folder. Ensure you protect this file from unauthorized access.
+#
+Upgrade an existing agent with zero downtime
+When you are running your agent in the production environment and do not want interruptions, you can upgrade by adding another agent to your on-prem group.
+This is a recommended way to upgrade your OPA.
+1
+Go to your
+on-prem agent page
+(opens new window)
+and open the on-prem group with the agent that you want to upgrade.
+2
+If your group has more than one agent simply stop or disable the one you want to upgrade. The other agents will continue processing the jobs.
+3
+If you have only one agent in your on-prem group, add another one following
+these steps
+(opens new window)
+.
+4
+Afterwards, start your new agent. The new agent should start accepting some of the jobs. You can
+check the logs of the new agent to make sure it is working properly.
+CONNECT WITH CONFIG.YML
+If you are using the
+config.yml
+file to set up your connections, copy it from your old agent to the new one. This allows agents to connect to the same resources.
+AGENT ENCRYPTION
+If you use password encryption on your passwords, you must encrypt them again for the new agent. The encryption is based on specific agent keys, which are different for each agent.
+5
+Stop your old agent. You can do this by stopping the Windows service or by disabling the agent in Workato.
+6
+The agent that you added in previous steps has now replaced your old on-prem agent. After you confirm that the new agent is working properly, and there are no errors in your running recipes, you can remove or uninstall the old agent. In case of any issues, you can disable the new agent and restart the old one.
+#
+Upgrade an existing agent by replacing the old one
+An existing agent upgrade requires stopping an existing Workato on-prem agent and replacing it with the latest version. Follow the instructions below depending on your operating system.
+#
+Windows
+Open Workato and go to your
+on-prem group page
+(opens new window)
+.
+Open your on-prem group and find the agent that you want to upgrade. Check the current agent version and click on
+Update to <latest_agent_version>
+.
+Update on-prem agent to the latest version
+The upgrade wizard will open. Check the release notes and follow the steps in the wizard, which are also mentioned below.
+On-prem agent upgrade wizard
+Verify that the agent is stopped (either terminate
+Workato Agent
+Windows service or console-based agent)
+Uninstall the agent (for example,
+Start Menu → Workato → Uninstall
+). This should not change the
+config.yml
+file and the certificate files (
+cert.key
+,
+cert.pem
+) in
+C:\Program Files\Workato Agent/conf
+.
+REMAINING FILES AFTER UNINSTALL
+Some files may remain in the OPA directory after uninstalling the agent. To avoid potential issues, remove them manually. Retain the
+conf
+and
+lib_ext
+folders if you plan to upgrade the agent.
+Run the downloaded installer (this will automatically install to the same location)
+Run the agent. Depending on the setup, either start
+Workato Agent
+Windows service or run the agent from the command line.
+Make sure your agent is active and verify its version number on the
+on-prem agent page
+(opens new window)
+.
+#
+Linux DEB package
+Upgrade the agent using following command:
+%
+sudo
+apt
+upgrade workato-agent
+The service should automatically stop, upgrade and restart for systemd-based distributions. If that won't happen you have to do it manually.
+NON-US DATA CENTERS
+Workato no longer publishes data center-specific OPA versions. Packages with the suffixes
+-eu
+,
+-sg
+,
+-jp
+, and
+-au
+still function but are no longer supported.
+To upgrade a data center-specific agent, uninstall the old package and
+install the latest version
+of the single package distribution. You can retain the
+conf
+and
+lib_ext
+folders.
+#
+Linux RPM package
+Upgrade the agent using following command:
+%
+sudo
+yum upgrade workato-agent.x86_64
+The service should automatically stop, upgrade and restart for systemd-based distributions. If that won't happen you have to do it manually.
+NON-US DATA CENTERS
+Workato no longer publishes data center-specific OPA versions. Packages with the suffixes
+-eu
+,
+-sg
+,
+-jp
+, and
+-au
+still function but are no longer supported.
+To upgrade a data center-specific agent, uninstall the old package and
+install the latest version
+of the single package distribution. You can retain the
+conf
+and
+lib_ext
+folders.
+#
+Upgrade an existing agent older than 2.15.0 and configure connections directly in Workato
+With on-prem agent
+version 2.15.0
+, we have introduced a new and easy way of setting up the connections. Instead of using the
+config.yml
+file you can configure the connection directly in Workato.
+Learn more here
+(opens new window)
+.
+1
+To start using cloud profiles, you must add the new on-prem group as mentioned in the preceding link.
+2
+Open your new on-prem group and
+install the agent
+(opens new window)
+on the same machine as the old one.
+3
+Set up the required connections directly in Workato. Make sure you can successfully connect using your new on-prem agent.
+4
+Clone or edit your recipes and switch them to the new connections. Make sure all connections in the recipe are updated.
+5
+Stop and disable old agents. Congratulations, you can now set up your on-prem connections directly in Workato!
+If you need any help with the upgrade process, reach out to your Workato account representative for assistance.
+←
+Stop an agent
+Automatic alerts
+→
+Last updated:
+3/18/2025, 1:38:18 AM
+On this page
+Upgrade an existing agent with zero downtime
+Upgrade an existing agent by replacing the old one
+Upgrade an existing agent older than 2.15.0 and configure connections directly in Workato
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

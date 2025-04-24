@@ -1,0 +1,432 @@
+Workato コネクター - PostgreSQL | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+PostgreSQL
+PostgreSQL
+(opens new window)
+は、クラウドまたはオンプレミスでホストされるオープンソースのオブジェクトリレーショナルデータベース管理システムです。
+#
+サポートされるエディション
+PostgreSQL のすべてのリリースがサポートされます。
+#
+Workato での PostgreSQL への接続方法
+PostgreSQL コネクターは、PostgreSQL での認証に基本認証を使用します。
+項目
+説明
+Connection name
+この PostgreSQL コネクションに対して、接続先の PostgreSQL インスタンスを識別する一意の名前を付けます。
+On-prem secure agent
+直接接続が許可されていないネットワークでデータベースを実行している場合は、オンプレミスエージェントを選択します。接続を試みる前に、アクティブなオンプレミスエージェントがあることを確認します。詳細は、
+オンプレミスエージェント
+に関するガイドをご覧ください。
+Username
+PostgreSQL に接続するためのユーザー名。
+Password
+PostgreSQL に接続するためのパスワード。
+Host
+ホストされるサーバーの URL。
+Port
+サーバーが動作するポート番号。通常は
+5432
+です。
+Database name
+接続する PostgreSQL データベースの名前。
+Schema
+接続する PostgreSQL データベース内のスキーマの名前。デフォルトは
+public
+スキーマです。
+#
+接続に必要な権限
+データベースユーザーアカウントには、最低でも
+コネクション
+で指定されているデータベースに対する
+SELECT
+権限が付与されている必要があります。
+PostgreSQL インスタンスに、新しいデータベースユーザー
+workato
+を使用して接続する場合は、次のサンプルクエリーを使用できます。
+はじめに、Workato との統合ユースケース専用の新規ユーザーを作成します。
+CREATE
+USER
+workato
+WITH
+PASSWORD
+'password'
+;
+次のステップでは、スキーマの
+customer
+テーブルへのアクセス権を付与します。この例では、
+SELECT
+と
+INSERT
+の権限のみを付与します。
+GRANT
+SELECT
+,
+INSERT
+ON
+customer
+TO
+workato
+;
+最後に、このユーザーが必要な権限を持っていることを確認します。全権限を表示するクエリーを実行します。
+SELECT
+grantee
+,
+table_name
+,
+privilege_type
+FROM
+information_schema
+.
+role_table_grants
+WHERE
+grantee
+=
+'workato'
+;
+これにより、以下に示す、Workato で PostgreSQL コネクションを作成するために必要な最低限の権限が返されるはずです。
++---------+------------+----------------+
+| grantee | table_name | privilege_type |
++---------+------------+----------------+
+| workato | customer | SELECT |
++---------+------------+----------------+
+| workato | customer | INSERT |
++---------+------------+----------------+
+2 rows in set (0.26 sec)
+#
+PostgreSQL コネクターの使用
+#
+テーブル、ビュー、およびストアドプロシージャ
+PostgreSQL コネクターでは、すべてのテーブル、ビュー、ストアドプロシージャを扱えます。ユーザーは、それらを各トリガー/アクションのピックリストで利用することも、正確な名前を指定することもできます。
+ピックリストからテーブル/ビューを選択
+正確なテーブル/ビュー名をテキストフィールドに入力
+PostgreSQL では、引用符で囲まれていない識別子は、大文字と小文字が区別されません。したがって、
+SELECT
+ID
+FROM
+USERS
+は、以下と等しくなります。
+SELECT
+ID
+FROM
+users
+しかし、引用符で囲まれた識別子は、大文字と小文字が区別されます。それゆえ、
+SELECT
+ID
+FROM
+"USERS"
+は、以下と等しく
+ありません。
+SELECT
+ID
+FROM
+"users"
+#
+単一行とバッチ行
+PostgreSQL コネクターでは、単一行またはバッチ行でデータベースの読み取りや書き込みを実行できます。バッチ行を使用したトリガー/アクションでは、操作するバッチのサイズを入力する必要があります。バッチサイズには1～100の間の任意の数字を指定できます。最大バッチサイズは100です。
+バッチトリガーの入力
+これら2つの操作には、入力項目の違いに加えて、出力にも違いがあります。一度に1つの行を処理するトリガーには、その単一行のデータをマッピングできる出力データツリーがあります。
+単一行の出力
+それに対して、複数行をバッチ処理するトリガーは、それらを行の配列として出力します。
+Rows
+データピルは、出力がそのバッチ内の各行のデータを含むリストであることを示しています。
+バッチトリガーの出力
+そのため、バッチトリガー/アクションの出力は異なる方法で処理する必要があります。この
+レシピ
+(opens new window)
+では、
+users
+テーブル内の新規行についてバッチトリガーを使用します。トリガーの出力は、
+Rows
+データピルをソースリストにマッピングする必要がある Salesforce のバルク作成アクションで使用されます。
+バッチトリガーの出力を使用する
+#
+WHERE condition
+この入力項目を使用すると、アクションを実行する対象行をフィルタリングして識別できます。以下のように、複数のトリガーおよびアクションで使用できます。
+トリガーで取得する行をフィルタリングする
+Select rows
+アクションで行をフィルタリングする
+Delete rows
+アクションで削除する行をフィルタリングする
+TIP
+以下の例では、ユーザー入力で直接 WHERE 条件を使用する方法を示しています。セキュリティを強化するには、WHERE 条件をパラメータとともに使用して SQL インジェクションを防止するようにしてください。詳細については、
+こちら
+を参照してください。
+この句は各リクエストの
+WHERE
+ステートメントとして使用され、これは基本的な SQL 構文に従っている必要があります。PostgreSQL ステートメントを記述するためのルールの完全なリストについては、こちらの
+PostgreSQL のドキュメント
+(opens new window)
+を参照してください。
+#
+演算子
+演算子
+説明
+例
+=
+等しい
+WHERE ID = 445
+!=
+<>
+等しくない
+WHERE ID <> 445
+>
+>=
+より大きい
+以上
+WHERE PRICE > 10000
+<
+<=
+より小さい
+以下
+WHERE PRICE > 10000
+IN(...)
+値のリスト
+WHERE ID IN(445, 600, 783)
+LIKE
+ワイルドカード文字 (
+%
+と
+_
+) を使用したパターンマッチング
+WHERE EMAIL LIKE '%@workato.com'
+BETWEEN
+範囲を指定して値を取得
+WHERE ID BETWEEN 445 AND 783
+IS NULL
+IS NOT NULL
+NULL 値のチェック
+NULL 以外の値のチェック
+WHERE NAME IS NOT NULL
+#
+単純なステートメント
+文字列値は一重引用符 (
+''
+) で囲む必要があります。また、使用する列はテーブルに存在していなければなりません。
+単一列の値に基づいて行をフィルタリングする単純な
+WHERE
+条件は、以下のようになります。
+role
+=
+'admin'
+Select rows
+アクションで使用すると、この
+WHERE
+条件は
+role
+列の値が「admin」であるすべての行を返します。入力の際にデータピルを一重引用符で囲むことを覚えておいてください。
+WHERE
+条件でデータピルを使用する
+スペースを含む列名は、二重引用符 (
+""
+) で囲む必要があります。たとえば、
+currency code
+を識別子として使用するには、括弧で囲まれなければなりません。引用符で囲まれた識別子はすべて、大文字と小文字が区別されることに注意してください。
+"created date"
+=
+'2020-05-06'
+レシピでは、各値に適切な引用符を使用することを忘れないようにしてください。
+識別子が括弧で囲まれている
+WHERE
+条件
+#
+複雑なステートメント
+WHERE
+条件にサブクエリーを含めることもできます。以下のクエリーは
+users
+テーブルに対して使用できます。
+id
+in
+(
+select
+user_id
+from
+tickets
+where
+priority
+=
+2
+)
+これを
+Delete rows
+アクションで使用すると、
+tickets
+テーブル内の1つ以上の関連付けられた行で
+priority
+列の値が2である、
+users
+テーブル内のすべての行が削除されます。
+サブクエリーを含む
+WHERE
+条件でデータピルを使用する
+#
+パラメータの使用
+パラメータを
+WHERE
+条件と組み合わせて使用すれば、SQL インジェクションに対するセキュリティを強化することができます。パラメータを
+WHERE
+条件で使用するには、まず入力でバインド変数を宣言する必要があります。バインド変数は
+:bind_variable
+の形式で宣言する必要があります。変数名の前には
+:
+が付きます。これが終わったら、直下のセクションで、指定した変数名を使用してパラメータを宣言します。
+TIP
+バインド変数は、列の名前ではなく、列の値の代わりにのみ使用する必要があります。
+バインド変数を宣言した WHERE 条件
+必要に応じていくつでもバインド変数を使用することができますが、それぞれに固有の名前を指定する必要があります。一重引用符 (
+'
+)、二重引用符 (
+"
+)、および角括弧 (
+[]
+) 内のすべての
+:
+を無視することで、バインド変数を列名および静的値から区別します。
+#
+Unique key
+これはすべてのトリガーと一部のアクションにおいて必須の入力項目です。この列の値は、選択したテーブル内で行を一意に識別するために使用されます。
+そのため、選択した列の値は一意である必要があります。通常、この列はテーブルの
+プライマリキー
+(
+ID
+など) になります。
+トリガーで使用する場合、これは増分列である必要があります。トリガーはこの列の値を使用して新規行を見つけるため、この制約が必要です。ポーリングのたびに、トリガーは、以前の最大値よりも大きな一意のキー値を持つ行を照会します。
+簡単な例を使ってこの動作を説明します。あるテーブルの行を処理した
+New row トリガー
+があるとします。このトリガーに対して設定された
+一意のキー
+は
+ID
+です。最後に処理された行には、
+ID
+値として
+100
+が設定されています。次のポーリング時、トリガーは新規行を見つける条件として
+ID >= 101
+を使用します。
+一意のキー
+として使用するよう選択した列にインデックスを付けると、トリガーのパフォーマンスが向上します。
+#
+Sort column
+これは
+New/updated row トリガー
+において必須の項目です。この列の値は、更新された行を識別するために使用されます。
+行の更新時、[Unique key] の値は変わりません。ただし、この値のタイムスタンプは、最後の更新日時を反映するよう更新されます。このロジックに従い、Workato ではこの列の値を、選択した
+[Unique key]
+列の値と合わせて追跡します。
+[Sort column]
+の値の変更が検出されると、更新された行のイベントがトリガーにより記録され、処理されます。
+PostgreSQL の場合、
+timestamp
+および
+timestamp with time zone
+の列型のみ使用できます。
+←
+トリガー
+選択
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サポートされるエディション
+Workato での PostgreSQL への接続方法
+PostgreSQL コネクターの使用
+パラメータの使用
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

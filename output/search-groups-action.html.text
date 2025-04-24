@@ -1,0 +1,148 @@
+Workato connectors - Active Directory - Search group action (Batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Active Directory
+#
+Search group action (Batch)
+The
+Search group
+batch action retrieves a list of Active Directory groups matching the criteria you specify and processes them in batches.
+#
+Input fields
+Input field
+Description
+Sample group DN
+Specify the distinguished name (DN) of a reference group. The action uses this group’s attributes as a template to define sub-fields in the
+Search groups by
+field and retrieve values from matching groups.
+Limit
+Enter the maximum number of entries you plan to retrieve each trigger event. The maximum value is
+1,000
+.
+Search groups by
+Enter values for each attribute you plan to filter by. Only groups that match all the provided values are processed. This field includes sub-fields for each attribute of the reference group.
+Advanced search filter
+Enter
+LDAP filters
+(opens new window)
+to define search conditions. For example, enter
+(ou=Dev)(objectClass=Group)
+to retrieve only
+Group
+objects from the
+Dev
+organization unit.
+#
+Output fields
+The
+Search group
+action's output is a list of groups that match your criteria, including their values for each attribute defined by the reference group.
+←
+Rename entry action
+Set password to User action
+→
+Last updated:
+12/19/2024, 6:02:19 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

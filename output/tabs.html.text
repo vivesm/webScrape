@@ -1,0 +1,262 @@
+Workbot for Microsoft Teams - Tabs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Microsoft Teams
+Advanced topics
+#
+Tabs
+DEPRECATION NOTICE: MICROSOFT ADAPTIVE CARDS TABS
+Microsoft is rolling out a new Microsoft Teams client that
+does not support
+(opens new window)
+the use of Adaptive Cards in Microsoft Teams tabs.
+Workbot Tabs will not be displayed in the new Microsoft Teams client.
+Microsoft has not provided any comparable replacement for this functionality. We recommend either putting your onboarding content into custom help messages, or implementing your own
+web-based tab
+(opens new window)
+(outside of Workato).
+Please see Microsoft
+new Teams client release schedule
+(opens new window)
+to see when the new client will be automatically enabled for your account.
+This functionality has been deprecated and we don't allow the creation of new tabs on the Workato platform.
+You can create rich, dynamic, and interactive tabs for your Enterprise Workbot. Tabs are rendered using Adaptive Cards, making them fully customizable. Bots can have multiple tabs, and they will appear in the order in which they are defined in the app manifest.
+Tabs rendered using Adaptive Cards are only available as Personal tabs. Tabs are only available to Enterprise Workbots.
+#
+Setup Requirements
+To set up a tab, you'll need an
+Enterprise Workbot
+.
+#
+Step 1: Adding tab(s) to the app manifest
+1
+Go to
+https://dev.teams.microsoft.com/apps
+(opens new window)
+.
+2
+Find your enterprise Workbot, click on the horizontal ellipsis and choose
+Download app package
+.
+3
+Unzip the contents of the package into a specified location and open the
+manifest.json
+file in a text editor (e.g. Atom, SublimeText, etc).
+4
+[Optional] Install a JSON formatter to your text editor (for example,
+pretty-json
+(opens new window)
+) to view and edit
+manifest.json
+file easily.
+5
+Increment
+version
+, e.g. if originally the version was
+1.0.0
+, update it to
+1.0.1
+.
+6
+Add your tab under
+staticTabs
+. Specify one-word
+entityId
+that will be used in the
+Tab opened
+trigger during
+recipe setup
+, e.g.:
+{
+"entityId": "PendingPTORequests",
+"name": "Pending PTO requests",
+"contentBotId": "{your_bot_id}",
+"scopes": [
+"personal"
+]
+}
+NOTE
+Your tab(s) should be on the same level as the
+conversations
+and
+about
+tabs; your bot ID can be found under
+botId
+.
+7
+Save the file, and zip the manifest along with the rest of the contents of the package. There should be 3 files in total;
+color.png
+,
+manifest.json
+,
+outline.png
+.
+NOTE
+Tabs will be rendered in the order they appear in, from left to right.
+#
+Step 2: Updating your enterprise Workbot
+1
+Go to
+https://admin.teams.microsoft.com/policies/manage-apps
+(opens new window)
+.
+2
+Search for your enterprise Workbot and click on its name.
+3
+Under
+New version
+, click on
+Upload file
+.
+4
+Select the new zip file containing the updated
+manifest.json
+file.
+NOTE
+If done right, it should say that the app was successfully updated.
+It can take some time for the updated app to appear in Microsoft Teams clients.
+#
+Step 3: Create a tab recipe
+NOTE
+Each tab will require its own recipe to trigger.
+1
+Create a new recipe and choose the
+Tab opened
+trigger.
+2
+Enter the
+entityId
+- this should be exactly the same as the one in the
+manifest
+.
+3
+[Optional] Add actions from other apps, so that the
+Show tab with Adaptive Cards
+action downstream may use it.
+4
+Add the
+Show tab with Adaptive Cards
+action and add one or more cards.
+5
+Save & start the recipe.
+#
+Step 4: View the tab(s) in Microsoft Teams
+1
+Log off and close the Microsoft Teams client.
+2
+Run Microsoft Teams and open a DM with your enterprise Workbot.
+NOTE
+You should see your tab(s) near the top.
+3
+Click on it and it should render the cards as defined in your recipe.
+←
+Runtime user connections
+Passing parameters
+→
+Last updated:
+2/26/2025, 9:17:11 PM
+On this page
+Setup Requirements
+Step 1: Adding tab(s) to the app manifest
+Step 2: Updating your enterprise Workbot
+Step 3: Create a tab recipe
+Step 4: View the tab(s) in Microsoft Teams
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

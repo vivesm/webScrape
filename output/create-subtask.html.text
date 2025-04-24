@@ -1,0 +1,194 @@
+Workato コネクター - Asana - Create subtask | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Asana
+#
+Asana コネクター - Create subtask (サブタスクの作成)
+このアクションは Asana 内にサブタスクを作成します。
+#
+入力
+項目
+説明
+Projects
+このタスクが属するプロジェクトです。
+Task name
+タスクの名前です。
+Description
+タスクの説明です。
+Assignee
+このタスクに割り当てられたユーザーです。
+Assignee status
+割り当てられたユーザーのステータスです。
+Completed
+タスクが完了しているかどうかを示します。
+Due on
+タスクの期限の日付です。
+Due at
+タスクの期限の日時です。
+Followers
+このタスクをフォローしているユーザーです。
+Heart this
+このタスクにハートを追加するかどうかを示します。
+Start on
+開始日をスケジュールします。この値を入力する場合、[Due on] または [Due at] の項目を指定する必要があります。
+Like this
+このタスクにいいねを追加するかどうかを示します。
+Tags
+このタスクに付加されたタグです。
+#
+出力
+項目
+説明
+Task ID
+タスクの ID です。
+Assignee
+このタスクに割り当てられたユーザーです。
+Assignee status
+割り当てられたユーザーのステータスです。
+Completed
+タスクが完了しているかどうかを示します。
+Completed at
+タスクが完了した日時です。
+Created at
+このレコードが作成された日時です。
+Due on
+タスクの期限の日付です。
+Due at
+タスクの期限の日時です。
+Followers
+このタスクをフォローしているユーザーです。
+Number of hearts
+このタスクに付けられたハートの数です。
+Hearts
+タスクにハートを追加したユーザーです。
+Start on
+このタスクの開始日です。
+Like this
+権限のあるユーザーがこのタスクにいいねを追加したかどうかを示します。
+Number of likes
+このタスクに追加されたいいねの数です。
+Likes
+このタスクにいいねを追加したユーザーです。
+Modified at
+このタスクが最後に変更された日付です。
+Task name
+タスクの名前です。
+Description
+タスクの説明です。
+Projects
+このタスクが属するプロジェクトです。
+Parent Task
+このタスクの親タスクです。
+Workspace
+このタスクが属するワークスペースです。
+Memberships
+このタスクのメンバーシップの詳細です。
+Tags
+このタスクに付加されたタグです。
+Created by
+このタスクを作成したユーザーです。
+←
+セクションにタスクを追加
+タグの作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

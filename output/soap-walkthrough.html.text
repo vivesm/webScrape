@@ -1,0 +1,269 @@
+SOAP API Recipe Walkthrough | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API endpoints
+API recipe endpoints
+#
+SOAP API recipe walkthrough
+Ready to create your own SOAP API? In this guide, we'll walk you through an example using an HTTP connection.
+Our goal is to create an API that parses and processes SOAP requests through a target API hosted on-prem. External business partners and internal stakeholders can use this endpoint to access and consume data without directly accessing this API hosted on a private server.
+#
+Step 1: Create the recipe
+In this step, you'll create the recipe and select its starting point.
+1
+Create a new recipe and give it a name.
+2
+Select a folder to contain the recipe.
+3
+Click
+Build an API endpoint
+as the starting point.
+4
+Click
+Start Building
+.
+When the
+Build an API endpoint
+starting point is used, Workato will automatically create a recipe with a
+New API request
+trigger and a
+Response to API request
+action.
+#
+Step 2: Define the recipe's trigger
+Next, you'll define the request and response structures for the endpoint by defining the
+New API request
+trigger parameters. Defining the trigger has two steps:
+Step 2.1: Define the API endpoint's request structure
+Step 2.2: Define the API endpoint's response structure
+#
+Step 2.1: Define the endpoint's request structure
+In this step, we'll define the parameters for requests made to the endpoint.
+1
+Click the trigger to open its
+Setup
+tab.
+2
+Open the
+Request
+tab if it's not open already.
+3
+Select Text/XML in the
+Content type
+field.
+4
+Define the parameters to include in the headers of requests sent to the endpoint in the
+Request header
+section.
+#
+Step 2.2: Define the endpoint's response structure
+After you've defined the request structure, move on to the endpoint's response structure. The response structure determines the outputs returned by the SOAP API recipe and their respective fields.
+For example, if you wanted your endpoint to return a response of a successful API request, you could add a response (
+200 - Success
+) that does that.
+In this section, you can also define
+Error
+responses when the SOAP request contains an unidentified operation.
+1
+Open the
+Response
+tab, if it's not open already.
+2
+In the
+Content type
+field, select Text/SOAP.
+3
+In the
+Response headers
+section, define the parameters that will be present in response headers sent from the endpoint.
+4
+In the
+Responses
+section, select
+Add response.
+5
+In the
+Response #1
+section, specify a name for the successful response.
+6
+In the
+Response #2
+section, specify a name for the unauthorized response.
+7
+In the
+HTTP status code
+field, set whether the response code is standard or custom.
+If you select
+Standard response
+, choose an HTTP status code from the picklist.
+If you select
+Custom response
+, enter a custom HTTP status code. You can specify response codes from 2xx to 5xx.
+#
+Step 3: Add steps to the recipe
+Adding steps to the recipe consists of the following steps:
+Step 3.1: Parse and inspect XML payload
+Step 3.2: Send a request to the target application
+#
+Step 3.1: Parse and inspect XML payload
+1
+Use the
+SOAP tools by Workato
+to parse the incoming body to determine the operation name.
+2
+Verify that the incoming request is in the list of approved operations by searching the operation name from the Lookup table.
+#
+Step 3.2: Send a request to the target application
+1
+In the
+If
+block, Add the desired action. In this example, we'll add an action that sends a SOAP request to a target API hosted on-prem. (
+Action in an app > HTTP > Send request
+) Select the HTTP connection that forwards requests through an on-prem group.
+2
+After you're finished defining the action(s), select the
+Return
+action.
+In the
+Response schema
+section, map the payload from the on-prem API to the response body.
+3
+The last step is to define the
+Else
+block, which will run if the request contains an unauthorized operation. Select the return action (
+Action in an app > API Platform by Workato > Respond to API request
+) and choose the
+Not found
+response.
+Error responses enable your endpoint to provide useful information when something goes wrong, allowing for more targeted troubleshooting.
+SOAP API recipe
+#
+Step 4: Create a separate API recipe to return WSDL
+Create a separate recipe that returns a WSDL describing this SOAP API. This WSDL can be stored on Workato using Workato FileStorage.
+WSDL API recipe
+#
+Step 5: Save and test the recipe
+Save and test your recipe as you go! We recommend
+building recipes in small steps
+to make troubleshooting any issues you encounter easier.
+#
+Step 6: Create a SOAP API collection
+Create a new API collection using the two recipes. This should create two endpoints - the first to process each SOAP request and the other to return a WSDL.
+SOAP API collection
+Congrats on creating a SOAP API recipe! Check out what else you can do with these other resources:
+API platform
+API recipes
+Calling APIs
+Security best practices for APIs
+←
+Handling raw content
+API proxy endpoints
+→
+Last updated:
+9/6/2023, 9:21:00 PM
+On this page
+Step 1: Create the recipe
+Step 2: Define the recipe's trigger
+Step 3: Add steps to the recipe
+Step 4: Create a separate API recipe to return WSDL
+Step 5: Save and test the recipe
+Step 6: Create a SOAP API collection
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

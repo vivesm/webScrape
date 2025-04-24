@@ -1,0 +1,172 @@
+Approval Bot accelerator - connect | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accelerators
+Approval Bot, Slack/Microsoft Teams
+#
+Connect the Approval bot accelerator to your applications
+REQUIRED APPLICATIONS
+Where you plan to implement the Approval bot accelerator determines the applications you must connect. For example, if you plan to implement the Approval bot in Slack, you must connect Slack to your Workato workspace. Similarly, you must connect to Microsoft Teams to implement the Approval bot in Microsoft Teams.
+#
+Connect to Slack
+Add a custom bot to your Workato workspace and connect it to your Workato instance by following these steps:
+1
+Sign in to your Workato account. The Orchestrate platform displays by default.
+2
+Go to
+Platform
+and select
+Workbot
+.
+3
+Configure the Workbot profile. Reference our
+Workbot for Slack setup guide
+for instructions.
+4
+Navigate to
+Approval Bot > Slack > Connections
+and select
+ABS | CON-001 | Workbot for Slack
+.
+5
+Select
+Approval Bot profile
+.
+6
+Click
+Connect
+.
+#
+Connect to Microsoft Teams
+1
+In Workato, navigate to
+Assets > Approval bot/Microsoft Teams Workspace
+folder.
+2
+Select
+ABT | CON-001 | Microsoft Teams Connection
+.
+3
+Connect to Microsoft Teams by authenticating your connection with Microsoft.
+#
+Connect to Google Sheets
+1
+Connect to the spreadsheet.
+Connect to Google Sheets
+2
+Google prompts you to allow Workato access. Click
+Allow
+.
+CUSTOMIZE CONNECTORS
+The spreadsheet connector is a placeholder for the approval workflow of your choice. See
+Customize the Approval bot for Slack
+or
+Customize the Approval bot for Microsoft Teams
+for instructions on replacing Google Sheets with an application of your choice. You can also contact customer success for support.
+←
+Install
+Customize for Slack
+→
+Last updated:
+2/3/2025, 9:14:42 PM
+On this page
+Connect to Slack
+Connect to Google Sheets
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,147 @@
+Workato connectors - Google Sheets Get rows action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Sheets
+#
+Get rows action
+This action allows you to retrieve rows from a Google Sheets spreadsheet, returning the first 10,000 rows by default. To return a different number of rows, specify the range in the
+Range
+field.
+Get rows action
+#
+Input fields
+Input field
+Description
+Google Drive
+Choose the Google Drive account containing the spreadsheet from which you plan to retrieve rows. This field defaults to your personal drive.
+Spreadsheet
+Select the spreadsheet that contains the sheet you plan to use.
+Sheet
+Select the specific sheet within the spreadsheet from which you plan to retrieve rows. Ensure the sheet has at least one header row and one data row.
+Range
+Specify the rows you plan to retrieve. Ensure you use the correct format:
+Start row:End row
+. For example:
+2:2000
+retrieves rows 2 to 2,000. Note that the range starts from the second row because the first row is the header row.
+#
+Output fields
+Output field
+Description
+Spreadsheet ID
+The unique identifier for the spreadsheet.
+Spreadsheet name
+The name of the spreadsheet.
+Sheet name
+The name of the sheet from which rows are retrieved.
+Rows
+The rows retrieved from the sheet.
+←
+Add rows in bulk action
+Search rows action
+→
+Last updated:
+8/29/2024, 3:00:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

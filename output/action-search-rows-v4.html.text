@@ -1,0 +1,205 @@
+Google スプレッドシートアクション - Search rows | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google Sheets
+#
+Google スプレッドシートアクション - Search rows
+このアクションは、個々の列の検索値を使用して、シート内の行を検索できます。このアクションでは、指定した検索値との
+完全な一致
+が検索されます。
+#
+使用方法
+以下の例は、
+Update row
+アクションと組み合わせて
+Search rows
+アクションを使用する方法を示しています。
+ここで使用するサンプルのシートは、さまざまな国からの品目のリストです。Google スプレッドシートコネクターが機能するには、シートに少なくとも1つのヘッダー行と1つのデータ行が含まれている必要があります。
+行3と4にエラーがあることがわかります。"Australia" の
+Region
+は "Asia" ではなく "Australia and Oceania" である必要があります。以下の Workato レシピを使用して、これを修正しましょう。このレシピは
+Country
+= "Australia" であり
+Region
+= "Asia" である行を検索し、その後
+Region
+を "Australia and Oceania" に更新します。
+Search & Update アクションの設定方法を以下に示します。
+ステップ 1 - Search rows
+:
+Region
+= "Asia" および
+Country
+= "Australia" と設定します。このアクションは、これらの条件に一致する行を検索します。
+ステップ 2 - リピートアクション
+: データピル
+Rows
+を使用して、
+Search rows
+の結果から行をループ処理します。
+ステップ 3 - Update row
+:
+Foreach
+ループのデータピル
+Row number
+を使用して、更新する行をアクションに指示します。新しい
+Region
+の値を "Australia and Oceania" に設定します。
+レシピを実行すると、行3と4は以下のように適切に更新されました。
+#
+入力
+入力項目
+説明
+Spreadsheet
+ドロップダウンからスプレッドシートを選択するか、またはその他の Google スプレッドシートトリガーおよびアクションの出力からデータピル
+Spreadsheet ID
+を使用できます。
+Sheet
+ドロップダウンからシートを選択するか、またはその他の Google スプレッドシートトリガーおよびアクションの出力からデータピル
+Sheet name
+を使用できます。
+Columns
+スプレッドシートとシートを選択すると、そのシート内の列がここに表示されます。検索したい値を入力すると、それらの値すべてとの
+完全な一致
+が検索されます。
+たとえば、上のスクリーンショットでは、以下の条件を満たすすべての行が返されます。
+Region
+=
+"Asia"
+AND
+Country
+=
+"Vietnam"
+AND
+Item
+=
+"Rice"
+#
+出力
+出力ピル
+説明
+Spreadsheet ID
+スプレッドシートの ID。ドロップダウンからスプレッドシートを選択する代わりに、その他の Google スプレッドシートアクションの入力項目
+Spreadsheet
+にこの ID をマッピングできます。
+Spreadsheet name
+スプレッドシートの名前。
+Sheet name
+シートの名前。ドロップダウンからシートを選択する代わりに、その他の Google スプレッドシートアクションの入力項目
+Sheet
+にこの名前をマッピングできます。
+CSV Rows
+この出力ピル
+Rows
+は、シートに含まれる行のリストを表します。このピルを
+リピートステップ
+と併せて使用すると、シートに含まれるすべての行をループ処理できます。
+このピルを展開すると、各行の
+Row number
+とシートの列すべてが表示されます。これらはマッピングに利用できます。
+←
+行の一括追加
+行の更新
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+使用方法
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

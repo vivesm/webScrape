@@ -1,0 +1,150 @@
+Workato connector - Dropbox - New file revision | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Dropbox
+#
+Dropbox - New file revision in Dropbox trigger
+This trigger monitors a file in Dropbox, and triggers immediately when the file is updated (and a new file revision created).
+If the filename is changed, updates will no longer be picked up. Picks up file revisions from a day ago when recipe is first started.
+New file revision in Dropbox trigger
+#
+Input fields
+Field name
+Description
+File / File path
+The CSV file to monitor for new changes.
+Obtain a direct URL to file?
+Whether or not to generate a public URL that is valid for 4 hours.
+#
+Output fields
+Field name
+Description
+Path
+File path.
+Bytes
+File size in bytes.
+Size
+File size in string format.
+Mime type
+The Mime type of this file.
+URL
+File's public URL. Can be used to download file using the
+Workato file connector
+.
+URL expires
+Date/time the file's public URL will expire.
+Rev
+A unique identifier for the current revision of the file.
+Modified
+Date/time the file was last modified.
+Client modified time
+This is the modification time set by the desktop client when the file was added to Dropbox. Since this time is not verified (the Dropbox server stores whatever the desktop client sends up), this should only be used for display purposes (such as sorting) and not, for example, to determine if a file has changed or not.
+←
+New lines in CSV file
+Download file action
+→
+Last updated:
+7/2/2021, 9:23:45 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

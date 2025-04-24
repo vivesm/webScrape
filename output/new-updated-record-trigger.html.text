@@ -1,0 +1,154 @@
+Workato connectors - Quickbase new/updated record trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Quickbase
+#
+New/updated record trigger
+This trigger picks up new or updated records in your Quickbase instance. It checks for new or updated records once every poll interval and Workato processes each record as a separate job.
+#
+Input fields
+Field
+Description
+Application
+Select an application in your Quickbase account.
+Application token
+Required if this application is configured to require tokens for data access. You can obtain this value from the application in
+Settings > App properties > Manage application token
+.
+Table
+Select the table to monitor for new or updated records.
+Query
+Use a Quickbase query to fetch only records that match your query. Query syntax is
+{'fid'.operator.'matching_value'}
+. For example,
+{'7'.EX.'Test'}
+.
+When first started, this recipe
+should pick up events from
+Fetch records created after a specified time. You can't change this value after you test or run this recipe. Learn more about this
+input field
+.
+Trigger poll interval
+Determine how frequently to check for new events. Defaults to five minutes if left blank. Minimum value allowed is five minutes.
+#
+Output fields
+The output datatree contains information about the new or updated record. This includes the record ID, the fields of the record, and the timestamp.
+Field
+Description
+Record ID
+The ID of the new or updated record.
+Fields
+The fields of the new or updated record.
+Created time
+The time the record was created.
+Modified time
+The time the record was last modified.
+←
+New record trigger (real-time)
+New/updated record trigger (real-time)
+→
+Last updated:
+7/8/2024, 5:46:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

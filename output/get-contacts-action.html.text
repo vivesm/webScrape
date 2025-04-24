@@ -1,0 +1,129 @@
+Workato Connector - HubSpot Get contacts associated with a company action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+Get contacts associated with a company action
+This action retrieves all contacts associated with a company in HubSpot in descending order when you provide the company ID.
+Get contacts associated with a company action
+#
+Input
+Input field
+Description
+Company ID
+The ID of the company from which you plan to get associated contacts. You can find the company ID at the end of the URL of the company's page.
+Count
+Twenty contacts are returned if no limit is set.
+Properties
+Only contact properties you select are returned. Leave this field blank if you plan to retrieve all properties.
+Property mode
+Select the value and version history to retrieve the entire version history of the contact properties.
+#
+Output
+If the request is successful, Workato returns a list of records that the company contact is associated with so you can use its datapills in subsequent steps.
+←
+Associate record actions
+Search pipeline stages action
+→
+Last updated:
+3/24/2025, 1:26:10 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

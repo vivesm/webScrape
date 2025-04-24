@@ -1,0 +1,254 @@
+Workato connectors - RPA by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+RPA by Workato
+Robotic Process Automation (RPA) uses bots to automate repetitive, rules-based tasks. RPA bots can learn to perform tasks such as data entry, web scraping, content tagging, and spreadsheet updates by interacting with a computer screen the same way a human does. By automating these tasks, RPA reduces human errors and boosts efficiency.
+RPA by Workato is a complete RPA solution in partnership with
+Robotiq.ai
+(opens new window)
+, an industry-agnostic, enterprise-ready RPA client. You can use the RPA by Workato connector to integrate with applications that don't have APIs, including legacy systems such as older SAP platforms, desktop applications, and browser apps without API support. Contact your Workato Customer Success Representative for more information.
+#
+Key features
+The RPA by Workato connector offers the following key features:
+UI recorder
+Record automation scenarios to generate step-by-step outputs, making them easy to create and manage. This feature allows you to capture your interactions with the user interface, which can then be replayed to automate repetitive tasks.
+Script support
+Create automations with scripting languages such as Visual Basic. This provides flexibility and control over automation processes, enabling you to script complex tasks that might not be easily handled through a graphical interface.
+Low code/No code interface
+A cloud-based drag-and-drop interface enables you to automate, monitor, and refine processes. This interface is designed to allow non-technical users to create automation workflows without writing code.
+Excel file operations
+RPA offers built-in support for operations on Excel files, such as reading, updating, and manipulating data. This capability is essential for automating tasks that involve handling large volumes of spreadsheet data, ensuring accuracy and efficiency in data processing.
+#
+How to connect to RPA by Workato
+PREREQUISITES
+You must
+create processes in Robotiq
+(opens new window)
+before you can start or manage them using the connector.
+Connecting to RPA by Workato consists of the following steps:
+Generate an access token in Robotiq
+Complete setup in Workato
+#
+Generate an access token
+Complete the following steps to generate an access token in Robotiq:
+1
+Sign in to your
+Robotiq.ai
+account.
+2
+Go to the
+Applications
+page.
+3
+Click
+New application
+to open the
+Register new applications
+dialog.
+Click
+New application
+.
+4
+Enter a name and description for the access token.
+The
+Register new applications
+dialog
+5
+Set the
+Scope
+to
+job_create
+, then click
+Confirm
+.
+6
+Click
+Get access token
+to view your token's details.
+Click
+Get access token
+.
+7
+Retrieve the following values from your token for later use in configuring RPA by Workato:
+Client ID
+.
+Client secret
+. After 30 minutes, the
+Client secret
+expires, and
+Robotiq.ai
+generates a new secret.
+Tenant name
+. The
+Tenant name
+can be found in the
+POST
+URL between
+/realms/
+and
+/protocol/
+. The
+Tenant name
+in the following example is
+testName
+:
+https://auth.robotiq.ai/realms/testName/protocol/openid-connect/token
+Return to Workato to finish setting up your connection.
+#
+Complete setup in Workato
+Complete the following steps to configure the connection to RPA by Workato:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+RPA by Workato
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+RPA by Workato's connection fields
+4
+Provide your application's
+Tenant name
+.
+5
+Provide your application's
+Client ID
+.
+6
+Provide your application's
+Client secret
+. This value expires 30 minutes after it is generated in
+Robotiq.ai
+.
+7
+Click
+Connect
+to complete the setup.
+#
+Actions
+RPA by Workato supports the following actions:
+Get job detail
+Get job logs (batch)
+Get process details
+List departments (batch)
+List processes by department (batch)
+Start job
+←
+Send SMS action
+Get job detail action
+→
+Last updated:
+2/27/2025, 5:40:46 PM
+On this page
+Key features
+How to connect to RPA by Workato
+Generate an access token
+Complete setup in Workato
+Actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

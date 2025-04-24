@@ -1,0 +1,179 @@
+Workato connectors - Xero Get manual journal by ID action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - Get purchase order action
+The
+Get purchase order
+action allows you to retrieve the details of a specific purchase order in Xero by using either the purchase order number or the unique identifier.
+Xero - Get purchase order action
+#
+Input
+Input field
+Description
+Purchase order number/Purchase order ID
+Enter the purchase order number or unique identifier to retrieve details of a specific purchase order from Xero. The input field name changes based on your selection.
+#
+Output
+Output field
+Description
+Purchase order ID
+The unique identifier for the purchase order.
+Purchase order number
+The reference number assigned to the purchase order.
+Date
+The date when the purchase order was created.
+Delivery date
+The expected delivery date for the items in the purchase order.
+Delivery address
+The address where the items should be delivered.
+Attention to
+The person or department the delivery should be directed to.
+Telephone
+The contact telephone number for delivery queries.
+Delivery instructions
+Any special instructions for the delivery.
+Has errors
+Indicates if there are any errors associated with the purchase order.
+Is discounted
+Indicates if a discount has been applied to the purchase order.
+Reference
+A reference text for the purchase order.
+Type
+The type of purchase order.
+Currency rate
+The exchange rate for the currency used in the purchase order.
+Currency code
+The currency code for the purchase order's transactions.
+Contact
+Details of the contact associated with the purchase order.
+Branding theme ID
+The identifier for the branding theme associated with the purchase order.
+Status
+The status of the purchase order.
+Line amount types
+The type of line amounts in the purchase order.
+Line items
+Items included in the purchase order.
+Updated date UTC
+The date and time the purchase order was last updated in UTC.
+Total discount
+The total discount amount applied to the purchase order.
+Sub total
+The subtotal amount of the purchase order before tax.
+Total tax
+The total tax amount for the purchase order.
+Total
+The total amount of the purchase order after tax.
+Has attachments
+Indicates whether the purchase order has attachments.
+←
+Get payment
+List accounts
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

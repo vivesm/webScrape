@@ -1,0 +1,262 @@
+Test automation - Test case - Run | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+After you create your recipe
+Test Automation
+#
+Run test case
+After you create a test case, you can use it to test your recipe's functionality.
+You can run each test case manually from the list of test cases. To access this list, select a recipe and navigate to the
+Test cases
+tab.
+#
+Run priority
+Test cases run with the same priority as standard recipes. This means that some test cases run sequentially and some run simultaneously to stay within
+recipe concurrency
+limits.
+#
+How Workato runs mocked steps
+Input
+Workato always evaluates the input values.
+Step execution
+Workato does not run the step. For example, for the step
+Search for tickets in Zendesk
+Workato does not send a request to Zendesk.
+Step output
+The step output is replaced with the mock output you provide for a specific step.
+#
+How Workato handles data checks
+#
+When checks run
+Step input check
+This check occurs before the step runs.
+Step output check
+This check occurs after the step runs.
+Step output field check
+This check occurs after the step runs.
+#
+Check conditions for different data types
+Workato always evaluates the data type when it performs a check. Depending on what you plan to check, the available set of conditions for a check varies.
+Step input/output object checks
+Workato compares JSON objects as objects, not as strings.
+Available condition(s):
+Equals
+Output field checks
+Available condition(s):
+Equals
+Contains
+Starts with
+Ends with
+Doesn't equal
+Doesn't contain
+Doesn't start with
+Doesn't end with
+Is present
+Is not present
+#
+How Workato handles step failure checks
+In general, test cases pass successfully in the following scenarios:
+The test case run job is successful, and all checks are successful.
+The test case run job failed, all checks are successful, and all steps with errors have
+negative (step failure) checks
+set up for them.
+#
+Examples
+The following example scenarios describe how Workato handles step failure checks under certain conditions:
+Example 1
+The test case run job failed on a
+STOP
+step.
+The step inside the
+monitor
+block that failed
+DOES NOT
+have a negative (
+step failure
+) check.
+The step inside the
+monitor
+block fails.
+Overall result:
+The test case fails.
+Example 2
+The test case run job failed on a
+STOP
+step.
+The step inside the
+monitor
+block that failed
+HAS
+a negative (
+step failure
+) check
+The step inside the
+monitor
+block fails.
+Overall result:
+The test case passes.
+Example 3
+The test case run job failed on a
+STOP
+step.
+The step inside the
+monitor
+block has a
+throw error
+mock and
+DOES NOT
+have a negative (
+step failure
+) check
+The step inside the
+monitor
+block fails.
+Overall result:
+The test case fails.
+Example 4
+The test case run job failed on a
+STOP
+step.
+The step inside the
+Monitor
+block has a
+throw error
+and
+HAS
+a negative (
+step failure
+) check
+The step inside the
+monitor
+block fails.
+Overall result:
+The test case passes.
+#
+When checks fail
+When a check fails, Workato stops the test case run job and does not complete additional recipe steps.
+Recipe error
+Because a test case run is a recipe run, it fails if there are problems in the recipe.
+Check failed
+The test case run fails and the job stops when any check fails.
+When checked or mocked steps are deleted from a recipe
+The test case run fails immediately.
+The job report displays the following error message:
+Test case contains an error: Some steps with mocks or checks were deleted from the recipe. Please update the test case or revert the recipe to the version that the test case was built for. Please fix it in the test case editor.
+EDITING A STEP
+When you edit a recipe step, Workato considers this equivalent to creating a new step and deleting the previous step. Thus, if you make changes to any of the steps in your recipe, Workato treats this as a deleted step and the check fails.
+FURTHER READING
+View test case run results
+←
+View a test case
+Test case results
+→
+Last updated:
+11/9/2023, 10:38:59 PM
+On this page
+Run priority
+How Workato runs mocked steps
+How Workato handles data checks
+When checks run
+Check conditions for different data types
+How Workato handles step failure checks
+Examples
+When checks fail
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

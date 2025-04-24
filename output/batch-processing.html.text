@@ -1,0 +1,182 @@
+Batch processing | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+Batch processing
+Typically, 1 Workato
+job
+processes 1 row of data or 1 record. Batch processing simply means that 1 job processes multiple rows of data or multiple records. This will increase speed and data throughput when you move a large number of records from one app to another.
+Let's look at the example below to understand the concept of batch processing (or Batching).
+Simple example of Batching
+Larger batch size means we need fewer jobs and fewer API calls to move the same amount of data. As a result,
+recipe
+run time often decreases. The following chart shows how different batch sizes can reduce running time when Workato moves 100,000 rows of data.
+Time saving using Batching
+You can find batching-supported
+triggers
+and
+actions
+in certain connectors, such as database connectors (SQL Server, MySQL, etc.), cloud storage connectors that work with CSV files (for example, Box, Amazon S3), Salesforce connector, etc. For best result, always match a batch trigger with batch actions.
+Example of a Batch trigger
+Example of a Batch action
+#
+Batch triggers
+For normal triggers, 1
+trigger event
+often contains 1 data record. For example, "a new account is created in Salesforce" is 1 trigger event. It will trigger a Workato
+recipe
+to create a
+job
+and process 1 data record (i.e. that new account in Salesforce).
+For Batch triggers, 1 trigger event contains multiple records (for example, 50 accounts in Salesforce). A job will thus process multiple records at once. The
+Batch size
+determines the maximum number of records in 1 trigger event.
+#
+Batch trigger example
+The Salesforce batch trigger has a default value of 100. In this case, each trigger event will contain a maximum 100 account records.
+Batch trigger with a batch size of 100
+The job details for each trigger event will contain the specific details of only the first and last record in the list.
+Job details - trigger output for a batch of new accounts in Salesforce
+For example, when the following recipe was first started, 843 records were fetched from Jan 1, 2015, midnight PST. These records were broken up into 8 trigger events of 100 records each, and 1 trigger event of 43 records. The next poll, 5 minutes later, fetched only 2 new account records created.
+Custom job report displaying account batches' details - names of first and last accounts in the batch, as well as batch size
+#
+Batch actions
+Batch actions are typically of the form
+Create batch
+or
+Update batch
+or
+Upsert batch
+. Accordingly, these actions create a list of new records, update a list of existing records, or upsert (create if record doesn't exist, update if record exists) a list of records.
+#
+Batch create actions
+Batch create actions create multiple records in a single action (typically corresponding to a single API call). Batch create actions usually accept a list of records as input, therefore typically recipes will:
+move a list of records from source app to target app, or
+prepare a list of records via building and accumulating data in a custom list, then moving that prepared list into the target app
+#
+Batch create action example
+The following is an example scenario that imports new products from a Box CSV file into Salesforce via the
+Bulk insert
+action.
+Example recipe using list input.
+Actions that take lists as inputs will have a input field called
+Source list
+, which will only take in list pills. When these list input fields are selected, the datatree changes to offer only list pills. The Rows list object pill is mapped into the Salesforce product source list input field.
+Rows list object is mapped into the Salesforce products input source list
+For the list object passed into the input source list, the list will be transferred from the source app to the target app, with the values being transferred based on the fields mapped in the recipe. The three inventory items will be moved from Box into Salesforce as products.
+Mapping of list datapills to list input
+The following shows the CSV file content.
+Trigger output details displaying lines within the CSV file
+The action output in the job history shows that three products have been created accordingly in Salesforce.
+Salesforce bulk insert via list input
+#
+Maximize data throughput with batch processing
+To maximize data throughput, you always want to match batch triggers with batch actions.
+You can also raise throughput even further by increasing recipe concurrency. This means Workato will run multiple jobs at the same time, instead of running them one by one.
+The following pictures show how to enable concurrency in a Workato recipe, and how batching & concurrency work together.
+Setup concurrency in a Workato recipe
+Increasing throughput in Workato via batching & concurrency
+Last updated:
+7/2/2021, 7:31:20 AM
+On this page
+Batch triggers
+Batch actions
+Maximize data throughput with batch processing
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

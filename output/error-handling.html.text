@@ -1,0 +1,447 @@
+SDK - エラーハンドリング | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+#
+エラーハンドリング
+詳細で有益なエラーメッセージを表示することで、カスタムコネクターを使用したレシピ作成エクスペリエンスが向上します。ただし、デフォルトのカスタムコネクターのアクションとトリガーはレスポンスメッセージを表示しません。さらに、アクション/トリガーの入力データが特定のビジネス要件に一致しないなど、エラーメッセージの表示が必要になる場合があります。これは、以下のヘルパーメソッドを使用して実現できます。
+#
+入力値の検証
+ビジネスロジックに違反する入力データに対して、カスタムエラーを表示することができます。
+連絡先
+を検索する検索アクションの例を見てみましょう。ユーザーが1つ以上の検索基準を使用してレコードを検索していることを確認するとします。この場合、入力データがないときは、クエリーパラメータのないリクエストを送信するのではなく、エラーを表示する必要があります。
+#
+error
+このメソッドは、カスタムメッセージでジョブエラーを表示する Workato SDK 独自のものです。error メソッドが引数を受け取ると、Workato プラットフォームのエンドユーザーがカスタムコネクターを使用してエラーをトリガーしたときに、その引数がエンドユーザーに表示されます。これは、カスタムコネクターの操作性を向上させるために、さまざまな方法で使用できます。
+#
+サンプルコードスニペット
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+error
+(
+"Provide at least one search criteria"
+)
+if
+input
+.
+blank
+?
+get
+(
+""
+,
+input
+)
+end
+入力データ検証のエラーメッセージ
+#
+レスポンスエラーの処理
+一部の API は、リクエストでのエラーを示すためにレスポンスコードを使用しません。これらの API は、レスポンス本体で
+200
+HTTP コードとエラーメッセージを返す場合があります。
+SDK フレームワークはデフォルトで、HTTP レスポンスコードがエラーを示している場合にのみエラーを表示します。Sage Intacct はレスポンスメッセージ内でレスポンスコード200とネストされたエラーを返すため、すべてのレスポンスを検証し、レスポンス本体にエラーがある場合にエラーを表示することが重要です。
+#
+detect_on
+2つの方法でこれらのエラーを検出できます。1つ目の方法は
+detect_on
+を使用することです。これは、エラーを検出するためにコネクター全体で利用できるメソッドです。すべてのアクションとトリガーに適用されます。このメソッドは、カスタマイズできない標準のメッセージ形式でエラーを表示します。
+#
+after_response
+エラーを処理するもう1つの方法は、
+after_response
+メソッドです。このメソッドを
+error()
+と併用すると、HTTP レスポンスの内容を検証し、カスタムエラーを表示することができます。このメソッドは、個別のアクション/トリガーに適用されます。したがって、エラーの検出に使用される条件をリクエストごとにカスタマイズできます。さらに各アクション/トリガーに合わせてエラーメッセージを変更できます。
+たとえば
+after_response
+メソッドを使用すると、レスポンス本体の内容を確認してから、本体を正常なリクエスト出力として返したり、カスタムメッセージでエラーを表示したりすることができます。
+#
+サンプルコードスニペット
+post
+(
+"https://api.intacct.com/ia/xml/xmlgw.phtml"
+,
+payload
+)
+.
+format_xml
+(
+"request"
+)
+.
+after_response
+do
+|
+code
+,
+body
+,
+headers
+|
+result
+=
+body
+.
+dig
+(
+"response"
+,
+0
+,
+"operation"
+,
+0
+,
+"result"
+,
+0
+)
+if
+result
+.
+dig
+(
+"status"
+,
+0
+,
+"content!"
+)
+==
+"failure"
+error
+(
+result
+.
+dig
+(
+"errormessage"
+,
+0
+)
+)
+else
+result
+[
+"data"
+]
+end
+end
+#
+after_error_response
+after_error_response
+は HTTP 動詞メソッドにつなげることができるヘルパーメソッドであり、特に API がエラーレスポンスコードで応答する場合に HTTP レスポンスを処理します。
+このメソッドは2つの引数を受け入れます。最初は、処理する正確なエラーコードを表す番号です。
+次に、最初の引数に一致する HTTP レスポンスコードを受信したときに実行される、条件付きパスも受け入れます。
+#
+サンプルコードスニペット
+Airtable
+API を使用した
+after_error_response
+の例を見てみましょう。
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+patch
+(
+"https://api.airtable.com/v0/
+#{
+connection
+[
+'base_id'
+]
+}
+/users/
+#{
+id
+}
+"
+,
+payload
+)
+.
+after_error_response
+(
+404
+)
+do
+|
+code
+,
+body
+,
+header
+,
+message
+|
+error
+(
+"
+#{
+message
+}
+:
+#{
+body
+}
+"
+)
+end
+end
+無効な ID を含む行を更新しようとすると、HTTP エラーが返されます。エラーコード
+404
+が JSON 本体の
+{"error":"NOT_FOUND"}
+とともに表示されます。
+レシピのジョブの詳細ページに表示されるフォーマットされたエラーメッセージ
+#
+ピックリストエラーの処理
+after_error_response
+ヘルパーメソッドは、カスタムコネクターの別の部分にある HTTP 動詞メソッドにもつなげることができます。たとえば、動的な
+pick_lists
+のカスタムエラーメッセージを処理したり表示したりすることができます。この例では、
+Docparser
+(opens new window)
+のエラーの処理について確認します。
+#
+サンプルコードスニペット
+pick_lists
+:
+{
+parsers
+:
+lambda
+do
+get
+(
+'https://slack.com/api/users.list'
+)
+.
+after_error_response
+(
+400
+)
+do
+|
+code
+,
+body
+,
+headers
+,
+message
+|
+error
+(
+"Error loading parser pick list:
+#{
+body
+[
+/
+(
+?
+<=
+error\"\
+:
+\"
+)
+.
+*
+(
+?
+=
+\"\
+}
+)/]}"
+)
+end
+.
+pluck
+(
+"label"
+,
+"id"
+)
+end
+}
+カスタムアダプターがピックリストを読み込もうとすると、HTTP エラーがレシピエディターに表示されます。この例では、API キーがリセットされたために、無効な API キーがリクエストで使用されていました。
+レシピエディターの HTTP リクエストエラーメッセージ
+#
+オブジェクト定義エラーの処理
+これは、object_definitions の
+動的 fields
+のコードブロックでも使用できます。
+#
+サンプルコードスニペット
+object_definitions
+:
+{
+parsed_data
+:
+{
+fields
+:
+lambda
+do
+|
+connection
+,
+config_fields
+,
+object_definitions
+|
+get
+(
+"https://api.docparser.com/v1/results/
+#{
+config_fields
+[
+'parser_id'
+]
+}
+1/schema"
+)
+.
+after_error_response
+(
+400
+)
+do
+|
+code
+,
+body
+,
+headers
+,
+message
+|
+error
+(
+"Error loading parser schema: body[/(?<=error\"\:\").*(?=\"\})/]"
+)
+end
+end
+}
+}
+カスタムアダプターが不明なパーサーのスキーマを取得しようとすると、HTTP エラーがレシピエディターに表示されます。
+レシピエディターのスキーマエラーメッセージ
+←
+コネクターの構築 - トリガーの構築
+SDKチートシート
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力値の検証
+レスポンスエラーの処理
+ピックリストエラーの処理
+オブジェクト定義エラーの処理
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

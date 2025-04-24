@@ -1,0 +1,182 @@
+Workday FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Workday
+#
+Workday FAQs
+Get answers to frequently asked questions about Workday.
+What is Workday and how does it integrate with Workato?
+Workday
+is a cloud-based software for financial management and human capital management. You can integrate Workday with Workato to create automations and sync data between your Workday instance and other cloud applications.
+What types of services does Workday offer for integration?
+Workday offers three primary types of
+services for integration
+:
+Workday Web Services
+(SOAP APIs for reading and writing data)
+Workday REST
+(REST APIs mainly for custom objects)
+Workday Report-as-a-Service (RaaS)
+for reading data from custom reports
+What is the Workday Approved Badge?
+The
+Workday Approved Badge
+indicates that Workato's Workday connector is officially recognized and approved by Workday for HR Onboarding/HCM use cases.
+Which API versions does Workato support for Workday services?
+Workato supports multiple
+versions for Workday Web Services
+, ranging from v29.0 to v40.2, and Workday REST API v1. There are no specific versions for Workday RaaS.
+How do I connect to Workday on Workato?
+Basic steps to
+connect to Workday
+on Workato are:
+Register an Integration System User (ISU)
+in Workday.
+Register your Workday API client
+(if working with custom objects).
+Why is it recommended to use an Integration System User (ISU) in Workday for integration?
+Using an
+ISU
+for integration is recommended to ensure that all operations are logged under a dedicated user for integration purposes. Using an ISU also prevents disruptions in case the worker’s security profile changes or the worker is terminated.
+What are the steps to register an Integration System User in Workday for integration?
+Basic steps to
+register an ISU
+are:
+Create an Integration System Security Group.
+Grant domain access.
+Create the ISU account.
+Assign the security group to the ISU.
+Optional. Set your global preferences for language and locale.
+Is it necessary to register an API client for Workday integration?
+Registering an API client
+is necessary if you plan to work with custom objects in Workday, as authentication for the Workday REST API requires an OAuth client setup.
+What are the different Workday connectors available in Workato and their authentication methods?
+Workato offers three
+Workday connectors
+:
+Workday connector (main)
+Workday Web Services connector
+Workday REST connector
+All three connectors support OAuth 2.0 and basic authentication.
+How do I set up the Workday Web Services connector in Workato?
+Basic steps to set up the
+Workday Web Services
+connector are:
+Provide a connection name.
+Select your Workday Web Services version.
+Provide your tenant ID, WSDL URL, and authentication credentials.
+Configure OAuth 2.0 or basic authentication.
+How is the Workday REST connector configured in Workato?
+Basic steps to
+configure the Workday REST connector
+are:
+Provide connection name.
+Provide a REST API endpoint, authorization endpoint, and token endpoint.
+Enter your client ID.
+Enter your client secret.
+←
+Workday Reports-as-a-Service (RaaS)
+Workday REST
+→
+Last updated:
+3/20/2024, 7:37:41 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

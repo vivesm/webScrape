@@ -1,0 +1,137 @@
+Workatoコネクター - OneDrive | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+OneDrive
+OneDrive
+(opens new window)
+は、Microsoftが運営するファイルホスティングサービスであり、Microsoft Officeと統合されています。WorkatoのOneDriveコネクターを使用すると、OneDriveおよび他のサードパーティアプリケーションに関する統合と自動化をさらに構築できます。これは、すべてのファイル処理ユースケースに対応しています。
+#
+APIバージョン
+OneDriveコネクターは、
+OneDriveのMicrosoft Graph API
+(opens new window)
+を使用しています。
+#
+OneDriveへの接続方法
+OneDriveコネクターはOAuth2を使用して認証します。OAuthウィンドウが表示されたら、OneDriveにログインし、
+必要な権限
+をWorkatoに許可してください。
+OneDrive接続のセットアップ
+#
+ロールと権限
+コネクターの正常な動作には、以下の権限が必要であり、デフォルトでリクエストされます。
+権限
+説明
+Files.ReadWrite.All
+アプリがサインインしたユーザーがアクセスできるすべてのファイルを読み取り、作成、更新、削除することを許可します。
+Group.Read.All
+アプリがサインインしたユーザーを代表してグループを作成し、すべてのグループのプロパティとメンバーシップを読み取ることを許可します。
+offline_access
+これにより、Workatoがユーザーのリソースに長時間アクセスできるようになります。同意ページでは、このスコープは「アクセス許可を与えたデータへのアクセスを維持する」という許可として表示されます。
+←
+オンプレミスファイルの URL の生成
+OpenAI
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+APIバージョン
+OneDriveへの接続方法
+ロールと権限
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,169 @@
+Workato connectors - Percolate Copy asset action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Percolate
+#
+Copy asset action
+The
+Copy asset
+action allows you to copy an asset by providing a folder ID for its placement or a content/campaign ID to associate the copy. This action replicates the original asset with its basic metadata, excluding comments, followers, and other extended metadata.
+Percolate - Copy asset action
+#
+Input
+Input field
+Description
+Team
+Select the team associated with the asset you plan to copy.
+Asset ID
+Enter the ID of the asset you plan to copy.
+Folder
+Choose the folder where you plan to store the copied asset.
+#
+Output
+Output field
+Description
+Asset ID
+The ID of the newly created copied asset.
+Team
+The team associated with the copied asset.
+Content type
+The type designation of the copied content.
+Created at
+The timestamp when the asset copy was created.
+Created through
+The method by which the asset copy was created.
+Creator ID
+The ID of the user who created the asset copy.
+Is asset deleted
+Status indicating whether the asset copy is marked as deleted.
+Ext
+The file extension of the copied asset.
+Filename
+The file name of the copied asset.
+Folder ID
+The ID of the folder containing the copied asset.
+Locked by
+The ID of the user, if any, who has the asset copy locked.
+Path IDs
+The path IDs representing the folder structure for the copied asset.
+Size
+The file size of the copied asset.
+Transcoding status
+The transcoding status of the copied asset.
+Asset type
+The type category of the copied asset.
+Updated at
+The timestamp of the last update to the copied asset.
+Version
+The version information of the copied asset.
+Actor ID
+The ID of the user who executed the copy action.
+←
+Check content workflow step
+Create object
+→
+Last updated:
+4/10/2024, 5:14:42 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

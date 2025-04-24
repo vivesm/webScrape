@@ -1,0 +1,131 @@
+Workato Data Pipeline Recipes: Sync data from an application to a database | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data orchestration
+#
+Sync data from an application to a database with a Data Pipeline Recipe
+AVAILABILITY
+Data Pipeline Recipes are available to workspaces in the private preview program only.
+Contact your Workato representative to add Data Pipeline Recipes to your workspace.
+#
+What is a Data Pipeline recipe?
+A Data Pipeline recipe simplifies the setup, management, and monitoring of your data pipelines. This enables you to manage data movement across all objects from a source to a specific destination in a single recipe.
+Data Pipeline recipes can ingest thousands of objects from a source application or file system to a destination data warehouse in a single step, matching schemas as it moves data.
+This recipe uses a
+bulk extraction and load approach
+. This ensures a complete sync of the source data to the destination while maintaining data integrity.
+#
+Use a Workato Data Pipeline recipe to move data from Salesforce to Snowflake
+You can use a Workato Data Pipeline recipe to move data from Salesforce to Snowflake.
+The first step is to
+connect to the source and destination
+. If you already have your connections configured, continue to
+Create a Data Pipeline recipe
+.
+←
+SQL Collection by Workato
+Data Pipeline concepts
+→
+Last updated:
+7/31/2024, 7:04:29 PM
+On this page
+What is a Data Pipeline recipe?
+Use a Workato Data Pipeline recipe to move data from Salesforce to Snowflake
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

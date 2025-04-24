@@ -1,0 +1,217 @@
+Salesforce の承認 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Salesforce
+#
+Salesforce の承認プロセス
+Salesforce の承認プロセスは、Salesforce レコードを承認するステップと、レコードが却下された場合に実行するステップを統合して自動化したものです。
+承認ステップでは、特定の承認プロセスにおける一連の承認について規定しています。ステップごとに、承認ステップに進むことができるレコード、承認リクエストの割り当て先、各承認者の委任者がリクエストに対応可能かどうかを設定します。
+承認プロセスでは、通常、以下のものを指定します。
+レコードを承認するために必要な
+ステップ
+と、以下の各ステップでレコードを承認する
+担当者。
+最初にレコードが承認申請される
+レコードが承認される
+レコードが却下される
+レコードが取り消される
+承認プロセス時の状況に応じて実行するアクション
+Workato の Salesforce コネクターを活用するユーザーは、以下のアクションで
+レコードの承認
+、
+レコードの却下
+、
+レコードの承認申請
+のステップを自動化できます。
+Approve record in an approval process (承認プロセスにおけるレコードの承認)
+Reject record in an approval process (承認プロセスにおけるレコードの却下)
+Submit record for approval (レコードの承認申請)
+#
+承認プロセスの構築
+Salesforce の承認プロセスに精通していない場合は、承認プロセスの構築方法について、Salesforce のドキュメント (
+こちら
+(opens new window)
+と
+こちら
+(opens new window)
+) を参照してください。
+以下の例では、請求書の割引率が10% を超えるリクエストを承認または却下します。
+Discount
+は、この説明のために Invoice オブジェクト (カスタムオブジェクト) に作成されたカスタムフィールドです。
+以下の画像は、Salesforce で設定された承認プロセスを示しています。
+Salesforce の承認プロセスの設定
+承認プロセスは、Workato レシピで使用する前に必ずアクティブ化してください。
+#
+リクエストの承認者
+以下のいずれかがリクエストを承認または却下できます。
+承認リクエストの送信者が選択するユーザーまたはキュー。
+管理者が指定するキュー。
+送信者のユーザー詳細ページにある、マネージャーの標準項目に列挙されているユーザー。
+送信者のユーザー詳細ページのカスタム階層項目に列挙されているユーザー。
+管理者が指定する、ユーザーと関連ユーザー (送信されたレコードの標準項目またはカスタム項目に列挙されているユーザー) の組み合わせ。
+#
+Submit record for approval
+このアクションは、Salesforce レコードの [承認申請] ボタンのクリック操作に相当します。Workato レシピを使用すると、この手動のクリック操作を自動化できます。
+Submit record for approval アクション
+このアクションには、以下の入力が必要です。
+入力項目
+説明
+Approval process
+ドロップダウンから承認プロセスを選択するか、承認プロセスの一意の名前 (
+Invoice_discount_approval
+など) または ID (
+04a1K000000PnvP
+など) を指定します。
+一意の名前および ID は承認プロセスのページで確認できます。
+Record ID
+承認申請されるレコードの ID。通常、Salesforce レコードの作成または更新が行われた、前のステップからのデータピルになります。
+Approver ID
+プロセスが自動承認されない場合や、承認者がデフォルトで選択されていない場合に必要です。
+Submitter ID
+このレコードを承認申請するユーザーの ID です。
+Comments
+申請時に添えるコメントです。
+正常に申請されたレコードは、承認履歴のステータスが「保留中」に更新されます。
+承認申請された Invoice レコード
+#
+Approve record in an approval process
+このアクションではレコードが承認されます。また承認プロセスで定義されたあらゆる承認ステップ、つまりレコードのロック、項目の更新、メッセージまたはメールアラートの送信などがトリガーされます。
+最終的な承認アクションでレコードが自動的に送信される場合は、これらのステップも実行されます。
+Approve record アクションと Reject record アクションは、承認と却下それぞれに対して条件が定義されているレシピのロジックフローで使用する必要があります。
+Approve record in an approval process アクション
+このアクションには、以下の入力が必要です。
+入力項目
+説明
+Record ID と Approval process ID または Approval request ID
+レシピ内の前のステップの1つでレコードを承認申請する場合は
+Approval request ID
+を使用できます。
+それ以外の場合は、レコードのレコード ID と承認プロセスを指定する必要があります。
+Comments
+承認時に添えるコメントです。
+以下の例では、Workato レシピでレコードが承認されます。[Approval] 項目を自動更新するプロセスがアクティブ化されているため、項目値が [Accepted] に変更されました。
+承認済みのレコード
+#
+Reject record in an approval process
+このアクションではレコードが却下されます。また承認プロセスで定義されたあらゆる却下ステップ、つまりレコードのロック、項目の更新、メッセージまたはメールアラートの送信などがトリガーされます。
+最終的な却下アクションでレコードが自動的に送信される場合は、これらのステップも実行されます。
+Approve record アクションと Reject record アクションは、承認と却下それぞれに対して条件が定義されているレシピのロジックフローで使用する必要があります。
+Reject record in an approval process アクション
+このアクションには、以下の入力が必要です。
+入力項目
+説明
+Record ID と Approval process ID または Approval request ID
+レシピ内の前のステップの1つでレコードを承認申請する場合は
+Approval request ID
+を使用できます。
+それ以外の場合は、レコードのレコード ID と承認プロセスを指定する必要があります。
+Comments
+承認時に添えるコメントです。
+却下されたレコード
+←
+データベースの同期
+SAP RFC
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+承認プロセスの構築
+Submit record for approval
+Approve record in an approval process
+Reject record in an approval process
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

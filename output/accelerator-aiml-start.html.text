@@ -1,0 +1,286 @@
+AIMLアクセラレータの開始 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+AIML
+#
+AIMLアクセラレータの開始
+#
+レシピの開始
+1
+Projects > Home > AIML Accelerator
+に移動します。
+2
+以下のフォルダ内のすべてのレシピを次の順序で開始します：
+APIエンドポイント
+AWS S3
+AWS Sagemaker
+関数
+#
+スキーマの読み込み
+AIML|Data Fields
+ルックアップテーブルには、SageMakerに展開されたデータモデルのスキーマが保存されます。WorkatoはデータをSagemakerに送信してデータモデルを作成およびトレーニングします。Sagemakerはこのデータを
+AIML | Data Fields
+ルックアップテーブルで定義されたルールに基づいて検証します。
+データフィールドルックアップテーブル
+AIML | Data Fields
+ルックアップテーブルを設定する方法は2つあります。最初のオプションは
+Add Entry
+をクリックして各データフィールドを手動で設定することです。2番目のオプションは、
+AIML|REC-009|Load Model Schema
+レシピを使用してこのプロセスを自動化することです。このレシピはまた、
+AIML | Model Profile
+ルックアップテーブルにエントリを追加します。
+AIML | REC-009 | Load Model Schema
+レシピを使用する手順は次のとおりです：
+1
+Workatoで
+Projects > Home > AIML Accelerator > Bootstrap
+に移動します。
+2
+AIML | REC-009 | Load Model Schema
+を選択します。
+3
+Step 2
+で入力フィールドを設定します。
+入力フィールドの設定
+model_Identifier
+機械学習モデルを識別するための一意でわかりやすい名前を指定します。
+headers
+スキーマの列名をスペースなしのCSV形式で指定します。
+prediction_col_name
+予測列の名前を指定します。
+datetime_format
+データに日時値が含まれている場合、Workatoが解析するための形式を指定します。Workatoがサポートする形式のリストについては、
+日時の形式
+を参照してください。
+4
+Step 3
+で、データモデルが使用するサンプルCSVデータを提供します。
+例：
+id,first_name,last_name,email,ip_address
+1,Lucy,Carrigan,
+[email protected]
+,123.45.678.900
+2,Jude,Feeney,
+[email protected]
+,987.65.43.210.012
+3,Sadie,Simmons,
+[email protected]
+,345.67.890.100
+5
+Test
+をクリックしてレシピを1回実行します。
+6
+AIML|Data Fields
+ルックアップテーブルに更新された値があるかどうかを確認するために移動します。
+7
+入力フィールドを設定して、検証ルールを手動で指定します。
+Workatoデータ型
+フィールドのデータ型を指定します。Workatoがサポートするデータ型のリストについては、
+Workatoがサポートするデータ型
+を参照してください。
+必須（true/false）
+フィールドが必須フィールドの場合は
+true
+に設定します。フィールドが必須でない場合は
+false
+に設定するか、空白のままにします。
+一意（true/false）
+フィールドの値がモデルのトレーニングに使用されるデータセット内で一意である必要がある場合は
+true
+に設定します。一意である必要がない場合は
+false
+に設定するか、空白のままにします。
+正規表現パターン
+Workatoはデータをこのパターンに対してチェックします。
+#
+モデルプロファイルの定義
+AIML|Model Profile
+ルックアップテーブルには、ソリューションで使用される機械学習モデルのモデルプロファイルが保存されます。レシピはこれらのプロファイルを使用してデータを読み取り、機械学習プラットフォームに接続します。
+モデルプロファイルを定義するための手順は次のとおりです。
+AIML|REC-009|Load Model Schema
+レシピを使用した場合は、Step 3にスキップできます：
+1
+Workatoで
+Tools > Lookup tables
+に移動し、利用可能なルックアップテーブルのリストから
+AIML|Model Profile
+ルックアップテーブルを選択します。
+2
+ルックアップテーブルにエントリを追加し、モデルのための
+Model Identifier
+を指定します。この
+Model Identifier
+は、
+AIML|Data Fields
+ルックアップテーブルで指定した
+Model Identifier
+と一致する必要があります。
+3
+JSON形式で
+AIML | Connection Profile
+を指定します。Workatoはこれらのパラメータを使用して機械学習モデルに接続するために必要です。
+以下はSagemakerの例です：
+{
+"endpoint_name"
+:
+"{Unique Endpoint_name}"
+,
+"role_arn"
+:
+"arn:aws:iam::xxxx:role/service-role/AmazonSageMaker-xxxxRole-xxxx"
+}
+4
+JSON形式で
+Storage Source Connection Profile
+を指定します。Workatoはこれらのパラメータを使用してソースデータの保存場所に接続するために必要です。
+以下はAWS S3の例です：
+{
+"accelerate"
+:
+"false"
+,
+"region"
+:
+"xx-xxx-x"
+,
+"bucket"
+:
+"xxxx"
+,
+"object_name"
+:
+"xxxxx_training_data.csv"
+}
+5
+JSON形式で
+Storage Target Connection Profile
+を指定します。Workatoはこれらのパラメータを使用して検証後のターゲットデータの保存場所に接続し、Sageに渡します。Maker. Workatoは、ストレージ場所との接続にこれらのパラメータを必要とします。
+以下の例では、AWS S3に対して次のように設定されています。
+{
+"accelerate"
+:
+"false"
+,
+"region"
+:
+"xx-xxx-x"
+,
+"bucket"
+:
+"xxxx"
+,
+"object_name"
+:
+"xxxxx_training_data.csv"
+}
+6
+MLモデルの数
+を指定してください。この数値は、機械学習モデルが作成するモデルの数を定義します。
+MLモデルの数
+MLモデルの数が多いほど、計算リソースが増え、ジョブの実行時間が長くなります。また、一般的には、モデルの品質が向上します。
+←
+カスタマイズ
+MLモデルのトレーニング
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+レシピの開始
+スキーマの読み込み
+モデルプロファイルの定義
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

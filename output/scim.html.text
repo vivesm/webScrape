@@ -1,0 +1,200 @@
+クロスドメインアイデンティティ管理システム（SCIM 2.0） | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+組織とワークスペース
+Workspace collaborators
+#
+クロスドメインアイデンティティ管理システム（SCIM 2.0）
+概要
+Workatoは、Okta、OneLogin、Azure Active Directory（AD）などのアイデンティティプロバイダとの間でSCIM 2.0をサポートしています。
+SCIM 2.0は、アイデンティティプロバイダを介してユーザー属性の自動プロビジョニング、デプロビジョニング、および更新を提供します。
+SCIM 2.0の使用には、Workatoでの有効化とアイデンティティプロバイダでのSAML SSOの有効化が必要です。
+SCIMの使用には、Workatoとアイデンティティプロバイダの設定、ユーザーの管理、不要な場合のSCIMの無効化が含まれます。
+Workatoは、
+IETF SCIM仕様
+(opens new window)
+に準拠して、クロスドメインアイデンティティ管理システム（SCIM 2.0）を使用してユーザーのアイデンティティ情報を管理します。SCIM 2.0プロトコルの実装により、組織のアイデンティティプロバイダとWorkatoの間でユーザーのアイデンティティデータの安全な自動交換が可能となります。これにより、
+Okta
+や
+OneLogin
+などのアイデンティティプロバイダからのアカウントの自動プロビジョニング、デプロビジョニング、およびユーザープロファイルの管理が可能となります。
+SCIM 2.0は、組織に以下の利点をもたらします：
+Workatoを介してユーザーを自動的にプロビジョニングします。
+アイデンティティプロバイダから直接
+workato_role
+などのカスタムユーザー属性を更新します。
+アイデンティティプロバイダを介してWorkatoからユーザーを自動的にデプロビジョニングします。
+NOTE
+SCIMサポートは、Workatoの追加機能です。
+#
+前提条件
+Workatoでの有効化
+: SCIM 2.0は
+高度なセキュリティとコンプライアンス
+アドオンの一部です。組織でSCIM 2.0を使用する詳細については、アカウント担当者にお問い合わせください。
+アイデンティティプロバイダでの有効化
+: アイデンティティプロバイダでSAML SSOが有効になっていること
+#
+SCIMの使用方法
+SCIMを使用するには、次の一般的な手順に従ってください：
+WorkatoでSCIMを設定する
+Okta
+アイデンティティプロバイダの場合：
+OktaでSCIMを設定する
+Workatoのロールを設定する
+ユーザーをプロビジョニングする
+ユーザーアサインメントをグループに変換する
+ユーザーを更新する
+ユーザーをデプロビジョニングする
+OneLogin
+アイデンティティプロバイダの場合：
+汎用SAMLアプリケーションの設定
+OneLoginでSCIMを設定する
+ユーザーをプロビジョニングする
+ユーザーを更新する
+ユーザーをデプロビジョニングする
+Azure Active Directory
+アイデンティティプロバイダの場合：
+前提条件
+ステップ1：カスタム拡張属性の設定
+ステップ2：Azure ADでの自動プロビジョニングの設定
+ステップ3：Azure ADとWorkatoの属性マッピングの設定
+ステップ4：ユーザーをプロビジョニングする
+WorkatoでSCIMを無効にする
+、
+OktaでSCIMを無効にする
+、
+OneLoginでSCIMを無効にする
+、または
+Azure ADでSCIMを無効にする
+#
+FAQ
+SCIMが有効になっており、ロールがWorkatoで手動で更新された場合、どうなりますか？
+SCIMが有効になっており、共同作業者がWorkatoから手動で削除された場合、どうなりますか？
+SCIMプロビジョニングをオフにする方法はありますか？
+SCIMを使用した場合、Workatoでのデプロビジョニングはどのように処理されますか？
+#
+SCIMが有効になっており、ロールがWorkatoで手動で更新された場合、どうなりますか？
+ユーザープロファイルデータに保存されているユーザープロファイルデータから一時的なロール変更が上書きされます。同期は次のシナリオで発生します：
+ユーザーがSAML SSOを介してログインすると、'saml_auto_sync'によってロールが変更されます。
+ユーザープロファイルがIdPから更新されると、'scim_auto_sync'によってロールが変更されます。
+#
+SCIMが有効になっており、共同作業者がWorkatoから手動で削除された場合、どうなりますか？
+次回のログイン時に、SCIM接続が有効であり、組織のアイデンティティプロバイダでユーザーがデプロビジョニングされていない場合、ユーザーはワークスペースに再プロビジョニングされます。
+#
+SCIMプロビジョニングをオフにする方法はありますか？
+SCIMプロビジョニングをオフにする方法は2つあります：
+推奨
+: アイデンティティプロバイダで、プロビジョニング設定からSCIMの設定を無効にします。詳細な情報については、個々のアイデンティティプロバイダの手順を参照してください：
+Okta
+、
+OneLogin
+、および
+Azure AD
+。
+WorkatoでSCIMトークンの値を更新します。### WorkatoにおけるSCIMを使用したデプロビジョニングの処理方法
+Workatoでは、アイデンティティプロバイダーから無効化されたり一時的に停止されたり、またはWorkatoアプリへのアクセスが削除されたりしたユーザーに対して、同じ方法でデプロビジョニングが処理されます。すべてのシナリオで、Workato上でデプロビジョニングイベントがトリガーされ、ユーザーはWorkatoのワークスペースにアクセスできなくなります。彼らのレシピと接続は他の共同作業者に引き続きアクセス可能です。
+←
+OneLoginでのSAMLロール同期
+WorkatoでSCIMを設定
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+前提条件
+SCIMの使用方法
+FAQ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

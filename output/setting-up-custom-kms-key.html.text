@@ -1,0 +1,167 @@
+Enterprise Key Management - カスタムキーを使用してWorkato EKMを設定する | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+暗号キーの管理
+エンタープライズキーの管理
+#
+Workato Enterprise Key Management (EKM)のカスタムキーを設定する
+人気のあるキーマネジメントシステムに加えて、
+Workato Enterprise Key Management (EKM)
+は、独自のカスタムキーの生成もサポートしています。
+このガイドでは、カスタムキーの作成とそれを使用してWorkatoでEKMを設定する方法について説明します。
+#
+前提条件
+このガイドのタスクを実行するには、次のものが必要です。
+Enterprise Key Management
+機能が有効化されたWorkatoアカウント
+キーマネジメント
+特権を持つWorkatoの
+ユーザーロール
+#
+ステップ1: カスタムキーを生成する
+キーの要件
+カスタムキーは、32バイトのBase64エンコードされた256ビットの対称キーである必要があります。
+このステップでは、カスタムキーを生成し、ファイルに保存します。
+次の例では、
+OpenSSLライブラリ
+(opens new window)
+を使用して、32バイトのBase64エンコードされた256ビットの対称キーを生成する方法を示しています。
+openssl rand
+-out
+WorkatoCustomKey.txt
+-base64
+32
+キーはBase64エンコーディングを使用してエンコードされ、
+WorkatoCustomKey.txt
+という名前のファイルに保存されます。この例のコマンド（
+rand
+）についての詳細は、
+OpenSSLのドキュメント
+(opens new window)
+を参照してください。
+独自のカスタムキーを作成してください
+上記の要件を満たす限り、他のツールを使用してカスタムキーを生成することもできます。
+ただし、どのツールを使用しても、キーは暗号的に安全な擬似乱数生成器（CSPRNG）を使用して生成する必要があります。また、キーは非常に機密性の高い素材であるため、生成されたキーは、例えば安全な場所に保存することで、不正なアクセスから強力に保護する必要があります。
+#
+ステップ2: キーをWorkatoにアップロードする
+1
+まだサインインしていない場合は、Workatoアカウントにサインインします。
+2
+設定 > キーマネジメント
+に移動します。
+3
+データを暗号化する方法
+フィールドで、ドロップダウンから
+カスタムKMSキー
+を選択します。
+4
+キーマテリアルファイル
+フィールドに、キーファイルをドラッグアンドドロップまたはアップロードします。
+5
+キーを更新
+をクリックします。
+←
+Amazon KMS の EKM 接続方法
+トラブルシューティング
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+前提条件
+ステップ1: カスタムキーを生成する
+ステップ2: キーをWorkatoにアップロードする
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

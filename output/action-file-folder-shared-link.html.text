@@ -1,0 +1,143 @@
+Workato connectors - Box - Create file/folder shared link | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Box
+#
+Create and use shared links to a Box folder/file
+The
+Create shared link
+action allows you to create a direct link to a file or folder in Box.
+1
+Enter the
+file ID/folder ID
+for the file/folder for which you plan to create a shared link.
+2
+Select an
+access
+level for the shared link (Open, Company, Collaborators, or Default). Refer to
+Shared link permissions
+for more information.
+This sets restrictions on who can view your file/folder using the shared link. If you have a Premium Box subscription, you can also enter a password that link-users must enter before they can access your file/folder.
+Create shared links
+3
+Optional. Use the ID datapill from the trigger step to identify the new file when creating the shared URL link, and post the URL in the schema (below) to your Slack Workbot.
+Post the URL in Slack Workbot
+#
+Shared link permissions
+When creating a shared link for a file or folder in Box, you can choose from the following access level options:
+Levels
+Access
+Open
+Anyone with the link can access the file or folder. A Box account is not required.
+Company
+Only Box users with a validated email address matching your company's domain can access the file or folder via the shared link.
+Collaborators
+Only Box users invited to the folder or file (collaborators) can access the file or folder via the shared link.
+Default
+This option follows whatever the default setting for your account is. You can view and change this in your Box account settings under Content and Sharing.
+←
+Upload file action
+Other actions
+→
+Last updated:
+11/3/2023, 8:24:13 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

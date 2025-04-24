@@ -1,0 +1,625 @@
+Sync Greenhouse new hires to SAP SuccessFactors use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+HR
+#
+Sync Greenhouse new hires to SAP SuccessFactors recipe
+This use case guides you through connecting
+Greenhouse
+and
+SAP SuccessFactors OData
+to create a powerful automation.
+#
+What does this recipe do?
+This recipe monitors Greenhouse for new hires and creates new user accounts in SAP SuccessFactors in real time.
+flowchart TD
+subgraph Configuration[" "]
+direction TB
+subgraph NewEvent[Greenhouse New event trigger]
+t1(Trigger) --- setup1(setup) --- w(webhook)
+end
+subgraph GetCandidate[&nbsp Greenhouse Get object by ID action: Candidate &nbsp]
+Action1(Action) --- setup2(setup)
+end
+subgraph GetJob[&nbsp Greenhouse Get object by ID action: Job &nbsp]
+Action2(Action) --- setup3(setup)
+end
+subgraph CreateRecord[&nbsp SAP SuccessFactors OData Create record action: User &nbsp]
+Action4(Action) --- setup5(setup)
+end
+end
+CreateRecipe([Create recipe]) -- Configure your recipe --> Configuration --> Workflow([Automated workflow])
+NewEvent --> GetCandidate --> GetJob --> CreateRecord
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class t1,w,setup1,setup2,setup3,setup4,setup5,Action1,Action2,Action3,Action4,CreateRecipe,Workflow WorkatoTeal
+class NewEvent,GetCandidate,GetJob,CreateRecord SubgraphDash
+#
+Create your recipe
+Complete the following steps to create a recipe that monitors Greenhouse for new hires and creates new user accounts in SAP SuccessFactors in real time:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for Greenhouse and SAP SuccessFactors OData:
+Create a Greenhouse connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Greenhouse
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Greenhouse connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your API key in the
+API key
+field.
+Complete the following steps in Greenhouse to create your API key if you haven't already:
+1
+Go to
+Configure > Dev Center > API Credential Management
+.
+2
+Click
+Create new API key
+.
+3
+Use the
+API type
+drop-down menu to select
+Harvest
+.
+4
+Search for and select
+Workato
+in the
+Partner
+field.
+5
+Enter a description for your API key in the
+Description
+field.
+6
+Click
+Manage permissions
+.
+7
+Click
+Copy
+to copy the API key.
+8
+Click
+I have stored the API key
+.
+9
+Keep the default permissions selected, or choose additional ones relevant to your use case in the
+Manage permissions
+section.
+10
+Click
+Save
+.
+6
+Enter the user email the API key is generated from in the
+User email
+field.
+7
+Use the
+Environment
+drop-down menu to specify the environment instance you are connecting to. The default is
+Production
+if left blank.
+8
+Click
+Connect
+.
+Create a SAP SuccessFactors OData connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+SAP SuccessFactors OData
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+SAP SuccessFactors OData connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Connection type
+drop-down menu to select the connection method you plan to use. You can select your
+on-premise group
+name or select
+Cloud
+to use a direct connection.
+6
+Use the
+Authentication type
+drop-down menu to select your authentication method. Options include
+Basic
+and
+OAuth 2.0
+.
+7
+Enter the company ID in the
+Company ID
+field. The company ID is located in
+Show version information
+under the profile drop-down menu and in the URL after
+company=
+.
+8
+Enter your SAP SuccessFactors user ID in the
+User ID
+field.
+9
+Provide your authentication information.
+Basic authentication
+1
+Enter your password in the
+Password
+field.
+OAuth 2.0
+1
+Enter the OAuth client ID in the
+Client ID
+field.
+2
+Enter the X.509 private key used to sign the SAML assertion in the
+Private key
+field.
+The private key can be from a self-signed X.509 certificate or one generated by SAP SuccessFactors. It is a base64-encoded string enclosed between
+-----BEGIN ENCRYPTED PRIVATE KEY-----
+and
+-----END ENCRYPTED PRIVATE KEY-----
+. Enter only the encoded string, excluding the beginning and ending lines, to avoid an error.
+10
+Use the
+Environment
+drop-down menu to select your corresponding SAP SuccessFactors environment. Refer to the
+List of SAP SuccessFactors API Servers
+(opens new window)
+for more information on the mapping between your API endpoint and SAP SuccessFactors environment.
+11
+Optional. Enter the application interface key in the
+Application interface key
+field. The default is Workato's application interface key if left blank.
+12
+Optional. Select the API server standard UTC time zone in the
+API server timezone
+field.
+13
+Click
+Connect
+.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+9
+Click
+Select an app and trigger event
+.
+10
+Set up your Greenhouse New event trigger.
+1
+Search for
+Greenhouse
+and select it as your app.
+Choose Greenhouse
+2
+Select the
+New event
+trigger.
+Select the New event real-time trigger
+3
+Select the Greenhouse connection you created in the preceding steps.
+4
+Use the
+Event category
+drop-down menu to select
+Candidate
+.
+5
+Use the
+Event
+drop-down menu to select
+Candidate hired
+.
+6
+Use a random string generator to create a secret key that is at least 32 characters long, and enter it in the
+Secret key
+field. Store this key in a secure location, as it is required to configure the webhook in Greenhouse.
+New candidate hired configuration
+7
+Copy the webhook endpoint URL provided in the help section of the recipe editor. This value is also required to configure the webhook in Greenhouse.
+Copy the webhook endpoint URL
+8
+Click
+Save
+.
+Step summary
+This trigger monitors Greenhouse for new hires in real-time. You must set up a webhook in Greenhouse to complete the setup for this trigger.
+11
+Sign in to your Greenhouse instance to create a webhook that corresponds to the
+New event
+trigger.
+What is a webhook?
+A webhook is a notification sent by an application to a target URL in real-time when a specified event occurs. You can choose which events trigger these notifications.
+For this recipe, you must create a webhook in Greenhouse that sends data to Workato whenever a candidate is marked as hired.
+flowchart TD
+A(Candidate marked as hired in Greenhouse) -- The trigger activates --> B(Send webhook notification)
+B --> C(Workato receives notification)
+C --> D(Process candidate data)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+Set up your Greenhouse webhook.
+1
+Go to
+Configure > Dev Center > Webhooks > Webhooks
+. The
+Create a new webhook
+page appears.
+2
+Provide a name for your webhook in the
+Name this webhook
+field.
+3
+Use the
+When
+drop-down menu to select
+Candidate hired
+. This field specifies the Greenhouse event that triggers the webhook.
+4
+Paste the webhook endpoint URL from Workato into the
+Endpoint URL
+field.
+5
+Enter the secret key you created when configuring the trigger in the
+Secret key
+field.
+6
+Click
+Create webhook
+.
+Step summary
+This webhook sends a notification to your Workato recipe each time a candidate is marked as hired in Greenhouse.
+12
+Click
++ Add step
+and select
+Action in app
+.
+Click
+Add step > Add action in app
+13
+Set up your Greenhouse Get object by ID action (Candidate).
+1
+Search for
+Greenhouse
+and select it as your app.
+Choose Greenhouse
+2
+Select the
+Get object by ID
+action.
+Select the Get object by ID action
+3
+Use the
+Object
+drop-down menu to select
+Candidate
+.
+4
+Map the Greenhouse
+ID
+Step 1
+datapill (nested under the
+Candidate
+object) to the
+Candidate ID
+field.
+Map the candidate ID datapill
+5
+Click
+Save
+.
+Step summary
+This step retrieves information about the candidate using their candidate ID.
+14
+Click
++ Add step
+and select
+Action in app
+.
+15
+Set up your Greenhouse Get object by ID action (Job).
+1
+Search for
+Greenhouse
+and select it as your app.
+Choose Greenhouse
+2
+Select the
+Get object by ID
+action.
+Select the Get object by ID action
+3
+Use the
+Object
+drop-down menu to select
+Job
+.
+4
+Map the Greenhouse
+ID
+Step 1
+datapill (nested under the
+Jobs
+array) to the
+Job ID
+field.
+Map the job ID datapill
+5
+Click
+Save
+.
+Step summary
+This step retrieves information about the job using the job ID.
+16
+Click
++ Add step
+and select
+Action in app
+.
+17
+Set up your SAP SuccessFactors OData Create record action.
+1
+Search for
+SAP SuccessFactors OData
+and select it as your app.
+Choose SAP SuccessFactors OData
+2
+Select the
+Create record
+action.
+Select the Create record action
+3
+Use the
+Object
+drop-down menu to select
+User
+.
+4
+Enter
+t
+in the
+Status
+field. This indicates that the user has an active status.
+5
+Map the Greenhouse
+Candidate ID
+Step 2
+datapill to the
+User ID
+field. You can adjust the mapping based on your specific workflow requirements.
+6
+Map the Greenhouse
+First name
+Step 3
+datapill to the
+First name
+field.
+7
+Map the Greenhouse
+Last name
+Step 3
+datapill to the
+Last name
+field.
+8
+Optional. Map additional fields based on your specific use case or the available data from Greenhouse. In this example, the following fields are mapped:
+Cell phone
+: Map the Greenhouse
+Value
+Step 2
+datapill (nested under the
+Phone numbers
+array).
+Department
+: Map the Greenhouse
+Name
+Step 3
+datapill (nested under the
+Departments
+array).
+Email
+: Map the Greenhouse
+Value
+Step 2
+datapill (nested under the
+Email addresses
+array), or construct it using
+formula mode
+.
+Construct the email using formula mode
+Location
+: Map the Greenhouse
+Name
+Step 3
+datapill (nested under
+Offices > Location
+).
+If these optional fields are currently hidden in the step, click
+Show optional fields
+and search for the relevant fields you plan to map.
+Create user configuration
+9
+Click
+Save
+.
+Step summary
+This step creates a user in SAP SuccessFactors based on the hired candidate's information in Greenhouse. Refer to the
+SAP SuccessFactors API reference documentation
+(opens new window)
+for more information.
+Your
+Sync Greenhouse new hires to SAP SuccessFactors
+recipe is ready to test and implement.
+Example recipe configuration.
+Sync Greenhouse new hires to SAP SuccessFactors
+recipe
+←
+HR
+Export Workday workers to CSV with Python and upload to Google Drive
+→
+Last updated:
+1/16/2025, 9:16:49 PM
+On this page
+What does this recipe do?
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

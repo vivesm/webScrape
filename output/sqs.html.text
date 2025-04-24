@@ -1,0 +1,262 @@
+Workato コネクター - Amazon SQS | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Amazon SQS
+Amazon SQS
+(opens new window)
+は、Amazon Web Services が提供する Web サービスで、マイクロサービス、分散システム、サーバーレスアプリケーション向けの完全マネージド型メッセージキューを提供します。
+#
+API バージョン
+Amazon SQS コネクターは、
+Amazon SQS REST API
+(opens new window)
+を使用します。
+#
+Workato での SQS への接続方法
+SQS コネクターでは、2種類の認証方法、IAM ロールとアクセスキーを使用できます。Workato は、
+IAM ロール認証
+を使用することをお勧めします。
+#
+入力項目
+項目
+説明
+Connection name
+このコネクションに対して、接続先の SQS インスタンスを識別する一意の名前を付けます。
+Authorization type
+[IAM role]
+または
+[Access key]
+Access key ID (アクセスキーの場合のみ)
+ユーザーの ID。
+Secret access key (アクセスキーの場合のみ)
+ユーザーのシークレット。
+IAM role ARN (IAM ロールの場合のみ)
+IAM ロールの ARN。ARN を取得する方法については、
+こちら
+を参照してください。
+注
+: Workato は一意の
+外部 ID
+(
+workato-user-84762
+など) を生成します。この ID は Workato ユーザーごとに異なる値であり、SQS で IAM ロールを作成する際に指定する必要があります。
+Region
+この S3 アカウントのリージョンを指定します。
+Version
+SQS のバージョン。現在は 2012-11-05 のみ利用可能です。
+Service
+キュー ARN で定義される SQS キューサービス。キュー ARN が
+arn:aws:sqs-fips:us-east-1:123456789:bennett_standard_q
+であれば、sqs-fips をサービスとして使用します。
+#
+IAM ロール ARN を取得する方法
+以下のステップに従って、コネクションの設定に必要な
+ロール ARN
+を取得します。コネクションページにある Workato で生成された外部 ID を使用してください。
+1
+[マイセキュリティ資格情報]
+に移動します。
+2
+[ロール]
+>
+[ロールの作成]
+を選択します。
+3
+[別の AWS アカウント]
+を選択します。Workato の Amazon SQS アカウント ID (
+353360065216
+) を入力します。
+4
+[外部 ID が必要]
+を選択し、Workato が生成した
+外部 ID
+を入力します。
+Workato ユーザーにはそれぞれ一意の
+外部 ID
+(
+workato-user-84762
+など) が付与されています。この値は、
+コネクションの設定
+の
+IAM role ARN
+の部分にあります。Workato での AWS SQS の使用方法をよりきめ細かく制御する必要がある場合は、外部 ID のスコープを変更することによってプロジェクトレベルでコネクションを設定できます。詳しくは、
+こちら
+を参照してください。
+5
+Workato が Amazon SQS で自動化を実行するための適切な権限を選択します。
+必要な権限
+については、以下を参照してください。
+6
+(任意) オブジェクトのタグ付けを使用している場合は、この IAM ロールの適切なタグを選択します。
+7
+この IAM ロールに適切な名前と説明を付与します。
+ロール名は、URN で推測できないリソース ID を使用することを避け、外部 ID を含めないことをお勧めします。
+8
+これで IAM ロールが作成されました。このロールを選択します。
+9
+ロールの ARN
+をコピーします。これは、Workato で Amazon S3 コネクションを作成する際に
+コネクションの設定
+で使用する必要があります。
+#
+権限
+この IAM ロールには、AmazonSQSFullAccess ポリシーを使用できます。SQS コネクターには少なくとも以下の権限が必要です。
+sqs:ReceiveMessage
+sqs:DeleteMessage
+sqs:ListQueues
+sqs:GetQueueAttributes
+sqs:SendMessage
+コネクションを確立する際、Workato は「List Queues (キューの列挙)」を使用して接続をテストしますが、1つまたは特定のキューのみにアクセス可能な場合であってもコネクションは正しく機能します。この場合、アクションにキュー名を手動で追加することでキューに対して操作を実行できます。
+#
+用語
+基本的な Amazon SQS オブジェクトの
+用語
+(opens new window)
+について、以下に説明します。
+#
+キュー
+SQS には以下の2種類のキューがあります。
+標準キュー - 少なくとも1回のメッセージ配信をサポートするデフォルトのキュータイプです。メッセージが通常は送信時と同じ順序で配信される、ベストエフォート型の順序付けを実施します。
+FIFO キュー - FIFO (先入れ先出し) キューの目的は、操作とイベントの順序が重要である場合、または重複が許容されない場合に、アプリケーション間のメッセージングを強化することです。
+現在、Workato SQS コネクターは標準キューのみをサポートしています。
+#
+メッセージ
+Amazon SQS では、メッセージ属性を使用して、構造化メタデータ (タイムスタンプ、地理空間データ、署名、識別子など) をメッセージに含めることができます。各メッセージには最大10個の属性を含めることができます。メッセージ属性は任意で、メッセージ本文とは別のものです (ただし、メッセージと一緒に送信されます)。Workato は、メッセージ本文とメッセージ属性の両方をサポートしています。
+コンシューマーがキューからメッセージを受信して処理するとき、メッセージはキュー内に残ります。Amazon SQS はメッセージを自動的に削除しません。Amazon SQS は分散型システムであるため、コンシューマーがメッセージを実際に受信することは保証されません (たとえば、接続の問題や、コンシューマーアプリケーションの問題が原因で受信できない場合)。このために役立つ機能として、トリガーでメッセージを取得する際に、Workato SQS コネクターでメッセージを自動的に削除できます。また、
+Delete messages
+アクションを使用すれば、レシピ内でメッセージを処理した後に削除することもできます。
+#
+ショートポーリングとロングポーリングの比較
+SQS は分散型であるため、SQS への1回のリクエストによってキュー内のメッセージをすべて取得できない場合があります。たとえば、キュー内に数百件のメッセージが含まれていたとしても、10件のメッセージの取得リクエストに対してメッセージが9件しか取得されない場合があります。これは、SQS がメッセージを取得するためにサンプリングする対象が、メッセージを保管しているサーバーのサブセットであることが原因です。
+この問題を軽減するため、Workato は待機タイムアウト5秒のロングポーリングを使用します。つまり、Workato がトリガーまたはアクションでメッセージの取得を試みる際に、メッセージがサンプリング対象のサーバーに到達するまで最長で5秒待機します。入力
+Wait time (seconds)
+を使用して、このタイムアウトをアクションに設定できます。
+#
+可視性タイムアウト
+受信直後のメッセージはキューに残っています。このメッセージが重複して処理されないように、Amazon SQS は可視性タイムアウトを設定して、その期間、ほかのコンシューマーが当該メッセージを受信して処理できないようにします。
+複数のジョブが同じメッセージを処理する可能性を最小限に抑えるため、SQS のデフォルトである30秒の代わりに、Workato コネクターはこの期間をデフォルトで12時間に設定します。
+Visibility Timeout
+入力項目を使用して、このタイムアウトを設定できます。
+#
+デッドレターキュー
+SQS キュー内のメッセージが処理済みと判断されるには、メッセージが削除されている必要があります。メッセージが一定期間 (SQS で設定可能) キューに残り続けている場合、またはメッセージの取得回数が多すぎる場合、そのメッセージはデバッグのためにデッドレターキューに格納されます。
+デッドレターキューに格納されたメッセージを Workato が能動的にサポートすることはありませんが、メッセージがキューに格納されたときに通知を受けられるよう、アラームを設定することをお勧めします。詳細については、
+こちら
+(opens new window)
+を参照してください。
+#
+トラブルシューティング
+#
+複数のジョブにまたがって重複するメッセージが確認される
+場合によっては、ジョブの処理が遅すぎて Workato によって取得されたメッセージが可視性タイムアウトに達し、再取得の対象になることがあります。このような場合には、複数のジョブにまたがって重複するメッセージが見つかる可能性があります。
+可視性タイムアウトを増やすか、メッセージを取得と同時に削除することをお勧めします。
+←
+メッセージの発行
+新規メッセージ トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での SQS への接続方法
+IAM ロール ARN を取得する方法
+権限
+用語
+トラブルシューティング
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

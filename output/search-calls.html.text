@@ -1,0 +1,163 @@
+Workato connector - Gong - Search calls | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Gong
+#
+Gong Connector - Search calls
+This action will search calls in Gong. Lists detailed call data for calls that took place during a specified date range and have specified call IDs.
+#
+Input
+Field
+Description
+Starting date-time
+The date from which to list calls. If not specified, the calls start with the earliest recorded call. The date applies to call start time.
+Ending date-time
+The date until which to list calls. For web-conference calls recorded by Gong, the date denotes its scheduled time, otherwise, it denotes its actual start time.
+Call IDs
+List of calls IDs to be filtered. If not supplied, returns all calls between Starting date time and Ending date time. To retrieve a single call, provide the ID of the call.
+Workspace
+Select the workspace to filter calls by.
+#
+Output
+Call specific output fields will be dynamically rendered base on the calls you select. A sample response structure is below.
+Field
+Description
+Calls
+A list of following details for each call
+Collaboration
+An object containing a list of public comments. Each public comment contains details like audio start time, audio end time, comment user ID, and the comment text, among other fields.
+Content
+An object with the information pertaining to structure, topic, trackers, and points of interest.
+Context
+List of objects that contains the relevant fields, object ID, object type, as well as source system details.
+Interaction
+An object with the information pertaining to interaction stats, questions, speakers, and video.
+Media
+An object containing the video and audio URL of the call, as applicable.
+Metadata
+Contains all the metadata of the call including title, duration, workspace, etc.
+Parties
+List of parties that were involved in the call. Each party object contains details like name, email address, affiliation, etc.
+List Size
+The list size of the call transcripts.
+List Index
+An index for each item in the list of call transcripts.
+Records
+Metadata of the response
+Current page number
+Necessary for repeat requests to ensure pagination.
+Current page size
+Number of records on the current page.
+Cursor
+UUID necessary for pagination.
+Total Records
+Total number of records that can be queried.
+←
+Search call transcripts
+Search users
+→
+Last updated:
+4/5/2023, 11:28:53 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

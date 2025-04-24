@@ -1,0 +1,180 @@
+オンプレミスエージェント - オンプレミスエージェントの停止 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+オンプレミス接続
+オンプレミスエージェント
+#
+オンプレミスエージェントの停止
+オンプレミスエージェントは基本的に
+SIGTERM
+で停止されます。このシグナルをエージェントに送信するには、次のようにします。
+オンプレミスエージェントに付属するシャットダウンスクリプト (
+./bin/shutdown.sh
+) を利用する
+または、実行中のエージェントに対して
+kill -s TERM
+コマンドを実行する
+エージェントは自力でグレースフルシャットダウンを実行できます。これは、保留中のリクエストを中断させることなく実行中のオンプレミスエージェントを安全に終了させ、レシピジョブの失敗やデータの損失を防ぐのに役立ちます。
+#
+仕組み
+1
+まず最初にオンプレミスエージェント (OPA) を無効化し、それ以上のアクションがこの OPA にルーティングされないようにすることが推奨されます。
+これは、
+オンプレミスページ
+または
+Developer API
+を通して実行できます。
+レシピの中断を防ぐため、グループ内にアクティブなバックアップのオンプレミスエージェントがあることを確認してください。
+2
+シャットダウンスクリプトを実行して、グレースフルシャットダウンを開始します。
+./shutdown.sh
+デフォルトでは、OPA は起動時に PID ファイルを作成しません。PID ファイルが見つからないというエラーが出る場合は、以下のオプションを使ってオンプレミスエージェントを開始するようにしてください。
+./run.sh --pid-file
+=
+/var/run/workato-agent/workato-agent.pid
+さらに、同一のパラメータを使ってシャットダウンを実行してください。
+./shutdown.sh --pid-file
+=
+/var/run/workato-agent/workato-agent.pid
+3
+シャットダウンスクリプトは
+SIGTERM
+を送信し、エージェントのプロセスをグレースフルに終了させます。
+4
+グレースフルシャットダウンが完了しなかった場合、オンプレミスエージェントは事前設定済みのタイムアウトの発生後に自身を強制終了させます。
+#
+使用法のオプション
+./shutdown.sh
+[
+args…
+]
+#
+例
+./shutdown.sh
+./shutdown.sh --pid-file
+=
+/var/run/workato-agent/workato-agent.pid --pid-file-purge
+./shutdown.sh --kill-signal
+=
+TERM
+./shutdown.sh
+--help
+#
+任意指定の引数
+引数
+説明
+--pid-file
+オンプレミスエージェントのプロセス ID を格納している PID ファイルのパス。
+デフォルト: /var/run/workato-agent/workato-agent.pid
+--pid-file-purge
+終了の前に PID ファイルを消去します。
+--kill-signal
+使用するシグナル。
+デフォルト: TERM
+--help
+すべての引数のヘルプリスト (この表のようなもの) を表示します。
+←
+エージェントの実行
+Keyマネジメント
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+仕組み
+使用法のオプション
+例
+任意指定の引数
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

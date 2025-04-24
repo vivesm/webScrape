@@ -1,0 +1,198 @@
+Workato connectors - Docusign - New document event trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Docusign
+#
+Docusign - New document event trigger
+The
+New document event
+trigger allows you to listen on events where someone in your organization is a sender of a Docusign email. Use this trigger to track the full lifecycle of a contract signing from draft to completion and sync it to systems like your CRM.
+#
+Input
+Input field
+Description
+When first started, this recipe should pick up events from
+Set the date and time to start picking up trigger events. This lets your recipe capture past events. Learn more about this
+input field
+.
+Event
+Select the event status. For example,
+Created
+,
+Sent
+,
+Delivered
+,
+Signed
+,
+Completed
+,
+Declined
+,
+Voided
+, or
+Deleted
+. If a status is not selected, the default value is
+All
+.
+TRIGGER CONDITIONS
+This trigger supports
+Trigger conditions
+that you can use to filter incoming trigger events.
+#
+Output
+Output field
+Description
+Status
+The current state of the envelope, including the recipient's progress within that envelope. For example,
+Created
+,
+Sent
+,
+Delivered
+,
+Signed
+,
+Completed
+,
+Declined
+,
+Voided
+,
+Deleted
+, or
+All
+.
+Documents URI
+The URI of the document.
+Recipients URI
+The URI for embedding the Docusign UI into your application.
+Envelope URI
+The URI of the envelope that contains one or more documents.
+Envelope ID
+The ID assigned to the envelope for tracking and managing the document lifecycle.
+Custom fields URI
+The URI of custom fields being reused in the document.
+Notification URI
+The URI used to redirect the browser after users have granted access to their Docusign account.
+Status changed date time
+The last time the status of the envelope changed. For example, when a document was signed or delivered.
+Documents combined URI
+The URI of the single PDF file with combined documents.
+Certificate URI
+The URI of the certificate used to verify the identity of the sender.
+Templates URI
+The URL of the template used for reusing envelopes.
+Sign info
+The data and details associated with a completed electronic signature, including the signer's identity, the timestamp of the signature, and other audit trail information.
+ADDITIONAL OUTPUT FIELDS
+This trigger provides a data tree with attributes and values for the specified object. Additional fields depend on the properties you select.
+←
+Connection setup
+New document received trigger
+→
+Last updated:
+3/20/2025, 4:37:07 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

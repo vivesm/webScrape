@@ -1,0 +1,194 @@
+Workatoコネクター - GraphQL | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+ユニバーサルコネクター
+#
+GraphQL
+GraphQL
+(opens new window)
+は、APIのためのデータクエリと操作言語です。WorkatoのGraphQLコネクターを使用すると、GraphQL APIをサポートする任意のアプリケーションからレコードをクエリおよび変更できます。
+#
+GraphQLコネクターの動作方法
+GraphQLコネクターは、アプリケーションスキーマを動的に調査して利用可能なリソースを確認し、自動的に入力および出力フィールドを生成します。これにより、クエリ言語を学ぶ必要なく、Workatoのユーザーインターフェースを介してGraphQLクエリを構築できます。
+既存のカスタムGraphQLドキュメント/クエリがある場合は、
+カスタムアクション
+を使用できます。カスタムアクションを使用すると、GraphQLコネクターはドキュメントを解析し、フィールドをアプリケーションスキーマと一致させて入力フィールドと出力スキーマを自動生成します。
+既知の制限事項
+バイナリファイル/添付ファイルのアップロードはサポートされていません
+GraphQLの「subscription」操作タイプはサポートされていません
+#
+GraphQLコネクターを使用するタイミング
+アプリケーション固有のコネクターが利用できず、アプリケーションがGraphQLエンドポイントを提供している場合は、GraphQLコネクターを使用することを検討してください。
+#
+Workato上のGraphQLアプリケーションに接続する方法
+開始する前に、次のものを確認してください：
+接続を作成するためのWorkatoの特権
+GraphQLエンドポイントのURL
+アプリケーションの認証資格情報
+#
+ステップ1：コネクターをインストールする
+Workatoアカウントにコネクターをインストールします：
+1
+コミュニティライブラリで
+GraphQLコネクター
+(opens new window)
+を開きます。
+2
+インストール
+を選択します。
+3
+最新バージョンをリリース
+を選択します。
+#
+ステップ2：Workatoで接続を設定する
+GraphQL接続の設定
+新しい接続を作成し、インストールしたGraphQLコネクターを選択します。次に、次のフィールドに入力します：
+接続名
+このGraphQL接続に一意の名前を付けて、接続されているアプリケーションを識別します。
+ロケーション
+この接続のための既存の
+プロジェクト
+を選択するか、新しいプロジェクトを作成します。
+接続タイプ
+オンプレミスグループ
+を使用して接続する場合は、ピックリストからグループ名を選択します。それ以外の場合は、直接接続を使用するために
+Cloud
+を選択します。
+GraphQLエンドポイント
+これはGraphQLが操作する単一のHTTP URLです。たとえば、
+https://api.example.com/graphql
+です。URLのパスが空白の場合、デフォルトで
+/graphql
+になります。
+認証方法
+現在、次の認証方法がサポートされています：
+None
+アプリケーションは認証を必要としません。
+Basic
+アプリケーションはユーザー名とパスワードを必要とします。
+Header
+アプリケーションは通常のユーザー名とパスワードまたはAPIキー以外の追加のヘッダーを必要とします。
+クエリパラメータ
+アプリケーションの認証構造は、URLクエリパラメータを検証することに依存します。
+OAuth2（クライアントクレデンシャル）
+(opens new window)
+Workatoはクライアントクレデンシャルのみを使用してアクセストークンを要求します。
+OAuth2（認可コード）
+(opens new window)
+Workatoはあなたをアプリケーションにリダイレクトし、そこでログイン資格情報を入力します。
+OAuth2（リソースオーナーパスワード）
+(opens new window)
+Workatoはユーザーの資格情報（ユーザー名とパスワード）を使用してアプリケーションリソースにアクセスするためのトークンを要求します。
+#
+ステップ3：接続をテストする
+接続の設定が完了したら、
+接続
+を選択して接続を保存およびテストします。
+←
+コネクション項目についてのリファレンス
+レコードのクエリアクション
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+GraphQLコネクターの動作方法
+GraphQLコネクターを使用するタイミング
+Workato上のGraphQLアプリケーションに接続する方法
+ステップ1：コネクターをインストールする
+ステップ2：Workatoで接続を設定する
+ステップ3：接続をテストする
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,173 @@
+Workato コネクター - DocuSign | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+DocuSign
+DocuSign
+(opens new window)
+は、ビジネス向けの完全にデジタルなワークフローを実現する電子署名テクノロジとデジタルトランザクション管理サービスを提供する、安全な電子署名ソリューションです。
+#
+API バージョン
+DocuSign コネクターは
+V2 REST API
+(opens new window)
+を使用します。API のベース URL は
+https://{server}.docusign.net/restapi/v2
+です。
+#
+サポートされるエディションとバージョン
+DocuSign コネクターは、すべての DocuSign プラン (Personal、Standard、Business Pro) で使用できます。
+#
+Workato での DocuSign への接続方法
+DocuSign コネクターは OAuth2.0 を使用します。このため、Zendesk で Workato に DocuSign インスタンスにアクセスする権限を付与する必要があります。
+フィールド
+説明
+接続名
+この接続には、どのDocuSignユーザーとインスタンスが接続されているかを識別する名前を付けます。
+デモ
+これがデモDocuSignアカウントである場合には、その旨を示します。
+アカウントID
+オプション
+デフォルトでは、この接続はユーザーにタグ付けされた最初のDocuSignアカウントを選択します。複数のアカウントを持っている場合には、特定のDocusignアカウントを指定するためにこのフィールドを使用します。特定のアカウントのIDは、設定 => アプリとキー => APIアカウントIDの下で見つけることができます。
+#
+接続に必要なロールと権限
+DocuSign にログイン可能な DocuSign ユーザーは、Workato から DocuSign に接続できます。このユーザーには、DocuSign で付与されているのと同じ
+権限
+(opens new window)
+が Workato でも与えられます。つまり、DocuSign プラットフォーム上の対応する権限に従って、エンベロープの表示、管理、送信などの同じ機能を実行できます。
+#
+DocuSign での汎用作成/更新/検索アクションの使用
+DocuSign での Create/Send Document for Signing (署名用のドキュメントの作成/送信) アクションの使用時には、ファイルの URL がダウンロード可能な形式である必要があります。たとえば、Google Drive ドキュメントにリンクする場合には、
+https://drive.google.com/uc?export=download&id=FILE_ID
+(opens new window)
+に従い、FILE_ID を置き換える必要があります。
+#
+DocuSignのイベント
+DocuSignには、以下のような複数のトリガーがあります。
+新しい受信者イベント
+新しいドキュメントイベント
+新しいドキュメント受信イベント
+#
+新しい受信者イベント
+これは、DocuSignの受信者接続機能に基づいています。これにより、組織内の誰かがDocusignのメールの
+受信者
+であるイベントを監視できます。これにより、ビジネスメッセージングツールなどのチャンネルにこれらのイベントを通知したり、このイベントをERPシステムに記録したりすることができます。このトリガーを設定するには、DocuSignでドメインをクレームする必要があります。
+DocuSignガイド
+(opens new window)
+に従ってください。
+#
+新しいドキュメントイベント
+このトリガーは、組織内の誰かがDocuSignのメールの
+送信者
+であるイベントを監視することができます。これにより、ドラフトから完了までの契約署名の完全なライフサイクルを追跡し、CRMなどのシステムに同期することができます。
+#
+新しいドキュメント受信イベント
+このトリガーは、「新しい受信者イベント」トリガーと同様ですが、DocuSignの認証済みユーザーの単一のメールボックスに対してスコープが設定されています。特定のメールボックスに焦点を当てたい場合に便利です。
+←
+Dialogflow
+Dropbox
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+API バージョン
+サポートされるエディションとバージョン
+Workato での DocuSign への接続方法
+DocuSign での汎用作成/更新/検索アクションの使用
+DocuSignのイベント
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

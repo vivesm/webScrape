@@ -1,0 +1,162 @@
+RecipeOps - Workato によるレシピの停止トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+RecipeOps by Workato
+#
+RecipeOps - Workato によるレシピの停止トリガー
+このトリガーでは、選択したレシピの停止を監視し、その対応策を講じることができます。
+Workato は特定の状況下でアクティブなレシピを停止することがあります。これは通常、レシピの実行時に回復不能なエラーが発生した場合に行われます。
+たとえば、レシピのトリガーで認証エラーが連続して60回発生した場合、Workato はそのレシピを停止します。
+このトリガーを使用すると、レシピを再開するためのロジックを作成したり、チームメイトに通知するためのエスカレーションポリシーを作成したりすることができます。
+#
+入力
+項目
+説明
+Recipes to monitor
+監視するレシピ。以下を監視できます。
+All
+- 接続されているワークスペース内のすべてのレシピを監視します。
+Selected
+- 選択したレシピを監視します。
+Recipe IDs
+レシピを選択して監視する場合、レシピの ID をカンマ区切りリストで指定します。例 :
+362905, 362906
+レシピ ID は、使用しているブラウザーの URL にあります。レシピのページに移動し、
+https://app.workato.com/recipes/
+の後ろにある番号を探します。
+たとえば URL が
+https://app.workato.com/recipes/362905-timekeeper
+の場合、レシピ ID は
+362905
+になります。
+#
+出力
+項目
+説明
+Error ID
+エラーの ID。
+Message
+エラーを説明するメッセージ。例 :
+Invalid connection
+Error count
+エラー発生の合計数。
+Error connector
+Error source
+Error source name
+Is authorization error
+true
+の場合、ユーザー認証の問題に関連したエラーです。
+Is rate limit error
+true
+の場合、API レート制限に関連したエラーです。
+#
+参考資料
+RecipeOps の概要
+RecipeOps のアクション
+RecipeOps のトリガー
+←
+ユーザーによるレシピの停止 トリガー
+オンプレミスエージェントが切断
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+参考資料
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

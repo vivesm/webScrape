@@ -1,0 +1,167 @@
+Workato connectors - Amazon S3 - Upload file action (streaming) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Amazon S3
+#
+Amazon S3 - Upload file action (streaming)
+The
+Upload file
+action (streaming) uploads a file to a bucket or folder in Amazon S3. If a file with the same name and path already exists in that location, uploading a new one overwrites it.
+WHICH UPLOAD ACTION SHOULD YOU USE?
+The
+Upload file
+non-streaming
+and streaming actions both upload files, but they differ in how they process data and what they return.
+Use the non-streaming action for
+smaller files
+where you need a simple confirmation after the upload completes.
+Use the streaming action for
+larger files or continuous data streams
+. This action processes the file in chunks and returns the file location instead. This method is better for handling large datasets, real-time processing, or incremental uploads. Learn more about
+file streaming
+.
+#
+Input
+Input field
+Description
+Bucket name
+Select the bucket where you plan to upload the file or enter the bucket name directly. This field is case-sensitive.
+Object name
+Enter the name of the file you plan to upload. For objects in folders, specify the object path.
+Region
+Provide the region of the bucket where you plan to upload the file, such as
+us-west-2
+. You can locate this value in Amazon S3 by going to
+Bucket > Properties > Static website hosting
+. The region is in the endpoint URL.
+Contents
+Provide the contents of the file to upload. This field accepts a datapill, such as
+File content
+, or raw text.
+Use accelerated endpoint
+Enter
+true
+if
+Transfer Acceleration
+(opens new window)
+is enabled for your Amazon S3 instance.
+Canned ACL
+Use
+Amazon's Canned Access Control List
+(opens new window)
+to specify permissions for this uploaded file.
+#
+Output
+Output field
+Description
+Location
+The location where the file was uploaded.
+←
+Upload file action (non-streaming)
+Download file action
+→
+Last updated:
+2/26/2025, 12:36:37 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

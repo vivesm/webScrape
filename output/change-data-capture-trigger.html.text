@@ -1,0 +1,222 @@
+Salesforce - Change Data Capture Trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+Monitor Changes in a Record - New Change Data Capture Event in Salesforce
+This trigger monitors changes to objects in Salesforce and receives event notifications accordingly. It allows for real time monitoring of objects and easy data replication across your workflows. Change data capture can be used to keep external systems in sync with Salesforce, and even perform specific actions based on the field changed and event type.
+Notably, this real-time trigger requires no additional setup in Salesforce and you can get started from within Workato.
+Monitor Changes in a Record trigger
+#
+Input Fields
+Field name
+Description
+Object
+Select the object you wish to monitor. A subset of standard objects and all custom objects are currently supported by Salesforce. The exhaustive list is present
+here
+(opens new window)
+.
+Monitor changes
+Operation to monitor changes in the object for. Do note that the fields returned by default in the change event body will be influenced by the type of operation that produced the event.
+Fields to retrieve
+Select up to 10 additional fields that will always be included in the event notification for this specific object.
+Fields to watch
+Fields to monitor for changes. This pertains solely for update operations. For other operations, an event notification will be relayed independent of the fields that are selected here.
+#
+Output fields
+Field name
+Description
+Replay ID
+Number indicating the sequence of event notifications. Note that this number is not unique in the case of notifications that spawned from bulk edits.
+Change event header
+Commit number
+The system change number (SCN) of a committed transaction, which increases sequentially. This field is provided for diagnostic purposes. The field value is not guaranteed to be unique in Salesforce—it is unique only in a single database instance. If your Salesforce org migrates to another database instance, the commit number might not be unique or sequential.
+Commit user
+The ID of the user that ran the change operation.
+Sequence number
+The sequence of the change within a transaction. The sequence number starts from 1. A lead conversion is an example of a transaction that can have multiple changes. A lead conversion results in a sequence of changes, all within the same transaction. For more information, see
+Change Events for Lead Conversion
+.
+Entity name
+The API name of the object for which the change event was generated.
+Change type
+The operation that caused the change. Can be one of the following values:
+CREATE
+UPDATE
+DELETE
+UNDELETE
+Changed fields
+A list of the fields that were changed in the UPDATE operation, including the LastModifiedDate system field. This field is empty for other operations, including record creation.
+Change origin
+This field is only populated for changes done by API apps or from Lightning Experience; empty otherwise. Returns the Salesforce API and the API client ID that initiated the change, if set by the client.
+Transaction key
+A string that uniquely identifies each Salesforce transaction. You can use this key to identify and group all changes that were made in the same transaction.
+Commit timestamp
+The date and time when the change occurred, represented as the number of milliseconds since January 1, 1970 00:00:00 GMT.
+Record ID
+Contains a single record ID.
+If in one transaction the same change occurred in multiple records of the same object type during one second, Salesforce merges the change notifications.(More information can be found
+here
+.) In this case, Salesforce sends one change event for all affected records. Workato then separates each of these into distinct event notification. Thus, you may see multiple events with the same transaction key. This is done to improve usability and consistency as the user can be certain that each trigger event pertains only to a single record.
+Change event body
+Note that fields selected in
+Fields to Retrieve
+are always returned alongside the fields mentioned for each specific operation.
+Create
+For a new record, the event message body includes all non-empty fields and system fields, such as the CreatedDate and OwnerId fields.
+Update
+For an updated record, the body includes only the changed fields. It includes empty fields only if they are updated to an empty value (null).
+It also includes the
+LastModifiedDate
+system field.
+The body includes the
+LastModifiedById
+field only if it has changed — if the user who modified the record is different than the user who saved it.
+Delete
+For a deleted record, the body doesn’t include any fields or system fields.
+Undelete
+For an undeleted record, the body includes all non-empty fields from the original record, in addition to system fields.
+#
+Permissions
+We require the following permissions enabled to ensure this trigger works as expected:
+Manage Flow
+Flow User
+Customize Application
+To receive change events for
+Required permission
+A specific standard or custom object
+View All for the object
+User
+View All Users
+Standard objects that don’t have the View All permission, such as Task and Event
+View All Data
+Note that, event notifications are linked to field-level security settings. Delivered events contain only the fields that a subscribed user is allowed to view. If a user has no access to a field, the field isn’t included in the change event message that is received.
+Further details can be found
+here
+(opens new window)
+.
+#
+Limits
+Salesforce only allows monitoring up to 5 distinct objects. Beyond that an add on license is required. Further information can be found
+here
+(opens new window)
+. This implies that you can have multiple recipes (up to a total of 100) monitoring the same object but only a maximum of 5 objects can be monitored across all the recipes.
+The maximum event message size that Salesforce can publish is 1 MB. If your entity has hundreds of custom fields or many long text area fields, you can reach this limit.
+Maximum number of event notifications within a 24 hr period is 25,000 for Enterprise Edition and 50,000 for Performance and Unlimited Editions.
+Detailed information can be found
+here
+(opens new window)
+.
+1. Salesforce change data capture notifications group event messages when identical edits are done in bulk for multiple records. Will we then get a single job for the single notification event?
+To improve usability, we have changed our handling of these events by creating separate jobs to prevent the user from having to handle the two separate cases of receiving a single record and multiple records. The user can thus reliably expect each job to contain details only about a single record. As this delineation has been done by Workato, they will still contain the same Salesforce replayId.
+←
+Real-time triggers
+PushTopic trigger
+→
+Last updated:
+7/12/2023, 8:59:09 AM
+On this page
+Input Fields
+Output fields
+Permissions
+Limits
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

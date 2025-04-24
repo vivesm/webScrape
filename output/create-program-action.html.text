@@ -1,0 +1,197 @@
+Workato コネクター - Marketo - Create program アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Marketo
+#
+Marketo - Create Program (プログラム作成) アクション
+このアクションにより、Marketo インスタンス内に新規プログラムを作成します。
+プログラム作成アクション
+#
+入力
+プログラムの作成は標準的なアセットパターンに従って行われます。作成のための必須パラメータには、フォルダー、名前、タイプ、チャネルがあり、説明、コスト、タグはオプションになります。チャネルとタイプは、プログラムの作成時にのみ設定できます。
+入力項目
+説明
+Folder ID
+プログラムを作成するフォルダーの ID。
+Folder type
+フォルダーのタイプ。使用可能な値は、Folder および Program です。
+Name
+作成される新規プログラムの名前。
+Program type
+プログラムのタイプ。以下の値を指定できます。Default、Event、Event with Webinar、Engagement、および Emailです。
+Channel
+プログラムのチャネル。
+Description
+プログラムの説明。オプションです。
+Costs
+Costs source list
+プログラムのコストが格納されたデータピルを一覧表示します。
+Cost
+プログラムに関連付けられたコスト。
+Note
+コストエントリの補足事項。
+Start date
+コストエントリに関連付けられた開始日時。
+Tags
+Tags source list
+プログラムのタグが格納されたデータピルを一覧表示します。
+Tag type
+タグのタイプ。
+Tag value
+タグの値。
+#
+出力
+出力の応答は、作成されたプログラムの情報を結果のリスト内に含んでいます。
+出力項目
+説明
+Success
+プログラムが正常に作成されたかどうかを示す boolean 値。
+Request ID
+プログラムを追加する要求に関連付けられた ID。
+Errors
+要求に関するすべてのエラーをここで詳細に説明します。
+Warnings
+要求に関するすべての警告をここで詳細に説明します。
+Result
+プログラムのリスト。
+ID
+作成されたプログラムの ID。
+Name
+作成されたプログラムの名前。
+Description
+作成されたプログラムの説明。
+URL
+作成されたプログラムの URL。
+Type
+作成されたプログラムのタイプ。
+Channel
+作成されたプログラムのチャネル。
+Status
+作成されたプログラムのステータス。
+Workspace
+作成されたプログラムのワークスペース。
+Tags
+作成されたプログラムに関連するタグ。
+Folder
+作成されたプログラムが存在するフォルダー。
+Created at
+プログラムの作成日時。
+Updated at
+プログラムの最終更新日時。
+Sfdc ID
+作成されたプログラムの Sfdc ID。
+Sfdc name
+作成されたプログラムの Sfdc 名。
+List Size
+プログラムのリストサイズ。
+List index
+プログラムのリストにおける各項目のインデックス。
+詳細については、
+Marketo に関するドキュメント
+(opens new window)
+を参照してください。。
+←
+プログラム複製
+プログラム検索
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

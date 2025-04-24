@@ -1,0 +1,171 @@
+Recipe Functions - Call Recipe Function Synchronously | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Recipe function by Workato
+#
+Recipe Functions - Call Recipe Synchronously
+This action calls a Recipe function and waits for the response before proceeding to the next step in the recipe.
+#
+Requirements
+To use this action, you need a
+Recipe function
+. This is a recipe that uses the
+Recipe functions - New function call
+trigger and can be called from other recipes.
+#
+Limitations
+When using this action, note that:
+This action is subject to a timeout limit.
+If the
+timeout limit
+is exceeded, the job will fail. You can reduce the likelihood of timeout errors by
+calling the recipe function asynchronously
+.
+This action can cause "job out of order" behavior. Although it is not a long action, it can cause jobs to process out of order. This occurs when multiple recipe functions are invoked within a parent recipe. For more information on this behavior when using concurrency, refer to the
+concurrency
+documentation.
+#
+Input
+Field
+Description
+Recipe function
+Select from a list of Recipe functions in your workspace.
+Recipe input
+The fields defined in the selected Recipe function's
+Input schema
+.
+Connection overrides
+Applicable only if the Runtime user connections setting is enabled in the selected Recipe function
+.
+Specify the name or ID of the connection to use when the recipe is run.
+Learn more
+.
+#
+Output
+Field
+Description
+Job ID
+The ID of the created job.
+Job URL
+The URL of the created job.
+Result
+The Recipe function's
+Response schema
+configuration.
+#
+Resources
+Recipe function overview
+Recipe function actions
+Recipe function triggers
+←
+Call recipe function asynchronously action
+Return data from a recipe function action
+→
+Last updated:
+7/25/2024, 9:01:03 PM
+On this page
+Requirements
+Limitations
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

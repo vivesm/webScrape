@@ -1,0 +1,173 @@
+Using Workbot for Teams | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workbot
+Workbot for Microsoft Teams
+Set up Workbot for Teams
+#
+Using Workbot for Microsoft Teams
+#
+Workbot commands
+You can perform actions in your apps, for example, creating new ServiceNow tickets or listing Salesforce opportunities, by sending Workbot commands from within Microsoft Teams.
+Send a 'newissue' command with additional parameters in Microsoft Teams, then receive a post message reply
+A Workbot command is a trigger that allows you to run a Workbot command recipe.
+Example 'newissue' command in a recipe
+Refer to
+Workbot commands
+to learn more about Workbot commands.
+#
+Workbot help command
+If you get stuck, you can run the
+help
+command in Workbot. Workbot responds with a list of commands available to you.
+Ask Workbot for help
+#
+Invoking Workbot commands in Microsoft Teams
+Workbot commands can be invoked in three distinct ways:
+Send the command
+in a direct message to Workbot or in a channel
+(in a channel, this requires tagging Workbot, for example,
+@workbot your_command
+)
+Send the command
+when a button is clicked
+Submit a
+task module form
+.
+Refer to
+Buttons, choices, and task modules
+to learn more about how buttons, choices, and task modules work.
+Commands can also prompt users for additional parameters. For example, to create a new ServiceNow incident, you must provide the urgency, summary, and description of the incident. In this case, you can add three parameters;
+urgency
+,
+summary
+&
+description
+. When the command is invoked, Workbot opens a task module and prompts you for each parameter.
+Workbot can ask users for info if you specify additional parameters in your command
+#
+Event notifications using Post message action
+Workbot can also be used to notify you when any events occur in your apps. This can be done through the
+Post message
+action.
+A Post message action notifying user about a closed ticket in ServiceNow
+The
+Post message
+action allows you to post a message to a user or in a channel.
+A recipe where a Post message action notifies the user when a ServiceNow incident is closed
+Refer to
+Workbot actions
+to learn more about how the Post message action works.
+#
+Learn more
+Getting started
+Workbot triggers
+Workbot actions
+Workbot buttons, pick lists, and task modules
+←
+Set up Workbot for Teams
+Adaptive card blocks
+→
+Last updated:
+2/28/2024, 11:02:12 PM
+On this page
+Workbot commands
+Event notifications using Post message action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

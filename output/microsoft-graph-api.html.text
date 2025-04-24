@@ -1,0 +1,301 @@
+Workato connectors - Microsoft Graph API | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Microsoft Graph API
+Microsoft Graph API
+(opens new window)
+is a powerful unified endpoint that allows organizations to access and interact with Microsoft 365 services and other Microsoft cloud-based resources. It enables developers to integrate and automate various application actions, such as managing users, groups, mail, calendars, tasks, and security insights.
+With Microsoft Graph API, organizations can enhance security, streamline user management, and enable seamless single sign-on experiences across different applications. It provides access to:
+External resources, such as Microsoft 365, the Azure portal, and thousands of other SaaS applications.
+Internal resources, such as apps on your corporate network, intranet, and any cloud apps developed by your organization.
+#
+Prerequisites
+To use the Microsoft Graph API connector, you must
+register your application in Microsoft Entra ID
+(opens new window)
+.
+This process consists of the following steps:
+Register an application in Microsoft Entra ID
+Assign permissions to your application
+Generate a client secret
+After you complete these prerequisites, you can proceed to
+connect to Microsoft Graph API on Workato
+.
+#
+Register an application in Microsoft Entra ID
+Complete the following steps to register an application in Microsoft Entra ID:
+1
+Sign in to
+Microsoft Entra ID
+.
+2
+Select
+App registrations
+.
+3
+Click
++ New registration
+.
+4
+Provide a
+Name
+for your application.
+5
+Under
+Supported account types
+, select
+Accounts in this organizational directory only
+.
+6
+Under
+Redirect URI
+, choose
+Web
+and enter the following URI:
+https://www.workato.com/oauth/callback
+7
+Click
+Register
+.
+8
+Copy the
+Application (client) ID
+and
+Directory (tenant) ID
+from the application details page. Store these values securely, as they are required for authentication.
+#
+Assign permissions to your application
+Complete the following steps to assign the necessary permissions to your application so it can interact with the Microsoft Graph API:
+1
+Select
+API permissions
+from the left navigation menu.
+2
+Click
++ Add a permission
+.
+3
+Select
+Microsoft Graph
+.
+4
+Choose
+Application permissions
+.
+5
+Select the following
+permissions
+(opens new window)
+:
+offline_access
+Files.ReadWrite.All
+User.Read
+Mail.Read
+Mail.ReadWrite
+Mail.Send
+6
+Click
+Add permissions
+.
+#
+Generate a client secret
+Complete the following steps to generate a client secret for your application:
+1
+Select
+Certificates & secrets
+from the left navigation menu.
+2
+Click
++ New client secret
+.
+3
+Enter a
+Description
+and set an expiration period.
+4
+Click
+Add
+.
+5
+Copy and securely store the
+Value
+of the client secret. This is the only time it will be displayed.
+#
+Connection setup
+The Microsoft Graph API connector supports the following authentication methods:
+Authorization code grant
+Client credentials
+Connection setup
+Complete the following steps to establish a Microsoft Graph API connection:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Microsoft Graph API
+as your connection on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the
+Application (client) ID
+from the Azure portal in the
+Client ID
+field.
+6
+Enter your
+client secret
+in the
+Client secret
+field.
+7
+Select an option from
+Authentication type
+drop-down menu. Options include
+Authorization code grant
+and
+Client credentials
+.
+8
+Select an option from the
+Account type
+drop-down menu. Options include
+Single tenant
+,
+Multitenant
+, and
+Active directory multitenant
+.
+9
+Enter the
+Directory (tenant) ID
+in the
+Tenant ID
+field. This field is required if you select
+Single tenant
+as the
+Account type
+.
+10
+Click
+Connect
+.
+←
+Update user action
+New email trigger
+→
+Last updated:
+2/27/2025, 4:54:06 PM
+On this page
+Prerequisites
+Connection setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

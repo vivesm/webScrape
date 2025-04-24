@@ -1,0 +1,168 @@
+Recipe Copilot | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+AI機能
+Copilots
+#
+Recipe Copilot
+HOW TO GET ACCESS
+CopilotはすべてのWorkatoデータセンターのすべてのユーザーが利用できます。すべてのデータは米国のOpenAIのサーバーに送信されます。この機能にアクセスするには、
+AI機能追加条項
+(opens new window)
+に同意する必要があることに注意してください。
+WorkatoのRecipe Copilotは、大規模言語モデル（LLM）を活用して、レシピ作成体験を強化および加速します。このAI搭載機能は、すべての経験レベルのユーザーがレシピ作成プロセスを通じてガイドし、提案を提供し、タスクを自動補完して開発を迅速化します。
+POWERED BY AI
+Recipe Copilotで生成されたAI提案を展開前に正確性を確認し、テストしてください。
+#
+前提条件
+Copilot
+がワークスペースで有効になっていることを確認してください。Copilotを有効にするには、
+Admin
+システムロールが必要です。このロールが割り当てられていない場合は、ワークスペース管理者に連絡してこの機能を有効にしてください。詳細については、
+Copilots
+ドキュメントを参照してください。
+PERMISSIONS
+Copilotには詳細な権限設定はありません。ワークスペースで有効にすると、役割に関係なく、ワークスペース内のすべてのコラボレーターがアクセスできます。
+#
+Recipe Copilotの使い方
+以下の手順に従って、Recipe Copilotを使用してタスクを自動化します：
+1
+Recipes > Create > Recipe
+に移動します。
+2
+新しいレシピの名前を
+Name
+フィールドに入力します。
+3
+ドロップダウンメニューからプロジェクトまたはフォルダーを選択して、レシピの
+Location
+を選択します。
+4
+Start building
+をクリックして、Recipe Copilotによるガイド付きレシピ作成プロセスを開始します。
+5
+この段階で、レシピの開始点を決定します：
+ゼロから始めて独自のレシピを作成する。
+Recipe Copilotを使用して、オートメーション目標に基づいてレシピ作成をガイドする。
+Recipe Copilot start screen
+Recipe Copilotは、
+レシピを作成する
+のに役立ちます。
+#
+Copilot生成の確認
+Recipe CopilotのAIによる提案には不正確な点が含まれる場合があります。レシピの信頼性を確保するために、以下のガイドラインを確認してください：
+#
+提案の確認
+AIが生成した各提案を確認し、要件を満たし、レシピのコンテキストに合っていることを確認します：
+ロジックがオートメーション目標に合致していることを確認します。
+提案されたデータフィールドや変換の正確性と関連性を確認します。
+#
+徹底的なテスト
+本番環境での問題を避けるために、AIが生成した提案をテストします：
+開発またはテスト環境でテストを実施し、ライブプロセスに影響を与えずに潜在的な問題を特定します。
+実際の使用ケースをシミュレートするために現実的なテストデータを使用し、実際の条件下での機能を確認します。
+さまざまなシナリオで提案が確実に機能することを確認するために、複数のテストを実行します。
+←
+Copilots
+レシピ作成におけるRecipe Copilot
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+前提条件
+Recipe Copilotの使い方
+Copilot生成の確認
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

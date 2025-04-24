@@ -1,0 +1,163 @@
+On-prem Agent - OPA Smart Shunt | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+#
+OPA Smart Shunt
+OPA Smart Shunt allows users to send data directly from the source system to its destination entirely on-premise.
+Smart Shunt for On-Prem Database extracts
+#
+OPA Smart Shunt for compliance
+The direct "ground-to-ground" integration means that your secure data never leaves the data center. This allows your team to remain compliant with your company's security requirements while using Workato to move data between on-premise systems.
+#
+OPA Smart Shunt for increased performance
+Additional, OPA Smart Shunt optimizes for high volume and high speed data transfer. When a workflow extracts and loads data entirely on-premise, it allows the workflow to avoid network latency and bypass file transfer size limits.
+#
+How to use OPA Smart Shunt
+For each
+on-premise database
+connector, there is the
+Export query result
+action.
+Selected Database connectors have the Export Query Result action
+This action instructs the on-prem agent to query a local database and export the results as a CSV file. This CSV file is then streamed to an on-premise file storage.
+GOT A STAGING ENVIRONMENT?
+Learn how to setup a staging area in your
+OPA configuration file
+.
+Subsequently, the CSV file can be loaded to a downstream data warehouse.
+In this
+example recipe
+(opens new window)
+, the OPA exports the results from an on-premise PostgreSQL database as a CSV file and uploads it to a local file storage.
+#
+What databases support OPA Smart Shunt
+OPA Smart Shunt is support on all databases that have Java Database Connectivity (JDBC) drivers. The databases that support OPA Smart Shunt include:
+JDBC
+PostgreSQL
+SQL Server
+MySQL
+Oracle
+IBM Db2
+#
+How to configure the export query result action
+Read up on how to configure the
+Export query result
+action for each connector:
+JDBC: Export query result
+PostgreSQL: Export query result
+SQL Server: Export query result
+MySQL: Export query result
+Oracle: Export query result
+#
+How to enable OPA Smart Shunt
+The OPA Smart Shunt feature is available to customers on specific pricing plans. To use this feature, you must have the OPA and ETL/ELT capabilities included in your plan. Refer to your pricing plan and contract to learn more.
+←
+FAQs
+Troubleshooting
+→
+Last updated:
+11/5/2024, 6:04:00 PM
+On this page
+How to use OPA Smart Shunt
+What databases support OPA Smart Shunt
+How to configure the export query result action
+How to enable OPA Smart Shunt
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

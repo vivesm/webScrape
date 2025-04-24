@@ -1,0 +1,174 @@
+On-prem Agent - Automatic alerts | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Accessing On-prem
+On-prem agent
+#
+Automatic alerts
+You can enable automatic alerts to stay informed about the status of your On-prem Agent (OPA). This feature sends email notifications whenever the OPA disconnects from Workato. This ensures that you receive prompt alerts on issues with your OPA Agent, and prevents disruptions to recipes that rely on OPA.
+#
+OPA Agent disconnection types
+There are two types of agent disconnections:
+Type of disconnection
+Description
+Unexpected disconnection
+This type of disconnection occurs without prior notice and is usually caused by unforeseen issues such as a network outage on the user side, connectivity issues, or hardware failures. This disconnection type can cause immediate disruptions to recipes relying on the OPA.
+Expected disconnection
+This type of disconnection occurs when you manually shut down the OPA.
+You can configure automatic alerts with the following specifications to ensure a prompt response:
+Disconnection types: this enables you configure the disconnection events you plan to monitor, including
+Unexpected agent disconnection
+and
+Manual agent shutdown
+events.
+Alert recipients: this enables you to configure the email recipients who receive the alerts immediately whenever the OPA disconnects from Workato.
+#
+Configure automatic alerts
+Configure automatic alerts
+DEFAULT TOGGLE SETTING
+The
+Unexpected agent disconnection
+alert is enabled by default for all users.
+1
+Navigate to the
+Settings
+view under the on-prem group page.
+2
+Select the
+Email alerts
+tab.
+3
+Go to the
+Recipients
+section and check the email addresses of the technical contacts who should receive the alerts. Email alerts are sent to the technical contacts defined in the Workspace admin settings.
+4
+Use the toggle to enable or disable
+Unexpected agent disconnection
+and
+Manual agent shutdown
+alerts. The
+Unexpected agent disconnection
+option is
+enabled
+by default.
+5
+Click
+Save
+to save your automatic alerts configuration.
+#
+Email notification
+Email notifications are sent to the technical contacts you specify when the OPA is unexpectedly disconnected or manually shut down.
+Email notification - unexpected disconnection
+Email notification - manual shut down
+You can click the
+View on-prem agent
+button in the email alert to view the OPA page with the disconnected agent.
+Disconnected agent on OPA page
+←
+Upgrade an agent
+Key management
+→
+Last updated:
+6/27/2024, 3:29:41 PM
+On this page
+OPA Agent disconnection types
+Configure automatic alerts
+Email notification
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

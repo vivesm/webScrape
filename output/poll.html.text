@@ -1,0 +1,799 @@
+ポーリングトリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+トリガーの作成
+#
+How to ガイド - ポーリングトリガー
+ポーリングトリガーは、一定の時間間隔で新しいイベントの poll キーを常に実行します。この時間間隔はデフォルトで5分ごとになっていますが、レシピでトリガーを設定する際にユーザーが変更できます。ポーリングトリガーは、間隔ごとに HTTP リクエストを実行して、前回のポーリング以降の新しいレコードやイベントについて API にクエリーを実行することによって機能します。これは、トリガーロジックに組み込まれたカーソルを介して可能になります。
+#
+サンプルコネクター - Freshdesk
+{
+title
+:
+'My Freshdesk connector'
+,
+# More connector code here
+triggers
+:
+{
+updated_ticket
+:
+{
+title
+:
+'New/updated ticket'
+,
+subtitle
+:
+"Triggers when a ticket is created or "
+\
+"updated in Freshdesk"
+,
+description
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+"New/updated <span class='provider'>ticket</span> "
+\
+"in <span class='provider'>Freshdesk</span>"
+end
+,
+help
+:
+"Creates a job when tickets are created or "
+\
+"updated in Freshdesk. Each ticket creates a separate job."
+,
+input_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+'since'
+,
+label
+:
+'When first started, this recipe should pick up events from'
+,
+type
+:
+'timestamp'
+,
+optional
+:
+true
+,
+sticky
+:
+true
+,
+hint
+:
+'When you start recipe for the first time, it picks up '
+\
+'trigger events from this specified date and time. Defaults to '
+\
+'the current time.'
+}
+]
+end
+,
+poll
+:
+lambda
+do
+|
+connection
+,
+input
+,
+closure
+,
+_eis
+,
+_eos
+|
+closure
+=
+{
+}
+unless
+closure
+.
+present
+?
+page_size
+=
+100
+updated_since
+=
+(
+closure
+[
+'cursor'
+]
+||
+input
+[
+'since'
+]
+||
+Time
+.
+now
+)
+.
+to_time
+.
+utc
+.
+iso8601
+tickets
+=
+get
+(
+"https://
+#{
+connection
+[
+'helpdesk'
+]
+}
+.freshdesk.com/api/v2/tickets.json"
+)
+.
+params
+(
+order_by
+:
+'updated_at'
+,
+order_type
+:
+'asc'
+,
+per_page
+:
+page_size
+,
+updated_since
+:
+updated_since
+)
+closure
+[
+'cursor'
+]
+=
+tickets
+.
+last
+[
+'updated_at'
+]
+unless
+tickets
+.
+blank
+?
+{
+events
+:
+tickets
+,
+next_poll
+:
+closure
+,
+can_poll_more
+:
+tickets
+.
+length
+>=
+page_size
+}
+end
+,
+dedup
+:
+lambda
+do
+|
+record
+|
+"
+#{
+record
+[
+'id'
+]
+}
+@
+#{
+record
+[
+'updated_at'
+]
+}
+"
+end
+,
+output_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+'id'
+,
+type
+:
+'integer'
+}
+,
+{
+name
+:
+'email'
+}
+,
+{
+name
+:
+'subject'
+}
+,
+{
+name
+:
+'description'
+}
+,
+{
+name
+:
+'created_at'
+}
+,
+{
+name
+:
+'updated_at'
+}
+]
+end
+,
+sample_output
+:
+lambda
+do
+|
+connection
+,
+input
+|
+{
+"id"
+:
+1234
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"subject"
+:
+"Account provisioning"
+,
+"description"
+:
+"I need access to my account"
+}
+end
+}
+}
+# More connector code here
+}
+#
+ステップ1 - トリガーのタイトル、サブタイトル、説明、ヘルプ
+優れたトリガーの作成に向けた最初のステップは、そのトリガーが何を実行するかを適切に伝え、さらにユーザーに追加のヘルプを提供することです。そのために Workato では、アクションのタイトルと説明を定義したり、ヒントを提供したりできるようにしています。簡単に言えば、タイトルはアクションの名称であり、サブタイトルはそのアクションのより詳しい内容を表します。続いて、アクションの説明は、接続先となるアプリケーションにおいてそのアクションがどのようなことを達成するかについて、仕様や解説を提供します。最後に、ヘルプのセグメントは、アクションをうまく機能させるために必要な追加情報をユーザーに提供します。
+このステップの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ2 - 入力項目の定義
+この部分では、このトリガーを設定するユーザーに向けて表示すべき項目を Workato に指示します。この場合、タイムスタンプの値を選択できる単純な入力項目が必要です。これは、レシピが開始される前に作成/更新されたチケットを取得するために、後でトリガーコードで使用されます。これは、データの遡及同期のためにコネクターのユーザーに提供する優れたツールです。
+input_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+'since'
+,
+label
+:
+'When first started, this recipe should pick up events from'
+,
+type
+:
+'timestamp'
+,
+optional
+:
+true
+,
+sticky
+:
+true
+,
+hint
+:
+'When you start recipe for the first time, it picks up '
+\
+'trigger events from this specified date and time. Defaults to '
+\
+'the current time.'
+}
+]
+end
+新規/更新チケットの入力項目
+入力/出力項目に関しては、上記で定義したもの以外にも、さまざまなキーと値のペアが存在します。詳細については、
+こちら
+を参照してください。
+オブジェクトの定義
+引数として
+object_definitions
+が渡されていることに注意してください。Workato では、コネクターの作成者が "object_definitions" キー内でオブジェクトの定義を独立して記述できるようになっています。このキーは、オブジェクトの定義が長大である場合や、定義が動的に取得される場合に使用されます。
+この詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ3 - poll キーの定義
+poll キーは、時間間隔ごとに実行すべき内容を Workato に指示します。この
+poll
+lambda 関数が時間間隔ごとに呼び出され、該当する新規/更新チケットを取得します。
+poll
+:
+lambda
+do
+|
+connection
+,
+input
+,
+closure
+,
+_eis
+,
+_eos
+|
+closure
+=
+{
+}
+unless
+closure
+.
+present
+?
+# initialise the closure hash when recipe is first started.
+page_size
+=
+100
+updated_since
+=
+(
+closure
+[
+'cursor'
+]
+||
+input
+[
+'since'
+]
+||
+Time
+.
+now
+)
+.
+to_time
+.
+utc
+.
+iso8601
+tickets
+=
+get
+(
+"/tickets.json"
+)
+.
+params
+(
+order_by
+:
+'updated_at'
+,
+order_type
+:
+'asc'
+,
+per_page
+:
+page_size
+,
+updated_since
+:
+updated_since
+)
+closure
+[
+'cursor'
+]
+=
+tickets
+.
+last
+[
+'updated_at'
+]
+unless
+tickets
+.
+blank
+?
+{
+events
+:
+tickets
+,
+next_poll
+:
+closure
+,
+can_poll_more
+:
+tickets
+.
+length
+>=
+page_size
+}
+end
+,
+上記の例では、次の3つの引数を受け取ります。
+connection
+- Freshworks へのコネクション作成時にユーザーが指定した値に対応します。
+input
+- このトリガーの入力に対応します。この場合は、単一の入力である
+since
+になります。
+closure
+- 前回のポーリングから渡されたハッシュに対応します。レシピが最初に開始された場合は
+nil
+です。
+poll
+lambda 関数内では、
+closure
+引数をオブジェクトとして初期化してから、新しい変数
+updated_since
+も初期化します。この
+updated_since
+変数は、存在する (前回のポーリングから渡されたカーソルを示す) 場合は
+closure['cursor']
+に割り当てられ、レシピが最初に開始されたときの最初のポーリングであることを示す場合は
+input['since']
+に割り当てられます。
+次の行では、クエリーパラメータを設定して
+/tickets.json
+エンドポイントに GET リクエストを送信し、関連するチケットを取得します。チケットがあった場合、
+closure['cursor']
+は、最後のチケットの
+updated_at
+属性のタイムスタンプに更新されます。
+poll
+lambda 関数の期待される出力は、次の3つのキーを持つオブジェクトです。
+events
+- イベントの配列、またはデータをイベントキーに渡す必要があります。配列内の各インデックスは、個別のジョブとして処理されます。
+next_poll
+- トリガーの次のポーリングのクロージャ引数になります。
+can_poll_more
+- 直ちにポーリングを再実行するか、次の間隔でポーリングするかをトリガーに指示します。これは、Freshdesk から100件のチケットが返された場合に使用され、前回のポーリング以降に作成/更新されたチケットがさらにある可能性を示します。
+poll キーの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ4 - 出力項目と dedup の定義
+このセクションでは、トリガーの出力として表示するデータピルと、重複レコードを回避してジョブが繰り返されないようにする方法を指示します。ジョブが繰り返されないようにする (これは API 側のバグにより発生する可能性があります) には、レコードごとに一意の署名を作成する方法をコネクターに指示する
+dedup
+キーを使用します。この署名はレシピごとに保存され、同じ署名のレコードが見つかった場合、ジョブは作成されません。
+データピルの場合は、
+output_fields
+キーを使用します。各データピルの
+name
+属性は、単一のチケットレコードのキーと一致する必要があります。
+dedup
+:
+|
+record
+|
+"
+#{
+record
+[
+'id'
+]
+}
+@
+#{
+record
+[
+'updated_at'
+]
+}
+"
+end
+,
+output_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+'id'
+,
+type
+:
+'integer'
+}
+,
+{
+name
+:
+'email'
+}
+,
+{
+name
+:
+'subject'
+}
+,
+{
+name
+:
+'description'
+}
+]
+end
+新規/更新チケットの出力項目
+# Entire tickets array assigned to the events key
+[
+{
+"id"
+:
+1234
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"subject"
+:
+"Account provisioning"
+,
+"description"
+:
+"I need access to my account"
+}
+,
+{
+"id"
+:
+4321
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"subject"
+:
+"Account deprovisioning"
+,
+"description"
+:
+"I want to cancel my account"
+}
+,
+...
+]
+出力項目キーの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+オブジェクトの定義
+引数として
+object_definitions
+が渡されていることに注意してください。Workato では、コネクターの作成者が "object_definitions" キー内でオブジェクトの定義を独立して記述できるようになっています。このキーは、オブジェクトの定義が長大である場合や、定義が動的に取得される場合に使用されます。
+この詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ5 - サンプル出力の定義
+サンプル出力キーは、コネクターにとって任意の補足的な要素ですが、想定されるデータピルの値について情報をユーザーに伝えることで、ユーザーエクスペリエンスを大幅に向上させます。これにより、ユーザーはより速やかにレシピを作成できるようになります。
+sample_output
+:
+lambda
+do
+|
+connection
+,
+input
+|
+{
+"id"
+:
+1234
+,
+"email"
+:
+"
+[email protected]
+"
+,
+"subject"
+:
+"Account provisioning"
+,
+"description"
+:
+"I need access to my account"
+}
+end
+サンプル出力キーの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+←
+トリガーの作成
+静的 Webhook トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サンプルコネクター - Freshdesk
+ステップ1 - トリガーのタイトル、サブタイトル、説明、ヘルプ
+ステップ2 - 入力項目の定義
+ステップ3 - poll キーの定義
+ステップ4 - 出力項目と dedup の定義
+ステップ5 - サンプル出力の定義
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

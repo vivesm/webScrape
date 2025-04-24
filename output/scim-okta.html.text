@@ -1,0 +1,397 @@
+Configure and use SCIM in Okta | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Workspace collaborators
+Automate account provisioning with SCIM 2.0
+#
+Configure SCIM in Okta
+Workato supports the SCIM 2.0 protocol with the Okta identity provider.
+#
+Prerequisites
+Your organization must have the
+Data Monitoring/Advanced Security & Compliance
+capability.
+You must have
+SAML SSO
+successfully set up with your identity provider.
+You already
+configured SCIM in Workato
+.
+#
+Configure SCIM
+1
+Log in to your
+Okta admin
+dashboard.
+2
+If you have already configured your Workato SAML app on Okta, locate the
+Workato SAML Application
+, and navigate there.
+If you have not configured your Workato SAML app on Okta yet,
+create a new SAML 2.0 app
+before proceeding.
+3
+In the
+General
+tab, under
+App Settings
+, find the
+Provisioning
+field.
+4
+Select
+Enable SCIM Provisioning
+, and Save.
+Enable SCIM provisioning
+5
+You can now see the new
+Provisioning
+tab on Okta.
+6
+In the
+SCIM Connection
+interface, specify the following:
+SCIM connector base URL
+This is the
+Base URL
+of the Workato SCIM API endpoint, that you copied when configuring SCIM in Workato.
+In this example, we use
+https://workato.com/scim/v2
+.
+Unique identifier field for users
+This is how we identify users both in Workato and in Okta.
+Here, we set the
+userName
+in Okta to contain the user’s email.
+Supported provisioning actions
+Select the following actions:
+Import New Users and Profile Updates
+Push New Users
+Push Profile Updates
+Authentication Mode
+Select HTTP Header.
+Authorization
+Set the
+Bearer
+field by pasting the
+SCIM token
+you copied when configuring SCIM in Workato.
+SCIM setup details
+7
+Click
+Test Connector Configuration
+to determine if your setup is correct.
+8
+When the test runs successfully, Okta displays the status of the connection and the supported SCIM provisioning actions.
+Successful SCIM setup in Okta
+#
+Configure Workato role attributes for SCIM
+After completing and verifying your SCIM configuration in Okta, you can see two additional options in the
+Application
+interface:
+To App
+and
+To Okta
+.
+1
+To sync Workato roles and other user attributes with Okta, you must select the following SCIM actions in the
+To App
+interface:
+Create Users
+Update User Attributes
+Deactivate Users
+To App actions
+2
+If you previously configured the
+workato_role
+,
+workato_role_test
+, and
+workato_role_prod
+custom attributes on the Workato App user profile, you must configure them again and include the additional external namespace.
+This enables Okta to update these custom attributes as they change.
+Navigate to the
+Profile Editor
+.
+Select the
+Workato App User Profile
+.
+Click
+Add attribute
+.
+Add these values to the fields for
+workato_role
+:
+Data type
+String
+Display Name
+workato_role
+Variable Name
+workato_role
+External Name
+workato_role
+External Namespace
+urn:ietf:params:scim:schemas:workato:1.0:WorkatoRole
+Attribute Members
+Define the enumerated list of values and add the attribute members; these are the roles that you can assign to users in Workato. For example,
+Admin
+,
+Analyst
+,
+Operator
+, <
+No access
+, and custom roles.
+Attribute
+Required. Ensure that this is checked.
+Configure workato_role
+If your organization has the
+Environment
+feature in Workato, repeat this step for all environment-specific roles, such as
+workato_role_prod
+,
+workato_role_test
+, and for any additional custom roles.
+3
+Click
+Save
+.
+4
+Your configuration should resemble the following example:
+Complete configuration
+#
+Provision users
+If you already have users assigned to your Workato application for SAML SSO, you can trigger a provisioning job to sync your existing users between Okta and Workato. This ensures that you don't unintentionally create duplicate accounts on your Workato workspace.
+1
+In the
+Assignments
+interface, Okta denotes the users that existed before you configured SCIM with a red exclamation mark icon.
+Existing users are not provisioned by SCIM
+2
+To trigger a provisioning cycle, click
+Provision User
+.
+3
+The system notifies you that it will sync the downstream app (Workato) and trigger user provisioning.
+Click
+OK
+.
+Confirm provisioning
+4
+For new users, assign the application and specify the
+workato_role
+attribute values.
+5
+Alternatively, you may assign the application to a
+group
+, and then configure role values.
+Navigate to
+Groups > Application > Assign Workato
+, and specify the attributes.
+Configure groups
+6
+Workato sends an email invitation to the selected users. Instruct users to click the link in the email to verify their email address:
+Email invitation to join a workspace
+The collaborator can then sign in to the assigned workspace with the role(s) you configured.
+TROUBLESHOOTING
+If clicking on the invitation email redirects you to the Workato login page instead of your organization’s workspace, it is likely that you already have a Workato account associated with the same email. If you have forgotten your login credentials, reset your password.
+7
+You can check the Workato
+activity audit log
+to confirm the addition of the user:
+Activity audit log showing that a user has accepted an invitation
+#
+Convert user assignments to group assignments
+Consider a situation where you assigned a user to the Workato application individually, and now plan to manage them through groups on Okta. You must convert individual users to the group where they are assigned, so they get the roles that map from group attributes.
+1
+Navigate to the Workato application on Okta:
+Applications > Workato > Assignments
+.
+2
+Select
+Convert Assignments
+.
+Convert assignments from user to group
+3
+In the
+Select assignments to convert
+interface, select the individual user that you plan to convert from user to group management.
+Select the user to convert to group management
+4
+Click
+Convert selected
+.
+5
+When the conversion completes, Okta displays a successful conversion message.
+#
+Update users
+In contrast to SAML, role updates through SCIM occur immediately.
+If a user has an active session, updating their role through SCIM triggers a role change immediately. So, the next action the user takes in Workato updates their access privileges according to the rules specified in Okta.
+1
+In Okta, navigate to
+Applications > Workato > Assignments > Select user
+.
+2
+Update the role values and click
+Save
+.
+3
+This action triggers a user update call to Workato through SCIM, and updates the user’s role.
+4
+To verify new members on Workato after provisioning them through SCIM, you can check the collaborators team list.
+You can also examine the activity-audit logs dashboard.
+We denote changes made through SCIM as
+scim_auto_sync
+.
+Confirming role change through SCIM
+#
+Deprovision users
+You can deprovision users directly in the
+Okta admin
+dashboard.
+In
+Okta
+, a deprovisioning event can be any of the following actions:
+User suspension
+User deactivation
+App access removed
+In
+Workato
+, a user is deprovisioned from your Workato workspace in any of the following scenarios:
+User is suspended in Okta
+User is deactivated in Okta
+Workato app is removed from the user
+In all these situations, the user cannot access the Workato workspace. The user’s recipes and connections remain available to the rest of the team.
+The user may be re-provisioned from Okta at a later time, and would retain their earlier privileges.
+#
+Disable SCIM
+To disable SCIM, follow these steps in Okta. Alternatively, you can disable SCIM in
+Workato
+.:
+1
+In Okta, find the Workato application.
+2
+Navigate to
+General
+.
+3
+Disable SCIM by unselecting the
+Enable SCIM provisioning
+option, and then
+Confirm
+your action.
+This action breaks your SCIM connection. User data cannot be synced between Okta and Workato.
+←
+Disable SCIM in Workato
+Configure and use SCIM with OneLogin
+→
+Last updated:
+11/5/2024, 6:04:00 PM
+On this page
+Prerequisites
+Configure SCIM
+Configure Workato role attributes for SCIM
+Provision users
+Convert user assignments to group assignments
+Update users
+Deprovision users
+Disable SCIM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

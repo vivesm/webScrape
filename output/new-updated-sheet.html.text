@@ -1,0 +1,145 @@
+Workato connectors - Smartsheet New or updated row trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Smartsheet
+#
+Smartsheet - New or updated row in a sheet trigger
+The
+New or updated row in a sheet
+trigger activates when a row is added or updated in a Smartsheet. This trigger operates in real-time, initiating actions immediately after a row is added or modified. Events that occur when the recipe is stopped are not processed. Use the
+Get row by ID
+action if you plan to monitor changes to rows when the recipe is stopped.
+Smartsheet - New or updated row in a sheet trigger
+#
+Input
+Input field
+Description
+Sheet name
+The name of the sheet you plan to monitor for new or updated rows.
+Columns to monitor
+Select specific columns to monitor for changes. When a cell within these columns changes, the corresponding row triggers the recipe. This field defaults to all columns if none are selected.
+Trigger condition
+Set a specific condition to trigger the recipe. Only rows matching the condition are processed.
+#
+Output
+Output field
+Description
+Object type
+The type of object that the event pertains to.
+Event type
+The type of event that triggered the workflow.
+Row ID
+The unique identifier for the row that was added or updated.
+User ID
+The ID of the user who made the change to the row.
+Timestamp
+The date and time when the row was added or updated.
+←
+Connection setup
+New or updated row in report
+→
+Last updated:
+2/20/2024, 7:45:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

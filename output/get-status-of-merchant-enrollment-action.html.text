@@ -1,0 +1,182 @@
+Mastercard - Get status of merchant enrollment action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Mastercard
+#
+Mastercard - Get status of merchant enrollment action
+The
+Get status of merchant enrollment
+action enables you to fetch the status of enrolled merchants.
+#
+Input
+Input fields
+Description
+Transaction ID
+Provide the transaction ID of the merchant enrolled.
+Limit
+Enter the number of records to fetch.
+Offset
+Determine the offset of the records.
+#
+Output
+Output fields
+Description
+Message type
+Type of the message.
+Total records
+Total number of records uploaded.
+Offset
+Offset of the records to be returned. This number must be equal or greater than zero.
+Limit
+Number of records to fetch per request. This number should be less than or equal to the configured limit on the API side, which is
+1000
+.
+Transaction ID
+Unique ID of the transaction.
+Processor name
+Name of the processor.
+Report status
+Indicates whether the status is completed or failed.
+Success records
+Number of successful records in the current page.
+Failed records
+Number of failed records in the current page.
+Merchant data
+An array of merchant data outbound objects containing the status response details.
+Acquirer BIN
+Acquirer reference ID number.
+Acquirer CID
+Acquirer company ID.
+Acquirer ICA
+Acquirer ICA number.
+Acquirer name
+The acquirer name.
+Merchant ID
+Acquirer merchant ID.
+Merchant name
+Name of the merchant.
+Identity check express
+Flag for Identity Check Express. Valid values are
+Y
+or
+N
+.
+Delete reason
+Reason for deleting the merchant enrollment. Only required if the selected action is delete.
+Status
+Status of the record. This is either
+Successful
+or
+Rejected
+.
+Reason
+Contains either new record data for successful merchant enrollment or the reason for failure for rejected records.
+←
+Enroll or unenroll merchants action
+Microsoft Dynamics Finance and Operations
+→
+Last updated:
+2/25/2025, 1:35:45 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,146 @@
+Workato connectors - GoTo Webinar - New webinar session trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+GoTo Webinar
+#
+GoTo Webinar - New webinar session trigger
+The
+New webinar session
+trigger picks up events from a specified time range.
+#
+Input
+Input field
+Description
+When first started, this recipe should pick up events from
+Select the date and time from which Workato picks up new webinar sessions. Leave this field blank to retrieve sessions created one hour ago. You can't change this value after running or testing the recipe.
+Trigger poll interval
+Specify how frequently the recipe checks for new events. The default is five minutes if left blank. The minimum value allowed is five minutes.
+#
+Output
+Output field
+Description
+Session key
+The unique key of the webinar session.
+Webinar ID
+The 9-digit webinar ID.
+Webinar key
+The webinar's unique ID.
+Registrants attended
+The number of registered attendees in the session.
+Start time
+The starting time of the webinar, such as
+2020-03-13T10:00:00Z
+.
+End time
+The ending time of the webinar, such as
+2020-03-13T22:00:00Z
+.
+←
+Connection setup
+Get webinar details action
+→
+Last updated:
+2/26/2025, 9:17:11 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

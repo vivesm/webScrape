@@ -1,0 +1,380 @@
+Data retention policies | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data & security
+#
+Data retention policies
+SUMMARY
+Workato's data retention policy determines the lifespan of data, such as job histories, trigger events, and custom reports. Workato deletes these data types after the specified time.
+Default retention varies from 30 to 90 days from the job's completion date depending on your workspace type and platform plan. You can customize the retention time in certain cases.
+You can set data retention at the workspace level or opt not to store data for specific recipes.
+Store data beyond the default period by using audit log streaming to send data to supported applications.
+Workato retains specific recipe and usage data to power the
+Dashboard
+, display custom reports, repeat jobs, and troubleshoot errors. After the data retention period passes, this data is automatically and permanently deleted from the Workato platform.
+The time data is retained is determined by a
+data retention policy
+. In this guide, we'll cover:
+The basics of data retention policies in Workato
+The default retention periods in Workato
+What types of data are subject to the retention policy
+How to customize your workspace's retention period
+How to selectively retain data at the recipe level
+#
+Basics
+What is a data retention policy?
+What is Workato's data retention policy?
+Can I customize the retention period for my workspace?
+Can I customize retention at the recipe level?
+Can I store data for longer than the retention period?
+What types of data are subject to the data retention policy?
+What happens if I change my data retention policy?
+Is job data retention retroactive?
+#
+What is a data retention policy?
+Workato's data retention policy specifies how long
+specific types of data
+are stored for your account. The data retention period is 30 or 90 days from the job's completion date, depending on your workspace type and platform plan. Workato retains this data to support error recovery, duplicate detection, custom reports, and job re-runs.
+Data subject to the retention policy is automatically and permanently deleted when the retention period passes. For example, if the retention period is 90 days, applicable data that is more than 90 days old is deleted.
+#
+Retention policy duration
+RETENTION PERIOD STARTS WHEN A JOB ENDS
+The retention period for a recipe job starts when the job ends.
+For example, if your workspace's data retention policy is set to 30 days, the data from a recipe job is retained for 30 days starting from the job's completion date. This means that if a job begins on October 31st and completes on November 1st, the data associated with that job is retained until December 1st.
+For customers on legacy plans, the default data retention policy for your Workato account varies based on the type of workspace you use and any additional capabilities you select.
+Purchased?
+Maximum retention
+Customizable?
+None
+30 days
+No
+Enterprise Workspace
+90 days
+Yes (1 hour minimum)
+Data Monitoring capability
+90 days
+Yes (1 hour minimum)
+For customers on the new pricing model, the default data retention policy for your Workato account varies based on your platform plan. Refer to your pricing plan and contract to learn more.
+Platform plan
+Maximum retention
+Customizable?
+Standard
+30 days
+No
+Business
+30 days
+No
+Enterprise
+90 days
+Yes (1 hour minimum)
+MAXIMUM RETENTION AND CUSTOMIZATION OPTIONS
+The maximum retention period and the ability to customize it depends on your platform plan. Refer to your pricing plan and contract to learn more.
+#
+Can I customize the retention period for my workspace?
+Yes, if you have an
+Enterprise Workspace
+or have the
+Data Monitoring/Advanced Security & Compliance
+capability.
+Refer to the
+Customization at the workspace level section
+for more info.
+#
+Can I customize retention at the recipe level?
+Yes. The
+Jobs data retention
+recipe setting allows you to define whether Workato stores job data for the recipe:
+Recipe-level data retention policy
+See the
+Defining data retention for recipes guide
+for more information.
+#
+Can I store data for longer than the retention period?
+To store data longer than the retention period, use
+Audit log streaming
+. Using this feature, you can send job and activity log data from Workato to your event management application of choice.
+Workato supports the following applications:
+Amazon S3
+Data Dog
+Splunk
+Sumo Logic
+Any other application or service accessible over an HTTP endpoint
+Note
+: Audit log streaming only includes data created
+after
+you configure the streaming. It does not apply to data created prior to the configuration.
+#
+What types of data are subject to the data retention policy?
+The following types of data are subject to your account's data retention policy:
+Job history summaries
+Job history details
+Trigger events
+Customized job reports
+DATA TYPES EXEMPT FROM RETENTION POLICY
+The following types of data are not subject to your account's data retention policy:
+Data tables
+data, including data entered in
+Workflow apps
+: Workato doesn't delete this data automatically. To delete this data, you must do so from the
+Data tables
+interface or programmatically.
+FileStorage
+data: Workato doesn't delete FileStorage data automatically. To delete this data, you must use the FileStorage delete action. Manually deleted data is purged from all backup drives within four days.
+SQL Transformations
+data: Temporary contents received from different sources other than FileStorage, and the transformed output data are all automatically purged from primary and backup drives within 4 days.
+#
+What happens if I change my data retention policy?
+This varies, depending on whether you reduce or extend your data retention policy:
+Reducing the data retention policy
+: If you reduce the retention policy from 90 days to 60 days, the data for the reduced period (30 days) is not retroactive. For example, if the retention policy is changed on December 1, 2024, data from before October 2, 2024 is no longer retained by Workato.
+Extending the data retention policy
+: If you extend the retention policy from 30 days to 90 days, the additional data (30 days) is retroactive. For example, if the retention policy is changed on December 1, 2024, data from as far back as September 2, 2024, is retained.
+#
+Is job data retention retroactive?
+Retroactive job data retention varies depending on the job data type:
+Job lines
+: No, job lines are not retroactive.
+Job history titles, errors, and custom columns
+: Yes, these are retroactive and expire according to your current data retention settings.
+#
+Job history summary
+Job history summary data provides job metadata on the
+Job details
+page. This includes information about the job such as:
+The job ID
+Status
+Description
+Starting time
+Duration
+Job history summary with successful job completion
+If the job resulted in an error, the summary would also contain details about the error:
+Job history summary with error details
+#
+Job history details
+Job history detail data provides information about inputs and outputs for each action in the recipe:
+Action input and output on the Job history details page
+After the data retention period has passed, only
+job history summary
+data is retained. Action input and output data will be deleted.
+#
+Trigger events
+Trigger event data is found on the
+Job details
+page in the
+Output
+tab of the trigger step:
+Trigger event data for a new issue in GitHub
+Trigger event data can be used to repeat a job without creating a new trigger event. After the retention period has passed and the trigger event data is deleted, this page's
+Repeat this job
+option is deactivated.
+#
+Customized job reports
+Customized job reports are located in the
+Jobs
+tab
+of the recipe. If a job report isn't customized, only the job's ID, status, and timestamp will display in the table.
+A customized report is a quick, easy way to see data from a job without opening the
+Job details
+page. In the image below, for example, the job report has been customized to include the
+GH issue
+,
+Team
+,
+Status
+,
+Priority
+, and
+Issue Type
+columns:
+Custom job report showing data from the job execution
+After the retention period, only the job's
+ID
+,
+status
+, and
+timestamp
+will display in the job report. Data in customized columns will be deleted.
+Custom job report after the retention period has passed
+#
+Customizing data retention
+FEATURE AVAILABILITY
+Configurable data retention is included in specific pricing plans for direct customers and is available by default for Embedded partners and their end customers. Refer to your pricing plan and contract to learn more.
+Additionally, you must have the
+Admin system role
+or be logged in as the
+workspace owner
+/root login to make changes to your workspace's data retention policy.
+DATA RETENTION POLICY CHANGES
+When you make changes to your workspace's data retention policy, Workato follows this logic:
+If you reduce your workspace's data retention policy, the change is not retroactive. For example, if you change the retention policy from 90 days to 60 days on December 1, 2024, data from before October 2, 2024, is no longer retained by Workato. Conversely, if you extend the retention policy, the change is retroactive. For example, if you extend the retention policy from 30 days to 90 days on December 1, 2024, data from as far back as September 2, 2024, is retained.
+For job data retention, job lines are not retroactive. However, job history titles, errors, and custom columns are retroactive and expire according to your current retention settings.
+You can configure retention periods in the following ways:
+At the workspace level
+At the recipe level
+#
+Customization at the workspace level
+1
+In your Workato account, navigate to
+Settings > Data retention
+.
+2
+In the
+Data retention period unit
+field, select
+Hours
+or
+Days
+.
+3
+In the
+Data retention period
+field, enter an integer to specify the duration of the retention period, based on the selected
+period unit
+.
+For example, if the
+period unit
+is
+Days
+and you enter
+45
+, the retention period will be
+45 days
+from the job's completion date.
+Customized data retention policy of 45 days from the job's completion date
+RETENTION PERIOD
+The retention period must be between
+one (1) hour
+and
+90 days
+. If set to a value outside this range, Workato will reset it to
+the maximum for your workspace's plan type
+.
+4
+When finished, click
+Save
+.
+#
+Customization at the recipe level
+Data retention can be configured on a recipe-by-recipe basis to use the
+workspace retention policy
+or to not store data at all.
+Refer to the
+Defining data retention for recipes
+guide for more info.
+←
+Security FAQs
+Recipe-level retention
+→
+Last updated:
+4/1/2025, 5:13:02 PM
+On this page
+Basics
+What is a data retention policy?
+Retention policy duration
+Can I customize the retention period for my workspace?
+Can I customize retention at the recipe level?
+Can I store data for longer than the retention period?
+What types of data are subject to the data retention policy?
+What happens if I change my data retention policy?
+Is job data retention retroactive?
+Customizing data retention
+Customization at the workspace level
+Customization at the recipe level
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,136 @@
+Workato connectors - OneDrive - Search files action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+OneDrive
+#
+OneDrive - Search files action (batch)
+The
+Search files
+action searches for files in Microsoft OneDrive. The search supports partial matches using keywords in the file name, metadata, or content. For an exact match, provide the full file name with its extension. The action searches across the specified folder and its subfolders.
+#
+Input
+Input fields
+Description
+Folder
+Specify the folder to search in, including its subfolders. Provide the folder path, such as
+folder 1/folder 2
+.
+Search query
+Provide a query to search for files. For an exact match, provide the full file name with its extension. For example,
+New_file.csv
+.
+#
+Output
+Output field
+Description
+Files
+An array of files matching the search query. Each file contains information including the file name, size, and download URL.
+←
+Remove permission action
+Upload file using file content action (file)
+→
+Last updated:
+1/16/2025, 3:49:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

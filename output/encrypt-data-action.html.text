@@ -1,0 +1,148 @@
+PGP tools by Workato – Encrypt data action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+PGP tools by Workato
+#
+PGP tools by Workato – Encrypt data action
+The
+Encrypt data
+action encrypts text or file content using a public key. Use this action to protect sensitive information before you transfer or store it.
+#
+Input
+Input field
+Description
+File content
+Provide the content to encrypt. Map a
+File content
+datapill or enter plain text directly.
+Public key
+Provide a public key for encryption. Leave blank to use the key set in the connection.
+Sign
+Select
+Yes
+to sign the content using the private key and passphrase in the connection. You can also sign a message using the
+Sign a message
+action.
+File name
+Enter the original name of the input file. If left blank, Workato generates a file name automatically.
+ASCII armor
+Select
+Yes
+to output the encrypted content as ASCII characters. Use this for email or message transfer.
+#
+Output
+Output field
+Description
+Encrypted contents
+The encrypted contents of the file.
+File name
+The name of the encrypted file.
+←
+Decrypt data action
+Sign a message action
+→
+Last updated:
+4/11/2025, 9:10:57 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

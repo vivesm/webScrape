@@ -1,0 +1,154 @@
+Universal connectors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+#
+Universal connectors
+If you're stuck on an integration because of a missing trigger, action, or connector, Workato has platform extensions that enable you to easily build a working trigger or action with minimal work. In this section, we have guides to walk you through the building process.
+However, before building your own, consider some possible alternatives to connect to your apps.
+Use CSV file import/export via a file connector
+Many apps support
+CSV import/export
+. Workato can help to automatically import data from a CSV file into your apps, or write data to CSV files.
+If you're missing a trigger to read data from your apps, you can configure your apps to create a CSV file and upload it to an SFTP server for Workato to read.
+If you're missing an action to write data to your apps, Workato can upload a CSV file into your app's file server for you to mass import at your convenience.
+Connect with the database directly
+If you want to connect to a proprietary app developed in-house or a self-hosted app that Workato doesn't connect with, you can check if Workato has a connector for the database used by the app, such as MySQL or SQL Server. If yes, you might consider connecting directly to the database to read or write data.
+Documentation on the databases can be found under the
+connectors section
+.
+#
+Workato connector extensions
+You can build your own triggers, actions, and connectors on Workato via custom actions, the
+HTTP universal connector
+or the
+SDK
+. Here's a flowchart to guide you on the best framework to use.
+Flowchart to decide what framework to use
+#
+Custom actions
+Custom actions
+allow you to build an action on top of an existing Workato connector. This allows you to focus on the HTTP request and response, and the Workato connector handles the authorization flow.
+#
+Universal connectors
+The
+HTTP connector
+allows you to work with any API that supports HTTP connectivity. The HTTP connector works with a variety of auth models, content types, and HTTP methods.
+The
+OpenAPI universal connector
+can be used to work with any application that describes its API endpoints using the OpenAPI specification.
+The
+GraphQL universal connector
+enables you to query and mutate records from any application that supports the GraphQL API.
+The
+SOAP universal connector
+lets you connect to any web service through the use of WSDL descriptions.
+#
+Connector SDK
+The
+connector SDK
+is a developer framework for developing a connector. You can choose to share the connectors you build with other Workato users, or submit your code via the Developers Program to make your connector public to all Workato users.
+←
+Query record
+HTTP
+→
+Last updated:
+7/24/2023, 8:45:02 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

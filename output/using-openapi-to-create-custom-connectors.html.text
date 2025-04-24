@@ -1,0 +1,653 @@
+Workato Connectors - Using The OpenAPI Connector To Create Custom Connectors | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+OpenAPI
+#
+Using The OpenAPI Connector To Create Custom Connectors
+An application-specific connector gives you full flexibility and the best user experience. However, building a connector from scratch might take a long time. To reduce the time building a connector, use the OpenAPI connector as a basis or template for creating an application connector.
+Once converted, the new application-specific connector can be used in Workato recipes in place of the universal OpenAPI connector.
+Not sure if this is the right approach for you?
+In most cases, the OpenAPI connector can be used as-is. There are, however, some situations where creating a custom connector may be required. For example:
+Customizing the connector's name or icon
+Implementing a custom authentication flow
+Adding app-specific connection fields
+Simplifying connection settings
+If any of the above are applicable, creating a custom connector is likely the best approach.
+#
+Prerequisites
+To set up an OpenAPI connection, you'll need:
+Familiarity with the Workato Connector SDK.
+Refer to the
+SDK documentation
+for more info.
+Privileges in Workato that allow you to:
+Create connections
+Create and modify SDK connectors
+A Swagger file that
+:
+Conforms to the OpenAPI v2 or v3
+specification
+(opens new window)
+Is valid JSON or YAML
+#
+Step 1: Install The Connector
+The first step is to install the connector in your Workato account. If you've already done this, skip to
+Step 2
+.
+1
+Open
+the connector in the community library
+(opens new window)
+.
+2
+Click
+Install connector
+.
+3
+Click
+Release latest version
+.
+#
+Step 2: Create A New SDK Connector In Workato
+Step 2.1: Copy OpenAPI connector source code
+Step 2.2: Create an SDK connector
+#
+Step 2.1: Copy OpenAPI Connector Source Code
+1
+Sign in to your Workato account if you aren't already.
+2
+Navigate to
+Tools > Connector SDK
+.
+3
+Click the
+OpenAPI
+tile.
+4
+Select and copy the contents of the
+Source code
+.
+#
+Step 2.2: Create An SDK Connector
+1
+Navigate back to the
+Connector SDK
+page.
+2
+Click
++ New connector
+.
+3
+Replace the contents of the
+Source code
+with the code you copied from
+Step 2.1
+.
+4
+Click the
+pencil icon
+or the connector's name and re-name the connector:
+5
+If you want to replace the connector's icon:
+1
+Hover over the default icon until
+Upload
+appears:
+2
+Click the icon.
+3
+Select and upload a new icon.
+6
+Click
+Save
+to save the connector.
+#
+Step 3: Customize The Connector's Configuration
+TIP
+We recommend customizing the source code only when necessary to simplify version upgrades. The more customization a connector has, the more complex an upgrade can be.
+This step will show you how to modify the connector's connection settings. There are two ways to accomplish this:
+Add custom fields or modify default connection fields.
+Hard-code connection values.
+This approach is useful for simplifying connection setup for your users. For example: Instead of asking a user to provide a link to an OpenAPI document, you can hard-code it.
+Refer to the
+OpenAPI default connection fields reference
+for more info about connection fields.
+#
+Adding And Modifying Connection Fields
+To add or modify connection fields, locate the
+connection.fields
+list. Workato uses this list to generate the connection user interface.
+By default, Workato populates this list with fields like
+OpenAPI document source
+,
+Document URL
+, and so on. If you don't want a field to display, you can remove it from the list, or
+hard-code its value
+so users don't have to provide it.
+For example: Your application only requires an API key for authentication. You could remove all default fields and add a single
+api_key
+field, where the user will be prompted to provide their API key:
+connection
+:
+{
+fields
+:
+[
+{
+name
+:
+'api_key'
+,
+label
+:
+'API key'
+,
+hint
+:
+'Refer to <a href="<YOUR_DOC_URL>"><APP> docs</a> '
+\
+'for help retrieving your API key.'
+,
+optional
+:
+false
+,
+control_type
+:
+'password'
+}
+]
+}
+TIP
+Refer to the
+SDK Schema reference
+for more info about defining fields and their properties.
+#
+Hard-coding Connection Values
+To simplify connection setup for your users, you can hard-code connection values. This removes a step from setup by providing required connection values on behalf of the user.
+Except for authentication-related fields
+, connection values can be hard-coded in the
+adjust_connection
+method. This method is invoked from other methods across the source code and affects the connector's behavior. When changes are made to this method, they're applied everywhere the method is invoked.
+Use the following convention to add a field to
+adjust_connection
+. Replace
+<FIELD_NAME>
+with the
+name
+of the field, and
+value
+with its hard-coded value.
+methods
+:
+{
+adjust_connection
+:
+lambda
+do
+|
+connection
+|
+connection
+.
+merge
+(
+{
+'<FIELD_NAME>'
+=>
+'<VALUE>'
+,
+'<FIELD_NAME>'
+=>
+'<VALUE>'
+}
+)
+end
+,
+[
+...
+]
+}
+For example: In the
+previous section
+, all default connection fields were removed from
+connection.fields
+. These field values must be hard-coded in
+adjust_connection
+to successfully configure the connector.
+In the example above, we removed the existing connection fields from
+connection.fields
+. To successfully configure the connector, we need to hard-code the fields in
+adjust_connection
+:
+methods
+:
+{
+adjust_connection
+:
+lambda
+do
+|
+connection
+|
+connection
+.
+merge
+(
+{
+'definition_mode'
+=>
+'url'
+,
+'definition_url'
+=>
+'https://petstore3.swagger.io/api/v3/openapi.yaml'
+,
+'base_url'
+=>
+'https://petstore3.swagger.io/api/v3/'
+,
+'advanced'
+=>
+{
+'test_endpoint'
+=>
+'/pet/findByStatus?status=%3D%5B%22available%22%5D'
+,
+'documentation_href'
+=>
+'https://redocly.github.io/redoc/?url=https://petstore3.swagger.io/api/v3/openapi.yaml'
+}
+}
+)
+end
+,
+[
+...
+]
+}
+Refer to the
+OpenAPI connection field reference
+for more info about fields, including names and descriptions.
+Note
+: Required fields must be present in
+connection.fields
+or hard-coded in
+adjust_connection
+.
+#
+Step 4: Implement Authentication
+NOTE
+If authentication details are provided via connection fields included in the default source code, you can skip this step.
+If authentication fields have been customized or a custom authentication flow is required, you'll need to modify the
+authorization
+section of the source code.
+The specific methods you'll need to modify can vary depending on your requirements and the authentication method being used. Refer to the
+SDK Authorization reference
+for more info.
+For example: In
+Step 3
+, we replaced the default connection fields with a single
+api_key
+field. In this case, the
+authorization.apply
+method should be updated to correctly configure the custom authorization flow.
+There are two ways to handle implementation, each with its own advantages:
+Keep the code mostly as-is and only update the connection variable.
+Note
+: Keeping the original code makes applying source code upgrades easier.
+View an example
+authorization
+:
+{
+type
+:
+'custom_auth'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+connection
+=
+connection
+.
+merge
+(
+{
+'auth_method'
+=>
+'header'
+,
+'auth_headers'
+=>
+"api_key: Bearer
+#{
+connection
+[
+'api_key'
+]
+}
+"
+,
+}
+)
+auth_method
+=
+connection
+[
+'auth_method'
+]
+# don't apply any credentials when requesting the API definition
+if
+connection
+[
+'definition_mode'
+]
+==
+'url'
+&&
+current_url
+==
+connection
+[
+'definition_url'
+]
+auth_method
+=
+nil
+end
+case
+auth_method
+when
+'none'
+# nothing to do
+when
+'basic'
+username
+=
+connection
+[
+'basic_auth_user'
+]
+password
+=
+connection
+[
+'basic_auth_password'
+]
+encoded
+=
+"
+#{
+username
+}
+:
+#{
+password
+}
+"
+.
+encode_base64
+headers
+(
+Authorization
+:
+"Basic
+#{
+encoded
+}
+"
+)
+when
+'header'
+auth_headers_input
+=
+connection
+[
+'auth_headers'
+]
+lines
+=
+auth_headers_input
+.
+split
+(
+/\n+|\r+/
+)
+headers_hash
+=
+{
+}
+lines
+.
+each
+do
+|
+header
+|
+next
+if
+header
+.
+blank
+?
+header
+=
+header
+.
+split
+(
+':'
+,
+2
+)
+header_name
+=
+header
+[
+0
+]
+header_value
+=
+header
+[
+1
+]
+.
+strip
+headers_hash
+[
+header_name
+]
+=
+header_value
+end
+headers
+(
+headers_hash
+)
+end
+end
+}
+,
+[
+...
+]
+Replace existing code with new, custom code.
+With this approach, the code is specific and easy to read. The downside, however, is that due to the customization, applying source code upgrades may be more complex.
+View an example
+authorization
+:
+{
+type
+:
+'custom_auth'
+,
+apply
+:
+lambda
+do
+|
+connection
+|
+headers
+(
+api_key
+:
+=>
+"api_key: Bearer
+#{
+connection
+[
+'api_key'
+]
+}
+"
+)
+end
+}
+,
+[
+...
+]
+#
+Step 5: Configure On-Prem Connectivity
+NOTE
+You can skip this step if on-premise connectivity isn't required.
+If you require on-prem connectivity, you can configure the connector to communicate through a
+Workato On-premise Agent (OPA)
+. Refer to the
+Setting up On-prem Agent guide
+for more info.
+After configuring a new OPA, locate the
+secure_tunnel
+key at the beginning of your SDK connector's source code:
+When set to
+true
+, the
+Is this app in a private network
+? field in the connector's setup will be available. Users can then select the OPA to connect to.
+#
+What's next?
+That's it - you've created a custom connector! From here, you can:
+Customize the connector's user interface
+Learn more about connection fields
+Learn about upgrading source code versions
+←
+Update record action
+Customize user interfaces
+→
+Last updated:
+2/14/2025, 12:09:01 AM
+On this page
+Prerequisites
+Step 1: Install The Connector
+Step 2: Create A New SDK Connector In Workato
+Step 3: Customize The Connector's Configuration
+Step 4: Implement Authentication
+Step 5: Configure On-Prem Connectivity
+What's next?
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,190 @@
+Workato Genie | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+Workato Genie
+Workato Genieは、組織内での展開のためにインタラクティブなAIエージェントを構築および活用することを可能にするエージェンティックオーケストレーションプラットフォームです。これらのエージェントはGeniesとして知られ、動的にアクションを実行し、ワークフローを呼び出します。Geniesは各シナリオのコンテキストを理解し、設定された目標を達成するために事前定義されたスキルを独自に実行します。
+Workato Genies
+Workato Genieプラットフォームは、エージェンティックモジュラーフレームワークを公開することで、コードなしでAIエージェントを作成および管理することを可能にします。これにより、既存のインフラストラクチャとシームレスに統合し、独自のシステムにGeniesをネイティブに拡張することができます。
+IT Genie
+FEATURE AVAILABILITY
+Workato Genieの使用に興味がある場合は、カスタマーサクセス担当者にお問い合わせください。
+#
+Workato Genieの主要コンポーネント
+Workato Genieは、コンテキストの理解とスキルセットを支える4つの主要コンポーネントで構成されています：
+#
+AI
+AIはGenieの頭脳を形成します。AIは、Genieがユーザーとどのように対話し、アクションを実行するためにどのスキルを使用するかを決定する上で重要です。Workato GenieにはWorkatoのネイティブな大規模言語モデル（LLM）が自動的に付属していますが、要件に応じて他のモデルに更新することもできます。Workato GenieのAIコンポーネントは、以下の機能を提供します：
+ユーザーのリクエストやクエリの解釈
+コンテキストと利用可能な情報の分析
+使用するスキルを決定するための意思決定
+人間のような応答の生成
+インタラクションに基づいて継続的に学習および改善
+#
+Interaction layer
+インタラクションレイヤーは、エンドユーザーに公開されるGenieのコンポーネントです。インタラクションレイヤーは、Slack、Microsoft Teams、または内部システム内で開発されたカスタムチャットボットなど、組織が最も作業プロセスに関与している場所に統合できます。インタラクションレイヤーには、以下の機能が含まれます：
+従業員がGenieと対話するためのユーザーフレンドリーなインターフェースを提供
+組織のワークフローに適合する複数の通信チャネルをサポート
+ブランドとユーザーエクスペリエンスの好みに合わせてカスタマイズ可能なUI要素を提供
+ユーザーとGenieの間のリアルタイム通信を可能にする
+#
+Knowledge base
+ナレッジベースコンポーネントは、Genieの記憶として機能します。会社のポリシーに関する関連コンテキストや、Genieの行動を基盤とするための履歴データへのアクセスをナレッジベースに提供できます。Genieの行動は、アクセスを提供するナレッジベースから得られる情報によってさらに調整されます。ナレッジベースコンポーネントは、以下の機能を提供します：
+会社固有の情報を保存および整理
+情報に基づいた意思決定のための迅速なデータアクセスを提供
+Genieが常に最新の情報を持つようにリアルタイムで更新可能
+組織全体でのGenieの応答とアクションの一貫性を維持
+#
+Skills
+スキルコンポーネントは、Genieがさまざまなアプリケーションやシステムと対話するためのツールを提供します。スキルはGenieの能力を定義し、組織の特定の要件に合わせてカスタマイズできます。Workato Genieはほとんどのアプリケーションに対応するスキルをサポートし、カスタムスキルとしてワークフローにアクセスできます。スキルコンポーネントは、以下の機能を提供します：
+アプリやデータソースに関連するスキルセットの追加または変更
+カスタマイズされたスキルの作成
+IT Genie skills
+#
+Workato Genieの機能
+Workato Genieは動的であり、インタラクションや環境から学習することで継続的に進化します。Workato Genieは以下の能力を提供します：
+#
+Domain expertise
+Workato Genieは、組織のシステムとプロセスに関する詳細な理解を持ち、タスクを効果的にナビゲートおよび実行することを保証します。この専門知識は、以下のプロセスを通じて構築されます：
+既存のシステムおよびデータベースとの統合
+ユーザーインタラクションおよびフィードバックからの継続的な学習
+#
+Reasoning ability
+Workato Genieは、単純な指示から複雑な指示までを解釈し実行する高度な推論エンジンを備えています。Workato Genieの推論には、以下の機能が含まれます：
+ユーザーの意図を解釈するための自然言語理解
+最も適切な行動を決定するためのコンテキスト分析
+利用可能な情報に基づいて意思決定を行うための論理的推論
+複数のステップを含むタスクや複雑なワークフローの処理能力
+#
+Security and authentication
+Workato Genieはリアルタイムでユーザーを認証し、必要な承認を得て安全かつ適切にアクションを実行します。セキュリティおよび認証機能は、以下の機能を提供します：
+既存の認証システムとの統合
+ロールベースのアクセス制御（RBAC）をサポート
+実行されたすべてのアクションの監査証跡を提供
+組織のセキュリティポリシーに準拠
+#
+Responsible action
+Workato Genieは、委任された能力の範囲内で厳密にアクションを実行し、必要に応じてWorkato Genieの能力を簡単に調整（アップスキルまたはダウンスキル）するオプションを提供します。レスポンシブアクションには、以下の機能が含まれます：
+Genieの許可されたアクションの明確な定義
+重要なアクションのための承認ワークフローの設定
+管理者がGenieの能力を変更するための使いやすいインターフェース
+#
+Continuous learning
+Workato Genieは、インタラクションや追加されたスキルを通じて知識とパフォーマンスを継続的に改善します。継続的な学習は、以下のプロセスを通じて達成されます：
+ナレッジベースの定期的な更新
+ユーザー入力を取り入れるフィードバックループ
+組織の要件やプロセスの変化に適応するネイティブな能力
+#
+エンタープライズグレードのセキュリティ機能
+User scoped connections
+: Workato Genieは実行時にアクションを認証し、ロールベースのアクセスと完全な監査能力をサポートします。
+Data isolation and encryption
+: Workato Genieは顧客データを分離し、安全に保ちます。
+Responsible AI operations
+: Workato Genieは提供されたスキルに限定してアクションを実行し、倫理的な基準を維持します。
+Robust governance and transparency
+: Workato Genieは詳細なログと運用ダッシュボードを提供し、ワークフロー内の観察可能性とガバナンスを強化し、アカウンタビリティと精度を確保します。
+←
+信頼スコア
+オンプレミス接続
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+Workato Genieの主要コンポーネント
+Workato Genieの機能
+エンタープライズグレードのセキュリティ機能
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

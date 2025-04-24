@@ -1,0 +1,201 @@
+Workato connectors - Xero Create item action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - Create item action
+The
+Create item
+action allows you to create a new item in Xero.
+Xero - Create item action
+#
+Input
+Input field
+Description
+Item code
+Input a unique code to identify the item.
+Item name
+Specify the name of the item.
+Item description
+Provide a sales description for the item.
+Purchase description
+Give a description of the item used for purchasing records.
+Sales unit price
+Set the price per unit for sales.
+Sales account code
+Assign an account code for sales.
+Sales tax type
+Choose a tax type for the item's sales. If left empty, the system uses the default tax from the sales account.
+Purchase unit price
+Indicate the price per unit for purchases.
+Purchase account code
+Input an account code for purchases. Note that an item can have either a
+COGS account code
+or a
+Purchase account code
+, not both.
+Purchase tax type
+Select a tax type for purchasing. Without an entry, the system applies the default tax from the purchase account.
+COGS account code
+Provide a Cost of Goods Sold account code. If specified,
+Inventory asset account code
+becomes mandatory. An item cannot have both a
+COGS account code
+and a
+Purchase account code
+.
+Inventory asset account code
+Enter the account code for inventory, which must be an
+INVENTORY
+type. This is mandatory if
+COGS account code
+is specified.
+Is sold
+Confirm if the item is available for sale. This defaults to
+true
+, making the item available on sales transactions in the Xero UI.
+Is purchased
+Confirm if the item is available for purchase. This defaults to
+true
+, making the item available for purchase transactions in the Xero UI.
+#
+Output
+Field
+Description
+Item ID
+The unique identifier for the item in Xero.
+Item code
+The code used to identify the item.
+Inventory asset account code
+The account code associated with the item's inventory assets.
+Purchase description
+A description of the item used for purchasing.
+Item name
+The name of the item.
+Item description
+The sales description of the item.
+Updated date
+The date the item was last updated in Xero.
+Is tracked as inventory
+Indicates whether the item is tracked as inventory.
+Quantity on hand
+The quantity of the item currently on hand.
+Total cost pool
+The total cost of the inventory on hand for the item.
+Is sold
+Indicates whether the item is sold.
+Is purchased
+Indicates whether the item is purchased.
+Sales details
+Information about the item's sales aspects.
+Purchase details
+Information about the item's purchase aspects.
+←
+Create invoice with line items
+Create manual journal with line items
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,155 @@
+Workato connectors - Google BigQuery Get query job output action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google BigQuery
+#
+Google BigQuery - Get query job output action
+The
+Get query job output
+action returns a job's query results using the job's ID. This action is often used with the
+Job completed trigger
+when the job is of the type
+Query
+. You can use this action to page through large result sets.
+Get Query Job output action
+#
+Input
+Input field
+Description
+Project
+Configure this field to listen on a project.
+Job ID
+Provide the job ID. You can find this value in the
+Job completed
+trigger.
+Page size
+Enter the size of each page. The default and maximum is 50,000 rows.
+Page token
+Configure this field to page through a result set larger than the page size by using a for each loop.
+Start index
+Select the index of the starting row. This field can't be used with
+Page token
+.
+Output fields
+Manually define the output fields of your query. The names given to the output should be identical to the column names expected.
+#
+Output
+Output field
+Description
+Page token
+Pass to the next
+Get query result
+action to get the next page.
+Total rows
+Total number of rows returned.
+Array of rows
+An array of rows containing the data defined in the output fields. Each datapill in the row object corresponds to a single column. Names of the columns must match the rows exactly.
+←
+Run custom SQL action
+Google Calendar
+→
+Last updated:
+3/14/2025, 5:29:31 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

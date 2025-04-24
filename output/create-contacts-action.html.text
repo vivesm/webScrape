@@ -1,0 +1,272 @@
+Workato connectors - Outlook Create contact action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Outlook
+#
+Create contact action
+Use this action to create a new contact in an Outlook contact folder you select.
+#
+Input fields
+Field
+Description
+Shared contacts mailbox
+Provide the email address of the shared mailbox to fetch shared contacts. For example,
+[email protected]
+. If left blank, Workato shows the default contacts from your Outlook account.
+Contact folder path
+Specify the contact folder path where you plan to create the contact. For example,
+Parentfoldername/subfoldername
+.
+First name
+The contact's first name.
+Surname
+The contact's surname.
+Middle name
+The contact's middle name.
+Mobile phone
+The contact's mobile phone number.
+Office location
+The location of the contact's office.
+Personal notes
+The user's notes about the contact.
+Profession
+The contact's profession.
+Company name
+The name of the contact's company.
+Department
+The contact's department.
+Job title
+The contact’s job title.
+Manager
+The name of the contact's manager.
+Title
+The contact's title.
+Nick name
+The contact's nickname.
+Spouse name
+The name of the contact's spouse/partner.
+Yomi company name
+The phonetic Japanese company name of the contact.
+Yomi given name
+The contact's phonetic Japanese given name (first name).
+Yomi surname
+The contact's phonetic Japanese surname (last name).
+Assistant name
+The name of the contact's assistant.
+Birthday
+The contact's birthday.
+File as
+The name the contact is filed under.
+Generation
+The contact's generation.
+Initials
+The contact's initials.
+Other address
+The additional addresses for the contact. This object includes the contact's city, country or region, postal code, state, and street.
+Home address
+The home address of the contact. This object includes the contact's city, country or region, postal code, state, and street.
+Business address
+The business address of the contact. This object includes the contact's city, country or region, postal code, state, and street.
+Business home page
+The business home page of the contact.
+Email addresses
+The email addresses of the contact.
+Business phones
+The contact's business phone numbers.
+Home phones
+The contact's home phone numbers.
+Children
+The names of the contact's children.
+Categories
+The categories associated with the contact.
+IM addresses
+The contact's instant messaging (IM) addresses.
+ID
+The unique identifier for the contact.
+Change key
+The change key for the contact.
+Display name
+The display name of the contact.
+Created date time
+The date and time the contact was created.
+Last modified date time
+The date and time the contact was last modified.
+Parent folder ID
+The ID of the parent folder.
+#
+Output fields
+Field
+Description
+First name
+The contact's first name.
+Surname
+The contact's surname.
+Middle name
+The contact's middle name.
+Mobile phone
+The contact's mobile phone number.
+Office location
+The location of the contact's office.
+Personal notes
+The user's notes about the contact.
+Profession
+The contact's profession.
+Company name
+The name of the contact's company.
+Department
+The contact's department.
+Job title
+The contact’s job title.
+Manager
+The name of the contact's manager.
+Title
+The contact's title.
+Nick name
+The contact's nickname.
+Spouse name
+The name of the contact's spouse/partner.
+Yomi company name
+The phonetic Japanese company name of the contact.
+Yomi given name
+The contact's phonetic Japanese given name (first name).
+Yomi surname
+The contact's phonetic Japanese surname (last name).
+Assistant name
+The name of the contact's assistant.
+Birthday
+The contact's birthday.
+File as
+The name the contact is filed under.
+Generation
+The contact's generation.
+Initials
+The contact's initials.
+Other address
+The additional addresses of the contact. This object includes the contact's city, country or region, postal code, state, and street.
+Home address
+The home address of the contact. This object includes the contact's city, country or region, postal code, state, and street.
+Business address
+The business address of the contact. This object includes the contact's city, country or region, postal code, state, and street.
+Business home page
+The business home page of the contact.
+Email addresses
+The email addresses of the contact.
+Business phones
+The contact's business phone numbers.
+Home phones
+The contact's home phone numbers.
+Children
+The names of the contact's children.
+Categories
+The categories associated with the contact.
+IM addresses
+The contact's instant messaging (IM) addresses.
+←
+Delete calendar event action
+Get contact action
+→
+Last updated:
+7/10/2024, 4:00:51 AM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

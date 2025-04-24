@@ -1,0 +1,193 @@
+Errors notifications emails | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Best practices
+#
+Error notification emails
+Set up error notifications in 2 minutes
+Jobs may encounter errors when trying to fetch trigger events, or when trying to carry out an action. This article explains:
+Trigger errors
+Actions errors
+Workato's error notification policy
+#
+Trigger errors
+Trigger errors occur when the recipe tries to retrieve trigger events by polling the trigger app. The recipe might fail to retrieve trigger events in the following cases:
+Connections are invalid
+. The recipe cannot connect successfully to the app. This usually results in an unauthorized error message.
+Permissions are incorrect
+. This occurs when the connected user does not have the right permissions to retrieve the trigger events. This usually results in an unauthorized error message.
+API Calls are broken
+. This occurs when the recipe makes an API call that is broken, for example, when a schema change in the app isn't reflected in the recipe through a schema refresh.
+API Calls timeout
+. This occurs when the recipe makes an API call that times out while waiting for the trigger event. This is usually transient, such as when the API server might be experiencing a temporary downtime.
+Trigger filters are incorrect
+. This occurs when the trigger filters put in place are logically incorrect, such as when a null value is checked against an integer. In such cases, the trigger filters must be fixed before the recipe can run correctly.
+#
+Trigger warnings
+When a trigger error is met, the recipe will issue a trigger warning but continue to poll for trigger events. Workato doesn't create jobs when a trigger error occurs because the recipe cannot retrieve the trigger events to be processed. This means that the jobs report will not reflect failed jobs.
+In the following case, a trigger warning was raised because the schema recorded in the recipe did not match the schema in the app. The warning suggests refreshing the schema as a way to resolve the trigger error. You can expand the warning to review additional information.
+Trigger warning surfaced on the recipe due to outdated schema that needs refreshing
+#
+Recipes stopped by Workato
+Workato automatically stops a recipe when it reaches 60 trigger errors. This most likely indicates that there's a critical, non-transient error with the trigger configuration or connection that must be fixed. An email notification is automatically sent to the Workato account owner when a recipe is stopped due to 60 trigger errors.
+Recipe stopped due to 60 trigger errors
+#
+Action errors
+Action errors occur when the recipe tries to carry out an action (create a new lead record or search for a specific account in Salesforce) and fails to do so. Actions might fail in the following cases:
+Invalid input in the app
+. For example, a number was expected for an invoice subtotal amount but a string (text) was passed in instead, or the values "High", "Medium", and "Low" were expected, but the value "Normal" was passed in instead.
+Required input missing
+. For example, a job is executed and a null value is passed into a field that requires input.
+You can troubleshoot action errors by checking the data in the
+Input
+tab. The
+Input
+tab shows the data passed into the action, while the
+Output
+tab usually shows the error message.
+Action error as shown in job details page
+#
+Error notifications
+Workato sends email notifications to the Workato account owner by default when error occurs.
+#
+Notification policy
+An email notification is automatically sent when:
+A recipe encounters a certain type of error for the first time
+. Subsequent errors of the same type for the same recipe in the next minute do not generate an email notification.
+Workato stops a recipe
+. Refer to
+Recipes stopped by Workato
+for more information.
+Emails for failed jobs are sent with basic throttling of one minute. You can enable one-hour throttling to reduce email noise. This service prevents subsequent errors of the same type for the same recipe from generating an email notification for one hour.
+Error notification email example
+#
+Customizing notification recipients
+If you have a team or consultants monitoring the integrations for you, you can add their emails to the
+Recipients
+list:
+1
+Go to
+Account settings > Email notifications
+.
+2
+Edit the
+Error notifications
+field. Add multiple emails by using comma as a separator.
+Configure and customize how and from what projects you want to receive the error notifications
+#
+Receive error notifications for select projects
+By default, error notifications are sent for all the recipes in all the projects. The
+Receive error notifications only from specific projects
+toggle provides greater flexibility to our customers on receiving notifications from recipes that matter to them.
+Select projects containing the recipes you want to receive error notifications for
+All projects are selected by default to send error notifications. Deselect each project which contains the recipes for which you do not want to receive error notifications from.
+Deselect the project containing the recipes you do not want to receive error notifications for
+←
+Error handling
+Security best practices
+→
+Last updated:
+8/7/2024, 9:25:51 PM
+On this page
+Trigger errors
+Action errors
+Error notifications
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

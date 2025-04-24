@@ -1,0 +1,1427 @@
+日付の formula | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+レシピデータの変更
+Formulaモード
+#
+日付の formula
+日付や日時の formula を使用すると、日付や時刻のデータピルを処理できます。これらの formula は、ホワイトリストで許可された
+Ruby メソッド
+(opens new window)
+です。したがって、すべての Ruby メソッドがサポートされているわけではありません。その他の formula をホワイトリストに追加したい場合は、
+弊社までご連絡ください
+(opens new window)
+。
+#
+日付の演算
+日付や日時のデータで演算を行うには、以下のキーワードを使用します。
+seconds
+minutes
+days
+months
+years
+formula と組み合わせると、足し算や引き算を実行できます。
+#
+使用例
+日付の演算
+出力
+"2020-01-01"
+.to_date + 2.days
+"2020-01-03"
+"2020-01-01"
+.to_date - 2.days
+"2019-12-30"
+"2020-01-01"
+.to_date + 2.months
+"2020-03-01"
+"2020-01-01"
+.to_date - 2.months
+"2019-11-01"
+"2020-01-01"
+.to_date + 2.years
+"2022-01-01"
+"2020-01-01"
+.to_date - 2.years
+"2018-01-01"
+#
+now
+米国太平洋時間 (PST) で実行時の時刻と日付を返します。
+#
+使用例
+formula
+結果
+now
+"2022-02-01T07:00:00.000000-08:00"
+now + 8.hours
+"2022-02-01T15:00:00.000000-08:00"
+now + 2.days
+"2022-02-03T07:00:00.000000-08:00"
+#
+動作
+この formula はジョブの処理中にタイムスタンプを計算します。この formula を使用する各ステップが、そのステップの実行時のタイムスタンプを返します。
+出力データピル
+日付だけが必要で時刻が不要な場合は、代わりに
+today
+formula をお試しください。
+#
+関連情報
+today
+: 実行時の日付を返します。
+in_time_zone
+: 時刻の値を別のタイムゾーンに変換します。
+#
+today
+米国太平洋時間で実行時の日付を返します。
+#
+使用例
+formula
+結果
+today
+"2022-02-01"
+today + 8.hours
+"2022-02-01T15:00:00.000000-08:00"
+today + 2.days
+"2022-02-03"
+#
+動作
+この formula はジョブの処理中にタイムスタンプを計算します。この formula を使用する各ステップが、そのステップの実行時の日付を返します。
+出力データピル
+日付と時刻が必要な場合は、代わりに
+now
+formula をお試しください。
+#
+関連情報
+now
+: 実行時の時刻と日付を返します。
+in_time_zone
+: 時刻の値を別のタイムゾーンに変換します。
+#
+from_now
+指定された期間だけ後のタイムスタンプを返します。タイムスタンプは実行時に計算されます。
+#
+構文
+Unit
+.from_now
+Unit
+- オフセットする時刻値。
+#
+使用例
+formula
+結果
+30.seconds
+.from_now
+"2022-02-01T07:00:30.000000-08:00"
+2.months
+.from_now
+"2022-04-01T07:00:00.000000-08:00"
+3.days
+.from_now
+"2022-02-04T07:00:00.000000-08:00"
+#
+動作
+この formula は現在のタイムスタンプを計算し、指定された期間だけオフセットします。このタイムスタンプは、ジョブの処理中に計算されます。この formula を使用するステップそれぞれが、各実行ステップのタイムスタンプを返します。
+単位
+次のうち、どの単位でも使用できます:
+seconds
+、
+minutes
+、
+hours
+、
+days
+、
+months
+、
+years
+。
+#
+関連情報
+ago
+: 指定された期間だけ前のタイムスタンプを返します。
+now
+: 実行時の時刻と日付を返します。
+today
+: 実行時の日付を返します。
+#
+ago
+指定された期間だけ前のタイムスタンプを返します。タイムスタンプは実行時に計算されます。
+#
+構文
+Unit
+.ago
+Unit
+- オフセットする時刻値。
+#
+使用例
+formula
+結果
+2.months
+.ago
+"2020-10-04 14:45:29 -0700"
+3.days
+.ago
+"2020-12-01 14:45:29 -0700"
+30.seconds
+.ago
+"2020-12-04 14:15:29 -0700"
+#
+動作
+この formula は現在のタイムスタンプを計算し、指定された期間だけオフセットします。このタイムスタンプは、ジョブの処理中に計算されます。この formula を使用するステップそれぞれが、各実行ステップのタイムスタンプを返します。
+単位
+次のうち、どの単位でも使用できます:
+seconds
+、
+minutes
+、
+hours
+、
+days
+、
+months
+、
+years
+#
+関連情報
+from_now
+: 指定された期間だけ後のタイムスタンプを返します。
+now
+: 実行時の時刻と日付を返します。
+today
+: 実行時の日付を返します。
+#
+wday
+曜日を返します。日曜日の場合は0を、月曜日の場合は1を返します。
+#
+構文
+Date
+.wday
+Date
+- 日付または日時のデータ型。
+#
+使用例
+例
+結果
+today.wday
+4
+"01/12/2020"
+.to_date(format:"DD/MM/YYYY").wday
+2
+#
+動作
+この formula はジョブの処理中に現在の日付を計算します。曜日は整数の出力データに変換されます。日曜日は0、月曜日は1になります。
+簡単なヒント: 日付データ型への変換
+この formula が機能するのは、データ型が日付または日時の場合のみです。文字列を日付のデータ型に変換するには、
+to_date
+を使用してください。
+#
+関連情報
+yday
+: 年内通算日数を返します。
+yweek
+: 年内通算週数を返します。
+#
+yday
+年内通算日数を返します。
+#
+構文
+Date
+.yday
+Date
+- 日付または日時のデータ型。
+#
+使用例
+例
+結果
+today.yday
+338
+"2020-01-01"
+.to_date(format:"YYYY-MM-DD").yday
+1
+"2020-02-01"
+.to_date(format:"YYYY-MM-DD").yday
+32
+#
+動作
+この formula はジョブの処理中に現在の日付を計算します。年内通算日数は整数の出力データに変換されます。
+簡単なヒント: 日付データ型への変換
+この formula が機能するのは、データ型が日付または日時の場合のみです。文字列を日付のデータ型に変換するには、
+to_date
+を使用してください。
+#
+関連情報
+wday
+: 週内通算日数を返します。
+yweek
+: 年内通算週数を返します。
+#
+yweek
+年内通算週数を返します。
+#
+構文
+Date
+.yweek
+Date
+- 日付または日時のデータ型。
+#
+使用例
+例
+結果
+today.yweek
+49
+"2020-01-01"
+.to_date(format:"YYYY-MM-DD").yweek
+1
+"2020-02-01"
+.to_date(format:"YYYY-MM-DD").yweek
+5
+#
+動作
+この formula はジョブの処理中に現在の日付を計算します。年内通算週数は整数の出力データに変換されます。
+簡単なヒント: 日付データ型への変換
+この formula が機能するのは、データ型が日付または日時の場合のみです。文字列を日付のデータ型に変換するには、
+to_date
+を使用してください。
+#
+関連情報
+wday
+: 週内通算日数を返します。
+yday
+: 年内通算日数を返します。
+#
+beginning_of_hour
+与えられた日時の正時の日時を返します。
+#
+構文
+Datetime
+.beginning_of_hour
+Datetime
+- 入力日時。
+#
+使用例
+formula
+結果
+today.to_time.beginning_of_hour
+"2020-12-02T16:00:00.000000-07:00"
+"2020-06-01T01:30:45.000000+00:00"
+.beginning_of_hour
+"2020-06-01T01:00:00.000000+00:00"
+"2020-06-01"
+.to_time.beginning_of_hour
+"2020-06-01T00:00:00.000000+00:00"
+#
+beginning_of_day
+与えられた日付/日時の、午前0時の日時を返します。
+#
+構文
+Date
+.beginning_of_day
+Date
+- 入力日付または入力日時。
+#
+使用例
+formula
+結果
+today.beginning_of_day
+"2020-12-02T00:00:00.000000-07:00"
+"2020-06-01"
+.to_date.beginning_of_day
+"2020-06-01T00:00:00.000000+00:00"
+"2020-06-01T01:30:45.000000+00:00"
+.beginning_of_day
+"2020-06-01T00:00:00.000000+00:00"
+#
+beginning_of_week
+与えられた日付/日時の、前の
+月曜日
+の日付を返します。
+#
+構文
+Date
+.beginning_of_week
+Date
+- 入力日付または入力日時。
+#
+使用例
+formula
+結果
+today.beginning_of_week
+"2020-11-30T00:00:00.000000+00:00"
+"2020-06-01"
+.to_date.beginning_of_week
+"2020-06-01T00:00:00.000000+00:00"
+"2020-06-01T01:30:45.000000+00:00"
+.beginning_of_week
+"2020-06-01T00:00:00.000000+00:00"
+#
+beginning_of_month
+与えられた日付/日時の、月の初日を返します。
+#
+構文
+Date
+.beginning_of_month
+Date
+- 入力日付または入力日時。
+#
+使用例
+formula
+結果
+today.beginning_of_month
+"2020-12-01T00:00:00.000000+00:00"
+"2020-06-01"
+.to_date.beginning_of_month
+"2020-06-01T00:00:00.000000+00:00"
+"2020-06-01T01:30:45.000000+00:00"
+.beginning_of_month
+"2020-06-01T00:00:00.000000+00:00"
+#
+beginning_of_year
+与えられた日付/日時の、年の初日を返します。
+#
+構文
+Date
+.beginning_of_year
+Date
+- 入力日付または入力日時。
+#
+使用例
+formula
+結果
+today.beginning_of_year
+"2020-01-01T00:00:00.000000+00:00"
+"2020-06-01"
+.to_date.beginning_of_year
+"2020-01-01T00:00:00.000000+00:00"
+"2020-06-01T01:30:45.000000+00:00"
+.beginning_of_year
+"2020-01-01T00:00:00.000000+00:00"
+#
+end_of_month
+与えられた日付/日時の、月の最終日を返します。この formula は入力データに基づいて日付または日時を返します。
+#
+構文
+Date
+.end_of_month
+Date
+- 入力日付または入力日時。
+#
+使用例
+formula
+結果
+today.end_of_month
+"2020-12-31"
+"2020-06-01"
+.to_date.end_of_month
+"2020-06-30"
+"2020-06-01T01:30:45.000000+00:00"
+.to_time.end_of_month
+"2020-06-30T23:59:59.999999+00:00"
+#
+strftime
+日時の入力データを、ユーザー定義の文字列として返します。
+#
+構文
+Date
+.strftime(
+format
+)
+Date
+- 入力日付または入力日時。
+format
+- 文字列として記述された、ユーザー定義の日時の書式。
+#
+使用例
+formula
+結果
+"2020-06-05T17:13:27.000000-07:00"
+.strftime("%Y/%m/%d")
+"2020/06/05"
+"2020-06-05T17:13:27.000000-07:00"
+.strftime("%Y-%m-%dT%H:%M:%S%z")
+"2020-06-05T17:13:27-0700"
+"2020-06-05T17:13:27.000000-07:00"
+.strftime("%B %e, %l:%M%p")
+"June 5, 5:13 pm"
+"2020-06-05T17:13:27.000000-07:00"
+.strftime("%A, %d %B %Y %k:%M")
+"Friday, 05 June 2020 0:00"
+#
+パラメータ
+上記で示されているように、各コード (%B、%e、%I など) は日時の特定の要素を表します。カンマ (,)、スラッシュ (/)、コロン (:) といった静的なテキストや句読点を挿入することもできます。以下に示すのは、Workato でよく使われるコードの一覧です。
+コード
+意味
+例
+(2020-06-05T17:13:27.000000-07:00)
+%Y
+世紀を含む年
+2020
+%m
+0を埋めて2桁にした月
+06
+%B
+完全な月名
+June
+%b
+短縮形の月名
+Jun
+%d
+0を埋めて2桁にした日
+05
+%e
+0を埋めて2桁にしない日
+5
+%H
+1日の時間 (24時間制)
+17
+%k
+0を埋めて2桁にしない1日の時間 (24時間制)
+17
+%I (大文字の i)
+1日の時間 (12時間制)
+05
+%l (小文字の L)
+0を埋めて2桁にしない1日の時間 (12時間制)
+5
+%p
+AM または PM
+PM
+%M
+時刻以下の分部分
+13
+%S
+分以下の秒部分
+27
+%L
+分以下のミリ秒部分
+000
+%z
+UTC からのタイムゾーンのオフセット
+-0700
+%:z
+UTC からのタイムゾーンのオフセット (書式設定あり)
+-07:00
+%Z
+タイムゾーンの省略名
+UTC
+%A
+完全な曜日名
+Friday
+完全なリストについては、
+Ruby のドキュメント
+(opens new window)
+を参照してください。
+#
+動作
+ユーザーが日時の書式を定義できるようにします。日時の入力データを、指定された書式で返します。
+入力のデータ型
+入力のデータ型は日付または日時でなければなりません。
+to_date
+formula を使用すると、文字列を日付のデータ型に変換できます。
+#
+関連情報
+to_date
+: 日付を日付のデータ型で返します。
+#
+in_time_zone
+IANA のタイムゾーンデータベース
+(opens new window)
+に含まれるタイムゾーン名を使用して、日付または日時を異なるタイムゾーンに変換できます。この formula は日時を返します。
+#
+構文
+Date
+.in_time_zone(
+format
+)
+Date
+- 入力日付または入力日時。
+format
+- (任意) 目的のタイムゾーン。指定されていない場合、この formula は Workato アカウントで定義されたタイムゾーンを返します。
+#
+使用例
+formula
+結果
+today.in_time_zone("America/New_York")
+"2020-12-01T20:00:00.000000-04:00"
+today.to_time.in_time_zone("America/New_York")
+"2020-12-01T20:00:00.000000-04:00"
+"2020-06-01"
+.to_time.in_time_zone
+"2020-05-31T20:00:00.000000-04:00"
+"2020-06-01T01:30:45.000000+00:00"
+.in_time_zone
+"2020-05-31T12:30:00.000000-05:00"
+#
+dst?
+入力日時が夏時間の範囲内にある場合、true を返します。
+#
+構文
+Datetime
+.dst?
+Datetime
+- 入力日付または入力日時。
+#
+使用例
+formula
+結果
+today.dst?
+false
+today.in_time_zone("America/New_York").dst?
+true
+"2020-06-01"
+.in_time_zone("America/New_York").dst?
+true
+"2020-09-06T18:30:15.671720-05:00"
+.dst?
+true
+#
+リージョンの参考情報
+この formula で使用するタイムゾーン名については、以下の表を参照してください。
+リージョン
+formula で使用するタイムゾーン
+UTC ゾーン
+DST オフセットの有無
+日付変更線西側
+Pacific/Midway
+UTC-11
+ミッドウェー島
+Pacific/Midway
+UTC-11
+アメリカ領サモア
+Pacific/Pago_Pago
+UTC-11
+ハワイ
+Pacific/Honolulu
+UTC-10
+アラスカ
+America/Juneau
+UTC-9
+✅
+太平洋時間 (米国 & カナダ)
+America/Los_Angeles
+UTC-8
+✅
+ティフアナ
+America/Tijuana
+UTC-8
+✅
+山岳部時間 (米国 & カナダ)
+America/Denver
+UTC-7
+✅
+アリゾナ
+America/Phoenix
+UTC-7
+チワワ
+America/Chihuahua
+UTC-7
+✅
+マサトラン
+America/Mazatlan
+UTC-7
+✅
+中部時間 (米国 & カナダ)
+America/Chicago
+UTC-6
+✅
+サスカチュワン
+America/Regina
+UTC-6
+グアダラハラ
+America/Mexico_City
+UTC-6
+✅
+メキシコシティー
+America/Mexico_City
+UTC-6
+✅
+モンテレイ
+America/Monterrey
+UTC-6
+✅
+中央アメリカ
+America/Guatemala
+UTC-6
+東部時間 (米国 & カナダ)
+America/New_York
+UTC-5
+✅
+インディアナ (東部)
+America/Indiana/Indianapolis
+UTC-5
+✅
+ボゴタ
+America/Bogota
+UTC-5
+リマ
+America/Lima
+UTC-5
+キト
+America/Lima
+UTC-5
+大西洋標準時 (カナダ)
+America/Halifax
+UTC-4
+✅
+カラカス
+America/Caracas
+UTC-4
+ラパス
+America/La_Paz
+UTC-4
+サンティアゴ
+America/Santiago
+UTC-4
+✅
+ジョージタウン
+America/Guyana
+UTC-4
+ニューファンドランド
+America/St_Johns
+UTC-3:30
+✅
+ブラジリア
+America/Sao_Paulo
+UTC-3
+ブエノスアイレス
+America/Argentina/Buenos_Aires
+UTC-3
+モンテビデオ
+America/Montevideo
+UTC-3
+グリーンランド
+America/Godthab
+UTC-3
+✅
+中部大西洋
+Atlantic/South_Georgia
+UTC-2
+アゾレス諸島
+Atlantic/Azores
+UTC-1
+✅
+カーボベルデ諸島
+Atlantic/Cape_Verde
+UTC-1
+ダブリン
+Europe/Dublin
+UTC-1
+✅
+リスボン
+Europe/Lisbon
+UTC+0
+✅
+エディンバラ
+Europe/London
+UTC+0
+✅
+ロンドン
+Europe/London
+UTC+0
+✅
+モンロビア
+Africa/Monrovia
+UTC+0
+UTC
+Etc/UTC
+UTC+0
+カサブランカ
+Africa/Casablanca
+UTC+1
+ベオグラード
+Europe/Belgrade
+UTC+1
+✅
+ブラチスラバ
+Europe/Bratislava
+UTC+1
+✅
+ブダペスト
+Europe/Budapest
+UTC+1
+✅
+リュブリャナ
+Europe/Ljubljana
+UTC+1
+✅
+プラハ
+Europe/Prague
+UTC+1
+✅
+サラエボ
+Europe/Sarajevo
+UTC+1
+✅
+スコピエ
+Europe/Skopje
+UTC+1
+✅
+ワルシャワ
+Europe/Warsaw
+UTC+1
+✅
+ザグレブ
+Europe/Zagreb
+UTC+1
+✅
+ブリュッセル
+Europe/Brussels
+UTC+1
+✅
+コペンハーゲン
+Europe/Copenhagen
+UTC+1
+✅
+マドリード
+Europe/Madrid
+UTC+1
+✅
+パリ
+Europe/Paris
+UTC+1
+✅
+アムステルダム
+Europe/Amsterdam
+UTC+1
+✅
+ベルリン
+Europe/Berlin
+UTC+1
+✅
+ベルン
+Europe/Zurich
+UTC+1
+✅
+チューリッヒ
+Europe/Zurich
+UTC+1
+✅
+ローマ
+Europe/Rome
+UTC+1
+✅
+ストックホルム
+Europe/Stockholm
+UTC+1
+✅
+ウイーン
+Europe/Vienna
+UTC+1
+✅
+西・中央アフリカ
+Africa/Algiers
+UTC+1
+ブカレスト
+Europe/Bucharest
+UTC+2
+✅
+カイロ
+Africa/Cairo
+UTC+2
+ヘルシンキ
+Europe/Helsinki
+UTC+2
+✅
+キーウ
+Europe/Kiev
+UTC+2
+✅
+リガ
+Europe/Riga
+UTC+2
+✅
+ソフィア
+Europe/Sofia
+UTC+2
+✅
+タリン
+Europe/Tallinn
+UTC+2
+✅
+ヴィルニアス
+Europe/Vilnius
+UTC+2
+✅
+アテネ
+Europe/Athens
+UTC+2
+✅
+エルサレム
+Asia/Jerusalem
+UTC+2
+✅
+ハラーレ
+Africa/Harare
+UTC+2
+プレトリア
+Africa/Johannesburg
+UTC+2
+カリーニングラード
+Europe/Kaliningrad
+UTC+2
+イスタンブール
+Europe/Istanbul
+UTC+3
+ミンスク
+Europe/Minsk
+UTC+3
+モスクワ
+Europe/Moscow
+UTC+3
+サンクト・ペテルブルク
+Europe/Moscow
+UTC+3
+クウェート
+Asia/Kuwait
+UTC+3
+リヤド
+Asia/Riyadh
+UTC+3
+ナイロビ
+Africa/Nairobi
+UTC+3
+バグダッド
+Asia/Baghdad
+UTC+3
+テヘラン
+Asia/Tehran
+UTC+3:30
+✅
+ボルゴグラード
+Europe/Volgograd
+UTC+4
+サマラ
+Europe/Samara
+UTC+4
+アブダビ
+Asia/Muscat
+UTC+4
+マスカット
+Asia/Muscat
+UTC+4
+バクー
+Asia/Baku
+UTC+4
+トビリシ
+Asia/Tbilisi
+UTC+4
+エレバン
+Asia/Yerevan
+UTC+4
+カブール
+Asia/Kabul
+UTC+4:30
+✅
+エカチェリンブルグ
+Asia/Yekaterinburg
+UTC+5
+イスラマバード
+Asia/Karachi
+UTC+5
+カラチ
+Asia/Karachi
+UTC+5
+タシケント
+Asia/Tashkent
+UTC+5
+スリジャヤワルダナプラ
+Asia/Colombo
+UTC+5:30
+✅
+チェンナイ
+Asia/Kolkata
+UTC+5:30
+✅
+コルカタ
+Asia/Kolkata
+UTC+5:30
+✅
+ムンバイ
+Asia/Kolkata
+UTC+5:30
+✅
+ニュー・デリー
+Asia/Kolkata
+UTC+5:30
+✅
+カトマンズ
+Asia/Kathmandu
+UTC+5:45
+✅
+アスタナ
+Asia/Dhaka
+UTC+6
+ダッカ
+Asia/Dhaka
+UTC+6
+アルマトイ
+Asia/Almaty
+UTC+6
+ウルムチ
+Asia/Urumqi
+UTC+6
+ラングーン
+Asia/Rangoon
+UTC+6:30
+✅
+ノボシビルスク
+Asia/Novosibirsk
+UTC+7
+バンコク
+Asia/Bangkok
+UTC+7
+ハノイ
+Asia/Bangkok
+UTC+7
+ジャカルタ
+Asia/Jakarta
+UTC+7
+クラスノヤルスク
+Asia/Krasnoyarsk
+UTC+7
+北京
+Asia/Shanghai
+UTC+8
+重慶
+Asia/Chongqing
+UTC+8
+香港
+Asia/Hong_Kong
+UTC+8
+クアラルンプール
+Asia/Kuala_Lumpur
+UTC+8
+シンガポール
+Asia/Singapore
+UTC+8
+台北
+Asia/Taipei
+UTC+8
+パース
+Australia/Perth
+UTC+8
+イルクーツク
+Asia/Irkutsk
+UTC+8
+ウラーンバートル
+Asia/Ulaanbaatar
+UTC+8
+ソウル
+Asia/Seoul
+UTC+9
+大阪
+Asia/Tokyo
+UTC+9
+札幌
+Asia/Tokyo
+UTC+9
+東京
+Asia/Tokyo
+UTC+9
+ヤクーツク
+Asia/Yakutsk
+UTC+9
+ダーウィン
+Australia/Darwin
+UTC+9:30
+アデレード
+Australia/Adelaide
+UTC+9:30
+✅
+キャンベラ
+Australia/Melbourne
+UTC+10
+✅
+メルボルン
+Australia/Melbourne
+UTC+10
+✅
+シドニー
+Australia/Sydney
+UTC+10
+✅
+ブリスベン
+Australia/Brisbane
+UTC+10
+ホーバート
+Australia/Hobart
+UTC+10
+✅
+ウラジオストク
+Asia/Vladivostok
+UTC+10
+グアム
+Pacific/Guam
+UTC+10
+ポートモレスビー
+Pacific/Port_Moresby
+UTC+10
+マガダン
+Asia/Magadan
+UTC+11
+スレドネコリムスク
+Asia/Srednekolymsk
+UTC+11
+ソロモン諸島
+Pacific/Guadalcanal
+UTC+11
+ニューカレドニア
+Pacific/Noumea
+UTC+11
+フィジー
+Pacific/Fiji
+UTC+12
+✅
+カムチャッカ
+Asia/Kamchatka
+UTC+12
+マーシャル諸島
+Pacific/Majuro
+UTC+12
+オークランド
+Pacific/Auckland
+UTC+12
+✅
+ウェリントン
+Pacific/Auckland
+UTC+12
+✅
+ヌークアロファ
+Pacific/Tongatapu
+UTC+13
+トケラウ諸島
+Pacific/Fakaofo
+UTC+13
+サモア
+Pacific/Apia
+UTC+13
+チャタム諸島
+Pacific/Chatham
+UTC+13:45
+✅
+#
+to_date
+この formula は入力データを日付に変換します。YYYY-MM-DD 形式の日付を返します。
+#
+構文
+String
+.first(format:
+format
+)
+String
+- 入力日時、または日付や日時を表す文字列。
+format
+- (任意) 文字列として記述された、入力データの日付形式。指定されていない場合、入力文字列が自動的に解析されます。
+#
+使用例
+formula
+結果
+"23-01-2020 10:30 pm"
+.to_date(format: "DD-MM-YYYY")
+"2020-01-23"
+"01-23-2020 10:30 pm"
+.to_date(format: "MM-DD-YYYY")
+"2020-01-23"
+"2020/01/23"
+.to_date(format: "YYYY/MM/DD")
+"2020-01-23"
+#
+動作
+入力データを日付データ型に変換します。
+入力データのベストプラクティス
+入力データの形式は指定することをお勧めします。形式が指定されていない場合、入力文字列は自動的に解析されます。
+この formula が機能するには、入力文字列が日付に類似したものでなければなりません。
+#
+関連情報
+strftime
+: 日付をカスタム書式で返します。
+to_time
+: 文字列を ISO タイムスタンプに変換します。
+#
+to_time
+文字列を ISO タイムスタンプに変換します。レスポンスには UTC タイムゾーン (+00:00) が使用されます。
+#
+構文
+String
+.to_time(
+format
+)
+String
+- 日付または日時を表す入力文字列。
+format
+- 文字列として記述された、ユーザー定義の日時の書式。
+#
+使用例
+formula
+結果
+"2020-04-02T12:30:30.462659-07:00"
+.to_time
+"2020-04-02T19:30:30.462659+00:00"
+"2020-04-02"
+.to_time
+"2020-04-02T00:00:00.000000+00:00"
+#
+動作
+入力文字列を日時データ型に変換します。出力日時は UTC タイムゾーン (+00:00) に変換されます。
+時間のオートフィル
+入力データに時間が含まれていない場合、出力はデフォルトで
+00:00:00.000000 +00:00
+に設定されます。
+#
+関連情報
+strftime
+: 日付をカスタム書式で返します。
+to_date
+: この formula は日付に類似した入力データを日付に変換します。YYYY-MM-DD 形式の日付を返します。
+#
+パラメータ
+上記で示されているように、各コード (
+%B
+、
+%e
+、
+%I
+など) は
+datetime
+の特定の要素を表します。カンマ (
+,
+)、スラッシュ (
+/
+)、コロン (
+:
+) といった静的なテキストや句読点を挿入することもできます。よく使われるコードについては、以下のリストを参照してください。
+コード
+意味
+例
+(2020-06-05T17:13:27.000000-07:00)
+%Y
+世紀を含む年
+2020
+%m
+0を埋めて2桁にした月
+06
+%B
+完全な月名
+June
+%b
+短縮形の月名
+Jun
+%d
+0を埋めて2桁にした日
+05
+%e
+0を埋めて2桁にしない日
+5
+%H
+1日の時間 (24時間制)
+17
+%k
+0を埋めて2桁にしない1日の時間 (24時間制)
+17
+%I (大文字の i)
+1日の時間 (12時間制)
+05
+%l (小文字の L)
+0を埋めて2桁にしない1日の時間 (12時間制)
+5
+%p
+AM または PM
+PM
+%M
+時刻以下の分部分
+13
+%S
+分以下の秒部分
+27
+%L
+分以下のミリ秒部分
+000
+%z
+UTC からのタイムゾーンのオフセット
+-0700
+%:z
+UTC からのタイムゾーンのオフセット (書式設定あり)
+-07:00
+%Z
+タイムゾーンの省略名
+UTC
+%A
+完全な曜日名
+Friday
+完全なリストについては、
+Ruby のドキュメント
+(opens new window)
+を参照してください。
+#
+to_i
+日時をエポック時間に変換します。UTC (+00:00) でエポック時間を返します。
+#
+構文
+Datetime
+.to_i
+Datetime
+- 入力日時。
+#
+使用例
+formula
+結果
+today.to_time.to_i
+1645660800
+now.to_i
+1645714000
+#
+動作
+入力日時を整数に変換します。エポック時間を、ミリ秒単位ではなく秒単位で返します。出力日時は UTC タイムゾーン (+00:00) に変換されます。
+エポック時間と日時の間の変換
+Workato の formula を使用すると、時間の形式を簡単に変換できます。
+#
+人間が理解できる時間をエポック時間に変換する方法
+to_i
+を使用して、日時のデータピルをエポック時間 (UTC) に変換してください。その動作の詳細については、
+こちら
+を参照してください。
+#
+エポック時間を人間が理解できる時間に変換する方法
+以下の formula を使用して、エポック時間を人間が理解できる日時に変換してください。
+出力が UTC タイムゾーン (+00:00) になることに注意してください。
+"1970-01-01".to_time +
+エポック時間
+.seconds
+エポック時間を特定のタイムゾーンに変換する場合は、
+in_time_zone
+を使用してタイムゾーンを指定する必要があります。
+"1970-01-01".to_time.in_time_zone("US/Pacific") +
+Epoch time
+.seconds
+データ型の誤り: 未定義のメソッド `to_i`
+エポック時間には日時のデータピルが必要です。日付のデータピルを使用している場合は、エラーが発生します。
+to_time
+を使用して日付を日時に変換してから、エポック時間への変換を行ってください。
+#
+関連情報
+to_time
+: 文字列を ISO タイムスタンプに変換します。
+to_date
+: この formula は日付に類似した入力データを日付に変換します。YYYY-MM-DD 形式の日付を返します。
+in_time_zone
+: 時刻の値を別のタイムゾーンに変換します。
+←
+数値の formula
+リストとハッシュの formula
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+日付の演算
+now
+today
+from_now
+ago
+wday
+yday
+yweek
+beginning_of_hour
+beginning_of_day
+beginning_of_week
+beginning_of_month
+beginning_of_year
+end_of_month
+strftime
+in_time_zone
+dst?
+to_date
+to_time
+to_i
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

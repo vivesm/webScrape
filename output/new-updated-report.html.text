@@ -1,0 +1,153 @@
+Workato connectors - Smartsheet New or updated row in report trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Smartsheet
+#
+Smartsheet - New or updated row in report trigger
+The
+New or updated row in report
+trigger activates when a row is added or changed in a Smartsheet report. This trigger fetches all existing rows in the report initially, and then captures updates to rows as they occur. It does not pick up comments or attachments when they are added or updated in a row.
+Smartsheet - New or updated row in report trigger
+#
+Input
+Input field
+Description
+Trigger poll interval
+Determines the frequency of the event check. You can choose a specific interval from the drop-down menu or leave it at the default setting.
+Report name
+The name of the Smartsheet report you plan to monitor for new or updated rows.
+#
+Output
+Output field
+Description
+Row ID
+The unique identifier for the row that was added or updated.
+Sheet ID
+The identifier of the sheet where the row is located.
+Row number
+The number of the row within the sheet.
+Sibling ID
+The identifier of the adjacent row.
+Expanded
+Indicates whether the row is expanded.
+Access level
+The level of access the user has to the row.
+Created at
+The timestamp when the row was originally created.
+Modified at
+The timestamp of the most recent update to the row.
+Cells
+The content of the cells within the row.
+Discussions
+A count or list of discussions associated with the row.
+Attachments
+A count or list of attachments associated with the row.
+←
+New or updated row in a sheet
+New row in report
+→
+Last updated:
+2/20/2024, 7:45:14 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

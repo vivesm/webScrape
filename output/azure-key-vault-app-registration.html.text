@@ -1,0 +1,285 @@
+接続認証情報の秘密管理 - Azure ADへのアプリケーション登録 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+セキュリティ
+接続資格
+Azure Key Vault
+#
+Azure Active Directoryでアプリケーションを登録する
+Azure Key Vault
+(opens new window)
+をWorkatoに接続する前に、Azure Active Directory（AD）で
+アプリケーションを登録
+(opens new window)
+する必要があります。
+この
+アプリケーション
+(opens new window)
+を登録し、適切な権限を付与することで、Workatoはあなたのキーボールトからシークレットを取得することができます。
+アプリケーションを登録するには、以下の手順を実行してください。
+ステップ1：アプリケーションの登録
+ステップ2：クライアントシークレットの作成
+ステップ3：アプリケーションに権限を付与する
+既存のSAMLベースのアプリケーションをお持ちですか？
+すでに
+SAMLベースのアプリケーション
+(opens new window)
+を登録しており、ユーザーがSAML SSOでWorkatoにログインできるようにしている場合、それを使用してWorkatoの
+Azure Key Vault接続
+を設定することができます。コネクタを構成する際に、既存のアプリのクライアントIDを入力し、
+新しいシークレットを生成
+してください。また、アプリケーションには
+必要な権限
+も付与されていることを確認してください。
+#
+ステップ1：アプリケーションの登録
+1
+Azureポータルにログインし、
+Azure Active Directory > アプリの登録
+(opens new window)
+に移動します。
+2
++ 新しい登録
+を選択します。
+3
+アプリケーションの名前を入力します。これは、このアプリケーションのユーザー向けの表示名です。例えば、
+workato-akv
+などです。Microsoftでは、後でこの名前を変更することができます。
+4
+サポートされるアカウントの種類
+で、
+この組織のディレクトリのみのアカウント（デフォルトディレクトリのみ - シングルテナント）
+を選択します。
+5
+リダイレクトURI
+フィールドを空白のままにし、
+登録
+ボタンを選択します。
+6
+次のページには、新しく作成されたアプリケーションの概要が表示されます。
+アプリケーション（クライアント）ID
+と
+ディレクトリ（テナント）ID
+に注意してください。これらの値は、後でWorkatoで認証するために必要になります。
+アプリケーションの概要
+#
+ステップ2：クライアントシークレットの作成
+1
+アプリケーションの概要から、左側のナビゲーションサイドバーで
+証明書とシークレット
+を選択します。
+2
+クライアントシークレット
+タブで、
++ 新しいクライアントシークレット
+を選択します。
+3
+説明
+フィールドに、クライアントシークレットの説明を入力します。例えば、
+workatoAzureKeyVault
+などです。
+4
+有効期限
+フィールドで、シークレットの有効期限を選択します。デフォルトは180日後です。
+5
+追加
+を選択します。
+6
+Azureポータルには、新しいシークレットの値とIDが表示されます。
+値
+をコピーします。
+警告
+シークレットの値は1度だけ表示されます。ページを離れる前にコピーしてください。
+シークレットの値をコピーする
+#
+ステップ3：アプリケーションに権限を付与する
+次に、登録したアプリケーションに、Workatoの代わりにキーボールトからシークレットを取得するための権限を付与する必要があります。
+Azureでは、キーボールトへのアクセス権限を付与するための2つの方法があります。
+ロールベースのアクセス制御（RBAC）
+アクセスポリシー
+キーボールトがどのモデルを使用しているかを確認するには、
+キーボールト > {キーボールト名} > アクセス構成
+に移動します。
+#
+ステップ3a：RBAC
+キーボールトが
+RBAC権限モデル
+(opens new window)
+を使用している場合、登録したアプリケーションに
+Key Vault Secrets User
+ロールを割り当てる必要があります。
+1
+**キーボールト > {キーボールト名} > アクセス制御（IAM）**に移動します。
+2
+追加 > ロールの割り当ての追加
+を選択します。
+3
+Key Vault Secrets User
+ロールを選択し、
+次へ
+を選択します。
+4
+アクセスを割り当てる対象
+フィールドで、
+ユーザー、グループ、またはサービスプリンシパル
+を選択します。
+5
+メンバー
+フィールドで、
+メンバーの選択
+を選択し、登録したアプリケーションの名前を検索します。アプリケーションがリストに表示されたら、アプリケーション名をクリックし、
+選択
+を選択します。
+6
+次へ
+を選択します。
+7
+レビュー + 割り当て
+タブで、
+レビューと割り当て
+を選択します。
+#
+ステップ3b：アクセスポリシー
+もしキーボールトが
+アクセスポリシーパーミッションモデル
+(opens new window)
+を使用している場合、登録されたアプリケーションに
+Get
+シークレットの権限を割り当てる必要があります。
+1
+キーボールト > {キーボールト名} > アクセスポリシー
+に移動します。
+2
+作成
+を選択します。
+3
+権限
+タブで、
+シークレットの権限
+列で
+Get
+を選択し、
+次へ
+を選択します。
+4
+プリンシパル
+タブで、登録されたアプリケーションの名前を検索します。アプリケーションがリストに表示されたら、アプリケーション名を選択し、
+次へ
+を選択します。
+5
+アプリケーション（オプション）
+タブで、
+次へ
+を選択します。
+6
+確認 + 作成
+タブで、
+作成
+を選択します。
+追加情報
+ワークスペースのためのAzure Key Vaultのセットアップ
+プロジェクトのためのAzure Key Vaultのセットアップ
+←
+Azure Key Vaultの使用
+IPアローリスト
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+ステップ1：アプリケーションの登録
+ステップ2：クライアントシークレットの作成
+ステップ3：アプリケーションに権限を付与する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

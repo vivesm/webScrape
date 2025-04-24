@@ -1,0 +1,137 @@
+API security | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+#
+API security
+APIs are critical interfaces to your business systems, managing data flow and enabling essential functionalities. Securing APIs is crucial to prevent unauthorized access and potential data breaches that compromise sensitive information.
+Workato's API management capabilities provide robust tools to secure your API ecosystem:
+#
+API clients and access profiles
+Workato enables you to
+create API clients
+, which are logical groupings of users, such as members from the same organization. These clients gain access to API collections through
+access profiles
+. Access profiles enable you to control who can interact with your APIs and which API collections clients can access. You can create access profiles with various authentication method requirements, and specify more granular controls like allowed IP addresses and policy restrictions.
+#
+Authentication methods
+Workato supports several
+authentication methods
+to safeguard your API interactions:
+Auth tokens
+for straightforward, token-based authentication.
+OAuth 2.0
+for a robust authorization framework that allows granular permissions.
+JSON Web Tokens (JWT)
+for stateless, secure information exchange.
+OpenID Connect
+for identity verification based on the OAuth 2.0 protocol.
+You can configure each authentication method within an access profile. This ensures that API clients are authenticated and authorized according to your security policies.
+Using Workato's API management tools, you can ensure your APIs are secure and compliant with industry standards.
+←
+Recipe Version Management
+API access
+→
+Last updated:
+5/25/2024, 12:46:29 AM
+On this page
+API clients and access profiles
+Authentication methods
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

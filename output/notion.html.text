@@ -1,0 +1,182 @@
+Workato connectors - Notion | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Notion
+Notion
+(opens new window)
+is a project management and note-taking platform that enables you to create databases, manage projects, take notes, and leverage AI to improve your workflows.
+#
+API version
+The Notion connector uses the
+Notion REST API v1
+(opens new window)
+.
+#
+How to connect to Notion
+Authenticate your Notion connection in Workato using one of the following methods:
+OAuth 2.0
+: Use this method for public integrations that require access across multiple Notion workspaces.
+API key
+: Use this method for internal integrations tied to a specific Notion workspace.
+#
+OAuth 2.0 authentication
+Use OAuth 2.0 to create a public integration that accesses multiple Notion workspaces.
+Complete the following steps to set up your Notion connection using OAuth 2.0:
+1
+Enter a
+Connection name
+that identifies which Notion instance Workato is connected to.
+2
+Select
+OAuth (Public integration)
+in the
+Authentication
+field.
+3
+Enter the
+Client ID
+and
+Client secret
+for your Notion integration. Refer to Notion's
+Public integration auth flow setup
+(opens new window)
+guide to generate these credentials.
+4
+Click
+Connect
+to complete the setup.
+#
+API key authentication
+Use an API key for authentication to create an internal integration accessible only in a specific Notion workspace.
+Complete the following steps to set up your Notion connection using an API key:
+1
+Enter a
+Connection name
+that identifies which Notion instance Workato is connected to.
+2
+Select
+API Key (Internal integration)
+in the
+Authentication
+field.
+3
+Enter your Notion integration's
+Integration Token
+. Refer to Notion's
+Internal integration auth flow setup
+(opens new window)
+guide to generate this token.
+4
+Click
+Connect
+to complete the setup.
+←
+Update record action
+New/updated database record trigger
+→
+Last updated:
+12/3/2024, 3:36:34 PM
+On this page
+API version
+How to connect to Notion
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

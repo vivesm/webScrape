@@ -1,0 +1,152 @@
+Workato connectors - Xero List tax rates action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - List tax rates batch action
+The
+List tax rates
+batch action allows you to retrieve a list of tax rate records from your connected Xero account.
+Xero - List tax rates batch action
+#
+Input
+This action does not require any input.
+#
+Output
+Output field
+Description
+Name
+The name of the tax rate.
+Tax type
+The type of tax associated with the tax rate.
+Report tax type
+This specifies how the tax is reported.
+Can apply to assets
+Indicates whether this tax rate can be applied to asset transactions.
+Can apply to equity
+Indicates whether this tax rate can be applied to equity transactions.
+Can apply to expenses
+Indicates whether this tax rate can be applied to expense transactions.
+Can apply to liabilities
+Indicates whether this tax rate can be applied to liability transactions.
+Can apply to assets
+Indicates whether this tax rate can be applied to asset transactions.
+Can apply to revenue
+Indicates whether this tax rate can be applied to revenue transactions.
+Display tax rate
+The tax rate that is displayed to users, often a percentage.
+Effective rate
+The actual effective tax rate applied after considering all components and potential reductions.
+Status
+The current status of the tax rate.
+Tax components
+A list of components that make up the overall tax rate. Each component can have its own name, rate, and characteristics.
+←
+List organisations
+Search accounts
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

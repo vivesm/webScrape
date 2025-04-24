@@ -1,0 +1,197 @@
+Azure OpenAI - Complete text prompt action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Azure OpenAI
+#
+Complete text prompt action
+This action generates completions for a given prompt using OpenAI's language models. Simply provide a prompt and parameters, and the action returns one or multiple predicted completions. Use this action to autocomplete text, answer questions, and generate new content.
+Complete text prompt action
+#
+Input
+Field
+Description
+Deployment ID
+Enter the deployment ID of the model you plan to use. You can find the deployment ID in
+Azure AI Studio > Deployment
+.
+Prompt
+The prompt to generate completions for. If a prompt is not specified, the model generates content as if from the beginning of a new document. If you plan to create responses for multiple strings (or using tokens), enter the relevant information as a datapill. For more information about the format, refer to
+OpenAI's documentation
+(opens new window)
+.
+Maximum Tokens
+The maximum number of tokens to generate in the completion. The token count of your prompt plus the value here cannot exceed the model's context length. Most models have a context length of 2048 tokens (except for the newest models, such as GPT 3.5-turbo, which support 4096).
+Suffix
+The suffix that comes after the completion of inserted text.
+Top p
+Enter a value between 0 and 1 for controlling the diversity of completions. A higher value results in more varied responses. We recommend using this or temperature but not both. Learn more
+here
+(opens new window)
+.
+Temperature
+Enter a value between 0 and 2 to control the randomness of completions. Higher values make the output more random, while lower values make it more focused and deterministic. We recommend using this or top p but not both. Learn more
+here
+(opens new window)
+Number of completions
+The number of completions to generate for each prompt.
+Log probabilities
+Enter a number to obtain the log probabilities on the next n (determined by this value) set of likely tokens and the chosen token. Learn more
+here
+(opens new window)
+.
+Stop phrase
+A specific stop phrase that ends generation. For example, if you set the stop phrase to a period (
+.
+) the model generates text until it reaches a period, and then it stops. Use this to control the amount of text generated.
+Presence penalty
+A number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+Frequency penalty
+A number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood of repeating the same line verbatim.
+Best of
+Controls how many results are actually generated before being sent over. The number of completions cannot be less than the value input here.
+Logit bias
+Input JSON containing the tokens and the change in logit for each of those specific tokens. For example, you can pass
+{"50256": -100}
+to prevent the model from generating the
+<|endoftext|>
+token. Learn more
+here
+(opens new window)
+.
+User
+A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.
+#
+Output
+Field
+Description
+Created
+The datetime stamp of when the response was generated.
+ID
+Unique identifier denoting the specific request and response that was sent over.
+Model
+The model used to generate the text completion.
+Choices
+Text
+The response of the model for the specified input.
+Finish reason
+The reason why the model stopped generating more text. This is often due to stop words or length.
+Logprobs
+An object containing the tokens as well as their corresponding probabilities. For example, if log probabilities was set to five, you will receive a list of the five most likely tokens. The response always contains the logprob of the sampled token, so there may be up to logprobs+1 elements in the response.
+Response
+Contains the response which OpenAI probabilistically considers to be the ideal selection.
+Usage
+Prompt tokens
+The number of tokens used by the prompt.
+Completions tokens
+The number of tokens used for the completions of text.
+Total tokens
+The total number of tokens used by the prompt and response.
+←
+Azure OpenAI
+Generate images action
+→
+Last updated:
+11/23/2023, 12:32:46 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

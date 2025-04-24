@@ -1,0 +1,196 @@
+Workato connectors - Notion - Query database action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Notion
+#
+Notion - Query database action
+The
+Query database
+action searches a Notion database and returns a list of records that match the criteria you specify.
+#
+Input
+Field
+Description
+Database
+Select the database to search.
+Filter source list
+Input a list datapill to create the filter from.
+Column
+Select the column to filter by.
+Value
+Provide the value to compare against the selected
+Column
+values.
+Filter condition
+Specify how to compare the returned
+Column
+values against the
+Value
+you set.
+Condition
+Specify whether to use
+AND
+or
+OR
+logic for the filter's conditions.
+Sort by
+Select a property to sort the results by.
+Sort order
+Specify whether to sort the records in ascending or descending order.
+Sort by Timestamp column
+Select a timestamp column to sort the results by.
+Cursor
+Provide the
+next_cursor
+value to retrieve the next page of results. Defaults to the first page if left blank.
+Page size
+Enter the number of records to return per page. The maximum and default value is
+100
+.
+#
+Output
+Field
+Description
+Object
+The type of object retrieved.
+Page ID
+The identifier for the associated page.
+Created time
+The timestamp when the object was created.
+Last edited time
+The timestamp when the object was last updated.
+Archived
+Indicates whether the database is archived.
+URL
+The queried object's URL.
+Parent
+Contains information about the queried object's parent, such as its
+Type
+and
+ID
+.
+Properties
+Contains information about the queried object's properties, such as its
+Title
+,
+Type
+, and
+ID
+.
+List size
+The total number of matching results.
+List index
+The position of the returned entries within the results list.
+Next cursor
+The identifier for the next page of results.
+Has more
+Indicates if there are additional results.
+←
+Get record details by ID action
+Search records action
+→
+Last updated:
+12/3/2024, 4:54:13 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

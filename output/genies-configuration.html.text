@@ -1,0 +1,263 @@
+Genies configuration | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Agent Studio
+#
+Genies configuration
+Genies are an Agentic feature available to customers with an active Workato subscription. Ensure that Genies are enabled in your account before you use this feature. Contact your Customer Success representative to enable Genies if you don't see the genies option in your workspace.
+#
+Core configuration requirements
+Genies consist of the following core components:
+Genie profile
+Chat interface
+AI model
+Knowledge base
+with at least one
+knowledge recipe
+Skills
+with at least one skill recipe
+CHAT INTERFACE AND AI MODEL CONFIGURATION
+Genies can only be configured to use Slack or Microsoft Teams as the chat interface. Support for additional chat interface apps is in development. Additionally, the AI model can only be configured to use Workato AI. Support for additional LLMs is in development.
+#
+User groups
+You must
+add users to Agentic with your external IdP
+before you can add them to a User group. You can assign access to specific genies for each group. Each group must have at least one user assigned to it.
+#
+Create a User group
+Complete the following steps to create a User group.
+1
+Sign in to your Workato account.
+2
+Use the platform drop-down menu to select
+Agentic
+. The
+Your genies
+page displays by default.
+Switch to Agentic
+3
+Click
+User access
+in the sidebar. The
+Users
+tab displays by default.
+4
+Click the
+User groups
+tab.
+User access > User groups
+5
+Click
+Create user group
+.
+6
+Provide a name for the group in the
+Group name
+field.
+Create a user group
+7
+Select the users you plan to add to the group. Each group must include at least one user.
+8
+Click
+Create
+.
+#
+User group genie access
+You can provide access to specific genies after you create a User group. Complete the following steps to grant a user group access to a genie:
+1
+Sign in to your Workato account.
+2
+Use the platform drop-down menu to select
+Agentic
+. The
+Your genies
+page displays by default.
+Switch to Agentic
+3
+Click
+User access
+in the sidebar. The
+Users
+tab displays by default.
+4
+Click the
+User groups
+tab.
+User access > User groups
+5
+Click the user group name you plan to provide with genie access. The user group
+Users
+page displays by default.
+6
+Click
+Access
+in the sidebar.
+7
+Click
+Go to genies
+. The
+Your genies
+page displays.
+Click
+Go to genies
+8
+Click
+Access
+and then click
+Add user groups
+. The
+Add user groups
+modal displays.
+9
+Use the
+User groups
+drop-down menu to select the user groups that require access to the genie.
+Select user groups
+10
+Click
+OK
+when you're finished adding user groups and then click
+Add
+.
+#
+Genies configuration limits
+Genies have the following configuration limits:
+50 genies per Workspace
+1 chat interface per genie
+1 knowledge base per genie
+1 AI LLM to power the genie’s core functionality
+#
+View and configure genies
+The
+Your genies
+page displays by default when you switch from Orchestrate to Agentic. This page enables you to view, configure, and manage your genies.
+1
+Sign in to your Workato account.
+2
+Use the platform drop-down menu to select
+Agentic
+. The
+Your genies
+page displays by default.
+Switch to Agentic
+3
+Click
+Create genie
+or
+Create your first genie
+. The
+Basic setup
+page displays.
+Your genies
+page
+←
+Key components
+Create a genie
+→
+Last updated:
+3/27/2025, 2:51:16 PM
+On this page
+Core configuration requirements
+User groups
+Create a User group
+User group genie access
+Genies configuration limits
+View and configure genies
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

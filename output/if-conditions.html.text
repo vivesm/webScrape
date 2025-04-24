@@ -1,0 +1,976 @@
+IF 条件 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+IF 条件
+IF 条件を使用すると、レシピフローにより多くのロジックを追加できます。IF 条件で優先度をチェックして、緊急のサポートチケットをエスカレートしたり、IF 条件を使用して有効なメールかどうかをチェックしてから、オンボーディングの招待状を送信したりできます。
+Automation Institute
+Workato の Automation Institute で、IF 条件に関する実践的なチュートリアルを体験してください。このコースを修了すると「Automation Pro」の認定を取得できます。詳細については、
+こちら
+(opens new window)
+を参照してください。
+IF 条件は、Workato の複数の機能で使用されています。
+例
+トリガー条件
+トリガーに対して IF 条件を設定して、レシピが処理すべきトリガーイベントのサブセットを定義できます。たとえば、種類が「顧客」の新しい Salesforce アカウントのみや、評価が「Hot」である Salesforce リードのみを処理することを指定できます。
+この Salesforce トリガーには、ステータスが「Closed」の新規または更新済みのケースのみを処理するトリガー条件が設定されています。
+条件付きのアクションステップ
+レシピ内に IF 条件を設定して、ワークフローの処理ロジックをより適切に定義できます。たとえば Zendesk 組織が見つかった場合は Zendesk 組織を更新し、見つからない場合は新しい Zendesk 組織を作成します。
+条件付きステップを使用して、Zendesk 組織を作成するか更新するかを決定するレシピ。
+サンプルレシピ
+(opens new window)
+エラー監視ステップ
+の自動再試行機能
+IF 条件を設定して、自動再試行を実行する条件を指定できます。たとえば、スローされたエラーがタイムアウトであるか、一時的なネットワークの問題の場合に限り、
+Monitor
+ブロックのステップを自動再試行することを指定できます。
+再試行条件フィールドの設定。この例では、エラーメッセージに401エラーコードが含まれていない場合に限り、Monitor ブロックのアクションが再度実行されます。
+サンプルレシピ
+(opens new window)
+#
+条件
+各条件は、データ、条件、値の3つの部分から構成されます。通常、データ (左側) はアプリから取得した変数データ (ケースのステータスやリードの評価など) です。値 (右側) は、照合したい静的な値 ([Closed] や [Hot] など) です。データと値は大文字と小文字が区別されます。
+この記事では、選択可能な14の条件について説明します。例として、トリガー条件を使用します。さらに、
+AND
+または
+OR
+演算子を使用して複数の条件を結合することにより、複雑な条件を設定することができます。
+各条件は、さまざまなデータ型に対応しています。条件を無効なデータ型で使用しようとすると、レシピが正常に開始されない場合があります。
+動画チュートリアル : 条件内の無効なデータ型の処理方法
+さらに、トリガーに対して無効な IF 条件を設定すると、次のような問題が発生する可能性があります。
+開始されたレシピがトリガーエラーをスローし、トリガーイベントを処理できなくなる。
+レシピがすべてのトリガーイベントを除外する。
+#
+contains
+この条件では、データに指定した値が含まれているかどうかを確認します。大文字と小文字が区別されます。
+大文字と小文字の区別にこだわらない場合は、比較する前に両方を小文字にするか、両方を大文字にしてください。条件には、任意の文字、数字、単語、記号を使用できます。
+件名に単語「bug」を含む新しい Zendesk チケットのみを処理するようにレシピに指示するトリガー条件
+#
+有効な型
+この条件は、配列および文字列データ型のみに対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"UI bug"
+contains
+"bug"
+あり
+"UI BUG"
+contains
+"bug"
+なし
+"Instructions unclear"
+contains
+"bug"
+なし
+""
+contains
+"bug"
+なし
+nil
+contains
+"bug"
+なし
+12345
+contains
+123
+なし
+[1, 2, 3]
+contains
+1
+あり
+[1, 2, 3]
+contains
+[1, 3]
+なし
+["abc", "pqr", "xyz"]
+contains
+"abc"
+あり
+["abc", "pqr", "xyz"]
+contains
+["abc", "pqr"]
+なし
+#
+starts with
+この条件では、トリガーデータの文字列が指定した値で始まるかどうかをチェックします。大文字と小文字が区別されます。大文字と小文字の区別にこだわらない場合は、比較する前に両方を小文字にするか、両方を大文字にしてください。
+文字列 “(408)” または “(669)” で始まる電話番号を持つ新しい Zendesk ユーザーのみを処理するようにレシピに指示するトリガー条件
+starts with
+条件は、完全な一致のみを検索します。null 値は処理されません。
+#
+有効な型
+この条件は文字列データ型のみに対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"(408) 555-6928"
+starts with
+"(408)"
+あり
+"408 555-6928"
+starts with
+"(408)"
+なし
+"(650) 555-2395"
+starts with
+"(408)"
+なし
+""
+starts with
+"(408)"
+なし
+nil
+starts with
+"(408)"
+なし
+12345
+starts with
+123
+トリガーエラーがスローされる
+numeric_type_pill
+starts with
+123
+トリガーエラーがスローされる
+numeric_type_pill
+starts with
+"123"
+あり #
+pill
+= 12345の場合
+#
+特殊な非文字列データ型のケース
+starts with
+条件で非文字列データ型同士を比較しようとすると、
+トリガーエラー
+がスローされます。たとえば、数値型を数値型と比較すると、エラーがスローされます。
+starts with 条件で数値型同士を比較するとトリガーエラーがスローされる
+ただし、トリガーデータの入力フィールドが非文字列のデータピルであり、値が文字列の場合、Workato はデータピルの値を文字列値に変換し、比較を行います。変換された値が条件に一致していると、true に評価されます。
+値が文字列の場合、非文字列のデータピルは文字列に変換されて比較される
+#
+ends with
+この条件では、トリガーデータが指定した値で終わるかどうかをチェックします。大文字と小文字が区別されます。大文字と小文字の区別にこだわらない場合は、比較する前に両方を小文字にするか、両方を大文字にしてください。条件には、任意の文字、数字、単語、記号を使用できます。
+送信者のメールアドレスが文字列「@workato.com」で終わる場合に限り、新しいメールを処理するようにレシピに指示するトリガー条件
+使用しているアプリケーションで、条件で指定したフィールドが空白のままになっている場合、イベントは処理されません。
+#
+有効な型
+この条件は文字列データ型のみに対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"(408) 555-6928"
+ends with
+"6928"
+あり
+"408 555-6928"
+ends with
+"(6928)"
+なし
+"(650) 555-2395"
+ends with
+"6928"
+なし
+""
+ends with
+"6928"
+なし
+nil
+ends with
+"6928"
+なし
+12345
+ends with
+345
+トリガーエラーがスローされる
+numeric_type_pill
+ends with
+345
+トリガーエラーがスローされる
+numeric_type_pill
+ends with
+"345"
+あり #
+pill
+= 12345の場合
+numeric_type_pill
+ends with
+"345"
+なし #
+pill
+= 123の場合
+#
+特殊な非文字列データ型のケース
+ends with
+条件で非文字列データ型同士を比較しようとすると、
+トリガーエラー
+がスローされます。たとえば、数値型を数値型と比較すると、エラーがスローされます。
+ends with 条件で数値型同士を比較するとトリガーエラーがスローされる
+ただし、トリガーデータの入力フィールドが非文字列のデータピルであり、値が文字列の場合、Workato はデータピルの値を文字列値に変換し、比較を行います。変換された値が条件に一致していると、true に評価されます。
+値が文字列の場合、非文字列のデータピルは文字列に変換されて比較される
+#
+doesn't contain
+この条件は、
+contains
+条件の逆です。この条件では、トリガーデータに指定した値が
+含まれない
+かどうかをチェックします。大文字と小文字が区別されます。大文字と小文字の区別にこだわらない場合は、比較する前に両方を小文字にするか、両方を大文字にしてください。
+商品のタイトルに文字列「Shirt」が含まれていない場合に限り、新しい Shopify 商品を処理するようにレシピに指示するトリガー条件
+使用しているアプリケーションで、指定したフィールドが空白のままになっている場合、
+doesn’t contain
+条件はそのフィールドを考慮せず、イベントは処理されません。これは以下の「
+is true
+」セクションで示すように、文字列関数で
+is true
+または
+is not true
+条件を使用するか、doesn’t contain 条件と
+is present
+条件をペアにして使用することで回避できます。
+#
+有効な型
+この条件は、配列および文字列データ型のみに対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"UI bug"
+doesn't contain
+"bug"
+なし
+"UI BUG"
+doesn't contain
+"bug"
+あり
+"Instructions unclear"
+doesn't contain
+"bug"
+あり
+""
+doesn't contain
+"bug"
+あり
+nil
+doesn't contain
+"bug"
+なし
+12345
+doesn't contain
+123
+なし
+[1, 2, 3]
+doesn't contain
+1
+なし
+[1, 2, 3]
+doesn't contain
+[1, 3]
+あり
+["abc", "pqr", "xyz"]
+doesn't contain
+"abc"
+なし
+["abc", "pqr", "xyz"]
+doesn't contain
+["abc", "pqr"]
+あり
+#
+doesn't start with
+この条件は、
+starts with
+条件の逆です。この条件では、トリガーデータ文字列が指定した値で
+始まらない
+かどうかをチェックします。大文字と小文字が区別されます。大文字と小文字の区別にこだわらない場合は、比較する前に両方を小文字にするか、両方を大文字にしてください。
+Opportunity フィールドが文字列「B」から始まらない場合に限り、新しいか更新された Quick Base 商談レコードを処理するようにレシピに指示するトリガー条件
+使用しているアプリケーションで、指定したフィールドが空白のままになっている場合、
+doesn’t start with
+条件はそのフィールドを考慮せず、イベントは処理されません。
+doesn’t contain
+トリガー条件と同様に、これは以下の「
+is true
+」セクションで示すように、文字列関数で
+is true
+関数を使用するか、doesn’t start with 条件を
+is present
+条件とペアにして使用することで回避できます。
+#
+有効な型
+この条件は文字列データ型のみに対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"(408) 555-6928"
+doesn't start with
+"(408)" or "(669)"
+なし
+"408 555-6928"
+doesn't start with
+"(408)" or "(669)"
+あり
+"(650) 555-2395"
+doesn't start with
+"(408)" or "(669)"
+あり
+""
+doesn't start with
+"(408)" or "(669)"
+あり
+nil
+doesn't start with
+"(408)" or "(669)"
+なし
+12345
+doesn't start with
+123
+トリガーエラーがスローされる
+numeric_type_pill
+doesn't start with
+123
+トリガーエラーがスローされる
+numeric_type_pill
+doesn't start with
+"123"
+なし #
+pill
+= 12345の場合
+numeric_type_pill
+doesn't start with
+"123"
+あり #
+pill
+= 345の場合
+#
+特殊なケース
+非文字列データ型
+doesn't start with
+条件で非文字列データ型同士を比較しようとすると、
+トリガーエラー
+がスローされます。たとえば、数値型を数値型と比較すると、エラーがスローされます。
+doesn't start with 条件で数値型同士を比較するとトリガーエラーがスローされる
+ただし、トリガーデータの入力フィールドが非文字列のデータピルであり、値が文字列の場合、Workato はデータピルの値を文字列値に変換し、比較を行います。変換された値が条件に一致していると、true に評価されます。
+値が文字列の場合、非文字列のデータピルは文字列に変換されて比較される
+Nil/null
+トリガーデータが nil (null とも呼ばれる) の場合、たとえば「
+nil
+が "345" で始まらない」など、トリガーデータが条件に一致するように見えても、トリガーイベントはレシピによって処理されません。
+#
+doesn't end with
+この条件は、
+ends with
+条件の逆です。この条件では、トリガーデータ文字列が指定した値で
+終わらない
+かどうかをチェックします。大文字と小文字が区別されます。大文字と小文字の区別にこだわらない場合は、比較する前に両方を小文字にするか、両方を大文字にしてください。条件には、任意の文字、数字、単語、記号を使用できます。
+[Full Name] が文字列「Skywalker」で終わらない場合に限り、新しいか更新された Microsoft Dynamics 365 顧客を処理するようにレシピに指示するトリガー条件
+使用しているアプリケーションで、指定したフィールドが空白のままになっている場合、
+doesn’t end with
+条件はそのフィールドを考慮せず、イベントは処理されません。
+doesn’t contain
+トリガー条件と同様に、これは以下の「
+is true
+」セクションで示すように、文字列関数で
+is true
+関数を使用するか、doesn’t end with 条件と
+is present
+条件をペアにして使用することで回避できます。
+#
+有効な型
+この条件は文字列データ型のみに対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"(408) 555-6928"
+doesn't ends with
+"6928"
+なし
+"408 555-6928"
+doesn't ends with
+"(6928)"
+あり
+"(650) 555-2395"
+doesn't ends with
+"6928"
+あり
+""
+doesn't ends with
+"6928"
+あり
+nil
+doesn't ends with
+"6928"
+なし
+12345
+doesn't ends with
+345
+トリガーエラーがスローされる
+numeric_type_pill
+doesn't ends with
+345
+トリガーエラーがスローされる
+numeric_type_pill
+doesn't ends with
+"345"
+なし #
+pill
+= 12345の場合
+numeric_type_pill
+doesn't ends with
+"345"
+あり #
+pill
+= 123の場合
+#
+特殊なケース
+非文字列データ型
+doesn't end with
+条件で非文字列データ型同士を比較しようとすると、
+トリガーエラー
+がスローされます。たとえば、数値型を数値型と比較すると、エラーがスローされます。
+doesn't end with 条件で数値型同士を比較するとトリガーエラーがスローされる
+ただし、トリガーデータの入力フィールドが非文字列のデータピルであり、値が文字列の場合、Workato はデータピルの値を文字列値に変換し、比較を行います。変換された値が条件に一致していると、true に評価されます。
+値が文字列の場合、非文字列のデータピルは文字列に変換されて比較される
+Nil/null
+トリガーデータが nil (null とも呼ばれる) の場合、たとえば「
+nil
+が "345" で終わらない」など、トリガーデータが条件に一致するように見えても、トリガーイベントはレシピによって処理されません。
+#
+equals
+この条件では、トリガーデータが指定した値と等しいかどうかをチェックします。大文字と小文字が区別されます。大文字と小文字の区別にこだわらない場合は、比較する前に両方を小文字にするか、両方を大文字にしてください。条件には、任意の文字、数字、単語、記号を使用できます。
+大文字と小文字が区別されるステータスが「Closed」の、新しいか更新された Salesforce ケースのみを処理するようにレシピに指示するトリガー条件
+#
+有効な型
+この条件は、整数、浮動小数点数、日付、配列など、あらゆるデータ型に対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"Closed"
+equals
+"Closed"
+あり
+"Closed"
+equals
+"closed"
+なし
+""
+equals
+"Closed"
+なし
+""
+equals
+null
+なし
+'null'
+equals
+nil
+あり
+nil
+equals
+"Closed"
+なし
+12345
+equals
+12345
+あり
+12345
+equals
+"12345"
+あり
+6 - 1
+equals
+5
+あり
+"Closed".present?
+equals
+true
+あり
+"Closed".present?
+equals
+"true"
+なし
+"Closed".present?
+equals
+1
+なし
+#
+特殊な文字列変換のケース
+非文字列データ型のトリガーデータを文字列データ型の値と比較しようとすると、Workato は、比較のためにトリガーデータを文字列に変換します。たとえば、「12345 equals "12345"」は true に評価されます。
+#
+does not equal
+この条件は、
+equal
+条件の逆です。この条件では、トリガーデータが指定した値に
+等しくない
+かどうかをチェックします。大文字と小文字が区別されます。大文字と小文字の区別にこだわらない場合は、比較する前に両方を小文字にするか、両方を大文字にしてください。条件には、任意の文字、数字、単語、記号を使用できます。
+優先順位が大文字と小文字が区別される文字列「Low」と等しくない、新しい Zendesk チケットのみを処理するようにレシピに指示するトリガー条件
+#
+有効な型
+この条件は、整数、浮動小数点数、日付、配列など、あらゆるデータ型に対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"Closed"
+does not equal
+"Closed"
+なし
+"Closed"
+does not equal
+"closed"
+あり
+""
+does not equal
+"Closed"
+あり
+""
+does not equal
+null
+あり
+'null'
+does not equal
+nil
+なし
+nil
+does not equal
+"Closed"
+あり
+12345
+does not equal
+12345
+なし
+12345
+does not equal
+"12345"
+なし
+6 - 1
+does not equal
+5
+なし
+"Closed".present?
+does not equal
+true
+なし
+"Closed".present?
+does not equal
+"true"
+あり
+"Closed".present?
+does not equal
+1
+あり
+#
+greater than
+この条件では、トリガーデータが指定した値より大きいかどうかをチェックします。
+SLA 有効期限の日付が日付「12/21/2018」より後の場合に限り、新しい Salesforce アカウントを処理するようにレシピに指示するトリガー条件
+value
+が数値に設定され、
+trigger data
+フィールドに null 値がある場合、コンピューターでは数値を null 値と比較できないため、レシピはトリガーエラーを発生させます。この問題を解決するには、
+is present
+条件と
+greater than
+条件を一緒に追加します。
+既存の [SLA expiration] フィールドがあり (is present)、12/21/2018以降に有効期限が切れるように (greater than) 設定されている場合に限り、新しい Salesforce 商談を処理するようにレシピに指示するトリガー条件
+#
+有効な型
+この条件は、文字列、整数、数値のデータ型に対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"2017-06-31T12:00:00.252805--07:00"
+greater than
+"2017-12-31T12:00:00.252805--07:00"
+なし
+"2017-06-30T12:00:00.252805--07:00"
+greater than
+"2017-01-31T12:00:00.252805--07:00"
+あり
+"2017-06-31"
+greater than
+"2017-12-31"
+なし
+"2017-06-31"
+greater than
+"2017-01-31"
+あり
+5
+greater than
+10
+なし
+5
+greater than
+1
+あり
+1.5
+greater than
+10.5
+なし
+1.5
+greater than
+1.23
+あり
+"abc"
+greater than
+"abcde"
+なし #ASCII 値の比較
+"abc"
+greater than
+"a"
+あり #ASCII 値の比較
+nil
+greater than
+"2017-01-31T22:00:00.252805--07:00"
+トリガーエラーがスローされる
+"2017-06-31"
+greater than
+nil
+トリガーエラーがスローされる
+nil
+greater than
+10
+トリガーエラーがスローされる
+1.5
+greater than
+nil
+トリガーエラーがスローされる
+"abc"
+greater than
+nil
+トリガーエラーがスローされる
+#
+less than
+この条件では、トリガーデータが指定した値より小さいかどうかをチェックします。
+バリアント価格が50未満になった場合に限り、新しい Shopify 商品バリアントを処理するようにレシピに指示するトリガー条件
+value
+が数値に設定され、
+trigger data
+フィールドに null 値がある場合、コンピューターでは数値を null 値と比較できないため、レシピはトリガーエラーを発生させます。この問題を解決するには、
+is present
+条件と
+less than
+条件を一緒に追加します。
+#
+有効な型
+この条件は、文字列、整数、数値のデータ型に対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"2017-06-31T12:00:00.252805-07:00"
+less than
+"2017-12-31T12:00:00.252805-07:00"
+あり
+"2017-06-30T12:00:00.252805-07:00"
+less than
+"2017-01-31T12:00:00.252805-07:00"
+なし
+"2017-06-31"
+less than
+"2017-12-31"
+あり
+"2017-06-31"
+less than
+"2017-01-31"
+なし
+5
+less than
+10
+あり
+5
+less than
+1
+なし
+1.5
+less than
+10.5
+あり
+1.5
+less than
+1.23
+なし
+"abc"
+less than
+"abcde"
+あり #ASCII 値の比較
+"abc"
+less than
+"a"
+なし #ASCII 値の比較
+nil
+less than
+"2017-01-31T22:00:00.252805-07:00"
+トリガーエラーがスローされる
+"2017-06-31"
+less than
+nil
+トリガーエラーがスローされる
+nil
+less than
+10
+トリガーエラーがスローされる
+1.5
+less than
+nil
+トリガーエラーがスローされる
+"abc"
+less than
+nil
+トリガーエラーがスローされる
+#
+is true
+この条件では、トリガーデータが true かどうかをチェックします。
+[variant's requires shipping] フィールドが true に設定されている場合に限り、新しい Shopify 商品バリアントを処理するようにレシピに指示するトリガー条件
+トリガーデータの入力フィールドに指定された関数が true に評価されるかどうかをチェックするためにも使用できます。たとえば文字列関数から得られた文字列型のデータピルを、boolean に評価される条件に変換することができます。以下の例とともに、
+こちら
+を参照してください。
+関数
+amount.blank?
+が true に評価される場合 ([amount] フィールドが空白の場合) に限り、新しい Quick Base 商談レコードを処理するようにレシピに指示するトリガー条件
+#
+有効な型
+この条件は、boolean データ型のみに有効です。この条件を使用して boolean データピルと照合するか、
+true
+または
+false
+に評価される関数と照合できます。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+pill
+.present?
+is true
+なし #
+pill
+に
+nil
+または
+null
+値があるか、pill が空の文字列 "" の場合
+pill
+.present?
+is true
+あり #
+pill
+に値がある場合
+"Advanced Solutions".include?("Solutions")
+is true
+あり
+"Advanced Solutions".include?("solutions")
+is true
+なし
+#
+is not true
+この条件は、
+is true
+条件の逆です。この条件では、トリガーデータが true
+ではない
+かどうかをチェックします。
+Salesforce ケースがクローズされていない場合に限り、新しい Salesforce ケースを処理するようにレシピに指示するトリガー条件
+トリガーデータの入力フィールドに指定された関数が false に評価されるかどうかをチェックするためにも使用できます。たとえば文字列関数から得られた文字列型のデータピルを、boolean に評価される条件に変換することができます。以下の例とともに、
+こちら
+を参照してください。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+pill
+.present?
+is not true
+なし #
+pill
+に
+nil
+または
+null
+値があるか、pill が空の文字列 "" の場合
+pill
+.present?
+is not true
+なし #
+pill
+に値がある場合
+"Advanced Solutions".include?("Solutions")
+is not true
+なし
+"Advanced Solutions".include?("solutions")
+is not true
+あり
+#
+is present
+この条件はトリガーデータをチェックします。データが存在する場合、トリガーイベントはレシピによって処理されます。入力データが null または空の文字列の場合、トリガーイベントはレシピによって処理されません。
+ファイルに名前がある場合に限り、新しい Box ファイルを処理するようにレシピに指示するトリガー条件
+#
+有効な型
+この条件は、整数、浮動小数点数、日付、配列など、あらゆるデータ型に対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"Advanced Solutions"
+is present
+あり
+12345
+is present
+あり
+""
+is present
+なし
+nil
+is present
+なし
+#
+is not present
+この条件はトリガーデータをチェックします。データが存在する場合、トリガーイベントはレシピによって
+処理されません。
+入力データが null または空の文字列の場合、トリガーイベントはレシピによって
+処理されます。
+エージェントが割り当てられていない新しい Zendesk チケットのみを処理するようにレシピに指示するトリガー条件
+#
+有効な型
+この条件は、整数、浮動小数点数、日付、配列など、あらゆるデータ型に対応しています。
+#
+例
+トリガーデータ
+条件/値
+レシピによる処理の有無
+"Advanced Solutions"
+is not present
+なし
+12345
+is not present
+なし
+""
+is not present
+あり
+nil
+is not present
+あり
+Last updated:
+2025/1/6 17:18:09
+On this page
+条件
+contains
+starts with
+ends with
+doesn't contain
+doesn't start with
+doesn't end with
+equals
+does not equal
+greater than
+less than
+is true
+is not true
+is present
+is not present
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

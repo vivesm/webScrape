@@ -1,0 +1,139 @@
+Workatoコネクター - NetSuite - カスタムオブジェクトの検索 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+NetSuite
+#
+NetSuiteアクション - カスタムオブジェクトの検索
+カスタムオブジェクトの検索
+アクションは、検索条件に一致するレコードのリストを返します。一致するレコードがない場合、アクションは空の配列を返します。
+サポートされていないレコード
+APIの制限により、特定のレコードはサポートされていません
+。
+#
+検索オブジェクトアクションの設定
+1
+カスタムオブジェクトを検索するには、レシピにオブジェクトのカテゴリとオブジェクト自体を指定します。
+以下は、設定されていないカスタムオブジェクトの検索アクションの表示例です。
+設定されていないカスタムオブジェクトの検索アクション。検索する特定のオブジェクトを選択してください
+2
+カテゴリに関係なく、
+内部ID
+または
+外部ID
+を使用して任意のカスタムオブジェクトを検索することができます。
+IDは一意であるため、IDで検索する場合は最大で1つのレコードが取得されます。
+一意の内部IDまたは外部IDによるNetSuiteレコードの検索
+フィールド名の不一致
+一部のNetSuiteフィールドは、NetSuiteではなく内部API名が表示されます。
+たとえば、
+エンティティID
+は、トランザクションドキュメントを添付する顧客/ベンダーを指し、
+内部ID
+は任意のオブジェクトのNetSuite IDを指します。
+3
+ほとんどのカテゴリで検索することができます。
+選択したオブジェクトのカテゴリによっては、そのカテゴリ固有の追加フィールドで検索することができます。
+検索可能なカテゴリ
+お探しのフィールドが見つからない場合は、NetSuiteの管理者または当社にお問い合わせください！
+←
+標準オブジェクトの検索
+すべての標準オブジェクトを取得
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

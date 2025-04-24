@@ -1,0 +1,143 @@
+Change data capture | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Data orchestration
+Extract data
+#
+Change data capture
+Change Data Capture (CDC) captures and tracks changes in a database, enabling real-time or near-real-time monitoring and synchronization. CDC allows applications to stay up-to-date with the latest database changes without continuous polling.
+CDC identifies inserts, updates, and deletions in database tables and propagates these changes to downstream systems, data warehouses, or analytics platforms. This ensures that all systems access the most current data.
+#
+How CDC works in Workato
+Workato uses
+triggers
+to monitor changes in an app or system you specify. Workato triggers handle CDC by monitoring changes in real-time and providing notifications for those changes, which facilitates data replication and synchronization across different systems.
+Triggers deliver jobs in sequence, track processed jobs, prevent duplicates, and ensure job completion in order. Triggers dispatch data as single events for real-time synchronization or in bulk/batch mode to improve throughput when processing large datasets.
+#
+Supported data sources for CDC
+Workato supports CDC for the following data sources:
+Software as a Service (SaaS) platforms
+On-premises systems
+Databases, such as MySQL, PostgreSQL, and Snowflake
+Workato FileStorage
+Cloud storage services such as Amazon S3
+Enterprise Resource Planning (ERP) systems
+#
+Advanced CDC strategies
+Leverage advanced CDC techniques in Workato to improve control, efficiency, and performance when you manage data changes. These strategies help optimize how you capture, process, and sync data across systems.
+Use filters and conditional triggers
+Apply filters and conditional triggers to control which data changes are captured and propagated to downstream systems. This granular control ensures you process only relevant changes, which reduces unnecessary data movement.
+Process large data volumes efficiently
+Use batch processing and micro-batching to manage large volumes of data changes. These methods help maintain synchronization and minimize performance bottlenecks.
+Optimize performance
+Improve performance with features such as built-in cursor management to track high watermarks, auto-deduplication to prevent duplicate records, and in-order processing to maintain data integrity.
+Adjust pipeline speeds to fit business needs
+Set up variable-speed data pipelines to match your business requirements. Workato supports near-real-time streaming, frequent micro-batches for fast polling, and periodic batch schedules for bulk updates.
+←
+Set up extraction frequency
+Load data
+→
+Last updated:
+2/19/2025, 10:15:52 PM
+On this page
+How CDC works in Workato
+Supported data sources for CDC
+Advanced CDC strategies
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

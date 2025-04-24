@@ -1,0 +1,198 @@
+Workato コネクター - JDBC Scheduled query トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+JDBC
+#
+JDBC - Scheduled Query (特定の時間に実行するクエリー) トリガー
+#
+New/updated batch of rows via scheduled custom SQL (特定の時間に実行するカスタム SQL を介した新規行/更新行のバッチ)
+このトリガーは、選択したテーブルまたはビューで挿入/更新された行を取得します。各行は別個のジョブとして処理されます。ポーリング間隔ごとに新規行/更新行をチェックします。
+New/updated row トリガー
+入力項目
+説明
+SQL
+新規行を取得するためにポーリング間隔ごとに実行されるカスタム SQL クエリー。
+Schedule
+SQL を実行する頻度を選択します。
+Timezone
+スケジュールを設定するタイムゾーンを選択します。
+Hour
+SQL クエリーを実行する時刻 (時) を設定します。
+Minute
+SQL クエリーを実行する時刻 (分) を設定します。
+Day of month
+SQL クエリーを実行する日付を設定します。
+Days of week
+SQL クエリーを実行する曜日を選択します。
+Batch size
+このレシピの各ジョブで処理するバッチサイズを設定します。このサイズは、デフォルトでは100に設定されます。
+#
+入力項目の詳細
+#
+SQL
+行を選択するために実行する SQL を指定します。ここで指定する SQL は、出力データツリーの生成に使用されます。出力データツリーを生成するため、SQL クエリーは指定時に一度実行されます。データピルをここにマッピングして、動的に変化する SQL 文を実行できます。データピルは必ず二重引用符 (
+''
+) で囲んでください。
+この SQL では、
+TOP
+のような制限句を使用しないでください。これは、クエリーで返される行数の制限が、
+[Batch size]
+入力項目
+で定義される値に基づいているためです。独自の制限句を追加すると、このアクションは失敗します。
+#
+Schedule
+統合のユースケースに必要なスケジュールの種類を選択します。この入力項目はピックリストで、以下のいずれかを選択できます。
+hourly
+daily
+monthly
+#
+Timezone
+スケジューラを設定するタイムゾーンを選択します。これは必須項目です。
+#
+Hour
+SQL クエリーを実行する時刻 (時) を設定します。これは、
+[Schedule]
+に
+[daily]
+または
+[monthly]
+を選択している場合にのみ必須になります。
+#
+Minute
+SQL クエリーを実行する時刻 (分) を設定します。これは常に必須です。
+#
+Day of month
+日付として
+1 ～ 31
+の間の値を入力します。短い月の場合、この値は月の最後の日付になることがあります。たとえば、値に
+31
+を指定しており、その月が31日より前に終わる場合、トリガーは月の最後の日 (たとえば2月28日、3月31日、4月30日など) に SQL クエリーを実行します。
+これは、
+[Schedule]
+に
+[monthly]
+を選択している場合にのみ必要になります。任意の項目であり、空のままにするとデフォルトで月の最初の日に設定されます。
+#
+Days of week
+SQL クエリーを実行する曜日を選択します。これは、
+[Schedule]
+に
+[hourly]
+または
+[daily]
+を選択している場合にのみ必須になります。[hourly] を選択している場合、トリガーはここで選択した曜日に1時間ごとに SQL クエリーを実行します。
+#
+Batch size
+各ジョブで返される行のバッチサイズを設定します。これには、
+1
+～最大バッチサイズ間の任意の数を指定できます。最大バッチサイズは
+100
+で、デフォルトは
+100
+です。
+指定されたポーリングにおいて、設定されたバッチサイズよりもトリガーの対象となる行数が少ない場合、このトリガーはすべての行を処理します。
+←
+新規行 トリガー
+クエリー結果のエクスポート
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+New/updated batch of rows via scheduled custom SQL (特定の時間に実行するカスタム SQL を介した新規行/更新行のバッチ)
+入力項目の詳細
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

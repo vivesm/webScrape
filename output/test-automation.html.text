@@ -1,0 +1,482 @@
+Embedded API - Test Automation | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded API
+Resources
+#
+Test Automation
+The following endpoint enables you to use the
+Test Automation
+feature programmatically.
+#
+Quick reference
+Type
+Resource
+Description
+POST
+/api/managed_users/:managed_user_id/
+test_cases/run_requests
+Run test cases in a customer workspace.
+GET
+/api/managed_users/:managed_user_id/recipes/
+:recipe_id/test_cases
+Get test cases for a specific recipe in a customer workspace.
+GET
+/api/managed_users/:managed_user_id/
+test_cases/run_requests/:test_id
+Get the current state of a test case run request in a customer workspace.
+#
+Run test cases
+Use this endpoint to run test cases in a customer workspace.
+You can specify the test cases to run in the following ways:
+All test cases of all recipes in a manifest
+All test cases of all recipes in a project
+All test cases of all recipes in a folder
+All test cases belonging to a particular recipe
+Test cases you specify
+This endpoint is asynchronous.
+POST /api/managed_users/:managed_user_id/test_cases/run_requests
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer ID/external ID.
+The external ID must be URL encoded and prefixed with an
+E
+(for example,
+EA2300
+).
+#
+Payload
+Name
+Type
+Description
+manifest_id
+integer
+optional
+Run test cases for all recipes in the export manifest you specify.
+project_id
+integer
+optional
+Run test cases for all recipes in the project you specify. Use the
+list projects
+endpoint to retrieve the IDs of all projects in a customer workspace.
+folder_id
+integer
+optional
+Run test cases for all recipes in the folder you specify. Use the
+list folders
+endpoint to retrieve the IDs of all folders in a customer workspace.
+recipe_id
+integer
+optional
+Run all test cases for the recipe you specify. Use the
+list recipes
+endpoint to retrieve the IDs of all recipes in a customer workspace.
+test_case_ids
+array of strings
+optional
+Run specific test cases by ID.
+#
+Sample request
+curl
+-X
+POST https://www.workato.com/api/managed_users/12345/test_cases/run_requests
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"recipe_id": 987654
+}'
+#
+Sample response
+{
+"data"
+:
+{
+"id"
+:
+"cirr-ALAGo123-Em8ewZ"
+,
+"status"
+:
+"running"
+,
+"created_at"
+:
+"2024-01-24T04:24:11.601-09:00"
+,
+"updated_at"
+:
+"2024-01-24T04:24:11.601-09:00"
+,
+"user"
+:
+{
+"id"
+:
+12345
+}
+,
+"results"
+:
+[
+{
+"job"
+:
+{
+"id"
+:
+"j-ALAGo234-tXMPxZ"
+}
+,
+"status"
+:
+"pending"
+,
+"recipe"
+:
+{
+"id"
+:
+987654
+,
+"name"
+:
+"Example Recipe"
+}
+,
+"test_case"
+:
+{
+"id"
+:
+"citc-ALAGd789-wcotNZ"
+,
+"name"
+:
+"Example Test Case"
+}
+}
+]
+}
+}
+#
+Get test cases
+Returns a collection of test cases belonging to the recipe you specify in a customer workspace.
+GET /api/managed_users/:managed_user_id/recipes/:recipe_id/test_cases
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer workspace ID/external ID.
+The external ID must be URL encoded and prefixed with an
+E
+(for example,
+EA2300
+).
+recipe_id
+integer
+required
+The ID of the recipe for which to list the test cases.
+#
+Sample response
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/12345/recipes/67890/test_cases'
+\
+-H
+'Authorization: Bearer <api_token>'
+{
+"data"
+:
+[
+{
+"id"
+:
+"citc-AG48N4xo-g6ccgP"
+,
+"created_at"
+:
+"2023-06-01T01:40:00.000-07:00"
+,
+"updated_at"
+:
+"2023-06-01T01:40:00.000-07:00"
+,
+"description"
+:
+"Validate API connections and data mappings"
+,
+"name"
+:
+"API connection Test"
+}
+]
+}
+#
+Get the current state of a test case run request
+Retrieve the current status and detailed information of a test case run request within a customer workspace. This endpoint provides insights into the test's progress and, for completed tests, includes data on test coverage and other relevant outcomes.
+GET /api/managed_users/:managed_user_id/test_cases/run_requests/:test_id
+#
+URL parameters
+Name
+Type
+Description
+managed_user_id
+string
+required
+Embedded customer workspace ID/external ID.
+test_id
+string
+required
+The ID of the test run request.
+#
+Sample request
+curl
+-X
+GET
+'https://www.workato.com/api/managed_users/12345/test_cases/run_requests/cirr-AHNFkza6-dwMArc'
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+Sample response
+{
+"data"
+:
+{
+"id"
+:
+"cirr-AHNFkza6-dwMArc"
+,
+"status"
+:
+"completed"
+,
+"created_at"
+:
+"2024-01-24T04:24:11.601-09:00"
+,
+"updated_at"
+:
+"2024-01-24T04:24:12.602-09:00"
+,
+"coverage"
+:
+{
+"value"
+:
+87.5
+,
+"total_actions_count"
+:
+8
+,
+"total_visited_actions_count"
+:
+7
+,
+"recipes"
+:
+[
+{
+"id"
+:
+67890
+,
+"name"
+:
+"Employee Data Sync"
+,
+"coverage"
+:
+{
+"value"
+:
+87.5
+,
+"not_visited_actions"
+:
+[
+{
+"step_number"
+:
+4
+,
+"description"
+:
+"Check database trigger execution"
+}
+]
+}
+}
+]
+}
+,
+"results"
+:
+[
+{
+"recipe"
+:
+{
+"id"
+:
+67890
+,
+"name"
+:
+"Employee Data Sync"
+}
+,
+"test_case"
+:
+{
+"id"
+:
+"citc-AG48N4xo-g6ccgP"
+,
+"name"
+:
+"Full Sync Test"
+}
+,
+"job"
+:
+{
+"id"
+:
+"j-AHNFpnRa-sMWLYJ"
+,
+"status"
+:
+"succeeded"
+}
+}
+]
+}
+}
+←
+Manage tag assignments
+Embedded API FAQs
+→
+Last updated:
+2/25/2025, 9:18:59 PM
+On this page
+Quick reference
+Run test cases
+Get test cases
+Get the current state of a test case run request
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

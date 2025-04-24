@@ -1,0 +1,146 @@
+Workato connectors - Eloqua | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Eloqua
+Eloqua is a Marketing Automation Platform that helps teams build a unified brand experience across multiple marketing channels. At its core, Eloqua holds and aggregates your customer data which then allows you to utilize this data to build personal engagements across all customer touchpoints. Eloqua helps you do this through advanced segmentation and targeting, adaptive campaign orchestration and lead/asset management.
+#
+API Version
+The Eloqua connector uses the
+Eloqua REST API v2
+(opens new window)
+.
+#
+How to connect to Eloqua on Workato
+The Eloqua connector uses OAuth 2.0 to connect to Eloqua. We recommend provisioning and assigning a dedicated integration user to Workato. This connection on Workato inherits the same permissions as the user that was used to authenticate.
+Field
+Description
+Connection name
+Give this Eloqua connection a unique name that identifies which Eloqua instance it is connected to.
+#
+Using depth to control how much information is returned from Eloqua
+The Eloqua connector allows you to adjust how much information is returned from Eloqua for
+Search
+and
+Get
+record details. This control is done in recipe configuration via the
+depth
+input field. The depth input field supports the following values -
+Minimal
+,
+Partial
+,
+Complete
+.
+More information here.
+(opens new window)
+←
+Upload file action
+Triggers
+→
+Last updated:
+5/17/2024, 2:35:03 AM
+On this page
+API Version
+How to connect to Eloqua on Workato
+Using depth to control how much information is returned from Eloqua
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,124 @@
+SDK - How to ガイド | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+コネクター How to ガイド
+このセクションに含まれるガイドは、認証からアクションおよびトリガーの作成まで、コネクターの構築に関するさまざまな事項を取り上げています。サンプルを確認しながら、コネクターの作り方の感覚をつかんでいきましょう。はじめに、基本事項について説明します。
+#
+基本事項
+Workato では、Ruby (プログラミング言語) を使用して、Workato SDK でカスタムコネクターを構築することができます。ユーザーは何らかのプログラミング言語についての基礎知識を持っていることが推奨されますが、Workato の SDK (ソフトウェア開発キット) は、どのようなレベルのユーザーでもカスタムコネクターを構築できるように作られています。構築したカスタムコネクターは任意の数のレシピで使用できます。また、同僚や友人間、さらにはコミュニティ全体で共有することもできます。
+作業全体を通して、ユーザーはカスタムコネクターを Workato のプラットフォームから直に構築、テスト、公開することができます。つまり、まさにいま開いているブラウザから直接作業できるということです。コンピュータに何かをインストールする必要もないため、これは非常に便利です。
+SDK プラットフォームで作成したコネクターのソースコードは、Workato のサーバーでホスティングされ、そのコネクターを使用するレシピがトリガーされるたびに実行されます。コネクター SDK のコンソールの機能について、詳しくは
+プラットフォームのクイックスタート
+を参照してください。
+#
+コネクター定義の概要
+Workato のカスタムコネクターは常に中括弧から始まり、それによってコードすべてがカプセル化されます (中括弧とは
+{}
+として表示される括弧です)。それぞれのコネクターは中括弧の内側に、そのコネクターのさまざまな要素を担う多数のルートキーを持っています。たとえば、
+connection: { ... }
+というコードは、
+connection
+キーと呼ばれます。コネクター定義の詳細については、
+SDK リファレンス
+を参照してください。
+キーの名前は厳密に定義されており、スペルも正しくなければならないことに注意してください。Workato のフレームワークは、認証を行ったり、トリガーやアクションを実行したりする際、これらのキーを使用して参照すべき箇所を把握します。各オブジェクトの内部には、さらに入れ子になったキーがあり、ユーザーはそれを利用してコネクション、アクション、トリガーの入力項目を定義できます。これらについては後で解説します。
+Last updated:
+2023/8/31 1:07:14
+On this page
+基本事項
+コネクター定義の概要
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

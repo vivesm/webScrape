@@ -1,0 +1,73 @@
+Okta Device Access | Okta Identity Engine
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter:
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Okta Device Access
+Okta Device Access extends Okta's Identity and Access Management capabilities to the device sign-in experience. Using the same authenticators used to secure your Okta-protected apps and workforce devices, your users can verify their identity and sign in to their devices with a secure, seamless experience.
+Desktop MFA for Windows and macOS extends multifactor authentication to your desktop and laptop computers, providing a seamless and secure experience for users. Admins can configure policies for specific users and groups. You can configure a passwordless experience, which allows users to sign in with
+Okta Verify
+, and request a self-service password reset at any time.
+Desktop Password Sync for macOS is based on Apple's Platform Single Sign-on extension. Users can sign in or unlock the device with their Okta password, and keep the local account password in sync with Okta. As part of the enrollment process, users register their device to an
+Okta Verify
+account. Then, they enroll in
+Okta FastPass
+using the streamlined onboarding flow, allowing seamless, authenticated access to apps and data.
+For more information about
+Okta Device Access
+products and availability, visit the
+Okta Device Access
+product page
+.
+Benefits
+Desktop Passwordless Login
+When Desktop Passwordless Login is enabled, users can sign in to their Windows computer without entering a password by responding to a push notification. The user still has a valid password that they can use when push notifications are unavailable, the computer is offline, or if passwordless sign-in fails.
+Self-service password reset
+Desktop MFA
+for Windows allows users to initiate a password reset if they're locked out of the computer. When changing a password with the self-service password reset, the user changes their Okta password, which is then synced with Active Directory or Azure Active Directory.
+Recovery flows for macOS
+macOS users can call your Help Desk for a recovery PIN when they're unable to sign in to their computer. Recovery flow supports devices with or without an internet connection.
+Simplified password management
+Users can synchronize their macOS password with their Okta password, eliminating another password to remember.
+Just-In-Time Local Account Creation
+Just-In-Time Local Account Creation allows users to create an account on a macOS computer using their Okta username and password from the macOS login window. Admins can streamline the account creation process for any Okta user in their tenant, which is especially beneficial for shared devices or workstations that support multiple users.
+Get started
+Get started with Desktop MFA for Windows
+Get started with Desktop MFA for macOS
+Desktop Password Sync for macOS
+©
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

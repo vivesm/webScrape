@@ -1,0 +1,443 @@
+HTTP connector - Building a HTTP action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+HTTP
+#
+Build an HTTP action
+You can use the HTTP connector to configure custom HTTP actions.
+Before you begin, ensure your
+HTTP connection
+is set up properly.
+#
+Send request via HTTP
+The
+Send request via HTTP
+action enables you to send an HTTP request to an API endpoint.
+Begin by entering a name for your request in the
+Request name
+field. This updates the action name at the recipe-level.
+Provide request name
+You can choose to configure your action using the
+HTTP wizard
+by clicking
+Start guided setup
+or configure it manually by clicking
+setup manually
+.
+GET METHOD IMPLICIT RETRY
+If you use the GET method, an implicit retry occurs when this action times out. This addresses transient network issues by allowing a second attempt to succeed.
+#
+Input fields
+SENSITIVE DATA
+Don't hard-code sensitive information, such as
+tokens
+,
+usernames or passwords
+, or
+client IDs/secrets
+, into input fields for this action. Instead, store them in your
+connection
+, or use
+environment properties
+or
+project properties
+.
+Refer to the
+Security best practices
+documentation for more information.
+Input field
+Description
+Request name
+Provide a human readable description of what this API request does.
+Request
+Contains information related to the request, including the Method, Request URL, Request payload, and headers.
+Response
+Contains information related to the response, including the Response type, encoding, and headers.
+#
+Output fields
+The output of this HTTP action depends on the
+Response body schema
+defined in your HTTP configuration.
+#
+Build your action with the Workato HTTP wizard
+The Workato HTTP wizard streamlines the process of setting up HTTP actions by guiding you through each configuration step.
+In many situations, the wizard automatically provides a recommended HTTP configuration tailored to your endpoint, eliminating the need for manual setup. It also allows you to test the connection directly within the wizard, ensuring the endpoint responds as expected before finalizing the action.
+This example uses the Workato HTTP wizard to create an action named
+Get incidents in ServiceNow
+.
+#
+Provide the HTTP method and request URL
+Complete the following steps to specify the HTTP method and request URL for the API in this HTTP action:
+1
+Click
+Start guided setup
+to open the HTTP wizard.
+EXITING THE SETUP WIZARD
+You can exit the setup wizard by clicking
+Skip guided setup
+to configure the action manually at any time during this process. Similarly, if you decide to set up the action manually, you can choose to use the HTTP wizard by clicking
+Resume guided setup
+.
+2
+Use the
+Method
+drop-down menu to select the HTTP method of the API endpoint you plan to call. This example uses
+GET
+.
+Provide an HTTP method and request URL
+3
+Enter the absolute URL of the API endpoint in the
+Request URL
+field.
+Alternatively, if you configured the base URL in the
+connection setup
+, enter the relative URL in this field. For example, if the base URL is
+https://api.example.com/
+and the absolute URL is
+https://api.example.com/users/123
+, your relative URL is
+users/123
+.
+In this example, we plan to view existing incident records from ServiceNow. According to the
+ServiceNow documentation
+(opens new window)
+, this is a
+GET
+call with the following endpoint:
+https://<instance>.service-now.com/api/now/v1/table/incident
+Replace
+<instance>
+in the URL with the specific name of your ServiceNow instance.
+Configuring HTTP method and request URL
+4
+Click
+Next
+.
+#
+Configure and send the sample request
+For certain endpoints, Workato provides a sample request that you can use as-is, customize, or remove to build your own manually.
+Configure the sample request using one of the following options:
+Use Workato's recommended request settings without modification.
+Customize Workato's recommended request settings to meet your requirements.
+Remove Workato's recommended request settings and build the request manually.
+AWS HTTP
+When using AWS authentication methods such as Access key or IAM role auth, you don't need to append any additional authentication parameters. In AWS documentation, these are often denoted as
+AUTHPARAMS
+.
+1
+Click
+Use this configuration
+to accept Workato's recommended sample request body for the ServiceNow endpoint.
+RecipeIQ recommendations for HTTP configuration
+2
+Click
++ Add URL parameter
+to add a new row to the
+Request URL parameters
+field.
+3
+Enter
+sysparm_limit
+in the
+Parameter name
+field.
+4
+Enter
+1
+in the
+Value
+field. This limits the number of records to retrieve from ServiceNow.
+Adding request parameter
+5
+Click
+Send request
+to test your request. The following screenshot displays a successful request:
+Request successful
+1
+Click
+Remove configuration
+to configure the sample request manually.
+Click Remove configuration
+2
+Build your sample request by configuring the
+Request URL parameters
+,
+Request headers
+, and
+Response
+fields, along with their related subfields.
+Configure the sample request
+Configured sample request
+You can also copy and paste sample request JSON data from the endpoint's API documentation to create your request body and add required headers.
+3
+Click
+Send request
+to test your request. The following screenshot displays a successful request:
+Request successful
+#
+Review the HTTP configuration
+A successful request confirms the following:
+The connection is set up successfully.
+The API endpoint is correct.
+All required request body fields are included and contain valid values.
+Click
+Apply configuration
+to apply the request and response configuration to the Workato HTTP action.
+Configuration applied for HTTP action
+#
+Finalize the HTTP configuration
+After verifying that the configuration works, you can either map datapills to the
+Value
+column next to their corresponding parameters or manually enter fixed values into these fields.
+#
+Schematic vs. raw JSON request body
+When you choose the
+JSON request body
+option in the
+Request content type
+input field, Workato will generate an input schema based on the sample JSON provided. This allows each field to be configured individually. It also allows you to leverage formula mode to manipulate the field's value. For example, you may use ternary operator and/or
+skip
+to conditional include or omit a field.
+Using formula mode to manipulate input field value
+However, you may want to fully customize the message formatting. In this case, you may choose
+Raw JSON request body
+instead, which allows you to input and manipulate the JSON payload structure directly as is.
+Raw JSON request body
+#
+Configure multipart requests
+The
+Send request via HTTP
+action supports sending multiple files in a single request payload.
+Complete the following steps to configure a multipart request:
+1
+Enter a name in the
+Request name
+field.
+2
+Click
+setup manually
+.
+3
+Locate the
+Request
+field, and from the
+Method
+drop-down menu, select one of the following methods that support multipart form requests:
+POST
+PUT
+PATCH
+4
+Enter the absolute URL of the API endpoint in the
+Request URL
+field. Alternatively, if you configured the base URL in the
+connection setup
+, enter the relative URL in this field. For example, if the base URL is
+https://api.example.com/
+and the absolute URL is
+https://api.example.com/users/123
+, your relative URL is
+users/123
+.
+5
+Use the
+Request content type
+drop-down menu to select
+Multipart form
+. This enables the HTTP connector to package and send each file and data field as separate parts in the request, allowing the API to interpret them correctly.
+6
+In the
+Request body schema
+field, click
+add fields manually
+to open the
+Add new field
+dialog.
+7
+Enter a name for your field in the
+Name
+field. For example,
+File1
+.
+8
+Use the
+File attachment
+drop-down menu to select
+Yes
+.
+Add request body field
+9
+Click
+Add field
+. This adds a "header" exclusive to the element that you can use.
+For situations where you need multiple headers in a multipart request, you can use this element without attaching a file.
+Image caption
+10
+Click
++ Add Field
+and repeat the previous steps to create fields for additional files you plan to send in your multipart request.
+#
+Marking non-2xx response codes as success
+By default, Workato's HTTP connector treats non-2xx response codes as errors, causing jobs to stop unless handled. To allow jobs to continue when non-2xx response codes occur, set
+Mark non-2xx response codes as success
+to
+Yes
+.
+Mark non-2xx response codes as success
+#
+Configure HTTP action as a long action
+PUBLIC BETA
+The
+Wait for response
+field in the
+Send request via HTTP
+action is a beta feature available to all users of Workato's HTTP connector.
+If you know the endpoint takes more than a few seconds to respond, you can designate this HTTP action as a
+long action
+by setting the
+Wait for response
+field to
+Yes
+.
+Wait for response
+The following table explains the key differences when the
+Wait for response
+field is enabled:
+Without "wait for response"
+With "wait for response"
+Request timeout
+Up to 120 seconds
+Up to 1 hour
+Response size
+Soft response size limit of up to 200 MB
+Hard response size limit of 100 MB
+Connection types
+All HTTP connection types are possible
+Connections using custom SSL certificates or OPA are not supported
+Job processing
+Jobs in the queue are processed in order
+Jobs may not be processed in order
+In most cases, we recommend starting without waiting for response when building. If timeouts occur, you can enable the
+Wait for response
+field within the same action after building your initial recipe.
+FURTHER READING
+Set up a connection to your app
+Build an HTTP trigger
+←
+Build an HTTP trigger
+HTTP error messages
+→
+Last updated:
+3/12/2025, 2:19:13 PM
+On this page
+Send request via HTTP
+Input fields
+Output fields
+Build your action with the Workato HTTP wizard
+Provide the HTTP method and request URL
+Configure and send the sample request
+Review the HTTP configuration
+Finalize the HTTP configuration
+Schematic vs. raw JSON request body
+Configure multipart requests
+Marking non-2xx response codes as success
+Configure HTTP action as a long action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

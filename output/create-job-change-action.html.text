@@ -1,0 +1,156 @@
+Workato connectors - Create a job change action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Workday REST
+#
+Workday REST - Create a job change action
+Use this action to initiate a job change for a specified worker. Refer to
+Workday REST API documentation
+(opens new window)
+for more details.
+Create a job change action
+#
+Input fields
+Input field
+Description
+Worker ID
+Workday ID of the worker record to initiate the job change for.
+Job change reason
+Reason for the job change. Select from the list or provide the Job change reason ID.
+Supervisory organization
+The worker will be in this organization after the job change. Select from the list or provide the organization ID.
+Effective date
+Optional
+. Effective date of the job change. If left blank, is set to current date.
+Move manager team?
+Optional
+. Choose to transfer the manager team to the new organization.
+Proposed organizations
+Optional
+. Set of proposed organizations to which the worker is to be assigned.
+#
+Output fields
+Output field
+Description
+Descriptor
+Indicates
+Approval by Manager
+task.
+ID
+Workday ID of the inbox task.
+HREF
+API resource URL of the inbox task.
+Job change reason
+Job change reason object. Contains descriptor, Workday ID and HREF.
+Move manager team?
+Boolean value indicating if the manager team was transferred to the new organization.
+Proposed organizations
+List of proposed organizations to which the worker is to be assigned.
+Supervisory organization
+The worker will be in this organization after the job change is complete.
+←
+Search workers
+Get inbox task(s)
+→
+Last updated:
+7/2/2021, 10:09:23 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

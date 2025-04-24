@@ -1,0 +1,237 @@
+Workbot のダイナミックメニュー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+Workbot for Slack
+Workbot インターフェイスの設計
+#
+ダイナミックメニュー
+概要
+ダイアログを表示する Workbot コマンドレシピでは、実行時に使用可能になるダイナミックメニューオプションとともに
+select
+項目を定義できます。
+ダイナミックメニューオプションのある Workbot コマンドレシピ
+実行時に生成されるメニューオプション
+ダイナミックメニューオプションは、2つ目の「ダイナミックメニューレシピ」により生成されます。その名前が示すように、このレシピには以下の3つの重要な機能があります。
+ダイアログ内のダイナミックメニューからのダイナミックメニューイベントを監視する。
+メニューオプションを生成する。
+メニューオプションを1つ目のコマンドレシピに返す。
+#
+ダイナミックメニューオプションでの Workbot パラメータの設定
+Workbot コマンドレシピで、以下の手順を実行します。
+パラメータを作成します。
+[
+Dialog control type
+] で [
+Select
+] を選択します。
+[
+Menu options
+] で [
+Dynamic
+] を選択します。
+[Dynamic menu recipe] に、メニューオプションを生成するダイナミックメニューレシピのレシピ ID を入力します。この時点までに、ダイナミックメニューレシピが作成済みである必要があります。ダイナミックメニューレシピの詳細については、
+ダイナミックメニューレシピ
+を参照してください。
+(任意) ダイナミックメニューレシピにさらに情報を送信するには、[
+Dynamic menu recipe params
+] 項目を使用してパラメータを渡します。詳細については、
+New dynamic menu event トリガー
+を参照してください。
+ダイナミックメニューオプションのある Workbot コマンドレシピ
+ユーザーがダイアログのダイナミックメニューフィールドに入力すると、イベントがダイナミックメニューレシピに送信されます。
+実行時に生成されるメニューオプション
+#
+Post dialog アクションのダイナミックメニューオプションでの Workbot パラメータの設定
+Post dialog
+アクションで、ダイナミックメニュー項目を設定することもできます。[
+Dialog form fields
+] で、以下のように JSON を設定します。
+[
+{
+"type": "select",
+"name": "your_parameter",
+"label": "Your parameter",
+"optional": false,
+"data_source": "external",
+"dynamic_menu_recipe": "28748",
+"dynamic_menu_recipe_params": "stagename: Closed Won",
+"min_query_length": 3
+}
+]
+JSON を使用したダイナミックメニュー項目の設定
+項目
+説明
+type
+このパラメータの項目のタイプ。ドロップダウンメニュー (ダイナミックメニューも含む) には
+select
+を使用します。
+name
+パラメータの API 名。例
+stagename
+label
+パラメータの表示名。例
+Stage name
+optional
+true
+の場合、この項目をスキップして、ダイアログを送信できます。
+data_source
+Slack でダイナミックメニューを持つフィールドに必要です。値は
+external
+でなければなりません。
+dynamic_menu_recipe
+ダイナミックメニューオプションを生成して、このレシピに返す、ダイナミックメニューレシピの ID。
+dynamic_menu_recipe params
+カンマ区切りのパラメータを使用して、ダイナミックメニューレシピに追加情報を渡します。例
+stagename: Closed Won, closed: true
+min_query_length
+イベントがダイナミックメニューレシピに送信されるために、ユーザーにより入力される必要がある最低文字数。
+#
+ダイナミックメニューレシピ
+ダイナミックメニューレシピには以下の3つの重要な機能があります。
+ダイアログ内のダイナミックメニューからのダイナミックメニューイベントを
+監視
+する。
+メニューオプションを
+生成
+する。
+メニューオプションを1つ目のコマンドレシピに
+返す。
+一般的なダイナミックメニューレシピは、以下の要素から構成されます。
+New dynamic menu event
+トリガー
+アプリ (Salesforce など) を検索し、レコードを取得するアクション。検索クエリーは通常、
+New dynamic menu event
+トリガーの出力からの「typeahead」の
+Value
+データピルを使用して絞り込まれます。
+ダイナミックメニューイベントはユーザーがダイナミックメニューフィールドに3文字入力すると発生するため、「typeahead」の
+Value
+データピルにはユーザーにより入力された3つ以上の文字が含まれます。
+typeahead を使用した検索の絞り込み
+Return menu options
+アクション
+一般的なダイナミックメニューレシピ
+#
+Enterprise Workbot でのダイナミックメニュー機能の設定
+Enterprise ボットを使用している場合は、まず Slack でボットの
+Options Load URL
+を設定する必要があります。これは、Workbot に対するダイナミックメニューイベントを Workato が受信する URL です。
+Slack アプリの設定ページで、以下の順に選択します。
+[Features] > [Interactive Components] > [Message Menus]
+[
+Options Load URL
+] に、以下の形式で URL を入力します。
+https://www.workato.com/slack_webhooks/data_source?coak_id=24820
+(opens new window)
+「24820」はボットのカスタム OAuth ID です。この ID は、ボットのカスタム OAuth プロファイルの URL で確認できます。
+#
+関連トピック
+New dynamic menu event
+Return menu options
+←
+Workbot でのダイアログの使用
+Workbot のメッセージメニュー
+→
+Last updated:
+2025/2/3 17:10:08
+On this page
+ダイナミックメニューオプションでの Workbot パラメータの設定
+Post dialog アクションのダイナミックメニューオプションでの Workbot パラメータの設定
+ダイナミックメニューレシピ
+Enterprise Workbot でのダイナミックメニュー機能の設定
+関連トピック
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

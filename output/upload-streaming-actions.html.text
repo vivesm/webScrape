@@ -1,0 +1,487 @@
+SDK - CLI - ガイド - ストリーミングのアップロード | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+CLI
+ガイド
+#
+How-toガイド - CLIでのアップロードストリーミングアクション/トリガーの実行方法
+このセグメントでは、Workato Gemを使用してファイルストリーミングを利用するアクションを実行し、簡単にデバッグする方法について説明します。ファイルストリーミングは、ダウンロードファイルアクションとアップロードファイルアクションの2つの主要なコンポーネントに分けることができます。以下では、CLIでアップロードファイルアクションを実行する手順について説明します。
+#
+前提条件
+Workato SDK Gemをインストールし、実行できるようにしています。詳細については、
+getting-startedガイド
+を参照してください。
+SDKのファイルストリーミングの仕組みについて理解しています。詳細については、
+ガイド
+を参照してください。
+#
+アップロードファイル - サンプルコネクタ - URLへのファイルアップロード
+汎用のURLへのファイルアップロードコネクタ
+を例に使用します。
+#
+アップロードファイルアクションの
+execute
+ラムダの実行
+アップロードファイルストリーミングアクションでは、入力の定義が重要です。なぜなら、アクションが利用する着信ファイルストリームに関する情報を含んでいる必要があるからです。ファイルストリームをシミュレートするためのさまざまなオプションがあります。
+execute
+:
+lambda
+do
+|
+_connection
+,
+input
+,
+_input_schema
+,
+_output_schema
+,
+closure
+|
+# workato.stream.inを呼び出すと、入力がファイルであるループで実行されます。
+# ファイル全体またはストリーミング対応のダウンロードファイルアクションの出力のいずれかを受け入れることができます。
+workato
+.
+stream
+.
+in
+(
+input
+[
+"file"
+]
+)
+do
+|
+chunk
+,
+starting_byte_range
+,
+ending_byte_range
+,
+eof
+,
+next_starting_byte_range
+|
+put
+(
+input
+[
+'url'
+]
+)
+.
+headers
+(
+"Content-Range"
+:
+"bytes
+#{
+starting_byte_range
+}
+-
+#{
+ending_byte_range
+}
+/*"
+)
+.
+request_body
+(
+chunk
+)
+.
+presence
+end
+# これにより、アップロードが確定します
+post
+(
+input
+[
+'url'
+]
+,
+{
+"commit"
+:
+true
+}
+)
+end
+,
+executeラムダとともに、SDK CLIでアップロードファイルアクションを実行する際には、
+upload_file_input.json
+という名前の入力JSONファイルも必要です。以下に、明示的に定義されたチャンクごとのモックストリームの例を示します。各チャンクは
+chunks
+ハッシュ内の別々のキーです。
+{
+"file_name"
+:
+"sample_file"
+,
+"file"
+:
+{
+# このハッシュは、ダウンロードファイルオブジェクトの出力であるファイルストリームをシミュレートします
+"__stream__"
+:
+true
+,
+"chunks"
+:
+{
+"0"
+:
+"abcd"
+,
+"4"
+:
+"efgh"
+,
+"8"
+:
+"ijkl"
+,
+"12"
+:
+"mn"
+}
+}
+,
+"url"
+:
+"https://www.friendly_upload_url.com"
+}
+アップロードファイルアクションを実行するには、通常のアクションと同じコマンドを使用します。
+workato
+exec
+actions.upload_to_url.execute
+--input
+=
+'upload_file_input.json'
+--verbose
+SETTINGS
+{
+}
+INPUT
+{
+"file_name"
+:
+"sample_file"
+,
+"file"
+:
+{
+"__stream__"
+:
+true,
+"chunks"
+:
+{
+"0"
+:
+"abcd"
+,
+"4"
+:
+"efgh"
+,
+"8"
+:
+"ijkl"
+,
+"12"
+:
+"mn"
+}
+}
+,
+"url"
+:
+"https://www.friendly_upload_url.com"
+}
+RestClient.put
+"https://www.friendly_upload_url.com"
+,
+"Content-Range"
+=
+>
+"bytes=0-3"
+,
+"User-Agent"
+=
+>
+"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
+# => 201 Created | 0 bytes, 1.46s
+RestClient.put
+"https://www.friendly_upload_url.com"
+,
+"Content-Range"
+=
+>
+"bytes=4-7"
+,
+"User-Agent"
+=
+>
+"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
+# => 201 Created | 0 bytes, 1.46s
+RestClient.put
+"https://www.friendly_upload_url.com"
+,
+"Content-Range"
+=
+>
+"bytes=8-11"
+,
+"User-Agent"
+=
+>
+"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
+# => 201 Created | 0 bytes, 1.46s
+RestClient.put
+"https://www.friendly_upload_url.com"
+,
+"Content-Range"
+=
+>
+"bytes=11-13"
+,
+"User-Agent"
+=
+>
+"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
+# => 201 Created | 0 bytes, 1.46s
+RestClient.post
+"https://www.friendly_upload_url.com"
+,
+"{
+\"
+commit
+\"
+:true}"
+,
+"Accept"
+=
+>
+"application/json"
+,
+"Accept-Encoding"
+=
+>
+"gzip, deflate"
+,
+"Content-Length"
+=
+>
+"88"
+,
+"Content-Type"
+=
+>
+"application/json"
+,
+"User-Agent"
+=
+>
+"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
+# => 201 Created | 0 bytes, 1.46s
+OUTPUT
+{
+"file_size"
+:
+13
+,
+"file_path"
+:
+"/path/to/sample/file"
+,
+"file_name"
+:
+"file_name"
+}
+#
+ストリームのモックのバリエーション
+手動でチャンクを宣言してストリームをモックするだけでなく、さまざまな方法でストリームをモックすることもできます。
+TIP
+ストリームは、通常のアクションよりも実行に時間がかかる場合があります。これは、ファイルのサイズやネットワークの状況によります。本番サイズではなく、より小さいファイルでテストすることをお勧めします。
+各チャンクを明示的にモックする
+{
+"file"
+:
+{
+"__stream__"
+:
+true
+,
+"chunks"
+:
+{
+"0"
+:
+"abcd"
+,
+"4"
+:
+"efgh"
+,
+"8"
+:
+"ijkl"
+,
+"12"
+:
+"mn"
+}
+}
+}
+同じコネクタ内のダウンロードファイルアクション/トリガーに実装されたストリームを利用してストリームをモックする
+{
+"file"
+:
+{
+"__stream__"
+:
+true
+,
+"name"
+:
+"stream_within_same_connector"
+,
+# name of the stream in the connector
+"input"
+:
+{
+# input that will be passed to the stream callback
+"file_path"
+:
+"/path/to/sample/file"
+}
+}
+,
+}
+静的なストリームを提供することでモックストリームを作成する
+{
+"file"
+:
+{
+"data"
+:
+"123456789"
+,
+"eof"
+:
+true
+}
+,
+}
+文字列を提供することでモックストリームを作成する
+{
+"file"
+:
+"qwertyuiop[]"
+}
+←
+CLI - ストリーミングのダウンロード
+CLI - トリガー
+→
+Last updated:
+2024/7/10 18:18:20
+On this page
+前提条件
+アップロードファイル - サンプルコネクタ - URLへのファイルアップロード
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

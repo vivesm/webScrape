@@ -1,0 +1,646 @@
+チーム - コラボレータのロールと権限 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+コラボレータのロールと権限
+ロールベースのアクセス制御
+によって、Workato の各機能およびフォルダーに対するチームのアクセスをコラボレータのロールに基づいて制御します。
+このガイドでは、次の項目について説明します。
+Workato の組み込みのシステムロール
+カスタムロール
+コラボレータが保持できる権限
+Environments の設定はお済みですか?
+Environments がチームロールをどのように処理するのか
+確認してください。
+#
+システムロール
+システムロールは、Workato の事前定義されたロールであり、チームコラボレータに割り当てることができるロールです。
+Workato には、4つのシステムロールとして
+Team Owner
+、
+Admin
+、
+Analyst
+、
+Operator
+があります。
+#
+Team Owner
+Team Owner ロールは、最も制限が弱いシステムロールです。アカウントの root ログイン情報 (ユーザー名とパスワード) を所有しており、アカウントの全設定に制限なくアクセスできます。
+All Admin role privileges
+Admin ロールに含まれる全権限
+Full Account Settings access
+すべてのアカウント設定に対するアクセス権
+#
+Admin
+通常は Workato チームアカウントを管理するユーザーに付与されます。Admin は Team Owner とほぼ同等の権限を持っています。Team Owner ロールの次に制限が弱いシステムロールです。
+Full project access
+プロジェクト
+に関する全権限 : 表示、編集、作成、削除
+Full folder access
+フォルダーの全権限 : 表示、編集、作成、削除
+Full connection access
+コネクション
+に関する全権限 : 表示、編集、作成、削除
+Full recipe access
+レシピ
+に関する全権限 : 表示、編集、作成、削除、実行、ジョブレポートの表示
+Full access network trace
+ジョブレポートでの
+ネットワークトレース
+の表示。レシピの入力、出力、HTTP 呼び出しのネットワークトレースを含みます。HTTP 呼び出し情報には、HTTP のヘッダーとリクエスト、Workato とエンドアプリケーションとの間の通信 (レスポンス) を含みます。
+All projects
+ワークスペース内のすべての
+プロジェクト
+に対するアクセス権
+Full access
+API プラットフォーム
+に対するアクセス権 (コレクション、クライアントポリシー、ログ、設定など)
+Full Common data model access
+共通データモデル
+に関する全権限 : 表示、編集、作成、削除
+Full Custom OAuth Profile access
+カスタム OAuth プロファイル
+に関する全権限 : 表示、編集、作成、削除
+Full Lookup table access
+Lookup table
+機能に対するアクセス権
+Full Message template access
+メッセージテンプレート
+に関する全権限 : 表示、編集、作成、削除
+Full On-prem groups access
+ワークスペース内のすべての
+オンプレミスグループとエージェント
+に対するアクセス権
+Full People task access
+People task (人間による作業) ツール
+に対するアクセス権
+Full Properties access
+ワークスペース内のすべての
+アカウントプロパティ
+に対するアクセス権
+Full Pub/Sub access
+Pub/Sub
+に関する全権限 : トピックの表示、編集、作成、削除
+Full Recipe lifecycle management access
+Recipe lifecycle management
+機能に対するアクセス権
+Full Workbot access
+Workbot
+に関する全権限 : 表示、編集、作成、削除
+Full Runtime user connection access
+Runtime user connection
+に関する全権限 : 表示、編集
+Full Logs access
+Workato Log Service
+機能に対するアクセス権
+Full Connector SDK access
+Connector SDK
+に関する全権限 : 表示、編集、作成、削除
+Full Team access
+ワークスペース内の
+チーム
+の管理 (
+コラボレータの追加、編集、削除
+など)
+Full Custom team roles access
+ワークスペース内の
+カスタムチームロール
+の表示、編集、作成、削除
+Full SAML SSO access
+ワークスペースの
+SAML SSO 設定
+の表示、編集
+Full activity audit
+ダッシュボードのアクティビティ監査ログ
+内のチームアクティビティを表示するためのアクセス権。この権限があれば、他のアクセス権設定に関係なく、すべてのアクティビティログを表示できます。
+Full key management
+アカウントの
+Key Management System (KMS)
+へのアクセス権。この権限を持つユーザーはキーポリシーと暗号鍵を更新できます。
+#
+Analyst
+通常、Analyst はレシピまたはカスタムコネクターの構築とテストを行うユーザーです。
+Full project access
+プロジェクト
+に関する全権限 : 表示、編集、作成、削除
+Full folder access
+フォルダーの全権限 : 表示、編集、作成、削除
+Full connection access
+コネクション
+に関する全権限 : 表示、編集、作成、削除
+Full recipe access
+レシピ
+に関する全権限 : 表示、編集、作成、削除、実行、ジョブレポートの表示
+All projects
+ワークスペース内のすべての
+プロジェクト
+に対するアクセス権
+Full access
+API プラットフォーム
+に対するアクセス権 (コレクション、クライアントポリシー、ログ、設定など)
+Full Common data model access
+共通データモデル
+に関する全権限 : 表示、編集、作成、削除
+Full Custom OAuth Profile access
+カスタム OAuth プロファイル
+に関する全権限 : 表示、編集、作成、削除
+Full Lookup table access
+Lookup table
+機能に対するアクセス権
+Full Message template access
+メッセージテンプレート
+に関する全権限 : 表示、編集、作成、削除
+Full On-prem groups access
+ワークスペース内のすべての
+オンプレミスグループとエージェント
+に対するアクセス権
+Full People task access
+People task (人間による作業) ツール
+に対するアクセス権
+Full Pub/Sub access
+Pub/Sub
+に関する全権限 : トピックの表示、編集、作成、削除
+Full Workbot access
+Workbot
+に関する全権限 : 表示、編集、作成、削除
+Full Runtime user connection access
+Runtime user connection
+に関する全権限 : 表示、編集
+Full Connector SDK access
+Connector SDK
+に関する全権限 : 表示、編集、作成、削除
+#
+Operator
+Operator は、既存レシピの保守と検証を専門に行うユーザーであり、最も制限が強いシステムロールです。
+このロールには、
+全フォルダー
+と
+全プロジェクト
+ß に対する
+読み取り専用
+のアクセス権が含まれます。
+View projects
+ワークスペース内の特定のプロジェクトの表示
+View folders
+ワークスペース内のフォルダーとサブフォルダーの表示
+View recipes
+ワークスペース内のレシピの表示
+Test (start/stop) recipes
+ワークスペース内のレシピの実行、レシピテストの開始と停止
+View recipe job history
+[Jobs] タブでのレシピのジョブレポートの表示
+All projects
+ワークスペース内のすべての
+プロジェクト
+に対するアクセス権
+上記のロールを直接編集することはできませんが、
+複製
+して変更することは可能です。
+チーム管理者であれば、[
+Roles
+] タブでシステムロールを選択して、その権限を表示できます。すると、ロールが読み取り専用で開きます。
+#
+カスタムロール
+カスタムロールはアドオン機能
+カスタムロールはアドオン機能として提供しています。詳細は、カスタマーサクセスマネージャーにお問い合わせください。
+Workato はカスタムロールにも対応しているため、チームコラボレータにきめ細かな権限を割り当てられます。
+たとえば、開発、QA、実働のチームは、どれも同じアカウントで作業します。
+レシピ開発ライフサイクル
+の一環として、各チームに対して特定の権限を持つロールを作成して割り当てることが可能です。
+カスタムロールの作成方法については、
+ロールベースのアクセス権に関するガイド
+を参照してください。
+#
+権限
+このセクションでは、Workato における各権限について説明します。
+ロールの作成または変更を行う際には、以下のタブを使用します。
+Recipe development
+Platform tools
+Admin privileges
+#
+レシピ開発に関する権限
+[
+Recipe development
+] タブでは、プロジェクト、レシピ、フォルダー、コネクションに関連する次のアクセス権と権限を制御します。
+レシピの作成
+ジョブのデバッグ
+プロジェクトへのアクセス
+#
+レシピの作成
+権限の種類
+権限のレベル
+Projects
+Full project access
+:
+プロジェクト
+に関する全権限 : 表示、編集、作成、削除
+View projects
+:
+ワークスペース内の特定のプロジェクトの表示
+Edit projects
+:
+ワークスペース内の特定のプロジェクトの編集
+Create projects
+:
+ワークスペース内のプロジェクトの作成
+Delete projects
+:
+ワークスペース内のプロジェクトの削除
+Folders
+Full folder access
+:
+フォルダーの全権限 : 表示、編集、作成、削除
+View folders
+:
+ワークスペース内のフォルダーとサブフォルダーの表示
+Edit folders
+:
+ワークスペース内のフォルダーとサブフォルダーの編集
+Create folders
+:
+ワークスペース内のフォルダーとサブフォルダーの作成
+Delete folders
+:
+ワークスペース内のフォルダーとサブフォルダーの削除
+Connections
+Full connection access
+:
+コネクション
+に関する全権限 : 表示、編集、作成、削除
+View connections
+:
+ワークスペース内のコネクションの表示
+Edit connections
+:
+ワークスペース内のコネクションの編集
+Create connections
+:
+ワークスペース内のコネクションの作成
+Delete connections
+:
+ワークスペース内のコネクションの削除
+Recipes
+Full recipe access
+:
+レシピ
+に関する全権限 : 表示、編集、作成、削除、実行、ジョブレポートの表示
+View recipes
+:
+ワークスペース内のレシピの表示
+Edit recipes
+:
+ワークスペース内のレシピの編集
+Create recipes
+:
+ワークスペース内のレシピの作成
+Delete recipes
+:
+ワークスペース内のレシピの削除
+Test (start/stop) recipes
+:
+ワークスペース内のレシピの実行、レシピテストの開始と停止
+View recipe job history
+:
+[
+Jobs
+] タブでのレシピのジョブレポートの表示
+「レシピ開発に関する権限」に戻る
+|
+「権限」に戻る
+#
+ジョブのデバッグ
+権限の種類
+権限のレベル
+Network trace
+Full access network trace
+:
+ジョブレポートでの
+ネットワークトレース
+の表示。
+レシピの入力、出力、HTTP 呼び出しのネットワークトレースを含みます。HTTP 呼び出し情報には、HTTP のヘッダーとリクエスト、Workato とエンドアプリケーションとの間の通信 (レスポンス) を含みます。
+「レシピ開発に関する権限」に戻る
+|
+「権限」に戻る
+#
+プロジェクトへのアクセス
+権限の種類
+権限のレベル
+Project access
+All projects
+:
+ワークスペース内のすべての
+プロジェクト
+に対するアクセス権
+Selected projects
+:
+ワークスペース内の特定のプロジェクトに対するアクセス権。これを有効にすると、ここで指定したプロジェクトに対するアクセス権のみがユーザーに付与されます。
+「レシピ開発に関する権限」に戻る
+|
+「権限」に戻る
+#
+プラットフォームツールに関する権限
+ツール
+Connector SDK
+#
+ツール
+権限の種類
+権限のレベル
+API platform
+Full access
+:
+API プラットフォーム
+に対するアクセス権 (コレクション、クライアントポリシー、ログ、設定など)
+Common data models
+Full Common data model access
+:
+共通データモデル
+に関する全権限 : 表示、編集、作成、削除
+View Common data models
+:
+ワークスペース内の共通データモデルの表示
+Edit Common data models
+:
+ワークスペース内の共通データモデルの編集
+Create Common data models
+:
+ワークスペース内の共通データモデルの作成
+Delete Common data models
+:
+ワークスペース内の共通データモデルの削除
+Custom OAuth profiles
+Full Custom OAuth Profile access
+:
+カスタム OAuth プロファイル
+に関する全権限 : 表示、編集、作成、削除
+View Custom OAuth Profiles
+:
+カスタム OAuth プロファイルと Enterprise Workbot の表示
+Edit Custom OAuth Profiles
+:
+カスタム OAuth プロファイルと Enterprise Workbot の編集
+Create Custom OAuth Profiles
+:
+カスタム OAuth プロファイルと Enterprise Workbot の作成
+Delete Custom OAuth Profiles
+:
+カスタム OAuth プロファイルと Enterprise Workbot の削除
+Lookup table
+Full Lookup table access
+:
+Lookup table
+機能に対するアクセス権
+Message templates
+Full Message template access
+:
+メッセージテンプレート
+に関する全権限 : 表示、編集、作成、削除
+View Message templates
+:
+ワークスペース内のメッセージテンプレートの表示
+Edit Message templates
+:
+ワークスペース内のメッセージテンプレートの編集
+Create Message templates
+:
+ワークスペース内のメッセージテンプレートの作成
+Delete Message templates
+:
+ワークスペース内のメッセージテンプレートの削除
+On-prem groups
+Full On-prem groups access
+:
+ワークスペース内のすべての
+オンプレミスグループとエージェント
+に対するアクセス権
+People tasks
+Full People task access
+:
+People task (人間による作業) ツール
+に対するアクセス権
+Properties
+Full Properties access
+:
+ワークスペース内のすべての
+アカウントプロパティ
+に対するアクセス権
+PubSub
+Full PubSub access
+:
+PubSub
+に関する全権限 : トピックの表示、編集、作成、削除
+View PubSub topics
+:
+ワークスペース内の PubSub トピックの表示
+Edit PubSub topics
+:
+ワークスペース内の PubSub トピックの編集
+Create PubSub topics
+:
+ワークスペース内の PubSub トピックの作成
+Delete PubSub topics
+:
+ワークスペース内の PubSub トピックの削除
+Recipe lifecycle management
+Full Recipe lifecycle management access
+:
+Recipe lifecycle management
+機能に対するアクセス権
+Workbot
+Full Workbot access
+:
+Workbot
+に関する全権限 : 表示、編集、作成、削除
+View Workbots
+:
+ワークスペース内にインストールされている Workbot の表示
+Edit Workbots
+:
+ワークスペース内にインストールされている Workbot の編集
+Create Workbots
+:
+ワークスペース内の Workbot の作成
+Delete Workbots
+:
+ワークスペース内にインストールされている Workbot の削除
+Runtime user connections
+Full Runtime user connection access
+:
+Runtime user connection
+に関する全権限 : 表示、編集
+View Runtime user connections
+:
+Runtime user connection の設定の表示
+Edit Runtime user connections
+:
+Runtime user connection の設定の編集
+Workato log service
+Full Logs access
+:
+Workato Log Service
+機能に対するアクセス権
+「プラットフォームツールに関する権限」に戻る
+|
+「権限」に戻る
+#
+Connector SDK
+権限の種類
+権限のレベル
+Connector SDK
+Full Connector SDK access
+:
+Connector SDK
+に関する全権限 : 表示、編集、作成、削除
+View SDK connectors
+:
+SDK コネクターの表示
+Edit SDK connectors
+:
+SDK コネクターの編集
+Create SDK connectors
+:
+SDK コネクターの作成
+Delete SDK connectors
+:
+SDK コネクターの削除
+「プラットフォームツールに関する権限」に戻る
+|
+「権限」に戻る
+#
+管理者の権限
+権限の種類
+権限のレベル
+Team
+Full Team access
+:
+ワークスペース内の
+チーム
+の管理 (
+コラボレータの追加、編集、削除
+など)
+Custom team roles
+Full Custom team roles access
+:
+ワークスペース内の
+カスタムチームロール
+の表示、編集、作成、削除
+SAML SSO
+Full SAML SSO access
+:
+ワークスペースの
+SAML SSO 設定
+の表示、編集
+Activity audit
+Full activity audit
+:
+ダッシュボードのアクティビティ監査ログ
+内のチームアクティビティを表示するためのアクセス権。
+注 :
+この権限があれば、他のアクセス権設定に関係なく、すべてのアクティビティログを表示できます。
+Key management
+Full key management
+:
+アカウントの
+Key Management System (KMS)
+へのアクセス権。この権限を持つユーザーはキーポリシーと暗号鍵を更新できます。
+「権限」に戻る
+Last updated:
+2023/8/31 1:07:14
+On this page
+システムロール
+カスタムロール
+権限
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

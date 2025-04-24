@@ -1,0 +1,129 @@
+Salesforce - Pushtopic トリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Salesforce
+#
+Salesforce における新しい PushTopic イベント
+このトリガーは、
+Salesforce Streaming API
+(opens new window)
+からの PushTopic イベントを監視します。
+Salesforce の PushTopic イベントは最大で 24 時間の TTL を持ちます。レシピを開始すると、過去 24 時間のイベントを取得し、その期間中に PushTopic がアクティブである場合にイベントを受信します。
+#
+PushTopic イベントの設定方法
+各 PushTopic オブジェクトの内容と構造は Salesforce で設定可能です。Salesforce で
+PushTopic を作成する方法
+(opens new window)
+を学びましょう。
+Workato では、不要なトリガーイベントでのジョブ実行を避けるため、フォーカスされた PushTopic を作成することをおすすめします。
+#
+PushTopic 出力フィールド
+前提条件: Salesforce で PushTopic を設定する
+最初に Salesforce で PushTopic オブジェクトを設定する必要があります。Salesforce で PushTopic オブジェクトを設定していることを確認してください。
+Workato は、PushTopic で定義された出力スキーマを自動的に取得します。出力スキーマを変更する必要がある場合は、SOQL クエリを使用するか、フィールドを手動で指定して新しいスキーマを定義できます。
+レシピは、スキーマで指定されたデータを受信するようになります
+←
+レコードの変更を監視する
+オブジェクトリレーション
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+PushTopic イベントの設定方法
+PushTopic 出力フィールド
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,161 @@
+Workato connectors - Salesforce - New/updated records trigger (batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Salesforce
+#
+New/updated records trigger (batch)
+The
+New/updated records
+batch trigger monitors Salesforce for new or updated objects of the type you specify and retrieves them in batches.
+#
+Input fields
+Field
+Description
+Trigger poll interval
+Optional. Specify how frequently to check Salesforce for new or updated records.
+Object
+Select the object type to monitor.
+Fields to retrieve
+Select the fields you plan to retrieve. All fields are returned if you leave this field blank.
+SOQL WHERE clause
+Enter a SOQL query to filter the records you plan to retrieve. For example:
+StageName = 'Closed Lost' AND IsClosed = false
+. Learn more about
+SOQL queries
+.
+Batch size
+Specify the number of records to process in each batch. The default value is
+100
+and the maximum is
+2,000
+.
+When first started, this recipe should pick up events from
+Set the date and time to start picking up trigger events. This enables your recipe to capture past events. Learn more about this
+input field
+.
+#
+Output fields
+Field
+Description
+Range
+The Salesforce IDs of the returned records.
+ADDITIONAL OUTPUT FIELDS
+The
+New/updated records
+batch trigger provides additional outputs that vary based on the
+Object
+you select and specified
+Fields to retrieve
+. Refer to Salesforce's
+Overview of Salesforce Objects and Fields
+(opens new window)
+guide for more information on available objects and fields.
+←
+PushTopic trigger
+Export new or new/updated records trigger (bulk)
+→
+Last updated:
+1/6/2025, 8:48:39 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

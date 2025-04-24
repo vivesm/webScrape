@@ -1,0 +1,363 @@
+How to ガイド - JSON データ形式 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+さまざまなデータ形式の処理
+#
+How to ガイド - JSON データ形式
+Workato SDK で予想されるデフォルトのデータ形式は JSON です。データ形式が指定されていない場合、アクションおよびトリガーの入力データは JSON ペイロードとして渡されます。JSON を予想している SDK が別のデータ形式を受け取った場合は、JSON パーサーエラーが発生します。
+HTTP リクエストを宣言する場合、Workato では送信リクエストと受信レスポンスが JSON 形式であることを想定しています。送信リクエストには、適切なヘッダーの
+Accept: application/json
+および
+Content-Type: application/json
+が追加されます。
+以下に
+post_message
+というアクションの例を示します。このシンプルなアクションは、
+post_message
+アクションの
+input_fields
+キーで定義されている項目に基づいてユーザーから入力データを収集します。レシピでアクションが実行されると、execute キーが実行され、
+input
+を本体として
+https://api.ciscospark.com/v1/messages
+への
+POST
+HTTP 呼び出しが行われます。
+#
+サンプルコードスニペット
+{
+title
+:
+'My cisco connector'
+,
+connection
+:
+{
+# Some code here
+}
+,
+test
+:
+{
+# Some code here
+}
+,
+actions
+:
+{
+post_message
+:
+{
+input_fields
+:
+lambda
+do
+[
+{
+name
+:
+"roomId"
+}
+,
+{
+name
+:
+"text"
+}
+]
+end
+,
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+post
+(
+"https://api.ciscospark.com/v1/messages"
+,
+input
+)
+end
+,
+output_fields
+:
+lambda
+do
+[
+{
+name
+:
+"id"
+}
+,
+{
+name
+:
+"roomId"
+}
+,
+{
+name
+:
+"roomType"
+}
+,
+{
+name
+:
+"text"
+}
+,
+{
+name
+:
+"personId"
+}
+,
+{
+name
+:
+"personEmail"
+}
+,
+{
+name
+:
+"created"
+}
+]
+end
+}
+}
+,
+triggers
+:
+{
+# Some code here
+}
+,
+object_definitions
+:
+{
+# Some code here
+}
+,
+pick_lists
+:
+{
+# Some code here
+}
+,
+methods
+:
+{
+# Some code here
+}
+,
+}
+ここで、上記の
+execute
+キーが実行されたときに送信されるリクエストが作成されます。
+Content-Type
+ヘッダーはデフォルトで
+application/json
+に設定され、入力データは JSON 形式の文字列のキーと値のペアとしてフォーマットされます。これにより、実行が必要なリクエスト前後の処理量が最小になります。
+#
+リクエスト
+次に、定義した
+post_message
+アクションを実行したときの動作を見てみましょう。以下では、
+https://api.ciscospark.com/v1/messages
+(opens new window)
+に送信する POST HTTP リクエストについて説明します。
+POST HTTP リクエストは、
+Headers
+と
+Body
+の2つの異なるセクションに分割できます。リクエストヘッダーでは、HTTP メソッドと、リクエスト本体に関連するメタデータが定義されます。本体には、リクエストの実際の内容が含まれます。
+#
+リクエストヘッダー
+アクションにデータ形式が宣言されていないため、Workato は JSON をデフォルトに設定し、
+Content-Type
+を
+application/json
+に割り当てます。これにより、リクエスト送信先の API に、リクエスト本体は JSON データ形式であることが通知されます。
+POST https://api.ciscospark.com/v1/messages
+Accept application/json
+Content-Type application/json
+Authorization Bearer ---
+#
+リクエスト本体:
+このリクエスト本体はユーザーの入力データに基づいて生成され、Workato によって JSON 形式に変換されます。このリクエスト本体は、
+roomId
+項目が
+1234
+で
+text
+項目が
+testing
+であるユーザーの入力データに対応します。
+{
+"roomId"
+:
+"1234"
+,
+"text"
+:
+"testing"
+}
+#
+レスポンス
+HTTP リクエストを送信すると必ず、いくつかのコンポーネントを含むレスポンスが返されます。
+#
+レスポンスステータスコード
+レスポンスステータスコードは、API へのリクエストがうまくいったかどうかを知るための重要な方法です。
+HTTP/1.1 200 OK
+#
+レスポンスヘッダー
+これはリクエストヘッダーに似ており、レスポンス本体に関するメタデータを含んでいます。
+#
+レスポンス本体:
+レスポンス本体では、API がリクエストに応じて大部分の情報を送信します。
+{
+"id"
+:
+"1"
+,
+"roomId"
+:
+"1234"
+,
+"roomType"
+:
+"group"
+,
+"text"
+:
+"testing"
+,
+"personId"
+:
+"101"
+,
+"personEmail"
+:
+"
+[email protected]
+"
+,
+"created"
+:
+"2017-03-26T13:28:22.131Z"
+}
+←
+さまざまなデータ形式の処理
+XML データ形式
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サンプルコードスニペット
+リクエスト
+レスポンス
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

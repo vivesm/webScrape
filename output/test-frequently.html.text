@@ -1,0 +1,123 @@
+ヒントとこつ - 頻繁なテスト | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+トラブルシューティング
+ベストプラクティス
+#
+スモールステップによるレシピの作成
+レシピを作成するときには、グループ単位で個別に作成することをお勧めします。各グループが別々にレシピを作成するため、レシピのロジック管理が単純化され、レシピのエラーの検出とデバッグが容易になります。
+ステップをスキップすると
+、ステップまたはブロックがレシピの実行時に無視されます。スキップしたアクションのデータピルは、後続のアクションで使用できません。
+スキップされたステップが実行時に処理されないため、そのデータピルは利用できない
+#
+ステップのスキップをいつ使用するか
+ステップをスキップすると、レシピの実行時にそのステップを無視することができます。この機能は、レシピを作成しようとするとき、およびレシピの一部だけをテストしたい場合に非常に便利です。
+ステップのスキップは以下のような場合に役立ちます。
+目的
+どう役立つか
+レシピを段階的に作成
+レシピ全体のおおまかなロジックだけを作成し、一部のステップを後から設定する場合には、未設定のステップをすべてスキップすることで、レシピで設定済みのステップだけをテストできます。
+さまざまなロジックフローを繰り返しテスト
+1つのレシピでさまざまなロジックの手法を試したい場合は、各手法に関連するステップを順番にスキップして、どの手法が最も効果的であるのかを繰り返しテストすることができます。
+レシピの作成時にエラーのあるステップをスキップ
+接続の切断、数式の誤り、あるいは設定漏れによって設計時のエラーが発生している場合は、エラーの発生しているステップをスキップして、それ以外のレシピ部分のテストを実行できます。
+←
+レート制限
+エラーハンドリングと監視
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

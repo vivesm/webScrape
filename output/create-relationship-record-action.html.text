@@ -1,0 +1,139 @@
+Workato コネクター - Zendesk - Create relationship record アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Zendesk
+#
+Zendesk - Create relationship record (リレーションシップレコードの作成) アクション
+Zendesk では、カスタムオブジェクトを設定することにより、Zendesk のネイティブでないオブジェクト (たとえば、チケット、ユーザー、オーガナイゼーション) のモデリング、格納、取得が可能です。オブジェクト間の関係を定義するカスタムリレーションシップを設定することもできます。詳細については、
+こちら
+を参照してください。
+このアクションは、2つのオブジェクト間の単一のリレーションシップレコードを作成します。このアクションを正常に実行するには、指定されたオブジェクトレコードが Zendesk インスタンスに存在する必要があります。
+Create relationship record アクション
+#
+入力項目
+入力項目
+説明
+Relationship type
+新規レコードのリレーションシップのタイプを選択します。
+[Source object]
+ID
+ソースオブジェクトの一意の Zendesk ID。
+[Target object]
+ID
+ターゲットオブジェクトの一意の Zendesk ID。
+#
+出力項目
+出力項目
+説明
+Relationship Type
+リレーションシップタイプのユーザー定義のキー。
+ID
+一意の Zendesk ID。これは、リレーションシップレコードの作成時に自動的に割り当てられます。
+Source
+リレーションシップのソースの ID。
+Target
+リレーションシップのターゲットの ID。
+Date created
+リレーションシップレコードが作成された日時。
+←
+カスタムオブジェクトレコードの作成
+チケットの検索
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,195 @@
+Workato connectors - Xero New/updated contact trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - New/updated contact trigger
+The
+New/updated contact
+trigger activates when a contact is created or updated.
+Xero - New/updated contact trigger
+#
+Input
+Input field
+Description
+Trigger poll interval
+Choose how often Workato checks for new or updated events. This field defaults to five minutes if left blank. The minimum value allowed is five minutes.
+When first started, this recipe should pick up events from
+Determine the starting point for the trigger to fetch events. You cannot change this value after the recipe has been run or tested.
+Contact filter
+Select to filter for customers or suppliers.
+#
+Output
+Output field
+Description
+Contact ID
+The unique identifier for the contact within Xero.
+Contact number
+A unique number that identifies the contact, as assigned within Xero.
+Contact status
+The status of the contact.
+Account number
+The account number associated with the contact.
+Contact name
+The full name of the contact.
+First name
+The contact's first name.
+Last name
+The contact's last name.
+Email address
+The primary email address of the contact.
+Skype user name
+The Skype username linked to the contact.
+Is supplier
+Indicator if the contact is a supplier.
+Is customer
+Indicator if the contact is a customer.
+Updated date
+The date when the contact was last updated.
+Bank account number
+The bank account number related to the contact.
+Tax number
+The tax number associated with the contact.
+Accounts receivable tax type
+The default tax type for the contact's accounts receivable.
+Accounts payable tax type
+The default tax type for the contact's accounts payable.
+Street address
+Details about the street address.
+Postal address
+Details about the postal address.
+Default phone details
+The default phone details.
+DDI phone details
+The DDI phone details.
+Mobile phone details
+The mobile phone details.
+Fax phone details
+The fax phone details.
+Batch payments
+The batch payments details.
+Contact persons
+The contact persons details.
+Website
+The URL of the contact's website.
+Default currency
+The currency that the contact uses by default.
+Balances
+The balances related to the contact.
+Xero network key
+The unique key for the contact's Xero network.
+Sales default account code
+The default account code used for sales to this contact.
+Purchases default account code
+The default account code used for purchases from this contact.
+Payment terms
+The payment terms for the contact.
+←
+New/updated invoice
+New/updated payment
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

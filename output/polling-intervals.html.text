@@ -1,0 +1,154 @@
+Polling intervals | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+Polling intervals
+Most Workato triggers are poll-based triggers. This means that it checks the trigger application for the trigger events it is monitoring, at regular intervals, for example, every 5 minutes.
+#
+Polling intervals explained
+For recipes on a polling interval, Workato uses two date/time fields (i.e.
+Created Date
+and
+Last Modified
+) in the object records to determine if the record was newly created or updated.
+When checking for
+newly created
+records, recipes are triggered if two conditions are met:
+The record was created since the time you specified. Is the "created date" since the "since" parameter?
+The record was not already processed by Workato. Has this triggered the recipe already?
+Similarly, when checking for
+updated
+records, recipes are triggered if two conditions are met on any record:
+The record was updated since the time you specified. Is the "last modified date" after both the "since" and "created date" parameters?
+The record was not already processed by Workato. Has this triggered the recipe already?
+Note:
+To pick up new trigger events immediately instead of waiting 5 or 10 minutes, select 'Test recipe' instead or 'Start recipe' and 'Stop recipe' instead. The act of starting the recipe will make it poll the app immediately.
+#
+How long are polling intervals?
+Polling intervals are determined by the tier of Workato plan you are subscribed to.
+Community
+and
+Base
+plan subscribers have a default of 10 minute polling interval
+Professional and above
+plans have a default of 5 minute polling interval
+#
+How can I change the polling interval?
+For poll-based triggers, the
+Trigger Poll Interval
+field is available as an optional configuration in the trigger setup. This field allows a user to either choose from a set of options, for example, every 6 hours / 1 day / 30 days, or define your own poll interval in number of minutes.
+The minimum polling interval allowed is determined by the tier of Workato plan you are subscribed to. This value is also shown to you in the
+Trigger Poll Interval
+field's hint.
+#
+I want my jobs to trigger the recipe instantly
+For jobs to be picked up immediately, Webhooks have to be used instead. Some applications on Workato support Webhooks and you will see a
+REAL TIME
+indication in the trigger.
+Webhooks have to be configured and set-up before use.
+It is also possible to build a webhooks connection with the HTTP application.
+Last updated:
+7/2/2021, 8:43:36 AM
+On this page
+Polling intervals explained
+How long are polling intervals?
+How can I change the polling interval?
+I want my jobs to trigger the recipe instantly
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

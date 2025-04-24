@@ -1,0 +1,248 @@
+Managing teams - Email notifications | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Workspaces
+#
+Email notifications
+As an
+Automation HQ
+or workspace administrator, it's important to assign specific contacts to receive different email notifications in your organization. Workato sends out important updates such as usage alerts, incident and error notifications, legal, and security updates.
+An admin can designate contacts to receive emails for
+admin notifications
+and
+other notifications
+in the
+Notifications
+(opens new window)
+page under
+Workspace admin > Settings > Workspace > Notifications
+. They can also designate contacts to receive emails for
+recipe error alerts
+in the
+Error alerts
+(opens new window)
+page under
+Workspace admin > Settings > Debug and logs > Error alerts
+.
+#
+Set up contacts in different workspaces/environments
+The availability of contact fields in your Workspace admin settings may vary depending on your workspace or environment. This distinction exists because certain contacts, such as the Legal contact for your company, only need to be set once for the entire organization. On the other hand, some contacts, such as the Admin and Error notification emails, are specific to workspaces and environments.
+#
+Workspace admin
+You can configure notifications for all contacts in your Workspace admin settings. However, if you are in a workspace within your organization, you won't have visibility or access to the Company-scoped contacts, including Security & Privacy, Legal, and Billing contacts.
+Within an environment, however, you can set up the specific
+Admin and Technical contacts
+,
+Error notification recipients
+and a
+Primary business sponsor
+for the specific workspace. You must have an admin role to configure workspace settings.
+#
+Environments
+In workspaces with
+environments
+, you only need to configure notification preferences once for your workspace in the main DEV environment. In the TEST and PROD environments, you can only specify
+Recipe error alerts
+to accommodate the fact that distinct users operate and build/test in different environments.
+#
+Admin notifications
+Two primary contacts should receive Admin notifications: the
+Primary admins
+and the
+Technical contacts
+. You can assign multiple contacts or email aliases to receive these notifications by entering a comma-separated list of emails.
+For example:
+[email protected]
+,
+[email protected]
+#
+Primary admins
+Primary admins are the main, active users and administrators of the workspace. They receive all notifications about usage, incidents, and account updates. We
+highly recommend
+adding at least one contact in this field to avoid missing important information.
+If no
+Primary admins
+are configured, the
+workspace owner
+or
+account email
+receives these notifications by default.
+Additionally, the following events trigger a primary admin email notification when they occur in the workspace:
+Collaborator joined the workspace
+Collaborator left the workspace
+Community connector approved by the Workato community team
+Community connector updated by the Workato community team
+Transaction limit threshold
+Access request for an API collection
+Deployment package deployed
+#
+Technical contacts
+Technical contacts are members in your workspace that own recipe and technical implementation. Workato platform connectors and features, including the
+OPA
+and
+API platform
+, are frequently updated and may require changes from your recipe building team. If incidents occur that affect the components the workspace uses, Workato sends notifications to the technical contact.
+List the technical contacts in your organization in this field so these critical updates are not missed.
+#
+Recipe error alerts
+Monitoring recipe errors and failed jobs is critical in operations and ensuring uptime. Use the
+Recipe error alerts
+section in
+Workspace admin > Settings > Debug and logs > Error alerts
+to configure recipients of recipe and job-related notifications.
+You can assign multiple contacts or email aliases to receive these notifications by entering a comma-separated list of emails.
+Workato sends recipe error alerts in the following scenarios:
+When a job error occurs during action execution.
+When consecutive trigger errors are detected.
+When the recipe is stopped due to consecutive trigger errors.
+Learn more about
+trigger errors
+,
+trigger warnings
+, and
+action errors
+and Workato's error notification policy
+here
+.
+By default, Workato sends recipe error alerts for all recipes in your
+projects
+. The
+Receive error notifications only from specific projects
+toggle provides greater flexibility to our customers on receiving notifications from recipes that matter to them. Deselect each project containing the recipes you don't want to receive error notifications from.
+#
+Other notifications
+Other notifications include notices about invoices, legal, security, and account-level updates. This category has four contact types:
+Primary business sponsors
+Security & privacy contacts
+Legal contacts
+Billing contacts
+#
+Primary business sponsors
+Primary business sponsors are the Workato champions who receive updates on your account. These contacts are usually executive sponsors for the Workato program at your organization. These updates are sent on an ad hoc basis from your customer success manager or our customer experience teams.
+#
+Security & privacy contacts
+These contacts usually belong to your organization's security team. They receive security and privacy notifications such as sub-processor and policy updates. You may also provide an alias (for example,
+[email protected]
+).
+#
+Legal contacts
+These contacts usually belong to your organization's legal team. These contacts receive legal, DPA (Data Protection Authority), or contract related updates. You may also provide an alias (for example,
+[email protected]
+).
+#
+Billing contacts
+Lastly, enter your organization's billing contact. This contact usually belongs to your organization's finance team. They receive invoices, receipts, and other billing-related notifications. You may also provide an alias (for example,
+[email protected]
+or
+[email protected]
+).
+←
+Update account email
+Enable 2FA
+→
+Last updated:
+10/25/2024, 2:04:54 PM
+On this page
+Set up contacts in different workspaces/environments
+Admin notifications
+Recipe error alerts
+Other notifications
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

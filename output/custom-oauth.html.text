@@ -1,0 +1,181 @@
+Workato connectors - HubSpot | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+Create a Custom OAuth profile for HubSpot
+Admins can configure Custom OAuth with the HubSpot connector to add extra authentication security for their internal users or customers. Refer to
+Custom OAuth profiles for Embedded partners
+for more information.
+Complete the following steps to create a Custom OAuth profile for your HubSpot connection:
+1
+Go to
+Tools > Custom OAuth profiles
+using the navigation sidebar.
+2
+Click
++ New custom profile
+.
+3
+Select
+HubSpot
+from the
+Application
+drop-down.
+Select HubSpot
+4
+Provide a
+Name
+for this account.
+Name your application
+5
+Click
+Create new app
+.
+6
+Log in to your HubSpot account and
+create a new OAuth App
+(opens new window)
+.
+7
+Enter the following value as your
+Redirect URL
+in the
+Auth
+section of your app:
+https://www.workato.com/oauth/callback
+8
+Click
+Add new scope
+to add the required scope and additional optional scopes to the app.
+MANDATORY SCOPE CONFIGURATION
+Refer to the
+scopes
+documentation to ensure proper configuration.
+HubSpot scopes
+9
+Obtain the
+Client ID
+and
+Client Secret
+from the
+Auth
+section of your HubSpot app.
+10
+Enter your
+Client ID
+and
+Client Secret
+in Workato.
+11
+Click
+Save
+and
+Done
+.
+←
+Connection setup
+Scopes for Custom OAuth profiles
+→
+Last updated:
+4/12/2025, 2:39:15 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,158 @@
+Workato connectors - Trello new or updated card trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Trello
+#
+Trello - New or updated card trigger (real-time)
+The
+New or updated card
+trigger detects when a card is created or updated on a board you specify. The trigger checks for new cards and updates in real time and processes each event as a separate job.
+#
+Input fields
+Field
+Description
+Board name
+Select the board to monitor for new and updated cards.
+Events
+Select the type of change for the trigger to monitor. For example:
+Created card
+Deleted card
+Created comment
+Updated comment
+Added label
+Removed label
+#
+Output fields
+Field
+Description
+ID
+The ID of the card that triggered the job.
+Creator ID
+The ID of account that triggered the job.
+Type
+The type of update that triggered the job.
+Date
+A timestamp of when the job was triggered.
+Member creator
+An object that contains information about the account that created or updated the card, such as its
+ID
+,
+Username
+, and
+Full name
+.
+Data
+An object that contains information about the board, list, and card where the trigger event took place, such as their
+ID
+and
+Name
+.
+←
+New card trigger
+Add comment to card action
+→
+Last updated:
+11/27/2024, 8:28:44 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

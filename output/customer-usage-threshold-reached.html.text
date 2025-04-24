@@ -1,0 +1,159 @@
+RecipeOps - Usage threshold reached trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+RecipeOps by Workato
+#
+RecipeOps - Usage threshold reached trigger
+This trigger monitors workspace usage and runs when a user reaches a task usage threshold, according to their plan. Users can receive an event for every 10% of usage.
+For Embedded partners, this trigger monitors all customers’ workspaces.
+ENABLE USAGE THRESHOLD TRIGGER
+Before you can use the Usage threshold reached trigger, it must be enabled in your account. Contact your Workato Success Representative to learn more.
+#
+Input
+This trigger doesn't require any input.
+#
+Output
+Field
+Description
+ID
+The Workato ID of the customer.
+External ID
+The external ID of the customer, if defined.
+Customer Name
+The name of the customer.
+Plan
+Details about the customer's plan.
+This field has some additional sub-fields:
+Field
+Description
+Plan name
+The name of the plan.
+Plan accounting period
+Billing cycle reset date
+The reset date of the current billing cycle.
+Current limit
+Details about the limits applied to the account.
+This field has some additional sub-fields:
+Field
+Description
+Task limit
+The task limit for the account.
+Threshold reached at
+The time the threshold was reached.
+% Threshold reached
+The percentage of the threshold that was reached.
+#
+Resources
+RecipeOps overview
+RecipeOps actions
+RecipeOps triggers
+←
+Recipe stopped by Workato
+Get account details
+→
+Last updated:
+6/27/2024, 6:53:47 PM
+On this page
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

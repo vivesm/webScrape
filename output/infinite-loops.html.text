@@ -1,0 +1,168 @@
+Infinite loops | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Troubleshooting
+Common recipe errors
+#
+Infinite Loops
+#
+What are infinite loops and when do they occur?
+Infinite loops are logic errors that cause a recipe to run continuously because an action in the recipe is also triggering the recipe again.
+Infinite loops occur most commonly when the recipe is performing a
+bi-directional
+sync, such as when there is more than one application and data moves from application A to application B and back to A.
+#
+How will I Know if my Recipe is in an Infinite Loop?
+Recipes may be in an infinite loop if:
+There is an
+unexpectedly high transaction count
+The recipe is triggered when there are
+no new trigger events
+in the applications
+There are many
+duplicates
+of an object in applications that was created by a recipe
+#
+Example Recipe that is in an Infinite Loop
+The example below shows how an infinite loop may occur:
+Recipe will caused an infinite loop error
+1
+The trigger picks up new or updated Contacts in Salesforce.
+2
+The recipe checks if there is an existing Marketo lead with the contact's email. If it does not yet exist, the recipe will create a Marketo lead.
+3
+In the final step, the recipe will update the Salesforce contact with the Marketo lead details.
+#
+Why does the infinite loop error occur?
+Because of the last update step, the Salesforce contact would have been updated. Thus, triggering the recipe to start another job.
+Infinite loops may also occur if you have
+multiple recipes
+running at once and a similar issue occurs where one recipe is updating another that is triggered by an update in an object.
+How does Workato know a record has been updated?
+Workato identifies updated records using the
+Last Modified
+datetime field. If the record has been recently updated, it will trigger and create a new recipe job.
+#
+Use Trigger Filters to Prevent Infinite Loops
+In order to stop the re-triggering of recipes, implement filters in the trigger. An example of how this can be done is as follows:
+Add a trigger condition to prevent infinite loops
+Use trigger filters to filter out records that you do not want to process. In this example recipe, since we are only checking for Marketo lead IDs, we can ignore all Salesforce contacts that already have an existing
+Marketo Acquisition Date
+.
+By filtering out these Salesforce contacts, the contact will be ignored by the recipe and will not cause an infinite loop.
+#
+Best Practices - Creating Custom Fields
+Create fields in the connected applications that are meant for identifying jobs synced by Workato. In the example above, the
+Marketo Acquisition Date
+field in the Salesforce Opportunity should be empty by default.
+Thus, it is not advisable to use a commonly used field for these purposes, as they may be filled in by mistake and cause that job to be filtered out in the trigger.
+←
+Inefficient memory usage
+Recipe error codes
+→
+Last updated:
+4/14/2022, 6:27:35 AM
+On this page
+What are infinite loops and when do they occur?
+How will I Know if my Recipe is in an Infinite Loop?
+Why does the infinite loop error occur?
+Use Trigger Filters to Prevent Infinite Loops
+Best Practices - Creating Custom Fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

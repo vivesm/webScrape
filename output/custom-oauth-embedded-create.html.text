@@ -1,0 +1,177 @@
+カスタムOAuthプロファイル - 埋め込み - 作成 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+カスタムOAuthプロファイル
+#
+管理者アカウントでカスタムOAuthプロファイルを作成する
+このガイドでは、管理者アカウントでアプリケーションのカスタムOAuthプロファイルを作成する方法について説明します。このプロセスは、
+カスタムOAuthプロファイルを顧客アカウントに適用する
+ための前提条件です。
+このガイドでは、HubSpotを例に挙げていますが、Workatoがサポートする他のアプリのカスタムプロファイルも作成できます。アプリケーションによっては、OAuthプロファイルを登録するプロセスが異なる場合がありますが、WorkatoでのカスタムOAuthプロファイルの作成手順は同じです。カスタムOAuthプロファイルを作成できるアプリケーションのリストについては、
+埋め込みパートナー向けのカスタムOAuthプロファイル
+のドキュメントを参照してください。
+アカウントの種類
+カスタムOAuthプロファイルは、管理者アカウントで作成する必要があります。
+#
+カスタムOAuthプロファイルの作成方法
+1
+ナビゲーションサイドバーを使用して、
+ツール > カスタムOAuthプロファイル
+に移動します。
+2
++ 新しいカスタムプロファイル
+をクリックします。
+3
+アプリケーション
+ドロップダウンからアプリケーションを選択します。
+利用可能なアプリのリストからアプリケーションを選択します
+4
+アカウントの名前を入力します。
+この名前は、内部で使用するためのものです。Workatoが接続を要求する際に顧客に表示される名前とは異なります。
+アプリケーションに名前を付けます
+5
+新しいアプリを作成
+をクリックします。
+6
+HubSpotの開発者アカウント、または他のアカウントを作成します。
+このカスタムプロファイル内でOAuthアプリを作成および登録するための手順に従います。これは通常、選択したアプリの
+開発者
+セクションにあります。
+必要なフィールドに入力して新しいアプリを登録します。アプリケーションには次の値が必要な場合があります。
+リダイレクトURL/リダイレクトURI/コールバックURL
+https://www.workato.com/oauth/callback
+アプリURL/ウェブサイトURL
+https://www.workato.com
+アプリに関連するすべてのスコープを追加します。
+アプリの名前を埋め込みパートナーの名前と一致させます。これは接続時に表示される名前です。例えば、
+ABCテックが接続を要求しています
+となります。ここで
+ABCテック
+はHubSpot（アプリ名）に置き換えられます。
+クライアントID
+と
+クライアントシークレット
+を取得します。HubSpotの場合、これらの値はアプリの
+アプリ資格情報
+セクションで利用できます。
+7
+クライアントID
+と
+クライアントシークレット
+を入力します。
+8
+保存
+をクリックします。
+#
+接続の詳細
+この時点では、作成したカスタムOAuthプロファイルは作成したワークスペースでのみ機能します。
+カスタムプロファイルは、ユーザーがカスタムOAuthプロファイルが存在する接続を選択した場合に、標準のWorkato接続を自動的に置き換えます。
+接続のカスタムOAuthプロファイルフィールドは、ユーザーが次のいずれかを満たしている場合にのみ表示されます。
+カスタムOAuthプロファイル機能にアクセス権がある場合、または
+そのアプリのためにカスタムOAuthプロファイルを作成した場合
+さらに詳しく読む
+カスタムOAuthプロファイルを顧客アカウントに適用する方法
+←
+カスタムOAuthプロファイル
+適用
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+カスタムOAuthプロファイルの作成方法
+接続の詳細
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,169 @@
+Workatoコネクター - Oracle Fusion Cloud | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Oracle Fusion Cloud
+Oracle Fusion Cloud
+(opens new window)
+は、Oracleから提供されるクラウドホステッドアプリケーションのスイートであり、企業の重要な業務機能をカバーしています。企業リソースプランニング、サプライチェーン管理、販売、人材管理などが含まれています。市場で最も広く使用されているERP製品の一つです。
+当社のOracle Fusion Cloudコネクターは、上記のすべての業務機能への接続の単一のポイントとして機能し、Order-to-cash、Procure-to-pay、Record-to-report、Invoicing、月末調整などの主要な財務ユースケースをカバーするために使用することができます。
+#
+ビジネスモジュール
+当社のOracle Fusion Cloudコネクターは、同じ場所ですべてのビジネスモジュールへの接続を提供するために、単一のコネクター内でさまざまなAPIエンドポイントを利用しています。現在、以下のモジュールをカバーしています。
+Financials
+Project Management
+Accounting Hub
+Procurement
+Risk Management and Compliance
+Supply Chain Planning
+Inventory Management
+Manufacturing
+Maintenance
+Order Management
+Procurement
+Service Logistics
+Product Lifecycle Management
+Sales Automation
+Customer Data Management
+Subscription Management
+Partner Relationship Management
+Loyalty
+Fusion Service
+Human Resources
+個々のFusionアプリケーションモジュールの詳細については、
+こちら
+(opens new window)
+を参照してください。
+#
+APIバージョン
+当社のOracle Fusion Cloudコネクターは、APIバージョン11.13.18.05を使用しており、コネクターのRESTフレームワークバージョンは9です。これらはOracleがサポートする安定した最新バージョンです。REST APIのバージョンについては
+こちら
+(opens new window)
+を、RESTフレームワークのバージョンについては
+こちら
+(opens new window)
+を参照してください。
+#
+WorkatoでOracle Fusion Cloudに接続する方法
+WorkatoからOracle Fusion Cloudへの接続は簡単です。Oracle Fusion Cloudは基本認証をサポートしているため、接続するには以下の情報が必要です。
+#
+入力フィールド
+フィールド
+説明
+接続名
+この接続に一意の名前を付けて、接続されているOracle Fusion Cloudインスタンスを識別します。
+ユーザー名
+UIでOracle Fusion Cloudインスタンスに接続するために使用されるユーザー名を指定します。
+パスワード
+UIでOracle Fusion Cloudインスタンスに接続するために使用されるパスワードを指定します。
+サブドメイン
+特定のインスタンスのサブドメインを指定します。例えば、"
+servername.fa.us2.oraclecloud.com
+(opens new window)
+"です。
+←
+接続方法
+セットアップ
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+ビジネスモジュール
+APIバージョン
+WorkatoでOracle Fusion Cloudに接続する方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

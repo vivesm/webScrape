@@ -1,0 +1,759 @@
+コネクターの構築 - トリガーの構築 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+Workato コネクター構築ガイド 上級
+#
+コネクターの構築 - トリガーの構築
+トリガーの構築は、アクションとほとんど同じ形式を取ります。トリガーをオブジェクトベースにするため、コンフィギュレーション項目や、先ほど定義しておいたスキーマメソッドを利用していきます。以下では、ポーリングトリガーを例にして説明します。ポーリングトリガー、動的 Webhook トリガー、静的 Webhook トリガーを作成するときに想定されるブロックには、それぞれに多少の違いがあるので注意してください。
+#
+コンフィギュレーション項目の定義
+オブジェクトベースのトリガーに取り組むときは、まずはコンフィギュレーション項目と呼ばれるものを定義する必要があります。
+コンフィギュレーション項目
+は入力内容によって他の入力項目が動的に生成されるように定義できる、特別な入力項目です。トリガーは追加の入力項目を必要としないことが多いため、このコンフィギュレーション項目を利用して、このトリガーで想定される出力を動的に生成します。
+config_fields
+:
+[
+{
+name
+:
+'object'
+,
+optional
+:
+false
+,
+label
+:
+'Object type'
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+'object_list_new_updated_trigger'
+,
+hint
+:
+'Select the object type from picklist.'
+}
+]
+,
+[invoice (請求書)] を選択すると関連するデータピルが表示される
+ここには
+ピックリスト
+も導入しています。これにより、別のオブジェクトのサポートを追加するときは、そのオブジェクトをリストに簡単に追加できます。
+ほかにもコンフィギュレーション項目はさまざまな方法で使用して、ユーザーが選択した内容に基づいて動的に入力項目を生成することができます。的確な入力項目がユーザーに表示される前に、選択されたオブジェクトの情報がさらに必要となるケースについては、このガイドの以降でいくつかのパターンを説明します。
+#
+タイトル、サブタイトル、説明、ヘルプテキストの定義
+トリガーに対して、助けになるタイトルや説明を定義することも非常に重要であり、強く推奨されます。オブジェクトベースのアクションに取り組むときはこのような配慮をしておくことで、そのコネクターを使ったレシピが読みやすくなるだけでなく、そのコネクターでレシピを構築する人にとってもユーザーエクスペリエンスが向上します。
+triggers
+:
+{
+new_updated_object
+:
+{
+title
+:
+"New/updated object"
+,
+subtitle
+:
+"Triggers when an object is created or updated"
+,
+description
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+"New/updated <span class='provider'>"
+\
+"
+#{
+picklist_label
+[
+'object'
+]
+||
+'object'
+}
+</span> in "
+\
+"<span class='provider'>XYZ Accounting</span>"
+end
+,
+help
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+{
+body
+:
+"Triggers when an
+#{
+picklist_label
+[
+'object'
+]
+||
+'object'
+}
+is created "
+\
+' or updated in XYZ.'
+}
+end
+,
+config_fields
+:
+[
+{
+name
+:
+'object'
+,
+optional
+:
+false
+,
+label
+:
+'Object type'
+,
+control_type
+:
+'select'
+,
+pick_list
+:
+'object_list_new_updated_trigger'
+,
+hint
+:
+'Select the object type from picklist.'
+}
+]
+,
+}
+}
+コネクターにさまざまなトリガーがある中で、このトリガーがどういったものであるのかをユーザーが理解できるよう、この箇所ではタイトルとサブタイトルを定義しています。タイトルは簡潔なものにしておき、同時にサブタイトルでもう少し詳しい情報を提供するようにしてください。
+説明については、lambda 関数を使用することで、ユーザーが config_field (コンフィギュレーション項目) で選択を行ったタイミングでアクションの説明を動的に変更できるようになっています (上の例を参照)。同様のことはヘルプテキストでも行えます。これについても上の例を参照してください。
+説明が動的に変更されない悪い例
+説明が動的に変更される良い例
+#
+入力項目の定義
+トリガーはユーザーによる設定をそれほど必要としないので、この例ではオブジェクト定義を呼び出す必要はありません。トリガーに関して、できる限り利用することが推奨されるパターンの1つとして、トリガーが最初に起動したときにユーザーが過去にさかのぼってデータを取得できるよう、オプションの入力項目を追加することがあります。この入力項目はタイムスタンプ値を受け取り、それを使ってデータを取得します。
+#
+入力項目
+input_fields
+:
+lambda
+do
+[
+{
+name
+:
+'since'
+,
+label
+:
+'When first started, this recipe should pick up events from'
+,
+type
+:
+'timestamp'
+,
+optional
+:
+true
+,
+hint
+:
+'When you start recipe for the first time, it picks up Salesforce records '
+\
+'from this specified date and time. Once recipe has been run or tested, '
+\
+'value cannot be changed.'
+}
+]
+end
+,
+#
+poll ブロックの定義
+ポーリングトリガーの場合は、poll ブロックにおいて、それぞれのポーリングのコードが実行されます。poll ブロックで使用できる引数は多くあり、そのうちの1つとして、過去のポーリングのデータを参照できる引数
+closure
+(クロージャ) があります。このクロージャの値を使うと、トリガーが最後にポーリングを行った時点を保存できるので便利です。多くの場合、クロージャは最後に確認したレコードのタイムスタンプ値や、すぐにポーリングする必要がある場合に用いられるオフセットを保存します。
+ポーリングトリガーを構築するのに最適なエンドポイントは、レコードのリストを取得するエンドポイントです。たとえば、請求書のリストを取得できるエンドポイントです。そのようなエンドポイントには、特定のタイムスタンプ以降のレコードのみをフィルタリングして抽出するクエリーパラメータも存在するはずです。Greenhouse の API には優れた例が用意されています。詳細は
+こちら
+(opens new window)
+を参照してください。
+#
+XYZ 会計から想定される JSON レスポンス
+{
+"results"
+:
+[
+{
+"TxnDate"
+:
+"2019-09-19"
+,
+"ID"
+:
+"1"
+,
+"TotalAmt"
+:
+362.07
+,
+"Line"
+:
+[
+{
+"Description"
+:
+"Rock Fountain"
+,
+"SalesItemLineDetail"
+:
+{
+"Qty"
+:
+1
+,
+"UnitPrice"
+:
+275
+,
+}
+,
+"Line-Num"
+:
+1
+,
+"Amount"
+:
+275.0
+,
+"Id"
+:
+"1"
+}
+,
+{
+"Description"
+:
+"Fountain Pump"
+,
+"SalesItemLineDetail"
+:
+{
+"Qty"
+:
+1
+,
+"UnitPrice"
+:
+12.75
+,
+}
+,
+"LineNum"
+:
+2
+,
+"Amount"
+:
+12.75
+,
+"Id"
+:
+"2"
+}
+]
+,
+"DueDate"
+:
+"2019-10-19"
+,
+"DocNumber"
+:
+"1037"
+,
+"Deposit"
+:
+0
+,
+"Balance"
+:
+362.07
+,
+"CustomerRef"
+:
+{
+"name"
+:
+"Sonnenschein Family Store"
+,
+"value"
+:
+"24"
+}
+,
+"BillEmail"
+:
+{
+"Address"
+:
+"
+[email protected]
+"
+}
+,
+"BillAddr"
+:
+{
+"Line1"
+:
+"Russ Sonnenschein"
+,
+"Long"
+:
+"-122.1141681"
+,
+"Lat"
+:
+"37.4238562"
+,
+"Id"
+:
+"95"
+}
+,
+"MetaData"
+:
+{
+"CreateTime"
+:
+"2014-09-19T13:16:17-07:00"
+,
+"LastUpdatedTime"
+:
+"2014-09-19T13:16:17-07:00"
+}
+}
+,
+// more results
+]
+,
+"more_results"
+:
+true
+}
+#
+poll ブロック
+poll
+:
+lambda
+do
+|
+connection
+,
+input
+,
+closure
+|
+limit
+=
+100
+closure
+=
+closure
+||
+{
+}
+updated_since
+=
+(
+closure
+[
+'last_updated_since'
+]
+||
+input
+[
+'since'
+]
+)
+.
+to_time
+.
+utc
+.
+iso8601
+params
+=
+{
+"order_by"
+=>
+"updated_at"
+,
+"order_type"
+=>
+"asc"
+,
+"limit"
+=>
+limit
+,
+"offset"
+=>
+closure
+[
+'offset'
+]
+,
+"updated_since"
+=>
+updated_since
+}
+response
+=
+call
+(
+"trigger_
+#{
+input
+[
+'object'
+]
+}
+_poll"
+,
+params
+)
+records
+=
+response
+[
+'results'
+]
+poll_again
+=
+response
+[
+'more_results'
+]
+if
+poll_again
+# If we can poll for more, update offset
+closure
+[
+'offset'
+]
+=
+closure
+[
+'offset'
+]
++
+limit
+else
+# If not, reset offset and last_updated_since
+closure
+[
+'offset'
+]
+=
+0
+closure
+[
+'last_updated_since'
+]
+=
+records
+.
+last
+[
+'MetaData'
+]
+[
+'LastUpdatedTime'
+]
+end
+{
+events
+:
+records
+,
+next_poll
+:
+closure
+,
+can_poll_more
+:
+poll_again
+}
+end
+,
+この poll ブロックでは、前回ポーリングを行った時点以降のレコードのみを問い合わせるために、まず適切なパラメータを持つペイロードを準備しています。これは、前回のポーリングのクロージャ値を参照することで実現しています。
+準備されたパラメータはオブジェクト固有のメソッドに渡され、ポーリングが実行されます。そのレスポンスは、上記のような JSON レスポンスであることが想定されています。クロージャ値はポーリングのレスポンスに基づいてリセットされます。毎回の poll ブロックの出力は、3つの想定される値 (レコード、クロージャのハッシュ、および「can_poll_more」 (トリガーがポーリングを再実行すべきかどうかを決定するブール値)) を持つハッシュになります。
+ポーリングトリガーの詳細については、
+こちら
+を参照してください。
+#
+dedup ブロックの定義
+Workato はさらに、poll ブロックから渡されたレコード配列の各レコードについて、そのレコードを前にも確認したことがあるかどうか調べます。これを行うには、1件のレコードのさまざまな部分を組み合わせて一意になるようにした文字列を dedup ブロックに含める必要があります。以下の例では、
+invoice
+ID と
+invoice
+の最終更新タイムスタンプを利用して、この更新されたレコードを前にも確認したことがあるかどうか調べています。
+dedup
+:
+lambda
+do
+|
+record
+|
+"
+#{
+record
+[
+'results'
+]
+[
+'Id'
+]
+}
+@
+#{
+record
+[
+'results'
+]
+[
+'MetaData'
+]
+[
+'LastUpdatedTime'
+]
+}
+"
+end
+,
+#
+出力項目の定義
+出力項目は、先ほど利用したのと同一のスキーマメソッドを使用して定義できます。そのスキーマメソッドを呼び出すときは、パラメータ
+output
+を渡すことを忘れないようにしてください。このパラメータが渡されることで、そのメソッドは、自身が返すべきなのはレスポンスで想定される項目であると知ることができます。多くの場合、それにはユーザーによる変更が不可能な、オブジェクトに関するメタデータ (
+created_at
+や
+updated_at
+といったタイムスタンプなど) が含まれます。
+#
+出力項目
+output_fields
+:
+lambda
+do
+|
+object_definitions
+,
+connection
+,
+config_fields
+|
+object
+=
+config_fields
+[
+'object'
+]
+input_schema
+=
+object_definitions
+[
+object
+]
+end
+,
+#
+オブジェクト定義
+invoice
+:
+{
+fields
+:
+lambda
+do
+|
+connection
+,
+config_fields
+,
+object_definitions
+|
+# same schema as above
+end
+}
+,
+#
+サンプル出力の定義
+サンプル出力は、下流のアクションでデータピルをマッピングするユーザーに、そのデータピルのコンテキストを知らせる良い方法です。ラベルだけではまだ分かりづらい部分が残っている場合はサンプル出力を使うと、ユーザーが自身のアプリケーションからリアルタイムでデータを取得できるようになり、理解を促進することができます。以下の例では、まずペイロードを人工的に構築し、それからオブジェクト検索メソッドを利用してユーザー自身の XYZ 会計のインスタンスで見つかる最初のレコードを取得しています。
+#
+サンプル出力
+sample_output
+:
+lambda
+do
+|
+connection
+,
+input
+|
+payload
+=
+{
+"limit"
+=>
+1
+}
+call
+(
+"search_
+#{
+input
+[
+'object'
+]
+}
+_execute"
+,
+payload
+)
+end
+このブロックの出力は、続いて出力項目ブロックに渡され、対応するデータピルすべての右側に表示されます。これにより、ユーザーがトラブルシューティングに要する時間を大幅に短縮できる可能性があります。
+各データピルの隣にグレーのテキストで表示されるサンプル出力
+#
+一般的なコードパターンと制限事項
+オブジェクトベースのアクションやトリガーの構築方法の例をいくつか見たところで、次はあなたのコネクターで再利用できるコードパターンについて学んでいきましょう。
+←
+コネクターの構築 - アクションの構築
+エラーハンドリング
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+コンフィギュレーション項目の定義
+タイトル、サブタイトル、説明、ヘルプテキストの定義
+入力項目の定義
+poll ブロックの定義
+dedup ブロックの定義
+出力項目の定義
+サンプル出力の定義
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

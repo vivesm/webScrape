@@ -1,0 +1,274 @@
+Workato コネクター - Zoom - ウェビナーとミーティングのアクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Zoom
+#
+Zoom - ウェビナー、ミーティング、クラウド録画
+Workato Zoom コネクターを使用すれば、ウェビナーやミーティングを簡単にスケジュールおよび更新できます。さらにコネクターは、ウェビナー、ミーティング、およびクラウド録画 (まとめて
+イベント
+と呼びます) の管理に役立つ広範なアクションもサポートしています。これにより、Zoom でイベントを更新したり、イベントから情報をプルしたりできるようになります。
+Zoom コネクターは、以下の
+イベント
+アクションをサポートしています。
+ミーティングまたはウェビナーのスケジュール
+イベントの詳細の更新
+イベントの詳細の検索
+イベントの詳細の取得
+ウェビナーの結果の取得
+#
+ミーティングまたはウェビナーのスケジュール
+このアクションを使用すると、レシピを使用してミーティングやウェビナーをスケジュールできます。これにより、Salesforce の新規リードや Greenhouse の新規面接などのトリガーに基づいてイベントをスケジュールできます。
+ミーティングまたはウェビナーのスケジュール
+#
+アクションの設定
+このアクションを設定する際、まずはスケジュールする
+イベント
+の種類を選択するよう求められます。ミーティングまたはウェビナーのどちらかを選択します。イベントタイプを選択したら、関連する入力項目が表示され、作成するイベントを設定できるようになります。このアクションの出力は、作成されたイベントの詳細です。
+以下に、ウェビナーやミーティングを動的にスケジュールするのに役立つ一般的な入力項目を示します。
+入力項目
+説明
+Event
+ミーティングまたはウェビナーのどちらかを選択します。
+User ID
+Zoom 組織内の使用可能なユーザーから選択するか、ユーザーのデータピルをマッピングし、ユーザーに基づいてミーティングを動的にスケジュールします。
+Topic
+ウェビナーまたはミーティングの名前またはトピック。イベントに参加するユーザーには、これがメインのラベルとして表示されます。
+Type
+ウェビナーまたはミーティングのタイプ。[Instant]、[Scheduled]、または [Recurring] のいずれかになります。
+Start time
+イベントの開始時間。イベントが [Scheduled] または [Recurring] である場合に使用されます。
+Duration
+イベントの設定期間。イベントが [Scheduled] または [Recurring] である場合に使用されます。
+Password
+イベントのパスワードを設定します。これによりセキュリティを確保できます。
+Agenda
+イベントの詳細な説明です。
+Tracking fields
+イベントの目的を設定するために使用します。追跡フィールドの詳細については、
+こちら
+(opens new window)
+を参照してください。
+Recurrence
+イベントが定期的に開催される場合に設定します。
+#
+イベントの詳細の更新
+ミーティング、ウェビナー、またはクラウド録画のさまざまな構成要素の詳細を更新します。これにより、予定されているイベントのミーティング時間を更新したり、ウェビナーに新規の投票を追加したりすることもできます。
+更新するイベントをリストから選択
+#
+アクションの設定
+このアクションを設定する際、まずは更新する
+イベント
+の種類を選択するよう求められます。イベントを選択したら、関連する入力項目が表示され、更新するイベントを設定できるようになります。
+イベント
+説明
+Meeting
+スケジュールされたミーティングの詳細を更新します。
+Meeting recording settings
+ミーティングのクラウド録画の設定を更新します。必要に応じて参加者が特定の録画にアクセスできるようにする場合に便利です。
+Webinar
+スケジュールされたウェビナーの詳細を更新します。
+Webinar status
+ウェビナーのステータスを更新して終了できます。
+Webinar poll
+ウェビナーの新しい投票を追加するか、既存の投票を更新します。
+Webinar registration questions
+ウェビナー登録のすべての質問を完全に更新します。これを使用して、登録者向けにカスタムの質問を作成します。
+Webinar panelist
+ウェビナーのパネリストを完全に更新します。
+#
+イベントの詳細の検索
+ミーティング、ウェビナー、またはクラウド録画の詳細を検索します。これにより、ミーティングの詳細を取得したり、クラウド録画のダウンロード URL を取得したりすることもできます。
+ミーティング、ウェビナーなどの検索
+#
+アクションの設定
+このアクションを設定する際、まずはスケジュールする
+イベント
+の種類を選択するよう求められます。イベントを選択したら、関連する入力項目が表示され、作成するイベントを設定できるようになります。
+イベント
+説明
+Meeting
+特定のユーザーに基づいてミーティングを検索します。
+Company contact
+会社内の連絡先を検索します。
+Cloud recording
+特定のユーザーに基づいてクラウド録画を検索します。
+Webinar
+特定のユーザーに基づいてウェビナーを検索します。
+Past webinar instances
+定期的に開催されるウェビナーの過去のインスタンスを検索します。これは、定期的に開催されるウェビナーがある場合に便利です。
+Webinar panelists
+ウェビナー ID に基づいてウェビナーのパネリストを検索します。
+Webinar poll
+ウェビナー ID に基づいてウェビナーの投票を検索します。
+#
+イベントの詳細の取得
+ミーティング、ウェビナー、またはクラウド録画の詳細を取得します。このアクションを使用して、ミーティングの詳細を取得したり、ウェビナーの登録者/欠席者の詳細を取得したりすることもできます。
+#
+アクションの設定
+このアクションを設定する際、まずは詳細を取得する
+イベント
+の種類を選択するよう求められます。必要なものに最も一致するイベントを選択します。イベントを選択したら、関連する入力項目が表示され、取得するイベントを設定できるようになります。
+イベント
+説明
+Meeting
+ミーティングの詳細を取得します。
+Past meeting details
+終了したミーティングの詳細。これには、ミーティングの合計時間や、出席者の合計数などの詳細が含まれます。
+Past meeting participants
+終了したミーティングの参加者を取得します。
+Cloud recording
+ミーティングまたはウェビナーいずれかのクラウド録画の詳細を取得します。
+Meeting recording settings
+ミーティングの録画設定を取得します。
+Webinars
+ウェビナーの詳細を取得します。
+Webinar registrant
+ウェビナー ID と登録者 ID によってウェビナーの特定の登録者を取得します。
+Webinar absentees
+過去のウェビナーの欠席者を取得します。欠席者は、ウェビナーに登録したが出席しなかった人物として分類されます。
+Webinar tracking resources
+ウェビナー登録 URL で使用した場合は、追跡リソースの詳細を取得します。
+Specific webinar poll results
+特定のウェビナーの投票結果を取得します。1回のウェビナーに複数のウェビナー投票が存在する場合があります。
+Webinar registration questions
+ウェビナーの登録の質問を取得します。
+Past webinar files
+終了したウェビナーの開催中に共有されたファイル。
+#
+ウェビナーの結果の取得
+ウェビナーの結果を取得することで、レシピを使用して、ウェビナーまたはミーティング参加者の応答を他のアプリケーションに送信できます。
+#
+アクションの設定
+このアクションを設定する際、まずはスケジュールする
+結果
+の種類を選択するよう求められます。必要なものに最も一致する結果の種類を選択します。イベントを選択すると、関連する入力項目が表示されます。
+入力項目
+説明
+Object
+質疑応答 (Q&A) または投票の結果のどちらを取得するかを選択します。
+Webinar ID
+ウェビナーの ID。これは、Workato の Zoom トリガーまたはその他の Zoom アクションの出力で確認できます。
+出力項目
+説明
+ID
+特定のウェビナーの ID。
+UUID
+ウェビナーの UUID。
+Start time
+投票の開始時間。
+Questions
+参加者ごとに区切られた質疑応答のリスト。
+Questions[Name]
+リストの各位置の参加者の名前。
+Questions[Email]
+リストの各位置の参加者のメールアドレス。
+Questions[Question details]
+この特定の参加者の質疑応答のリスト。このネストされたリストの各位置は、1組の質疑応答を表します。
+←
+新規イベント(Meeting, Webinar) トリガー
+登録者
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+ミーティングまたはウェビナーのスケジュール
+イベントの詳細の更新
+イベントの詳細の検索
+イベントの詳細の取得
+ウェビナーの結果の取得
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

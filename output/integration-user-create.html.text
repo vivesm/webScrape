@@ -1,0 +1,244 @@
+Workatoコネクター - SAP RFC - SAPでWorkato統合ユーザーを作成する | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+SAPでWorkato統合ユーザーを作成する
+SAPでWorkato統合ユーザーを作成するには、以下の手順が必要です。
+SU01を使用してSAPで新しいユーザーを作成する
+新しく作成したWorkatoユーザーをアクティブ化する
+PFCGを使用してWorkato統合ロールを作成する
+ユーザーを新しく作成したロールにリンクする
+#
+SU01を使用してSAPで新しいユーザーを作成する
+まず、Workatoに専用のSAPシステムユーザーを作成する必要があります。このユーザーは後で統合を実行するために必要な最小限の権限で使用されます。
+推奨ユーザータイプ
+SAPでは、
+Communication
+ユーザータイプを使用することを推奨します。これは、システム間のダイアログなし通信（RFCを介した）に予約されており、GUIアクセスは提供されません。
+1
+t-code SU01で、Workatoに関連する名前を新しいユーザーに付けます。以下の例では、ユーザー名を
+WORKATO_INT
+としました。
+2
+ユーザーを作成する際には、
+姓
+と
+パスワード
+を指定する必要があります。これらは
+ログオンデータ
+タブにあります。
+ユーザーの権限
+このユーザーの権限によって、Workatoが実行できるRFCと送受信できるIDocが決まります。
+#
+新しく作成したWorkatoユーザーをアクティブ化する
+新しいユーザーを作成した後、このユーザーをアクティブ化するために、このユーザーとしてSAPにログインし、パスワードを変更する必要があります。パスワードとユーザー名をメモしておき、WorkatoでOPAを設定する際に必要です。
+#
+PFCGを使用してWorkato統合ロールを作成する
+この新しく作成したユーザーにロールを割り当てます。このロールは、SAPシステム内の特定のオブジェクトへのアクセス権を付与します。このガイドでは、WorkatoからSAPに接続するために必要な最小限の権限の設定方法を示しています。
+ユーザーの権限
+これらの手順には、コネクターで実行するために必要なRFCの実行権限、IDocの受信権限、およびIDocの送信権限は含まれていません。Workatoでアクションとトリガーを実行するために必要な権限を確認するには、このガイドの
+最小限の権限セクション
+を参照してください。
+1
+t-code PFCG
+に移動し、このWorkatoユーザーに割り当てるロールを入力します。この例では、ロール名を
+Z_WORKATO_MIN_AUTH
+としました。
+2
+選択した名前を入力した後、
+シングルロール
+ボタンを選択します。
+3
+新しいロールに説明を付けます。
+4
+権限
+タブに移動します。
+プロファイル名
+入力フィールドの横にあるボタンを選択してプロファイルを生成します。
+5
+プロファイルが生成されたら、
+権限データの変更
+を選択します。以下の権限を割り当てる必要があります。これらの権限は、WorkatoコネクターがSAPシステムからの認証とメタデータの読み取りをサポートするのに役立ちます。権限は、インターフェースの上部にあるボタンを使用してロールを手動で維持することで割り当てます。
+追加する権限オブジェクト
+S_RFC
+Workatoが特定の関数グループとモジュールを呼び出すために必要です。
+S_TABU_DIS
+ユーザーがアクセスできる認可グループを使用してテーブルのグループを決定します。
+S_TABU_NAM
+ユーザーがアクセスできる特定のテーブルを決定します。この認可オブジェクトは、ユーザーがアクセスできない認可グループ内の特定のテーブルにアクセスできるようにします。
+S_RFCのRFCオブジェクトタイプ（Activity=16）
+FUGR
+RFCオブジェクトタイプ
+RFC_NAME
+RFCオブジェクト名
+可能な値:
+EDIMEXT
+RFC2
+RFC_METADATA
+SDIFRUNTIME
+SDTX
+SVRZ
+SYST
+ARFC（IDocを送信する場合のみ必要）
+EDIN（IDocを送信する場合のみ必要）
+FUNC
+RFCオブジェクトタイプ
+RFCオブジェクトの名前（RFC_NAME）
+DDIF_FIELDINFO_GET
+GET_SYSTEM_NAME
+IDOCTYPES_LIST_WITH_MESSAGES
+RFCPING
+RFC_FUNCTION_SEARCH_WITHGROUP
+OCS_GET_INSTALLED_SWPRODUCTS
+RFC_READ_TABLE
+API_CREATE_TID（IDocを送信する場合のみ必要）
+IDOC_INBOUND_ASYNCHRONOUS（IDocを送信する場合のみ必要）
+S_TABU_DISオブジェクトの権限オブジェクト
+S_TABU_DIS（Activity=02,03）
+テーブル認可グループ（DICBERCLS）:
+SA
+SC
+SS
+::: S_TABU_NAMオブジェクトのための項目：
+S_TABU_NAM（アクティビティ=02,03）
+テーブル認可グループ（DICBERCLS）：
+EDIPOA
+EDP13
+EDP21
+RFCDES
+TAPLT
+TBD05
+TFDIR
+TFTIT
+:::
+6
+最終的な承認は次のようになります：
+7
+生成
+ボタン（トップバーの白と赤の丸いボタン）を押して、承認を保存します。
+#
+ユーザーを新しく作成したロールにリンクする
+ユーザーを新しく作成したロールにリンクするには：
+1
+SU01に移動し、
+ステップ1：SU01を使用してSAPで新しいユーザーを作成する
+で作成したユーザーを編集します。
+2
+ロール
+タブに移動します。
+3
+作成したロールに
+割り当て
+を提供します。
+4
+保存
+をクリックします。
+追加情報
+SAP RFCへの接続を完了するために、以下のガイドを参照してください：
+Workato OPAの設定
+。
+Workato SAPコネクタの設定
+。
+オプション：SAPでのIDocの設定
+。
+Last updated:
+2024/2/13 16:59:53
+On this page
+SU01を使用してSAPで新しいユーザーを作成する
+新しく作成したWorkatoユーザーをアクティブ化する
+PFCGを使用してWorkato統合ロールを作成する
+ユーザーを新しく作成したロールにリンクする
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

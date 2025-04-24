@@ -1,0 +1,180 @@
+AHQ AWS IAM role sharing | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Automation HQ
+HQ workspace
+#
+AWS IAM role sharing
+Use IAM external IDs to manage your IAM roles on AWS. You can enable AWS IAM role sharing from the AHQ admin settings to propagate the external ID of the AHQ admin environment to child workspace environments in multiple locations, AWS Secrets Manager, and all AWS connections that support an IAM role. This means that all child workspaces inherit the external ID of the parent workspace for a more convenient approach to managing IAM roles on AWS.
+PARENT WORKSPACE PROJECT-LEVEL EXTERNAL ID SCOPE
+You can't change the scope of a parent IAM external ID to project level after you enable external ID sharing with child workspaces.
+AWS IAM role sharing defaults to no. This means that each child workspace environment has a unique external ID that is generated automatically. You can simplify child workspace management by enabling external ID propagation.
+CHILD WORKSPACE CONNECTIONS MUST BE RECONFIGURED
+Current child workspace connections are invalidated after you enable AWS IAM role sharing for AHQ. You must manually disconnect and then reconnect all child connections. You must call the
+clear_cache
+API to ensure that your dependent connections don't break if your child workspace connections were made using AWS Secrets Manager.
+Some child workspaces may already use a project-level external ID. In this case, the child workspace displays an external ID with a project-level scope but applies the parent workspace's external ID.
+#
+Enable AWS IAM role sharing for AHQ
+Complete the following steps to enable AWS IAM role sharing:
+1
+Sign in to your Workato account.
+2
+Go to
+Automation HQ > Settings
+.
+3
+Click
+AWS IAM role sharing
+.
+4
+Click the
+Use AHQ-level external ID for all managed workspaces
+toggle.
+Use AHQ-level external ID for all managed workspaces
+toggle
+5
+Select the
+Use AHQ-level external ID for all managed workspaces?
+checkbox and click
+Use AHQ-level external ID
+. This confirms your understanding that all child workspace connections with workspace-level or project-specific external IDs in your managed workspaces will break and must be manually reconfigured.
+Use AHQ-level external ID for all managed workspaces?
+checkbox
+6
+Click
+Save
+.
+7
+Go to
+Workspace admin > Settings
+.
+8
+Locate the
+Security
+section in the sidebar and click
+Amazon Web Services IAM
+. The
+Amazon Web Services (AWS) access
+page displays. A green badge labeled
+Managed by AHQ
+appears next to your AWS account.
+Managed by AHQ
+badge
+#
+Create an IAM role for AHQ
+Refer to the
+Use IAM role-based authentication for AWS Services
+documentation for information on how to
+create an IAM role
+,
+set the external ID scope
+, and complete other configuration steps for your AHQ workspace.
+←
+Managed workspaces
+Workspace moderators
+→
+Last updated:
+4/7/2025, 1:29:13 PM
+On this page
+Enable AWS IAM role sharing for AHQ
+Create an IAM role for AHQ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

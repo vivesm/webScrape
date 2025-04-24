@@ -1,0 +1,155 @@
+Workato connectors - JWT - Decode JWT action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+JWT by Workato
+#
+JWT - Decode JWT action
+This action decodes a JSON Web Token (JWT) and validates its
+iat
+(Issued At),
+exp
+(Expiration Time), and
+nbf
+(Not Before) claims, if they are present. It raises an exception if the token is invalid.
+JWT - Decode JWT action
+#
+Input
+JSON web token
+The decoded JWT string.
+Exp leeway
+The leeway time in seconds before the JWT expires.
+#
+Output
+Payload
+The data extracted from the JWT after decoding.
+Subject
+The principal subject of the JWT.
+Issued at (iat)
+The timestamp of when the JWT was issued.
+Expiration time (exp)
+The timestamp for when the JWT is set to expire.
+Not before time (nbf)
+The timestamp indicating when the JWT becomes valid.
+Issuer (iss)
+The issuer of the JWT.
+Audience (aud)
+The recipients of the JWT.
+JWT ID (jti)
+The unique identifier for the JWT.
+Scopes
+The information about the permissions the JWT carries.
+Header
+The part of the JWT that is decoded.
+Key ID (kid)
+The key identifier used to secure the JWT.
+Algorithm
+The cryptographic algorithm used to secure the JWT.
+←
+Generate JWT
+LaunchDarkly
+→
+Last updated:
+12/22/2023, 6:02:55 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

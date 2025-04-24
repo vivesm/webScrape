@@ -1,0 +1,118 @@
+他のMLプラットフォームに接続する | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+AIML
+#
+他のMLプラットフォームに接続する
+このアクセラレータは、機械学習プラットフォームとしてSagemaker、ストレージプラットフォームとしてAWS S3を使用するための、すぐに使用できる接続とレシピを提供します。
+これらのプラットフォームはプレースホルダーです。使用ケースに合わせて異なるプラットフォームに変更することができます。ガイダンスが必要な場合は、カスタマーサクセスにお問い合わせください。
+#
+AIMLアクセラレータのカスタマイズ方法
+AWS SageMaker
+フォルダには、Sagemaker SDKを呼び出すレシピが含まれています。別のプラットフォームに変更するには、このフォルダのコピーを作成し、SageMakerを選択したプラットフォームに置き換えてください。
+同様に、
+AWS S3
+フォルダには、AWS S3を呼び出すレシピが含まれています。別のプラットフォームに変更するには、このフォルダのコピーを作成し、AWS S3を選択したプラットフォームに置き換えてください。
+必要な変更
+SageMakerまたはAWS S3を別のプラットフォームに置き換える場合、このアクセラレータのレシピに追加の変更が必要になる場合があります。これには、レシピのアクションの変更、パラメータの適応、またはレシピに追加のステップの追加などが含まれます。たとえば、別のプラットフォームでは、JSONを解析してルックアップテーブルからモデルプロファイルを抽出するために、追加のレシピステップが必要になる場合があります。
+←
+接続
+開始
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

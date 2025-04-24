@@ -1,0 +1,179 @@
+Workato connectors - RingCentral - New call trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+RingCentral
+#
+RingCentral - New call trigger
+The
+New call
+trigger retrieves new calls made by the connected RingCentral extension. The trigger checks for new calls every five minutes.
+Ensure the connected RingCentral extension has
+Read Call Log
+permissions. These permissions are typically enabled for predefined or default RingCentral roles.
+#
+Input
+Field
+Description
+Trigger poll interval
+Specify how frequently to check for new events. Defaults to five minutes if left blank. The minimum allowed value is five minutes.
+When first started, this recipe should pick up events from
+Specify the start time to retrieve calls made since this time. Defaults to one hour before the recipe is first started if left blank. Learn more about this
+input field
+.
+#
+Output
+Field
+Description
+URI
+The URI of the call.
+ID
+The unique identifier of the call.
+Session ID
+The session ID of the call.
+Start time
+The start time of the call.
+Duration
+The duration of the call in seconds.
+Type
+The type of call.
+Direction
+The direction of the call (for example, inbound, outbound).
+Action
+The action taken during the call.
+Result
+The result of the call.
+To
+An object containing information about the recipient of the call.
+Phone number (to)
+The recipient's phone number.
+Name (to)
+The recipient's name.
+Extension number (to)
+The recipient's extension number.
+From
+An object containing information about the caller.
+Phone number (from)
+The caller's phone number.
+Name (from)
+The caller's name.
+Extension number (from)
+The caller's extension number.
+Recording
+An object containing details about the recording.
+URI (recording)
+The URI of the recording.
+ID (recording)
+The ID of the recording.
+Type (recording)
+The type of the recording.
+Content URI (recording)
+The content URI of the recording.
+←
+New call recording trigger
+New company level call trigger
+→
+Last updated:
+1/6/2025, 6:35:03 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,530 @@
+Insights - Operators | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Reference
+Calculated column functions
+#
+Operators
+An operator is a symbol that specifies the action performed on one or more operands. Insights dashboard support the following types of operators in
+calculated columns
+:
+Arithmetic operators
+Comparison operators
+Logical operators
+NULL OPERANDS
+Insights uses the following logic for operations that include
+NULL
+values:
+If the formula contains a
+NULL
+value, the result returned in the calculated column is also a
+NULL
+value.
+For example, if one of the rows in the
+Quantity
+column is
+NULL
+, then the result in the calculated column for that row is also
+NULL
+:
+Column expression
+*
+=
+Unit price
+*
+Quantity
+#
+Arithmetic operators
+Arithmetic operators are used to perform mathematical operations on number data types in queries. Insights supports the following arithmetic operators in calculated columns:
+Operator
+Description
++ (add)
+Addition
+- (subtract)
+Subtraction
+* (multiply)
+Multiplication
+/ (divide)
+Division
+% (modulus)
+Returns the integer remainder of a division
+#
++ (add)
+Adds one number to another.
+Applicable data types
+:
+BIGINT
+,
+DOUBLE
+#
+Example
+This example adds an item's tax to an item's price:
+Column expression
+*
+=
+Item price
++
+Tax amount
+#
+- (subtract)
+Subtracts one number from another.
+Applicable data types
+:
+BIGINT
+,
+DOUBLE
+#
+Example
+This example subtracts the claim amount from the amount in a wallet:
+Column expression
+*
+=
+Wallet amount
+-
+Claim amount
+#
+* (multiply)
+Multiplies one operand by another.
+Applicable data types
+:
+BIGINT
+,
+DOUBLE
+#
+Example
+This example multiplies the price of an item by the item quantity:
+Column expression
+*
+=
+Item price
+*
+Quantity
+#
+/ (divide)
+Divides one number (the numerator) by another (the denominator):
+Applicable data types
+:
+BIGINT
+,
+DOUBLE
+DIVISION WITH 0 (ZERO)
+Insights uses the following logic for division operations that include 0:
+If the numerator is
+0
+,
+0
+is returned. For example,
+0/row_count = 0
+.
+If the denominator is
+0
+,
+0
+is returned. For example,
+time_taken/0 = 0
+.
+If the denominator is
+null
+,
+null
+is returned. For example,
+time_taken/null = null
+.
+#
+Example
+This example divides the task count by the job count:
+Column expression
+*
+=
+Task count
+/
+Job count
+#
+% (modulus)
+Returns the integer remainder of a division. For example,
+23 % 7 = 2
+, because the remainder of
+23
+divided by
+7
+is
+2
+.
+Applicable data types
+:
+BIGINT
+,
+DOUBLE
+#
+Example
+This example returns the remainder from a division:
+Column expression
+*
+=
+(
+Order month
+-1) % 4 + 1
+#
+Comparison operators
+Comparison operators are used to compare the value of one operand to another operand in queries. Insights supports the following types of comparison operators in calculated columns:
+Operator
+Description
+= (equal)
+Equal to
+!= (not equal to)
+Not equal to
+> (greater than)
+Greater than
+>= (greater than or equal to)
+Greater than or equal to
+< (less than)
+Less than
+<= (less than or equal to)
+Less than or equal to
+#
+= (equal)
+Returns
+TRUE
+if the two operands are equal, and
+FALSE
+otherwise.
+Applicable data types
+:
+DATE
+,
+TIMESTAMP
+,
+BIGINT
+,
+DOUBLE
+,
+BOOLEAN
+,
+VARCHAR
+#
+Example
+This example evaluates whether the ID equals the recipe ID:
+Column expression
+*
+=
+ID
+=
+Recipe ID
+#
+!= (not equal to)
+Returns
+TRUE
+if the two operands are not equal, and
+FALSE
+otherwise.
+Applicable data types
+:
+DATE
+,
+TIMESTAMP
+,
+BIGINT
+,
+DOUBLE
+,
+BOOLEAN
+,
+VARCHAR
+#
+Example
+This example evaluates whether the start date doesn't equal the end date.
+Column expression
+*
+=
+Start date
+!=
+End date
+#
+> (greater than)
+Returns
+TRUE
+if the left operand is greater (or later, for datetime values) than the right operand, and
+FALSE
+otherwise.
+Applicable data types
+:
+DATE
+,
+TIMESTAMP
+,
+BIGINT
+,
+DOUBLE
+#
+Example
+This example evaluates whether the job count is greater than 1000:
+Column expression
+*
+=
+job_count
+> 1000
+#
+>= (greater than or equal to)
+Returns
+TRUE
+if the left operand is greater (or later for datetime values) than or equal to the right operand, and
+FALSE
+otherwise.
+Applicable data types
+:
+DATE
+,
+TIMESTAMP
+,
+BIGINT
+,
+DOUBLE
+#
+Example
+This example evaluates whether the job count is greater than or equal to 1000:
+Column expression
+*
+=
+job_count
+>= 1000
+#
+< (less than)
+Returns
+TRUE
+if the left operand is less (or earlier for datetime values) than the right operand, and
+FALSE
+otherwise.
+Applicable data types
+:
+DATE
+,
+TIMESTAMP
+,
+BIGINT
+,
+DOUBLE
+#
+Example
+This example evaluates whether the submission date was before the deadline date:
+Column expression
+*
+=
+submission_date
+<
+deadline
+#
+<= (less than or equal to)
+Returns
+TRUE
+if the left operand is less (or earlier for datetime values) than or equal to the right operand, and
+FALSE
+otherwise.
+Applicable data types
+:
+DATE
+,
+TIMESTAMP
+,
+BIGINT
+,
+DOUBLE
+#
+Example
+This example evaluates whether the submission date was on or before the deadline date:
+Column expression
+*
+=
+submission_date
+<=
+deadline
+#
+Logical operators
+Logical operators are used to combine or manipulate conditions in queries. Insights supports the following logical operators in calculated columns:
+Operator
+Description
+AND
+TRUE
+if both boolean operands are
+TRUE
+.
+OR
+TRUE
+if one boolean operand is
+TRUE
+.
+#
+AND
+Returns
+TRUE
+if both the left and right operands are
+TRUE
+, and
+FALSE
+otherwise.
+Applicable data types
+:
+BOOLEAN
+#
+Example
+This example evaluates whether both
+is_completed
+and
+is_success
+are
+TRUE
+:
+Column expression
+*
+=
+is_completed
+AND
+is_success
+#
+OR
+Returns
+TRUE
+if the left, right, or both operands are
+TRUE
+, and
+FALSE
+otherwise.
+Applicable data types
+:
+BOOLEAN
+#
+Example
+This example evaluates whether
+is_in_progress
+,
+is_complete
+, or both are
+TRUE
+:
+Column expression
+*
+=
+is_in_progress
+OR
+is_complete
+←
+Query components
+Datetime functions
+→
+Last updated:
+3/14/2025, 4:57:44 PM
+On this page
+Arithmetic operators
++ (add)
+- (subtract)
+* (multiply)
+/ (divide)
+% (modulus)
+Comparison operators
+= (equal)
+!= (not equal to)
+> (greater than)
+>= (greater than or equal to)
+< (less than)
+<= (less than or equal to)
+Logical operators
+AND
+OR
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,234 @@
+JSON tools by Workato – Parse JSON action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+JSON tools by Workato
+#
+JSON tools by Workato – Parse JSON document action
+The
+Parse JSON document
+action extracts values from raw JSON content and converts them into structured datapills for use in recipes.
+#
+Input
+Input field
+Description
+Sample document
+Provide a sample JSON document that defines the expected structure of the input. Workato uses this to generate the output schema.
+Document
+Provide the raw JSON content to parse. This must match the structure of the sample document.
+Encoding of the file content
+Set the encoding format of the JSON string. If left blank, Workato uses
+UTF-8
+by default.
+Edit schema
+Select fields to override in the generated schema. Use this to refine the datatree if the sample doesn't fully reflect the actual data.
+#
+Output
+Output fields
+Description
+Document
+Workato generates datapills based on the structure defined in the
+Sample document
+. These datapills reflect the hierarchy and keys of the sample JSON, including any nested objects or arrays.
+#
+Example usage
+The following example defines a JSON structure for an array of contacts. Each contact includes a
+Name
+object, an
+Address
+object, and a
+phone
+field.
+[
+{
+"Name"
+:
+{
+"first_name"
+:
+"Sally"
+,
+"last_name"
+:
+"Jones"
+}
+,
+"Address"
+:
+{
+"street"
+:
+"20450 Stevens Creek Blvd #150"
+,
+"city"
+:
+"Cupertino"
+,
+"st"
+:
+"CA"
+,
+"postal"
+:
+"95014"
+}
+,
+"phone"
+:
+"4105554119"
+}
+,
+{
+"Name"
+:
+{
+"first_name"
+:
+"Bob"
+,
+"last_name"
+:
+"Towner"
+}
+,
+"Address"
+:
+{
+"street"
+:
+"1 Hacker Way"
+,
+"city"
+:
+"Menlo Park"
+,
+"st"
+:
+"CA"
+,
+"postal"
+:
+"94025"
+}
+,
+"phone"
+:
+"8552982507"
+}
+]
+Use this structure in the
+Sample document
+field. Workato generates output datapills that reflect this structure, including nested fields under
+Name
+and
+Address
+.
+←
+JSON tools by Workato
+YAML tools by Workato
+→
+Last updated:
+4/1/2025, 2:07:47 AM
+On this page
+Input
+Output
+Example usage
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

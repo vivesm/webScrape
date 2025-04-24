@@ -1,0 +1,152 @@
+Data tables - New records trigger (batch) | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Data tables
+Connector
+#
+New records trigger (batch)
+The
+New records
+trigger checks for new records in a data table you specify in batches of up to 200 records.
+#
+Input
+Input fields
+Description
+Data table
+Select a data table to monitor for newly created records. Click the link in this field's description to view the selected data table in the
+data tables interface
+.
+When first started, this recipe should pick up events from
+Get new records starting at a specific date/time. This enables your recipe to capture past events from up to 30 days ago. The trigger retrieves new records from one hour ago if you leave this field empty. You cannot change this value after you run or test the recipe. Learn more about this
+input field
+.
+Choose the desired output format
+Optional. Specify how to map the new record data to the table fields. Refer to the
+Output formats
+section for more information.
+#
+Output
+Output fields
+Description
+Range
+Timestamps of the first and last new records in the retrieved batch.
+First record ID
+ID of the first record in the batch.
+Last record ID
+ID of the last record in the batch.
+Records
+A list of all the new records, including information such as its
+Record ID
+,
+Created at
+date,
+Updated at
+timestamp, and data from any of the data table's custom columns.
+←
+Connector
+New record trigger (real-time)
+→
+Last updated:
+3/17/2025, 7:25:06 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

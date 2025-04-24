@@ -1,0 +1,142 @@
+HTTP コネクター V2 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+ユニバーサルコネクター
+#
+HTTP コネクター V2
+HTTP コネクターは、HTTP ベースの API を持つクラウドアプリケーションとの統合を可能にします。新しいコネクターを作成することも、既存の Workato コネクターに新しいトリガーやアクションを追加することもできます。
+ここでは、2018年7月にリリースされた V2 HTTP コネクターについて説明します。V1 HTTP コネクター (廃止済み) を使用している場合は、
+V1 HTTP コネクターのドキュメント
+を参照してください。
+#
+HTTP コネクターの概要とその用途
+この汎用の HTTP コネクターを使用すると、アプリケーションプログラムインターフェイス (API) を使用してクラウドアプリケーションとやり取りすることができます。これにより、Workato プラットフォーム上で追加のトリガーやアクションを作成して、統合レシピを動作させることが可能になります。
+会計システムで請求書を作成する場合は、JSON のリクエスト本文を含む POST リクエストを実行できます。また分析アプリケーションからメトリックスを取得する場合は、クエリーパラメータを含む GET リクエストを実行できます。新しいリードがオンラインフォームに入力したときにトリガーを発動するには、Webhook トリガーを作成して、入力後、直ちに Workato に通知されるようにします。
+#
+HTTP トリガーとアクション
+HTTP コネクターはコネクターのピックリストに含まれており、これには2つのトリガーと1つのアクションがあります。
+New event via webhook トリガー (リアルタイム)
+Workato により、Webhook の送信先の一意のターゲット URL が提供されます。受信した Webhook は、トリガーイベントとして直ちにレシピによって処理されます。
+種類
+名前
+説明
+トリガー
+New event via polling
+Workato は定期的にアプリのエンドポイントをポーリングし、新しいトリガーイベントをチェックします。新規/更新された各レコードがトリガーイベントとしてレシピによって処理されます。
+アクション
+Send Request
+エンドポイントに対する HTTP リクエストを設定し、レスポンスデータをデータピルとして使用します。
+ユースケースでトリガーイベントに即時応答する必要があり、アプリで Webhook を作成できる場合、
+Webhooks コネクター
+からの Webhooks トリガーを使用できます。
+#
+HTTP の設定のドキュメント
+HTTP コネクターを使用すれば、20分もかからずに Workato で独自のアクションを作成できます。このドキュメントには以下の章が含まれます。
+アプリへのコネクションの設定
+HTTP トリガーの作成
+HTTP アクションの作成
+←
+ユニバーサルコネクター
+HTTP と SDK
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+HTTP コネクターの概要とその用途
+HTTP トリガーとアクション
+HTTP の設定のドキュメント
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

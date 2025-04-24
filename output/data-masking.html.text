@@ -1,0 +1,245 @@
+Data masking | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Workspaces
+#
+Data masking
+FEATURE AVAILABILITY
+Data masking is included in specific pricing plans for direct customers and is available by default for Embedded partners and their end customers. Refer to your pricing plan and contract to learn more.
+Workato stores
+job history details
+data for every recipe step according to your
+data retention policy
+. However, in some cases, you may prefer to restrict other workspace collaborators with privileges to access job history data from viewing sensitive information, such as employee SSNs or birth dates.
+Data masking
+enables you to hide sensitive data at the trigger and step levels, ensuring better control over job history visibility.
+#
+How does data masking affect data storage?
+Trigger and action steps
+Activity audit log
+#
+Trigger and action steps
+When you enable data masking for a trigger or action step, Workato doesn't store or display input and output data for that step.
+However, trigger event data, which is used to repeat jobs, is still stored. This data is separate from job history data.
+#
+Activity audit log
+Workato excludes masked input and output data from the
+activity audit log
+and doesn't stream it to your
+audit log streaming destination
+when data masking is enabled.
+Instead, Workato replaces the step data with a
+"masked"
+placeholder in the activity audit log:
+"lines"
+:
+[
+{
+"input"
+:
+{
+"data"
+:
+"masked"
+}
+,
+"output"
+:
+{
+"data"
+:
+"masked"
+}
+,
+"adapter_name"
+:
+"timer"
+,
+"adapter_operation"
+:
+"trigger_event"
+,
+"line_stat"
+:
+{
+"details"
+:
+[
+{
+"name"
+:
+"execution_time"
+,
+"average"
+:
+0.002
+,
+"total"
+:
+0.002
+,
+"min"
+:
+0.002
+,
+"max"
+:
+0.002
+,
+"count"
+:
+1
+}
+]
+,
+"total"
+:
+0.002
+}
+,
+"recipe_line_number"
+:
+1
+,
+"mask_data"
+:
+true
+}
+]
+#
+Enable data masking
+You can mask data for individual recipe steps. Workato hides both input and output data from the job history.
+Complete the following steps to enable data masking:
+1
+Open a recipe in the recipe editor.
+2
+Hover over the trigger or recipe step and click the
+•••
+(ellipsis).
+3
+Click the
+Mask data
+toggle to enable data masking for that specific step.
+Enable data masking
+#
+Example
+In the following
+example recipe
+(opens new window)
+, data masking is enabled for the Salesforce
+New/updated account
+trigger:
+Recipe with data masking enabled
+Before enabling data masking, the trigger's input and output data appears on the job details page:
+Job details before masking
+However, after enabling data masking, the trigger's input and output data is hidden:
+Job details after masking
+←
+2FA FAQs
+Single Sign-On (SSO)
+→
+Last updated:
+3/26/2025, 2:43:27 PM
+On this page
+How does data masking affect data storage?
+Enable data masking
+Example
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

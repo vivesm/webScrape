@@ -1,0 +1,188 @@
+Workato FileStorage | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+#
+Workato FileStorage
+FEATURE AVAILABILITY
+Workato FileStorage is included in specific pricing plans for direct customers and is available to Embedded partners and their end customers for an additional fee. Refer to your pricing plan and contract to learn more.
+Workato FileStorage helps you store and make use of files within Workato. With Workato FileStorage, you can now do the following file operations with ease, all within Workato:
+Create and store data created in the recipes as files
+Get contents of a stored file and use the content in Workato recipes
+Append more content to an existing file
+Create directories to classify and store groups of files
+You can use Workato FileStorage to effectively store files that must be processed in Workato recipes, and delete the files after the job completes successfully.
+#
+Usage inspiration
+Using Workato FileStorage, you can perform the following tasks:
+Receive any file from any connector, and store it in Workato FileStorage.
+Receive data as a bulk CSV stream from Salesforce actions, and store it as a CSV file in Workato FileStorage.
+Get lead data as JSON in smaller chunks from Hubspot, convert to CSV format, and append it to an existing file in Workato FileStorage, before pushing it (in bulk) to a downstream app.
+Persist and fetch static files that are frequently required in the recipes: product information, price information, zipcode data, standard codes, and so on.
+Perform transformations on CSV data existing within Workato FileStorage by pairing it with the SQL transformation utility connector.
+HOW TO GET ACCESS TO WORKATO FILESTORAGE
+You can access Workato FileStorage by using the Workato FileStorage connector or FileStorage UI, both of which are currently available in limited access. Reach out to your Customer Success representative to enable these features.
+#
+Setup
+Workato FileStorage supports both workspace-level and tenant-level access. There are two ways to access FileStorage system:
+Through the FileStorage connector
+Through the FileStorage UI
+#
+FileStorage connector
+The Workato FileStorage
+connector
+does not restrict access based on role. All users in a workspace can access all FileStorage files and directories in the workspace using the connector.
+There are no separate setup requirements in the connector, and you can use it directly to perform file-related operations.
+Workato FileStorage connector
+#
+FileStorage UI
+The Workato FileStorage
+UI
+restricts access based on role. See
+Role-based access control in the FileStorage UI
+.
+You can access Workato FileStorage through the Workato FileStorage connector in the recipe editor, or through the FileStorage UI in
+Tools > FileStorage
+in the Orchestrate platform.
+The FileStorage UI allows you to browse the FileStorage system and perform certain file-related operations. No separate setup is required.
+The Workato FileStorage UI
+#
+Encryption
+Workato FileStorage is built on an encrypted file storage system. In addition to this, each account's data is encrypted using an account specific key that rotates every month.
+Additionally, Workato FileStorage is also included as part of Workato's
+BYOK
+initiative.
+#
+Limitations
+The following limits apply when using Workato FileStorage:
+Each file stored has a maximum size of
+10 GB
+.
+Storage for each environment, such as Dev, Test, or Prod, has a maximum size of
+100 GB
+.
+#
+Data retention
+HOW LONG IS MY DATA RETAINED?
+Workato does not delete files available in FileStorage automatically and they are stored as long as the you wish to persist them in the system. If you want to delete this data you must do so manually using the FileStorage delete action. Data that is deleted by user will be purged from main and all backup drives within 4 days.
+#
+Storing sensitive data
+Caution should be taken when storing sensitive data in Workato FileStorage, including personal data that would fall under privacy laws and regulations, financial data, and/or healthcare data. While Workato protects such data at rest and in transit through encryption, customers are responsible for assessing whether storage of such data is appropriate and allowable given their own policies and legal/regulatory requirements, as well as applying appropriate access controls.
+#
+Things to know
+Streaming - A mechanism to transfer large files between two different entities by moving the files in smaller parts called chunks. This allows us to transfer large files without worrying about limitations in sending or receiving ends. All file adapters and bulk actions in Workato support streaming today and are capable of transferring large volumes of data. See
+File Streaming
+for more information.
+←
+Encrypt and decrypt files
+FileStorage UI
+→
+Last updated:
+4/10/2025, 2:33:27 PM
+On this page
+Usage inspiration
+Setup
+Encryption
+Limitations
+Data retention
+Storing sensitive data
+Things to know
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

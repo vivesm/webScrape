@@ -1,0 +1,1322 @@
+Sync Greenhouse offer letter to Box and create onboarding request in ServiceNow use case | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Getting started
+Use cases
+HR
+#
+Sync Greenhouse offer letter to Box and create onboarding request in ServiceNow recipe
+This use case guides you through connecting
+Greenhouse
+,
+Box
+,
+ServiceNow
+and
+Workbot for Slack
+to create a powerful automation.
+#
+What does this recipe do?
+This recipe monitors Greenhouse for new offers. When a new offer is created, Workbot for Slack sends a reminder to generate and send the offer letter to the candidate. Clicking
+Generate and send
+triggers a ServiceNow request for the IT team to start the candidate's onboarding process. It also creates a sign request in Box, sending the offer letter to a final copy reader for review and then to the candidate. Lastly, a ServiceNow requested item is generated to indicate the Box sign request has been initiated.
+flowchart TD
+subgraph Configuration[" "]
+direction TB
+subgraph GreenhouseTrigger[&nbsp Greenhouse New event trigger &nbsp]
+Trigger(Trigger) --- setup1(setup)
+end
+subgraph GetJob[&nbsp Greenhouse Get job by ID action &nbsp]
+Action1(Action) --- setup2(setup)
+end
+subgraph GetApplication[&nbsp Greenhouse Get application by ID action &nbsp]
+Action2(Action) --- setup3(setup)
+end
+subgraph GetCandidate[&nbsp Greenhouse Get candidate by ID action &nbsp]
+Action3(Action) --- setup4(setup)
+end
+subgraph Workbot[&nbsp Workbot for Slack Post message action &nbsp]
+Action4(Action) --- setup5(setup)
+end
+subgraph Request[&nbsp ServiceNow Create request action &nbsp]
+Action5(Action) --- setup6(setup)
+end
+subgraph SignRequest[&nbsp Box Create sign request action &nbsp]
+Action6(Action) --- setup7(setup)
+end
+subgraph RequestedItem[&nbsp ServiceNow Create requested item action &nbsp]
+Action7(Action) --- setup8(setup)
+end
+end
+CreateRecipe([Create recipe]) -- Configure your recipe --> Configuration --> Workflow([Automated workflow])
+GreenhouseTrigger --> GetJob --> GetApplication --> GetCandidate --> Workbot --> Request --> SignRequest --> RequestedItem
+classDef default fill:#fff,stroke:#67eadd,stroke-width:2px;
+classDef WorkatoTeal fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef SubgraphDash fill:#e1fffc,stroke:#f66,stroke-width:2px,color:#000,stroke-dasharray: 5 5
+class CreateRecipe,Trigger,setup1,Action1,setup2,Action2,setup3,Action3,setup4,Action4,setup5,Action5,setup6,Action6,setup7,Action7,setup8,Workflow WorkatoTeal
+class GreenhouseTrigger,GetJob,GetApplication,GetCandidate,Workbot,Request,SignRequest,RequestedItem SubgraphDash
+#
+Prerequisites
+Before you begin, ensure you have the following:
+A Greenhouse
+custom offer field
+(opens new window)
+named
+Annual salary
+.
+A Box account with a Starter plan or higher. This is required to use sign templates.
+A Box sign template that includes the following
+template tag
+(opens new window)
+IDs:
+jobTitle
+annualSalary
+startDate
+These elements match the examples in this guide and will help you recreate the recipe step-by-step. However, you can modify them to fit your specific use case as needed.
+#
+Create your recipe
+Complete the following steps to create a recipe that automates offer letter generation, review, and delivery before initiating the onboarding process for new hires:
+USE CASES ARE INTENDED AS EXAMPLES ONLY
+This use case serves as an example. Modifications to triggers, actions, or conditional logic may be necessary to adapt this recipe to your workflow.
+1
+Sign in to Workato.
+2
+Select the project where you plan to create the recipe.
+3
+Create connections for Greenhouse, Box, ServiceNow, and Workbot for Slack:
+Create a Greenhouse connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Greenhouse
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+Greenhouse connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter your API key in the
+API key
+field.
+Complete the following steps in Greenhouse to create your API key if you haven't already:
+1
+Go to
+Configure > Dev Center > API Credential Management
+.
+2
+Click
+Create new API key
+.
+3
+Use the
+API type
+drop-down menu to select
+Harvest
+.
+4
+Search for and select
+Workato
+in the
+Partner
+field.
+5
+Enter a description for your API key in the
+Description
+field.
+6
+Click
+Manage permissions
+.
+7
+Click
+Copy
+to copy the API key.
+8
+Click
+I have stored the API key
+.
+9
+Keep the default permissions selected, or choose additional ones relevant to your use case in the
+Manage permissions
+section.
+10
+Click
+Save
+.
+6
+Enter the user email the API key is generated from in the
+User email
+field.
+7
+Use the
+Environment
+drop-down menu to specify the environment instance you are connecting to. The default is
+Production
+if left blank.
+8
+Click
+Connect
+.
+Create a Box connection.
+The Box connector supports both OAuth 2.0 and
+client credentials
+authentication.
+Complete the following steps to set up your Box connection using OAuth 2.0 authentication:
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Box
+on the
+New connection
+page.
+3
+Provide a name that identifies which Box instance Workato is connected to in the
+Connection name
+field.
+Create your connection
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store this connection.
+5
+Use the
+Authentication type
+drop-down menu to select
+OAuth 2.0
+.
+6
+Optional. Expand
+Advanced settings
+to select
+Requested permissions (Oauth scopes)
+options.
+You can select from the following scopes:
+Read files and folders
+Read and write files and folders
+Manage app users
+Manage managed users
+Manage groups
+Manage webhooks
+Manage enterprise properties
+Manage retention policies
+Global content manager
+Admin can make calls on behalf of users
+Manage signature requests
+Manage Box Relay
+7
+Click
+Connect
+. This opens the Box sign in dialog.
+8
+Enter your Box account email address and password.
+Log in to Box
+9
+Click
+Authorize
+.
+10
+Review the requested permissions and click
+Grant access to Box
+.
+Grant access to Box
+Create a ServiceNow connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+ServiceNow
+on the
+New connection
+page.
+3
+Enter a name for your ServiceNow connection in the
+Connection name
+field.
+ServiceNow connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Use the
+Authentication type
+drop-down menu to select
+Username/Password
+.
+6
+Enter your ServiceNow
+Instance name
+. For example, if your ServiceNow URL is
+https://acme.service-now.com
+, the instance name is
+acme
+.
+7
+Enter your ServiceNow username in the
+Username
+field.
+8
+Enter your ServiceNow password in the
+Password
+field.
+9
+Click
+Connect
+.
+The ServiceNow connector also supports
+OAuth 2.0
+and
+Password grant
+authentication methods.
+Create a Workbot for Slack connection.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Workbot for Slack
+on the
+New connection
+page.
+3
+Provide a name for your connection in the
+Name
+field.
+Workbot for Slack connection setup
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Optional. Select the NLU provider you plan to use, such as DialogFlow or Amazon Lex NLU. You must connect to the NLU provider for it to appear in the drop-down menu.
+6
+Optional. Click
+Advanced
+to configure
+Slash commands verification tokens
+,
+custom help
+content, your
+Slack app status
+(classic or not), and your
+Custom OAuth profile
+.
+7
+Click
+Connect
+, sign in to your Slack workspace when prompted, and click
+Continue
+to verify the connection.
+4
+Go back to your project and click
+Create > Recipe
+.
+Create a new recipe
+5
+Enter a name for your recipe in the
+Name
+field.
+6
+Select the project where you plan to store the recipe from the
+Location
+drop-down menu.
+7
+Click
+Start building
+.
+Start building your recipe
+8
+Click
+Pick a starting point
+, then select
+Trigger from an app
+.
+9
+Click
+Select an app and trigger event
+.
+10
+Set up your Greenhouse New event trigger.
+1
+Search for
+Greenhouse
+and select it as your app.
+Choose Greenhouse
+2
+Select the
+New event
+trigger.
+Select the New event real-time trigger
+3
+Use the
+Event category
+drop-down menu to select
+Offer
+.
+4
+Use the
+Event
+drop-down menu to select
+Offer created
+.
+5
+Use a random string generator to create a secret key that's at least 32 characters long, and enter it in the
+Secret key
+field. Store this key in a secure location, as it's required to configure the webhook in Greenhouse.
+New offer created configuration
+6
+Copy the webhook endpoint URL provided in the help section of the recipe editor. This value is also required to configure the webhook in Greenhouse.
+Copy the webhook endpoint URL
+7
+Click
+Save
+.
+Step summary
+This trigger monitors new offers created in Greenhouse.
+11
+Sign in to your Greenhouse instance to create a webhook that corresponds to the New event trigger.
+What is a webhook?
+A webhook is a notification sent by an application to a target URL in real-time when a specified event occurs. You can choose which events trigger these notifications.
+This use case requires a webhook in Greenhouse that sends data to Workato whenever an offer is created.
+flowchart TD
+A(Offer created in Greenhouse) -- The trigger activates --> B(Send webhook notification)
+B --> C(Workato receives notification)
+C --> D(Process offer data)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+classDef WorkatoPink fill:#f3c1c2,stroke:#f3c1c2,stroke-width:1px;
+Set up your Greenhouse webhook.
+1
+Go to
+Configure > Dev Center > Webhooks > Webhooks
+. The
+Create a new webhook
+page appears.
+2
+Provide a name for your webhook in the
+Name this webhook
+field.
+3
+Use the
+When
+drop-down menu to select
+Offer created
+. This field specifies the Greenhouse event that triggers the webhook.
+4
+Paste the webhook endpoint URL from Workato into the
+Endpoint URL
+field.
+5
+Enter the secret key you created when configuring the trigger in the
+Secret key
+field.
+6
+Click
+Create webhook
+.
+Step summary
+This webhook sends a notification to your Workato recipe each time an offer is created in Greenhouse.
+12
+Click
++ Add step
+, then select
+Handle errors
+.
+Add an error handling step
+How does the Handle errors control statement work?
+The
+Handle errors control statement
+allows you to monitor your recipe for errors in actions, similar to the try/catch concept in programming languages. You have the opportunity to perform the following actions if an error occurs:
+Retry the sequence of actions again, in case it was a temporary error such as network issues.
+Take remedial actions, such as notifying users of the error through email or error messages in the app, or to carry out a rollback. For example, you can reverse the job by deleting any created or half-created records.
+This control statement consists of two blocks: the
+Monitor
+block and the
+Error
+block. Place the actions that you plan to monitor for errors within the
+Monitor
+block. If all actions are successful, Workato ignores the
+Error
+block. However, if any action in the
+Monitor
+block results in an error, the actions within the
+Error
+block are executed.
+graph TD
+A(Monitor action for errors) ---> B((Error found?))
+B --> C{Yes}
+B --> D{No}
+C --> E(Define how to <br/> handle the error)
+D --> F(Continue processing <br/> the recipe)
+classDef default fill:#67eadd,stroke:#67eadd,stroke-width:2px,color:#000;
+13
+Click
+Select an app and action
+.
+14
+Set up your Greenhouse Get object (job) by ID action.
+1
+Search for
+Greenhouse
+and select it as your app.
+Choose Greenhouse
+2
+Select the
+Get object by ID
+action.
+Select the Get object by ID action
+3
+Use the
+Object
+drop-down menu to select
+Job
+.
+4
+Map the Greenhouse
+Job ID
+Step 1
+datapill to the
+Job ID
+field.
+Configure the Get job by ID action
+Step summary
+This step retrieves details about the job from Greenhouse.
+15
+Click
++ Add step
+and select
+Action in app
+.
+16
+Set up your Greenhouse Get object (application) by ID action.
+1
+Search for
+Greenhouse
+and select it as your app.
+Choose Greenhouse
+2
+Select the
+Get object by ID
+action.
+Select the Get object by ID action
+3
+Use the
+Object
+drop-down menu to select
+Application
+.
+4
+Map the Greenhouse
+Application ID
+Step 1
+datapill to the
+Application ID
+field.
+Configure the Get application by ID action
+Step summary
+This step retrieves details about the application from Greenhouse.
+17
+Click
++ Add step
+and select
+Action in app
+.
+18
+Set up your Greenhouse Get object (candidate) by ID action.
+1
+Search for
+Greenhouse
+and select it as your app.
+Choose Greenhouse
+2
+Select the
+Get object by ID
+action.
+Select the Get object by ID action
+3
+Use the
+Object
+drop-down menu to select
+Candidate
+.
+4
+Map the Greenhouse
+Candidate ID
+Step 1
+datapill to the
+Candidate ID
+field.
+Configure the Get candidate by ID action
+Step summary
+This step retrieves details about the candidate from Greenhouse.
+19
+Click the
+•••
+(ellipsis) next to the placeholder step (step 7) in the recipe editor and select
+Delete
+.
+20
+Click
++ Add step
+and select
+Stop job
+.
+How does the Stop control statement work?
+The
+Stop control statement
+stops a single job from being processed further. Stop control statements are usually used in cases when there is an error in the business logic and further job processing is not required.
+The Stop statement can be configured to mark the job as failed or successful.
+flowchart TD
+B(Was an error found?)
+B -->|Yes| C(The job is stopped)
+B ---->|No| E(The recipe continues processing)
+classDef default fill:#67eadd,stroke:#b3e0e1,stroke-width:2px,color:#000;
+21
+Set up your Stop control statement.
+1
+Use the
+In job report, mark stopped job as
+drop-down menu to select
+Failed
+.
+2
+Enter the following text in the
+Reason for failure
+field:
+Failed to get details from Greenhouse.
+Configure the stop job step
+Step summary
+This step stops the job and marks it as failed if the recipe fails to retrieve details from Greenhouse.
+22
+Click
++ Add step
+and select
+Action in app
+.
+23
+Set up your Workbot for Slack Post message action.
+1
+Search for
+Workbot for Slack
+and select it as your app.
+Choose Workbot for Slack
+2
+Select the
+Post message
+action.
+Select the Post message action
+3
+Use the
+Reply channel
+drop-down menu to select the Slack channel where Workbot will post the message.
+4
+Locate the
+Message
+field and click
+Add block to message
+.
+5
+Use the
+Type
+drop-down menu to select
+Section with button (new version)
+6
+Enter the following text in the
+Section text
+field:
+Hi there :wave:
+It's time to send the offer letter to {FIRST_NAME} :tada:
+Replace
+{FIRST_NAME}
+with the Greenhouse
+First name
+Step 5
+datapill.
+7
+Enter
+Generate and send
+in the
+Button title
+field.
+8
+Ensure that
+Continue recipe
+is selected in the
+Action to take on button-click
+field.
+9
+Use the
+Button style
+drop-down menu to select
+Primary
+.
+10
+Locate the
+Attachment fields
+section and click
+Add field
+.
+If the
+Attachment fields
+section isn't visible, click
+Show optional fields
+, search for
+Attachment fields
+, select the
+Title
+and
+Value
+checkboxes, and then click
+Apply changes
+.
+Show attachment fields
+11
+Enter
+Full Name
+in the
+Title
+field.
+12
+Map the Greenhouse
+First name
+Step 5
+and
+Last name
+Step 5
+datapills to the
+Value
+field. Make sure to enter a space between the two datapills.
+13
+Click
++ Add field
+.
+14
+Enter
+Position
+in the
+Title
+field.
+15
+Map the Greenhouse
+Job name
+Step 3
+datapill to the
+Value
+field.
+16
+Click
++ Add field
+.
+17
+Enter
+Annual Salary
+in the
+Title
+field.
+18
+Switch the
+Value
+field to
+formula mode
+and enter the following formula:
+"$"
++
+{
+ANNUAL_SALARY_VALUE
+}
+.
+reverse
+.
+scan
+(
+/\d{3}|.+/
+)
+.
+join
+(
+","
+)
+.
+reverse
+Replace
+{ANNUAL_SALARY_VALUE}
+with the Greenhouse
+Value
+Step 1
+datapill. The
+Value
+Step 1
+datapill is nested under the
+Annual salary
+object.
+19
+Click
++ Add field
+.
+20
+Enter
+Start Date
+in the
+Title
+field.
+21
+Switch the
+Value
+field to
+formula mode
+and enter the following formula:
+{
+START_DATE
+}
+.
+strftime
+(
+"%d %B %Y"
+)
+Replace
+{START_DATE}
+with the Greenhouse
+Start date
+Step 1
+datapill.
+Step summary
+This step configures Workbot to post a reminder message in a designated Slack channel whenever a new offer is created in Greenhouse. The message includes the details about the candidate's full name, position, annual salary, start date, and a button. Clicking the button prompts the recipe to continue executing the actions that follow the
+Post message
+action.
+The following screenshot displays how the message appears in Slack:
+Example of how the message appears in Slack
+24
+Click
++ Add step
+and select
+Handle errors
+.
+25
+Locate step 10 and click
+Select an app and action
+.
+26
+Set up your ServiceNow Create record (request) action.
+1
+Search for
+ServiceNow
+and select it as your app.
+Choose ServiceNow
+2
+Select the
+Create record
+action.
+Select the Create record action
+3
+Use the
+Table
+drop-down menu to select
+Request
+.
+4
+Enter the following in the
+Special instructions
+field:
+This ticket is for IT to kickstart the onboarding process for {FIRST_NAME} {LAST_NAME}.
+Replace
+{FIRST_NAME}
+and
+{LAST_NAME}
+with the Greenhouse
+First name
+Step 5
+and
+Last name
+Step 5
+datapills.
+5
+Switch the
+Description
+field to
+formula mode
+and enter the following:
+"Details -" + "\n"
+"Full name -" + {FIRST_NAME} + " " + {LAST_NAME} + "\n"
+"Position - " + {JOB_NAME} + "\n" +
+"Annual Salary - " + "$" + {ANNUAL_SALARY_VALUE}.reverse.scan(/\d{3}|.+/).join(",").reverse + "\n" +
+"Start date - " + {START_DATE}.strftime("%d %B %Y") + "\n" +
+"IT, please onboard the new employee!"
+Replace the following placeholders with their corresponding datapill from Greenhouse:
+{FIRST_NAME}
+:
+First name
+Step 5
+{LAST_NAME}
+:
+Last name
+Step 5
+{JOB_NAME}
+:
+Job name
+Step 3
+{ANNUAL_SALARY_VALUE}
+:
+Value
+Step 1
+(from the
+Annual salary
+object)
+{START_DATE}
+:
+Start date
+Step 1
+6
+Enter the following in the
+Short description
+field:
+Onboard New Employee - {FIRST_NAME} {LAST_NAME}
+Replace
+{FIRST_NAME}
+and
+{LAST_NAME}
+with the Greenhouse
+First name
+Step 5
+and
+Last name
+Step 5
+datapills.
+Configure the new record values fields
+Step summary
+This step creates a new ServiceNow request for IT to initiate the onboarding process for the candidate.
+27
+Click
++ Add step
+and select
+Action in app
+.
+28
+Set up your Box Create sign request action.
+1
+Search for
+Box
+and select it as your app.
+Choose Box
+2
+Select the
+Create sign request
+action.
+Select the Create sign request action
+3
+Enter the following in the
+Name
+field:
+Offer Sending for {FIRST_NAME} {LAST_NAME}
+Replace
+{FIRST_NAME}
+and
+{LAST_NAME}
+with the Greenhouse
+First name
+Step 5
+and
+Last name
+Step 5
+datapills.
+4
+Select the sign template you plan to use from the
+Sign template
+drop-down menu.
+5
+Expand the
+Signers
+section and click
+Add Signer
+.
+6
+Use the
+Role
+drop-down menu to select
+Final copy reader
+.
+7
+Enter the final copy reader's email in the
+Email
+field.
+8
+Enter
+1
+in the
+Order
+field.
+9
+Click
++ Add Signer
+to add a second signer
+10
+Use the
+Role
+drop-down menu to select
+Signer
+.
+11
+Enter the signer's email in the
+Email
+field.
+12
+Enter
+2
+in the
+Order
+field.
+13
+Use the
+Destination folder
+drop-down menu to select the destination folder for the finalized, signed document and signing log.
+14
+Locate the
+Prefill tags
+section and click
+Add item
+.
+If the
+Prefill tags
+section isn't visible, click
+Show optional fields
+, search for
+Prefill tags
+, select the
+Document tag ID
+,
+Text value
+, and
+Date value
+checkboxes, and then click
+Apply changes
+.
+15
+Enter
+jobTitle
+in the
+Document tag ID
+field.
+16
+Map the Greenhouse
+Job name
+Step 3
+datapill to the
+Text value
+field.
+17
+Click
++ Add item
+to add a second prefill tag.
+18
+Enter
+annualSalary
+in the
+Document tag ID
+field.
+19
+Switch the
+Text value
+field to
+formula mode
+and enter the following:
+{
+ANNUAL_SALARY_VALUE
+}
+.
+reverse
+.
+scan
+(
+/\d{3}|.+/
+)
+.
+join
+(
+","
+)
+.
+reverse
+Replace
+{ANNUAL_SALARY_VALUE}
+with the Greenhouse
+Value
+Step 1
+datapill. The
+Value
+Step 1
+datapill is nested under the
+Annual salary
+object.
+Configure the text field
+20
+Click
++ Add item
+to add a third prefill tag.
+21
+Enter
+startDate
+in the
+Document tag ID
+field.
+22
+Map the Greenhouse
+Start date
+Step 1
+datapill to the
+Date value
+field.
+Step summary
+This step creates and sends a Box sign request using an existing sign template. If your sign template uses prefill tags, this step maps the data (job title, annual salary, and start date) from Greenhouse.
+29
+Click
++ Add step
+and select
+Action in app
+.
+30
+Set up your ServiceNow Create record (requested item) action.
+1
+Search for
+ServiceNow
+and select it as your app.
+Choose ServiceNow
+2
+Select the
+Create record
+action.
+Select the Create record action
+3
+Use the
+Table
+drop-down menu to select
+Requested item
+.
+4
+Locate the
+New record values
+section.
+If the
+New record values
+section isn't visible, click
+Show optional fields
+, select the
+Request
+,
+Description
+, and
+Short description
+checkboxes, and then click
+Apply changes
+.
+5
+Map the ServiceNow
+Number
+Step 10
+datapill to the
+Request
+field.
+6
+Switch the
+Description
+field to
+formula mode
+and enter the following:
+"Box sign request initiated"
++
+"\n"
++
+"Sign ID - "
++
+{
+ID
+}
+"Signers - "
++
+{
+SIGNERS
+}
+.
+pluck
+(
+'email'
+)
+Replace
+{ID}
+and
+{SIGNERS}
+with the Box
+ID
+Step 11
+and
+Signers
+Step 11
+datapills.
+7
+Enter
+Box sign request initiated
+in the
+Short description
+field.
+Configure the Create requested item action
+Step summary
+This step creates a requested item in ServiceNow noting that a Box sign request was initiated.
+31
+Click the
+•••
+(ellipsis) next to the placeholder step (step 14) in the recipe editor and select
+Delete
+.
+32
+Click
++ Add step
+and select
+Stop job
+.
+33
+Set up your second Stop control statement.
+1
+Use the
+In job report, mark stopped job as
+drop-down menu to select
+Failed
+.
+2
+Enter the following text in the
+Reason for failure
+field:
+Something went wrong when creating records in ServiceNow or sending the Box sign request.
+Configure the stop job step
+Step summary
+This step stops the job and marks it as failed if the recipe fails to retrieve details from Greenhouse.
+34
+Click
+Save
+.
+Your
+Sync Greenhouse offer letter to Box and create onboarding request in ServiceNow
+recipe is ready to test and implement.
+Example recipe configuration.
+Sync Greenhouse offer letter to Box and create onboarding request in ServiceNow
+recipe
+←
+Export Workday workers to CSV with Python and upload to Google Drive
+Product and project management
+→
+Last updated:
+1/16/2025, 9:16:49 PM
+On this page
+What does this recipe do?
+Prerequisites
+Create your recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

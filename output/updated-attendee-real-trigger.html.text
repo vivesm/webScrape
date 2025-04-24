@@ -1,0 +1,179 @@
+Workato connectors - Eventbrite New/updated event attendee registered (real-time) trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Eventbrite
+#
+Eventbrite - New/updated event attendee registered for event (real-time) trigger
+The
+New/updated event attendee registered for event (real-time)
+trigger fetches attendees as soon as they are added or changed in Eventbrite. This real-time trigger creates a webhook that you can find in your Eventbrite account under the Webhooks Dashboard.
+Eventbrite - New/updated event attendee registered for event (real-time) trigger
+#
+Input
+Input field
+Description
+Organization
+Select the organization within Eventbrite. If left blank, the organization specified in the connection is used.
+Event
+Choose the specific event to monitor for attendee updates. Leave blank to fetch attendees for all events owned by the connected Eventbrite user.
+#
+Output
+Output field
+Description
+Event
+The event associated with the attendee.
+Costs
+The cost information for the attendee's ticket.
+Resource URL
+The URL to the attendee's resource on Eventbrite.
+Variant ID
+The variant ID of the ticket.
+Cancelled
+Indicates if the registration has been cancelled.
+Refunded
+Indicates if the ticket has been refunded.
+Affiliate
+The affiliate code if the ticket was sold through an affiliate.
+Guestlist ID
+The ID of the guestlist that includes the attendee.
+Invited by
+Information on who invited the attendee, if applicable.
+Ticket class name
+The name of the ticket class purchased by the attendee.
+Event ID
+The unique identifier of the event.
+Order ID
+The unique identifier of the order.
+Order
+Detailed information about the order.
+Date changed
+The date and time when the attendee's registration was last updated.
+Date created
+The date and time when the attendee registered.
+ID
+The unique identifier for the attendee.
+Checked In
+Indicates whether the attendee has checked in.
+Status
+The current status of the attendee's registration.
+Ticket ID
+The unique identifier for the attendee's ticket.
+Ticket type
+The type of ticket purchased by the attendee.
+Email
+The email address of the attendee.
+Quantity
+The quantity of tickets registered by the attendee.
+Profile
+The profile information of the attendee.
+Barcodes
+The barcodes associated with the attendee's tickets.
+←
+New/updated attendee registered for event
+New/updated order for event
+→
+Last updated:
+3/1/2024, 4:48:48 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

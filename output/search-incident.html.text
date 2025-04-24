@@ -1,0 +1,198 @@
+Workato コネクター - PagerDuty - Search incident アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+PagerDuty
+#
+PagerDuty コネクター - Search incident (インシデントの検索) アクション
+このアクションは、PagerDuty 内で既存のインシデントを検索します。
+#
+入力
+項目
+説明
+Since
+日付範囲の開始日です。
+Until
+日付範囲の終了日です。
+Incident key
+インシデントの重複除去キーです。子アラートを生成するインシデントにはインシデントキーがありません。インシデントキーに基づいてクエリーを実行すると、指定のインシデントキーと一致する alert_key を持つアラートを生成したインシデントが返されます。
+Statuses
+triggered、acknowledged、resolved のいずれかになります。値はカンマで区切ります。
+Urgencies
+high または low のいずれかになります。値はカンマで区切ります。
+#
+出力
+このアクションの出力は、インシデントのリストです。各インシデントには、以下の項目が含まれます。
+項目
+説明
+ID
+インシデントの ID です。
+Type
+オブジェクトのスキーマを決定する文字列です。エンティティの標準名である必要があります。
+Summary
+サーバーによって生成される短縮形式の文字列です。クライアント内のエンティティの基本的なラベル付けに適した、オブジェクトに関する簡潔で重要な情報を提供します。多くの場合、これは名前と同一ですが、ID としての使用は意図されていません。
+Self
+オブジェクトにアクセスできる API 表示 URL です。
+HTML URL
+エンティティが Web アプリに一意に表示される URL です。
+Incident number
+インシデントの番号です。これはアカウント全体で一意です。
+Created at
+このレコードが作成された日時です。
+Status
+インシデントの現在のステータスです。
+Incident key
+インシデントの重複除去キーです。
+Pending actions
+インシデントに対する保留中のアクションのリストです。それぞれの保留中のアクションには以下の項目が含まれます。
+Type of action
+Updated at
+Service
+サービスオブジェクトには以下の項目が含まれます。
+ID
+Type
+Summary
+Self
+HTML URL
+Assignments
+このインシデントに対するすべての割り当てのリストです。Incident.status が resolved の場合、このリストは空になります。
+Acknowledgements
+このインシデントに対するすべての確認のリストです。Incident.status が resolved または triggered の場合、このリストは空になります。それぞれの確認には以下の項目が含まれます。
+At
+Acknowledger
+Last status change at
+インシデントのステータスが最後に変更された時刻です。
+Last status change by
+このインシデントを作成または更新したエージェントです。エージェントオブジェクトには以下の項目が含まれます。
+ID
+Type
+Summary
+Self
+HTML URL
+First trigger log entry
+このオブジェクトには以下の項目が含まれます。
+ID
+Type
+Summary
+Self
+HTML URL
+Escalation policy
+このオブジェクトには以下の項目が含まれます。
+ID
+Type
+Summary
+Self
+HTML URL
+Teams
+インシデントのライフサイクルに関与するチームのリストです。それぞれのチームには以下の項目が含まれます。
+ID
+Type
+Summary
+Self
+HTML URL
+Urgency
+インシデントの現在の緊急度です。
+←
+ログエントリの列挙
+イベントの送信
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

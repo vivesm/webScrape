@@ -1,0 +1,244 @@
+Data tables - Data tables - Supported column types | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Data tables
+User interface
+#
+Column types
+Data tables support columns of the following data types:
+Short text
+A single-line text field. Supports a maximum of 756 characters.
+Long text
+A multi-line text area. Supports a maximum of 10,000 (ten thousand) characters.
+Integer
+A whole number, such as
+22
+or
+150
+.
+Decimal
+A number in decimal format, such as
+22.7
+or
+251.73
+.
+Boolean
+A true or false value.
+Date
+Values in Date format (day/month/year). For example,
+13/11/2024
+.
+DateTime
+Values in DateTime format (day/month/year) and (hours/minutes/seconds), for example:
+13/11/2024
+and
+10:47:23
+.
+File
+Upload or download files to or from your data tables. The maximum file size is 100 MB.
+Multi-value
+A column that supports storing multiple values in a single cell. Multi-value columns do not support nulls, empty strings, or duplicate values. Sorting columns is not supported. Each table can have a maximum of 20 multi-value columns, and each cell within a multi-value column can store up to 20 values.
+Value type
+Supported value types include short
+Text
+,
+Integer
+,
+Decimal
+,
+Date
+, and
+DateTime
+.
+Link to a table
+Select a data table to link to your current table.
+Linked data table
+Select a data table to link to your current table.
+Display data from
+Choose a column from the data table you selected. Workato displays the data from this column as a drop-down menu. Data tables support linking short text and long text column types.
+#
+Available operands
+The operands you can use to filter your data table vary based on your selected column's data type:
+Short text
+The following operands are available:
+Equals
+Is not equal to
+Starts with
+Is null
+Is not null
+Long text
+The following operands are available:
+Equals
+Is not equal to
+Starts with
+Is null
+Is not null
+Integer
+The following operands are available:
+Equals
+Is not equal to
+Is less than
+Is greater than
+Is less or equals
+Is greater or equals
+Is null
+Is not null
+Decimal
+The following operands are available:
+Equals
+Is not equal to
+Is less than
+Is greater than
+Is less or equals
+Is greater or equals
+Is null
+Is not null
+Boolean
+The following operands are available:
+Is true
+Is false
+Is null
+Is not null
+Date
+The following operands are available:
+Equals
+Is not equal to
+Is before
+Is after
+Is on or before
+Is on or after
+Is null
+Is not null
+DateTime
+The following operands are available:
+Equals
+Is not equal to
+Is before
+Is after
+Is on or before
+Is on or after
+Is null
+Is not null
+Link to a table
+The following operands are available:
+Equals
+Is not equal to
+In
+Is null
+Is not null
+File
+The following operands are available:
+Equals
+Is not equal to
+Is null
+Is not null
+Multi-value
+The following operands are available:
+Contains
+Is not null
+Is null
+←
+Delete a column
+View, filter, and sort table data
+→
+Last updated:
+2/18/2025, 8:26:30 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

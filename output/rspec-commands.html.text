@@ -1,0 +1,1715 @@
+SDK - RSpec Reference | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connector SDK
+CLI
+Reference
+#
+RSpec Reference
+Design tests to validate that your connectors can support day-to-day business and user scenarios and ensure the system is sufficient and correct for business usage.
+#
+RSpec basic setup
+In summary, the steps for any set of RSpec tests would be to:
+Create a connector instance
+Create a settings instance
+Run related RSpec commands using your connector and settings instance.
+RSpec
+.
+describe
+'methods/user_tenants'
+,
+:vcr
+do
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+'connector.rb'
+,
+settings
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+subject
+(
+:result
+)
+{
+connector
+.
+methods
+.
+user_tenants
+(
+arg_1
+)
+}
+context
+'when invoked'
+do
+...
+# RSpec tests
+end
+end
+First, you will need to instantiate an instance of your connector using the Gem. This instance of your connector will then be used to call further commands to execute lambdas in your connector. This is the
+let(:connector) ...
+part of the sample above.
+Second, you will also need to instantiate an instance of a connection. Think of this as an actual connection on Workato. Both the instance of your connector and instance of your settings will work together to ensure we can send valid HTTP requests whilst running RSpec. This is the
+let(:settings) ...
+part of the sample above.
+Subsequently, the RSpec commands are provided in the
+context
+attribute.
+#
+Creating a connector instance
+#
+from_file
+Instantiates a connector instance which can be used in your RSpec tests. This is the basic building block for any RSpec tests.
+Attribute
+Description
+Purpose
+Instantiate a connector instance
+Input
+path_to_file
+- The path to the connector in your tests.
+settings
+- The path to the settings file. Used to instantiate a connector with a settings file preloaded. This is import
+Output
+Connector instance which can be used
+Usage
+Workato::Connector::Sdk::Connector.from_file('connector.rb', settings)
+#
+Creating a settings instance
+There are 3 ways to create a settings instance.
+From the default file
+From a specified file
+From an encrypted file
+#
+from_default_file
+Use this in most cases when you want to instantiate a settings instance to be used in your RSpec tests. This is the basic building block for any RSpec tests as well! This can be used for both encrypted and unencrypted files.
+Do not use named connections
+Your settings file should not have named connections. In other words, there must only be one set of credentials.
+For example this is correct
+api_key
+:
+valid_api_key
+domain
+:
+valid_domain
+This would be incorrect
+My Valid Connection
+:
+api_key
+:
+valid_api_key
+domain
+:
+valid_domain
+My invalid Connection
+:
+api_key
+:
+invalid_api_key
+domain
+:
+valid_domain
+Attribute
+Description
+Purpose
+Instantiate a settings instance to be used with your connector instance.
+Input
+N/A
+Output
+settings instance which can be used
+Usage
+Workato::Connector::Sdk::Settings.from_default_file
+TIP
+When you use this, we first look for a
+settings.yaml.enc
+file as well as
+master.key
+file in the root directory where you are calling. If no
+settings.yaml.enc
+file can be found, we then default to your
+setting.yaml
+file.
+#
+from_file
+Instantiates a settings instance which can be used in your RSpec tests. This is the basic building block for any RSpec tests as well!
+Use this for unencrypted settings.yaml files!
+Attribute
+Description
+Purpose
+Instantiate a settings instance to be used with your connector instance.
+Used for unencrypted settings.yaml files!
+Input
+path
+- The path to the settings file.
+name
+- The name of the connection if there are multiple in your settings.yaml file
+Output
+settings instance which can be used
+Usage
+Workato::Connector::Sdk::Settings.from_file('settings.yaml')
+#
+from_encrypted_file
+Instantiates a settings instance which can be used in your RSpec tests. This is the basic building block for any RSpec tests as well!
+Use this for encrypted settings.yaml.enc files!
+Attribute
+Description
+Purpose
+Instantiate a settings instance to be used with your connector instance.
+Used for encrypted settings.yaml.enc files!
+Input
+path
+- The path to the settings file.
+name
+- The name of the connection if there are multiple in your settings.yaml file
+key
+- The path to your
+master.key
+used to decrypt the
+settings.yaml.enc
+file.
+Output
+settings instance which can be used
+Usage
+Workato::Connector::Sdk::Settings.from_encrypted_file('settings.yaml.enc', 'master.key')
+#
+Testing your connection and test lambdas
+Use
+connector.connection.[path](settings)
+to trigger the various lambdas in
+connector_spec.rb
+.
+Attribute
+Description
+Purpose
+Invoke the various lambdas in your connection hash.
+Input
+settings
+- Your settings instance
+Output
+The output of various lambdas
+Usage
+connector.connection.[path](settings)
+e.g.
+connector.connection.authorization.acquire
+or
+connector.connection.authorization.base_uri
+You can also use
+connector.test(settings)
+to trigger the test lambda in
+connector_spec.rb
+.
+Attribute
+Description
+Purpose
+Invoke the test lambda in your connector.
+Input
+settings
+- Your settings instance
+Output
+The output of your test lambda
+Usage
+connector.test(settings)
+WARNING
+When executing RSpec for your test lambda, keep in mind that any tokens retrieved from the
+acquire
+or
+token_url
+lambdas should already be updated in the settings file and valid. RSpec does not support the token refresh flow that happens when you run
+workato exec test
+via the CLI.
+#
+Example RSpec test - testing your connection and test lambda
+RSpec
+.
+describe
+'connector'
+,
+:vcr
+do
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+'connector.rb'
+,
+settings
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+it
+{
+expect
+(
+connector
+)
+.
+to be_present
+}
+describe
+'connection'
+do
+# Assign the output variable as the output of your test lambda
+subject
+(
+:output
+)
+{
+connector
+.
+connection
+.
+authorization
+.
+acquire
+(
+settings
+)
+}
+context
+'given valid credentials'
+do
+it
+'successfully retrieves token'
+do
+expect
+(
+output
+)
+.
+to be_truthy
+end
+end
+end
+describe
+'test'
+do
+# Assign the output variable as the output of your test lambda
+subject
+(
+:output
+)
+{
+connector
+.
+test
+(
+settings
+)
+}
+context
+'given valid credentials'
+do
+it
+'establishes valid connection'
+do
+expect
+(
+output
+)
+.
+to be_truthy
+end
+it
+'returns response that is not excessively large'
+do
+# large Test responses might also cause connections to be evaluated wrongly
+expect
+(
+output
+.
+to_s
+.
+length
+)
+.
+to be
+<
+5000
+end
+end
+context
+'given invalid credentials'
+do
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_encrypted_file
+(
+'invalid_settings.yaml.enc'
+)
+}
+it
+'establishes invalid connection'
+do
+expect
+{
+output
+}
+.
+to raise_error
+(
+'500 Internal Server Error'
+)
+end
+end
+end
+end
+#
+Testing your actions
+After the
+basic RSpec setup
+, you can call various lambdas in your connector. This is done by calling instance methods on your connector instance.
+You can use the CLI command
+workato generate test
+to automatically generate stubs in your spec folder. Each action will get its own spec file.
+#
+Testing your entire action
+To test your entire action including schema, you simply need to make it the subject of your RSpec test by refering
+subject(:output) { connector.actions.[action_name](input) }
+Attribute
+Description
+Purpose
+Invoke the entire action of a specific connector including any related schema conversions, toggle fields.
+Input
+input
+- The JSON representation of the input json provided directly to the action from the recipe editor.
+Output
+The output of your action
+Usage
+connector.actions.[action_name](input)
+or
+connector.actions.[action_name].invoke(input)
+#
+Example RSpec test - testing your entire action
+RSpec
+.
+describe
+"actions/search_customers"
+,
+:vcr
+do
+# Spec describes the most commons blocks of an action. Remove describes that you don"t need.
+# Ref: https://docs.workato.com/developing-connectors/sdk/cli/guides/cli/actions.html for test examples
+subject
+(
+:output
+)
+{
+connector
+.
+actions
+.
+search_customers
+(
+input
+)
+}
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+"connector.rb"
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+let
+(
+:input
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'fixtures/actions/search_customers/input.json'
+)
+)
+}
+let
+(
+:expected_output
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'fixtures/actions/search_customers/output.json'
+)
+)
+}
+describe
+'Run entire action with valid input'
+do
+it
+'gives expected output'
+do
+expect
+(
+output
+)
+.
+to eq
+(
+expected_output
+)
+end
+end
+end
+#
+Testing your execute lambda
+Use
+execute(**args)
+to trigger a specific action in your connector instance.
+Attribute
+Description
+Purpose
+Invoke the execute lambda of a specific connector
+Input
+settings
+- Your settings instance
+input
+- The JSON representation of the input argument provided to your execute lambda.
+extended_input_schema
+- The JSON representation of the extended input schema argument provided to your execute lambda.
+extended_output_schema
+- The JSON representation of the extended output schema argument provided to your execute lambda.
+NOTE: if these arguments aren't needed, you needn't define them.
+Output
+The output of your execute lambda
+Usage
+connector.actions.[action_name].execute(settings, input, extended_input_schema, extended_output_schema)
+#
+Example RSpec test - testing your execute lambda
+RSpec
+.
+describe
+"actions/search_customers"
+,
+:vcr
+do
+# Spec describes the most commons blocks of an action. Remove describes that you don"t need.
+# Ref: https://docs.workato.com/developing-connectors/sdk/unit-testing.html#action for test examples
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+"connector.rb"
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+let
+(
+:action
+)
+{
+connector
+.
+actions
+.
+search_customers
+}
+describe
+"execute"
+do
+subject
+(
+:output
+)
+{
+action
+.
+execute
+(
+settings
+,
+input
+)
+}
+let
+(
+:input
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'input/search_customer_input.json'
+)
+)
+}
+let
+(
+:expected_output
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'output/search_customer_output.json'
+)
+)
+}
+context
+'given valid input'
+do
+it
+'gives expected output'
+do
+expect
+(
+output
+)
+.
+to eq
+(
+expected_output
+)
+end
+end
+end
+end
+#
+Testing your input_fields lambda
+Use
+input_fields(**args)
+to invoke the input_fields lambda in a specific action in your connector instance.
+Attribute
+Description
+Purpose
+Invoke the input_fields lambda of a specific connector
+Input
+settings
+- Your settings instance
+config_fields
+- The JSON representation of any config field values passed from the
+config_fields
+lambda.
+NOTE: if these arguments aren't needed, you needn't define them.
+Output
+The output of your input_fields lambda
+Usage
+connector.actions.[action_name].input_fields(settings, config_fields)
+)
+TIP
+You might be wondering where
+object_definitions
+is since its present in the input_fields lambda. You do not need to pass the
+object_definitions
+argument as its implied from your connector instance already!.
+#
+Testing your output_fields lambda
+Use
+output_fields(**args)
+to invoke the output_fields lambda in a specific action in your connector instance.
+Attribute
+Description
+Purpose
+Invoke the output_fields lambda of a specific connector
+Input
+settings
+- Your settings instance
+config_fields
+- The JSON representation of any config field values passed from the
+config_fields
+lambda.
+NOTE: if these arguments aren't needed, you needn't define them.
+Output
+The output of your output_fields lambda
+Usage
+connector.actions.[action_name].output_fields(settings, config_fields)
+TIP
+You might be wondering where
+object_definitions
+is since its present in the input_fields lambda. You do not need to pass the
+object_definitions
+argument as its implied from your connector instance already!.
+#
+Testing your sample_output lambda
+Use
+sample_output(**args)
+to invoke the sample_output lambda in a specific action in your connector instance.
+Attribute
+Description
+Purpose
+Invoke the sample_output lambda of a specific connector
+Input
+settings
+- Your settings instance
+input
+- The JSON representation of the input argument provided to your execute lambda.
+NOTE: if these arguments aren't needed, you needn't define them.
+Output
+The output of your sample_output lambda
+Usage
+connector.actions.[action_name].sample_output(settings, input)
+#
+Other action instance methods available:
+summarize_input(**args)
+summarize_output(**args)
+#
+Testing your triggers
+After the
+basic RSpec setup
+, you can call various lambdas in your connector. This is done by calling instance methods on your connector instance.
+You can use the CLI command
+workato generate test
+to automatically generate stubs in your spec folder. Each trigger will get its own spec file.
+Note that each trigger stub will have all possible lambdas for both webhooks and polling triggers. You will need to remove as needed.
+#
+Testing your entire trigger
+To test your entire trigger including schema, you simply need to make it the subject of your RSpec test by refering
+subject(:output) { connector.triggers.[trigger_name](input) }
+Attribute
+Description
+Purpose
+Invoke the entire trigger poll of a specific connector including any related schema conversions, toggle fields.
+Input
+input
+- The JSON representation of the input json provided directly to the action from the recipe editor.
+Output
+The output of your trigger including any schema conversions
+Usage
+connector.triggers.[trigger_name](input)
+or
+connector.triggers.[trigger_name].invoke(input)
+#
+Example RSpec test - testing your entire action
+RSpec
+.
+describe
+"triggers/new_updated_object"
+,
+:vcr
+do
+# Spec describes the most commons blocks of a trigger.
+# Depending on the type of your trigger remove describes that you don't need.
+# Learn more: https://docs.workato.com/developing-connectors/sdk/cli/reference/rspec-commands.html
+subject
+(
+:output
+)
+{
+connector
+.
+triggers
+.
+new_updated_object
+(
+input
+)
+}
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+"connector.rb"
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+let
+(
+:input
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'fixtures/triggers/new_updated_object/input.json'
+)
+)
+}
+let
+(
+:expected_output
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'fixtures/triggers/new_updated_object/output.json'
+)
+)
+}
+describe
+'Run entire trigger with valid input'
+do
+it
+'gives expected output'
+do
+expect
+(
+output
+)
+.
+to eq
+(
+expected_output
+)
+end
+end
+end
+#
+Testing your poll lambda
+Use
+poll(**args)
+to invoke the poll lambda in a specific trigger in your connector instance. This will retrieve paginated records for all events in the given time period, specified by the
+since
+input. See an example of a
+paginated poll lambda
+.
+Attribute
+Description
+Purpose
+Invoke the poll lambda of a specific trigger in your connector and paginates
+Input
+settings
+- Your settings instance
+input
+- The JSON representation of the input argument provided to your execute lambda.
+closure
+- The JSON representation of a closure that may be passed from a previous invocation of the
+poll
+lambda.
+NOTE: if these arguments aren't needed, you needn't define them.
+Output
+The output of your poll lambda
+Usage
+connector.triggers.[trigger_name].poll(settings, input, closure)
+How this works
+This instance method simulates Workato's polling mechanism on the platform
+including the pagination that might occur due to your
+can_poll_more
+attribute being
+true
+.
+This is collected into a single output from multiple polls. For example:
+if the 1st poll's output is
+{
+events
+:
+[
+{
+'id'
+=>
+2
+,
+'title'
+=>
+'Post #2'
+}
+,
+{
+'id'
+=>
+1
+,
+'title'
+=>
+'Post #1'
+}
+]
+,
+next_poll
+:
+2
+,
+can_poll_more
+:
+true
+}
+and the 2nd polls output is
+{
+events
+:
+[
+{
+'id'
+=>
+4
+,
+'title'
+=>
+'Post #4'
+}
+,
+{
+'id'
+=>
+3
+,
+'title'
+=>
+'Post #3'
+}
+,
+]
+,
+next_poll
+:
+4
+,
+can_poll_more
+:
+false
+}
+The final output of this method is
+{
+events
+:
+[
+{
+'id'
+=>
+4
+,
+'title'
+=>
+'Post #4'
+}
+,
+{
+'id'
+=>
+3
+,
+'title'
+=>
+'Post #3'
+}
+,
+{
+'id'
+=>
+2
+,
+'title'
+=>
+'Post #2'
+}
+,
+{
+'id'
+=>
+1
+,
+'title'
+=>
+'Post #1'
+}
+]
+,
+next_poll
+:
+4
+,
+can_poll_more
+:
+false
+}
+#
+Testing your poll_page lambda
+Use
+poll_page(**args)
+to invoke the poll lambda in a specific trigger in your connector instance. This will only retrieve a single page, even if there are more events.
+Attribute
+Description
+Purpose
+Invoke the poll lambda of a specific trigger in your connector and does not paginate
+Input
+settings
+- Your settings instance
+input
+- The JSON representation of the input argument provided to your execute lambda.
+closure
+- The JSON representation of a closure that may be passed from a previous invocation of the
+poll
+lambda.
+NOTE: if these arguments aren't needed, you needn't define them.
+Output
+The output of your poll lambda
+Usage
+connector.triggers.[trigger_name].poll_page(settings, input, closure)
+TIP
+This simulates a
+single
+poll given a specified closure. This instance method will not poll multiple times.
+#
+Testing your webhook_subscribe lambda
+Use
+webhook_subscribe(**args)
+to invoke the webhook_subscribe lambda in a specific trigger in your connector instance.
+Attribute
+Description
+Purpose
+Invoke the webhook_subscribe lambda of a specific trigger in your connector
+Input
+webhook_url
+- The webhook url passed as an argument. You may stub this with a request.bin url.
+settings
+- Your settings instance
+input
+- The JSON representation of the input argument provided to your webhook_subscribe lambda.
+recipe_id
+- The simulated recipe ID. If not given, we default to a UUID.
+Output
+The output of your webhook_subscribe lambda
+Usage
+connector.triggers.[trigger_name].webhook_subscribe(webhook_url, settings)
+#
+Testing your webhook_unsubscribe lambda
+Use
+webhook_unsubscribe(**args)
+to invoke the webhook_unsubscribe lambda in a specific trigger in your connector instance.
+Attribute
+Description
+Purpose
+Invoke the webhook_unsubscribe lambda of a specific trigger in your connector
+Input
+subscribe_output
+- The JSON representation of the output of the
+webhook_subscribe
+lambda.
+Output
+The output of your webhook_unsubscribe lambda
+Usage
+connector.triggers.[trigger_name].webhook_unsubscribe(subscribe_output)
+#
+Testing your webhook_notification lambda
+Use
+webhook_notification(**args)
+to invoke the webhook_notification lambda in a specific trigger in your connector instance.
+Attribute
+Description
+Purpose
+Invoke the webhook_notification lambda of a specific trigger in your connector
+Input
+input
+- The JSON representation of the input argument provided to your webhook_subscribe lambda.
+payload
+- The webhook payload. You should pass an expected webhook payload to test.
+extended_input_schema
+- The JSON representation of the extended input schema argument provided to your execute lambda.
+extended_output_schema
+- The JSON representation of the extended output schema argument provided to your execute lambda.
+header
+- The webhook headers.
+params
+- The webhook query params .
+NOTE: if these arguments aren't needed, you needn't define them.
+Output
+The output of your webhook_notification lambda
+Usage
+connector.triggers.[trigger_name].webhook_notification(input, payload, extended_input_schema, extended_output_schema, header, params)
+#
+Other trigger instance methods available:
+input_fields
+output_fields
+sample_output
+summarize_input(**args)
+summarize_output(**args)
+dedup
+#
+Testing your method lambda
+Use
+connector.methods.<method_name>(**args)
+to trigger the your method lambdas in
+connector_spec.rb
+.
+After the
+basic RSpec setup
+, you can call various lambdas in your connector. This is done by calling instance methods on your connector instance.
+You can use the CLI command
+workato generate test
+to automatically generate stubs in your spec folder. Each method will get its own spec file.
+Attribute
+Description
+Purpose
+Invoke a specific method lambda in your connector.
+Input
+Configurable. Depends on your method
+Output
+The output of your method lambda
+Usage
+connector.methods.<method_name>(**args)
+)
+#
+Example RSpec test - testing your method lambda
+# frozen_string_literal: true
+RSpec
+.
+describe
+"methods/make_schema_builder_fields_sticky"
+,
+:vcr
+do
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+"connector.rb"
+,
+settings
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+subject
+(
+:result
+)
+{
+connector
+.
+methods
+.
+make_schema_builder_fields_sticky
+(
+schema
+)
+}
+context
+"given non-sticky schema"
+do
+let
+(
+:schema
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'fixtures/methods/make_schema_builder_fields_sticky/make_schema_builder_fields_sticky_input.json'
+)
+)
+}
+let
+(
+:expected_output
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'fixtures/methods/make_schema_builder_fields_sticky/make_schema_builder_fields_sticky_output.json'
+)
+)
+}
+it
+"makes all fields sticky"
+do
+expect
+(
+result
+)
+.
+to eq
+(
+expected_output
+)
+end
+end
+end
+#
+Testing your object_definitions lambda
+Use
+[object_definition_name].fields(**args)
+to trigger the your object_definitions lambdas in
+connector_spec.rb
+.
+You can use the CLI command
+workato generate test
+to automatically generate stubs in your spec folder. Each object_definitions lambda will get its own spec file.
+Attribute
+Description
+Purpose
+Invoke a specific object_definitions lambda in your connector.
+Input
+settings
+- Your settings instance
+config_fields
+- The JSON representation of your
+config_fields
+.
+Output
+The output of your object_definitions lambda
+Usage
+connector.object_definitions.[object_definition_name].fields(settings, config_fields)
+#
+Example RSpec test - testing your object_definition lambda
+# frozen_string_literal: true
+RSpec
+.
+describe
+"object_definition/compound_type"
+,
+:vcr
+do
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+"connector.rb"
+,
+settings
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+let
+(
+:object_definition
+)
+{
+connector
+.
+object_definition
+.
+compound_type
+}
+context
+'Given event config input'
+do
+subject
+(
+:schema_fields
+)
+{
+object_definition
+.
+fields
+(
+settings
+,
+config_fields
+)
+}
+let
+(
+:config_fields
+)
+{
+{
+type
+:
+:event
+}
+}
+let
+(
+:expected_schema
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'fixtures/object_definitions/compound_type/definition_event.json'
+)
+)
+}
+it
+'returns schema definition'
+do
+expect
+(
+schema_fields
+)
+.
+to be_kind_of
+(
+Array
+)
+expect
+(
+schema_fields
+)
+.
+to match_array
+(
+expected_schema
+)
+end
+end
+end
+#
+Testing your pick_lists lambda
+Use
+connector.pick_lists.<pick_list_name>(settings, **args)
+to trigger the your pick_lists lambdas in
+connector_spec.rb
+.
+You can use the CLI command
+workato generate test
+to automatically generate stubs in your spec folder. Each pick_lists lambda will get its own spec file.
+Attribute
+Description
+Purpose
+Invoke a specific pick_lists lambda in your connector.
+Input
+settings
+- Your settings instance
+Configurable. Depends on your pick_list arguments
+Output
+The output of your pick_lists lambda
+Usage
+connector.pick_lists.<pick_list_name>(settings, **args)
+#
+Example RSpec test - testing your pick_lists lambda
+# frozen_string_literal: true
+RSpec
+.
+describe
+"pick_lists/events"
+,
+:vcr
+do
+let
+(
+:connector
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Connector
+.
+from_file
+(
+"connector.rb"
+,
+settings
+)
+}
+let
+(
+:settings
+)
+{
+Workato
+::
+Connector
+::
+Sdk
+::
+Settings
+.
+from_default_file
+}
+subject
+(
+:pick_list
+)
+{
+connector
+.
+pick_lists
+.
+events
+(
+settings
+,
+config_fields
+)
+}
+context
+'Given configuration parameter'
+do
+let
+(
+:config_fields
+)
+{
+{
+type
+:
+:city
+}
+}
+let
+(
+:expected_picklist
+)
+{
+JSON
+.
+parse
+(
+File
+.
+read
+(
+'fixtures/pick_lists/events/pick_list_city.json'
+)
+)
+}
+it
+'returns schema definition'
+do
+expect
+(
+pick_list
+)
+.
+to be_kind_of
+(
+Array
+)
+expect
+(
+pick_list
+)
+.
+to match_array
+(
+expected_picklist
+)
+end
+end
+end
+←
+CLI reference
+Project directory reference
+→
+Last updated:
+12/20/2023, 11:22:08 PM
+On this page
+RSpec basic setup
+Creating a connector instance
+Creating a settings instance
+Testing your connection and test lambdas
+Testing your actions
+Testing your triggers
+Testing your method lambda
+Testing your object_definitions lambda
+Testing your pick_lists lambda
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

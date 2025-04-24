@@ -1,0 +1,198 @@
+Workato connectors - RingCentral - Send pager message action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+RingCentral
+#
+RingCentral - Send pager message action
+The
+Send pager message
+action sends a pager message to specified extension numbers within RingCentral.
+#
+Input
+Field
+Description
+To source list
+Provide a list datapill that contains the recipients’ extension numbers. Learn more about
+list input
+.
+Extension number (to)
+Enter the recipient's extension number. For example,
+102
+.
+Extension number (from)
+Enter the sender's extension number. For example,
+101
+.
+Text
+Enter the content of the pager message.
+#
+Output
+Field
+Description
+URI
+The URI of the message.
+ID
+The unique identifier of the message.
+To
+An array containing information about the recipients.
+Extension ID (to)
+The recipient's extension ID.
+Extension number (to)
+The recipient's extension number.
+Name (to)
+The recipient's name.
+From
+An object containing information about the sender.
+Extension ID (from)
+The sender's extension ID.
+Extension number (from)
+The sender's extension number.
+Name (from)
+The sender's name.
+Type
+The type of message.
+Creation time
+The timestamp when the message was created.
+Read status
+The read status of the message.
+Priority
+The priority of the message.
+Attachments
+An array containing information about message attachments.
+ID (attachments)
+The unique identifier of the attachment.
+URI (attachments)
+The URI of the attachment.
+Type (attachments)
+The type of attachment.
+Content type (attachments)
+The content type of the attachment.
+Direction
+The direction of the message (for example, inbound or outbound).
+Availability
+The availability status of the message.
+Subject
+The subject of the message.
+Message status
+The status of the message.
+Conversation ID
+The unique identifier of the conversation.
+Conversation
+An object containing details about the conversation.
+ID (conversation)
+The unique identifier of the conversation.
+URI (conversation)
+The URI of the conversation.
+Last modified time
+The timestamp when the message was last modified.
+Pg to department
+Indicates whether the pager message was sent to an entire department.
+←
+Ring out action
+Send SMS action
+→
+Last updated:
+1/6/2025, 6:35:03 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

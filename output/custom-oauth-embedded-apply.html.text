@@ -1,0 +1,162 @@
+カスタムOAuthプロファイル - 埋め込み - 顧客アカウントへの適用 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Embedded
+カスタムOAuthプロファイル
+#
+カスタムOAuthプロファイルを顧客アカウントに適用する
+PREREQUISITES
+顧客アカウントにプロファイルを適用する前に、
+カスタムOAuthプロファイルを作成
+する必要があります。
+カスタムOAuthプロファイルを作成し、管理者アカウントでアプリケーションを登録した後、このOAuthプロファイルを特定の顧客アカウントに適用することができます。管理者レベルで適用すると、デフォルトで同じアプリケーションのOAuthプロファイルが顧客アカウントのプロファイルと置き換えられます。
+#
+OAuth割り当てプロセス
+各個別の顧客アカウントにOAuthプロファイルを適用する必要があります。
+OAuthプロファイルを適用するには、以下の手順に従ってください。
+1
+管理コンソール > 顧客設定
+に移動します。
+2
+OAuthプロファイルを割り当てる予定の顧客アカウントを選択します。
+3
+顧客の
+設定 > カスタムOAuthプロファイル
+インターフェースに移動します。
+カスタムOAuthプロファイルインターフェース
+4
+プロファイルを割り当てる
+をクリックします。
+5
+OAuthプロファイルを割り当てる
+インターフェースで、顧客アカウントに割り当てるアプリとプロファイルを選択します。
+1つのアプリにつき、1つのOAuthプロファイルしか持つことができません。
+プロファイルを割り当てる
+6
+確認
+をクリックします。
+#
+重要な考慮事項
+カスタムOAuthプロファイルを顧客アカウントと共有した後、そのプロファイルは自動的にそのコネクタに採用され、顧客は他のコネクタに切り替えることはできません。
+顧客アカウントのユーザーが管理者アカウントから共有されたカスタムOAuthプロファイルを使用してアプリに接続すると、カスタムOAuthプロファイルのドロップダウンが無効になります。以下のスクリーンショットでは、カスタムOAuthフィールドがグレーアウトされています。
+無効なカスタムOAuthフィールド
+カスタムOAuthプロファイルフィールドを非表示にする
+顧客に表示されないようにするには、
+カスタムOAuthプロファイルフィールド
+を非表示にすることができます。このフィールドは、顧客アカウントプランを介して非表示にすることができます。このフィールドは、顧客アカウントプランがカスタムOAuthプロファイル機能へのアクセスを含んでいる場合にのみ表示されます。管理者がこの顧客のためにカスタムOAuthプロファイルを設定した場合、顧客はカスタムOAuth機能へのアクセス権がなくても使用することができます。
+1つの顧客アカウントに対して、1つのアプリケーションに対して1つのカスタムOAuthプロファイルしか設定することはできません。アクティブな接続がある顧客アカウントで別のOAuthプロファイルに変更したい場合、Workatoは以下の警告メッセージを表示します。
+警告メッセージ
+OAuthプロファイルを顧客アカウントから削除する場合も、同様の警告が表示されます。
+#
+ユーザーフローの例
+埋め込みパートナーが管理者アカウントでHubspotのカスタムOAuthプロファイルを登録します。
+パートナーは
+管理コンソール > 顧客 > 設定 > カスタムOAuthプロファイル
+でプロファイルを有効にします。
+その顧客アカウント内の誰かがHubspotに接続を作成すると、
+カスタムOAuthプロファイル
+フィールドで選択肢を選ぶことはできず、パートナーアカウントレベルで作成されたカスタムOAuthプロファイルが自動的に使用されます。
+←
+作成
+Embedded RecipeOps
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+OAuth割り当てプロセス
+重要な考慮事項
+ユーザーフローの例
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

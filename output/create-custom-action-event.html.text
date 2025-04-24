@@ -1,0 +1,154 @@
+Workatoコネクター - Gong - カスタムアクションイベントの作成 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Gong
+#
+Gongコネクター - カスタムアクションイベントの作成
+ディールに関連付けられたGongにエンゲージメントイベントを送信します。このアクションを使用すると、任意のイベントをディールのイベントタイムラインに関連付けることができます。
+#
+入力
+フィールド
+説明
+Content ID
+レポートシステムでカスタムアクションが行われたコンテンツのIDです。
+Content title
+カスタムアクションが実行されたオブジェクトの名前です。
+Content URL
+カスタムアクションが実行されたコンテンツのURLです。
+Event timestamp
+イベントが発生した日時（ISO-8601形式）です（例：2021-08-01T02:30:00+05:00または2021-08-01T08:00:00Z、ZはUTCを表します）。
+Reporting system
+レポートシステムの固有識別子です。同じシステムから発生したすべてのイベントで同じ値です。
+Action name
+アクションの名前です。例：ドキュメントの表示またはプレゼンテーションの開封。
+Actor
+名前とメールアドレスのリストで構成されるビューアーのオブジェクトです。
+Agent platform
+インタラクションが行われたプラットフォームを選択します。例：MacOS。
+Event info URL
+このイベントに関する追加情報を表示するページへのリンクです。
+User agent
+ブラウザベースのインタラクションの場合の 'User-Agent' ヘッダーの値です。
+Content properties
+オブジェクトを説明するフィールドと値の動的プロパティを表示します。
+Crm context
+CRM、電話システム、ケース管理などの外部システムへの参照のリストです。
+Event ID
+オブジェクトIDです。レポートシステムで指定されたイベントの元のIDです。
+Event properties
+イベントのフィールドと値を説明する動的プロパティを表示します。
+Mobile app ID
+モバイルアプリケーションを介したインタラクションの場合のアプリケーション識別文字列（バンドル識別子またはパッケージ名）です。
+Workspace ID
+Gongアカウントに複数のワークスペースがある場合は、これに関連するワークスペースを入力してこれらのイベントを送信します。空白のままにすると、Gongが決定します。
+#
+出力
+フィールド
+説明
+Request ID
+コンテンツビューエンゲージメントイベントを作成するためにGongに送信されたリクエストのUUIDです。
+←
+コンテンツビューイベントの作成
+ID に基づく通話の取得
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

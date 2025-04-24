@@ -1,0 +1,140 @@
+Microsoft Graph API - New presence trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Microsoft Graph API
+#
+Microsoft Graph API - New presence trigger
+The
+New presence
+trigger activates when a new presence change occurs.
+#
+Input
+Input field
+Description
+User IDs
+Select the user IDs to subscribe to multiple users' presence events. Leave blank to select all the users from the list.
+#
+Output
+Output field
+Description
+OData type
+Specifies the type of the resource in OData format. It indicates that the returned object is of type
+microsoft.graph.presence
+.
+Odata id
+Unique identifier for the OData resource.
+ID
+Unique identifier of the presence record associated with a specific user.
+Availability
+Represents the user's availability status.
+Activity
+Represents the specific presence activity of the user.
+←
+New mail message trigger
+New row in sheet trigger
+→
+Last updated:
+2/27/2025, 4:54:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

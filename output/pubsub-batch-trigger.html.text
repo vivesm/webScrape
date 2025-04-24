@@ -1,0 +1,122 @@
+Workato Event streams - batch trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+イベントストリーム
+Workato Event streams
+#
+新しいメッセージのバッチトリガーの使用方法
+新しいメッセージバッチトリガーを使用すると、Workatoの特定のトピックから新しいメッセージのバッチをポーリングできます。トリガーは、指定された時間間隔でそのトピックに公開されたすべてのメッセージを単一のバッチで取得します。
+詳細については、
+バッチトリガー
+を参照してください。
+トピックを選択することに加えて、バッチサイズ（最大100）とポーリング間隔（5分から30日まで）を指定できます。
+バッチトリガーを構成するためにトピックを選択し、ポーリング間隔とバッチサイズを指定します
+次のフィールドを設定します：
+トリガーポーリング間隔
+トリガーが新しいイベントをチェックする頻度です。
+メッセージトピック
+既存のトピックから選択、更新、または新しいトピックを作成します。
+最初に開始したとき、このレシピは次のイベントを取得する必要があります
+指定された時間からトリガーイベントを取得します。レシピを実行またはテストした後、この値を変更することはできません。
+バッチサイズ
+トリガーが単一のバッチで返すイベントの数（1〜100）。最後のポーリング以降にメッセージが多い場合、トリガーはいくつかのバッチを返します。
+←
+新しいメッセージトリガー
+メッセージを発行
+→
+Last updated:
+2024/12/18 21:44:08
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

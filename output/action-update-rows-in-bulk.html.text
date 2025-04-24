@@ -1,0 +1,150 @@
+Workato connectors - Google Sheets Update rows in bulk action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Sheets
+#
+Update rows in bulk action
+This action updates multiple rows of a selected sheet in Google Sheets. This action supports up to 50,000 records and updates in batches of 500.
+#
+Input fields
+Input field
+Description
+Google Drive
+Select either your personal drive or a team drive. Your personal drive is selected by default.
+Spreadsheet
+Choose the spreadsheet where you plan to update rows in bulk.
+Sheet
+Specify the sheet where you plan to update rows in bulk. Ensure the sheet contains at least one header row and one data row.
+Row number
+Enter the row number from which the values must be updated, or use the
+Row number
+datapill from the output of other Google Sheets triggers and actions.
+Rows
+Enter the values for the updated rows.
+#
+Output fields
+Output field
+Description
+Spreadsheet ID
+The unique identifier of the spreadsheet.
+Sheet name
+The name of the sheet within the spreadsheet.
+All rows successfully updated?
+Indicates whether all rows were successfully updated.
+Number of rows updated
+The number of rows that were updated.
+Number of rows failed
+The number of rows that failed to update.
+CSV contents of failed rows
+The CSV contents of the failed rows.
+List of batches
+Information about the batches of updated rows.
+←
+Update row action
+Google Speech to Text
+→
+Last updated:
+8/29/2024, 3:00:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

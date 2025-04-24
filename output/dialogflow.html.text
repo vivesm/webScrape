@@ -1,0 +1,194 @@
+Google Dialogflow | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Google Dialogflow
+Dialogflow は、対話型ユーザーインターフェイスを簡単に設計し、モバイルアプリ、Web アプリケーション、デバイス、ボット、対話型音声応答システムなどに統合することを可能にする、自然言語理解プラットフォームです。Dialogflow を使用すると、ユーザーが Workbot とやり取りするための、新しい魅力的な方法を提供することができます。
+Workbot を Dialogflow に接続すると、Workbot に送信されたすべてのコマンドが、接続されている Dialogflow ボットの NLP (Workbot のデフォルトの NLP ではなく) で処理されるようになります。
+#
+API バージョン
+Dialogflow コネクターは
+Dialogflow API v2
+(opens new window)
+を使用します。
+#
+Dialogflow に対する Workbot サポート
+現在は Workbot for Slack で、Workato での Dialogflow の使用がサポートされています。
+#
+Workato での Dialogflow への接続方法
+Dialogflow に接続するには、Dialogflow エージェントに関連付けられている
+Google Cloud Platform のサービスアカウント
+(opens new window)
+の JSON 秘密鍵を作成してダウンロードする必要があります。
+秘密鍵を作成すると JSON 秘密鍵ファイルのダウンロードが開始される
+ダウンロードされた JSON ファイルは、任意のテキストエディターで開けます。
+内容全体 (JSON ファイル全体) を、Dialogflow コネクションの [
+Service account JSON
+] フィールドにコピーし、[Connect] をクリックします。
+このドキュメントでは、すでにプロジェクトと Dialogflow エージェントが作成済みであることを前提としています。プロジェクトと Dialogflow エージェントを作成するには、
+新規プロジェクトと Dialogflow エージェントの作成に関する Dialogflow のガイド
+(opens new window)
+を参照してください。
+#
+サービスアカウントの作成とサービスアカウント JSON の取得
+Dialogflow エージェントに接続するには、まず Dialogflow エージェントに関連付けられている
+Google Cloud Platform のサービスアカウント
+(opens new window)
+の JSON 秘密鍵を作成する必要があります。新しいサービスアカウントを作成したら、この鍵を JSON ファイルとしてダウンロードできます。
+注意 : プロジェクトには既存のサービスアカウントがありますが、このアカウントは変更してはなりません。追加のクライアントおよび開発者用 API アクセスのために、新しいサービスアカウントを作成する必要があります。
+Dialogflow コンソールから、エージェント名の右側にある歯車アイコンをクリックして、エージェントの設定を開きます。
+Dialogflow エージェントの設定
+別のプロジェクトを使用したい場合は、新しいエージェントを作成する必要があります。これは、既存のプロジェクトで [Export and Import] タブをクリックし、[EXPORT AS ZIP] ボタンをクリックすることにより簡単に行えます。
+[
+GOOGLE PROJECT
+] セクションで、
+サービスアカウント
+の名前を選択します。
+Google Cloud Platform のサービスアカウントページへのアクセス
+これにより、Google Cloud Platform のサービスアカウントページが表示されます。
+ページ上部の [
+Create Service Account
+] ボタンを選択します。
+ポップアップ画面で、このサービスアカウントに対する設定を入力し、[
+Create
+] をクリックします。
+エージェントに対するサービスアカウントの作成
+次に、最適に動作するために必要な権限を持つように、このサービスアカウントにエージェントに対するアクセス権を付与する必要があります。Dialogflow カテゴリで「Dialogflow」でフィルタリングし、以下のいずれかのロールを選択します。
+ロール名
+アクセス権の説明
+Dialogflow API Admin
+フル API アクセス
+Dialogflow API Client
+セッションレベルの API アクセス
+Dialogflow API Reader
+読み取り専用の API アクセス
+サービスアカウントのロール
+完了したら、[
+Continue
+] を選択します。
+[
+Create key
+] ボタンをクリックして、このサービスアカウントに対する鍵を作成します。
+鍵の作成の開始
+[
+Key type
+] として [
+JSON
+] を選択し、[
+Create
+] ボタンをクリックします。
+JSON 鍵タイプの選択
+鍵が作成されると、JSON ファイルのダウンロードが開始されます。JSON ファイルを保存します。
+注意 : JSON ファイルは1回しかダウンロードできないため、ファイルは安全な場所に保存してください。この鍵をなくすか、漏洩した場合には、同じ手順を使用して別の鍵を作成できます。
+完了すると、確認メッセージがポップアップ表示されます。[
+Close
+] をクリックします。
+任意のテキストエディター (Atom など) で、ダウンロードした JSON ファイルを開きます。内容全体 (JSON ファイル全体) を、Dialogflow コネクションの [
+Service account JSON
+] フィールドにコピーし、[Connect] をクリックします。
+←
+従業員の関連付け解除アクション
+DocuSign
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Dialogflow に対する Workbot サポート
+Workato での Dialogflow への接続方法
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

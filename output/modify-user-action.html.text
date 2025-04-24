@@ -1,0 +1,190 @@
+Workato connectors - Wrike - Modify user action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Wrike
+#
+Wrike - Modify user action
+The
+Modify user
+action updates a user’s details in Wrike. You can retrieve the user ID from the
+List users
+action.
+#
+Input
+Input field
+Description
+User ID
+Enter the ID of the user to update.
+Job role ID
+Enter the job role ID to assign to the user.
+Current bill rate
+Expand to define the bill rate details for the user.
+Rate scope
+Define the scope for the bill rate.
+Rate source
+Define the source for the bill rate, such as
+Job role
+or
+User
+.
+Rate value
+Enter the bill rate value. Leave empty if the rate source is
+Job role
+.
+Current cost rate
+Expand to define the cost rate details for the user.
+Rate scope
+Define the scope for the cost rate.
+Rate source
+Define the source for the cost rate, such as
+Job role
+or
+User
+. This field is required.
+Rate value
+Enter the cost rate value. Leave empty if the rate source is
+Job role
+.
+#
+Output
+Output field
+Description
+ID
+Unique identifier for the updated user.
+First name
+First name of the user.
+Last name
+Last name of the user.
+Type
+Type of user account.
+Profiles
+List of user profiles associated with the account.
+Avatar URL
+URL of the user’s avatar image.
+Timezone
+Time zone set in the user’s profile.
+Locale
+Language and region settings of the user.
+Deleted
+Indicates whether the user is deleted.
+Me
+Indicates whether the updated user is the authenticated user.
+Metadata
+Additional metadata associated with the user.
+Title
+Job title of the user, if applicable.
+Company name
+Name of the company the user is associated with.
+Phone
+Phone number of the user, if available.
+Primary email
+Primary email address of the user.
+←
+List workflows batch action
+Search approvals batch action
+→
+Last updated:
+2/26/2025, 10:21:24 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

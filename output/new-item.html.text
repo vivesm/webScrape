@@ -1,0 +1,159 @@
+Workato connectors - Xero New/updated item trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Xero
+#
+Xero - New/updated item trigger
+The
+New/updated item
+trigger activates when an item is created or updated.
+Xero - New/updated item trigger
+#
+Input
+Input field
+Description
+Trigger poll interval
+Choose how often Workato checks for new or updated events. This field defaults to five minutes if left blank. The minimum value allowed is five minutes.
+When first started, this recipe should pick up events from
+Determine the starting point for the trigger to fetch events. You cannot change this value after the recipe has been run or tested.
+#
+Output
+Output field
+Description
+Item ID
+The unique identifier for the item.
+Item code
+The code associated with the item.
+Inventory asset account code
+The account code used for inventory assets.
+Purchase description
+Description of the item for purchasing purposes.
+Item name
+The name of the item.
+Item description
+A detailed description of the item.
+Updated date
+The date when the item was last updated.
+Is tracked as inventory
+Indicates if the item is tracked in inventory.
+Quantity on hand
+The quantity of the item available in inventory.
+Total cost pool
+The total cost associated with the item's inventory.
+Is sold
+Indicates if the item is sold.
+Is purchased
+Indicates if the item is purchased.
+Sales details
+Details about the item's sales aspects.
+Purchase details
+Details about the item's purchase aspects.
+←
+New/updated payment
+New/updated bill
+→
+Last updated:
+9/5/2024, 2:04:04 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

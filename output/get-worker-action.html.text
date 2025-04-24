@@ -1,0 +1,152 @@
+Workato connectors - Get worker by ID action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Workday REST
+#
+Workday REST - Get worker by ID action
+Use this action to get details of a worker by the workday ID.
+Get worker by ID action
+#
+Input fields
+Input field
+Description
+Worker ID
+Workday ID of the worker record to retrieve.
+#
+Output fields
+Output field
+Description
+Descriptor
+Worker full name
+ID
+Workday ID or the worker record.
+HREF
+API resource URL of the worker record.
+Primary supervisory organization
+Primary supervisory organization object of this worker record. Contains descriptor (full name), Workday ID and HREF.
+Business title
+Full business title of the worker record.
+Primary work email
+Primary work email of the worker record.
+Is manager
+Boolean data.
+True
+if the worker record is a manager.
+Primary work phone
+Primary phone number of the worker record.
+Location
+Location object of this worker record. Contains descriptor (full name) and Workday ID.
+Primary work address text
+Full primary address of the worker record.
+Supervisory organizations managed
+Supervisory organizations managed by the worker record.
+Years of service
+Years of service, as an integer, by the worker.
+Date of birth
+Date of birth of the worker record. Format: YYYY-MM-DD
+←
+New worker
+Search workers
+→
+Last updated:
+12/9/2019, 5:21:57 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

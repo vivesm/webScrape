@@ -1,0 +1,254 @@
+Workato コネクター - Box - Upload file | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Box
+#
+Box アクション - Upload file using file contents
+ファイルのコンテンツを指定することで、Box にファイルをアップロードします。ファイル ID を入力して既存のファイルを更新したり、ファイル名を入力して新しいファイルをアップロードします。
+#
+入力項目
+項目名
+説明
+File contents
+ファイルのコンテンツ。ファイルのコンテンツは、Box の Download file アクションを使用するか、他のアクション/トリガーを使用して取得できます。
+File size
+ファイルサイズが20 MB を超える場合にのみ必要です。ファイルサイズは、他のトリガー/アクションの出力で確認できます。値をバイト単位で入力することもできます。
+Destination folder / Folder ID
+新しいファイルをアップロードする場合にのみ、
+Destination folder
+を入力します。既存のファイルの新しいバージョンをアップロードする場合は、空白のままにしてください。
+File name
+新しいファイルをアップロードする場合にのみ、
+File name
+を入力します。既存のファイルの新しいバージョンをアップロードする場合は、空白のままにしてください。ファイル名には、「my_report.csv」のように拡張子を含める必要があります。
+File ID
+既存のファイルの新しいバージョンをアップロードする場合にのみ、
+File ID
+を入力します。新しいファイルをアップロードする場合は、空白のままにしてください。ファイルの ID は、他の Box トリガー/アクションか、Box のファイル URL で確認できます。たとえば、"
+https://app.box.com/file/310024886990
+(opens new window)
+" の場合、ファイル ID は
+310024886990
+です。
+#
+出力項目
+項目名
+説明
+File version
+ファイルの現在のバージョンの詳細が含まれます。既存のファイルの新しいバージョンをアップロードするアクションを使用する場合に便利です。
+- Type
+このオブジェクトのタイプ。この場合は
+file_version
+です。
+- ID
+このファイルバージョンの ID。
+- Sha 1
+このオブジェクトの SHA-1 ハッシュ値。
+ID
+ファイルの ID。
+Name
+ファイル名。
+Type
+このオブジェクトのタイプ。この場合は
+file
+です。
+Description
+ファイルの説明。
+Size
+ファイルサイズ。
+Shared link
+- URL
+ファイルを表示するための共有リンクの URL。
+- Download URL
+ファイルをダウンロードするための共有リンクの URL。
+Created at
+ファイルの作成日時。
+Modified at
+ファイルの変更日時。
+Trashed at
+ファイルがごみ箱に入れられる日時。
+Purged at
+ファイルが完全に削除される日時。
+Content created at
+ファイルのコンテンツの作成日時。
+Content modified at
+ファイルのコンテンツが変更された日時。
+Sequence ID
+このオブジェクトのフォルダー階層内での位置。
+Etag
+このオブジェクトのエンティティタグ。
+Sha 1
+このオブジェクトの SHA-1 ハッシュ値。
+Parent
+ファイルの親フォルダーについての詳細が含まれます。
+- ID
+親フォルダーの ID。
+- Name
+親フォルダーの名前。
+- Type
+オブジェクトのタイプ。この場合は
+folder
+です。
+- Sequence ID
+このオブジェクトのフォルダー階層内での位置。
+- Etag
+このオブジェクトのエンティティタグ。
+Path
+ファイルパス。
+Path collection
+このファイルが属しているすべてのパスの詳細が含まれます。
+- Total count
+ファイルパスの数。
+- Entries
+ファイルパスエントリ。
+-- ID
+ファイルパスの ID。
+-- Name
+ファイルパス。
+-- Type
+ファイルパスのタイプ。
+-- Sequence ID
+このオブジェクトのフォルダー階層内での位置。
+-- Etag
+このオブジェクトのエンティティタグ。
+-- List size
+この
+Entries
+リスト内の項目の数。
+Created by
+このファイルを作成したユーザーについての詳細が含まれます。
+- ID
+ユーザーの ID。
+- Name
+ユーザーの名前。
+- Type
+ユーザーのタイプ。
+- Login
+ユーザーのログインメールアドレス。
+Modified by
+このファイルを変更したユーザーについての詳細が含まれます。
+- ID
+ユーザーの ID。
+- Name
+ユーザーの名前。
+- Type
+ユーザーのタイプ。
+- Login
+ユーザーのログインメールアドレス。
+Owned by
+このファイルを所有するユーザーについての詳細が含まれます。
+- ID
+ユーザーの ID。
+- Name
+ユーザーの名前。
+- Type
+ユーザーのタイプ。
+- Login
+ユーザーのログインメールアドレス。
+Item status
+このファイルのステータス (アクティブなど)。
+←
+ファイルのダウンロード
+Bynder
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

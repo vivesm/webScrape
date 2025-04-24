@@ -1,0 +1,139 @@
+コーラブルレシピ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+更なる自動化
+#
+コーラブルレシピ
+このコネクターは廃止されました
+2021年12月3日に、コーラブルレシピ は、
+レシピ機能
+コネクターおよび
+API プラットフォーム
+コネクターに置き換えられました。
+既存のコーラブルレシピは今後も恒久的に機能しますが、新しいコーラブルレシピを作成することはできません。
+詳細については、
+移行に関するガイド
+、「
+レシピ機能に関するよくある質問 (FAQ)
+」、および「
+API レシピに関するよくある質問 (FAQ)
+」を参照してください。
+コーラブルレシピ
+はレシピの一種で、別のレシピから呼び出すことができます。これによりレシピの長さを短くできます。繰り返し可能な一連のアクションをコーラブルレシピに分離すれば、同じ手順を必要とする他のレシピからも呼び出すことができようになります。
+コーラブルレシピは、アプリケーションのトリガーイベントではなく、別のレシピからの呼び出しによってトリガーされます。
+コーラブルレシピは、
+API プラットフォーム機能
+を使用して REST エンドポイントとして公開することもできます。
+#
+コーラブルレシピを使用する利点
+利点
+詳細
+テストが簡単
+複数のアクションを1つのレシピ内で繰り返すのではなく、別のレシピにまとめることで、ステップを変更したりテストしたりする労力を減らせます。
+可読性の向上
+長いレシピを作成するのではなく、呼び出し可能な小さなレシピに分割できます。
+レシピ間での共有
+標準的なエラー通知ポリシーがある場合は、エラー通知用のレシピを作成して、次に他のすべてのレシピからこのレシピを呼び出すことができます。
+アカウント間やパートナー間での共有
+REST API はビジネスパートナーにも公開できます。たとえば、サプライヤに在庫の状況を示す REST API などです。
+←
+Workato が提供するレシピファンクション
+レシピ機能と API レシピへの移行
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,242 @@
+Salesforce のバッチ操作 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Salesforce
+#
+Salesforce のバッチ操作
+Workato では、Salesforce の
+一括操作
+とは別に、Salesforce の
+sObject Collections
+API
+(opens new window)
+を利用した
+バッチ
+操作もサポートしています。
+これらの操作では、最大
+2,000件のレコード
+を一度に作成、更新できます。少量の Salesforce レコードをまとめて作成、更新する場合や、Bulk API を使用せずに複数の処理を実行したい場合は、これらの操作を使用することをお勧めします。
+以下の操作がサポートされています。
+バッチ処理でのレコードの作成
+バッチ処理でのレコードの更新
+#
+バッチ処理でのレコードの作成
+Create records in batches アクション
+Create records in batches アクションでは、1回のリクエストで最大2,000件のレコードを作成できます。このアクションを使用するには、まず作成する Salesforce オブジェクトを選択します。以下の例からわかるように、「Contact」オブジェクトを選択すると、リスト入力ピルと、オブジェクトのすべての必須項目が表示されます。
+Salesforce の「Contact」オブジェクトの選択
+リスト入力ピルは、ファイルストレージアプリ (Box、Amazon S3、オンプレミスファイルなど) 内の新規 CSV ファイルといったさまざまなソースや、Lists by Workato アプリケーションで作成されたリストから取得できます。リスト入力の使用方法については、
+リスト操作
+のドキュメントを参照してください。
+リスト入力ピルの選択
+その後、アクションの最後にある [
+Add/remove optional fields
+] セクションで、Salesforce のその他の任意の項目を選択してマッピングします。
+任意の項目の選択
+#
+詳細な設定
+詳細な設定
+[Advanced configuration] セクションでは、レコードを作成できなかった場合にロールバックするかどうかを選択します。
+[Yes]
+の場合、ロールバックは次のように動作します。
+Workato は、各バッチで200件のレコードを処理します。そのため1つのバッチで1件のレコードの処理に失敗すると、そのバッチ全体がロールバックされます。ただし、他のバッチは影響を受けません。
+たとえば1,000件のレコードを作成する場合、それぞれ200件のレコードからなる5つのバッチに分割されます。1番目のバッチのレコードの処理に失敗すると、そのバッチの200件のレコードすべてがロールバックされます。他の4つのバッチは影響を受けず、通常どおり処理されます。
+デフォルトの
+No
+に設定しておくことをお勧めします。正常に作成されたレコードはそのまま維持され、作成されなかったレコードは、後続のレシピステップの追加ロジックで処理されます。
+#
+出力項目
+このアクションの出力項目は2つのカテゴリに分類されます。1つは Salesforce で作成されたレコード用の
+Successful records
+、もう1つは作成されなかったレコード用の
+Failed records
+です。
+Failed records
+では、レコードが作成されていないため、オブジェクトの Salesforce ID を出力データピルとして使用できません。
+#
+Successful records
+出力データピル
+説明
+ID
+作成されたレコード用の Salesforce の内部 ID。
+Success
+Successful records では、この値は必ず「true」になります。
+List size
+正常に作成されたレコードの数です。
+#
+Failed records
+出力データピル
+説明
+Success
+Failed records では、この値は必ず「false」になります。
+Errors
+ステータスコード
+、
+エラーメッセージ
+、
+項目
+から構成される配列です。これらの情報を利用して、レコードの作成に失敗し、エラー通知が生成された理由を判断します。
+List size
+作成できなかったレコードの数です。
+#
+バッチ処理でのレコードの更新
+Update records in batches アクション
+Update records in batches アクションでは、1回のリクエストで最大2,000件のレコードを更新できます。このアクションを使用するには、まず更新する Salesforce オブジェクトを選択します。以下の例からわかるように、「Contact」オブジェクトを選択すると、リスト入力ピルと、オブジェクトのすべての必須項目が表示されます。この場合は、更新する Salesforce オブジェクトの ID が常に必須項目になります。つまり提供されたリスト内に、Salesforce ID を含む列が1つ存在している必要があります。
+Salesforce の「Contact」オブジェクトの選択
+リスト入力ピルは、ファイルストレージアプリ (Box、Amazon S3、オンプレミスファイルなど) 内の新規 CSV ファイルといったさまざまなソースや、Lists by Workato アプリケーションで作成されたリストから取得できます。リスト入力の使用方法については、
+リスト操作
+のドキュメントを参照してください。
+リスト入力ピルの選択
+その後、アクションの最後にある [
+Add/remove optional fields
+] セクションで、Salesforce のその他の任意の項目を選択してマッピングします。
+任意の項目の選択
+#
+詳細な設定
+詳細な設定
+[Advanced configuration] セクションでは、レコードを作成できなかった場合にロールバックするかどうかを選択します。
+[Yes]
+の場合、ロールバックは次のように動作します。
+Workato は、各バッチで200件のレコードを処理します。そのため1つのバッチで1件のレコードの処理に失敗すると、そのバッチ全体がロールバックされます。ただし、他のバッチは影響を受けません。
+たとえば1,000件のレコードを作成する場合、それぞれ200件のレコードからなる5つのバッチに分割されます。1番目のバッチのレコードの処理に失敗すると、そのバッチの200件のレコードすべてがロールバックされます。他の4つのバッチは影響を受けず、通常どおり処理されます。
+デフォルトの
+No
+に設定しておくことをお勧めします。正常に作成されたレコードはそのまま維持され、作成されなかったレコードは、後続のレシピステップの追加ロジックで処理されます。
+#
+出力項目
+このアクションの出力項目は2つのカテゴリに分類されます。1つは Salesforce で更新されたレコード用の
+Successful records
+、もう1つは更新されなかったレコード用の
+Failed records
+です。
+#
+Successful records
+出力データピル
+説明
+ID
+更新されたレコード用の Salesforce の内部 ID。
+Success
+Successful records では、この値は必ず「true」になります。
+List size
+正常に更新されたレコードの数です。
+#
+Failed records
+出力データピル
+説明
+ID
+更新されたレコード用の Salesforce の内部 ID。
+Success
+Failed records では、この値は必ず「false」になります。
+Errors
+ステータスコード
+、
+エラーメッセージ
+、
+項目
+から構成される配列です。これらの情報を利用して、レコードの作成に失敗し、エラー通知が生成された理由を判断します。
+List size
+更新できなかったレコードの数です。
+←
+バルク操作
+データベースの同期
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+バッチ処理でのレコードの作成
+バッチ処理でのレコードの更新
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

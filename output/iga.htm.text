@@ -1,0 +1,113 @@
+Identity Governance | Okta Identity Engine
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter:
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Identity Governance
+Use
+Okta
+Identity Governance (OIG) to ensure that your users only have the access they need and nothing more. It helps you manage user identity and access lifecycles across multiple systems to improve the overall security of your company.
+Benefits
+Adopt the least privileged access model
+Create, protect, and audit access to critical resources to reduce risks associated with unmanaged identities.
+Increase employee productivity
+Automatically provision new employees to birthright apps and allow them to request access to additional resources.
+Improve IT efficiency
+Automate tasks to reduce the time and errors associated with manual data entry and provisioning tasks.
+How it works
+Okta Identity Governance consists of three Okta offerings: Lifecycle Management (LCM), Workflows, and Access Governance. Together these offerings can help you adopt the least privileged access model for your org.
+LCM and Workflows simplify access fulfillment and entitlement tasks throughout a user's identity lifecycle. Lifecycle Management helps you manage users, groups (and group owners), apps, rules, assignments, and other attributes associated with these. You can tackle identity lifecycle processes, such as directory integration, profile mapping,
+Okta Integration Network
+connectors, SCIM integrations (including SCIM integrations with entitlements), On-Premise Provisioning (OPP), and partner integrations.
+Okta Workflows
+helps you build no-code or low-code flows for automating custom actions. You can also use OIG-specific System Log events to take custom actions using
+Okta Workflows
+.
+The two offerings work together with Access Governance to streamline the processes of requesting and reviewing access to groups, apps, app entitlements, and
+Okta
+admin roles.
+Okta Access Governance consists of the following components.
+Access Certifications
+Use
+Access Certifications
+campaigns to periodically review your users' access to resources and approve or revoke access automatically based on the reviewer's decision. Running campaigns frequently can help ensure that users only retain the level of access that they need. Campaigns also help you meet your audit and compliance requirements or professional standards like SOC2 and SOX.
+Access Certifications
+is extensible through
+Okta Workflows
+.
+Access Requests
+Access Requests
+streamlines the process of requesting and approving access to resources like apps, app entitlements, and groups. You can create conditions or request types for resources so that only the users who need access can request access.
+Users can request access to a resource directly from their End-User Dashboard. You can define how the request should be routed for approval and any actions, including custom actions through delegated flows that should be taken automatically as a result of approval or denial.
+Entitlement Management
+Use
+Entitlement Management
+to import, create, and manage entitlements for various apps from the
+Okta
+Admin Console
+. You can create entitlement policies to assign entitlements based on the user's profile attributes or assign entitlements individually to ensure that users have the right level of access to their apps.
+Resource Collections
+Use Resource Collections to combine sets of apps and entitlements. You can directly assign resource collections to users.
+Separation of duties
+Use Separation of duties (SOD) rules to define which combinations of entitlements create conflicts of interest in an org. Divide tasks and responsibilities using these rules so that the same user in an org doesn't have control over all aspects of a critical process. You can configure SOD rules to help reduce the risk of error, fraud, or unauthorized actions. Use
+Access Requests
+and
+Access Certifications
+to control which combinations of entitlements users are allowed to request and possess.
+Reports, APIs, and System Log events
+Use Access Governance-specific reports to get an overview of past certification campaigns and details of past resource access requests and campaigns. The
+Identity governance APIs
+allow you to perform various tasks related to entitlements, access requests, campaigns, or reports. Additionally, you can use
+Okta
+Identity Governance-specific System Log events to take custom actions using
+Okta Workflows
+.
+Get started
+After you've configured your LCM setup, you can get started with any of these items:
+Access Certifications
+Access Requests
+Entitlement Management
+Resource collections
+Separation of duties
+Additionally, to engage with the Okta Identity Governance specialists and community, see
+OIG Office Hours sessions
+and
+OIG Knowledge base.
+Simplify and streamline the processes of requesting and reviewing access to resources. You can manage your entitlements for your apps from Okta to provide the right level of access to your users.
+Okta Identity Governance is generally available on a subscription basis. Contact your Account Executive or Customer Success Manager.
+©
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

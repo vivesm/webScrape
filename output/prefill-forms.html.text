@@ -1,0 +1,340 @@
+Workflow apps- prefill forms with URL parameters | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Builder experience
+Pages
+#
+Prefill forms with URL parameters
+Workflow apps allows you to prefill page input fields using URL parameters. This enables you to prefill form content and is useful in scenarios where the recipients of your forms must review pre-populated information, make necessary updates, and add additional details if required.
+Incorporating prefilled values directly into the URL streamlines business processes and enhances user experience by making forms more dynamic and personalized. It also reduces the likelihood of errors and saves time. Additionally, it integrates seamlessly with automated workflows, making it a powerful tool for data collection and validation processes.
+#
+How to prefill forms with URL parameters
+You can prefill page input fields by appending a query parameter to the end of a Workflow app request page URL.
+Complete the following steps to prefill fields in your Workflow apps forms:
+1
+Identify one or more components you plan to prefill.
+2
+Identify the
+Title
+of the component. This value is distinct from the component
+Label
+, which is visible to end-users in the
+Apps portal
+. Conversely, the component
+Title
+is only visible to builders within Workato and is located in the right column of the page editor.
+Identify the component title
+3
+Obtain the URL of the new request from the Apps portal. For example, the following URL is for a new request in an expense report app:
+https://example.workato.app/expense-reports/submit-request-in-expense-reports-12a3
+4
+Configure the
+?prefilled_values=
+parameter using JSON by determining the values you plan to prefill. The following example preconfigures the following fields:
+Name
+Submission date
+Total requested
+Description
+Supervisor
+Department
+Third party?
+View JSON
+{
+"Third party?"
+:
+{
+"value"
+:
+true
+}
+,
+"Submission date"
+:
+{
+"value"
+:
+"2024-07-26"
+}
+,
+"Total requested:"
+:
+{
+"value"
+:
+10
+}
+,
+"Description"
+:
+{
+"value"
+:
+"SKO"
+}
+,
+"Supervisor"
+:
+{
+"value"
+:
+"Emily Benson"
+}
+,
+"Department"
+:
+{
+"value"
+:
+"Sales"
+}
+,
+"Name"
+:
+{
+"value"
+:
+"Peter Gallagher"
+}
+}
+5
+Optional
+. Add the
+"disabled": "false"
+parameter to make the component editable. Otherwise, the prefilled field is read-only by default.
+{
+"Third party?"
+:
+{
+"value"
+:
+true
+,
+"disabled"
+:
+false
+}
+}
+6
+URL encode the JSON and append it to the URL as a query parameter.
+The following example URL-encodes the preceding JSON and appends it to the URL for the submission page in our expense report app:
+https://example.workato.app/expense-reports/submit-request-in-expense-reports-12a3??prefilled_values=%7B%0A%20%20%22Third%20party%3F%22%3A%20%7B%0A%20%20%20%20%22value%22%3A%20true%2C%0A%20%20%20%20%22disabled%22%3A%20false%0A%20%20%7D%2C%0A%20%20%22Submission%20date%22%3A%20%7B%0A%20%20%20%20%22value%22%3A%20%222024-07-26%22%0A%20%20%7D%2C%0A%20%20%22Total%20requested%3A%22%3A%20%7B%0A%20%20%20%20%22value%22%3A%2010%0A%20%20%7D%2C%0A%20%20%22Description%22%3A%20%7B%0A%20%20%20%20%22value%22%3A%20%22SKO%22%0A%20%20%7D%2C%0A%20%20%22Supervisor%22%3A%20%7B%0A%20%20%20%20%22value%22%3A%20%22Emily%20Benson%22%0A%20%20%7D%2C%0A%20%20%22Department%22%3A%20%7B%0A%20%20%20%20%22value%22%3A%20%22Sales%22%0A%20%20%7D%2C%0A%20%20%22Name%22%3A%20%7B%0A%20%20%20%20%22value%22%3A%20%22Peter%20Gallagher%22%0A%20%20%7D%0A%7D
+#
+View and edit in the Apps portal
+Share the modified URL with your app users. They can view, edit, and submit the prefilled page in the Apps portal, similar to a typical request.
+View and edit the prefilled page in the Apps portal.
+#
+Compatible components
+This functionality is compatible with the following
+page components
+:
+Checkbox
+Date
+Date and time
+Decimal
+Description
+Drop-down
+Integer
+Text
+#
+Sample JSON
+View sample JSON for the page components this feature supports.
+View JSON
+{
+"Checkbox"
+:
+{
+"value"
+:
+true
+,
+"disabled"
+:
+false
+}
+,
+"Date"
+:
+{
+"value"
+:
+"2024-07-26"
+}
+,
+"Datetime"
+:
+{
+"value"
+:
+"2024-07-25 16:00"
+}
+,
+"Decimal"
+:
+{
+"value"
+:
+0.2
+}
+,
+"Integer"
+:
+{
+"value"
+:
+10
+}
+,
+"Description"
+:
+{
+"value"
+:
+"Description"
+}
+,
+"Text"
+:
+{
+"value"
+:
+"Peter"
+}
+,
+"Dropdown manual"
+:
+{
+"value"
+:
+"Sales"
+}
+,
+"Dropdown table"
+:
+{
+"value"
+:
+{
+"record_id"
+:
+"2026e619-3304-42cf-804f-3146cdacaa6e"
+,
+"value"
+:
+"123"
+}
+}
+}
+#
+Limitations
+Workflow apps supports a maximum of 8,000 characters in the URL.
+←
+Custom field validation
+Drop-downs with recipe data source
+→
+Last updated:
+9/9/2024, 3:25:12 PM
+On this page
+How to prefill forms with URL parameters
+View and edit in the Apps portal
+Compatible components
+Sample JSON
+Limitations
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

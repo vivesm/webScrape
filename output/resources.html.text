@@ -1,0 +1,696 @@
+Workato API - Resources | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Developer API
+#
+Workato API Resources
+#
+API clients
+Type
+Resource
+Description
+GET
+/api/developer_api_clients
+List
+Developer API Clients
+.
+POST
+/api/developer_api_clients
+Create a
+Developer API Client
+.
+GET
+/api/developer_api_clients/:id
+Get a
+Developer API Client by ID
+.
+PUT
+/api/developer_api_clients/:id
+Update a
+Developer API Clients
+.
+DELETE
+/api/developer_api_clients/:id
+Delete a
+Developer API Client
+.
+POST
+/api/developer_api_clients/:id/regenerate
+Regenerate a
+Developer API Client token
+.
+GET
+/api/developer_api_client_roles
+List
+Developer API Client roles
+.
+#
+API Platform
+Type
+Resource
+Description
+GET
+/api/api_collections
+List API collections.
+POST
+/api/api_collections
+Create an API collection.
+GET
+/api/api_endpoints
+List API endpoints in a collection.
+PUT
+/api/api_endpoints/:id/enable
+Enable an API endpoint in a collection.
+PUT
+/api/api_endpoints/:id/disable
+Disable an API endpoint in a collection.
+GET
+/api/api_clients
+List API clients. We recommend that you migrate to the
+List API clients (v2)
+endpoint to prepare for future deprecation.
+GET
+/api/v2/api_clients
+List all
+API clients
+. Workato includes the
+project_id
+of the project associated with the API client in the response.
+POST
+/api/api_clients
+Create an API client. We recommend that you migrate to the
+Create API client (v2)
+endpoint to prepare for future deprecation.
+POST
+/api/v2/api_clients
+Create a new
+API client
+within a project you specify.
+GET
+/api/v2/api_clients/:api_client_id
+Retrieve details of an API client by ID.
+PUT
+/api/v2/api_clients/:api_client_id
+Update an existing API client within a project you specify.
+DELETE
+/api/v2/api_clients/:api_client_id
+Delete an existing API client.
+GET
+/api/api_access_profiles
+List access profiles belonging to an API client. We recommend that you migrate to the
+List API keys
+endpoint to prepare for future deprecation.
+GET
+/api/v2/api_clients/:api_client_id/api_keys
+List
+API keys
+for an API client.
+POST
+/api/api_access_profiles
+Create an access profile belonging to an API client. We recommend that you migrate to the
+Create API key
+endpoint to prepare for future deprecation.
+POST
+/api/v2/api_clients/:api_client_id/api_keys
+Create an
+API key
+for an API client.
+PUT
+/api/api_access_profiles
+Update an access profile belonging to an API client. We recommend that you migrate to the
+Update API key
+endpoint to prepare for future deprecation.
+PUT
+/api/v2/api_clients/:api_client_id/
+api_keys/:api_key_id
+Update an
+API key
+for an API client.
+PUT
+/api_access_profiles
+Enable an access profile belonging to an API client. We recommend that you migrate to the
+Enable API key
+endpoint to prepare for future deprecation.
+PUT
+/api/v2/api_clients/:api_client_id/
+api_keys/:api_key_id/enable
+Enable an
+API key
+for an API client.
+PUT
+/api_access_profiles
+Disable an access profile belonging to an API client. We recommend that you migrate to the
+Disable API key
+endpoint to prepare for future deprecation.
+PUT
+/api/v2/api_clients/:api_client_id/
+api_keys/:api_key_id/disable
+Disable an
+API key
+for an API client.
+PUT
+/api/api_access_profiles/:id/refresh_secret
+Refreshes access profile key or secret. We recommend that you migrate to the
+Refresh API key secret
+endpoint to prepare for future deprecation.
+PUT
+/api/v2/api_clients/:api_client_id/
+api_keys/:api_key_id/refresh_secret
+Refresh the authentication token or OAuth 2.0 client secret for an API key.
+DELETE
+/api/v2/api_clients/:api_client_id/
+api_keys/:api_key_id
+Delete an existing API key.
+GET
+/api/v2/api_portals
+List all API portals associated with API clients in your workspace.
+#
+Connections
+Type
+Resource
+Description
+GET
+/api/connections
+Returns all connections and associated data.
+POST
+/api/connections
+Create a connection.
+PUT
+/api/connections/:connection_id
+Updates a connection.
+POST
+/api/connections/:connection_id/disconnect
+Disconnects a connection.
+DELETE
+/api/connections/:connection_id
+Deletes a connection.
+#
+Custom connectors
+Type
+Resource
+Description
+GET
+/api/custom_connectors
+Get custom connectors.
+POST
+/api/sdk/generate_schema/json
+Generates Workato schema from a stringified JSON sample.
+POST
+/api/sdk/generate_schema/csv
+Generates Workato schema from a stringified CSV sample.
+#
+Custom OAuth profiles
+Type
+Resource
+Description
+GET
+/api/custom_oauth_profiles
+List Custom OAuth profiles
+GET
+/api/custom_oauth_profiles/:id
+Get Custom OAuth profile by ID
+POST
+/api/custom_oauth_profiles
+Create Custom OAuth profile
+PUT
+/api/custom_oauth_profiles/:id
+Update Custom OAuth profile
+DELETE
+/api/custom_oauth_profiles/:id
+Delete Custom OAuth profile
+#
+Environment management
+Type
+Resource
+Description
+POST
+/api/secrets_management/clear_cache
+Clears the secrets management cache.
+GET
+/api/activity_logs
+Retrieves activity audit log records.
+GET
+/api/tags
+Retrieves a list of tags.
+POST
+/api/tags
+Creates a tag.
+PUT
+/api/tags/:handle
+Updates a tag.
+DELETE
+/api/tags/:handle
+Deletes a tag.
+#
+Environment properties
+Type
+Resource
+Description
+GET
+/api/properties
+Lists environment properties that matches a prefix.
+POST
+/api/properties
+Upserts environment properties.
+#
+Event streams
+#
+Public APIs
+Type
+Resource
+Description
+POST
+event-streams.workato.com/api/v1/topics/:topic_id/consume
+Consume messages from a topic.
+POST
+event-streams.workato.com/api/v1/topics/:topic_id/publish
+Publish a message to a topic.
+POST
+event-streams.workato.com/api/v1/batch/topics/:topic_id/publish
+Publish a batch of messages to a topic.
+#
+Developer APIs
+Type
+Resource
+Description
+GET
+/api/event_streams/topics
+Retrieve a list of topics.
+POST
+/api/event_streams/topics
+Create a topic.
+GET
+/api/event_streams/topics/:topic_id
+Get topic by ID.
+PUT
+/api/event_streams/topics/:topic_id
+Update a topic.
+PUT
+/api/event_streams/topics/:topic_id/purge
+Purge a topic.
+DELETE
+/api/event_streams/topics/:topic_id
+Delete a topic.
+#
+Folders
+Type
+Resource
+Description
+GET
+/api/folders
+List folders.
+GET
+/api/projects
+List projects.
+POST
+/api/folders
+Create a project or folder.
+PUT
+/api/folders/:folder_id
+Update a folder.
+PUT
+/api/projects/:project_id
+Update a project.
+DELETE
+/api/folders/:folder_id
+Delete a folder.
+DELETE
+/api/projects/:project_id
+Delete a project.
+#
+Jobs
+Type
+Resource
+Description
+GET
+/api/recipes/:recipe_id/jobs
+List jobs belonging to recipe.
+GET
+/api/recipes/:recipe_id/jobs/:job_handle
+Returns a single job's metadata.
+POST
+/api/job/resume
+Resumes a particular job based on the
+resume_token
+you provide. This endpoint returns HTTP status code 204, indicating successful request processing without any content included in the response. This endpoint is leveraged by
+SDK Wait for resume actions
+.
+#
+Lookup tables
+Type
+Resource
+Description
+GET
+/api/lookup_tables
+List tables.
+GET
+/api/lookup_tables/:lookup_table_id/lookup
+Look up a row
+GET
+/api/lookup_tables/:lookup_table_id/rows
+List rows.
+GET
+/api/lookup_tables/:lookup_table_id/rows/:row_id
+Get a row.
+POST
+/api/lookup_tables/:lookup_table_id/rows
+Add a row.
+POST
+/api/lookup_tables
+Create a new lookup table.
+POST
+/api/lookup_tables/batch_delete
+Delete lookup tables in batch.
+PUT
+/api/lookup_tables/:lookup_table_id/rows/:row_id
+Update a row.
+DELETE
+/api/lookup_tables/:lookup_table_id/rows/:row_id
+Delete a row.
+#
+Projects
+Type
+Resource
+Description
+POST
+/api/projects/:id/build
+Builds a project. Use the
+Deploy a project build
+endpoint to deploy the project to an environment.
+GET
+/api/project_builds/:id
+Retrieves a project build by its unique ID.
+POST
+/api/project_builds/:id/deploy
+Deploys a project build to an environment. Use the
+Build a project
+endpoint to build the project first.
+POST
+/api/projects/:id/deploy
+Builds and deploys a project to an environment.
+GET
+/api/deployments/:id
+Retrieves a single deployment by its unique ID.
+GET
+/api/deployments
+Retrieves a list of deployments. Use query parameters to filter results by project, folder, or date range.
+GET
+/api/deployments/:id/eligible_reviewers
+Retrieves a list of eligible reviewers that can be assigned to review a deployment.
+POST
+/api/deployments/:id/assign_reviewers
+Assigns reviewers to a deployment.
+POST
+/api/deployments/:id/submit_for_review
+Submits a deployment for review.
+POST
+/api/deployments/:id/approve
+Approves a deployment.
+POST
+/api/deployments/:id/reject
+Rejects a deployment.
+POST
+/api/deployments/:id/reopen
+Re-opens a deployment for review.
+POST
+/api/deployments/:id/update_review_comment
+Updates a deployment review comment.
+POST
+/api/deployments/:id/deploy
+Deploys an approved deployment.
+#
+Project properties
+Type
+Resource
+Description
+GET
+/api/properties
+List project-level properties that match a prefix and project ID.
+POST
+/api/properties
+Upsert project-level properties.
+#
+Recipes
+Type
+Resource
+Description
+GET
+/api/recipes/:id
+Get recipe details.
+POST
+/api/recipes
+Create recipe.
+POST
+/api/recipes
+Copy recipe.
+PUT
+/api/recipes/:id
+Update recipe.
+GET
+/api/recipes
+List recipes belonging to user.
+PUT
+/api/recipes/:id/start
+Start recipe.
+PUT
+/api/recipes/:id/stop
+Stop recipe.
+DELETE
+/api/recipes/:id
+Delete recipe.
+POST
+/api/recipes/:recipe_id/reset_trigger
+Reset recipe trigger.
+PUT
+/api/recipes/:recipe_id/connect
+Update connection for an application in a stopped recipe.
+POST
+/api/recipes/:recipe_id/poll_now
+Activate a polling trigger for a recipe.
+GET
+/api/recipes/:recipe_id/versions
+Get recipe versions.
+GET
+/api/recipes/:recipe_id/versions/:id
+Get details of a recipe version.
+PATCH/PUT
+/api/recipes/:recipe_id/versions/:id
+Update a recipe version comment.
+#
+Recipe Lifecycle Management
+Type
+Resource
+Description
+GET
+/api/export_manifests/folder_assets
+View assets in a folder.
+POST
+api/export_manifests
+Create an export manifest.
+PUT
+api/export_manifests/:id
+Update an export manifest.
+GET
+api/export_manifests/:id
+View an export manifest.
+DELETE
+/api/export_manifests/:id
+Delete an export manifest.
+POST
+/api/packages/export/:manifest_id
+Export package based on a manifest.
+POST
+/api/packages/import/:folder_id
+Import a package into a folder.
+GET
+/api/packages/:id
+Get a package by its ID.
+GET
+/api/packages/:id/download
+Download a package.
+#
+Roles
+Type
+Resource
+Description
+GET
+/api/roles
+List custom roles.
+POST
+/api/roles/:role_id/copy
+Makes a copy of a custom role.
+#
+Tag assignments
+Type
+Resource
+Description
+POST
+/api/tags_assignments
+Apply tags to or remove tags from assets in your workspace.
+#
+Test Automation
+Type
+Resource
+Description
+POST
+/api/test_cases/run_requests
+Run test cases.
+GET
+/api/test_cases/run_requests/{id}
+Get the current state of a test case run request.
+GET
+/api/recipes/{recipe_id}/test_cases
+Get test cases.
+#
+Workspace collaborators
+Type
+Resource
+Description
+POST
+/api/member_invitations
+Invite a collaborator to your workspace.
+GET
+/api/members
+Get a list of members in your workspace.
+GET
+/api/members/:id
+Get details about a user you specify.
+PUT
+/api/members/:id
+Update a collaborator's roles.
+GET
+/api/members/:id/privileges
+Get the role and privileges for a workspace user you specify.
+#
+Workspace details
+Type
+Resource
+Description
+GET
+/api/users/me
+Get details about your workspace.
+←
+Response codes
+API clients
+→
+Last updated:
+2/24/2025, 6:52:34 AM
+On this page
+API clients
+API Platform
+Connections
+Custom connectors
+Custom OAuth profiles
+Environment management
+Environment properties
+Event streams
+Folders
+Jobs
+Lookup tables
+Projects
+Project properties
+Recipes
+Recipe Lifecycle Management
+Roles
+Tag assignments
+Test Automation
+Workspace collaborators
+Workspace details
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

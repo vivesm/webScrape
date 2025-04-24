@@ -1,0 +1,169 @@
+Create a workspace in Automation HQ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Automation HQ
+HQ workspace
+#
+Create a workspace in Automation HQ
+Automation HQ
+manages various aspects of its workspaces, including organization-wide settings like consolidated
+audit log streaming
+and shared
+custom connectors
+. Automation HQ moderators oversee and administer workspaces by setting usage limits and managing application access within Workato.
+Find out more about operating managed workspaces from the
+Workspaces
+,
+Workspace moderators
+,
+Shared connectors
+,
+Usage
+, and
+Settings
+.
+1
+To create a managed workspace, select
+Create Workspace
+from the
+HQ Workspace
+.
+Create a new workspace
+2
+The
+New Workspace
+interface appears.
+3
+In the interface, provide the name of the new managed workspace and the limit for both the number of billable recipes and tasks.
+Workato deducts usage limits from your organization's subscription; you can update them at any time.
+Workspace name
+The name of the new managed workspace.
+We suggest you choose a name that represents the organizational unit that the workspace serves. This makes it easier for users to find the various workspaces where they participate. For example, for the
+Recruiting
+department, name the workspace
+HR: Recruiting
+.
+Billable recipe limit
+The limit of all billable (active) recipes allocated to the managed workspace.
+Workato guides you in choosing the recipe limit, based on your plan. For example, the following illustration states that you have "2.7k unassigned recipes". If you don't plan to set up additional workspaces, you can assign 500 recipes to this workspace. You can adjust the limits in the future.
+Task limit
+The task limit for this workspace.
+Similarly, Workato advises you of the remaining tasks available in the plan. In the following illustration, you have "23.3m unassigned tasks" remaining. Depending on expected usage, start by assigning 1,000,000 tasks to this workspace. You can adjust the limit in the future.
+New workspace interface
+4
+Click
+Create workspace
+.
+5
+You successfully added a new managed workspace! Now the new managed workspace appears in the list of workspaces.
+FURTHER READING
+Managed workspace
+Automation HQ usage
+Plan overview
+Task usage
+Recipe usage
+←
+HQ workspace
+Managed workspaces
+→
+Last updated:
+11/5/2024, 6:04:00 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

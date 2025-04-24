@@ -1,0 +1,247 @@
+AIMLアクセラレータの接続 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+AIML
+#
+AIMLアクセラレータの接続
+アプリケーションを接続します。
+#
+AIMLコネクタ
+AIMLアクセラレータと接続するには、APIクライアントを設定する必要があります。新しいAPIクライアントを作成するか、既存のAPIクライアントを設定できます。
+1
+Workatoで、ナビゲーションサイドバーを使用して
+APIプラットフォーム > クライアント
+に移動します。
+2
+既存のAPIクライアントがない場合は、
+新しいクライアントの追加
+をクリックします。
+既にAPIクライアントを持っている場合は、ステップ5にスキップできます。
+3
+新しいクライアントの追加
+インターフェースで、
+名前
+、
+説明
+、
+クライアントロゴ
+（オプション）を入力します。
+4
+アクセスプロファイルの作成
+を選択します。
+5
+アクセスプロファイル
+インターフェースを設定します。
+プロファイル名
+アクセスプロファイルの名前。説明的な名前を選択してください。
+含めるAPIコレクション
+AIMLアクセラレータ
+を
+APIコレクション
+に追加します。
+認証方法
+Auth Token
+を選択します。
+ポリシー
+最大に設定します。ポリシーの強制を避けたい場合は、このステップをスキップできます。
+許可されたIPアドレス
+このアクセスプロファイルを使用できるIPアドレス。オプションです。
+6
+次へ
+をクリックします。AIMLアクセラレータのアクセスプロファイルが表示されます。
+7
+プロジェクト > ホーム > AIMLアクセラレータ > APIエンドポイント
+に移動します。
+8
+このフォルダ内のすべてのレシピを開始します。
+9
+APIプラットフォーム > APIコレクション > AIMLアクセラレータ
+に移動します。
+10
+すべてのAPIエンドポイントをアクティブにします。
+11
+プロジェクト > ホーム > AIMLアクセラレータ > 接続
+に移動します。
+12
+AIMLアクセラレータSDKに接続するには、
+APIキー
+と
+ドメイン
+（ベースURL）を入力します。
+APIトークンとベースURLを入力してください
+13
+APIキー
+Workatoで、サイドバーを使用して
+APIプラットフォーム > クライアント > [クライアント名]
+に移動します。
+APIキー
+をコピーします。
+ドメイン
+ドメインは2つの部分で構成されており、チーム名とAPIコレクションのパスをカスタマイズする必要があります。
+ドメインを見つけるには、
+APIコレクション < コレクション名を選択 < 設定 < URL設定
+に移動し、
+コレクションパスのプレビュー
+をコピーします。
+プレフィックス：
+https://
+とサフィックス：
+endpoint_path
+を削除します。
+最終的な結果は次のようになります：
+apim.workato.com/accelerators-dev/aiml-accelerator-v1/
+#
+Sagemakerに接続する
+AWSの認証情報を使用してSagemakerに接続します。
+1
+Workatoで、
+プロジェクト > AIMLアクセラレータ/接続 > AIML|CON-002|SageMaker
+に移動します。
+2
+AIML|CON-002|SageMaker
+インターフェースを設定し、
+アクセスキーID
+、
+アクセスキーシークレット
+、
+AWSリージョン
+を入力します。
+認証情報を入力してください
+アクセスキーID
+アクセスキーを入力します。
+アクセスキーシークレット
+アクセスキーシークレットを入力します。
+AWSリージョン
+AWSリージョンを入力します。例：
+us-west
+など。
+#
+AWS S3に接続する
+AWSの認証情報を使用してAWS S3に接続します。
+1
+Workatoで、
+プロジェクト > AIMLアクセラレータ/接続 > AIML|CON-003|Amazon S3
+に移動します。
+2
+AIML|CON-003|Amazon S3
+インターフェースを設定します。
+認証情報を入力してください
+認証タイプ
+認証タイプを入力します。
+バケットへの制限
+特定のバケットに接続を制限します。ユーザーが
+s3:ListBucket
+アクセスのみを持っている場合に必要です。
+リージョン
+リージョンは通常、S3アカウントで提供されます。アカウントのURLが
+https://eu-west-1.console.s3.amazon.com
+の場合、リージョンには
+eu-west-1
+を使用します。
+ダウンロードスレッド
+ダウンロード速度を向上させるために使用します。デフォルトは1で、最大は20です。
+←
+インストール
+カスタマイズ
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+AIMLコネクタ
+Sagemakerに接続する
+AWS S3に接続する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

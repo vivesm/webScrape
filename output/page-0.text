@@ -1,0 +1,340 @@
+Workato connectors - OpenAPI | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+#
+OpenAPI
+The OpenAPI connector is a universal connector that can be used to work with any application that describes its API endpoints using the OpenAPI specification.
+Note
+: We recommend using the connector with
+RESTful APIs
+(opens new window)
+for the best experience. Refer to the
+Limitations section
+for more info.
+#
+Basics
+What is OpenAPI?
+What's a Swagger file?
+What can I do with the OpenAPI connector?
+When should I use the OpenAPI connector?
+How do I use the OpenAPI connector to create custom connectors?
+What are the triggers in the OpenAPI connector?
+What actions can I perform with the OpenAPI connector?
+#
+What is OpenAPI?
+OpenAPI is a specification that acts as a machine-readable interface for describing, producing, consuming, and visualizing RESTful web services.
+An OpenAPI document, also called a Swagger file, can be used to fulfill a variety of purposes:
+Generate API documentation
+Generate servers and clients in various programming languages
+Automate test case generation
+... and more!
+Check out
+OpenAPI's resources to learn more
+(opens new window)
+.
+#
+What's a Swagger file?
+A Swagger file describes the endpoints available in an API and includes the following data:
+Endpoint method
+Endpoint path
+Headers
+Parameters and query strings
+Request and response schemas
+For example: This portion of a
+sample Swagger file
+(opens new window)
+describes a
+POST /pet
+endpoint:
+paths
+:
+/pet
+:
+post
+:
+tags
+:
+-
+pet
+summary
+:
+Add a new pet to the store
+operationId
+:
+addPet
+requestBody
+:
+$ref
+:
+https
+:
+//api.swaggerhub.com/domains/Colon
+-
+Org/PetStore
+-
+Objects/1.0
+#/components/requestBodies/PetRequest
+responses
+:
+'405'
+:
+description
+:
+Invalid input
+security
+:
+-
+petstore_auth
+:
+-
+'write:pets'
+-
+'read:pets'
+#
+What can I do with the OpenAPI connector?
+The OpenAPI connector parses a user-provided Swagger file and uses its contents to generate a user interface - including actions, input and output fields, objects, and so on - in Workato. Note, however, that the quality of the connector
+depends on the contents of the Swagger file
+.
+If you need to customize the interface, you can use the OpenAPI connector as a template to build custom connectors. For example: If your connector requires custom icons or authentication, use the OpenAPI connector as a starting point and
+customize it as needed
+.
+#
+When should I use the OpenAPI connector?
+Consider using the OpenAPI connector if:
+1
+There isn't an app-specific connector available, AND
+2
+The application provides a Swagger file, AND
+3
+The API described in the Swagger file follows
+REST standards
+(opens new window)
+The following diagram illustrates when to consider using the OpenAPI connector and when to use other connectors or even build custom connectors:
+#
+How do I use the OpenAPI connector to create custom connectors?
+While the OpenAPI connector is a quick, easy way to connect to applications, there might be times you want to create a custom connector for a specific application.
+For example, you might want to:
+Improve the UX by using the applications's name and icon
+Simplify the connection settings
+Implement custom
+authentication flows
+Check out the
+Using the OpenAPI connector to create custom connectors
+guide to get started.
+Note
+: Customizing the connector's code can make upgrading to a new version more complex. Refer to the
+Upgrading an OpenAPI connector's source code
+guide for more info.
+#
+Supported features
+Swagger versions and formats
+Authentication methods
+Interface customization
+#
+Swagger versions and formats
+The OpenAPI connector supports the following Swagger versions and formats:
+Version 2
+(opens new window)
+Version 3
+(opens new window)
+YAML
+(opens new window)
+JSON
+(opens new window)
+The Swagger file you provide must be valid YAML or JSON and conform to the specifications for either supported version.
+#
+Authentication methods
+The OpenAPI connector supports the following authentication methods:
+None
+Basic
+Header
+Query params
+OAuth 2.0: Authorization code grant
+OAuth 2.0: Client credentials grant
+OAuth 2.0: Resource owner password grant
+Learn more in the
+OpenAPI connector authentication guide
+.
+#
+Interface customization
+The OpenAPI connector automatically generates the user interface based on the content of the provided
+Swagger file
+. The following elements can be customized to improve user experience:
+Object names and hints
+Field names and hints
+Links to external documentation
+API operation grouping
+Fields to ignore
+Check out the
+Customizing OpenAPI user interfaces guide
+for more info and examples.
+#
+Triggers
+The OpenAPI connector allows you to set up triggers that respond to specific events on the API, initiating workflows within the recipe editor.
+OpenAPI Triggers
+The OpenAPI connector supports the following triggers:
+New/Updated record
+Triggers when an individual object is created or updated.
+New/Updated record (Batch)
+Triggers when a batch of selected objects is created or updated.
+The OpenAPI connector maps API operations to triggers directly from Swagger file definitions. Operation IDs that indicate record creation or updates trigger the corresponding workflow actions automatically.
+Refer to the
+Customizing OpenAPI user interfaces guide
+for more information and examples.
+#
+Actions
+The OpenAPI connector allows you to perform actions that correspond with the operations defined in your API.
+OpenAPI Actions
+The OpenAPI connector supports the following actions:
+Create record
+Create a new record using the API.
+Custom action
+Build an HTTP request for unique API operations.
+Delete record
+Remove an existing record using the API.
+Execute operation
+Run a specific operation defined in the API.
+Get record details by ID
+Retrieve the details of a record based on its unique identifier.
+Search records
+Find records using search criteria through the API.
+Update record
+Modify the details of an existing record.
+When the OpenAPI connector parses the provided Swagger file, API operations are assigned to one of the supported actions listed above. For example: An endpoint that creates a new
+pet
+record would be assigned to the
+Create record
+action.
+Refer to the
+Customizing OpenAPI user interfaces guide
+for more information and examples.
+#
+Limitations
+When using the OpenAPI connector, keep in mind that:
+The quality of the connector is dependent upon the Swagger file's contents.
+The user interface in the Recipe Editor is created from the contents of the Swagger file. For example: If the Swagger file doesn't contain descriptions of API operations or request/response fields, the experience for end users will be less than ideal.
+The connector is built for use with RESTful APIs.
+We recommend using the connector with
+RESTful APIs
+(opens new window)
+for the best experience. While non-REST APIs may be used, issues with
+grouping API operations into actions
+may arise.
+#
+Setup
+Ready to get started with the OpenAPI connector? Check out these guides:
+Setting up the OpenAPI connector
+Using the OpenAPI connector to create custom connectors
+←
+HTTP FAQs
+Authentication
+→
+Last updated:
+2/14/2025, 12:09:01 AM
+On this page
+Basics
+Supported features
+Triggers
+Actions
+Limitations
+Setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

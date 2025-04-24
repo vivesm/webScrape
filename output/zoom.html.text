@@ -1,0 +1,395 @@
+Workato connectors - Zoom | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Zoom
+Zoom
+(opens new window)
+provides a cloud platform for video and audio conferencing, collaboration, chat, and webinars. Zoom is accessible across mobile devices, desktops, telephones, and room systems.
+#
+How to connect to Zoom on Workato
+#
+API version
+The Zoom connector uses
+Zoom's REST API v2
+(opens new window)
+.
+#
+Connection setup
+The Zoom connector uses OAuth 2.0 to connect to Zoom. Follow these steps to create a Zoom connection in Workato:
+1
+Enter a
+Connection Name
+to identify your Zoom account in Workato.
+Name your connection
+2
+Click
+Connect
+to initiate the authorization process. This action redirects you to Zoom's login page for login and verification.
+Authorize your connection
+#
+Permissions required to connect
+We recommend that you set up a dedicated API user account in Zoom or create a custom OAuth profile to authorize Workato. This allows you to assign the API user to a role with only the necessary permissions. Alternatively, you can use an existing Zoom owner or admin account if you ensure it has the required permissions, as some admin accounts might have restricted access due to their specific configurations.
+#
+Add an API user
+Complete the following steps to set up a provisioned API user for Workato:
+1
+Navigate to
+Admin > User Management > Users
+in the Zoom sidebar.
+Add users
+2
+Click the
+Add Users
+button.
+3
+Enter an appropriate email for the API user. An IT admin alias is recommended.
+Enter user email
+4
+Choose
+Basic
+as the
+User Type
+. For fields like
+Department
+,
+Manager
+,
+Job Title
+,
+Location
+, and
+User Groups
+, enter
+N/A
+or make selections based on your requirements.
+5
+Navigate to
+Admin > Roles
+.
+Add role
+6
+Select
+Add Role
+.
+7
+Provide a
+Role Name
+and
+Description
+.
+Enter role name
+8
+Click
+Add
+.
+9
+Navigate to the
+Roles > Roles Settings
+tab and create a Zoom role with the following permissions for your integration:
+Users: View and Edit
+Role management: View and Edit
+Groups: View and Edit
+Recording management: View and Edit
+Zoom rooms: View and Edit
+Meetings: View
+Webinars: View
+Usage reports: View
+Schedule tracking fields: View and Edit
+Create role permissions
+Role permissions are required to allow the Workato Zoom connector to perform account-level actions, such as scheduling meetings or webinars on behalf of other Zoom users.
+10
+Select
+Save Changes
+to save the role permissions.
+11
+Navigate to
+Users
+and locate the user you created in the preceding steps.
+Edit user role
+12
+Click
+Edit
+and assign the new
+User Role
+to your API user.
+Assign user role
+13
+Click
+Save
+to confirm your changes.
+#
+Create a custom OAuth profile
+Complete the following steps to set up a custom OAuth profile for Workato:
+1
+Navigate to
+Tools > Custom OAuth profiles
+in Workato.
+2
+Click
++ New custom profile
+.
+3
+Select
+Zoom
+in the
+Application
+drop-down menu.
+4
+Enter a name for your custom OAuth profile in the
+Name
+field.
+5
+Click
+Create new app
+.
+Create new app
+6
+Navigate to the
+Zoom App Marketplace
+(opens new window)
+and sign in to your Zoom account if you're not signed in already.
+7
+Click
+Develop > Build App
+.
+Build app
+8
+Enter a name for your app.
+9
+Copy the
+Client ID
+and
+Client Secret
+and store both in a secure location. Both values are required in a future step.
+Copy the Client ID and Client Secret
+10
+Enter
+https://www.workato.com/oauth/callback
+in the
+OAuth Redirect URL
+field.
+OAuth Redirect URL
+11
+Optional. Configure other settings as required for your use case in the
+Access
+,
+Surface
+, and
+Embed
+tabs.
+12
+Navigate to
+Scopes
+and select
++ Add Scopes
+to add the required scopes.
+13
+Search for and select the required scopes for your connection. At minimum, Workato requires the
+View a user
+(
+user:read:user
+) scope to establish a successful connection.
+Add scopes
+14
+Navigate to the
+Local Test
+tab and select
+Preview Your App Listing Page
+to ensure your settings are properly configured.
+15
+Navigate back to the
+New custom profile
+page in Workato and paste the
+Client ID
+and
+Client secret
+from the Zoom app setup to their respective fields.
+Paste the client ID and client secret
+16
+Click
+Save
+.
+17
+Navigate to
+Projects > Connections
+and select
+Create > Connection
+.
+18
+Search for and select
+Zoom
+as your connection.
+19
+Enter a
+Connection name
+and select a
+Location
+for your connection.
+20
+Select your newly created OAuth profile in the
+Custom OAuth profile
+drop-down menu.
+21
+Click
+Connect
+.
+Connect to Zoom using custom OAuth profile
+22
+Click
+Allow
+when prompted in the Zoom dialog box.
+Enable the Zoom app
+You have now established a successful Zoom connection in Workato. You may require additional scopes to fully use the Zoom triggers and actions in Workato.
+#
+How to uninstall Workato from Zoom
+UNINSTALLING ZOOM STOPS ACTIVE RECIPES USING THE CONNECTOR
+Uninstalling Zoom automatically stops all active recipes that use the Zoom connector in your Workato account. You must establish a new app connection on Workato to reinstall Zoom.
+Complete the following steps to uninstall Workato from Zoom:
+1
+Go to the
+Connections
+page in Workato and disconnect all active Zoom connections.
+2
+Visit the
+Zoom App Marketplace
+(opens new window)
+, and sign in with your account administrator credentials.
+Zoom App Marketplace
+3
+Click
+Manage
+and then select
+Added Apps
+in the navigation bar.
+Remove apps
+4
+Find the app you plan to remove and select
+Remove
+. A
+Remove App
+window displays.
+5
+Optional. Use the drop-down menu to choose the reason for removing this app.
+6
+Confirm the app removal by clicking
+Remove
+.
+#
+List of Workato triggers and actions
+Workato supports the following triggers and actions:
+New event trigger (Trigger recipes of events in Meetings, Webinars, and more)
+Event actions (Webinar, meetings, and cloud recordings)
+Registration actions (Add, approve, or list registrants for your events)
+User actions (Add, remove, or update users in your Zoom organization)
+Download cloud recording files
+←
+Zendesk custom objects
+New event trigger
+→
+Last updated:
+2/10/2025, 4:53:51 PM
+On this page
+How to connect to Zoom on Workato
+How to uninstall Workato from Zoom
+List of Workato triggers and actions
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

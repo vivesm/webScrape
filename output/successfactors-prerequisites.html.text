@@ -1,0 +1,168 @@
+SuccessFactorsの前提条件 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+SuccessFactors
+#
+SuccessFactorsの前提条件
+SuccessFactorsに接続する前に、以下の手順を実行することをおすすめします。
+1
+統合サービスユーザー（ISU）を設定します。これは、Workatoに接続するための唯一の目的を持つユニークなユーザーです。
+2
+以下の権限を含む役割をISUに割り当てます：
+一般ユーザー権限
+この権限には以下が含まれます：
+ユーザーログイン
+説明
+SFAPIユーザーログイン
+説明
+ログイン方法（パスワード）
+説明
+システムプロパティの管理
+この権限には以下が含まれます：
+ピックリストの管理
+説明
+ピックリストのマッピングの設定
+説明
+Employee Central API
+この権限には以下が含まれます：
+Employee Central Foundation SOAP API
+説明
+Employee Central HRIS SOAP API
+説明
+Employee Central Foundation OData API（読み取り専用）
+説明
+Employee Central HRIS OData API（読み取り専用）
+説明
+Employee Central Foundation OData API（編集可能）
+説明
+Employee Central HRIS OData API（編集可能）
+説明
+統合ツールの管理
+この権限には以下が含まれます：
+基本認証を介したOData APIへの管理者アクセスの許可
+説明
+採用の権限
+この権限には以下が含まれます：
+OData APIの求人依頼の作成
+説明
+ユーザーの管理
+この権限には以下が含まれます：
+ユーザーアカウントのODataエンティティ
+説明
+3
+権限の役割とグループの設定方法の詳細については、
+SAPの役割ベースの権限
+(opens new window)
+を参照してください。
+4
+WorkatoをOAuth 2.0クライアントアプリケーションとして登録します。
+登録する際には、
+技術ユーザーにバインド
+オプションを選択し、ISUユーザーIDを提供します。
+OAuth 2.0クライアントアプリケーションの登録方法
+(opens new window)
+を参照してください。
+認証
+SuccessFactorsコネクタは、Basic認証またはOAuth2のいずれかを使用して認証することができます。ただし、SAP SuccessFactorsではOAuth2の使用を推奨しています。
+←
+SuccessFactors
+SuccessFactorsへの接続
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

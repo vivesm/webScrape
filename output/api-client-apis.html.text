@@ -1,0 +1,708 @@
+Workato API - APIクライアント | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+開発者用 API
+リソース
+#
+APIクライアント
+以下のエンドポイントを使用して、開発者APIを介してAPIクライアントを管理できます。これにより、新しいチームのオンボーディング時にプログラムで新しいAPIクライアントを作成したり、すべてのAPIクライアントのAPIトークンを定期的にローテーションしたりすることができます。
+#
+クイックリファレンス
+タイプ
+リソース
+説明
+GET
+/api/developer_api_clients
+開発者APIクライアント
+の一覧を取得します。
+POST
+/api/developer_api_clients
+開発者APIクライアント
+を作成します。
+GET
+/api/developer_api_clients/:id
+IDで
+開発者APIクライアント
+を取得します。
+PUT
+/api/developer_api_clients/:id
+開発者APIクライアント
+を更新します。
+DELETE
+/api/developer_api_clients/:id
+開発者APIクライアント
+を削除します。
+POST
+/api/developer_api_clients/:id/regenerate
+開発者APIクライアントのトークン
+を再生成します。
+GET
+/api/developer_api_client_roles
+開発者APIクライアントのロール
+の一覧を取得します。
+#
+開発者APIクライアントの一覧
+すべての開発者APIクライアントを一覧表示します。
+GET /api/developer_api_clients
+#
+クエリパラメータ
+名前
+タイプ
+説明
+per_page
+整数
+1ページに返すAPIクライアントの数。デフォルトは
+100
+。最大は
+100
+。
+page
+整数
+取得するAPIクライアントのページ番号。デフォルトは
+1
+。
+#
+サンプルリクエスト
+curl
+-X
+GET https://www.workato.com/api/developer_api_clients
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+{
+"result"
+:
+{
+"count"
+:
+3
+,
+"items"
+:
+[
+{
+"id"
+:
+40947
+,
+"name"
+:
+"テスト"
+,
+"api_privilege_group_id"
+:
+26779
+,
+"created_at"
+:
+"2023-02-22T01:55:35.739-08:00"
+,
+"updated_at"
+:
+"2023-02-28T01:23:18.046-08:00"
+,
+"all_folders"
+:
+false
+,
+"folder_ids"
+:
+[
+26138
+,
+26136
+]
+,
+"environment_name"
+:
+"開発"
+,
+"environment_id"
+:
+3218
+,
+"token"
+:
+{
+"updated_at"
+:
+"2023-02-22T09:55:36.427Z"
+}
+}
+,
+]
+}
+}
+#
+開発者APIクライアントの作成
+開発者APIクライアントを作成します。
+POST /api/developer_api_clients
+#
+ペイロード
+名前
+タイプ
+説明
+name
+文字列
+APIクライアントの名前
+api_privilege_group_id
+整数
+APIクライアントのロールID
+all_folders
+真偽値
+必須
+APIクライアントがすべてのフォルダにアクセスできるかどうかを示すフラグ
+folder_ids
+配列
+フォルダIDの配列。
+all_folders
+がfalseの場合は必須です。
+environment_name
+文字列
+環境の名前。ワークスペースで環境が有効になっている場合は必須です。
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/developer_api_clients
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "テストクライアント",
+"api_privilege_group_id": 26779,
+"environment_name": "開発",
+"all_folders": true
+}'
+#
+レスポンス
+{
+"result"
+:
+{
+"id"
+:
+40948
+,
+"name"
+:
+"テストクライアント"
+,
+"api_privilege_group_id"
+:
+26779
+,
+"created_at"
+:
+"2023-02-28T02:09:07.255-08:00"
+,
+"updated_at"
+:
+"2023-02-28T02:09:07.586-08:00"
+,
+"all_folders"
+:
+true
+,
+"environment_name"
+:
+"開発"
+,
+"environment_id"
+:
+3218
+,
+"token"
+:
+{
+"updated_at"
+:
+"2023-02-28T10:09:07.579Z"
+,
+"value"
+:
+"wrkaus-eyJhbGciOiJSUz..."
+}
+}
+}
+#
+IDで開発者APIクライアントを取得する
+IDで開発者APIクライアントを取得します。
+GET /api/developer_api_clients/:id
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+整数
+必須
+APIクライアントのID
+#
+サンプルリクエスト
+curl
+-X
+GET https://www.workato.com/api/developer_api_clients/123
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+{
+"result"
+:
+{
+"id"
+:
+40948
+,
+"name"
+:
+"Test Client"
+,
+"api_privilege_group_id"
+:
+26779
+,
+"created_at"
+:
+"2023-02-28T02:09:07.255-08:00"
+,
+"updated_at"
+:
+"2023-02-28T02:09:07.586-08:00"
+,
+"all_folders"
+:
+true
+,
+"environment_name"
+:
+"Development"
+,
+"environment_id"
+:
+3218
+,
+"token"
+:
+{
+"updated_at"
+:
+"2023-02-28T10:09:07.579Z"
+}
+,
+"user"
+:
+{
+"id"
+:
+3218
+,
+"name"
+:
+"Workato Customer Success test"
+}
+}
+}
+#
+開発者APIクライアントの更新
+開発者APIクライアントを更新します。
+PUT /api/developer_api_clients/:id
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+整数
+必須
+APIクライアントのID。
+#
+ペイロード
+名前
+タイプ
+説明
+name
+文字列
+APIクライアントの名前
+api_privilege_group_id
+整数
+APIクライアントのロールID
+all_folders
+真偽値
+必須
+APIクライアントがすべてのフォルダにアクセスできるかどうかを示すフラグ
+folder_ids
+配列
+フォルダのIDの配列。
+all_folders
+がfalseの場合は必須です。
+environment_name
+文字列
+環境の名前。ワークスペースで環境が有効になっている場合は必須です。
+#
+サンプルリクエスト
+curl
+-X
+PUT https://www.workato.com/api/developer_api_clients/123
+\
+-H
+'Authorization: Bearer <api_token>'
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"name": "テストクライアント",
+"api_privilege_group_id": 26779,
+"environment_name": "開発",
+"all_folders": true
+}'
+#
+レスポンス
+{
+"result"
+:
+{
+"id"
+:
+40948
+,
+"name"
+:
+"テストクライアント"
+,
+"api_privilege_group_id"
+:
+26779
+,
+"created_at"
+:
+"2023-02-28T02:09:07.255-08:00"
+,
+"updated_at"
+:
+"2023-02-28T02:09:07.586-08:00"
+,
+"all_folders"
+:
+true
+,
+"environment_name"
+:
+"開発"
+,
+"environment_id"
+:
+3218
+,
+"token"
+:
+{
+"updated_at"
+:
+"2023-02-28T10:09:07.579Z"
+}
+,
+"user"
+:
+{
+"id"
+:
+3218
+,
+"name"
+:
+"Workato Customer Success test"
+}
+}
+}
+#
+開発者APIクライアントの削除
+開発者APIクライアントを削除します。
+DELETE /api/developer_api_clients/:id
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+整数
+必須
+APIクライアントのID。
+#
+サンプルリクエスト
+curl
+-X
+DELETE https://www.workato.com/api/developer_api_clients/123
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+{
+"result"
+:
+"success"
+}
+#
+開発者APIクライアントのトークン再生成
+APIクライアントのAPIトークンを再生成します。これにより、以前のAPIトークンは無効になります。
+POST /api/developer_api_clients/:id/regenerate
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+整数
+必須
+APIクライアントのID。
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/developer_api_clients/123/regenerate
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+{
+"result"
+:
+{
+"id"
+:
+40890
+,
+"name"
+:
+"新しいテストAPIクライアント"
+,
+"api_privilege_group_id"
+:
+26779
+,
+"created_at"
+:
+"2023-01-29T22:30:12.930-08:00"
+,
+"updated_at"
+:
+"2023-02-28T02:19:16.542-08:00"
+,
+"all_folders"
+:
+true
+,
+"environment_name"
+:
+"開発"
+,
+"environment_id"
+:
+3218
+,
+"token"
+:
+{
+"updated_at"
+:
+"2023-02-28T10:19:16.530Z"
+,
+"value"
+:
+"wrkaus-eyJhbGc..."
+}
+}
+}
+#
+開発者APIクライアントのロール一覧
+すべての開発者APIクライアントのロールを一覧表示します。
+GET /api/developer_api_client_roles
+#
+クエリパラメータ
+名前
+タイプ
+説明
+per_page
+整数
+1ページに返すAPIクライアントの数。デフォルトは
+100
+です。最大は
+100
+です。
+page
+整数
+取得するAPIクライアントのページ番号。デフォルトは
+1
+です。
+#
+サンプルリクエスト
+curl
+-X
+GET https://www.workato.com/api/developer_api_client_roles
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+{
+"result"
+:
+{
+"items"
+:
+[
+{
+"id"
+:
+26779
+,
+"name"
+:
+"管理者"
+,
+"created_at"
+:
+"2023-01-18T04:31:03.302-08:00"
+,
+"updated_at"
+:
+"2023-02-28T01:23:01.427-08:00"
+}
+,
+...
+]
+,
+"count"
+:
+3
+,
+"page"
+:
+1
+,
+"per_page"
+:
+100
+}
+}
+←
+リソース
+API プラットフォーム
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+開発者APIクライアントの一覧
+開発者APIクライアントの作成
+IDで開発者APIクライアントを取得する
+開発者APIクライアントの更新
+開発者APIクライアントの削除
+開発者APIクライアントのトークン再生成
+開発者APIクライアントのロール一覧
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

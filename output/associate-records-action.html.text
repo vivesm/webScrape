@@ -1,0 +1,242 @@
+Workato Connector - HubSpot Associate record actions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+HubSpot
+#
+Associate record actions
+This page provides information the following actions:
+Associate record
+: This action allows you to create an association between two records.
+Associate records (batch)
+: This action allows you to create multiple associations between records.
+Get associations)
+: This action allows you to create multiple associations between records.
+Delete associations (batch)
+: This action allows you to create multiple associations between records.
+#
+Associate record action
+Associate record action
+#
+Input
+Input field
+Description
+From
+Expand the From section and use the
+Object
+menu to choose
+Select from list
+or
+Use custom value
+. This is the object you're associating.
+Object ID
+The ID of the record to associate.
+Association types
+Use the drop-down menu to choose
+Select from list
+or
+Enter custom value
+. Leave this field blank to create a default (most generic) association.
+#
+Output
+If the request is successful, Workato returns a list of records associated with the selected records so you can use its datapills in the subsequent steps.
+#
+Associate records (batch) action
+This action allows you to create associations in HubSpot. If association types are left blank, it creates the default (most generic) association type between two object types. Note that the default association is available only for HubSpot main objects.
+If you plan to use custom object associations, you must create a user-defined association definition and use it in Association types. This action accepts a maximum of 2000 records and fails if more than 2000 records are provided.
+Associate record (batch) action
+#
+Input
+Input field
+Description
+From object
+This is the object you're associating. Use the drop-down menu to choose
+Select from list
+or
+Use custom value
+.
+To object
+This is the object you're associating the record to. Use the drop-down menu to choose
+Select from list
+or
+Use custom value
+.
+Input parameters source list
+This field is optional. Input a list datapill.
+From object ID
+The ID of the record to associate.
+To object ID
+The ID of the record to associate to.
+Association types
+This allows you to select the type of association you plan to create. Use the drop-down menu to choose
+Select from list
+or
+Enter custom value
+. Leave this field blank to create the default (most generic) association.
+#
+Output
+If the request is successful, Workato returns a list of records associated with the selected records so you can use its datapills in the subsequent steps.
+#
+Get associations action
+This action allows you to retrieve all associations of an object by object-type.
+Get associations action
+#
+Input
+Input field
+Description
+From object
+This is the object you're associating. Use the drop-down menu to choose
+Select from list
+or
+Use custom value
+.
+To object
+This is the object you're associating the record to. Use the drop-down menu to choose
+Select from list
+or
+Use custom value
+.
+From object ID
+The ID of the record to associate.
+#
+Output
+If the request is successful, Workato returns a list of records associated with the selected records so you can use its datapills in the subsequent steps.
+#
+Delete associations (batch) action
+This action deletes all associations for the record objects you specify. You can submit a maximum of 100 records. The action fails if more than 100 records are submitted.
+Delete associations (batch) action
+#
+Input
+Input field
+Description
+From object
+This is the object you're associating. Use the drop-down menu to choose
+Select from list
+or
+Use custom value
+.
+To object
+This is the object you're associating the record to. Use the drop-down menu to choose
+Select from list
+or
+Use custom value
+.
+Input parameters source list
+This field is optional. Input a list datapill.
+From object ID
+The ID of the record to associate.
+To object ID
+The ID of the record to associate to.
+#
+Output
+There are no output fields for this action.
+←
+Export CRM data action
+Get company contacts action
+→
+Last updated:
+11/17/2023, 12:17:54 AM
+On this page
+Associate record action
+Associate records (batch) action
+Get associations action
+Delete associations (batch) action
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

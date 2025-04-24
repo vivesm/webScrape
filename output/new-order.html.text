@@ -1,0 +1,295 @@
+Workato コネクター - Shopify - New order | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Shopify
+#
+Shopify コネクター - New order (新規注文) トリガー
+このトリガーは、Shopify の新規注文をポーリング間隔ごとにチェックします。注文は、ショップから1つ以上の商品を購入するためにカスタマーが行うリクエストです。各新規注文は新規ジョブとして処理されます。
+注文リソースについて詳しくは、
+Shopify のドキュメント
+(opens new window)
+を参照してください。
+#
+入力
+項目
+説明
+Trigger poll interval
+新規注文についてポーリングする頻度。
+When first started, this recipe should pick up events from
+指定した日時以降の新規注文を取得します。レシピが最初に開始されたときから作成されたすべての注文を取得する場合は、空のままにします。レシピが実行またはテストされた後で、値を変更することはできません。
+#
+出力
+項目
+説明
+Order ID
+注文の ID。
+Send receipt
+確認がカスタマーに送信されたかどうかを示します。
+Send fulfillment receipt
+フルフィルメントの確認がカスタマーに送信されたかどうかを示します。
+Email
+カスタマーのメールアドレス。
+Name
+注文の名前。#1001などになります。
+Note
+注文に関するメモ。
+Fulfillment status
+有効な値 : 「fulfilled」、「null」、「partial」
+Tax lines
+税金明細オブジェクトのリスト。各オブジェクトは、品目に適用される税金の詳細を示します。それぞれの税金明細には、
+Title
+、
+Price
+、
+Price set
+、
+Rate
+の各項目が含まれます。
+>
+Currency code
+通貨のコード。
+Referring site
+「http://www.anexample.com」など。
+Taxes included
+税金が含まれるかどうかを示します。
+Closed at
+この注文がクローズされた日時。
+Financial status
+有効な値 : 「pending」、「authorized」、「partially_paid」、「paid」、「partially_refunded」、「refunded」、「voided」
+Note attributes
+注文に関する追加情報。
+Tags
+注文に追加するタグ。カンマ区切り値の文字列の形式になります。タグは補助的な短い記述子で、一般にフィルターと検索に使用されます。個々のタグの長さは40文字に制限されています。
+Billing address
+支払い方法に関連付けられた住所。
+Shipping address
+注文の配送先の住所。
+Total discounts
+注文の価格に適用される割引の合計額。
+Discount codes
+注文に適用される割引のリスト。それぞれの割引オブジェクトは、
+Amount
+、
+Code
+、
+Type
+の各プロパティを含みます。
+Buyer accepts marketing
+カスタマーがショップから最新情報のメールを受け取ることに同意したかどうかを示します。
+Current total duties set
+注文に対する現在の合計課税額 (ショップの通貨と表示通貨で表示)。この項目に関連した金額は、注文の編集、返品、返金を反映しています。
+Original total duties set
+注文に対する当初の合計課税額 (ショップの通貨と表示通貨で表示)。
+Total line items price set
+すべての明細項目の合計価格 (ショップの通貨と表示通貨で表示)。
+Total discounts set
+明細項目に対して計上された合計金額 (表示通貨で表示)。この項目を使用する代わりに、Shopify は同じ情報を提供する discount_allocations を使用することを推奨しています。
+Total shipping price set
+割引と返品を除く、注文の合計出荷価格 (ショップの通貨と表示通貨で表示)。taxes_included が true に設定されている場合、total_shipping_price_set には税額が含まれます。
+Total price set
+注文の合計価格 (ショップの通貨と表示通貨で表示)。
+Line items
+明細項目オブジェクトのリスト。各オブジェクトは、注文の品目に関する情報を含みます。
+Created at
+注文が作成された日時。
+Updated at
+注文が最後に更新された日時。
+Canceled at
+注文がキャンセルされた日時。
+Cancel reason
+キャンセルの理由。
+Total price usd
+米ドルでの合計価格。
+Checkout token
+チェックアウトトークン。
+Reference
+注文のリファレンス。
+User_ID
+Shopify POS にログインしている、注文を処理したユーザーの ID (該当する場合)。
+Location ID
+注文が処理された物理的な場所の ID。このプロパティは POS の設置場所を参照します。オンライン注文の場合、location_id は常に null に設定されます。
+Source identifier
+ソースのリファレンス。
+Source URL
+ソースの URL。
+Processed at
+この注文が処理された日時。
+device_ID
+注文の作成に使用されたデバイスに関する情報。
+Browser ip
+注文が作成されたときのブラウザーの IP。
+Landing site ref
+ランディングサイトの URL。
+Order number
+1001から始まるショップの注文カウントにおける注文の位置。注文番号は連番で、最初の番号は1001です。
+Number
+ショップの注文カウントにおける注文の位置。番号は連番で、最初の番号は1です。
+Note
+この注文に関するメモ。
+Token
+注文の一意のトークン。
+Gateway (非推奨)
+使用される決済ゲートウェイ。
+Test
+これがテスト注文であるかどうかを示します。
+Total price
+合計価格。
+Subtotal price
+小計価格。
+Total weight
+合計重量。
+Total tax
+合計税額。
+Confirmed
+注文が確認されているかどうかを示します。
+Total line items price
+ショップの通貨で示される、すべての明細項目の合計価格。
+Cart token
+注文に関連するカートの ID。
+Name
+カスタマーの名前。
+Landing site
+購入者がショップに入ったとき最初にアクセスしたページの URL。
+Payment gateway names
+注文に使用された決済ゲートウェイのリスト。
+Processing method
+支払いが処理された方法。
+Checkout ID
+チェックアウトの ID。
+Source name
+注文が発生した場所。注文の作成時にのみ設定でき、後で書き込むことはできません。
+Tax lines
+税金明細オブジェクトのリスト。各オブジェクトは、品目に適用される税金の詳細を示します。それぞれの税金明細には、
+Title
+、
+Price
+、
+Price set
+、
+Rate
+の各項目が含まれます。
+Contact email
+問合せ先のメールアドレス。
+Order status URL
+注文ステータスの URL。
+Shipping lines
+オブジェクトの配列。各オブジェクトは、使用される配送方法を詳しく示します。
+Fulfillments
+注文に関連付けられたフルフィルメントのリスト。
+Client details
+カスタマーが注文を行ったときに使用したブラウザーに関する情報。
+Refunds
+注文に適用される返金のリスト。
+Payment details (非推奨)
+支払いに関する情報を含むオブジェクト。
+Transactions
+注文トランザクションのリスト。
+Customer
+カスタマーに関する情報。
+Metafields
+メタフィールドに関する情報。
+←
+新規カスタマー
+新規商品
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

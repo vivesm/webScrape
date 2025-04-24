@@ -1,0 +1,495 @@
+Workato API - カスタムコネクタ | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workato Embedded API
+リソース
+#
+Workato API - カスタムコネクタの管理
+これらのエンドポイントは誰が使用できますか？
+このガイドのエンドポイントは、埋め込みベンダーAPIであり、
+oem_vendor
+特権が必要です。この特権をアカウントで有効にするには、Workatoの担当者に連絡してください。
+カスタムコネクタ
+リソースを使用すると、共有コネクタをプログラムで管理できます。
+#
+クイックリファレンス
+カスタムコネクタリソースには、次のエンドポイントが含まれています。
+タイプ
+リソース
+説明
+GET
+/api/custom_connectors
+カスタムコネクタを取得します。
+GET
+/api/custom_connectors/:id
+IDでカスタムコネクタを取得します。
+POST
+/api/custom_connectors/:id/oem_share/:version
+共有コネクタのバージョンを作成または更新します。
+POST
+api/managed_users/:managed_user_id/recipes/:recipe_id/share
+カスタムコネクタを含むレシピを共有/公開します。
+DELETE
+/api/custom_connectors/:id/suppress_oem_version
+共有コネクタを削除します。
+#
+カスタムコネクタの検索
+ワークスペース内のカスタムアダプタを一覧表示します。
+GET /api/custom_connectors
+#
+URLパラメータ
+名前
+タイプ
+説明
+title
+string
+オプション
+タイトルでコネクタを検索します。部分一致が返されます。
+oem_shared
+boolean
+オプション
+OEMマスターアカウントから共有されたコネクタを検索します。
+#
+サンプルリクエスト
+curl
+-X
+GET https://www.workato.com/api/custom_connectors
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+{
+"result"
+:
+[
+{
+"id"
+:
+3067
+,
+"name"
+:
+"new_connector_1_connector_4771_1626869205"
+,
+"title"
+:
+"Foobar"
+,
+"latest_released_version"
+:
+null
+,
+"latest_released_version_note"
+:
+null
+,
+"oem_shared_version"
+:
+null
+,
+"oem_shared_at"
+:
+null
+,
+"released_versions"
+:
+[
+]
+}
+,
+{
+"id"
+:
+3066
+,
+"name"
+:
+"new_connector_1_connector_4771_1626869114"
+,
+"title"
+:
+"Acme Connector"
+,
+"latest_released_version"
+:
+4
+,
+"latest_released_version_note"
+:
+null
+,
+"oem_shared_version"
+:
+2
+,
+"oem_shared_at"
+:
+"2022-08-08T08:05:22.047-07:00"
+,
+"released_versions"
+:
+[
+{
+"version"
+:
+4
+,
+"version_note"
+:
+null
+,
+"created_at"
+:
+"2022-08-11T07:24:58.890-07:00"
+,
+"released_at"
+:
+"2021-09-26T21:33:41.713-07:00"
+}
+,
+{
+"version"
+:
+2
+,
+"version_note"
+:
+"hello"
+,
+"created_at"
+:
+"2021-07-21T05:05:34.136-07:00"
+,
+"released_at"
+:
+"2021-09-26T21:33:41.713-07:00"
+}
+]
+}
+]
+}
+#
+IDでカスタムコネクタを取得
+特定のカスタムコネクタをIDで取得します。
+GET /api/custom_connectors/:id
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+integer
+必須
+ワークスペース内のコネクタのIDです。
+#
+サンプルリクエスト
+curl
+-X
+GET https://www.workato.com/api/custom_connectors/3066
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+{
+"result"
+:
+[
+{
+"id"
+:
+3066
+,
+"name"
+:
+"new_connector_1_connector_4771_1626869114"
+,
+"title"
+:
+"Acme Connector"
+,
+"latest_released_version"
+:
+2
+,
+"latest_released_version_note"
+:
+"V2"
+,
+"oem_shared_version"
+:
+2
+,
+"oem_shared_at"
+:
+"2022-08-08T08:05:22.047-07:00"
+,
+"released_versions"
+:
+[
+{
+"version"
+:
+2
+,
+"version_note"
+:
+"V2"
+,
+"created_at"
+:
+"2021-07-21T05:05:34.136-07:00"
+,
+"released_at"
+:
+"2021-09-26T21:33:41.713-07:00"
+}
+]
+}
+]
+}
+#
+共有コネクタのバージョンを作成または更新
+OEMマスターアカウントの共有コネクタのバージョンを作成または更新します。
+コネクタが現在共有されていない場合、指定したバージョンで新しい共有コネクタが作成されます。
+コネクタが現在共有されている場合、このコネクタの現在共有されているバージョンが更新されます。
+重要
+共有するバージョンは、リリースされたバージョンである必要があります。
+POST /api/custom_connectors/:id/share_oem_version/:version
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+integer
+必須
+共有するワークスペース内のコネクタのIDです。
+version
+integer
+必須
+共有するワークスペース内のコネクタのバージョンです。これはリリースされたバージョンである必要があります。
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/custom_connectors/3066/share_oem_version/4
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+新しい共有コネクタが作成されました：
+{
+"result"
+:
+{
+"success"
+:
+true
+,
+"status"
+:
+"created"
+}
+}
+既存の共有コネクタのバージョンが更新されました：
+{
+"result"
+:
+{
+"success"
+:
+true
+,
+"status"
+:
+"updated"
+}
+}
+#
+カスタムコネクタを含むレシピを公開/共有する
+指定した顧客に対して、カスタムコネクタを含むレシピをプライベートコミュニティに公開するか、共有することができます。
+重要
+このエンドポイントを使用する前に、カスタムコネクタを埋め込まれた顧客/プライベートコミュニティと共有する必要があります。それ以外の場合、Workatoはエラーメッセージを表示します。
+POST api/managed_users/:managed_user_id/recipes/:recipe_id/share
+#
+パスパラメータ
+名前
+タイプ
+説明
+managed_user_id
+string
+必須
+埋め込まれた顧客のアカウントID/外部IDです。外部IDはEで始まる必要があり、結果のIDはURLエンコードする必要があります（例：EA2300）。
+recipe_id
+string
+必須
+共有/公開するレシピのIDです。
+#
+サンプルリクエスト
+curl
+-X
+POST https://www.workato.com/api/managed_users/12345/recipes/123/share
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+{
+"result"
+:
+{
+"success"
+:
+true
+}
+}
+#
+共有コネクタの削除
+共有コネクタを削除します。これにより、カスタムコネクタはワークスペースから削除されません。
+重要
+このAPIを使用する際に、このコネクタを使用している顧客アカウントがある場合、それらのレシピに影響を与えます。
+DELETE /api/custom_connectors/:id/suppress_oem_version
+#
+パスパラメータ
+名前
+タイプ
+説明
+id
+integer
+必須
+ワークスペース内の共有コネクタのIDです。
+#
+サンプルリクエスト
+curl
+-X
+DELETE https://www.workato.com/api/custom_connectors/3066/suppress_oem_version
+\
+-H
+'Authorization: Bearer <api_token>'
+#
+レスポンス
+新しい共有コネクタが作成されました：
+{
+"result"
+:
+{
+"success"
+:
+true
+,
+"status"
+:
+"suppressed"
+}
+}
+}
+←
+全プラットフォームコネクタの列挙
+カスタムOAuthプロファイル
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+クイックリファレンス
+カスタムコネクタの検索
+IDでカスタムコネクタを取得
+共有コネクタのバージョンを作成または更新
+カスタムコネクタを含むレシピを公開/共有する
+共有コネクタの削除
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

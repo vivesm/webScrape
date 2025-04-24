@@ -1,0 +1,226 @@
+Workato connectors - Mural | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+#
+Mural
+Mural
+(opens new window)
+is a digital workspace for visual collaboration that empowers teams to brainstorm, plan, and collaborate in a structured and creative way. It provides an individual canvas where users can add, create, and edit your content. This connector enables businesses to operate seamlessly in remote and hybrid environments, enhancing team productivity and communication.
+#
+Prerequisites
+Before using the Mural connector in Workato, ensure you have an active account with appropriate permissions to access APIs.
+If you do not already have an account, complete the following steps below to register one. Refer to the official
+documentation
+(opens new window)
+for detailed instructions.
+Register an application in Mural
+#
+Register an application in Mural
+Complete the following steps to register an app in your Mural account.
+1
+Log in to your
+Mural
+(opens new window)
+account.
+2
+Click your profile picture in the top right corner.
+3
+Navigate to the
+Create and Manage apps
+.
+Create an app in Mural
+4
+Click
+New App
+on the My Apps page.
+Mural new App
+5
+Enter your application name in the
+App name
+field.
+6
+Enter your Redirect URL provided by Workato for OAuth. Refer to the
+Workato Redirect URL guide
+for more information.
+7
+Click
+Save
+and
+Continue
+.
+8
+Select the required
+API Scopes
+, including
+mural.read
+,
+mural.write
+, and more. Refer to
+Mural OAuth Scopes
+(opens new window)
+for more information.
+9
+Click
+Save
+and
+Continue
+.
+10
+Copy the
+Client ID
+and
+Client Secret
+. Store them in a secure location, and click
+Save
+to complete the app registration.
+Refer to
+Mural's documentation
+(opens new window)
+for more information.
+#
+Connection setup
+Mural connector supports Oauth2 authentication to connect to Mural. Complete the following steps establish a connection to Mural in Workato.
+1
+Click
+Create > Connection
+.
+2
+Search for and select
+Mural
+as your connection on the New Connection page.
+3
+Provide a name for your connection in the
+Connection name
+field.
+4
+Use the
+Location
+drop-down menu to select the project where you plan to store the connection.
+5
+Enter the
+Client ID
+and
+Client Secret
+for your Mural account. Refer to the
+Register an app in Mural
+step for more information.
+6
+Select the necessary
+OAuth scopes
+(opens new window)
+required for your integration. If no scopes are selected, the minimum set of required scopes are automatically applied.
+7
+Click
+Connect
+.
+Mural connection setup
+←
+Upload file action
+Create record action
+→
+Last updated:
+2/25/2025, 2:37:52 AM
+On this page
+Prerequisites
+Register an application in Mural
+Connection setup
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

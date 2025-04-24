@@ -1,0 +1,142 @@
+外部ソース管理システムの使用 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの管理
+Recipe Lifecycle Management
+#
+外部ソース管理システムの使用
+Workato からレシピをエクスポートする理由の1つは、一元的なバージョン管理システムに保存できるようにすることです。これは、開発を行う多くの企業で標準的な慣習です。ただし、これを行うかどうかは、Workato レシピで日常的にソフトウェア開発作業に従事するスタッフがいるかどうか、または業務でソース管理を使用することに慣れていない、技術力がそれほど高くないスタッフがそのタスクを行っているかどうかによって左右されます。
+以下の説明では、バージョン管理システムが「Git」であることを前提としていますが、他のシステムでも同じ一般原則を適用できます。
+一般に、主にコードの一連のスナップショットを維持管理するために、またチームがコードを上げて修正するためのステージング領域として、外部バージョン管理を使用することをお勧めします。Git では異なる Workato 環境にまたがって一貫した履歴が作成され、Git アカウントを持つすべてのユーザーがその履歴を表示できるため、このような使用法にもいくらかのメリットがあります。また、Git リポジトリでレシピを安全にバックアップすることもできます。
+しかし、外部ソース管理システムで、Workato の外部にあるレシピファイルに変更を加えることは推奨されません。そのようにした場合、Workato 環境で変更を行う場合に実行されるチェックおよび検証機能を使用できないため、リスクが伴います。また、この方法で加えた変更は、Workato のバージョン履歴に表示されません。
+#
+内容
+ライフサイクル管理の計画
+エクスポート: レシピと依存関係のパッケージ化
+インポート: プロイメント
+外部ソース管理システムの使用
+(このセクション)
+#
+GitHub リポジトリに対する Workato プロジェクトのマッピング
+Workato パッケージは、Git リポジトリに直接マッピングできます。1つのアカウントに複数のプロジェクトが含まれることがあり、各プロジェクトはパッケージを使用してバンドルされます。
+以下の例では、Acme Workato チームには3つのプロジェクトが含まれ、これらのプロジェクトは Acme の GitHub アカウント内の3つのリポジトリにマッピングされます。
+GitHub リポジトリに対する Workato パッケージのマッピング
+#
+プルリクエスト (PR)
+#
+作成
+新機能の開発は、Workato 開発アカウントで開始されます。機能の完成後に、レシピ開発者は、レシピの最新バージョンに基づいてパッケージを構築する必要があります。このパッケージは、プロジェクトのローカル Git リポジトリディレクトリで展開し、解凍する必要があります。変更内容はフィーチャーブランチにコミットし、中央の GitHub リポジトリにプッシュする必要があります。
+既存の GitHub リポジトリに対する最新のパッケージのコミット
+フィーチャーブランチが Github に存在するようになると、開発者はレビューのためにプルリクエスト (PR) を送信できます。
+GitHub での PR の作成
+#
+レビュー
+1人以上のレビュー担当者が、Github で新しいコードを検証し、コメントを追加することができます。開発者は、レビューコメントに対応し、修正したコードで PR を更新する必要があります。前述のように、初めに Workato で変更を行い、テストしてから、再エクスポートすることを推奨します。
+GitHub での (旧バージョンに対する) レシピ変更の表示
+#
+環境間のマージと昇格
+すべての PR コメントが解決されたら、フィーチャーブランチをマスターブランチにマージできます。この時点で、レシピのコードとその他の成果物は、次のライフサイクルステージに対応する別の Workato アカウントにインポートできます。これには、Workato の UI から直接エクスポートを実行し、その後インポートするか、スクリプトによって Github コードを Workato パッケージに再度圧縮してからインポートします。
+←
+インポート（デプロイメント）
+管理者ダッシュボード
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+内容
+GitHub リポジトリに対する Workato プロジェクトのマッピング
+プルリクエスト (PR)
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

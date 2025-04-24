@@ -1,0 +1,281 @@
+Workatoコネクター - NetSuite - 接続 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+WorkatoでNetSuiteに接続する
+トークンベースの認証を使用してNetSuiteに接続することができます。まず、アプリケーションID、コンシューマーキー、コンシューマーシークレット、トークンID、およびトークンシークレットを生成する必要があります。
+NetSuiteに接続する方法についての手順は、当社のビデオチャンネルを参照することをお勧めします。
+以下の手順では、トークンベースの認証を使用してWorkatoをNetSuiteに接続する方法について詳細な手順を提供します。
+NetSuiteインスタンスでWebサービスとトークンベースの認証を有効にする
+SuiteAppマーケットプレイスからWorkatoのSuiteAppをインストールする
+統合のために必要な権限レベルを持つ統合ロールを作成する
+統合ユーザーに統合ロールを割り当てる
+この統合ユーザーのアクセストークンを作成する
+WorkatoでNetSuiteに接続する
+#
+ステップ1. NetSuiteインスタンスでWebサービスアクセスを有効にする
+NetSuiteでAPIアクセスとトークンベースの認証を有効にすることから始めます。
+セットアップ > 会社 > 機能の有効化 > SuiteCloud
+に移動します。
+このステップのデモを見る
+NetSuiteで
+セットアップ > 会社 > 機能の有効化 > SuiteCloud
+に移動します。
+SuiteCloudタブの下で、
+Client SuiteScript
+と
+Server SuitScript
+のチェックボックスを選択します。
+SuiteCloudタブで、Client SuiteScriptとServer SuitScriptのチェックボックスを選択します
+SuiteTalk（Webサービス）セクションの下で、
+SOAP Webサービス
+と
+REST Webサービス
+のチェックボックスを選択します。
+認証の管理セクションの下で、
+トークンベースの認証
+と
+OAuth 2.0
+のチェックボックスを選択します。
+SuiteCloudタブで、SOAP Webサービス、REST Webサービス、トークンベースの認証、OAuth 2.0のチェックボックスを選択します
+トークンベースの認証機能を有効にする方法については、
+NetSuiteのドキュメント
+(opens new window)
+も参照してください。
+#
+ステップ2. WorkatoのSuiteAppをインストールする
+NetSuite SuiteApp Marketplaceにアクセスして、WorkatoのSuiteAppをインストールします。このステップを完了するには、NetSuiteアカウントの管理者であるか、SuiteApp Marketplaceの権限を持っている必要があります。
+このステップのデモを見る
+SuiteApp MarketplaceでWorkatoを検索し、Advanced NetSuite Integrations by Workatoのリストをインストールします
+WorkatoのSuiteAppをインストールした後、アカウントに2つの新しい統合レコードが表示されます。「Workato-Production」と「Workato-Preview」です。これらはWorkatoの2つの環境の統合レコードを表しており、「Workato-Production」を常に使用する必要があります。
+#
+ステップ3. 統合のために必要な権限レベルを持つ統合ロールを作成する
+統合のために、統合専用のロールを作成することをお勧めします。この統合ロールには、統合に関連するレコードの読み取りと書き込みの権限が必要です。また、この統合ロールはRESTletsまたはSuiteTalk（Webサービス）を介してログインする機能を持つ必要があります。
+このステップのデモを見る
+以下は最小限の権限セットです：
+統合に必要なレコードの読み取り/書き込みの権限
+Webサービス（フルレベル）
+アクセストークンを使用したログイン（フルレベル）またはユーザーアクセストークン（フルレベル）（自分自身のトークンの作成と取り消しのための特権を持つ）
+会社の設定（フルレベル）
+#
+統合固有の読み取り/書き込み権限を割り当てる
+統合が正常に動作するために必要な権限を持つ既存のロールのコピーを作成し、さらにカスタマイズして統合のニーズに合わせて調整することをお勧めします。このロールは、統合ユーザーに割り当てることができます。または、統合が正常に動作するために必要な権限を追加して新しいロールを作成することもできます。
+NetSuiteで、
+セットアップ > ユーザー/役割 > 役割
+に移動し、統合ロールを作成します。
+セットアップ > ユーザー/ロール > ロールの管理 > 新規
+権限タブで、このロールの権限と権限レベルを設定します。これは、Workatoの統合で行う予定の操作に対応する必要があります。たとえば、NetSuiteで販売注文を作成する予定の場合、
+販売注文 - 作成
+の権限レベルを持つ必要があります。また、販売注文データの作成、更新、読み取りが可能になるようにする場合は、
+フル
+の権限レベルを選択します。
+統合固有の権限を設定
+詳細については、
+NetSuiteのドキュメント
+(opens new window)
+を参照して、ロールのカスタマイズや作成、権限の設定について詳細を確認してください。
+#
+統合ロールにWebサービスの権限を割り当てる
+このロールがNetSuiteにログインする機能を持たず、ユーザーがAPIを介してNetSuiteに接続する能力のみを持つ場合は、
+Webサービスのみのロール
+チェックボックスをオンにします。
+該当する場合はWebサービスのみのロールチェックボックスをオンにします
+権限 > セットアップ
+の下で、
+SOAP Webサービス
+と
+REST Webサービス
+の権限を
+フル
+レベルで追加します。
+フルレベルのSOAPおよびREST Webサービスの権限を割り当てます
+#
+統合ロールにトークンベースの認証の権限を割り当てる
+トークンベースの認証の権限
+(opens new window)
+には3つのタイプがあります：
+アクセストークンの管理
+ユーザーアクセストークン
+アクセストークンを使用してログイン
+Workatoでは、ユーザーがトークンベースの認証を介して認証するためには、最低限
+アクセストークンを使用してログイン
+の権限が必要です。統合ユーザーが自分自身の使用のためにアクセストークンを作成および取り消すことができるようにする場合は、ロールに
+ユーザーアクセストークン
+の権限を付与することができます。セキュリティのメンテナンスを向上させるために、統合ユーザーが
+アクセストークンの管理
+の権限を持たないことをお勧めします。
+権限 > セットアップ
+の下で、
+アクセストークンを使用してログイン
+の権限を
+フル
+レベルで追加します。
+アクセストークンを使用してログインの権限を割り当てます
+#
+統合ロールに会社の設定（フルレベル）の権限を割り当てる
+最後に、統合ロールに会社の設定（フルレベル）の権限を追加します。
+会社の設定の権限を割り当てます
+#
+ステップ4. 統合ユーザーの設定
+統合ロールを設定した後、このロールを統合ユーザーに割り当てる必要があります。統合のためには、別のユーザーを作成することをお勧めします。
+このステップのデモを見る
+NetSuiteで、
+セットアップ > ユーザー/ロール > ユーザーの管理
+に移動して、既存のユーザーを編集するか、新しいユーザーを作成します。
+セットアップ > ユーザー/ロール > ユーザーの管理に移動
+ユーザーを編集する場合は、
+アクセス
+タブの下で、このユーザーに先ほど作成/編集した統合ロールを割り当てることを確認してください。
+ユーザーに統合ロールを割り当てる
+#
+ステップ5. アクセストークンの作成
+統合ユーザーのためにアクセストークンを作成することができます。統合ユーザーが
+ユーザーアクセストークン
+の権限を持っている場合、自分自身のトークンを作成および取り消すことができます。統合ユーザーが
+アクセストークンを使用してログイン
+の権限のみを持っている場合は、
+アクセストークンの管理
+の権限を持つユーザーに統合ユーザーのためのアクセストークンを作成してもらう必要があります。
+このステップのデモを見る
+セットアップ > ユーザー/ロール > アクセストークン > 新規
+に移動します。
+NetSuiteで、セットアップ > ユーザー/ロール > アクセストークン > 新規に移動
+各入力について：
+アプリケーション名
+-
+Workato-Production
+ユーザー
+-
+ステップ4
+で作成したユーザー
+ロール
+-
+ステップ3
+で作成し、
+ステップ4
+でユーザーに割り当てたロール
+トークン名
+- NetSuiteのデフォルト名を使用するか、必要に応じて名前を指定します。
+保存をクリックした後、トークンIDを記録してください。
+#
+ステップ6. WorkatoでNetSuiteに接続する
+NetSuiteに接続するために、以下の情報が必要です。
+このステップのデモを見る
+NetSuiteへの接続情報
+アカウントID
+NetSuiteインスタンスのアカウントIDを
+Integration > Web Services Preferences
+から取得します。
+トークンID
+作成したアクセストークンからのトークンID
+トークンシークレット
+作成したアクセストークンからのトークンシークレット
+アカウントのタイムゾーン
+NetSuiteインスタンスのタイムゾーンを選択して、NetSuiteアカウント内の日付が正確に処理されるようにします。NetSuite接続のアクション/トリガーで使用されるすべての日時値は、このタイムゾーンに基づいています。
+読み取り専用フィールドを無視する
+Yesに設定すると、読み取り専用フィールドは作成および更新アクションから省略されます。Noに設定すると、読み取り専用フィールドが作成および更新アクションに表示されます。これらの読み取り専用フィールドを作成または更新しようとすると、エラーが発生します。
+高度な設定
+Workatoのデフォルトの統合レコードを上書きするために使用できるConsumerキーとConsumerシークレットが含まれています。あまり使用されません。
+Last updated:
+2024/2/13 16:59:53
+On this page
+ステップ1. NetSuiteインスタンスでWebサービスアクセスを有効にする
+ステップ2. WorkatoのSuiteAppをインストールする
+ステップ3. 統合のために必要な権限レベルを持つ統合ロールを作成する
+ステップ4. 統合ユーザーの設定
+ステップ5. アクセストークンの作成
+ステップ6. WorkatoでNetSuiteに接続する
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

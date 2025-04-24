@@ -1,0 +1,146 @@
+Workato connectors - Marketo new lead activity trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Marketo
+#
+New lead activity trigger (batch)
+This trigger detects new lead activities in your Marketo instance. It checks for new activities once every poll interval and Workato processes each activity as a separate job.
+#
+Input fields
+Field
+Description
+Trigger poll interval
+Specify how frequently to check for new events. This field defaults to five minutes if left blank. The minimum value allowed is five minutes.
+When first started, this recipe should pick up events from
+When you start the recipe for the first time, it picks up lead activities from this specified date and time. Learn more about this
+input field
+.
+Activity
+The activity types to monitor. You can select up to ten activities.
+List
+The list to monitor for lead activities. If empty, lead activities from all lists are included.
+Enrich lead data
+If you select
+Yes
+, the trigger output performs additional requests to supplement each activity record with the associated lead data. Select
+No
+to exclude lead enrichment requests to reduce the number of API requests.
+#
+Output fields
+Field
+Description
+First lead ID
+The unique identifier of the first lead in the list.
+Last lead ID
+The unique identifier of the last lead in the list.
+Activities
+A list containing details about each lead activity.
+←
+New Marketo self service flow step trigger (real-time)
+New lead in list trigger
+→
+Last updated:
+10/2/2024, 3:53:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

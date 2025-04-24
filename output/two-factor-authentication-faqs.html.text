@@ -1,0 +1,160 @@
+Two-factor authentication FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Organization & workspaces
+Workspaces
+#
+Two-factor authentication FAQs
+Get answers to frequently asked questions (FAQs) about two-factor authentication (2FA).
+What is 2FA?
+2FA
+is a security measure that requires two separate methods of verifying your identity when signing into your Workato account. It combines something you know (ID and password) with something you have (an authenticator app on your phone) to enhance security.
+Which authenticator apps are compatible with Workato?
+Workato supports
+authentication through popular mobile apps
+on both iOS and Android devices, including:
+Google Authenticator
+Authy
+Microsoft Authenticator
+How do I get a new recovery code?
+Recovery codes
+are alphanumeric strings unique to your Workato account. They can be used to verify your identity in place of the 6-digit verification code. Each recovery code can be used only once. Store them securely.
+To generate a new recovery code:
+1
+Sign in to Workato and select
+My profile
+.
+2
+Select
+Two-factor authentication > View recovery codes > Regenerate recovery codes
+.
+What should I do if I've lost my authentication device (phone or laptop) or changed devices?
+If you've
+lost your authentication device
+, you can still access your Workato account by using a recovery code. However, resetting your 2FA settings after signing in is recommended to prevent unauthorized access through the lost device.
+What should I do if I've lost my recovery codes?
+If you've
+lost your recovery codes
+, you can retrieve them from your 2FA setup in
+My profile > Two-factor authentication
+. Make sure to store them securely in a separate location from your authenticator app.
+Can I temporarily disable Two-Factor Authentication for trusted devices?
+Yes, you can temporarily disable 2FA for
+trusted devices
+, such as a secured work laptop. Disabled devices are allowed to sign in without 2FA for 30 days if you select
+Trust this device for 30 days
+during the 2FA setup.
+What should I do if I signed up for Workato using Single Sign-On (SSO) and don't have a password?
+If you signed up with SSO or your workspace is transitioning from SAML SSO to 2FA and you don't have a
+password
+, complete the following steps:
+1
+Navigate to the Workato login page and click the
+Forgot password
+link.
+2
+Complete the prompts to reset your password through your email.
+←
+Enable 2FA
+Data masking
+→
+Last updated:
+5/29/2024, 4:39:21 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,179 @@
+Workato connectors - Splunk | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Splunk
+Splunk
+(opens new window)
+is software that enables monitoring, reporting, and analyzing of real-time data to deliver operational intelligence for security, IT, and business.
+#
+Working with the Splunk connector
+#
+Run query action
+This action lets you run an ad hoc query in your Splunk instance, from a Workato recipe. We cover the input fields in this action in the following segments:
+Output field list
+Search query
+Earliest/latest time
+#
+Output field list
+Every Splunk query has an expected response. When working with Splunk queries on Workato, you will need to define this response as output schema for the function being called. This output schema defined will be used to build the
+output datatree
+for the action. This datatree allows you to map the variables returned from the Splunk query in subsequent recipe actions.
+Response body input field
+There are 2 ways to define this output schema:
+Add individual fields
+Use sample JSON
+#
+1. Add individual fields
+Select
++ Add new field
+to bring up the following schema designer widget.
+Schema designer widget (Single field)
+Define the field name and type for each field returned from this search. Select
+Add field
+to update the output schema with this new field.
+#
+2. Use sample JSON
+Select
+generate from JSON sample
+to bring up the following schema designer widget.
+Schema designer widget (JSON)
+If you have a sample JSON response for your query, you can simply paste it in the widget to generate the output datatree. The schema will be automatically generated into the Workato schema definition structure. An example JSON is as follows.
+{
+"category"
+:
+"sales"
+,
+"count"
+:
+63
+,
+"percent"
+:
+29.71
+}
+#
+Search query
+Provide the Splunk query to run here. Refer to the
+Search Tutorial
+(opens new window)
+by Splunk for more details.
+#
+Earliest/latest time
+Events stored in Splunk are saved together with its timestamp (time when the event occurred) as the default field
+_time
+in UNIX time notation. Search queries generally contain a time period
+earliest
+or
+latest
+, to search for events with timestamp beginning/ending, or between the specified timestamps.
+Refer to the
+Time Modifiers Documentation
+(opens new window)
+by Splunk for more details.
+←
+New/updated row trigger
+SQL Server
+→
+Last updated:
+7/2/2021, 8:43:36 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

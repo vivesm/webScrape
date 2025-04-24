@@ -1,0 +1,141 @@
+OpenAI - テキスト埋め込みの生成アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+OpenAI
+#
+テキスト埋め込みの生成
+テキスト埋め込みは、テキストデータを数値ベクトルとして表現するための技術です。深層ニューラルネットワークを使用して、大量のテキストデータのパターンを学習し、テキストの意味と文脈を捉えたベクトル表現を生成します。これらのベクトルは、感情分析、テキスト分類、テキストの類似性など、さまざまな自然言語処理のタスクに使用されます。テキスト埋め込みの生成は、他の機械学習タスクの前段階として一般的に使用されます。詳細な情報は
+こちら
+(opens new window)
+を参照してください。
+テキスト埋め込みの生成アクション
+#
+入力
+フィールド
+説明
+入力
+埋め込みを取得するテキストを入力してください。入力は8192トークン（約6000単語）を超えてはいけません。
+モデル
+テキストを送信して埋め込みを取得するためのOpenAIモデルを選択してください。
+ユーザー
+OpenAIが監視および悪用の検出を支援するための、あなたのエンドユーザーを表す一意の識別子です。
+#
+出力
+フィールド
+説明
+オブジェクト
+データ値のオブジェクトのタイプです。通常、これは単一の値を持つリストです。
+モデル
+テキスト埋め込みに使用されるモデルです。
+埋め込み
+入力したテキストの埋め込みスコアを含むリストです。これは通常、別の機械学習モデルと組み合わせて使用されます。複数の入力が提供された場合、埋め込みの配列が返されます。
+使用法
+プロンプトトークン
+プロンプトによって使用されるトークンの数です。
+トータルトークン
+プロンプトとレスポンスによって使用されるトークンの総数です。
+←
+画像生成
+ChatGPTへのメッセージ送信
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

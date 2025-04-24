@@ -1,0 +1,146 @@
+Connectors - Databricks | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Databricks
+Databricksは、スケールでデータソリューションを構築、展開、共有、および維持するためのツールを提供するエンタープライズグレードのプラットフォームです。Databricksコネクタを使用すると、Databricksからデータを取得し、Amplitude、Netsuiteなどの他のアプリケーションに送信することができます。
+Databricksに接続する
+#
+WorkatoでDatabricksに接続する方法
+Databricksコネクタは、ユーザー名とパスワードまたはパーソナルアクセストークンを使用してDatabricksと認証します。
+Databricksに接続するには、次のフィールドに入力してください：
+接続名
+このDatabricks接続に一意の名前を付けて、接続されているDatabricksサーバーを識別します。
+サーバーホスト名
+サーバーの名前を入力してください。
+サンプル値：
+example.cloud.databricks.com
+HTTPパス
+HTTPパスを入力してください。
+サンプル値：
+sql/protocolv1/o/3957355953478232/0710-102114-bfnouzcv
+ポート
+サーバーが実行されているポート番号です。
+デフォルト値：
+443
+カタログ
+この接続のカタログを選択してください。
+デフォルト値：
+hive_metastore
+スキーマ
+この接続のスキーマを選択してください。
+デフォルト値：
+default
+データベースのタイムゾーン
+データベースのタイムゾーンを選択してください。Workatoは、挿入および取得時にタイムスタンプをこのタイムゾーンに変換します。
+デフォルト値：
+UTC
+認証タイプ
+認証タイプを選択してください。利用可能なオプションには、ユーザー名とパスワード、パーソナルアクセストークンがあります。
+追加の情報
+以下のガイドを読むことで、Databricksコネクタの使用方法を学ぶことができます。
+カスタムSQL（バッチ）トリガーを使用した新しい行の作成
+新しい行（バッチ）トリガー
+新しい/更新された行（バッチ）トリガー
+←
+統合アクション
+新しい行（バッチ）トリガー
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,162 @@
+Workato connectors - Cisco Webex Teams Post message action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Cisco Webex Teams
+#
+Post message action
+This action posts a message in a specified room or to a specific person in Cisco Webex Teams.
+#
+Input fields
+Field
+Description
+Room name
+Select the room where you plan to post the message. You can choose from a list of rooms or use a specific room ID.
+Alternate text
+Enter alternate text for the message. Required if
+Message
+is left blank.
+Message
+Enter the text content of the message. Required if
+Alternate text
+is left blank.
+Refer to the Webex
+buttons and cards
+(opens new window)
+documentation to learn how to design a message using blocks.
+#
+Output fields
+Field
+Description
+Room type
+The type of the room where the message was posted.
+HTML
+The HTML content of the message.
+Message ID
+The unique ID of the message.
+Person ID
+The ID of the person who sent the message.
+Person email
+The email address of the person who sent the message.
+Room ID
+The ID of the room where the message was posted.
+Message
+The text content of the message.
+Markdown
+The Markdown content of the message.
+Attachments
+An array of attachments included in the message.
+Recipient ID
+The ID of the recipient for private messages.
+Recipient email
+The email address of the recipient for private messages.
+Created
+The timestamp when the message was created.
+←
+Get room details action
+Update room action
+→
+Last updated:
+12/12/2024, 6:43:50 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

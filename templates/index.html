@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebScrape Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>WebScrape Dashboard</h1>
+        <button id="quit-app" class="btn btn-danger">Quit Application</button>
+    </header>
+    
+    <div class="test-mode-info">
+        <p>Use the <strong>Test Mode</strong> button for a quick 2-page test instead of running a full scrape. Test mode uses your current form settings but only processes 2 pages total.</p>
+        <button class="close-info">&times;</button>
+    </div>
+
+    <div class="container">
+        <div class="dashboard">
+            <!-- Configuration & Status Section -->
+            <div class="section-full-width">
+                <div class="card-header section-header">
+                    <h2>Configuration & Status</h2>
+                </div>
+                <div class="section-cards">
+                    <!-- Start New Job Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Start New Job</h2>
+                        </div>
+                        <div class="card-body">
+                            <form id="scrape-form">
+                                <div class="form-group">
+                                    <label for="base-url">Base URL:</label>
+                                    <input type="url" id="base-url" name="base_url" required placeholder="https://example.com">
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="output-format">Output Format:</label>
+                                        <select id="output-format" name="output_format">
+                                            <option value="text">Text</option>
+                                            <option value="pdf">PDF</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="max-depth">Max Depth:</label>
+                                        <input type="number" id="max-depth" name="max_depth" value="1" min="0" max="5">
+                                    </div>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="same-domain">Domain Restriction:</label>
+                                        <select id="same-domain" name="same_domain_only">
+                                            <option value="true">Same Domain Only</option>
+                                            <option value="false">Follow All Links</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="concurrency">Concurrency:</label>
+                                        <input type="number" id="concurrency" name="concurrency" value="2" min="1" max="10">
+                                    </div>
+                                </div>
+                                
+                                <div class="option-group">
+                                    <div class="form-group checkbox-group">
+                                        <input type="checkbox" id="test-mode-checkbox" name="test">
+                                        <label for="test-mode-checkbox">Test Mode</label>
+                                    </div>
+                                    
+                                    <div class="form-group test-count-container" style="display: none;">
+                                        <label for="test-count">Number of Test Files:</label>
+                                        <input type="number" id="test-count" name="test_count" value="2" min="1" max="10">
+                                    </div>
+                                </div>
+                                
+                                <div class="option-group">
+                                    <div class="form-group checkbox-group">
+                                        <input type="checkbox" id="enable-rag" name="enable_rag">
+                                        <label for="enable-rag">Enable RAG Processing</label>
+                                    </div>
+                                    
+                                    <div class="form-group checkbox-group">
+                                        <input type="checkbox" id="enable-streaming" name="enable_streaming" checked>
+                                        <label for="enable-streaming">Enable Streaming Processing (2.2x faster)</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stream-buffer">Stream Buffer Size (KB):</label>
+                                        <input type="number" id="stream-buffer" name="stream_buffer" value="1024" min="256" max="8192">
+                                    </div>
+                                </div>
+                                
+                                <div class="option-group">
+                                    <div class="form-group">
+                                        <label for="language-filter">Language Filter:</label>
+                                        <select id="language-filter" name="language">
+                                            <option value="">All Languages</option>
+                                            <option value="en">English Only</option>
+                                            <option value="ja">Japanese Only</option>
+                                            <option value="fr">French Only</option>
+                                            <option value="es">Spanish Only</option>
+                                            <option value="de">German Only</option>
+                                            <option value="zh">Chinese Only</option>
+                                            <option value="ko">Korean Only</option>
+                                            <option value="ru">Russian Only</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group language-info">
+                                        <div class="info-icon">ⓘ</div>
+                                        <div class="info-text">Filter will only download pages in the selected language</div>
+                                    </div>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="submit" class="btn btn-success">Start Scraping</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Scraper Status Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Scraper Status</h2>
+                            <span id="status-indicator" class="status-idle">IDLE</span>
+                    <span id="test-indicator" class="test-mode-badge" style="display: none;">TEST MODE</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="metric">
+                                <span class="metric-label">Current Job:</span>
+                                <span id="current-job">None</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">URLs Processed:</span>
+                                <span id="urls-processed">0</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Files Saved:</span>
+                                <span id="files-saved">0</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Progress:</span>
+                                <span id="progress-percent">0%</span>
+                            </div>
+                            <div class="progress-container">
+                                <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Elapsed Time:</span>
+                                <span id="elapsed-time">00:00:00</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Estimated Time Remaining:</span>
+                                <span id="time-remaining">--:--:--</span>
+                            </div>
+                            <div class="scan-progress">
+                                <h3>Current Files</h3>
+                                <div id="file-progress" class="file-progress">
+                                    <!-- File items will be added here -->
+                                    <div class="loading">No files being processed...</div>
+                                </div>
+                            </div>
+                            <div class="action-buttons">
+                                <button id="stop-job" class="btn btn-danger" style="display: none;">Stop Job</button>
+                                <button id="force-stop" class="btn btn-danger" style="display: none; margin-left: 5px;">Force Stop</button>
+                                <button id="open-output" class="btn btn-secondary">Open Files Folder</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource Usage Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Resource Usage</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="gauge-container">
+                                <div class="gauge">
+                                    <div>CPU</div>
+                                    <div class="progress-container">
+                                        <div id="cpu-gauge" class="progress-bar" style="width: 0%;"></div>
+                                    </div>
+                                    <div id="cpu-value" class="gauge-value">0%</div>
+                                </div>
+                                <div class="gauge">
+                                    <div>Memory</div>
+                                    <div class="progress-container">
+                                        <div id="memory-gauge" class="progress-bar" style="width: 0%;"></div>
+                                    </div>
+                                    <div id="memory-value" class="gauge-value">0MB</div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Active Browsers:</span>
+                                <span id="active-browsers">0</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Network Usage:</span>
+                                <span id="network-usage">0 KB/s</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Section -->
+            <div class="section-full-width">
+                <div class="card-header section-header">
+                    <h2>Content & Logs</h2>
+                </div>
+                <div class="section-cards">
+                    <!-- Downloaded Files & Content Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Downloaded Files</h2>
+                            <div class="card-actions">
+                                <button id="refresh-downloads" class="btn">↻</button>
+                                <button id="delete-selected" class="btn btn-danger" style="display: none;">Delete Selected</button>
+                                <button id="flush-downloads" class="btn btn-danger">Flush All</button>
+                                <button id="open-files-folder" class="btn btn-secondary">Open Folder</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="simple-content">
+                                <div id="output-files">
+                                    <h3>Downloaded Files</h3>
+                                    <div class="output-files-list">
+                                        <!-- Files will be listed here -->
+                                        <div class="loading">Loading files from disk...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logs Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Logs</h2>
+                            <div class="card-actions">
+                                <button id="copy-logs" class="btn btn-secondary">Copy Logs</button>
+                                <button id="clear-logs" class="btn btn-danger">Clear</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="logs" class="log-container">
+                                <!-- Logs will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // Chart code removed
+
+        // Real data API calls
+        async function fetchStatus() {
+            try {
+                const response = await fetch('/api/status');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching status:', error);
+                return {};
+            }
+        }
+
+        async function fetchLogs() {
+            try {
+                const response = await fetch('/api/logs');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching logs:', error);
+                return [];
+            }
+        }
+
+        async function fetchJobs() {
+            try {
+                const response = await fetch('/api/jobs');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching jobs:', error);
+                return [];
+            }
+        }
+
+        async function stopJob() {
+            try {
+                const response = await fetch('/api/stop', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error stopping job:', error);
+                return { status: 'error' };
+            }
+        }
+
+        // Update dashboard with real data
+        async function fetchProcessedFiles() {
+            try {
+                const response = await fetch('/api/processed_files');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching processed files:', error);
+                return [];
+            }
+        }
+        
+        async function fetchOutputFiles() {
+            try {
+                const response = await fetch('/api/output_files');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching output files:', error);
+                return [];
+            }
+        }
+
+        async function updateOutputFiles() {
+            const files = await fetchOutputFiles();
+            const filesContainer = document.querySelector('.output-files-list');
+            
+            if (files.length === 0) {
+                filesContainer.innerHTML = '<div class="loading">No output files found.</div>';
+                return;
+            }
+            
+            filesContainer.innerHTML = '';
+            
+            files.forEach(file => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-list-item';
+                
+                // Determine file icon
+                let fileIcon = '📄';
+                if (file.file_type === 'pdf') {
+                    fileIcon = '📕';
+                } else if (file.file_type === 'text') {
+                    fileIcon = '📝';
+                }
+                
+                // Format timestamp
+                const timestamp = file.last_modified ? new Date(file.last_modified).toLocaleString() : 'Unknown time';
+                
+                fileItem.innerHTML = `
+                    <div class="file-list-icon">${fileIcon}</div>
+                    <div class="file-list-details">
+                        <div class="file-list-name">${file.filename}</div>
+                        <div class="file-list-info">${file.size_formatted}</div>
+                        <div class="file-list-time">${timestamp}</div>
+                    </div>
+                    <div class="file-list-actions">
+                        <button class="btn btn-secondary open-file" data-path="${file.file_path}">Open</button>
+                    </div>
+                `;
+                
+                filesContainer.appendChild(fileItem);
+            });
+            
+            // Add click event listeners to open file buttons
+            filesContainer.querySelectorAll('.open-file').forEach(button => {
+                button.addEventListener('click', async function() {
+                    const filePath = this.getAttribute('data-path');
+                    if (!filePath) return;
+                    
+                    try {
+                        // Open the output directory with the file
+                        const response = await fetch('/api/open_output', {
+                            method: 'POST'
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error('Failed to open output directory');
+                        }
+                        
+                        console.log('Output directory opened to view file:', filePath);
+                    } catch (e) {
+                        console.error('Error opening file:', e);
+                    }
+                });
+            });
+        }
+        
+        async function updateDashboard() {
+            const status = await fetchStatus();
+            const statusIndicator = document.getElementById('status-indicator');
+            const stopJobButton = document.getElementById('stop-job');
+            
+            // Update output files list (simplified)
+            await updateOutputFiles();
+            
+            if (status.status === 'active' && status.current_job) {
+                // Update status indicator
+                statusIndicator.textContent = 'RUNNING';
+                statusIndicator.className = 'status-success';
+                stopJobButton.style.display = 'inline-block';
+                
+                // Show force stop button after 30 seconds of job running
+                const forceStopButton = document.getElementById('force-stop');
+                const jobStartTime = new Date(status.current_job.start_time);
+                const now = new Date();
+                const jobRunTime = (now - jobStartTime) / 1000; // in seconds
+                
+                if (jobRunTime > 30) {
+                    forceStopButton.style.display = 'inline-block';
+                } else {
+                    forceStopButton.style.display = 'none';
+                }
+                
+                // Show test mode indicator if test mode is active
+                const testIndicator = document.getElementById('test-indicator');
+                if (status.current_job.parameters && status.current_job.parameters.test_mode) {
+                    testIndicator.style.display = 'inline-block';
+                    testIndicator.textContent = `TEST MODE (${status.current_job.parameters.test_count} PAGES)`;
+                } else {
+                    testIndicator.style.display = 'none';
+                }
+                
+                // Update metrics
+                const progress = status.metrics.progress || 0;
+                document.getElementById('current-job').textContent = status.current_job.url || 'Unknown';
+                document.getElementById('urls-processed').textContent = status.metrics.urls_processed || 0;
+                document.getElementById('files-saved').textContent = status.metrics.files_saved || 0;
+                document.getElementById('progress-percent').textContent = `${Math.round(progress)}%`;
+                document.getElementById('progress-bar').style.width = `${progress}%`;
+                document.getElementById('elapsed-time').textContent = status.elapsed_time || '00:00:00';
+                document.getElementById('time-remaining').textContent = status.time_remaining || '--:--:--';
+                
+                // Update resource gauges
+                const cpu = status.system?.cpu || 0;
+                const memory = status.system?.memory.used || 0;
+                document.getElementById('cpu-gauge').style.width = `${cpu}%`;
+                document.getElementById('cpu-value').textContent = `${Math.round(cpu)}%`;
+                document.getElementById('memory-gauge').style.width = `${Math.min(100, memory/5)}%`;
+                document.getElementById('memory-value').textContent = `${Math.round(memory)}MB`;
+                document.getElementById('active-browsers').textContent = status.metrics.active_browsers || 0;
+                
+                // Estimate network usage based on URLs processed
+                document.getElementById('network-usage').textContent = "0 KB/s";
+            } else {
+                statusIndicator.textContent = 'IDLE';
+                statusIndicator.className = 'status-idle';
+                stopJobButton.style.display = 'none';
+                document.getElementById('force-stop').style.display = 'none';
+                
+                // Hide test mode indicator
+                document.getElementById('test-indicator').style.display = 'none';
+            }
+
+            // Update logs
+            const logs = await fetchLogs();
+            updateLogs(logs);
+        }
+        
+        function updateJobsTab(jobs) {
+            const jobsTable = document.getElementById('jobs-table-tab').querySelector('tbody');
+            if (!jobsTable) return;
+            
+            jobsTable.innerHTML = '';
+            
+            jobs.forEach(job => {
+                const newRow = jobsTable.insertRow();
+                
+                const cellUrl = newRow.insertCell(0);
+                const cellStatus = newRow.insertCell(1);
+                const cellFiles = newRow.insertCell(2);
+                const cellTime = newRow.insertCell(3);
+                
+                cellUrl.textContent = job.url || 'Unknown';
+                cellStatus.textContent = job.status || 'Unknown';
+                cellStatus.className = `status-${job.status === 'completed' ? 'success' : job.status === 'error' ? 'error' : 'warning'}`;
+                cellFiles.textContent = job.files || 0;
+                
+                const startTime = job.start_time ? new Date(job.start_time) : null;
+                const endTime = job.end_time ? new Date(job.end_time) : null;
+                
+                if (startTime && endTime) {
+                    const duration = (endTime - startTime) / 1000; // in seconds
+                    const minutes = Math.floor(duration / 60);
+                    const seconds = Math.floor(duration % 60);
+                    cellTime.textContent = `${minutes}m ${seconds}s`;
+                } else if (startTime) {
+                    cellTime.textContent = startTime.toLocaleTimeString();
+                } else {
+                    cellTime.textContent = 'Unknown';
+                }
+            });
+        }
+        
+        function updateLogs(logs) {
+            const logsContainer = document.getElementById('logs');
+            logsContainer.innerHTML = '';
+            
+            // Keep track of URLs being processed based on log entries
+            const processedUrls = new Set();
+            const fileProgressContainer = document.getElementById('file-progress');
+            
+            logs.forEach(log => {
+                const timestamp = log.timestamp ? new Date(log.timestamp).toLocaleTimeString() : '';
+                const message = typeof log === 'string' ? log : log.message;
+                const level = typeof log === 'string' ? 'INFO' : log.level;
+                
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry log-${level?.toLowerCase()}`;
+                logEntry.innerHTML = `[${timestamp}] ${message}`;
+                logsContainer.appendChild(logEntry);
+                
+                // Extract URL and filename for file progress display
+                if (typeof message === 'string' && message.includes('Processing') && message.includes('->')) {
+                    try {
+                        const parts = message.split('Processing ')[1].split(' -> ');
+                        const url = parts[0].trim();
+                        const filename = parts[1].trim();
+                        
+                        processedUrls.add(url);
+                        
+                        // Create a file preview item if not already exists
+                        if (!document.querySelector(`.file-preview-item[data-url="${url}"]`)) {
+                            let fileIcon = '📄';
+                            if (filename.endsWith('.pdf')) {
+                                fileIcon = '📕';
+                            } else if (filename.endsWith('.text') || filename.endsWith('.txt')) {
+                                fileIcon = '📝';
+                            }
+                            
+                            const fileItem = document.createElement('div');
+                            fileItem.className = 'file-preview-item processing';
+                            fileItem.dataset.url = url;
+                            fileItem.innerHTML = `
+                                <span class="file-icon">${fileIcon}</span>
+                                <span class="file-name" title="${filename}">${filename.split('/').pop()}</span>
+                                <span class="file-status">Processing...</span>
+                            `;
+                            
+                            // Keep max 5 file items
+                            if (fileProgressContainer.querySelectorAll('.file-preview-item').length >= 5) {
+                                const oldItems = fileProgressContainer.querySelectorAll('.file-preview-item:not(.completed)');
+                                if (oldItems.length > 0) {
+                                    oldItems[0].remove();
+                                }
+                            }
+                            
+                            // Remove loading message if present
+                            const loadingMsg = fileProgressContainer.querySelector('.loading');
+                            if (loadingMsg) {
+                                loadingMsg.remove();
+                            }
+                            
+                            fileProgressContainer.appendChild(fileItem);
+                        }
+                    } catch (e) {
+                        console.error('Error parsing processing log:', e);
+                    }
+                }
+                
+                // Check for completed files
+                if (typeof message === 'string' && message.includes('Saved') && (message.includes('PDF:') || message.includes('text:'))) {
+                    try {
+                        const parts = message.split('Saved ')[1].split(': ');
+                        const fileType = parts[0].trim();
+                        const filename = parts[1].trim();
+                        
+                        // Find the matching file item and mark as completed
+                        const fileItems = document.querySelectorAll('.file-preview-item');
+                        fileItems.forEach(item => {
+                            if (item.querySelector('.file-name').title === filename) {
+                                item.classList.remove('processing');
+                                item.classList.add('completed');
+                                item.querySelector('.file-status').textContent = 'Completed';
+                            }
+                        });
+                    } catch (e) {
+                        console.error('Error parsing saved file log:', e);
+                    }
+                }
+            });
+            
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+        }
+        
+        async function updateProcessedFiles() {
+            const files = await fetchProcessedFiles();
+            const filesContainer = document.getElementById('processed-files');
+            
+            if (files.length === 0) {
+                filesContainer.innerHTML = '<div class="loading">No processed files yet.</div>';
+                return;
+            }
+            
+            filesContainer.innerHTML = '';
+            
+            // Display the most recent files first
+            const recentFiles = files.slice().reverse();
+            
+            recentFiles.forEach(file => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-list-item';
+                
+                // Determine file icon
+                let fileIcon = '📄';
+                if (file.file_path) {
+                    if (file.file_path.endsWith('.pdf')) {
+                        fileIcon = '📕';
+                    } else if (file.file_path.endsWith('.text') || file.file_path.endsWith('.txt')) {
+                        fileIcon = '📝';
+                    }
+                }
+                
+                // Get file name
+                const fileName = file.filename || (file.file_path ? file.file_path.split('/').pop() : 'Unknown file');
+                
+                // Format timestamp
+                const timestamp = file.completion_time ? new Date(file.completion_time).toLocaleString() : 'Unknown time';
+                
+                fileItem.innerHTML = `
+                    <div class="file-list-icon">${fileIcon}</div>
+                    <div class="file-list-details">
+                        <div class="file-list-name">${fileName}</div>
+                        <div class="file-list-url" title="${file.url}">${file.url}</div>
+                        <div class="file-list-time">${timestamp}</div>
+                    </div>
+                    <div class="file-list-actions">
+                        <button class="btn btn-secondary open-file" data-path="${file.file_path}">Open</button>
+                    </div>
+                `;
+                
+                filesContainer.appendChild(fileItem);
+            });
+            
+            // Add click event listeners to open file buttons
+            filesContainer.querySelectorAll('.open-file').forEach(button => {
+                button.addEventListener('click', async function() {
+                    const filePath = this.getAttribute('data-path');
+                    if (!filePath) return;
+                    
+                    try {
+                        // Open the output directory with the file
+                        const response = await fetch('/api/open_output', {
+                            method: 'POST'
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error('Failed to open output directory');
+                        }
+                        
+                        console.log('Output directory opened to view file:', filePath);
+                    } catch (e) {
+                        console.error('Error opening file:', e);
+                    }
+                });
+            });
+        }
+        
+        function updateJobHistory(jobs) {
+            const jobsTable = document.getElementById('jobs-table').getElementsByTagName('tbody')[0];
+            jobsTable.innerHTML = '';
+            
+            jobs.forEach(job => {
+                const newRow = jobsTable.insertRow();
+                
+                const cellUrl = newRow.insertCell(0);
+                const cellStatus = newRow.insertCell(1);
+                const cellFiles = newRow.insertCell(2);
+                const cellTime = newRow.insertCell(3);
+                
+                cellUrl.textContent = job.url || 'Unknown';
+                cellStatus.textContent = job.status || 'Unknown';
+                cellStatus.className = `status-${job.status === 'completed' ? 'success' : job.status === 'error' ? 'error' : 'warning'}`;
+                cellFiles.textContent = job.files || 0;
+                
+                const startTime = job.start_time ? new Date(job.start_time) : null;
+                const endTime = job.end_time ? new Date(job.end_time) : null;
+                
+                if (startTime && endTime) {
+                    const duration = (endTime - startTime) / 1000; // in seconds
+                    const minutes = Math.floor(duration / 60);
+                    const seconds = Math.floor(duration % 60);
+                    cellTime.textContent = `${minutes}m ${seconds}s`;
+                } else if (startTime) {
+                    cellTime.textContent = startTime.toLocaleTimeString();
+                } else {
+                    cellTime.textContent = 'Unknown';
+                }
+            });
+        }
+        
+        // Update dashboard every 2 seconds
+        setInterval(updateDashboard, 2000);
+        
+        // Save form settings to localStorage
+        function saveSettings() {
+            const form = document.getElementById('scrape-form');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Special handling for checkboxes
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                data[checkbox.name] = checkbox.checked;
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('webScrapeSettings', JSON.stringify(data));
+            console.log('Settings saved:', data);
+        }
+        
+        // Load settings from localStorage
+        function loadSavedSettings() {
+            const savedSettings = localStorage.getItem('webScrapeSettings');
+            if (!savedSettings) return;
+            
+            try {
+                const settings = JSON.parse(savedSettings);
+                const form = document.getElementById('scrape-form');
+                
+                // Fill form fields with saved values
+                for (const key in settings) {
+                    const input = form.querySelector(`[name="${key}"]`);
+                    if (!input) continue;
+                    
+                    if (input.type === 'checkbox') {
+                        input.checked = Boolean(settings[key]);
+                    } else {
+                        input.value = settings[key];
+                    }
+                }
+                
+                // Trigger test mode checkbox change event to show/hide test count field
+                const testModeCheckbox = document.getElementById('test-mode-checkbox');
+                if (testModeCheckbox.checked) {
+                    const testCountContainer = document.querySelector('.test-count-container');
+                    testCountContainer.style.display = 'block';
+                }
+                
+                console.log('Settings loaded:', settings);
+            } catch (error) {
+                console.error('Error loading settings:', error);
+            }
+        }
+        
+        // Form submission
+        document.getElementById('scrape-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Save settings before submitting
+            saveSettings();
+            
+            try {
+                const response = await fetch('/api/start', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to start job');
+                }
+                
+                const result = await response.json();
+                console.log('Job started:', result);
+                
+                // Add log entry
+                const logs = document.getElementById('logs');
+                logs.innerHTML += `<div class="log-entry">[${new Date().toLocaleTimeString()}] Starting new job: ${data.base_url}</div>`;
+                logs.scrollTop = logs.scrollHeight;
+                
+                // Don't reset form to keep settings
+                // this.reset();
+                
+                // Force update
+                updateDashboard();
+                
+            } catch (error) {
+                console.error('Error starting job:', error);
+                alert('Failed to start job: ' + error.message);
+            }
+        });
+        
+        // Stop job button
+        document.getElementById('stop-job').addEventListener('click', async function() {
+            if (!confirm('Are you sure you want to stop the current job?')) {
+                return;
+            }
+            
+            const result = await stopJob();
+            console.log('Job stopped:', result);
+            
+            // Force update
+            updateDashboard();
+        });
+        
+        // Test mode checkbox handler
+        document.getElementById('test-mode-checkbox').addEventListener('change', function() {
+            // Toggle the test count field visibility
+            const testCountContainer = document.querySelector('.test-count-container');
+            testCountContainer.style.display = this.checked ? 'block' : 'none';
+            
+            // Save settings on change
+            saveSettings();
+        });
+        
+        // Save settings when any form field changes
+        const formFields = document.querySelectorAll('#scrape-form input, #scrape-form select');
+        formFields.forEach(field => {
+            field.addEventListener('change', function() {
+                saveSettings();
+            });
+        });
+        
+        // Clear logs button
+        document.getElementById('clear-logs').addEventListener('click', function() {
+            document.getElementById('logs').innerHTML = '';
+        });
+        
+        // Copy logs button
+        document.getElementById('copy-logs').addEventListener('click', function() {
+            const logsContainer = document.getElementById('logs');
+            const logText = Array.from(logsContainer.querySelectorAll('.log-entry'))
+                .map(entry => entry.textContent)
+                .join('\n');
+            
+            // Create a temporary textarea to copy the text
+            const textarea = document.createElement('textarea');
+            textarea.value = logText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                // Show a success message
+                alert('Logs copied to clipboard!');
+            } catch (e) {
+                console.error('Error copying logs:', e);
+                alert('Failed to copy logs: ' + e);
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        });
+        
+        // Open output directory button
+        document.getElementById('open-output').addEventListener('click', async function() {
+            try {
+                const response = await fetch('/api/open_output', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                if (!data.success) {
+                    throw new Error(data.error || 'Unknown error');
+                }
+                
+                console.log('Output directory opened:', data.message);
+            } catch (e) {
+                console.error('Error opening output directory:', e);
+                alert('Failed to open output directory: ' + e);
+            }
+        });
+        
+        // Processed files buttons
+        document.getElementById('refresh-files').addEventListener('click', function() {
+            updateProcessedFiles();
+        });
+        
+        // Initialize the tabs system by showing the first tab as active
+        document.getElementById('downloads-tab').style.display = 'block';
+        
+        // Initialize output files list
+        updateOutputFiles();
+        
+        document.getElementById('open-files-folder').addEventListener('click', async function() {
+            try {
+                const response = await fetch('/api/open_output', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                if (!data.success) {
+                    throw new Error(data.error || 'Unknown error');
+                }
+                
+                console.log('Output directory opened:', data.message);
+            } catch (e) {
+                console.error('Error opening output directory:', e);
+                alert('Failed to open output directory: ' + e);
+            }
+        });
+        
+        // Force stop button
+        document.getElementById('force-stop').addEventListener('click', async function() {
+            if (!confirm('Are you sure you want to FORCE STOP all processes? This will terminate all browser instances and may result in data loss.')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/force_stop', {
+                    method: 'POST'
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to force stop job');
+                }
+                
+                const result = await response.json();
+                console.log('Job force stopped:', result);
+                
+                // Add log entry
+                const logs = document.getElementById('logs');
+                logs.innerHTML += `<div class="log-entry log-warning">[${new Date().toLocaleTimeString()}] Job force stopped - all browser processes terminated</div>`;
+                logs.scrollTop = logs.scrollHeight;
+                
+                // Force update
+                updateDashboard();
+            } catch (e) {
+                console.error('Error force stopping job:', e);
+                alert('Error: ' + e.message);
+            }
+        });
+        
+        // Load saved settings
+        loadSavedSettings();
+        
+        // Initialize dashboard
+        updateDashboard();
+        
+        // Info box close button
+        document.querySelector('.close-info').addEventListener('click', function() {
+            document.querySelector('.test-mode-info').style.display = 'none';
+        });
+        
+        // Setup Server-Sent Events for real-time updates
+        const evtSource = new EventSource('/api/events');
+        evtSource.onmessage = function(event) {
+            try {
+                const data = JSON.parse(event.data);
+                
+                // Handle different event types
+                if (data.type === 'file_progress') {
+                    updateFileProgress(data.data);
+                } else if (data.type === 'processed_files') {
+                    // Update processed files immediately
+                    updateProcessedFiles();
+                    // Also update output files list
+                    updateOutputFiles();
+                } else if (data.type === 'save_url') {
+                    // Save URL to form
+                    const urlField = document.getElementById('base-url');
+                    if (urlField && data.url) {
+                        urlField.value = data.url;
+                        saveSettings(); // Also save to localStorage
+                    }
+                } else if (data.type === 'job_completed') {
+                    // Job has completed - force an immediate dashboard update
+                    updateDashboard();
+                    // Show completed message to user
+                    const logs = document.getElementById('logs');
+                    logs.innerHTML += `<div class="log-entry log-success">[${new Date().toLocaleTimeString()}] Job completed successfully!</div>`;
+                    logs.scrollTop = logs.scrollHeight;
+                } else if (data.type === 'log') {
+                    // New log received - we'll get these on next fetch anyway
+                } else if (data.type === 'metric') {
+                    // Update specific metric value immediately
+                    if (data.name === 'urls_processed') {
+                        document.getElementById('urls-processed').textContent = data.value;
+                    } else if (data.name === 'files_saved') {
+                        document.getElementById('files-saved').textContent = data.value;
+                    }
+                }
+            } catch (e) {
+                console.error('Error parsing SSE event:', e);
+            }
+        };
+        
+        // Handle file progress updates
+        function updateFileProgress(files) {
+            const fileProgressContainer = document.getElementById('file-progress');
+            
+            // Clear loading message if present
+            const loadingMsg = fileProgressContainer.querySelector('.loading');
+            if (loadingMsg && files.length > 0) {
+                loadingMsg.remove();
+            }
+            
+            // Optional: complete refresh of file items
+            if (files.length > 0) {
+                // Show up to 5 most recent files
+                const recentFiles = files.slice(-5);
+                
+                recentFiles.forEach(fileInfo => {
+                    const existingItem = document.querySelector(`.file-preview-item[data-url="${fileInfo.url}"]`);
+                    
+                    if (existingItem) {
+                        // Update existing item
+                        existingItem.className = `file-preview-item ${fileInfo.status}`;
+                        existingItem.querySelector('.file-status').textContent = 
+                            fileInfo.status.charAt(0).toUpperCase() + fileInfo.status.slice(1);
+                    } else {
+                        // Create new item
+                        const filename = fileInfo.file_path.split('/').pop();
+                        let fileIcon = '📄';
+                        if (fileInfo.file_path.endsWith('.pdf')) {
+                            fileIcon = '📕';
+                        } else if (fileInfo.file_path.endsWith('.text') || fileInfo.file_path.endsWith('.txt')) {
+                            fileIcon = '📝';
+                        }
+                        
+                        const fileItem = document.createElement('div');
+                        fileItem.className = `file-preview-item ${fileInfo.status}`;
+                        fileItem.dataset.url = fileInfo.url;
+                        fileItem.innerHTML = `
+                            <span class="file-icon">${fileIcon}</span>
+                            <span class="file-name" title="${fileInfo.file_path}">${filename}</span>
+                            <span class="file-status">${fileInfo.status.charAt(0).toUpperCase() + fileInfo.status.slice(1)}</span>
+                        `;
+                        
+                        // Keep max 5 file items
+                        if (fileProgressContainer.querySelectorAll('.file-preview-item').length >= 5) {
+                            const oldItems = fileProgressContainer.querySelectorAll('.file-preview-item:not(.completed)');
+                            if (oldItems.length > 0) {
+                                oldItems[0].remove();
+                            }
+                        }
+                        
+                        fileProgressContainer.appendChild(fileItem);
+                    }
+                });
+            } else if (files.length === 0 && !loadingMsg) {
+                // Show loading message when no files
+                const noFilesMsg = document.createElement('div');
+                noFilesMsg.className = 'loading';
+                noFilesMsg.textContent = 'No files being processed...';
+                fileProgressContainer.appendChild(noFilesMsg);
+            }
+        }
+        
+        // Add URL preview functionality for logs
+        const logsContainer = document.getElementById('logs');
+        logsContainer.addEventListener('click', function(e) {
+            const logEntry = e.target.closest('.log-entry');
+            if (!logEntry) return;
+            
+            // Toggle selected class
+            document.querySelectorAll('.log-entry').forEach(entry => {
+                entry.classList.remove('selected');
+            });
+            logEntry.classList.add('selected');
+            
+            // Extract URL from log message if it exists
+            const logText = logEntry.textContent;
+            const urlMatch = logText.match(/https?:\/\/[^\s]+/);
+            
+            // Clear any existing preview
+            document.querySelectorAll('.log-url-preview').forEach(preview => {
+                preview.remove();
+            });
+            
+            if (urlMatch) {
+                const url = urlMatch[0];
+                const preview = document.createElement('div');
+                preview.className = 'log-url-preview';
+                preview.textContent = `URL: ${url}`;
+                
+                // Check if URL has been downloaded before
+                fetch('/api/downloads/check', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ url })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.downloaded) {
+                        preview.innerHTML += '<br><span style="color: green">✓ Already downloaded</span>';
+                    }
+                });
+                
+                logEntry.after(preview);
+                preview.style.display = 'block';
+            }
+        });
+        
+        // Quit application button
+        document.getElementById('quit-app').addEventListener('click', function() {
+            if (confirm('Are you sure you want to quit the application?')) {
+                fetch('/api/quit', {
+                    method: 'POST'
+                })
+                .then(() => {
+                    document.body.innerHTML = '<div style="text-align: center; padding: 2rem;"><h1>Application shutting down...</h1><p>You can close this window now.</p></div>';
+                })
+                .catch(err => {
+                    console.error('Error quitting application:', err);
+                    alert('Failed to quit application: ' + err);
+                });
+            }
+        });
+        
+        // Downloads management
+        async function fetchDownloads() {
+            try {
+                const response = await fetch('/api/downloads');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch downloads');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Error fetching downloads:', error);
+                return {};
+            }
+        }
+        
+        async function updateDownloadsList() {
+            const container = document.getElementById('domains-container');
+            container.innerHTML = '<div class="loading">Loading downloads...</div>';
+            
+            const downloads = await fetchDownloads();
+            console.log("Downloaded files:", JSON.stringify(downloads));
+            
+            if (Object.keys(downloads).length === 0) {
+                container.innerHTML = '<div class="loading">No downloads yet.</div>';
+                // Hide selection controls
+                document.querySelector('.selection-controls').style.display = 'none';
+                document.getElementById('delete-selected').style.display = 'none';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            // Show selection controls
+            document.querySelector('.selection-controls').style.display = 'flex';
+            
+            // Track all checkboxes for selection functionality
+            window.allUrlCheckboxes = [];
+            
+            for (const domain in downloads) {
+                const domainData = downloads[domain];
+                
+                const domainGroup = document.createElement('div');
+                domainGroup.className = 'domain-group';
+                
+                const domainHeader = document.createElement('div');
+                domainHeader.className = 'domain-header';
+                domainHeader.innerHTML = `
+                    <div class="domain-name">${domain}</div>
+                    <div class="domain-count">${domainData.count}</div>
+                `;
+                
+                const domainLinks = document.createElement('div');
+                domainLinks.className = 'domain-links';
+                
+                // Add domain delete button
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'btn btn-danger btn-sm';
+                deleteBtn.textContent = 'Delete Domain';
+                deleteBtn.style.marginBottom = '0.5rem';
+                deleteBtn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    if (confirm(`Delete all ${domainData.count} URLs for domain "${domain}"?`)) {
+                        const response = await fetch('/api/downloads/delete_domain', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ domain })
+                        });
+                        
+                        if (response.ok) {
+                            updateDownloadsList();
+                        }
+                    }
+                });
+                
+                domainLinks.appendChild(deleteBtn);
+                
+                // Add URL items with checkboxes
+                domainData.urls.forEach(url => {
+                    const urlItem = document.createElement('div');
+                    urlItem.className = 'url-item';
+                    urlItem.dataset.url = url.url;
+                    
+                    const date = new Date(url.timestamp);
+                    const friendlyDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                    
+                    // Create checkbox
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.className = 'url-checkbox';
+                    checkbox.dataset.url = url.url;
+                    
+                    // Add to global tracker
+                    window.allUrlCheckboxes.push(checkbox);
+                    
+                    const urlDetails = document.createElement('div');
+                    urlDetails.className = 'url-details';
+                    urlDetails.innerHTML = `
+                        <div class="url-text">${url.url}</div>
+                        <div class="url-path">${url.file_path}</div>
+                        <div class="url-date">${friendlyDate}</div>
+                    `;
+                    
+                    const urlActions = document.createElement('div');
+                    urlActions.className = 'url-actions';
+                    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.className = 'btn btn-danger btn-sm delete-url';
+                    deleteButton.textContent = 'Delete';
+                    
+                    urlActions.appendChild(deleteButton);
+                    
+                    // Construct item
+                    urlItem.appendChild(checkbox);
+                    urlItem.appendChild(urlDetails);
+                    urlItem.appendChild(urlActions);
+                    
+                    // Make the whole item clickable for checkbox toggle
+                    urlItem.addEventListener('click', (e) => {
+                        // Don't toggle if clicking the delete button
+                        if (e.target === deleteButton || e.target.closest('.delete-url')) {
+                            return;
+                        }
+                        
+                        checkbox.checked = !checkbox.checked;
+                        updateUrlSelection(checkbox);
+                    });
+                    
+                    // Prevent checkbox event from bubbling to avoid double toggle
+                    checkbox.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        updateUrlSelection(checkbox);
+                    });
+                    
+                    // Add delete handler
+                    deleteButton.addEventListener('click', async (e) => {
+                        e.stopPropagation(); // Prevent checkbox toggle
+                        
+                        const response = await fetch('/api/downloads/delete', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ url: url.url })
+                        });
+                        
+                        if (response.ok) {
+                            updateDownloadsList();
+                        }
+                    });
+                    
+                    domainLinks.appendChild(urlItem);
+                });
+                
+                // Toggle domain links visibility
+                domainHeader.addEventListener('click', () => {
+                    domainLinks.classList.toggle('open');
+                });
+                
+                domainGroup.appendChild(domainHeader);
+                domainGroup.appendChild(domainLinks);
+                container.appendChild(domainGroup);
+            }
+            
+            // Initially open all domains for better visibility
+            document.querySelectorAll('.domain-links').forEach(domain => {
+                domain.classList.add('open');
+            });
+            
+            // Setup select all, deselect all buttons
+            setupSelectionControls();
+        }
+        
+        function updateUrlSelection(checkbox) {
+            // Update the URL item's selected state
+            const urlItem = checkbox.closest('.url-item');
+            if (checkbox.checked) {
+                urlItem.classList.add('selected');
+            } else {
+                urlItem.classList.remove('selected');
+            }
+            
+            // Update selection count
+            const selectedCount = document.querySelectorAll('.url-checkbox:checked').length;
+            document.getElementById('selection-count').textContent = `${selectedCount} selected`;
+            
+            // Show/hide delete selected button
+            document.getElementById('delete-selected').style.display = selectedCount > 0 ? 'block' : 'none';
+        }
+        
+        function setupSelectionControls() {
+            // Select all button
+            document.getElementById('select-all').addEventListener('click', () => {
+                window.allUrlCheckboxes.forEach(checkbox => {
+                    checkbox.checked = true;
+                    updateUrlSelection(checkbox);
+                });
+            });
+            
+            // Deselect all button
+            document.getElementById('deselect-all').addEventListener('click', () => {
+                window.allUrlCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                    updateUrlSelection(checkbox);
+                });
+            });
+            
+            // Delete selected button
+            document.getElementById('delete-selected').addEventListener('click', async () => {
+                const selectedCheckboxes = document.querySelectorAll('.url-checkbox:checked');
+                const selectedUrls = Array.from(selectedCheckboxes).map(cb => cb.dataset.url);
+                
+                if (selectedUrls.length === 0) return;
+                
+                if (confirm(`Delete ${selectedUrls.length} selected URLs?`)) {
+                    // Delete URLs one by one
+                    for (const url of selectedUrls) {
+                        await fetch('/api/downloads/delete', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ url })
+                        });
+                    }
+                    
+                    // Refresh the list
+                    updateDownloadsList();
+                }
+            });
+        }
+        
+        // Initialize downloads list
+        updateDownloadsList();
+        
+        // Refresh downloads button 
+        document.getElementById('refresh-downloads').addEventListener('click', function() {
+            // Update files list when refresh is clicked
+            updateOutputFiles();
+        });
+        
+        // Simplified - no more tabs to switch between
+        
+        // Flush downloads button
+        document.getElementById('flush-downloads').addEventListener('click', async function() {
+            if (confirm('Are you sure you want to delete ALL downloaded URL records?')) {
+                const response = await fetch('/api/downloads/flush', {
+                    method: 'POST'
+                });
+                
+                if (response.ok) {
+                    updateDownloadsList();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

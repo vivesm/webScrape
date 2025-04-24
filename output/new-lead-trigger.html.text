@@ -1,0 +1,141 @@
+Workato connectors - Marketo New lead in list trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Marketo
+#
+New lead in list trigger
+This trigger picks up new leads added to a specified list in your Marketo instance. It checks for new leads once every poll interval and Workato processes each lead as a separate job.
+#
+Input fields
+Field
+Description
+Trigger poll interval
+Specify how frequently to check for new events. This field defaults to five minutes if left blank. The minimum value allowed is five minutes.
+List
+Select the list to monitor for new leads.
+Output fields
+Select the fields you plan to use in your recipe. All fields are returned if this field is left blank. However, leaving this field blank isn't recommended as it can result in timeout errors.
+Refer to the Marketo documentation for a
+list of standard fields
+(opens new window)
+available through the API. This list includes common fields but may not cover all input fields specific to this action.
+#
+Output fields
+The output datatree contains information about the lead, including all the fields defined under
+Output fields
+in the trigger configuration. By default, Workato retrieves the
+ID
+.
+Field
+Description
+ID
+The unique identifier of the lead record.
+←
+New lead activity trigger (batch)
+New/updated lead trigger
+→
+Last updated:
+10/2/2024, 3:53:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

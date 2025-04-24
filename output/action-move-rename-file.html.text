@@ -1,0 +1,145 @@
+Workato コネクター - Dropbox - Move/Rename file | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Dropbox
+#
+Dropbox - Move/Rename file (ファイルの移動/名前の変更) アクション
+このアクションでは、Dropbox インスタンス内の既存のファイルを移動するか名前を変更できます。
+ファイルまたはフォルダーの名前を変更するには、パスの最後のファイルまたはフォルダー名を変更します。たとえば、folder 1/file 1.docx を folder 1/file 2.docx に変更します。
+ファイルまたはフォルダーを移動するには、そのファイルまたはフォルダーへのパスを変更します。たとえば、folder 1/file 1.docx を folder 2/file 1.docx に変更します。
+Move/Rename file アクション
+#
+入力項目
+項目名
+説明
+From path
+移動するファイルまたはフォルダーの完全なパス (親フォルダーも含む)。例 : /folder 1/file name.doc
+Destination path
+移動先の完全なパス (親フォルダーも含む)。例 : /folder 2/file name.doc
+#
+出力項目
+項目名
+説明
+ID
+移動または名前が変更されたファイルの ID。
+Name
+移動または名前が変更されたファイルの最新の名前。
+Path
+移動または名前が変更されたファイルの最新のパス。
+Is directory
+これがディレクトリ/フォルダーであるかどうか。
+Rev
+ファイルの現在のリビジョンに対する一意の識別子。
+Bytes
+ファイルサイズ (バイト単位)。
+Size
+ファイルサイズ (文字列形式)。
+Modified
+ファイルが最後に変更された日時。
+Client modified time
+ファイルの Dropbox への追加時に、デスクトップクライアントにより設定された変更時刻。この時刻は検証されていないため (Dropbox サーバーはデスクトップクライアントにより送信された時刻をそのまま保存している)、表示目的 (並べ替えなど) でのみ使用し、ファイルが変更されたかどうかの判断などには使用しないでください。
+←
+ファイルの検索
+ファイルのアップロード
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+入力項目
+出力項目
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

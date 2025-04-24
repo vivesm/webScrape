@@ -1,0 +1,244 @@
+Access the developer portal | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+API platform
+API developer portal
+#
+Access the developer portal
+The developer portal provides everything you need to discover, test, and consume APIs through a streamlined interface. This guide outlines the full client journey, encompassing everything from accepting an invitation to the portal to managing API keys and testing endpoints.
+#
+Invitation and first-time login
+When an admin invites you to the developer portal, you receive an email containing a secure, time-sensitive link. This link remains valid for 24 hours for first-time logins and 30 minutes for subsequent logins.
+You can log in to the developer portal whether you’re accessing it for the first time, returning to the portal, or requesting a new link after your initial one has expired:
+For your first login, click the time-sensitive link provided in the invitation email. If the link is still valid, it redirects you to the portal, where you can click
+Enter portal
+to gain access.
+Invitation email
+After signing in for the first time, you can return to the portal any time by entering your registered email address on the login page. The system sends a new secure link to your inbox for quick access.
+Enter your email to log in to your developer portal
+If the link has expired, enter your email address on the portal login page to request a new link. The system sends a new secure link to your inbox, allowing you to regain access.
+Request a new login link
+After logging in, you can proceed to
+Navigate the developer portal
+.
+#
+Navigate the developer portal
+The portal dashboard serves as your central hub for managing API collections and interacting with endpoints. It provides the following key functionalities:
+Browse API collections
+: View your assigned API collections, including details such as methods, parameters, and statuses for each endpoint.
+Discover new APIs
+: Explore additional available API collections and request access to new APIs directly through the portal.
+Test endpoints
+: Validate API functionality by sending requests and reviewing responses directly within the portal.
+Manage and create API keys
+: Generate API keys to authenticate requests, define security parameters, and manage existing keys.
+#
+Browse API collections
+In the
+My APIs
+tab, you can access your assigned API collections. Selecting a collection opens its documentation, where you can explore endpoint methods, descriptions, and schemas. The documentation includes example requests and responses, where you can also download the OpenAPI specifications.
+Browse API collections
+#
+Discover new APIs
+The
+Discover new APIs
+tab provides access to additional API collections. You can explore these collections to identify APIs that align with your requirements, and
+request access
+directly through the portal.
+#
+Request access to new APIs
+Complete the following steps to request access to new APIs:
+1
+Go to the
+Discover new APIs
+tab to browse available API collections.
+Discover new APIs
+2
+Select the collection you plan to access and click
+Request access
+.
+Request access to an API collection
+3
+Provide a reason for your request and click
+Send request
+. An admin reviews your request and determines whether to approve or reject it.
+Request access
+If the request is approved, the requested APIs appear in your
+My APIs
+tab, granting you access to their endpoints and documentation.
+Collection added to
+My APIs
+#
+Test endpoints
+The portal allows you to test API endpoints directly to validate their functionality. If you do not already have an API key, you must
+create one
+to generate the required authentication token before testing.
+Complete the following steps to test an endpoint:
+1
+Go to your assigned collection in the
+My APIs
+tab and choose the endpoint you plan to test.
+2
+Click
+Try it out
+to open the testing interface.
+Click
+Try it out
+3
+Click
+Execute
+to send a test request.
+Click
+Execute
+4
+Review the response details, including status codes, headers, and payloads, to confirm the endpoint’s behavior.
+#
+Manage and create API keys
+The
+Manage API keys
+page allows you to manage your credentials. You can create and manage API keys and define security parameters such as allowed and blocked IP addresses.
+Complete the following steps to create an API key:
+1
+Click
+Manage API keys
+in your profile drop-down.
+Manage API keys
+2
+Click
+Create API key
+.
+Create new API key
+3
+Provide an
+API key name
+in the dialog.
+Provide an
+API key name
+4
+Optional. Specify
+Allowed IPs
+to restrict requests to specific IP addresses for enhanced security.
+5
+Optional. Add
+Blocked IPs
+to prevent requests from specific IP addresses. Blocked IPs take precedence over allowed IPs. For example, if you add the IP address
+123.456.123.456
+to your allow list, but also block it, users who attempt to access the portal from this IP address are denied access.
+6
+Click
+Generate
+to create the API key. The system displays the authentication token. Save this token securely, as it doesn’t display again. You must refresh or create a new API key if you lose it.
+After creating the key, it appears on the
+Manage API keys
+page. You can use this page to view the token’s details or refresh, deactivate, or delete the key if required.
+←
+Configure the developer portal
+Custom domain
+→
+Last updated:
+2/24/2025, 9:05:07 AM
+On this page
+Invitation and first-time login
+Navigate the developer portal
+Browse API collections
+Discover new APIs
+Test endpoints
+Manage and create API keys
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,147 @@
+Workato コネクター - BigQuery Insert アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Google BigQuery
+#
+BigQuery - Run Custom SQL (カスタム SQL の実行)
+このアクションを使用すると、SQL 文字列を BigQuery に送信して実行できます。これは、SQL トランザクションが複数のクエリーにまたがる場合や、DML 文を実行する必要がある場合に使用できます。
+出力には行が含まれない
+このアクションは行データを返しません。行を返すカスタム SQL を実行する場合は、
+Get batch of rows by Job ID
+アクションを使用して、結果の行を取得してください。
+#
+入力項目
+項目
+説明
+Project
+クエリーの課金対象となる、コネクションで利用可能なプロジェクトです。
+Dataset
+アクションまたはトリガーが使用可能なテーブルをプルする元となるデータセットです。
+Location
+ジョブを実行する地理的な場所です。この項目はほとんどの場合必要ありません。
+Query
+実行する SQL 文です。
+Use legacy SQL
+レガシー SQL を使用するには [True] に切り替えます。 通常は設定されません。
+#
+出力項目
+項目
+説明
+ID
+完了したジョブの ID です。
+Kind
+BigQuery ジョブのタイプです。
+Job reference
+プロジェクト ID、ジョブ ID、および場所などジョブについての情報が含まれます。
+State
+ジョブの状態です。ほとんどの場合、この値は [DONE] になります。
+Statistics
+クエリー時間とジョブで処理されたバイト総数についての情報が含まれます。
+Configuration
+クエリーの設定についての情報が含まれます。
+Status
+エラーが発生した場合にエラー結果とメッセージが含まれます。
+User email
+ジョブを実行したユーザーのメールアドレスです。
+←
+行の選択
+クエリージョブの出力の取得
+→
+Last updated:
+2023/8/31 1:07:14
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

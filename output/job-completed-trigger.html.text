@@ -1,0 +1,169 @@
+Workato connectors - Google BigQuery Job completed trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google BigQuery
+#
+Google BigQuery - Job completed trigger
+The
+Job completed
+trigger polls regularly for jobs completed in Google BigQuery. This trigger can be configured to listen on various levels, from entire projects to individual tables. This trigger only picks up completed jobs.
+Job completed trigger
+#
+Input
+Input field
+Description
+Project
+Select the project to monitor.
+Dataset
+Optional. Select the dataset to monitor.
+Table
+Optional. Select the table to monitor.
+All users
+Select an option from the list. Defaults to
+No
+. If
+Yes
+, all jobs will be listened on including those not pegged to the user. The user is the user who authorized the Google BigQuery connection.
+When first started, this recipe should pick up events from
+Provide a time to retrospectively pick up jobs from. Learn more about this
+input field
+.
+Job Type
+Provide a job type. Leave blank to listen on all jobs. When configured, it will only trigger on jobs that match.
+#
+Output
+Output field
+Description
+ID
+The ID of the job completed.
+Kind
+The type of the Google BigQuery job.
+Job Reference
+Contains information about the job such as
+Project ID
+,
+Job ID
+, and
+Location
+.
+State
+State of job. Must be
+DONE
+.
+Statistics
+Contains information about the query time and total bytes processed by the job.
+Configuration
+Contains information about the query configuration.
+Status
+Contains error results and messages if any.
+User email
+Email of the user who ran the job.
+←
+New rows trigger
+Scheduled query trigger
+→
+Last updated:
+3/14/2025, 5:29:31 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

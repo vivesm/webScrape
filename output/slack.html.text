@@ -1,0 +1,256 @@
+Slack のカスタム OAuth プロファイル | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+Workbot
+#
+カスタム OAuth プロファイルとは
+カスタム OAuth プロファイルを使用することで、Slack 側で作成した独自のカスタムアプリを Workato の Slack コネクターから利用できるようになります。したがって、以下のような Slack アプリの属性をカスタマイズして利用できるということになります。
+名称やアイコン (ボット名、ボットのロゴ、背景色)
+権限
+#
+Slack でカスタム OAuth プロファイルが必要になる状況
+※訳文のカスタマイズ: 1. 複数のボットを自動化の用途によって使い分けたい場合に必要となります。例えば、同じ「チャンネルを作成/アーカイブする」という操作でも、※※訳文のカスタマイズ: - Escalation ボットは課題のプライベートチャンネルを作成し、危機管理チームのメンバーを招待して、課題が解決したらそのチャンネルをアーカイブする - Birthday ボットはプライベートチャンネルを作成し、パーティーのプランナーを招待して、誕生日会が終わったらそのチャンネルをアーカイブする※※訳文のカスタマイズ: といった形で目的別にボットを分けたい場合に使用します。※
+アプリの名称やアイコンを変更したい場合
+ボットの権限を制御したい場合。以下の表は、通常利用する上で最低限必要となる権限の一覧です。
+トークンのタイプ
+スコープ
+理由
+Bot
+なし
+ボットのスコープは必要ありません。
+User
+channels:read
+公開されている会話のリストを取得します。
+channels:write
+公開されている会話を作成/更新します。
+groups:read
+プライベートの会話のリストを取得します。
+groups:write
+プライベートの会話を作成/更新します。
+im:read
+ダイレクトメッセージの会話のリストを取得します。
+im:write
+ダイレクトメッセージの会話を作成/更新します。
+mpim:write
+多人数グループの会話を作成/更新します。
+mpim:read
+多人数グループの会話のリストを取得します。
+chat:write
+メッセージをユーザーとして投稿します。
+users:read
+ユーザーの情報を取得します。
+users:read.email
+ユーザーの情報をメールで取得します。
+詳細なスコープへの移行
+Slack では、
+詳細なアクセス許可
+(opens new window)
+が2020年1月22日にリリースされました。Workato に接続している既存のカスタム Slack アプリは、移行しなければならない場合があります。詳細については、
+移行に関するガイド
+を参照してください。
+#
+設定の要件
+カスタム OAuth プロファイルを作成するには、Workato の
+カスタム OAuth プロファイル
+(opens new window)
+へのアクセス権が必要になります。
+ほかのデータセンターを使用している場合は、
+EUDC カスタム OAuth プロファイル
+(opens new window)
+や
+SGDC カスタム OAuth プロファイル
+(opens new window)
+にログインしてください。
+ワークスペースにカスタム OAuth プロファイルが表示されない
+カスタム OAuth プロファイルは追加機能です。Workato の CSM に問い合わせて、ワークスペースでこの機能が有効になっていることを確認してください。
+#
+カスタム OAuth プロファイルの作成
+#
+ステップ1 : Slack の選択
+1
+まずは、ブラウザーから [Slack ワークスペース](
+https://slack.com/signin#/signin
+(opens new window)
+) にサインインしてください。
+2
+Workato で
+[Tools] > [Custom OAuth profiles]
+に移動します。
+3
+[New custom profile]
+をクリックします。
+4
+[New custom profile]
+ページで次の操作をします。
+[Step 1] で、
+[Slack]
+を選択します。
+[Step 2] で、新しいアプリの名前を指定して、
+[Create new app]
+をクリックします。
+https://api.slack.com/apps
+(opens new window)
+に移動する新しいタブが開きます。[Workato] のタブと、この新しいタブの両方を開いておいてください。残りのステップでは両方が必要になります。
+#
+ステップ2 : 新規 Slack アプリの作成
+1
+新しいタブで、アプリの開発を行うワークスペースを選択して、
+[次へ]
+をクリックします。
+2
+[Create]
+をクリックします。
+3
+[Welcome to your app's configurations] ポップアップの
+[Got it (了解)]
+をクリックします。
+4
+アプリの
+[Basic Information]
+ページに移動します。
+[App Credentials]
+まで下にスクロールします。次のステップを実行するには、ここに表示される情報が必要になります。
+#
+ステップ3 : Slack アプリと接続するための Workato の設定
+1
+ステップ3を実行するために [Workato] タブに戻ります。
+2
+ステップ3では、以下のフィールドに入力します。
+Client ID
+: Slack の
+[Client ID]
+の値を、このフィールドに貼り付けます。
+Client secret
+: Slack の
+[Client secret]
+の値を、このフィールドに貼り付けます。
+Verification token
+: Slack の
+[Verification token]
+の値を、このフィールドに貼り付けます。
+3
+完了したら、
+[Save]
+をクリックします。
+#
+ステップ4 : Workato でのコネクションの完了
+もう一息です ! あとは Workato への接続を完了するだけです。
+1
+開いている [Workato] タブの
+[Done]
+をクリックします。任意のプロジェクトフォルダーに移動して、新しい Slack のコネクションを作成します。
+2
+Slack コネクションに名前を付けます。
+[Custom OAuth profile]
+フィールドで、新規作成した OAuth プロファイルを選択します。
+[Connect]
+をクリックします。
+3
+権限付与の
+[Allow]
+をクリックします。
+←
+アクション
+Slack Enterprise Workbot の設定
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+ステップ1 : Slack の選択
+ステップ2 : 新規 Slack アプリの作成
+ステップ3 : Slack アプリと接続するための Workato の設定
+ステップ4 : Workato でのコネクションの完了
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

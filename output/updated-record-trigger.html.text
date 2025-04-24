@@ -1,0 +1,160 @@
+Workato connectors - Zendesk new/updated record trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Zendesk
+#
+Zendesk - New/updated record trigger (batch)
+Use this trigger to pick up recent activity in your Zendesk
+users
+,
+tickets
+, or
+organizations
+.
+This trigger monitors and picks up new or updated records in your Zendesk instance. Records are batched and processed at regular poll intervals.
+Role privileges
+You need a Zendesk account with the Administrator role to use this trigger in your recipe.
+New/updated record trigger
+#
+Input field
+Input field
+Description
+From
+Records created or updated after this time will be processed by the recipe. If left blank, the default date will be set to
+one hour
+before the recipe is first started.
+Object
+Select the object to be monitored -
+User
+,
+Ticket
+, or
+Organization
+.
+Batch size
+The number of records to retrieve for each job. The max batch size is 1000.
+#
+Output field
+Output field
+Description
+First ID
+The unique Zendesk ID of the first record.
+Last ID
+The unique Zendesk ID of the last record.
+Records
+An array of records. The full list of
+object attributes
+will be returned for each record.
+Click here for a full list of
+user outputs
+,
+ticket outputs
+, or
+organization outputs
+.
+←
+New/updated organization
+Create ticket
+→
+Last updated:
+3/29/2023, 2:00:59 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

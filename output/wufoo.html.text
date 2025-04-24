@@ -1,0 +1,179 @@
+Workato connectors - Wufoo | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Wufoo
+Wufoo
+(opens new window)
+is a cloud-based form builder that allows you to create forms for data collection, including:
+Registration forms
+Application forms
+Contact forms
+Payment forms
+You can create your forms with or without code. Wufoo also allows you to process online payments through their payment partners, including PayPal, Stripe, and
+Authorize.Net
+(opens new window)
+.
+#
+API version
+Workato's Wufoo connector uses Wufoo's REST API v3. Refer to
+Wufoo's API documentation
+(opens new window)
+for more information.
+#
+Connection setup
+Locate your Wufoo API key
+before you set up your Workato connection. To set up your connection:
+1
+Provide a
+Connection name
+that identifies which Wufoo instance Workato is connected to.
+Create your connection
+2
+Select the project where you plan to store the connection from the
+Location
+drop-down menu.
+3
+Enter your Wufoo
+API key
+. Refer to
+Locate your Wufoo API key
+for more information.
+4
+Enter your Wufoo
+sub-domain
+. For example, if your URL is
+https://testcompany.wufoo.com
+, your sub-domain is
+testcompany
+.
+5
+Click
+Connect
+.
+#
+Locate Wufoo API key
+You must provide your Wufoo API key to connect your Wufoo instance to Workato. To locate your API key:
+1
+Log in to your Wufoo account.
+2
+Click
+Forms
+in the top navigation bar.
+3
+Click the
+more options ...
+(ellipses) menu in the form entry row and then select
+API information
+to view your API key.
+More options > API information
+←
+Upload attachment action
+New entry trigger
+→
+Last updated:
+1/10/2024, 8:49:56 PM
+On this page
+API version
+Connection setup
+Locate Wufoo API key
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

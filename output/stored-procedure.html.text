@@ -1,0 +1,133 @@
+Workato コネクター - SQL Server Execute stored procedure アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+SQL Server
+#
+SQL Server - Execute stored procedure (ストアドプロシージャ実行) アクション
+#
+Execute stored procedure (ストアドプロシージャ実行)
+このアクションを使用すると、データベースのインスタンスに保存された任意のストアドプロシージャまたは関数を実行できます。ストアドプロシージャとは、データベースに直接書き込まれたユーザー定義のプロセスです。これは、入力パラメータを受け入れ、その入力パラメータに基づいてアクションを実行するように記述できます。Workato の
+Execute stored procedure
+アクションは、パラメータ入力を取得し、これらのパラメータをワークフローから直接入力できるようにします。
+ストアドプロシージャを使用することは、レシピを効率化し、Workato とデータベース間で負荷を分散するのに優れた方法です。
+ストアドプロシージャを使用してレシピを効率化する方法の詳細については、ベストプラクティスのセクションをご覧ください。
+#
+サポートされるバージョン
+このアクションは SQL Server 2012以降でのみサポートされています。SQL Server 2012以降でのみ利用可能なデフォルトのストアドプロシージャ
+sp_describe_first_result_set
+が使用されます。
+Execute stored procedure rows アクション
+#
+ストアドプロシージャ
+まず、実行するストアドプロシージャを選択します。このためには、ピックリストから選択するか、または入力をテキストモードに切り替えて完全なストアドプロシージャ名を入力します。
+#
+入力パラメータ
+次に、選択したストアドプロシージャに必要な入力パラメータを指定します。
+#
+出力
+選択したストアドプロシージャが複数のデータセットを出力する場合、このアクションでは最初のものだけが返されます。返されるデータセットのサイズは、50,000行に制限されます。
+←
+カスタム SQL の実行
+クエリ結果のエクスポート
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Execute stored procedure (ストアドプロシージャ実行)
+サポートされるバージョン
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,270 @@
+Data tables - View and sort table data | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Workflow apps
+Data tables
+User interface
+#
+View, filter, and sort table data
+You can view table data in the Workato UI. The Data table interface enables you to filter, sort, and hide/display column data.
+By default, the interface displays the first 200 (two hundred) records of the data table. Workato loads additional pages automatically as you scroll through the table.
+#
+Filter
+Create custom filters to organize your data. The types of available filters depend on the data type of the filtered column. You can add multiple filters. All filters are chained using AND.
+User-generated filters are case-sensitive.
+Filter records with multiple filters
+To create a filter:
+1
+Click
++ Add filter
+.
+2
+Select a column to filter.
+3
+Select the type of filter.
+4
+Enter a value.
+5
+Click
+✓
+(check mark).
+#
+Available operands
+The operands you can use to filter your data table vary based on your selected column's data type:
+Short text
+The following operands are available:
+Equals
+Is not equal to
+Starts with
+Is null
+Is not null
+Long text
+The following operands are available:
+Equals
+Is not equal to
+Starts with
+Is null
+Is not null
+Integer
+The following operands are available:
+Equals
+Is not equal to
+Is less than
+Is greater than
+Is less or equals
+Is greater or equals
+Is null
+Is not null
+Decimal
+The following operands are available:
+Equals
+Is not equal to
+Is less than
+Is greater than
+Is less or equals
+Is greater or equals
+Is null
+Is not null
+Boolean
+The following operands are available:
+Is true
+Is false
+Is null
+Is not null
+Date
+The following operands are available:
+Equals
+Is not equal to
+Is before
+Is after
+Is on or before
+Is on or after
+Is null
+Is not null
+DateTime
+The following operands are available:
+Equals
+Is not equal to
+Is before
+Is after
+Is on or before
+Is on or after
+Is null
+Is not null
+Link to a table
+The following operands are available:
+Equals
+Is not equal to
+In
+Is null
+Is not null
+File
+The following operands are available:
+Equals
+Is not equal to
+Is null
+Is not null
+Multi-value
+The following operands are available:
+Contains
+Is not null
+Is null
+#
+Sort
+Sort data in ascending or descending order by sorting an individual column.
+If you sort one column and then an additional column, the most recent sort selection is applied, overriding the first sorting selection.
+Sort column data
+Multi-value columns cannot be sorted. You can only sort single-value column types, such as text, number, date, and boolean.
+Complete the following steps to sort column data:
+1
+Choose the column you plan to sort.
+2
+Next to the column name, click
+...
+(ellipsis).
+3
+Select
+Sort descending
+or
+Sort ascending
+.
+You can reverse the sort direction by clicking the ↑(arrow) next to the column name (optional).
+Sort descending
+Sorts column data in descending order.
+For example, it sorts text fields in reverse alphabetical order, numeric fields from the highest number to the lowest, and date fields from most recent to most remote. Null values appear at the bottom of the sorted column.
+Sort ascending
+Sorts column data in ascending order.
+For example, it sorts text fields in alphabetical order, numeric fields from the lowest number to the highest, and date fields from the most remote past to current time. Null values appear at the top of the column.
+#
+Hide and display columns
+You can hide or display columns in your table. By default, Workato hides all auto-generated columns.
+Learn more about auto-generated columns
+.
+Select/deselect column names to display/hide columns
+When you hide columns in the table, Workato informs you of this by updating the numerical value in the
+Hide columns
+button. For example, when you create a new table, this button reads
+3 hidden columns
+, referencing the three auto-generated columns that Workato hides by default. When you hide additional columns, Workato updates this button.
+If you choose not to hide any columns, Workato displays this button as
+Hide columns
+.
+To hide or display a column:
+1
+Click
+Hide columns/X columns hidden
+.
+2
+Workato displays a list of columns.
+3
+Hide a column by deselecting the column name.
+Conversely, to display a column, select that column name.
+←
+Column types
+Keyboard shortcuts
+→
+Last updated:
+4/1/2025, 5:13:02 PM
+On this page
+Filter
+Available operands
+Sort
+Hide and display columns
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

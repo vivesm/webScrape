@@ -1,0 +1,157 @@
+タスクのカウント | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+#
+タスクカウンター
+Workato のアカウントで実行された
+タスク
+の数は、プラットフォーム上の複数の場所で確認できます。
+#
+ジョブごとのタスク
+ジョブごとに実行されるタスクの数を知りたい場合は、ジョブを選択すると、使用されたタスクの合計数が表示されます。
+ジョブレポートページで確認できるタスクの情報
+レシピに他のレシピの1つ以上の呼び出しが含まれる場合、子ジョブ全体のタスクの合計数は表示されません。それぞれの子ジョブの合計タスク数が個別に表示されます。
+#
+レシピごとのタスク
+レシピページをナビゲートしているときに
+Settings
+タブのリンクを使用すると、特定のレシピに対してフィルタリングされたダッシュボードビューに移動します。
+[Settings] タブのダッシュボードへのリンク
+あるいは、ダッシュボード上部のドロップダウンから、フォルダーまたはレシピを選択します。日付や時間を操作すると、特定の時間内にフォルダーやレシピで実行されたタスクの数が表示されます。Workato ダッシュボードのドキュメントの詳細については、
+こちら
+を参照してください。
+ダッシュボードでのレシピごとのタスク数
+最後に、レシピ ID を指定して
+Workato レシピ API
+(opens new window)
+を呼び出すか、
+RecipeOps コネクター
+(opens new window)
+を使用します。API 呼び出しの応答には、存続期間内のタスク数のデータが含まれます。RecipeOps コネクターは、特定のアクションにおける、存続期間内のタスク数のデータピルを提供します。
+#
+アカウントごとのタスク
+毎月のアカウントの使用状況は、アカウント設定の
+[Subscription] タブ
+(opens new window)
+で確認できます。サブスクリプションプランのタイプに基づいて、これまでに使用されたタスクの、最大使用数に対する使用率と月ごとの内訳が示されます。Workato アカウントがタスクベースのプランでない場合、このグラフは適用されません。
+サブスクリプションのタスクの合計使用数
+#
+レシピごとのタスクの使用量の管理
+RecipeOps コネクター
+(opens new window)
+を使用し、
+Workato レシピ API
+(opens new window)
+を呼び出すことで、タスクの使用量をレシピごとに管理できます。その両方により、レシピごとの存続期間内のタスク数のデータが提供されます。RecipeOps コネクターとレシピ API を使用すると、存続期間内のタスク数のデータが設定した制限を超えたときに、各レシピの実行を停止できます。
+レシピごとのタスクの使用量の管理。
+サンプルレシピ
+(opens new window)
+上記のレシピは、RecipeOps コネクターを使用したレシピごとのタスク管理のサンプルを示しています。Workato アカウントでのアクティブな各レシピのタスクの使用量を120分ごとにチェックします。アクティブなレシピで特定の制限を超えるタスクが使用された場合、それらのレシピは自動的に停止し、通知メールが送信されます。レシピでの制限は100,000に設定されており、ユースケースに基づいて調整できます。また、レシピのトリガーの間隔も変更できます。すでに説明したとおり、レシピでのタスクの使用量は以下の手順に従って管理されます。
+レシピを120分ごとにトリガーします。
+すべてのアクティブなレシピのデータを取得します。
+指定された Lookup table 上でレシピの既存のデータを検索します。
+データが存在しない場合は、新しい行を作成し、各列に正しいデータを挿入します。
+データが存在する場合は、レシピごとに以前のタスク使用量と新たなタスク使用量との差を計算します。
+その差が設定したタスク使用量の制限を超えた場合は、レシピを停止し、通知メールを送信します。
+差が制限を超えない場合は、関連する列を更新します。
+Last updated:
+2023/8/31 1:07:14
+On this page
+ジョブごとのタスク
+レシピごとのタスク
+アカウントごとのタスク
+レシピごとのタスクの使用量の管理
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

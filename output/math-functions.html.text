@@ -1,0 +1,331 @@
+Insights - Math functions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Reference
+Calculated column functions
+#
+Math functions
+You can use the following math functions in
+calculated columns
+to round and manipulate numerical values within Insights dashboards.
+ALIASES
+You can search for a function using its alias.
+For example, if the function
+floor
+has the alias
+round_down
+:
+When you type
+round_do
+, Insights suggests the
+floor
+function.
+When you type
+round_down
+, Insights rewrites it as
+floor
+.
+NULL OPERANDS
+Insights uses the following logic for expressions that include
+NULL
+values:
+If the expression contains a
+NULL
+value, the result returned in the calculated column is also a
+NULL
+value.
+For example, if one of the rows in the
+Date
+column is
+NULL
+, then the result in the calculated column for that row is also
+NULL
+:
+Column expression
+*
+=
+floor((month(
+Date
+) - 2 + 12) / 3 % 4) + 1
+#
+floor
+Rounds the input number down to the nearest multiple of the step size. Defaults to integer rounding, where
+step_size
+=
+1
+.
+The step size must be a non-zero positive number.
+Return type
+:
+BIGINT
+,
+DOUBLE
+Alias
+:
+round_down
+floor(number, step_size)
+#
+Parameters
+Parameter
+Type
+Description
+number
+BIGINT
+,
+DOUBLE
+The input to round down.
+step_size
+BIGINT
+,
+DOUBLE
+Optional
+. The interval for rounding. The number is rounded down to the nearest multiple of this value. The default is 1.
+#
+Example
+This example calculates the fiscal year (FY) quarter for a month, where the FY starts in February.
+Column expression
+*
+=
+floor((month(
+Date
+) - 2 + 12) / 3 % 4) + 1
+If
+Date
+is
+"04/28/2024"
+, this expression returns
+1
+, indicating that April is in the first FY quarter.
+More examples
+Formula
+Result
+floor(3.67)
+3
+floor(3.32, 2)
+2
+#
+round
+Rounds the input number. Defaults to integer rounding, where
+decimal_places
+=
+0
+.
+The number of decimal places must be an integer. Positive values set decimal places while negatives round to the nearest 10, 100, and so on. For example,
+-1
+rounds to the nearest 10 and
+-2
+rounds to the nearest 100.
+Return type
+:
+BIGINT
+,
+DOUBLE
+round(number, decimal_places)
+#
+Parameters
+Parameter
+Type
+Description
+number
+BIGINT
+,
+DOUBLE
+The input to round.
+decimal_places
+BIGINT
+Optional
+. The number of decimal numbers. The default value is 0 decimal places.
+#
+Example
+This example rounds the average cost to cents for financial reporting.
+Column expression
+*
+=
+round(
+Average cost
+, 2)
+If
+Average cost
+equals
+123.5678
+, this expression returns
+123.57
+.
+More examples
+Formula
+Result
+round(3.32)
+3
+round(3.67)
+4
+round(123.5678, -1)
+120
+round(167, -2)
+200
+#
+ceiling
+Rounds the input number up to the nearest multiple of the step size. Defaults to integer rounding, where
+step_size
+=
+1
+.
+The step size must be a non-zero positive number.
+Return type
+:
+BIGINT
+,
+DOUBLE
+Alias
+:
+round_down
+ceiling(number, step_size)
+#
+Parameters
+Parameter
+Type
+Description
+number
+BIGINT
+,
+DOUBLE
+The input to round up.
+step_size
+BIGINT
+,
+DOUBLE
+Optional
+. The interval for rounding. The number is rounded up to the nearest multiple of this value. The default is 1.
+#
+Example
+This example calculates the minimum number of shipping containers required by rounding up the order volume.
+Column expression
+*
+=
+ceiling(
+Units ordered
+/100)
+If
+Units ordered
+equals
+275
+and each shipping container can hold
+100
+units, this expression returns
+3
+.
+More examples
+Formula
+Result
+ceiling(3.32)
+4
+ceiling(3.67)
+4
+←
+String functions
+Charts
+→
+Last updated:
+3/14/2025, 4:57:44 PM
+On this page
+floor
+round
+ceiling
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

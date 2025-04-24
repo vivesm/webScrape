@@ -1,0 +1,172 @@
+RecipeOps - Recipe stopped by user trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+RecipeOps by Workato
+#
+RecipeOps - Recipe stopped by user trigger
+The
+Recipe stopped by user
+trigger monitors recipes manually stopped by users in real-time.
+#
+Input
+Input field
+Description
+Recipes to monitor
+Select the recipes to monitor. Choose
+All
+to monitor all recipes in the workspace,
+Selected
+to monitor selected recipes, or
+Tags
+to monitor recipes associated with one or more tags.
+Recipe IDs
+Provide a comma-separated list of recipe IDs if monitoring
+Selected
+recipes. You can find recipe IDs in the recipe’s URL. For example, in
+https://app.workato.com/recipes/362905-timekeeper
+, the recipe ID is
+362905
+.
+Tags
+Provide one or more tags if monitoring recipes by
+Tags
+.
+#
+Output
+Output field
+Description
+Stopped at
+The time the recipe was stopped.
+Recipe ID
+The ID of the recipe that was stopped.
+Name
+The name of the recipe that was stopped.
+Last run at
+The time the recipe last ran.
+Created at
+The time the recipe was created.
+Updated at
+The time the recipe was last updated.
+Stopped by user
+Details about the user who stopped the recipe, including the
+User ID
+,
+User name
+, and
+User email
+.
+#
+Resources
+RecipeOps overview
+RecipeOps actions
+RecipeOps triggers
+←
+Recipe started
+Recipe stopped by Workato
+→
+Last updated:
+10/9/2024, 3:20:59 PM
+On this page
+Input
+Output
+Resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

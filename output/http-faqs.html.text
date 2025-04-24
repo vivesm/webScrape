@@ -1,0 +1,193 @@
+HTTP FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Universal connectors
+HTTP
+#
+HTTP FAQs
+Get answers to frequently asked questions about developing HTTP connectors.
+What is the HTTP Connector V2 in Workato?
+The
+HTTP Connector V2
+is an enhanced version of Workato's tool that allows integration with any cloud application that has an HTTP-based API. This connector allows you to create new connectors and add triggers or actions to existing Workato connectors.
+How is the HTTP Connector V2 different from the deprecated HTTP Connector V1?
+The
+HTTP Connector V2
+launched in July 2018. It offers improved functionalities and user interface compared to the deprecated HTTP V1. HTTP V2 includes updated features for building integrations more efficiently and effectively.
+What types of triggers and actions does the HTTP Connector V2 support?
+The HTTP Connector V2 supports two triggers:
+New event trigger through a webhook
+New event trigger through polling
+The HTTP Connector V2 one action:
+Send Request
+This action allows you to configure an HTTP request to an endpoint and use the response data.
+How can I use the HTTP Connector V2 for real-time triggers?
+You can use the
+New event trigger through a webhook
+provided by the HTTP Connector V2 as a real-time trigger. Workato provides a unique target URL for webhooks, which are processed immediately as trigger events.
+What is the process for setting up a connection using the HTTP Connector V2?
+Basic steps to
+set up a connection
+include:
+Select the HTTP Connector V2 from the connector menu.
+Enter the required fields, such as the endpoint URL.
+Configure the authentication information.
+How long does it typically take to build an action with the HTTP Connector V2?
+It usually takes less than 20 minutes to build a
+custom action
+using the HTTP Connector V2. The length of time depends on the complexity of the integration and familiarity with the Workato platform.
+Can I use the HTTP Connector V2 to interact with any cloud application with an API?
+Yes. The
+HTTP Connector V2
+is designed to integrate with any cloud application that exposes an HTTP-based API, making it versatile for various integration use cases.
+What are some common use cases for the HTTP Connector V2?
+Users frequently
+use the HTTP Connector V2
+to:
+Create invoices in accounting systems
+Retrieve metrics from analytics applications
+Trigger workflows from online form submissions
+What should I do if I'm still using the HTTP Connector V1?
+We recommend that you transition to HTTP Connector V2 for better functionality and support if you are still using the
+HTTP Connector V1
+.
+Why am I getting a 307 Temporary Redirect error when enabling automatically follow redirects?
+If you encounter a
+307 Temporary Redirect
+error, note that automatic redirects are not enabled by default for HTTP methods such as
+POST
+and
+PUT
+. However, they are enabled for
+GET
+and
+HEAD
+requests. This behavior aligns with the
+RFC protocol guidelines on automatic redirects
+(opens new window)
+. The guidelines advise caution with automatic redirects for unsafe methods.
+To handle these redirects, you can manually implement logic in your recipes. Use
+error monitoring
+to create your own
+307
+redirect handling. Then, use the
+Location
+header returned with the original call to manage the redirect effectively.
+What should I do if I encounter a certificate verify failed error?
+If you encounter a
+certificate verify failed
+error, it may be due to an incomplete certificate chain or untrusted self-signed certificates. Complete the following steps to resolve this issue:
+1
+Ensure you have the complete certificate chain. This includes the server certificate, intermediate certificates, and root certificate, with each separated by an empty line.
+2
+Input the entire chain into the
+TLS server custom CA certificate
+field in your HTTP connection settings.
+Refer to the
+HTTP SSL certificate verify failed troubleshooting guide
+for more detailed instructions.
+←
+HTTP error messages
+OpenAPI
+→
+Last updated:
+1/31/2025, 12:40:55 AM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

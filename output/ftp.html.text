@@ -1,0 +1,147 @@
+FTP | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+FTP コネクター
+Workato の FTP コネクターを使用すると、Workato を FTP サーバーに接続することができます。これは、ダウンロード、アップロード、削除、ファイル名の変更などのファイル操作を FTP サーバーで行うために有用です。
+#
+Workato から FTP サーバーへの接続方法
+Workato の FTP コネクターを使用して FTP サーバーに接続する前に、以下の点を確認してください。
+接続が成功するには、FTP サーバーがパッシブモードであり、拡張パッシブモード (ESPV) をオフに設定している必要があります。FTP サーバーの実装タイプごとにパッシブモードの設定方法は異なるため、使用している FTP サーバーに対する適切なプロセスに従ってください。
+FTP サーバーの IP がネットワーク外からアクセス可能かどうかをテストします。インターネットからは見えない内部 IP を使用して接続しようとしている場合は、エラーが返されます。Linux ベースの FTP サーバーでのテスト方法を以下に示します。
+FTP サーバー側の接続が完了したら、以下の項目を入力することにより Workato でコネクションを設定できます。
+Connection name: この FTP コネクションに一意の名前を付けます。
+Server type: サーバーが FTP サーバーまたは FTP-S サーバーのいずれであるのかを指定します。
+Host name: サーバーのホスト名を入力します。「
+companyname.sampleftp.com
+(opens new window)
+」の形式で指定します。
+Username: FTP サーバーに接続するために使用するユーザー名。このユーザーに与えられる権限またはスコープは、このコネクションに適用されます。
+Password: ユーザーのパスワード。
+FTP コネクターでは、以下のトリガーおよびアクションを使用できます。
+#
+トリガー -
+New/updated file in directory (ディレクトリ内の新規/更新されたファイル):
+監視対象のディレクトリ内で新規ファイルが作成されるかファイルが更新されるとトリガーされます。
+New CSV file (新規 CSV ファイル):
+ディレクトリに追加される CSV 関連ファイルに対するトリガー。
+#
+アクション -
+Download file (ファイルのダウンロード):
+FTP サーバーの指定されたパスからファイルをダウンロードします。
+Upload file (ファイルのアップロード):
+FTP サーバーの指定されたパスにファイルをアップロードします。
+Get file information (ファイル情報の取得):
+ファイルの種類、サイズ、最終変更日などの情報を取得します。
+Rename file (ファイル名の変更):
+FTP サーバーの指定されたパスにある特定のファイルの名前を変更します。
+Remove file (ファイルの削除):
+FTP サーバーの指定されたパスにあるファイルを削除します。
+#
+FTP-S
+FTP-S は FTP サーバーの安全なバージョンです。Workato を FTP-S サーバーに接続するには、サーバーのタイプとして「FTP-S」を選択します。接続のホスト名、ユーザー名、およびパスワードを入力して接続を確立します。FTPS 接続のポート番号が標準のポート番号 (21) と異なる場合は、FTPS 接続タイプとして [Explicit] を選択し、[Advanced Settings] を展開し、表示されるフィールドに専用のポート番号を入力します。
+←
+接続方法
+Github
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+Workato から FTP サーバーへの接続方法
+FTP-S
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

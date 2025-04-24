@@ -1,0 +1,125 @@
+Workatoコネクター - Jira Service Desk - 顧客リクエストの作成アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+Jira Service Desk
+#
+Jira Service Desk - 顧客リクエストの作成アクション
+このアクションは、Jira Service Deskインスタンスに顧客リクエストを作成します。
+顧客リクエストの作成アクション
+#
+入力
+作成される問題のサービスデスクIDを提供する必要があります。また、作成されるリクエストのタイプを選択する必要もあります。利用可能なリクエストのリストは、提供されたサービスデスクIDに基づいて自動的に入力されます。提供されたサービスデスクIDが無効な場合、アクションは進行できません。
+無効なサービスデスクID
+リクエストタイプが選択されると、WorkatoはJira Service Deskで設定されたリクエストの構造に基づいてリクエストフィールドを自動的に入力します。これには、リクエストタイプに関連付けられたカスタムフィールドも含まれます。また、リクエストを代理で提起した人や参加者を追加することもできます。
+リクエストフィールドは、適用可能なカスタムフィールドを含めて自動的に入力されます
+#
+出力
+このアクションの出力は、作成されたJira Service Deskリクエストに関する情報を含むデータツリーです。
+Jira Service Deskリクエストオブジェクトについて詳しくはこちら
+(opens new window)
+.
+←
+顧客作成
+コメント作成
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

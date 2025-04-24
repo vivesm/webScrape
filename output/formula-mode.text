@@ -1,0 +1,169 @@
+Formula mode | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Modify recipe data
+#
+Formula mode
+SUMMARY
+To use formulas in Workato, activate formula mode at the field level.
+Formula mode provides approved formulas and guidance for data manipulation.
+The editor shows type-specific formulas based on the datapill type in an input field.
+Text must be explicitly formatted in formula mode, unlike in text mode.
+Ruby methods not found in Workato documentation are not allowlisted and, therefore, not supported. To request the addition of new formulas to the allowlist,
+submit a support ticket
+(opens new window)
+.
+To start using formulas, you must switch to formula mode. You can activate formula mode at the field level. Note that most, but not all, input fields support formula mode.
+To switch from text mode to formula mode, click
+Formula
+in the input field in which you plan to add a formula. The background color changes to indicate that formula mode is active. Additionally, the type icon changes to the
+fx
+icon.
+Formula mode is displayed with the
+fx
+symbol
+In formula mode, the editor provides a set of approved formulas for data transformation and manipulation, along with guidance on how to use these formulas.
+#
+Filter formulas displayed by data type
+The formula editor displays type-specific formulas for your
+datapills
+.
+When a string-type datapill is mapped into an input field in formula mode, the editor shows the list of formulas applicable to strings.
+Formula editor showing the list of string formulas
+#
+Formula hints and syntax
+After you select a formula, a detailed description of the formula appears. This description explains how to use the formula and provides examples.
+Detailed description and hints for the split formula
+#
+Text versus formula mode
+Video guide: From text to formula mode
+RUBY STRING INTERPOLATIONS NO LONGER SUPPORTED IN TEXT MODE
+Ruby string interpolations (for example,
+#{now + 1.day}
+) are no longer supported in text input mode. Only datapills are evaluated. All other expressions (including interpolations) will be processed as plain text, verbatim.
+For expressions that previously relied on Ruby string interpolations, you can achieve the same functionality using formula mode.
+You can use text mode to map text and datapills directly into input fields. The result appears exactly as you entered it in the field. In contrast, formula mode requires that you explicitly format text using formulas for proper evaluation and output.
+#
+Example
+Consider a recipe that sends an email to new leads in Salesforce. For instance, when a new lead named Madison Diaz is created, the following email is sent:
+Hi Madison,
+Thanks for joining our mailing list! We're excited to have you!
+In text mode, you can compose the
+Message
+directly:
+Email in text mode.
+Example recipe
+(opens new window)
+In formula mode, you must format the text using proper string syntax:
+Email in formula mode.
+Example recipe
+(opens new window)
+←
+List management FAQs
+Add conditions to formulas
+→
+Last updated:
+10/16/2024, 4:14:37 PM
+On this page
+Filter formulas displayed by data type
+Formula hints and syntax
+Text versus formula mode
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

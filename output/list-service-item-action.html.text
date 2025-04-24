@@ -1,0 +1,176 @@
+Freshservice - List service items action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+Community connectors
+Freshservice
+#
+Freshservice - List service items action
+Returns a list of service items based on specified filters.
+#
+Input
+Input field
+Description
+Category ID
+Provide the category ID of service item.
+Result per page
+Provide a value between 1 to 100.
+Page number
+Provide the number of pages.
+#
+Output
+Output field
+Description
+Service item ID
+Unique ID of the item.
+Workspace ID
+ID of the workspace to which the service item belongs (applicable for Employee Support Mode).
+Created at
+The timestamp when the item was created.
+Updated at
+The timestamp when the item was last updated.
+Name
+Name of the service item.
+Delivery time
+Estimated delivery time of the item (in hours).
+Display ID
+Unique ID of the service item specific to the account.
+Category ID
+Unique ID of the category to which the service item belongs.
+Product ID
+The ID of the product mapped to the item (returns null if no product is mapped).
+Quantity
+The number of items requested.
+Deleted
+True indicates the item was deleted successfully.
+Group visibility
+1 denotes visibility to all requesters, 2 for restricted visibility.
+Item type
+1 indicates a normal item, 2 indicates a loaner item.
+CI type ID
+Unique ID of the asset type associated with the product.
+Cost visibility
+Set to true if the cost should be visible to the requester.
+Delivery time visibility
+Set to true if the delivery time of the item should be visible to the requester.
+Configs
+Configuration template for the service request subject.
+Botified
+Set to true if the item is "bot ready."
+Visibility
+1 denotes draft, 2 denotes published.
+Allow attachments
+Set to true if the requester is allowed to attach files.
+Allow quantity
+Set to true to allow the requester to request more than one quantity.
+Is bundle
+Indicating whether the item contains child items.
+Create child
+Indicating whether child items will be created as separate service requests.
+←
+List requester fields action
+List tasks action
+→
+Last updated:
+3/5/2025, 7:01:29 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

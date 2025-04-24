@@ -1,0 +1,313 @@
+Security | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+#
+Data and security
+Workato has a comprehensive approach to security. This includes a complete security program with documented policies and procedures, verified by an annual audit; secure development and testing; a secure and scalable infrastructure; and capabilities within the product that enhance security and give customers control over key security features.
+An overview of Workato’s security practices can be found on the public
+security
+(opens new window)
+page.
+This section of the documentation highlights key product features that are related to security.
+We also have
+security best practices
+guidance for particular product features.
+#
+Access and authentication
+#
+Password policy enforcement
+Users sign in to Workato using a password that is known only to them. Workato enforces password length, complexity, and expiration standards. Passwords are not stored in the database; instead, as is standard practice, only a secure hash of the password is stored in the database.
+Clients using password authentication are required to rotate their passwords every 90 days. Workato prohibits password reuse to further safeguard accounts.
+For more information, see the
+Authentication
+section of the
+security
+(opens new window)
+page.
+PASSWORD COMPROMISED: IMMEDIATE ACTION REQUIRED
+If you suspect that your password has been compromised, reset it immediately and enable
+two-factor authentication
+for added security.
+#
+Session timeout
+Workato supports automatic session logout after a period of time. Organizations can set a timeout duration according to their security needs. The default session timeout duration is seven days, but it can be configured to range from 15 minutes to 14 days, depending on the organization’s security policy.
+You can update your session timeout duration by navigating to
+Workspace admin > Settings > General > Session timeout duration
+.
+#
+Two-factor authentication
+An organization can mandate that its users configure their accounts to use two-factor authentication (2FA) through a mobile app. Workato supports Google Authenticator, Microsoft Authenticator, and Authy.
+To learn more about enabling and disabling this feature, see
+Two-factor authentication
+.
+#
+Organizational separation
+Admins can configure a separate Workspace for each team or business function. Each Workspace has its own set of users and resources, such as connections, recipes, and lookup tables. Users can only access the resources of the Workspace to which they are assigned. For example, a user working in an organization's marketing Workspace cannot access the resources in the IT or accounting Workspaces.
+#
+Separation of environments
+Workato supports a multi-phase development lifecycle in which development, testing, and production are performed in separate environments and by different users.
+For more information, see
+Environments
+.
+#
+IP allowlists
+IP allowlists help ensure that traffic to and from Workato is restricted to authorized users. Customers using the
+On-prem agent (OPA)
+enable Workato to securely access authorized on-prem apps, databases, and folders through specific hostnames and IP addresses.
+For more information, see
+IP Allowlists
+.
+#
+TLS and HTTP standards
+Workato's
+API Platform
+feature supports the following TLS and HTTP standards:
+API Platform
+endpoints
+support
+TLS 1.2
+and
+1.3
+with a minimum of
+HTTP 1.0
+or higher.
+API Platform
+custom domain endpoints
+support
+TLS 1.2
+and
+1.3
+with a minimum of
+HTTP 1.1
+or higher.
+These standards are subject to change based on security best practices.
+#
+SSO using SAML 2.0 authentication
+Workato supports integration with third-party SAML-compliant SSO systems. This allows an enterprise to manage access to Workato and other enterprise applications and apply custom authentication schemes and policies.
+Workato also supports single sign-on using third-party credentials, including Google and Microsoft Office 365.
+For more information, see
+Single sign-on
+.
+#
+Just-in-time provisioning
+Customers using a SAML-based SSO provider can use just-in-time provisioning to automatically create Workato users. This eliminates the need to manually configure user accounts and further enhances the enforcement of security policies.
+For more information, see
+Team collaboration - Just in time provisioning
+.
+#
+User provisioning and authorization
+To minimize the risk of data exposure, Workato follows the principle of least privilege through a role-based access control (RBAC) model when provisioning system access.
+#
+Controlling user access through RBAC
+Workspace admins use RBAC to assign collaborators to projects and folders and grant view, edit, create, or delete permissions to assets. Workato is pre-configured with the Admin, Operator, and Analyst system roles, which grant users the permissions necessary to perform the tasks within the scope of their role.
+For more information, see
+Role-based access control
+.
+#
+Custom roles
+In addition to system roles, Workato offers team admins the ability to configure custom roles with access to specific folders, recipes, and connections.
+For more information, see
+Creating custom roles
+.
+#
+Connecting to external systems
+#
+OAuth 2.0
+When Workato recipes connect to remote systems using user-supplied credentials, where possible, this is done using OAuth 2.0. In those cases, no credentials need to be stored in the Workato system. However, if a remote system requires credentials to be stored, they are encrypted using a 256-bit key.
+#
+Custom OAuth
+Custom OAuth profiles enable recipe builders to create custom application profiles on supported connectors and connect them to Workato. This gives them greater control over the app's branding, permission scopes, and OAuth profile.
+For more information, see
+Custom OAuth profiles
+.
+#
+Data protection
+#
+Data encryption
+All data stored in Workato is encrypted in transit and at rest using a strong encryption algorithm (AES-256). This data includes recipes, connections, lookup tables, user profiles, job history, and audit logs.
+Job history data is double-encrypted using a global key managed by our cloud providers and a tenant-specific key.
+For more information, see
+Encryption key management
+.
+#
+Data retention
+Workato stores transaction-related data for a limited period of time to provide visibility into system activity, facilitate testing and debugging, allow the re-running of failed transactions, and support long-running transactions. The
+retention period
+varies by Workato plan and is configurable in some plans.
+#
+Data masking
+You can
+enable data masking
+when configuring recipe steps that contain sensitive data. When data masking is enabled, the data does not display in the Workato UI and is not included in the job history database or audit log streaming.
+For more information, see
+Data masking
+.
+#
+Data privacy
+Workato has a public
+privacy policy
+(opens new window)
+, which details the types of personal information we collect, how we handle that information, and your privacy rights as a customer.
+Can Workato employees see my recipe data or job details?
+No. Workato employees, including engineers, do not have access to your recipe job details, data, or execution logs, even if a job ID or URL is shared.
+Shared job and recipe IDs are primarily used for troubleshooting and debugging within our internal platform logs, where error information is stored. Access to recipe and job data is strictly controlled and remains within your environment.
+All data in Workato is encrypted in transit and at rest. Encrypted data cannot be accessed by Workato staff.
+#
+Audit log
+Workato maintains an
+Activity audit log
+that enables Workspace administrators to see a record of users’ significant actions within their organization. This log can be streamed to an external destination to enable deeper analysis and long-term retention.
+For more information, see
+Audit log streaming
+.
+#
+Best practices
+#
+Authentication
+We recommend implementing one of the following authentication methods for enhanced security:
+Two-factor authentication (2FA)
+:
+Enable 2FA
+to add an extra layer of protection to your account.
+Single sign-on (SSO) with SAML
+:
+Enforce SSO with SAML
+for centralized access management and improved user experience.
+#
+Password management
+If using password authentication, be sure to store your passwords in a secure location that requires multi-factor authentication (MFA).
+#
+Additional resources
+Explore these guides for security best practices tailored to the Workato platform:
+Security best practices for recipes
+Security best practices for APIs
+←
+SCIM FAQs
+Security compliance certifications
+→
+Last updated:
+3/27/2025, 7:38:58 PM
+On this page
+Access and authentication
+Password policy enforcement
+Session timeout
+Two-factor authentication
+Organizational separation
+Separation of environments
+IP allowlists
+TLS and HTTP standards
+SSO using SAML 2.0 authentication
+User provisioning and authorization
+Controlling user access through RBAC
+Custom roles
+Connecting to external systems
+OAuth 2.0
+Custom OAuth
+Data protection
+Data encryption
+Data retention
+Data masking
+Data privacy
+Audit log
+Best practices
+Authentication
+Password management
+Additional resources
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

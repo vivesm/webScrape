@@ -1,0 +1,209 @@
+Workato connectors - Namely Get employee profile details by ID action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Namely
+#
+Get employee profile details by ID action
+The
+Get employee profile details by ID
+action allows you to fetch an employee profile by ID.
+Get employee profile details by ID action
+#
+Input
+Input field
+Description
+Profile ID
+Enter the ID of the employee profile you plan to fetch.
+#
+Output
+Output field
+Description
+ID
+The ID of the employee.
+Company UUID
+The universally unique ID (UUID) of the company associated with the employee.
+Email
+The employee's email address.
+First name
+The first name of the employee.
+Last name
+The last name of the employee.
+User status
+The current status of the employee. For example:
+active
+.
+Updated at
+The timestamp when the employee's information was last updated.
+Created at
+The timestamp when the employee's information was created.
+Preferred name
+The preferred name of the employee, if any.
+Preferred last name
+The preferred last name of the employee, if any.
+Image
+Details about the employee's image, including ID, filename, MIME type, original, and thumbnails.
+Full name
+The full name of the employee.
+Job title
+Details about the employee's job title, including ID, title, parent ID, links, active status, and salary bands.
+Reports to
+Information about whom the employee reports to, including ID, first name, last name, preferred name, and email.
+Employee type
+The type of employment of the employee. For example:
+Full Time
+or
+Part Time
+.
+Access role
+The access role of the employee within the system, if any.
+Ethnicity
+The ethnicity of the employee, if any.
+Team positions
+The team positions held by the employee, if any.
+Is Namely admin
+Indicates whether the employee is an admin within Namely or not.
+Date format
+The date format preferred by the employee.
+Start date
+The start date of the employee's employment.
+LinkedIn URL
+The LinkedIn URL of the employee, if any.
+Office direct dial
+The direct dial number for the employee's office, if any.
+Office phone
+The general phone number for the employee's office, if any.
+Veteran protected classes
+Information about veteran protected classes for the employee, if any.
+Middle name
+The middle name of the employee.
+Bio
+The biography of the employee, if any.
+Office main number
+The main phone number for the employee's office, if any.
+Office address1
+The first line of the office address, if any.
+Office address2
+The second line of the office address, if any.
+City
+The city of the office address, if any.
+State ID
+The ID of the state where the office is located.
+Country ID
+The ID of the country where the office is located.
+Zip
+The ZIP code of the office address.
+Phone
+The phone number of the office, if any.
+Groups
+The groups the employee is part of, if any.
+Teams
+The teams the employee is part of, if any.
+←
+Create status post action
+Post comment action
+→
+Last updated:
+2/21/2024, 7:56:17 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

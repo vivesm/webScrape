@@ -1,0 +1,147 @@
+File tools by Workato - Transform image file action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+File tools by Workato
+#
+Transform image file action
+The
+Transform image file
+action transforms an image file to the required type and size. The maximum file size allowed is 50 MB. This action fails if the file size is larger than 50 MB.
+Transform image file action
+#
+Input fields
+Field
+Description
+Input image
+Provide the image file content.
+Convert to
+Specify the format to convert the image to. Options include
+png
+and
+jpg
+.
+Resize
+Expand and configure the fields in this section to resize the image to the specified width and height.
+Width
+Specify the width to resize the image to (in pixels).
+Height
+Specify the height to resize the image to (in pixels).
+Strict resize?
+Define how the image is resized relative to the specified dimensions. By default, the resized image maintains its aspect ratio and may be smaller than the specified dimensions. Select
+Yes
+to ensure the image matches the exact dimensions. When enabled, Workato resizes the image so that its larger dimension fits the specified size, then adds white padding to the smaller dimension to fill the remaining space.
+#
+Output fields
+Field
+Description
+Transformed image
+The transformed image file.
+←
+Get file from URL
+Uncompress a file
+→
+Last updated:
+1/6/2025, 4:11:55 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

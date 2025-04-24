@@ -1,0 +1,142 @@
+Workato connectors - On-prem files download file action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+On-prem files
+#
+On-prem files - Download file
+This action downloads an existing file. The output of this action is the raw contents and it supports
+streaming
+contents of large files.
+Download file action
+#
+Input fields
+Input field
+Description
+File
+Select the file to download. This can be done either by selecting a file from the pick list, or toggling the input field to text mode and providing the file path. Only files can be downloaded.
+This should be relative to the base path you define in the connection profile. Learn about
+relative path
+.
+Chunk size (KB)
+Large files will be broken into smaller chunks to be downloaded in parts. Default is
+256 KB
+and the minimum is
+32 KB
+. The maximum chunk size depends on the upload chunk size of the application you are uploading it to.
+#
+Output fields
+Output field
+Description
+File contents
+Content of the downloaded file. This datapill supports
+streaming
+. To transfer large files, make sure you map this to an input field that supports streaming.
+←
+Upload file action
+Move file action
+→
+Last updated:
+2/4/2020, 3:08:11 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

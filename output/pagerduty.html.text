@@ -1,0 +1,188 @@
+Workato コネクター - PagerDuty | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+PagerDuty コネクター
+PagerDuty
+(opens new window)
+は、インシデント対応プラットフォームとオンコール管理サービスを提供します。
+#
+API バージョン
+このコネクターは、
+PagerDuty REST API
+(opens new window)
+を使用します。
+#
+Workato での PagerDuty への接続方法
+項目
+説明
+Connection name
+このコネクションに対して、接続先の PagerDuty インスタンスを識別する一意の名前を付けます。
+API key
+[Configuration] -> [API Access] に移動し、API キーを取得します。PagerDuty API キーの作成方法については、
+こちら
+を参照してください。
+#
+PagerDuty API キーの作成方法
+Workato へのコネクターに対する API キー (つまり、PagerDuty 統合キー) を作成します。PagerDuty は、以下の2種類の API キーをサポートしています。
+一般アクセス用 API キー
+: PagerDuty インスタンス内のすべてのオブジェクトにアクセスできます。
+個人用 API キー
+: ユーザーの権限に応じて制限されます。このキーには PagerDuty の
+高度な権限
+(opens new window)
+が必要です。
+使用する API キーを決定したら、以下の手順に従って PagerDuty API キーを作成します。
+1
+[Apps & Add-Ons]
+>
+[API Access]
+に移動し、
+[Create New API Key]
+をクリックします。
+個人用 API キーを作成する場合は、
+[Profile]
+>
+[User settings]
+に移動します。
+2
+キーの識別に役立つ説明を入力します (「Workato integration key」など)。
+Read-only
+は選択しないようにしてください。このコネクターを正しく機能させるには、読み取りと書き込みの権限が必要です。
+API キーに書き込み権限を与える
+3
+作成されたキーは安全な場所に保管してください。この API キーは Workato の認証に使用されます。
+#
+権限
+プロビジョニングされた API キーに書き込み権限があることを確認してください。API アクセスキーを作成する際、
+[Read-only API key]
+は必ず未選択のままにします。
+必須のユーザー権限
+一般アクセス用 REST API キーにアクセスするには、PagerDuty 内で Admin、Global Admin、または Account Owner のロールが割り当てられている必要があります。
+このロールが割り当てられていない場合は、この API キーの作成について、組織内の Admin または Account Owner に問い合わせてください。
+#
+詳細情報
+以下の章を参照できます。
+新規インシデント
+新規通知
+インシデントへのメモの追加
+ID に基づくインシデントの取得
+ログエントリの列挙
+インシデントの検索
+イベントの送信
+インシデントの更新
+#
+PagerDuty の統合に関するサポート
+この統合に関してサポートが必要な場合は、
+Workato サポート
+(opens new window)
+までお問い合わせください。
+←
+アクション
+新規インシデント トリガー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での PagerDuty への接続方法
+PagerDuty API キーの作成方法
+権限
+詳細情報
+PagerDuty の統合に関するサポート
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

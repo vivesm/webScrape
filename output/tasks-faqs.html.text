@@ -1,0 +1,142 @@
+Tasks FAQs | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+After you create your recipe
+Optimizing task usage
+#
+Tasks FAQs
+Get answers to frequently asked questions about about recipe tasks.
+What is a task in Workato?
+In Workato, a
+task
+is a unit of work that occurs whenever a recipe performs an action requiring compute resources. Each action invoked by a connector, including Workato tools like Lookup tables and Variables, counts as one task.
+How are tasks counted in a Workato recipe job?
+The number of
+tasks counted
+in a job depends on the specific trigger event data and the logic of the recipe. Each successfully executed action in the recipe contributes to the task count. Steps in a recipe with all the following apps are counted as tasks:
+Platform connectors
+Custom connectors (Installed from the Community Library/customer-built)
+Workato tools (JSON parser, Variables, Lookup tables, and more)
+Are failed actions counted as tasks in Workato?
+No.
+Failed actions
+are not counted as tasks. Only successfully run actions in a job contribute to the task count.
+Does rerunning jobs add to my task count?
+Yes.
+Rerunning jobs
+are added to your task count.
+How do I find the number of tasks per job?
+To
+view tasks per job
+, select a job to view the task count. A recipe that contains one or more calls to other recipes does not provide the total number of tasks across all child jobs. Each child job has its own total number of tasks.
+How do I view tasks per recipe?
+Navigate to your recipe page, go to the
+Settings
+tab, and use the link provided to open the filtered dashboard where you can
+view tasks for a specific recipe
+.
+←
+Learn About Tasks
+Naming conventions
+→
+Last updated:
+2/2/2024, 9:18:15 PM
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

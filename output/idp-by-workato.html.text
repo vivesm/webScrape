@@ -1,0 +1,759 @@
+Workato connectors - IDP by Workato | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+AI機能
+#
+IDP by Workato
+Intelligent document processing (IDP) は、オートメーションワークフローの重要な部分です。IDP by Workato は、アクションで使用するフィールドを選択または指定して、画像やPDFから関連データを抽出する簡単な方法を提供します。この情報は、下流のアクションで使用するための出力データピルとして利用可能になります。
+例えば、IDP by Workato コネクタを使用して、請求書や調整の処理、クレームの解析と管理、身元確認の実行、履歴書、領収書、または関連するテキストのドキュメントの解析などを行うことができます。
+FEATURE AVAILABILITY
+IDP by Workato は、すべての Workato データセンターのすべてのユーザーが利用できます。この機能を利用するには、
+AI feature addendum
+(opens new window)
+に同意することでオプトインできます。詳細については、カスタマーサクセス担当者にお問い合わせください。
+#
+Key features
+IDP by Workato には、非構造化データを構造化データに処理するための以下の主要な機能が含まれています：
+Free-form schema:
+IDP by Workato はフリーフォームスキーマをサポートしています。これにより、ドキュメントの構造に関係なく、あらゆる種類のドキュメントを処理できます。
+Handwritten text:
+IDP by Workato は手書きのテキストを処理できます。これにより、多様なドキュメントやユースケースに対応できます。
+Multi-language support:
+IDP by Workato は複数の言語をサポートしています。これにより、国際的なドキュメントや請求書など、幅広いドキュメントを処理できます。
+#
+Connection setup
+このコネクタは接続設定を必要としません。
+#
+Process document action
+IDP by Workato アクションを設定するには、次の手順を完了します：
+1
+トリガーを設定した後、コネクタアクションとして
+IDP by Workato
+を検索して選択します。
+Choose IDP by Workato as your app
+2
+アクションとして
+Process document using IDP by Workato
+を選択します。
+3
+処理する
+File contents
+を提供します。
+Process document action
+4
+File type
+ドロップダウンメニューを使用して、処理するファイルタイプを選択します。このコネクタは
+png
+、
+jpg
+、
+webp
+、
+gif
+、および
+pdf
+ファイルタイプをサポートしています。
+5
+Document type
+ドロップダウンメニューを使用して、処理するドキュメントタイプを選択します。利用可能なオプションは
+Documents
+、
+Invoices
+、および
+Receipts
+です。領収書と請求書には、直接使用できる事前定義されたスキーマがあります。独自のスキーマを提供する場合は
+Documents
+を選択します。
+6
+JSON スキーマを追加するか、
+Fields to identify
+を手動で入力します。
+1
+Fields to identify
+の下にある
+Use JSON
+ボタンをクリックします。
+2
+使用する予定の JSON サンプルをコードボックスに貼り付け、
+Next
+をクリックします。あるいは、ドロップダウンメニューから
+Upload sample JSON from your device
+を選択して JSON コードをアップロードすることもできます。
+Paste or upload your JSON schema
+3
+Next
+をクリックして JSON を確認します。
+4
+Generate schema
+をクリックします。
+1
+Fields to identify
+の下にある
+Add fields manually
+をクリックします。
+2
+フィールドに
+Name
+を付けます。
+Add fields manually
+3
+オプションで
+Description
+を追加します。
+4
+Data type
+を選択します。
+5
+Optional
+ドロップダウンメニューを使用して、フィールドがオプションかどうかを決定します。
+6
+オプションで
+Nested
+ドロップダウンメニューを使用して、フィールドが他のフィールドの下にネストされているかどうかを決定します。
+7
+Add field
+をクリックします。
+7
+Save
+をクリックします。
+#
+Confidence scores
+IDP by Workato は、プロセスがうまく機能しているかどうかを理解し、必要に応じて追加のレビューのためのフラグを追加するための信頼スコアを提供します。信頼スコアを使用すると、最小限の監視とレビューでスケーラブルなプロセスを定義し、ドキュメント処理とデータ抽出を行うことができます。
+信頼スコアは 0 から 1 までの数値で、出力がスキーマで特定した情報を含む可能性を表します。例えば、信頼スコアが 0.95 (95%) の場合、正しい出力が約 20 回中 19 回発生することを示します。信頼スコアが低い場合は、データ抽出ワークフローの改善点を特定するために、チームメンバーに慎重にレビューすることをお勧めします。
+#
+Input fields
+このアクションの入力フィールドは、ファイル内容に含まれる情報によって異なります。以下の例の入力フィールドを参照してください：
+Example invoice input
+この例の入力フィールドは、次の請求書に基づいています：
+Invoice example
+この例では、請求書は Workato FileStorage にアップロードされています。これにより、
+Get file contents in Workato FileStorage
+アクションを使用できます。その後、
+Process a document with IDP by Workato
+アクションを次の入力フィールドで使用できます：
+Input field
+Description
+File contents
+これは請求書ファイルです。この例では、
+Get File contents
+アクションから
+File contents
+データピルをマッピングします。
+File type
+ドキュメントのファイルタイプを指定します。サポートされている形式は
+png
+、
+jpg
+、
+webp
+、
+gif
+、および
+PDF
+です。この例では
+png
+を使用します。
+Document type
+ファイルのドキュメントタイプを指定します。この例では
+Invoices
+を使用します。
+Fields to identify
+ファイル内容から特定する予定のフィールドを指定します。フィールドを抽出するための説明を追加します。
+Invoice input fields
+Example document input
+この例の入力フィールドは、次のドキュメントに基づいています：
+Document example
+この例では、ドキュメントは Workato FileStorage にアップロードされています。これにより、
+Get file contents in Workato FileStorage
+アクションを使用できます。その後、
+Process a document with IDP by Workato
+アクションを次の入力フィールドで使用できます：
+Input field
+Description
+File contents
+これは請求書ファイルです。この例では、
+Get File contents
+アクションから
+File contents
+データピルをマッピングします。
+File type
+ドキュメントのファイルタイプです。サポートされている形式は
+png
+、
+jpg
+、
+webp
+、
+gif
+、および
+PDF
+です。この例では
+PDF
+を使用します。
+Document type
+ファイルのドキュメントタイプを指定します。この例では
+Documents
+を使用します。
+Fields to identify
+ファイル内容から特定する予定のフィールドを指定します。フィールドを抽出するための説明を追加します。
+Document input fields
+#
+Output fields
+このアクションの出力は、スキーマに含めたファイル内容に関する情報と
+confidence scores
+を含む単一のデータツリーです。値と信頼スコアの出力に関する詳細については、以下の例の出力データツリーを参照してください：
+Example value output
+{
+"values"
+:
+{
+"invoice_number"
+:
+"I-N-V-50513188"
+,
+"invoice_date"
+:
+"17-Sep-2009"
+,
+"due_date"
+:
+"07-Mar-1996"
+,
+"order_date"
+:
+null
+,
+"total_amount"
+:
+722.84
+,
+"line_items"
+:
+[
+{
+"description"
+:
+"Cultural identify."
+,
+"quantity"
+:
+2
+,
+"price"
+:
+21.06
+,
+"product_code"
+:
+null
+,
+"unit_price"
+:
+10.53
+}
+,
+{
+"description"
+:
+"Sister degree letter."
+,
+"quantity"
+:
+4
+,
+"price"
+:
+153.6
+,
+"product_code"
+:
+null
+,
+"unit_price"
+:
+38.4
+}
+,
+{
+"description"
+:
+"Quite always item."
+,
+"quantity"
+:
+4
+,
+"price"
+:
+131.32
+,
+"product_code"
+:
+null
+,
+"unit_price"
+:
+32.83
+}
+,
+{
+"description"
+:
+"Shoulder."
+,
+"quantity"
+:
+5
+,
+"price"
+:
+364
+,
+"product_code"
+:
+null
+,
+"unit_price"
+:
+72.8
+}
+,
+{
+"description"
+:
+"Wall laugh."
+,
+"quantity"
+:
+5
+,
+"price"
+:
+38
+,
+"product_code"
+:
+null
+,
+"unit_price"
+:
+7.6
+}
+]
+,
+"vendor_address"
+:
+"8110 Lee Haven, West Michele, IN 23979 US"
+,
+"recipient_address"
+:
+"838 Harris Ferry, Matthew burgh, MP 10645 US"
+,
+"vendor_phone"
+:
+"+1(193)406-5197"
+,
+"vendor_url"
+:
+"www.Graham-Carrillo-and-Stark.com"
+,
+"vendor_gst_number"
+:
+"24H-D-E7487R-E-S-R-T4"
+,
+"vendor_email"
+:
+"
+[email protected]
+"
+,
+"recipient_phone"
+:
+"+1(362)455-4064"
+,
+"recipient_url"
+:
+"https://www.torres.biz/"
+,
+"recipient_gst_number"
+:
+null
+,
+"recipient_email"
+:
+"
+[email protected]
+"
+,
+"purchase_order_number"
+:
+null
+,
+"subtotal"
+:
+707.98
+,
+"tax_amount"
+:
+14.86
+,
+"discount"
+:
+null
+,
+"payment_terms"
+:
+null
+,
+"notes"
+:
+null
+,
+"shipping_fee"
+:
+null
+,
+"service_charge"
+:
+null
+,
+"account_number"
+:
+"16870634"
+,
+"bank_code"
+:
+null
+,
+"swift_number"
+:
+"S-B-I-N-I-N-B-B250"
+,
+"payment_method"
+:
+null
+,
+"terms_and_conditions"
+:
+"Terms and Conditions will be charged if payment is not made within the due date."
+,
+"remaining_calls"
+:
+99
+,
+"consumed_calls"
+:
+1
+,
+"reset_time"
+:
+"2024-06-21T02:14:56.000000-07:00"
+}
+}
+Example confidence scores
+{
+"confidence_scores"
+:
+{
+"invoice_number"
+:
+0.9999498764044592
+,
+"invoice_date"
+:
+0.9996482332742705
+,
+"due_date"
+:
+0.9999909854763569
+,
+"order_date"
+:
+0.9999952766598805
+,
+"total_amount"
+:
+0.9999833454831217
+,
+"line_items"
+:
+[
+{
+"description"
+:
+0.9928496557986662
+,
+"quantity"
+:
+0.9137961392004543
+,
+"price"
+:
+0.9659621927727069
+,
+"product_code"
+:
+0.999996766699321
+}
+,
+{
+"description"
+:
+0.9999201908481007
+,
+"quantity"
+:
+0.9999195718568064
+,
+"price"
+:
+0.9978151698276594
+,
+"product_code"
+:
+0.9999995679801468
+}
+,
+{
+"description"
+:
+0.9998884805883848
+,
+"quantity"
+:
+0.9999804063791609
+,
+"price"
+:
+0.9999548387307367
+,
+"product_code"
+:
+0.9999996871837311
+}
+,
+{
+"description"
+:
+0.9997998524901466
+,
+"quantity"
+:
+0.9999720029460075
+,
+"price"
+:
+0.9998689017394373
+,
+"product_code"
+:
+0.9999999031936844
+}
+,
+{
+"description"
+:
+0.9999628251424393
+,
+"quantity"
+:
+0.9999601429370041
+,
+"price"
+:
+0.9998570904479072
+,
+"product_code"
+:
+0.9999998063873687
+}
+]
+,
+"vendor_phone"
+:
+0.9110792042231154
+,
+"vendor_url"
+:
+0.9452639023666751
+,
+"vendor_gst_number"
+:
+0.9992403800587537
+,
+"vendor_email"
+:
+0.9990823827609913
+,
+"recipient_phone"
+:
+0.9949677082415654
+,
+"recipient_url"
+:
+0.9963093776626322
+,
+"recipient_gst_number"
+:
+0.9997899093338881
+,
+"recipient_email"
+:
+0.9980467902735672
+,
+"purchase_order_number"
+:
+0.9999576695636125
+,
+"subtotal"
+:
+0.9999805851068317
+,
+"tax_amount"
+:
+0.9990580898021001
+,
+"discount"
+:
+0.9956880111711502
+,
+"payment_terms"
+:
+0.8990708766681919
+,
+"notes"
+:
+0.7962851560580655
+,
+"shipping_fee"
+:
+0.999827195289032
+,
+"service_charge"
+:
+0.9999335967675153
+,
+"account_number"
+:
+0.9943227138851094
+,
+"bank_code"
+:
+0.9813131412674407
+,
+"swift_number"
+:
+0.9913429312416263
+,
+"payment_method"
+:
+0.9992365566395588
+}
+}
+←
+データの活用方法
+Workato Genie
+→
+Last updated:
+2024/12/18 21:44:08
+On this page
+Key features
+Connection setup
+Process document action
+Confidence scores
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

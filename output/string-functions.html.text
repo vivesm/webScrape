@@ -1,0 +1,608 @@
+Insights - String functions | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Insights
+Reference
+Calculated column functions
+#
+String functions
+You can use the following string functions in
+calculated columns
+to manipulate, format, and analyze text-based values within Insights dashboards.
+ALIASES
+You can search for a function using its alias.
+For example, if the function
+starts_with
+has the alias
+startswith
+:
+When you type
+startswi
+, Insights suggests the
+starts_with
+function.
+When you type
+startswith
+, Insights rewrites it as
+starts_with
+.
+#
+contains
+Returns
+TRUE
+if
+string
+contains the
+search_key
+and
+FALSE
+if otherwise.
+Returns
+<null>
+if either input is null.
+Return type
+:
+BOOLEAN
+contains(string, search_key, case_sensitive)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The string to search in.
+search_key
+VARCHAR
+The substring to search for.
+case_sensitive
+BOOLEAN
+Optional
+. Determines whether the search is case-sensitive. Defaults to
+true
+.
+#
+Example
+This example filters records where product descriptions contain the
+organic
+keyword, ignoring case:
+Column expression
+*
+=
+contains(
+Description
+, "organic", false)
+You can use this function to segment sales data by product attributes.
+#
+starts_with
+Returns
+TRUE
+if
+string
+starts with the
+start_key
+and
+FALSE
+if otherwise.
+Returns
+<null>
+if either input is null.
+Return type
+:
+BOOLEAN
+Alias
+:
+startswith
+starts_with(string, start_key, case_sensitive)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The string to check.
+start_key
+VARCHAR
+The starting substring to check with.
+case_sensitive
+BOOLEAN
+Optional
+. Determines whether the search is case-sensitive. Defaults to
+true
+.
+#
+Example
+This example filters
+projects
+for a specific department based on the
+project name
+, which starts with the department code.
+For example, consider the project name
+[P&E] Test Automation
+, where
+[P&E]
+is the department code:
+Column expression
+*
+=
+starts_with(
+Project name
+, "[P&E]")
+#
+ends_with
+Returns
+TRUE
+if
+string
+ends with the
+end_key
+and
+FALSE
+if otherwise.
+Returns
+<null>
+if either input is null.
+Return type
+:
+BOOLEAN
+Alias
+:
+endswith
+ends_with(string, end_key, case_sensitive)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The string to check.
+end_key
+VARCHAR
+The ending substring to check with.
+case_sensitive
+BOOLEAN
+Optional
+. Determines whether the search is case-sensitive. Defaults to
+true
+.
+#
+Example
+This example retrieves transactions where payment references end with
+USD
+:
+Column expression
+*
+=
+ends_with(
+Payment reference
+, "USD")
+You can use this function for use cases that require currency-specific financial reporting.
+#
+concat
+Returns a concatenation of all the string inputs.
+Return type
+:
+VARCHAR
+concat(string_1, .., string_n)
+#
+Parameters
+Parameter
+Type
+Description
+string_1, .., string_n
+VARCHAR
+One or more strings to be concatenated.
+#
+Example
+This example combines first and last names into a single column containing the full name:
+Column expression
+*
+=
+concat(
+First name
+, " ",
+Last name
+)
+You can use this function to create employee dashboards.
+#
+substring
+Returns a substring from
+string
+of
+substring_length
+starting at
+start_index
+.
+If no
+substring_length
+is provided, the rest of the string from the
+start_index
+is returned.
+Return type
+:
+VARCHAR
+Alias
+:
+substr
+substring(string, start_index, substring_length)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The string to extract from.
+start_index
+BIGINT
+The starting position of the substring to extract (
+1-based index
+).
+substring_length
+BIGINT
+Optional
+. The length of the substring to extract. If missing or greater than the length of the original string, the returned substring will run to the end of the original string.
+#
+Example
+This example extracts the product category from a product code, where the product category is represented by the first four characters of the product code:
+Column expression
+*
+=
+substring(
+Product code
+, 1, 4)
+You can use this function to visualize product sales for different categories.
+#
+trim
+Removes any leading and/or trailing characters that matches the key from
+string
+.
+Return type
+:
+VARCHAR
+trim(specification, key, string)
+#
+Parameters
+Parameter
+Type
+Description
+specification
+VARCHAR
+Optional
+. Specifies which part of the string to trim. Allowed values include
+"leading"
+,
+"trailing"
+, and
+"both"
+. Defaults to
+"both"
+.
+key
+VARCHAR
+Optional
+. The character to remove from the string. Defaults to
+" "
+(space).
+string
+VARCHAR
+The string to trim.
+#
+Example
+This example removes leading dollar signs from revenue values:
+Column expression
+*
+=
+trim("leading", "$",
+Revenue
+)
+You can use this function to create clearer visualizations in a financial dashboard.
+#
+replace
+Replaces all instances of
+search_key
+with
+replacement
+in
+string
+.
+Return type
+:
+VARCHAR
+replace(string, search_key, replacement)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The string to search in and modify.
+search_key
+VARCHAR
+The substring to search for and replace.
+replacement
+VARCHAR
+The substring to insert into the original string.
+#
+Example
+This example replaces underscores in product names with spaces:
+Column expression
+*
+=
+replace(
+Product name
+, "_", " ")
+You can use this function to enhance readability in product performance dashboards.
+#
+lower
+Converts
+string
+to lowercase.
+Return type
+:
+VARCHAR
+lower(string)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The input string to covert to lowercase.
+#
+Example
+This example converts region names to lowercase:
+Column expression
+*
+=
+lower(
+Region name
+)
+You can use this function to create accurate grouping and consistent labels in a dashboard.
+#
+upper
+Converts
+string
+to uppercase.
+Return type
+:
+VARCHAR
+upper(string)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The input string to convert to uppercase.
+#
+Example
+This example converts region names to uppercase:
+Column expression
+*
+=
+upper(
+Region name
+)
+You can use this function to create accurate grouping and consistent labels in a dashboard.
+#
+titleize
+Returns the input
+string
+with the first letter of each word in uppercase and the subsequent letters in lowercase.
+Return type
+:
+VARCHAR
+Alias
+:
+initcap(string)
+titleize(string)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The input string to titleize.
+#
+Example
+This example formats product names in title case:
+Column expression
+*
+=
+titleize(
+Product name
+)
+You can use this function to create a polished presentation in sales dashboards.
+#
+left
+Returns the leftmost substring of the specified length.
+Return type
+:
+VARCHAR
+left(string, substring_length)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The string to extract from.
+substring_length
+BIGINT
+The number of characters to return from the left side of the string.
+#
+Example
+This example extracts the product category from a product code, where the product category is represented by the first four characters of the product code:
+Column expression
+*
+=
+left(
+Product code
+, 4)
+You can use this function to visualize product sales for different categories.
+#
+Related to
+substring(string, 0, substring_length)
+#
+right
+Returns the rightmost substring of the specified length.
+Return type
+:
+VARCHAR
+right(string, substring_length)
+#
+Parameters
+Parameter
+Type
+Description
+string
+VARCHAR
+The string to extract from.
+substring_length
+BIGINT
+The number of characters to return from the right side of the string.
+#
+Example
+This example extracts the last six characters of transaction IDs, which represent the transaction date:
+Column expression
+*
+=
+right(
+Transaction ID
+, 6)
+For example, if the
+Transaction ID
+is
+XJBDJF120424
+, this function returns
+120424
+.
+You can use this function to analyze transaction volume over time.
+#
+Related to
+substring(string, substring_start_index, substring_length)
+←
+Datetime functions
+Math functions
+→
+Last updated:
+3/14/2025, 4:57:44 PM
+On this page
+contains
+starts_with
+ends_with
+concat
+substring
+trim
+replace
+lower
+upper
+titleize
+left
+right
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

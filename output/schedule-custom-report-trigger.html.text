@@ -1,0 +1,141 @@
+Workato connectors - Bamboo HR - Schedule custom employee report trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Bamboo HR
+#
+Bamboo HR - Schedule custom employee report trigger
+This trigger runs a report on the specified schedule and returns new/updated employees between 2 consecutive report runs. The set of data returned depends on the fields selected.
+Use this trigger if you are trying to periodically fetch large volumes of new/updated employees data.
+#
+Input
+Schedule custom employee report trigger
+Input field
+Description
+When first started, this recipe should pick up events from
+Employees created after this time will be processed by the recipe. If left blank, the default date will be set to
+one hour
+before the recipe is first started. Learn more about this
+input field
+.
+Fields
+Select fields that will be returned as outputs to this action.
+Only current
+Limits the report to only current employees. Setting to no/false will include future-dated employees in the report.
+Trigger on
+Select whether to trigger on specific interval, or specific date/time. Subsequent fields will be prompted upon selection. User will need to configure these fields accordingly.
+#
+Output
+The output of this action is all the selected set of data for all the employees fetched by the report.
+For more information, read the
+BambooHR documentation
+(opens new window)
+.
+←
+Updated employee trigger (real-time)
+Create employee action
+→
+Last updated:
+8/28/2024, 8:43:06 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

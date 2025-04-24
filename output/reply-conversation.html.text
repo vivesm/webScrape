@@ -1,0 +1,192 @@
+Workato connectors - Intercom Create/update users action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Intercom
+#
+Intercom - Reply to conversation as user action
+The
+Reply to conversation as user
+action allows you to reply to an existing conversation as an Intercom user.
+Intercom - Reply to conversation as user action
+#
+Input
+Conversation ID
+Enter the unique identifier for the conversation you are replying to.
+User ID
+Specify the user ID of the Intercom user sending the reply.
+Reply text
+Type the message text you plan to send as the reply to the conversation.
+#
+Output
+Type
+The entity type for the conversation.
+ID
+The unique identifier for the conversation.
+Created at
+The timestamp of when the conversation was created.
+Updated at
+The timestamp of when the conversation was last updated.
+User
+Type
+The entity type related to the user.
+ID
+The unique identifier for the user involved in the conversation.
+Assignee
+Type
+The entity type for the assignee.
+ID
+The unique identifier for the assignee of the conversation.
+Conversation message
+Type
+The entity type for the message.
+ID
+The unique identifier for the conversation message.
+Subject
+The subject of the conversation message.
+Body
+The body text of the conversation message.
+Author
+Type
+The entity type for the author.
+ID
+The unique identifier for the author of the message.
+Open
+Indicates whether the conversation is open.
+Read
+Indicates whether the conversation has been marked as read.
+Conversation parts
+Type
+The entity type for conversation parts.
+Conversation parts
+Type
+The entity type for individual conversation parts.
+ID
+The unique identifier for each part of the conversation.
+Part type
+The type of conversation part.
+Body
+The content of the conversation part.
+Created at
+The timestamp of when the conversation part was created.
+Updated at
+The timestamp of when the conversation part was last updated.
+Notified at
+The timestamp of when notifications were sent for the conversation part.
+Author
+Type
+The entity type for the author of the conversation part.
+ID
+The unique identifier for the author of the part.
+List size
+The total number of conversation parts associated with the conversation.
+List index
+The index of the particular conversation part within the list of parts.
+←
+Get conversation by ID action
+Search conversations by user action
+→
+Last updated:
+4/22/2024, 5:48:05 PM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

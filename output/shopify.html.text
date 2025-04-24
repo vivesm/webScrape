@@ -1,0 +1,298 @@
+Workato コネクター - Shopify | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+#
+Shopify コネクター
+Shopify
+(opens new window)
+は、在庫から POS、配送、および返品に至るまで注文を管理できる e コマースプラットフォームです。
+#
+API バージョン
+このコネクターは、
+Shopify Admin API
+(opens new window)
+バージョン
+2021-10
+を使用します。API (およびその他サービス) の提供状況は、
+Shopifyのステータス
+(opens new window)
+ページから確認できます。
+Shopify での API バージョンアップグレードの処理方法
+一般に、Shopify の新規バージョンは3か月ごとにリリースされ、各リリースバージョンは最大12か月間保守されます。つまり、常に4つの安定バージョンがサポートされていることになります。
+リリースされたバージョンが1年の期限を過ぎると、Shopify はそのバージョンの保守を終了し、当該バージョンをリクエストする API 呼び出しはすべて、現在サポートされている
+最も古い安定バージョンに自動的に転送されます。
+たとえば、現在利用可能な安定バージョンが
+2021-01
+、
+2021-04
+、
+2021-07
+、
+2021-10
+である場合、
+2020-04
+バージョンをリクエストする API 呼び出しは Shopify によって自動的に
+2021-01
+バージョンに転送されます。
+詳細については、Shopify の
+API バージョン管理
+(opens new window)
+ページを確認してください。
+#
+Workato での Shopify への接続方法
+Workato を Shopify に接続するには、以下の表に示す項目を指定する必要があります。選択する認証タイプによっては、入力項目が追加される場合もあります。それらの項目については個々のセクションで詳しく説明します。
+項目
+説明
+Connection name
+このコネクションに対して、接続先の Shopify インスタンスを識別する一意の名前を付けます。
+Location
+コネクションを保管するプロジェクト内の場所を指定します。
+Authentication type
+Workato は現在、(a) OAuth 2.0または (b) アクセストークンをサポートしています。
+Shop Name
+ショップの名前です。たとえば、
+shopname
+.myshopify.com/admin のようになります。
+現在、Shopify に接続する方法は
+OAuth2.0
+と
+アクセストークン
+の2つがあります。
+#
+OAuth 2.0
+ユーザー独自の OAuth アプリを用意することによって OAuth 2.0認証を実行できます。
+項目
+説明
+API key
+ユーザー独自の OAuth アプリを使用して接続するための API キー。ユーザー独自の OAuth アプリを使用して接続する場合に必要です。
+API secret key
+ユーザー独自の OAuth アプリを使用して接続するための API シークレットキー。ユーザー独自の OAuth アプリを使用して接続する場合に必要です。
+[オプション]
+Requested permissions (OAuth scopes)
+このコネクションに求める
+権限
+。
+ユーザー独自の OAuth アプリを作成するには、Shopify パートナーアカウントが必要です。以下の手順を実行して、必要なクライアント ID とクライアントシークレットを確認してください。
+パートナーアカウント
+(opens new window)
+にログインします。アカウントがない場合は、同じリンクから登録できます。
+左のナビゲーションで [Apps] をクリックし、[Create app] をクリックします。
+[Create app manually] をクリックし、アプリの名前を指定します。最後に [Create] をクリックします。
+API キーと API シークレットキーを含むアプリのダッシュボードにリダイレクトされます。これらの項目を Workato のコネクション設定ページで入力してください。
+左のナビゲーションで [App setup] オプションをクリックします。[App URL] フィールドに
+https://www.workato.com
+、[Allowed redirection URL(s)] フィールドに
+https://www.workato.com/oauth/callback
+と入力します。
+詳しくは、OAuth アプリについて
+Shopify のドキュメント
+(opens new window)
+を参照してください。
+#
+要求されるスコープ
+デフォルトでは、Shopify へのコネクションを設定する際、Workato は以下のスコープを要求します。
+read_customers
+write_customers
+read_inventory
+write_inventory
+read_products
+write_products
+read_orders
+write_orders
+上記に加えて、以下の追加のスコープへのアクセスを Workato に許可するよう選択することもできます。
+write_reports
+read_reports
+write_payment_terms
+read_payment_terms
+read_product_listings
+#
+アクセストークン
+アクセストークンを使用して Shopify に接続するには、カスタムアプリを作成する必要があります。OAuth 2.0認証タイプとは異なり、カスタムアプリの設定ページで権限/スコープを定義する必要があります。
+項目
+説明
+Access token
+カスタムアプリをインストールする際に提供されるアクセストークン。トークンを確認できるのは Shopify と Workato の両方で一度限りなので、トークンは安全な場所に記録しておいてください。
+カスタムアプリを作成して必要なアクセストークンを確認するには、以下の手順を実行します。
+Shopify にログインし、[App and sales channel settings] に移動します。
+[Develop apps for your store] > [Create an app] の順にクリックします。
+アプリに名前を付け、[Create an app] をクリックして確認します。
+アプリのダッシュボードにリダイレクトされます。[Overview] タブの [Configure Admin API scopes] をクリックし、必要なスコープを選択します。スコープはインストール後でも編集可能です。
+TIP
+Workato を Shopify に正しく接続するには、アプリに少なくとも
+read_products
+権限スコープを設定してください。
+推奨されるスコープのセットは以下のとおりです。
+read_customers
+write_customers
+read_inventory
+write_inventory
+read_products
+write_products
+read_orders
+write_orders
+[Save] をクリックし、右上隅の [Install App] をクリックします。
+アプリがインストールされると、アクセストークンを取得するオプションが表示されます。アクセストークンを表示してコピーします。トークンを確認できるのは Shopify と Workato の両方で一度限りなので、トークンは安全な場所に記録しておいてください。
+アクセストークンを Workato のコネクション設定ページで入力してください。
+詳しくは、カスタムアプリについて
+Shopify のドキュメント
+(opens new window)
+を参照してください。
+#
+次のステップ
+使用可能なトリガーとアクションを確認します。
+#
+トリガー
+New customer (新規カスタマー)
+New order (新規注文)
+New product (新規商品)
+New product variant (新規商品バリエーション)
+New/updated abandoned checkout (新規/更新されたチェックアウト離脱)
+New/updated customer (新規/更新されたカスタマー)
+New/updated order (新規/更新された注文)
+New/updated product (新規/更新された商品)
+#
+アクション
+Add metafield to objects (オブジェクトへのメタフィールドの追加)
+Add metafield to store (ストアへのメタフィールドの追加)
+Adjust inventory level (在庫レベルの調整)
+Connect inventory item to location (ロケーションへの在庫品目の関連付け)
+Create customer (カスタマーの作成)
+Create draft order (下書き注文の作成)
+Create fulfillment (フルフィルメントの作成)
+Create order (注文の作成)
+Create product (商品の作成)
+Create product image (商品画像の作成)
+Create product variant (商品バリエーションの作成)
+Create payment/refund (支払い/返金の作成)
+Create transaction (トランザクションの作成)
+Delete draft order (下書き注文の削除)
+Delete product image (商品画像の削除)
+Get draft order by ID (ID に基づく下書き注文の取得)
+Get store metafields (ストアメタフィールドの取得)
+Get object metafields (オブジェクトメタフィールドの取得)
+Get order by id (ID に基づく注文の取得)
+Get product image by ID (ID に基づく商品画像の取得)
+Get transactions (トランザクションの取得)
+List draft orders (下書き注文の列挙)
+List locations (ロケーションの列挙)
+List product images (商品画像の列挙)
+List product variants (商品バリエーションの列挙)
+Send email invoice (メール請求書の送信)
+Search customers (カスタマーの検索)
+Search products (商品の検索)
+Set inventory level (在庫レベルの設定)
+Update customer (カスタマーの更新)
+Update draft order (下書き注文の更新)
+Update SKU (SKU の更新)
+Update object metafield (オブジェクトメタフィールドの更新)
+Update order (注文の更新)
+Update product (商品の更新)
+Update product image (商品画像の更新)
+Update product variant (商品バリエーションの更新)
+Update store metafield (ストアメタフィールドの更新
+←
+接続方法
+新規カスタマー
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+API バージョン
+Workato での Shopify への接続方法
+次のステップ
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

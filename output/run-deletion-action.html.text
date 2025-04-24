@@ -1,0 +1,153 @@
+Workato connectors - Anaplan Run deletion batch action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Anaplan
+#
+Run deletion batch action
+The
+Run deletion
+batch action starts a deletion task in Anaplan and monitors each task's progress. This action returns results when the final task is either completed or canceled.
+Anaplan - Run deletion action
+#
+Input
+Input field
+Description
+Workspace
+Select the workspace in Anaplan where the model is located.
+Model
+Choose the model from which you plan to delete data.
+Delete actions
+Specify the deletion action by selecting a
+Delete from list using Selection
+action.
+Wait for deletion to complete?
+Decide if Workato should pause until the deletion completes before proceeding. Choose
+Yes
+to pause until completion, or
+No
+to continue to the next step immediately after starting the export.
+#
+Output
+Output field
+Description
+Task ID
+The identifier for the deletion task within Anaplan.
+Task state
+The current status of the deletion task.
+Deletion succeeded?
+Indicates the success or failure of the deletion.
+Current step
+The current step of the deletion process.
+Progress
+The percentage of the deletion task completed.
+Result
+The final outcome of the deletion task.
+←
+Run data import batch action
+Run process batch action
+→
+Last updated:
+3/1/2024, 3:13:11 AM
+On this page
+Input
+Output
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,181 @@
+FileStorage connector - New lines in CSV file trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Recipe design
+Expand automation possibilities
+Workato FileStorage
+#
+FileStorage trigger - New lines in CSV file (batch)
+FILE AND DIRECTORY ACCESS
+Currently, all users in a workspace can access all FileStorage files and directories in the workspace when they use the
+FileStorage connector
+. Workato does not restrict access based on role unless the files are accessed from the
+FileStorage UI
+.
+This trigger is initiated immediately, in real time, when new lines are added to an existing CSV file in
+Workato FileStorage
+. The trigger returns rows and columns from the CSV file in
+batches
+.
+All existing lines in the file will be processed when the recipe starts. Updating the data in the file externally without using the connector actions may cause the trigger to stop tracking the new lines correctly.
+New lines in CSV file in FileStorage trigger
+#
+Input fields
+Field
+Description
+File to monitor
+Choose a CSV file to monitor from the drop-down menu or enter the file path directly (for example,
+samplepath/filename.csv
+).
+If you choose a file from the drop-down menu, only CSV files stored with column schema are displayed. Note that for a CSV file to be identified and picked up by this trigger, it must be stored using the
+Create file
+action with the
+Create CSV file
+option set to
+Yes
+, or the
+Append to file
+action with
+Append CSV content
+set to
+Yes
+.
+Batch size
+Number of CSV rows to retrieve per job. Instead of reading records one by one, Workato reads a batch of CSV records at the same time to increase throughput. Refer to
+Batch processing
+for more information. Defaults to
+1000
+if not specified. Maximum is
+50000
+. If the records are very large, the trigger automatically reduces the number of records retrieved to optimize processing.
+Columns to retrieve
+Select the CSV columns that you plan to use in your recipe. If this field is left blank, Workato retrieves all columns. Otherwise, Workato retrieves only the columns you select.
+#
+Output fields
+Field
+Description
+File name
+Name of the new CSV file.
+File path
+Path of the new CSV file.
+Batch size
+Number of CSV rows in the processed batch.
+Batch number
+ID of the processed batch.
+First batch
+Whether the batch was the first one processed.
+Rows
+A list of new rows from the CSV file, in addition to
+List size
+and
+List index
+. Data from the CSV is shown under the
+Columns
+object.
+←
+New CSV file trigger
+New file trigger
+→
+Last updated:
+2/2/2024, 5:38:38 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

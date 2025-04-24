@@ -1,0 +1,221 @@
+チーム - 環境へのアクセス権の管理 | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの管理
+Environments
+#
+環境へのアクセス権の管理
+この機能を使用できるユーザー
+このガイドは、
+Environments
+機能が有効なアカウントに適用されます。
+このガイドで説明する作業を実行するには、メインワークスペース (
+DEV
+) に以下が必要となります。
+Team Owner
+または
+Admin
+システムロール
+、または
+Team
+権限
+コラボレータのロールが共有されるようにセットアップすることで、
+ロールベースのアクセス制御
+が維持され、Workato 環境間で一貫性が保たれるようにしています。
+このガイドでは、次の項目について説明します。
+コラボレータのロールの管理
+環境へのアクセス権の付与
+環境へのアクセス権の取り消し
+関連情報
+#
+コラボレータのロールの管理
+コラボレータのロールはメイン環境 (
+DEV
+) で管理され、すべての環境に適用されます。ロールの重複を避けるために、コラボレータに対して環境ごとに異なるロールを割り当てます。こうすることで、環境の性質に適したきめ細かい権限を定義することが可能になります。
+以下に例を示します。
+メイン環境 (
+DEV
+) では、レシピの作成に
+Admin
+権限が必要となる場合があります。
+TEST
+環境では、レシピのテストと実行のみが必要です。これは
+Operator
+ロールにより可能です。
+PROD
+環境では、レシピの実行のみが必要です。これは
+Operator
+ロールにより可能です。
+上記の例は、Workato では次のようになります。
+ロールの更新または削除が必要な場合は、メイン環境 (
+DEV
+) で行います。[
+Team management
+] のページは、この環境のみで利用できます。
+#
+環境へのアクセス権の付与
+環境のロールをコラボレータに割り当てると、環境へのアクセス権も付与されます。
+環境へのアクセス権をコラボレータに付与する手順は、次のとおりです。
+1
+Workato アカウントのメイン環境 (
+DEV
+) で、
+[Team management] > [Collaborators]
+(opens new window)
+に移動します。
+2
+変更するコラボレータをクリックします。[
+Edit collaborator
+] のページが開きます。
+3
+アクセス権を付与する環境に移動します。例 :
+TEST
+4
+環境下の [
+Role
+] メニューで、その環境でのコラボレータのロールを選択します。
+その環境へのアクセスを禁止する、またはアクセス権を削除するには
+、[
+No access
+] を選択します。
+5
+[
+Update
+] をクリックします。
+#
+環境へのアクセス権の取り消し
+コラボレータの環境へのアクセス権を取り消す手順は、次のとおりです。
+1
+Workato アカウントのメイン環境 (
+DEV
+) で、
+[Team management] > [Collaborators]
+(opens new window)
+に移動します。
+2
+変更するコラボレータをクリックします。[
+Edit collaborator
+] のページが開きます。
+3
+アクセス権を取り消す環境に移動します。例 :
+TEST
+4
+環境下の [
+Role
+] メニューで、[
+No access
+] を選択します。
+5
+[
+Update
+] をクリックします。
+#
+関連情報
+Environments
+ロールベースのアクセス制御
+コラボレータのロールと権限
+←
+ベストプラクティス
+概要
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+コラボレータのロールの管理
+環境へのアクセス権の付与
+環境へのアクセス権の取り消し
+関連情報
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

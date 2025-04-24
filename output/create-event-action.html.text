@@ -1,0 +1,160 @@
+Workato connectors - Insightly create event action | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Insightly
+#
+Create event action
+This action creates a new event in your Insightly instance.
+#
+Input fields
+Input field
+Description
+Title
+The title of the event.
+Location
+The location of the event.
+Details
+The details of the event.
+Start date
+The start date and time of the event in Coordinated Universal Time (UTC).
+End date
+The end date and time of the event in Coordinated Universal Time (UTC).
+All day
+Whether the event is all day.
+Publicly visible
+Whether the event is publicly visible.
+Reminder date
+The reminder date and time of the event in Coordinated Universal Time (UTC).
+Reminder sent
+Whether the reminder is sent.
+Event links
+The event links of the event.
+Event links source list
+The source list from which the event links are derived. This field accepts a
+list datapill
+as input.
+Contact ID
+The contact ID associated with the event.
+Organization ID
+The organization ID associated with the event.
+Project ID
+The project ID associated with the event.
+Lead ID
+The lead ID associated with the event.
+Opportunity ID
+The opportunity ID associated with the event.
+#
+Output fields
+The output of this action is a datatree that contains information about the
+event
+(opens new window)
+.
+←
+Create opportunity action
+Update contact action
+→
+Last updated:
+6/25/2024, 10:57:45 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

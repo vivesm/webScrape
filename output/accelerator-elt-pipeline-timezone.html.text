@@ -1,0 +1,115 @@
+パイプラインのタイムゾーン {: #time-zone :} | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+アクセラレータ
+ELT パイプライン - Snowflake
+パイプライン bot
+#
+パイプラインのタイムゾーン
+このアクセラレータのレシピは、プロビジョニングされたWorkatoワークスペースで実行されます。そのため、ワークアカウントのタイムゾーンを参照ポイントとして使用します。パイプラインを作成する際には、ワークアカウントのタイムゾーンを参照する必要があります。異なるタイムゾーンを使用すると、意図しない動作が発生する可能性があります。例えば、以下の条件がある状況を考えてみましょう：
+ユーザーの日時：2022-02-04 T 07:40:00-01:00
+ユーザーのタイムゾーン：UTC-1
+Workatoアカウントのタイムゾーン：UTC-8
+ユーザーのタイムゾーンに基づいてボットが選択したパイプラインの開始時刻：2022-02-04 10:00
+実際のパイプラインの開始時刻：2022-02-04T10:00:00-08:00または2022-02-04T17:00:00-01:00
+このシナリオでは、パイプラインはユーザーが意図した時刻よりも7時間遅れて開始されます。したがって、開始時刻を選択する際には、アクセラレータがインストールされているWorkatoアカウントを考慮する必要があります。
+←
+ユーザーの追加/更新
+アセット
+→
+Last updated:
+2024/2/13 16:59:53
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

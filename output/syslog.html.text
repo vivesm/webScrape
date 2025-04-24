@@ -1,0 +1,305 @@
+Workato connectors - Syslog | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Syslog
+Syslog is a message logging protocol used for transferring information from network devices to a central syslog server.
+#
+Connect to a syslog server on Workato
+To connect to a syslog server on Workato, you must have a pre-configured syslog server.
+Use the following procedure to connect your syslog server to Workato:
+1
+Navigate to
+Projects
+within your Workato instance.
+2
+Select
+Assets
+to see all your recipes and connections.
+3
+Select
+Connection
+from the
+Create
+drop-down in the top right corner of the page.
+4
+Search
+Syslog
+and select the
+Syslog
+connector on the
+New connection
+page.
+5
+Provide a
+Connection name
+for the connection by entering a name in the input field.
+6
+Select the location of the connector using the
+Location
+drop-down.
+7
+Provide the address of the remote syslog server in the
+Destination
+input field. The address of the server is the hostname.
+Sample value
+:
+ec2-28-10-283.compute-1.amazonaws.com
+8
+Provide the port that the syslog server listens to for syslog transmissions in the
+Port
+input field. The value defaults to 514.
+9
+Select the connection type for your server from the
+Protocol
+drop-down. You can select
+TCP
+or
+TLS+TCP
+.
+If you select
+TCP
+, go to the last step in this procedure. If you select
+TLS+TCP
+, follow the next three steps.
+10
+Select whether or not to use the default system certificate store using the
+Include default certificate store?
+drop-down. If you select
+No
+, provide a Certificate Authority (CA) certificate for your API server. The following is an example CA certificate.
+-----BEGIN CERTIFICATE-----
+MIIEczCCA1ugAwIBAgIBADANBgkqhkiG9w0BAQQFAD..AkGA1UEBhMCR0Ix
+EzARBgNVBAgTClNvbWUtU3RhdGUxFDASBgNVBAoTC0..0EgTHRkMTcwNQYD
+VQQLEy5DbGFzcyAxIFB1YmxpYyBQcmltYXJ5IENlcn..XRpb24gQXV0aG9y
+aXR5MRQwEgYDVQQDEwtCZXN0IENBIEx0ZDAeFw0wMD..TUwMTZaFw0wMTAy
+MDQxOTUwMTZaMIGHMQswCQYDVQQGEwJHQjETMBEGA1..29tZS1TdGF0ZTEU
+MBIGA1UEChMLQmVzdCBDQSBMdGQxNzA1BgNVBAsTLk..DEgUHVibGljIFBy
+aW1hcnkgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxFD..AMTC0Jlc3QgQ0Eg
+THRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCg..Tz2mr7SZiAMfQyu
+vBjM9OiJjRazXBZ1BjP5CE/Wm/Rr500PRK+Lh9x5eJ../ANBE0sTK0ZsDGM
+ak2m1g7oruI3dY3VHqIxFTz0Ta1d+NAjwnLe4nOb7/..k05ShhBrJGBKKxb
+8n104o/5p8HAsZPdzbFMIyNjJzBM2o5y5A13wiLitE..fyYkQzaxCw0Awzl
+kVHiIyCuaF4wj571pSzkv6sv+4IDMbT/XpCo8L6wTa..sh+etLD6FtTjYbb
+rvZ8RQM1tlKdoMHg2qxraAV++HNBYmNWs0duEdjUbJ..XI9TtnS4o1Ckj7P
+OfljiQIDAQABo4HnMIHkMB0GA1UdDgQWBBQ8urMCRL..5AkIp9NJHJw5TCB
+tAYDVR0jBIGsMIGpgBQ8urMCRLYYMHUKU5AkIp9NJH..aSBijCBhzELMAkG
+A1UEBhMCR0IxEzARBgNVBAgTClNvbWUtU3RhdGUxFD..AoTC0Jlc3QgQ0Eg
+THRkMTcwNQYDVQQLEy5DbGFzcyAxIFB1YmxpYyBQcm..ENlcnRpZmljYXRp
+b24gQXV0aG9yaXR5MRQwEgYDVQQDEwtCZXN0IENBIE..DAMBgNVHRMEBTAD
+AQH/MA0GCSqGSIb3DQEBBAUAA4IBAQC1uYBcsSncwA..DCsQer772C2ucpX
+xQUE/C0pWWm6gDkwd5D0DSMDJRqV/weoZ4wC6B73f5..bLhGYHaXJeSD6Kr
+XcoOwLdSaGmJYslLKZB3ZIDEp0wYTGhgteb6JFiTtn..sf2xdrYfPCiIB7g
+BMAV7Gzdc4VspS6ljrAhbiiawdBiQlQmsBeFz9JkF4..b3l8BoGN+qMa56Y
+It8una2gY4l2O//on88r5IWJlm1L0oA8e4fR2yrBHX..adsGeFKkyNrwGi/
+7vQMfXdGsRrXNGRGnX+vWDZ3/zWI0joDtCkNnqEpVn..HoX
+-----END CERTIFICATE-----
+11
+Provide the client certificate to authenticate your connection to the syslog server in the
+Client certificate
+field.
+12
+Provide the client key to authenticate your connection to the syslog server in the
+Client key
+field.
+13
+Select
+Connect
+to connect to your remote syslog server.
+You can now use the
+Send events
+action in recipes to send syslog events to your remote syslog server.
+#
+Use the send events action in a recipe
+The
+Send events
+action sends syslog message to your remote syslog server. To use this action, configure the following input fields:
+Message format
+Select a message format. You can use the drop-down menu to select a message format or use your own custom message format.
+Default format: CEF V25
+Message
+The message you send to the syslog server.
+#
+Headers
+When you select
+Show
+in the
+Headers
+field of the
+Send events
+action, the following fields display:
+Facility
+The facility value determines which process on the machine created the machine. You can use the drop-down menu to select a facility or enter a custom value for the facility from 0 - 23. To learn more, see
+Syslog facilities and levels
+(opens new window)
+.
+Default facility: user
+Severity
+The severity level indicates how important this syslog message is and what type of message it is, such as an alert message or a warning message. You can use the drop-down menu to select a severity level or enter a custom value for the severity level. To learn more, see
+Syslog facilities and levels
+(opens new window)
+.
+Default severity: notice
+Timestamp
+The timestamp sent with the syslog message, indicating when the message was generated.
+Default timestamp: current time
+Hostname
+The address of the host that sent the message to the syslog server.
+Default hostname:
+workato_host
+#
+Structured data
+When you select
+Show
+in the
+Structured data
+field of the
+Send events
+action, the following field displays:
+Input format
+If you have structured data input of key-value pairs, select to input the data as plaintext (
+text area
+) or use a guided process to input your key-value pairs.
+#
+Use text area for structured data
+When you use text area for structured data, enter the plaintext key-value pairs as the field input.
+Text area
+Enter a string or hash value. String values must be formatted using
+RFC5424 format
+(opens new window)
+. Hash values must be entered in formula mode.
+Example input:
+{id1: { param1: 'value1', param2: 'value2' }, id2: { param3: 'value3' } }
+#
+Use guided for structured data
+When you use the guided option for structured data, Workato takes you through setting up key-value pairs in the UI.
+Guided
+Select a structured data source list, IDs, and parameters for your structured data input. A
+SD-ELEMENT
+in syslog structured data consists of a name (ID) and parameter name-value pairs (params).
+Structured data source list
+The inputs for IDs and the parameters (key-value pairs) come from the list datapill you select.
+ID
+Select a datapill from the data source list. This datapill represents the ID of each
+SD-ELEMENT
+in the structured data you plan to send to the syslog server.
+Params
+Enter the name-value pairs to send to the syslog server.
+#
+Syslog settings
+The Skip empty messages and Packet size fields are settings applied to all syslog messages sent depending on the size and contents of the syslog messages.
+Skip empty messages
+When set to yes, no syslog messages are sent when the message only contains whitespace or the message is omitted.
+Default value: No
+Packet size
+Any part of the syslog message beyond the maximum packet size set here is truncated.
+Default value: 1024
+←
+SurveyMonkey
+Tango Card
+→
+Last updated:
+11/29/2023, 5:03:33 PM
+On this page
+Connect to a syslog server on Workato
+Use the send events action in a recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

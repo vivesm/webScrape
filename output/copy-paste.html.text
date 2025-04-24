@@ -1,0 +1,160 @@
+レシピの作成 - ステップのコピーとペースト | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+レシピの設計
+レシピの構成要素
+ステップ
+#
+ステップのコピーとペースト
+レシピのステップはコピーしてどこにでもペーストすることができます。コピーするレシピのステップはいくつでも選択できます。コピーしたステップはレシピ内のどこにでもペーストでき、他のレシピにペーストすることもできます。
+複数選択によるコピー/ペースト
+ワークスペース内のコピー/ペースト
+コピー/ペーストは同じワークスペース内でのみ行うことができます。コピーとペーストの間にログアウトして、別のアカウントにログインすることはできません。
+#
+順序の維持とエラーの防止
+各ステップの順序を維持しながら複数のステップを選択してコピー/ペーストし、レシピのセクション全体を移動します。
+ペーストされたステップでは制御文を含めて各行の順序が維持される
+これは、レシピのロジックを維持するために非常に重要なことです。
+各ステップの順序が維持されるため、確実に正しい順序でワークフローを実行できます。
+ステップをペーストするときには、
+if-else 条件
+、
+繰り返しループ
+、
+エラー監視ブロック
+などのレシピのロジックが維持されます。
+関数
+もペーストされます。
+#
+ステップペースト時のアプリ接続設定の複製
+コピー/ペーストを使用して別のレシピにステップを複製するときは、ターゲットレシピに接続設定もコピーされます。ターゲットレシピにアプリの接続がない場合は、ソースレシピのアプリの接続が自動的に接続されます。
+ステップをペーストするとアプリの接続設定が複製される
+ターゲットレシピでアプリの接続がすでに設定されている場合、その接続設定は変更されません。
+#
+データピルの再マッピングと自動候補表示
+ステップのコピー - ペーストで注意しなければいけないのは、ソースのアクションを一緒にコピーしないと、一部のデータピルでマッピングが失われて、データピルのマッピングが無効になる可能性があることです。
+無効なデータピルのマッピングはそれぞれ、ペースト時にレシピエディターで強調表示されます。その場合、[
+Remap
+] を選択して、問題のデータピルを現在のレシピにある別のデータピルに置き換えることができます。Workato では、データピルをマッピングするときに、同じアプリとアクションを使用して、関連性が最も高い候補が提案されます。
+自動候補表示による無効なデータピルの再マッピング
+#
+データピルの自動再マッピング
+アクションで複数の再マッピングが必要な場合、Workato では再マッピングのプロセスを簡素化する
+自動再マッピング
+が利用できます。候補となるデータピルが自動的に提案され、データピルを一度に再マッピングできます。
+1
+最初の無効なデータピルを再マッピングします。
+最初の無効なデータピルの再マッピング
+2
+Workato は、最初の無効なデータピルを再マッピングした後に、他の無効なマッピングのすべてについて、他にマッピングできそうなデータピルがあるかどうかを確認します。再マッピングは、NetSuite、Workday、Salesforce など、多数のデータピルのマッピングが必要なアクションで役に立ちます。
+無効なデータピルのマッピングが複数あるステップで利用可能な自動再マッピング
+3
+提案されたデータピルを検証し、[
+Accept all
+] を選択します。
+Workato による自動再マッピングの提案
+←
+ステップのスキップ
+データピル
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+順序の維持とエラーの防止
+ステップペースト時のアプリ接続設定の複製
+データピルの再マッピングと自動候補表示
+データピルの自動再マッピング
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

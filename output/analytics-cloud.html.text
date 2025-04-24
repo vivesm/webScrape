@@ -1,0 +1,335 @@
+Workato connectors - Analytics Cloud | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+#
+Analytics Cloud
+Analytics Cloud
+(opens new window)
+is a cloud based analytic tool that creates powerful visualizations and dashboards from large sets of enterprise data. It is previously known as Wave Analytics.
+Workato makes use of the standard Salesforce connector to upload data from external sources like ERP systems or databases.
+#
+Connector information
+Refer to the
+Salesforce connector
+page for connector information.
+#
+Usage
+#
+Insights External Data and Insights External Data Part
+The InsightsExternalData object allows you to upload data from external sources. This object is used to provide
+metadata
+, and manage the upload process actions like
+start
+,
+cancel
+,
+cleanup
+and
+check status
+.
+The InsightsExternalData object is used together with the InsightsExternalDataPart object (which contains one or more subsets of the entire data to be uploaded). Together, they can be used to programmatically upload large datasets in parts. Finally, an upload is triggered to process the data parts into a dataset in your Analytics Cloud instance.
+More information is available from the
+Analytics External Data API Developer Guide
+(opens new window)
+.
+#
+Insights External Data Object
+Data uploads must be accompanied by JSON Metadata definition and must be base64 encoded. More information is available from the
+External Data Format Reference
+(opens new window)
+.
+#
+Data Format
+The following is an example dataset in CSV format.
+Id,Email,Name
+123,
+[email protected]
+,John Doe
+124,
+[email protected]
+,Mary Poppins
+CSV data guidelines are available
+here
+(opens new window)
+.
+#
+Metadata JSON
+The following is an example of the metadata in JSON format.
+{
+"fileFormat"
+:
+{
+"charsetName"
+:
+"UTF-8"
+,
+"fieldsEnclosedBy"
+:
+"\""
+,
+"fieldsDelimitedBy"
+:
+","
+,
+"numberOfLinesToIgnore"
+:
+1
+}
+,
+"objects"
+:
+[
+{
+"connector"
+:
+"Wave_Analytics_Sample"
+,
+"description"
+:
+""
+,
+"fullyQualifiedName"
+:
+"Lead"
+,
+"label"
+:
+"Lead"
+,
+"name"
+:
+"Lead"
+,
+"fields"
+:
+[
+{
+"fullyQualifiedName"
+:
+"Lead.Id"
+,
+"label"
+:
+"Lead ID"
+,
+"name"
+:
+"Id"
+,
+"isSystemField"
+:
+false
+,
+"isUniqueId"
+:
+true
+,
+"isMultiValue"
+:
+false
+,
+"type"
+:
+"Text"
+}
+,
+{
+"fullyQualifiedName"
+:
+"Lead.Email"
+,
+"label"
+:
+"Lead Email"
+,
+"name"
+:
+"Email"
+,
+"isSystemField"
+:
+false
+,
+"isUniqueId"
+:
+false
+,
+"isMultiValue"
+:
+false
+,
+"type"
+:
+"Text"
+}
+,
+{
+"fullyQualifiedName"
+:
+"Lead.Name"
+,
+"label"
+:
+"Lead Name"
+,
+"name"
+:
+"Name"
+,
+"isSystemField"
+:
+false
+,
+"isUniqueId"
+:
+false
+,
+"type"
+:
+"Text"
+}
+]
+}
+]
+}
+#
+Insights External Data Part Object
+Requirements:
+Create InsightsExternalDataPart objects (<10 MB each)
+External data must be in form of CSV file and base64 encoded.
+#
+Initiate data upload
+After successfully completing all desired Insights External Data Parts, Update the
+Requested Action
+field in the InsightsExternalData record to "Process".
+#
+Managing upload process
+After initiating a data upload process (updating
+Requested Action
+field to "Process"), no more edits are allowed on the objects, except to request a cancellation.
+#
+Example recipe
+Let's put everything together into the following recipe.
+Analytics Cloud recipe.
+Example recipe
+(opens new window)
+This recipe performs a daily upload from SQL Server database to a dataset in Analytics Cloud. The recipe can be broken down to the various steps mentioned before.
+Retrieving data from external data source
+Defining a metadata JSON
+Preparing data from external data source into CSV format
+Create an External Data record
+Upload Insights External Data Parts
+Initial upload process by updating
+Requested Action
+field to "Process" in External Data record.
+←
+Update record action
+Amazon S3
+→
+Last updated:
+4/5/2023, 11:44:25 AM
+On this page
+Connector information
+Usage
+Insights External Data Object
+Example recipe
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

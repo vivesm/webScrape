@@ -1,0 +1,149 @@
+Workato connectors - Google Sheets New/updated row in sheet in My Drive trigger | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Connectivity
+App connectors
+Google Sheets
+#
+New/updated row in sheet in My Drive trigger
+This trigger detects changes made to rows in your selected sheet, as well as new rows added at the bottom of your sheet.
+This trigger can monitor up to 10,000 rows. New or updated rows after row 10,000 will not be picked up.
+LIMITATIONS
+This trigger works exclusively with My Drive. For Team Drive, use the
+New/updated row in sheet in Team Drive trigger
+instead.
+#
+Input fields
+Input field
+Description
+Trigger poll interval
+Specify how frequently to check for new events. This field defaults to five minutes if left blank. The minimum value allowed is five minutes.
+Spreadsheet
+Select the spreadsheet to monitor for new/updated rows.
+Sheet
+Choose the sheet to monitor for new/updated rows. The sheet must have at least one header row and one data row.
+Column to monitor
+Select the column to monitor for changes.
+Add column names manually?
+Indicate whether to add column names manually. Defaults to
+No
+.
+#
+Output fields
+Output field
+Description
+Spreadsheet ID
+The unique identifier for the spreadsheet.
+Spreadsheet name
+The name of the spreadsheet.
+Sheet name
+The sheet name.
+Row number
+The row number.
+←
+New row in sheet in My Drive trigger (real-time)
+New/updated row in sheet in My Drive trigger (real-time)
+→
+Last updated:
+8/29/2024, 3:00:41 PM
+On this page
+Input fields
+Output fields
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

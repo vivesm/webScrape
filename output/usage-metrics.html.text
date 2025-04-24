@@ -1,0 +1,161 @@
+Embedded Usage metrics | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+Orchestrate documentation
+Workflow apps
+Process automation
+Insights
+Workbot
+Data orchestration
+API platform
+Event streams
+Connectivity
+Agentic documentation
+Agentic
+Agent Studio
+Agent Studio use cases
+Agent Studio security
+Explore features
+Getting started
+Recipe design
+AI features
+Community library
+Accessing On-prem
+Troubleshooting
+Organization & workspaces
+Data & security
+Lifecycle & operations
+Connector SDK
+Developer API
+Embedded
+Embedded API
+Accelerators
+Embedded
+Admin console
+#
+Usage metrics
+The
+Usage metrics
+tab gives Embedded partners an overall view of all customers, connections, and recipes used across all customers, providing you with an overview of the product's health. The dashboard displays stats and metrics related to product usage and gives insights into the apps and integrations your customers use most.
+Usage metrics tab
+There are four distinct sections in the
+Usage metrics
+tab. Each section provides information on different usage metrics.
+#
+Tasks
+FEATURE AVAILABILITY
+Task usage is only available from Oct 1, 2020.
+Usage metrics: Tasks
+This section displays the total task count across all customers by calendar month. A
+task
+is a unit of work that occurs every time a recipe performs an action that requires compute resources. Hover over each month to view the task count for that month.
+The section on the right of the graph displays the top three customers with the highest usage in the last 12 months.
+GET USAGE DATA PROGRAMMATICALLY
+Use our
+Get monthly usage
+API to obtain task data for your embedded customers programmatically.
+#
+Connections
+Usage metrics: Connections
+This section displays the total connection count across all customers. A connection here refers to an app connection successfully authenticated in a customer workspace. All connections are included in this count, even those that aren't part of active recipes. This number does not include connections created in your Embedded admin workspace.
+The graph displays the trend in connection count for the last six months, while the following section lists the count of the top 10 most popular apps. The apps displayed here can influence the type of recipes and solutions that you choose to provide in the
+Embedded Private Community
+. It also gives you insights into your customers' most popular use cases.
+#
+Customers
+Usage metrics: Customers
+This section displays the total number of customers and the trend in this number over the last six months. All customers, including those whose subscription has expired, are added to this count.
+Delete the customer
+if you want the customer removed from this calculation.
+Access detailed information about individual customers by selecting their names and accessing their
+customer information page
+.
+#
+Recipes
+Usage metrics: Recipes
+This section displays the number of all active recipes in customer workspaces. This metric is important because each active recipe in a customer workspace correlates to a successful integration. The top graph displays the trend in active recipes across customer workspaces for the past six months.
+The
+Recommended recipes
+section displays the number of times your customers have cloned your recommended recipes. The top five recipes with the highest amount of clones appear on the dashboard. Learn more about promoting recipes in your customer community in the
+Recommended recipes
+documentation.
+←
+Shared connectors
+Audit log streaming
+→
+Last updated:
+4/25/2024, 5:58:27 PM
+On this page
+Tasks
+Connections
+Customers
+Recipes
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

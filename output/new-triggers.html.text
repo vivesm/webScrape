@@ -1,0 +1,208 @@
+Workato コネクター - HubSpot 新規オブジェクトトリガー | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+HubSpot
+#
+HubSpot - 新規オブジェクトトリガー
+このセクションでは、Workato プラットフォームで現在サポートされている以下のトリガーについて説明します。
+New record
+WARNING
+以下のトリガーは間もなく使用が中止されます。新しくリリースされた New record トリガーを使用してください。
+New Company
+New Contact
+New Contact in contact list
+#
+トリガーの条件
+トリガーごとに条件を設定できます。トリガーの条件は、Workato のフィルターのような役割を果たします。Workato でトリガーの条件を有効にすると、ワークフローをトリガーするイベントを選択的に指定できます。条件は、承認ステータスなどのオブジェクトの属性に対して設定できます。これにより、承認された注文書や請求書などでのみトリガーされるワークフローを構築できます。
+#
+New Record トリガー
+HubSpot インスタンスで新しいレコードが作成されると起動します。各レコードは別個のジョブとして処理されます。ポーリング間隔ごとに一度、新規ジョブを確認します。このアクションを設定するには、まずジョブをトリガーするオブジェクトを選択する必要があります。
+現在、Workato では以下のオブジェクトをサポートしています。
+Contact
+Company
+Deal
+Ticket
+New record トリガー
+#
+入力項目
+入力項目
+説明
+Object
+ジョブをトリガーするオブジェクトを選択します。
+When first started, this recipe should pick up events from
+特定の時点以降に作成されたレコードを取得する場合に設定します。空白のままにすると、1時間前からのレコードが取得されます。
+Properties
+設定しない場合、レコードタイプごとにデフォルトのプロパティセットが返されます。設定すると、カスタムのプロパティセットを取得できます。カスタム項目がサポートされています。
+#
+出力項目
+Workato は新規または更新された各レコードを表すオブジェクトを別個のジョブとして返します。これにより、そのデータピルを以降のステップで使用できるようになります。出力データピルは、
+Properties
+入力項目に設定した値に応じて変わります。空白の場合、デフォルトのプロパティセットが返されます。
+#
+New Company トリガー
+HubSpot インスタンスで新しい会社が作成されると起動します。各会社は別個のジョブとして処理されます。ポーリング間隔ごとに一度、新規ジョブを確認します。
+#
+入力項目
+入力項目
+説明
+From
+この時間以降に作成された会社が、レシピにより処理されます。空白のままにすると、デフォルトの日付として、レシピが最初に開始される
+1時間
+前に設定されます。
+#
+出力項目
+Workato は新しく作成された各会社を表すオブジェクトを別個のジョブとして返します。これにより、そのデータピルを以降のステップで使用できるようになります。利用可能な項目については、
+こちら
+を参照してください。
+設定した
+カスタム項目も返されます。
+#
+New contact トリガー
+HubSpot インスタンスで新しいコンタクトが作成されると起動します。各コンタクトは別個のジョブとして処理されます。ポーリング間隔ごとに一度、新規ジョブを確認します。
+#
+入力項目
+入力項目
+説明
+Property mode
+値とバージョン履歴を選択して、トリガーのレスポンスに含まれる Contact プロパティの全バージョン履歴を取得します。
+Show list memberships
+[Yes] を選択すると、このコンタクトが含まれるリストに関するデータが取得されます。
+Properties
+ここで選択したコンタクトのプロパティのみが返されます。すべてのプロパティを取得するには、空白のままにします。
+#
+出力項目
+Workato は新しく作成された各コンタクトを表すオブジェクトを別個のジョブとして返します。これにより、そのデータピルを以降のステップで使用できるようになります。取得される各プロパティの値は、トリガーの入力項目に応じて決まります。利用可能な項目については、
+こちら
+を参照してください。
+設定した
+カスタム項目も返されます。
+#
+New contact in contact list トリガー
+HubSpot インスタンスで新しいコンタクトが作成されると起動します。このトリガーは、過去1時間以内のすべてのコンタクトを取得して最初の実行に使用します。各コンタクトは別個のジョブとして処理されます。ポーリング間隔ごとに一度、新規ジョブを確認します。
+New Contact in contact list トリガー
+#
+入力項目
+入力項目
+説明
+List
+ドロップダウンからコンタクトリストを取得します。表示されるのは最初の1,000件のみです。コンタクトリストが表示されない場合は、リスト ID を入力します。
+Property mode
+値とバージョン履歴を選択して、トリガーのレスポンスに含まれる Contact プロパティの全バージョン履歴を取得します。
+Show list memberships
+[Yes] を選択すると、このコンタクトが含まれるリストに関するデータが取得されます。
+Properties
+ここで選択したコンタクトのプロパティのみが返されます。すべてのプロパティを取得するには、空白のままにします。
+#
+出力項目
+Workato は新しく追加された各コンタクトを表すオブジェクトを別個のジョブとして返します。これにより、そのデータピルを以降のステップで使用できるようになります。取得される各プロパティの値は、トリガーの入力項目に応じて決まります。利用可能な項目については、
+こちら
+を参照してください。
+設定した
+カスタム項目も返されます。
+←
+新規/更新されたオブジェクト トリガー
+オブジェクトの作成
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+New Record トリガー
+New Company トリガー
+New contact トリガー
+New contact in contact list トリガー
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

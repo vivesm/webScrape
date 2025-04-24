@@ -1,0 +1,388 @@
+取得アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクターの SDK
+How-to ガイド
+アクションの作成
+#
+How to ガイド - オブジェクトの取得
+ここでは、ターゲットアプリケーション内でオブジェクトの情報を取得するためのアクションの作成について説明します。基本的には、
+GET
+HTTP リクエストメソッドを利用して、オブジェクト取得のリクエストを送信することが一般的です。
+#
+サンプルコネクター - Zuora
+{
+title
+:
+'My Zuora connector'
+,
+# More connector code here
+actions
+:
+{
+get_account
+:
+{
+title
+:
+"Get account"
+,
+subtitle
+:
+"Retrieves details of an account in Zuora"
+,
+description
+:
+lambda
+do
+|
+input
+,
+picklist_label
+|
+"Get an <span class='provider'>account</span> in "
+\
+"<span class='provider'>Zuora</span>"
+end
+,
+help
+:
+"Retrieves the information of an existing account in Zuora"
+,
+input_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+"id"
+,
+label
+:
+"Account ID"
+,
+hint
+:
+"The ID of the specific account that you wish to retrieve."
+}
+]
+end
+,
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+get
+(
+"https://rest.zuora.com/v1/object/account/
+#{
+input
+[
+"Id"
+]
+}
+"
+,
+input
+)
+.
+after_error_response
+(
+/.*/
+)
+do
+|
+_
+,
+body
+,
+_
+,
+message
+|
+error
+(
+"
+#{
+message
+}
+:
+#{
+body
+}
+"
+)
+end
+end
+,
+output_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+# Various output fields
+]
+end
+}
+}
+# More connector code here
+}
+アカウント取得アクションの選択
+#
+ステップ1 - アクションのタイトル、サブタイトル、説明、ヘルプ
+優れたアクションの作成に向けた最初のステップは、そのアクションが何をどのように実行するかを適切に伝え、さらにユーザーに追加のヘルプを提供することです。そのために Workato では、アクションのタイトルと説明を定義したり、ヒントを提供したりできるようにしています。簡単に言えば、タイトルはアクションの名称であり、サブタイトルはそのアクションのより詳しい内容を表します。続いて、アクションの説明は、接続先となるアプリケーションにおいてそのアクションがどのようなことを達成するかについて、仕様や解説を提供します。最後に、ヘルプのセグメントは、アクションをうまく機能させるために必要な追加情報をユーザーに提供します。
+このステップの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ2 - 入力項目の定義
+input_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+{
+name
+:
+"id"
+,
+label
+:
+"Account ID"
+,
+hint
+:
+"The ID of the specific account that you wish to retrieve."
+}
+]
+end
+Get account の入力項目
+この部分では、オブジェクトの取得を試みるユーザーに向けて表示すべき項目を Workato に指示します。たとえば Zuora のアカウントを取得する場合、ユーザーは取得するアカウントの ID を入力する必要があります。
+入力/出力項目に関しては、上記で定義したもの以外にも、さまざまなキーと値のペアが存在します。詳細については、
+こちら
+を参照してください。
+オブジェクトの定義
+引数として
+object_definitions
+が渡されていることに注意してください。Workato では、コネクターの作成者が "object_definitions" キー内でオブジェクトの定義を独立して記述できるようになっています。このキーは、オブジェクトの定義が長大である場合や、定義が動的に取得される場合に使用されます。
+この詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ3 - execute キーの定義
+execute キーでは、リクエスト送信先となるエンドポイントと、使用する HTTP リクエストメソッドを Workato に指示します。この例では、
+Get
+メソッドを使用してリクエストを
+https://rest.zuora.com/v1/object/account/#{input["Id"]}
+に送信しています。また、リクエストに
+after_error_response
+メソッドを付け足すことで、エラーを捕捉してユーザーに表示し、レシピ作成時のデバッグを支援しています。
+この取得アクションでは、ユーザーが入力したアカウント ID である
+id
+を API エンドポイントに付加し、Workato、さらには Zuora に、取得する特定のアカウントを指示します。
+execute
+:
+lambda
+do
+|
+connection
+,
+input
+|
+get
+(
+"https://rest.zuora.com/v1/object/account/
+#{
+input
+[
+"id"
+]
+}
+"
+,
+input
+)
+.
+after_error_response
+(
+/.*/
+)
+do
+|
+_
+,
+body
+,
+_
+,
+message
+|
+error
+(
+"
+#{
+message
+}
+:
+#{
+body
+}
+"
+)
+end
+end
+エラーの例
+execute キーの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+#
+ステップ4 - 出力項目の定義
+このセクションでは、トリガーの出力として表示するデータピルを指示します。各データピルの
+name
+属性は、
+execute
+キーの出力に含まれるキーに一致している必要があります。
+output_fields
+:
+lambda
+do
+|
+object_definitions
+|
+[
+# Various output fields
+]
+end
+Get account の出力項目
+出力項目キーの詳細については、Workato の
+SDK リファレンス
+を参照してください。
+オブジェクトの定義
+引数として
+object_definitions
+が渡されていることに注意してください。Workato では、コネクターの作成者が "object_definitions" キー内でオブジェクトの定義を独立して記述できるようになっています。このキーは、オブジェクトの定義が長大である場合や、定義が動的に取得される場合に使用されます。
+この詳細については、Workato の
+SDK リファレンス
+を参照してください。
+←
+更新アクション
+マルチステップアクション
+→
+Last updated:
+2023/8/31 1:07:14
+On this page
+サンプルコネクター - Zuora
+ステップ1 - アクションのタイトル、サブタイトル、説明、ヘルプ
+ステップ2 - 入力項目の定義
+ステップ3 - execute キーの定義
+ステップ4 - 出力項目の定義
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.

@@ -1,0 +1,130 @@
+OpenAI - 録音翻訳アクション | Workato Docs
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+日本語
+Get a trial
+/
+docs
+Product Updates
+Status Page
+Automation Institute
+English
+日本語
+Get a trial
+プラットフォーム ドキュメント
+Workflow Apps
+プロセスオートメーション
+Insights
+Workbot
+データオーケストレーション
+API プラットフォーム
+イベントストリーム
+コネクター
+エージェント ドキュメント
+機能を詳しく見る
+はじめに
+レシピの設計
+AI機能
+Workato Genie
+オンプレミス接続
+トラブルシューティング
+組織とワークスペース
+セキュリティ
+レシピの管理
+コネクターの SDK
+開発者用 API
+Embedded
+Workato Embedded API
+アクセラレータ
+コネクター
+作成済みのコネクター
+OpenAI
+#
+録音翻訳アクション
+録音翻訳アクション
+#
+入力
+フィールド
+説明
+ファイルの内容
+翻訳するファイルの内容を提供します。サポートされている形式は、mp3、mp4、mpeg、mpga、m4a、wav、またはwebmです。
+ファイルの種類
+翻訳する入力のファイルの種類を選択します。
+プロンプト
+モデルのスタイルをガイドするためのオプションのテキスト、または前のオーディオセグメントを続けるためのテキストです。これを使用して、モデルに転写時に追加の文脈を提供し、特定の単語やフレーズの省略、含めるべきか、書かれるべきかを指定するのに役立てることができます。詳細は
+こちら
+(opens new window)
+をご覧ください。プロンプトは英語であり、UTF-8互換である必要があります。
+温度
+通常、値0を設定することをお勧めします。0から2の値を設定して補完のランダム性を制御することができます。値が高いほど出力はよりランダムになり、値が低いほどより焦点を絞った決定的な出力になります。このパラメータまたはtop pのいずれかを使用することをお勧めしますが、両方を使用することはお勧めしません。
+#
+出力
+出力は、翻訳されたテキストを含むデータピルです。これを直接他のアクションで使用するか、テキストベースのOpenAIモデルに送信してさらなる処理を行うことができます。
+←
+録音の転写
+テキストのモデレーション
+→
+Last updated:
+2024/2/13 16:59:53
+On this page
+入力
+出力
+Product
+How it works
+Pricing
+What's New
+Recipes
+Security
+Documentation
+Product blog
+Solutions
+HR
+Sales
+Marketing
+Finance
+Support
+IT
+Product (Embed)
+Higher Ed
+Revenue Operations
+Resources
+Docs
+Customer Success
+Content Library
+Systematic Community
+Workato for Slack
+Workato for Microsoft Teams
+Use cases
+Product Led Sales
+Order to Cash
+Employee Onboarding
+Embedded Integrations
+Enterprise iPaaS
+IT Help Desk
+All use cases >
+Applications
+Salesforce
+Slack
+Marketo
+NetSuite
+ServiceNow
+Workday
+All Apps >
+Company
+About us
+Customers
+Blog
+Press
+Careers
+Partners
+Events
+© Workato 2025
+Privacy
+Legal
+Sitemap
+Contact: (844) 469-6752
+The trademarks WORKATO®, WORKBOT® and WORK JAM® are registered in U.S. Patent & Trademark Office to Workato,
+Inc.
