@@ -1,0 +1,99 @@
+Sort | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Sort
+Sort a list from smallest to largest.
+Input Fields
+list
+ - The list you want to sort.
+path
+ - If 
+list
+ is a list of objects, 
+path
+ is the name of the key to sort the objects by or a path if the object contains other objects (for example, "customer.lastname"); otherwise, you can leave 
+path
+ blank.
+Output Fields
+sorted list
+ - The list sorted from smallest to largest.
+NOTE: Numbers will sort differently if you are using a list of text versus a list of numbers (or if the chosen key of the object is text versus a number). In numeric sort order 9 comes before 80, but in alphabetical sort order "80" comes before "9". If you need to convert from string to number, use 
+Sort Custom
+ instead where you call a helper flow to specify the value to use for each item.
+To sort by more than one key, use multiple Sort cards in a row, ending with the Sort using the primary key. To sort from largest to smallest, use 
+Reverse
+ after Sort. To do more complicated sorts, use the 
+Sort Custom
+ function which calls a helper flow to determine the value to sort each item by.
+Examples
+If 
+list
+ is 
+[9,80,20,1]
+ then 
+sorted list
+ is 
+[1,9,20,80]
+ - number order for numbers
+If 
+list
+ is 
+["9","80","20","1"]
+ then 
+sorted list
+ is 
+["1","20","80","9"]
+ - alphabetic order for lists of text
+If 
+list
+ is 
+[{"name":"Nicole","value":10}, {"name":"Sarah","value":20}, {"name":"Emily","value":30}]
+ and 
+path
+ is "name" then 
+sorted list
+ is: 
+[{"name":"Emily","value":30}, {"name":"Nicole","value":10}, {"name":"Sarah","value":20}]
+ - objects alphabetically sorted using name.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

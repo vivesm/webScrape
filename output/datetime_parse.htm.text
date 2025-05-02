@@ -1,0 +1,170 @@
+Text to Date | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Text to Date
+Create a date and time from the contents of a text string to a specified format.
+For most standard formats, this function isn't necessary. You can pass any standard date and time text string into a date input to have it converted automatically. This function is for non-standard or ambiguous formats, for example, if the value is 
+2/1
+, that might be read as 
+1-Feb
+ or 
+2-Jan
+.
+Input 
+Field
+Definition
+Type
+Required
+start
+Text to be converted to a date and time value.
+Text
+TRUE
+format
+Date format code of the input value for the 
+start
+ field.
+Text
+FALSE
+Output
+Field
+Definition
+Type
+output
+Date object that corresponds to the 
+start
+ input value based on the specified format code.
+Date & Time
+Format Codes
+Build the format for the date or time format that you want. Use any combination of these codes along with fixed characters, such as slashes and commas.
+format codes
+output
+D
+For a day number (in the month).
+Use 
+DD
+ to always display the day using two digits.
+M
+For a single-month number.
+Use 
+MM
+ to use two digits.
+MMM
+For a three-letter month abbreviation.
+Use 
+MMMM
+ for the full month name.
+Y
+For a four-digit year number.
+Use 
+YY
+ for a two-digit year number.
+h
+For the hour number (1-12).
+Use 
+hh
+ for a two-digit hour number.
+H
+For the hour number (0-23).
+Use 
+HH
+ for a two-digit hour number.
+mm
+For the minutes.
+ss
+For the seconds.
+Add an 
+.SSS
+ to include milliseconds, for example, 
+ss.SSS
+.
+a
+For 
+am
+ or 
+pm
+ designation.
+Use 
+A
+ for 
+AM
+ or 
+PM
+.
+Z
+For the time zone in offset format, for example, 
+-07:00
+.
+d
+For the day of the week, where 
+1
+ is Monday. 
+Use 
+ddd
+ for an abbreviated day format, for example, 
+Mon
+. 
+Use 
+dddd
+ for the full day name, for example, 
+Monday
+.
+x
+For a time stamp in "unix in milliseconds" format. 
+This is defined as the count of milliseconds since Jan 1, 1970 at midnight GMT.
+X
+For a time stamp in "unix in seconds" format, also known as the "epoch" or "unix time stamp". 
+This is defined as the count of seconds since Jan 1, 1970 at midnight GMT.
+Examples
+start
+format
+output
+1/2/2016
+D/M/Y
+2016-02-01T00:00:00.000Z
+1/2/16
+M/D/YY
+2016-01-02T00:00:00.000Z
+1493053116
+X
+2017-04-24T16:58:36.000Z
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

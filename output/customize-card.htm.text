@@ -1,0 +1,108 @@
+Customize a card | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Customize a card
+You can customize a Workflows event or action card in several ways:
+Change the title and description of a card
+Reorder the fields  included on the card
+Choose the output fields that you want displayed on the card
+Edit card properties
+Click the gear icon (
+Other options
+ menu) on the card and select 
+Edit card
+ to turn on the editing mode.
+Click the pencil icon next to the name of the card.
+In the 
+Rename Card
+ dialog, change the string in the 
+Display Name
+ field.
+Change the string in the 
+Description 
+field.
+Click 
+Save
+ to confirm your change to the card name.
+Click the pencil icon next to any field. 
+In the 
+Customize Field
+ dialog, change the string in the 
+Display Name
+ field.
+When applicable, change the field type from the 
+Field Type
+ dropdown.
+If applicable, add a value to the 
+Default Value 
+field.
+Click 
+Save
+ to confirm your change to the field name.
+Optionally, you can drag any field to another position on the card.
+Click 
+Save
+ to complete your changes. 
+If the card doesn't have a 
+Save
+ button (on the 
+Compose
+ card, for example), click the gear icon (
+Other options
+ menu) on the card. Select 
+Edit card
+ to turn off the editing mode.
+Choose fields
+When you add an event card or action card with dynamically generated fields, 
+Okta
+ prompts you to select or deselect fields. Click the checkbox for each field that you want to include in your flow.
+To search for a specific field, type in the search box to filter the view.
+When you click 
+Done
+, the selected fields are the only ones to appear on the card.
+Update schedule settings
+To update the schedule settings for an event card, see 
+Set schedule options
+.
+Duplicate a card
+If you want to create a duplicate of an existing card, see 
+Duplicate a card
+.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

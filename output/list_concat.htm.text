@@ -1,0 +1,104 @@
+Combine All | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Combine All
+Combine the contents of two or more lists. The output is a List of every element in the preceding Lists, including potential duplicates.
+To combine two or more lists into a list that contains unique elements, see 
+Union (Combine Unique)
+.
+Input
+Field
+Definition
+Type
+Required
+List 1
+The first list of values that will be concatenated.
+Click on an empty cell in each list to add a list item. A cell can contain only one list item. 
+List of Text
+FALSE
+List 2
+                                The second list of values that will be concatenated.
+Click the empty input field under 
+List 2
+ to create a third or subsequent list of values to concatenate with the rest of the input fields. Additional lists are labeled as 
+List 3
+, 
+List 4
+, and so forth.
+List of Text
+FALSE
+Output
+Field
+Definition
+Type
+List Combined All
+                                Resulting concatenated list items.
+List of Text
+Example
+If the cells in 
+List 1
+ contain the items 
+{Alan}
+, 
+{Bob}
+, and 
+{Charles}
+, and the cells in 
+List 2
+ contain the items 
+{Alicia}
+, 
+{Brittany}
+, and 
+{Catherine}
+, then the resulting concatenated list in the 
+List Combined All
+ output field will read:
+Copy
+{Alan},
+{Bob},
+{Charles},
+{Alicia},
+{Brittany},
+{Catherine},
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

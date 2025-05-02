@@ -1,0 +1,361 @@
+Device Context Overview | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+ASP.NET
+Loading...
+    On this page
+            Overview
+Loading...
+    Device Context Overview
+    Identity Engine
+Enable a new device rule for your org's authentication policy.
+Learning outcomes 
+Send a unique device ID to the Okta servers with a custom HTTP request header.
+Understand how device context enables Adaptive Multifactor Authentication (AMFA).
+What you need 
+The Embedded SDK set up in your app
+An Okta org that enables sign-on with only a password
+Sample code 
+Sample ASP.NET MVC Application using Embedded Authentication with the IDX SDK
+(opens new window)
+Overview 
+Server-side web applications can use the 
+X-Device-Token
+ custom HTTP request header to send a user's device ID to an Okta org. The ID must meet the following criteria:
+Length of 32 characters or less
+Identifies the specific user device
+Unique across all devices
+For server-side apps using an embedded SDK, developers must create the ID and assign it to the 
+X-Device-Token
+ header. The ID informs two features within an org that flag "a request is coming to the org from a new device":
+Device Context
+(opens new window)
+Behavior Detection
+(opens new window)
+Administrators can write authentication policy rules for sign-in requests from a new device using the 
+new device behavior
+. The following diagram shows this flow:
+Note:
+ Find your org's definition of 
+New Device
+ in your Admin Console under 
+Security
+ > 
+Behavior Detection
+.
+Update your application to send an X-Device-Token header 
+Add the following code to your app to set the 
+X-Device-Token
+ with a device ID.
+Create a device ID 
+Generate a unique identifier for the device with a maximum length of 32 characters. Some operating systems include an API to generate an application-specific device ID. Other ways to create the ID include using a UUID or GUID directly, as a source for a hash, or for an encrypted string using a public key.
+Warning
+: Each device must have a unique ID or unknown results may occur.
+Add the device ID to the header 
+Add the device ID to the 
+X-Device-Token
+ request header in the constructor of the OktaAuth IDX client class.
+const
+ authClient 
+=
+new
+OktaAuth
+(
+{
+  issuer
+:
+ 'https
+:
+/
+/
+{
+yourOktaDomain
+}
+'
+,
+  …
+  headers
+:
+{
+    'X
+-
+Device
+-
+Token'
+:
+ '
+{
+yourDeviceID
+}
+'
+}
+}
+)
+;
+Alternatively, call 
+OktaAuth.setHeaders()
+ with 
+X-Device-Token
+ and the device ID as parameters, once the client has been instantiated.
+const
+ authClient 
+=
+new
+OktaAuth
+(
+{
+  issuer
+:
+ 'https
+:
+/
+/
+{
+yourOktaDomain
+}
+'
+,
+  …
+}
+)
+;
+authClient
+.
+setHeaders
+(
+{
+'X
+-
+Device
+-
+Token'
+:
+ '
+{
+yourDeviceID
+}
+'
+}
+)
+;
+Adaptive Multifactor Authentication example 
+Apps with an Adaptive Multifactor Authentication (AMFA) policy prompt users for a different number of authentication factors based on several criteria:
+Location: Where are they signing in from?
+New device: Are they signing in from a managed or known device?
+Network: Are they signing in from a safe network?
+Travel: Are they signing in from a new location?
+What groups does the user belong to?
+Are they signing in through SSO?
+For example, a user signing in to your website from a new device or new country may signal a risky situation. Requiring more authenticators—email, phone SMS, or biometrics—gives extra identity assurance in these circumstances.
+In this example, you implement a simple AMFA policy requiring two authentication factors from new devices and only one factor from known devices. The following diagram illustrates this flow:
+Follow these steps to enable this AMFA policy in your app:
+Update your application to send the 
+X-Device-Token
+ header to your org.
+Update or create a new global session policy to require a second authentication factor for sign-in requests from new devices.
+Update or create an authentication policy for your app to require and identify a second authentication factor for new devices.
+Note
+: For testing purposes, create new policies rather than adding AMFA rules to your existing policies.
+Create a new global session policy for AMFA 
+Open the 
+Admin Console
+ for your org.
+Choose 
+Security
+ > 
+Global Session Policy
+ to show the available global session policies.
+Click 
+Add Policy
+.
+Set a 
+Policy Name
+. Example: New Device AMFA Policy
+Set 
+Assign to Groups
+ to your target user groups. Example: Test Users
+Click 
+Create Policy and Add Rule
+ to save the new policy.
+After creating the policy, the 
+Add Rule
+ dialog appears.
+Set a 
+Rule Name
+. Example: New Device AMFA Rule
+Set 
+Behavior is
+ to 
+New Device
+. This is where the 
+X-Device-Token
+ header is selected.
+Set 
+Establish the user session with
+ to 
+A password
+.
+Set 
+Multifactor authentication (MFA) is
+ to 
+Required
+.
+Set 
+Establish the user session with
+ to 
+A password
+.
+Verify that 
+Users will be prompted for MFA
+ is set to 
+At every sign-in
+.
+Click 
+Create Rule
+ to create the rule.
+These rules declare that:
+Every user starts the sign-in process with a password
+If "New Device" is true, a second authentication factor is required, and users are prompted as such for each sign-in process.
+Note
+: See 
+Add a global session policy rule
+(opens new window)
+ to learn how the different MFA settings interact.
+Create a new app authentication policy for AMFA 
+Create an authentication policy for your app. It must contain two rules that state the following:
+By default, users authenticate with a username and password only.
+If the user is using a new device, require a second authentication factor.
+First, create the policy.
+Open the 
+Admin Console
+ for your org.
+Choose 
+Security
+ > 
+Authentication Policies
+ to show the available authentication policies.
+Click 
+Add a Policy
+.
+Set a 
+Policy Name
+. Example: AMFA Test Policy
+Click 
+Save
+.
+Set the catch-all rule to require only the username and password by default.
+Locate the 
+Catch-all Rule
+ for the new policy and select 
+Actions
+ > 
+Edit
+.
+Verify 
+Access is
+ is set to 
+Allowed after successful authentication
+.
+Set 
+User must authenticate with
+ to 
+Password
+.
+Click 
+Save
+.
+Add a new rule that requires an additional authenticator when signing in from a new device.
+Click 
+Add rule
+ on the 
+Rules
+ tab for your new policy.
+Set a 
+Rule Name
+; for example, "Second factor for new device."
+Set 
+The following custom expression is true
+ to 
+security.behaviors.contains("New Device")
+.
+Verify that 
+User must authenticate with
+ is set to 
+Password + Another factor
+.
+Verify that the box under 
+Additional factor types
+ contains at least one other factor type. Example: email or Okta Verify
+Click 
+Save
+.
+Select the 
+Applications
+ tab for your newly created policy and click 
+Add App
+.
+Find your app in the list and click 
+Add
+ next to it.
+Click 
+Close
+.
+Verify the 
+Applications
+ tab of the new policy lists the new app.
+Note
+: For more about the expression used in Step 3, see the 
+Okta Expression Reference Guide
+.
+See also 
+Basic sign-in flow example with the password factor
+Sign in with password and email factors
+Device Context
+(opens new window)
+Behavior Detection
+(opens new window)
+Okta Expression Reference Guide
+Add a global session policy rule
+(opens new window)
+Edit This Page On GitHub
+      Instructions for
+ASP.NET
+Loading...
+        On this page
+Overview
+Update your application to send an X-Device-Token header
+Adaptive Multifactor Authentication example
+Create a new global session policy for AMFA
+Create a new app authentication policy for AMFA
+See also
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

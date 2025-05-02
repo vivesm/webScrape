@@ -1,0 +1,99 @@
+Concatenate | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Concatenate
+Take two or more string inputs and combine them without spaces into a single text output.
+You can also do this using 
+Compose
+.
+Input
+Field
+Definition
+Type
+Required
+text 1
+First of two or more string inputs.
+String
+TRUE
+text 2
+Second of two or more string inputs.
+String
+TRUE
+Click 
+Click or drop here to create
+ to add and concatenate additional string inputs. 
+Output
+Field
+Definition
+Type
+output
+Concatenated input strings.
+String
+Example
+If you have two output fields - 
+first name
+ and 
+last name
+ - from an earlier card in your flow, you can create a single name output using the Concatenate function card:
+Add a third text input to the Concatenate function card.
+Map 
+first name
+ from another card to the 
+text 1
+ input field.
+Enter a single space in the 
+text 2
+ input field.
+Map 
+last name
+ from another card to the 
+text 3
+ input field.
+When the flow runs, the Concatenate card will combine all three input values and the 
+output
+ field will return a single string that contains 
+<first name value><space><last name value>
+, such as 
+John Smith
+.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

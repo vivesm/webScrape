@@ -1,0 +1,72 @@
+Random | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Random
+Return random text of a specified length.
+Input
+Field
+Definition
+Type
+Required
+length
+Length of the text value.
+String
+TRUE
+Output
+Field
+Definition
+Type
+output
+Randomly generated text value of a specified length. Text can contain both numbers and characters in upper or lower case.
+String
+Example
+For a 
+length
+ value of 
+5
+, the 
+output
+ field returns 
+ynt6N
+ .
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

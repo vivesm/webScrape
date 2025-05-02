@@ -1,0 +1,157 @@
+Return Raw | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Return Raw
+This function card returns data to the caller. This is an advanced version of the 
+Return
+ function card, but gives you full control over the HTTP response.
+With this function card, you can do the following:
+Produce an API that returns XML
+Use the 
+Build
+ function card to create an XML string containing your response.
+Drag the output to the 
+body
+ input of a 
+Return Raw
+ card.
+Produce an API that returns a JSON list
+Use the 
+Stringify
+ function card to create a JSON string representation of your list response.
+Drag the output to the 
+body
+ input of a 
+Return Raw
+ card.
+Produce an API that returns an object with dynamic keys
+The 
+Return
+ function card requires you to define the keys of your response at design time. Instead, the 
+Return Raw
+ function card enables you to use the 
+Object
+ function cards to build a response object, for example:
+Use the 
+Stringify
+ function card to create a JSON string version of the object.
+Drag the output to the 
+body
+ input of a 
+Return Raw
+ card.
+Set the HTTP status code for the response
+The 
+Return
+ function card always returns a 
+200
+ HTTP response code. 
+You can use the 
+Return Raw
+ card to set the HTTP status code to any valid values, for example, 
+200
+ or  from 
+400
+ through 
+599
+.
+Set the HTTP headers of the response
+Use the 
+Object
+ function cards to create an object representing any HTTP header that you need.
+For example, if the 
+headers
+ object is 
+{ "Content-Type": "application/xml" }
+, then the header string for the response is 
+"Content-Type: application/xml"
+.
+Okta Workflows
+ merges those headers with the headers produced by the API service.
+Input
+Field
+Definition
+Type
+Required
+statusCode
+A status code to return to the caller. 
+Valid values are 
+200
+ or any other HTTP response code from 
+400
+ through 
+599
+.
+Number
+FALSE
+headers
+An object representing the headers for the response.
+Each key of the header is parse into a header string as a 
+"key: value"
+ entry. For example, 
+"Content-Type: text/plain"
+.
+Object
+FALSE
+body
+The body of the HTTP response.
+Text
+FALSE
+Output
+This card has no output fields. 
+This function card behaves differently when placed inside a 
+If/ElseIf
+ or 
+If/Error
+ block. 
+Consider those blocks as representing anonymous helper flows. Similar to when you call a helper flow, this function card returns you to the parent. Placing this function card inside one of those block sends you to the step immediately after the container. 
+Use a 
+Continue If
+ function after the 
+If/ElseIf
+ block to stop a flow under normal conditions. You can use a 
+Return Error
+ or 
+Return Error If
+ card instead, but those options generate an error when the flow halts.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

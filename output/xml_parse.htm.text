@@ -1,0 +1,215 @@
+Parse | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Parse
+Convert an XML string to an object. 
+By converting an XML string to an object, you can use many of the built-in functions to process and use the XML values throughout the rest of your flow.
+Input
+Field
+Definition
+Type
+Required
+xml
+XML string to  convert into an object.
+Text
+TRUE
+options
+attrkey
+The string used as the key for the attribute object created for each XML element.
+The default is 
+$
+.
+Text
+TRUE
+charkey
+A text string to use as the key to access character content within an XML element. 
+This string is applied only if 
+explicitCharkey
+ is set to 
+True
+. 
+The default is 
+_
+ (the underscore character).
+For example, consider the following output:
+Copy
+ "ARTIST": [
+        "The Men"
+      ],
+If you set 
+charkey
+ to 
+_
+ and 
+explicitCharkey
+ is 
+True
+, then this element becomes:
+Copy
+ "ARTIST": [
+        {
+          "_": "The Men"
+        }
+      ],
+Text
+FALSE
+explicitCharkey
+Indicates if a 
+charkey
+ is used.
+The default is 
+False
+.
+True/False
+FALSE
+trim
+Indicates if the white space at the beginning and end of a text node should be removed
+The default is 
+False
+.
+For example, if set to 
+True
+, then the text string 
+' Surfer  Blood  '
+ in the input XML becomes 
+'Surfer Blood'
+ in the output object.
+True/False
+FALSE
+normalizeTags
+Indicates if all tag names should be normalized to lowercase.
+The default is 
+False
+.
+For example, if set to 
+True
+, then the tag 
+ARTIST
+ in the  input XML becomes 
+artist
+ in the output object.
+True/False
+FALSE
+normalize
+Indicates if any whitespace within a text node should be trimmed. This is similar to 
+trim
+, but also acts on any whitespace between text elements.
+The default is 
+False
+.
+For example, if set to 
+True
+, then the text string  
+'Surfer  Blood  '
+ in the input XML becomes 
+'Surfer Blood'
+ in the output object.
+True/False
+FALSE
+explicitRoot
+Indicates if the resulting object should include the root node.
+The default is 
+False
+.
+For example, if set to 
+True
+, the 
+example output
+  is wrapped within a 
+catalog
+ object.
+True/False
+FALSE
+Output
+Field
+Definition
+Type
+output
+The object that's constructed from the input XML text and your selected options.
+Object
+Example input
+This is an XML example of a simple record catalog:
+Copy
+<?xml version="1.0"?>
+<catalog>
+    <release id="JNR165.8">
+        <artist>Surfer Blood</artist>
+        <title>1000 Palms</title>
+    </release>
+    <release id="OLE 984-7">
+        <artist>The Men</artist>
+        <title>Singles Going Home Alone #3</title>
+    </release>
+</catalog>
+Example output
+The following is the object created from the 
+example XML input
+ using the default selections on the function card:
+Copy
+{
+  "release": [
+    {
+      "$": {
+        "id": "JNR165.8"
+      },
+      "artist": [
+        "Surfer Blood"
+      ],
+      "title": [
+        "1000 Palms"
+      ]
+    },
+    {
+      "$": {
+        "id": "OLE 984-7"
+      },
+      "artist": [
+        "The Men"
+      ],
+      "title": [
+        "Singles Going Home Alone #3"
+      ]
+    }
+  ]
+}
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

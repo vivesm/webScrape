@@ -1,0 +1,148 @@
+Overview of lifecycle management in the OIN | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            Why build a lifecycle management integration with Okta?
+Loading...
+    Overview of lifecycle management in the OIN
+Lifecycle management refers to the process of provisioning and deprovisioning app access as a user moves through an org. Onboarding, role change, transfer, and offboarding employee processes require provisioning user accounts in Okta and other third-party apps. It also requires enforcing corporate security policies in a timely manner.
+Okta provides two methods to integrate lifecycle management to your app. You can use the 
+System for Cross-domain Identity Management
+(opens new window)
+ (SCIM) protocol to manage user accounts from Okta. You can also use the 
+Okta Workflows Connector Builder
+(opens new window)
+ to create automated identity processes in 
+Okta Workflows
+(opens new window)
+.
+After completing your Okta lifecycle management integration, publish it in the 
+Okta Integration Network (OIN)
+(opens new window)
+ for your customers to benefit from secure provisioning automation and meet compliance requirements. The OIN is a collection of pre-built app integrations covering numerous use cases. Join the community that customers trust to exchange secure authentication between users, devices, and apps.
+Why build a lifecycle management integration with Okta? 
+Automate onboarding/offboarding and win larger customers
+After an org reaches a certain size, manually provisioning accounts and getting users set up is a time-consuming process and a bottleneck for your product's adoption. Okta lifecycle management integration automates mundane tasks for your customers, which reduces the total cost of ownership and removes barriers to end user activation.
+Secure access to your app
+Secure access to your app. Integrating with Okta ensures that end users can access your app when they join an org. Access is automatically removed as they leave the org to prevent embarrassing data loss and dangling access.
+Meet compliance requirements
+Help your customers generate logs of access changes to comply with security policies and audits.
+Increase adoption of your product and sell more licenses
+Okta lifecycle management integration helps your customers use SaaS licenses and ultimately purchase more as the org grows or use expands.
+Choose how to implement your integration 
+System for Cross-domain Identity Management (SCIM)
+Connector Builder
+Description
+SCIM
+(opens new window)
+ is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search.
+Connector Builder
+(opens new window)
+ is a no-code development interface that creates custom connections to API endpoints along with data manipulation flows. You can then package these flows with authentication and branding as connectors in the OIN. Publishing a complete connector allows your customers to deeply integrate your product as part of their lifecycle management process in Okta Workflows.
+Technology
+JSON-based REST API server implementation
+Okta supports outbound SCIM requests to your SCIM API service
+See 
+SCIM Protocol
+(opens new window)
+Low code development environment
+See 
+Okta Workflows
+(opens new window)
+Benefits
+Covers the most common lifecycle management needs related to onboarding/offboarding
+SCIM is an industry standard protocol
+Customers can create highly custom automated flows using your product without writing code
+Your product is tightly integrated with Okta
+Get started
+Build a SCIM Provisioning Integration
+Connector Builder
+(opens new window)
+Use case examples 
+Example of a partner integration journey with Okta 
+Tom is an internal developer at OktReward, an HR employee rewards app. OktReward is already in the OIN with an SSO integration. OktReward wants to add a lifecycle management integration with Okta.
+Tom performs the following tasks:
+Builds the OktReward-Okta lifecycle management integration by using the Connector Builder. Their customers don't need to worry about manual employee profile processes, such as onboarding or offboarding.
+Documents the required configuration steps for the customer admin.
+Submits the integration and corresponding documentation for Okta to verify and review.
+After approval, the OktReward app is published as a lifecycle management integration (in addition to an SSO integration) in the OIN.
+Example of a customer admin integration journey with Okta 
+Acme is a company that uses Okta to manage identity for their workforce. Acme is considering adding OktReward into their HR suite. OktReward is in the OIN with SSO and lifecycle management use cases. Therefore, Acme knows they can integrate OktReward securely into their existing Okta-managed SSO and automated user lifecycle flow with minimal effort. In addition, Acme can access OktRewards audits for their compliance needs.
+Alicia is an admin at Acme and performs the following tasks to integrate OktReward:
+Adds the OktReward app integration in the OIN catalog from the Admin Console
+Follows the instructions provided by OktReward to configure the SSO and Okta Workflows integration
+Configures the authentication policy and the groups of Acme employees with various access levels to the OktReward app
+Imports user profiles from Okta to the OktReward app
+Tests signing in to the OktReward app with existing Okta credentials to verify the authentication flow
+Tests user onboarding, role changes, and offboarding with HR to ensure that the user provisioning flow works accurately
+Acme's employees can sign in to the OktReward app with their existing Okta credentials and no additional OktReward app registration is required. When new employees join Acme, their HR staff adds user profiles in one Okta source. The user profiles are automatically provisioned to the apps with lifecycle management support, which now includes OktReward.
+Example of a workforce lifecycle journey with Okta 
+Key terms for lifecycle management in this workforce journey:
+Joiner
+: Starting employment at an org
+Mover
+: Changing roles or teams within an org
+Leaver
+: Ending employment at an org
+Joiner 
+Lucy accepts an offer to join the Customer Support team at Acme Corp. The Acme HR team sets her start date in the employee directory and adds her to the "Customer Support" Okta group.
+On Lucy's start date, Okta automatically creates her accounts in all the tools used by every employee at Acme. For example, chat, corporate directory, and intranet.
+Since Lucy is in the Customer Support Okta group, an account is also provisioned for Lucy in the Customer Support team tools. These tools are used exclusively by the Customer Support team (for example, the case management tool).
+Acme uses Okta Workflows to provide custom onboarding actions, extending the usual account provisioning flows. After Lucy's account is activated, an onboarding flow is triggered based on Lucy's group. Since she's part of the Customer Support group, Lucy is added to a special folder in Acme's cloud file storage service. The Customer Support team uses this folder to share template files.
+Mover 
+After two years of great work on the Customer Support team, Lucy is promoted and becomes a team manager. The HR team updates Lucy's role in the employee directory to reflect her new level and manager title. Lucy's profile in Okta is updated, and Lucy is added to a new group called "People Managers" in Okta.
+The apps Lucy was given access to when she joined Acme are automatically updated with Lucy's latest profile information including her new title.
+Since Lucy is now a member of the People Managers Okta group, Okta provisions her an account in Acme's evaluation tool for employee performance.
+A flow is triggered in Okta Workflows when Lucy's profile is updated that adds Lucy to a private chat group for people managers.
+Leaver 
+After five years of employment at Acme, Lucy decides to leave to take a role at another org. HR sets her last day in the employee directory.
+At the close of business on Lucy's last day with Acme, her account is removed from Okta. Her accounts in the various apps she uses for her job are removed.
+An offboarding flow is triggered in Okta Workflows. It reassigns ownership of Lucy's files and folders in Acme's cloud file storage service to her manager. A rule is created in Acme's email system that forwards any email sent to Lucy's corporate email address to her manager.
+Next steps 
+Ready to get started? Choose how you want to implement your lifecycle management integration.
+        System for Cross-domain Identity Management
+Build a SCIM provisioning integration
+        Connector Builder
+Build a Workflows connector
+After your Okta lifecycle management integration is built and tested, 
+submit
+ it through the OIN Manager and the Okta OIN team will verify it.
+Edit This Page On GitHub
+        On this page
+Why build a lifecycle management integration with Okta?
+Choose how to implement your integration
+Use case examples
+Example of a partner integration journey with Okta
+Example of a customer admin integration journey with Okta
+Example of a workforce lifecycle journey with Okta
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

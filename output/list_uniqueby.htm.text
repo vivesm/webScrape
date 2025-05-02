@@ -1,0 +1,145 @@
+Remove Duplicates | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Remove Duplicates
+Removes duplicates from a list.
+Input
+Field
+Definition
+Type
+Required
+List
+A list of objects that contains the duplicates you want to remove.
+List of Objects
+TRUE
+Path
+While 
+List
+ is a list of objects, 
+Path
+ is the name of the key that determines whether something is a duplicate or not.
+For example, you may want just one customer record per unique email address.
+Text
+TRUE
+Output
+Field
+Definition
+Type
+List No Duplicates
+A list of objects with the duplicate items removed.
+List of Objects
+To filter out duplicates using more complex criteria than a single value or key, use the 
+Unique Custom
+ function. This function calls a helper flow to determine the value for each item and determines if it's unique or not.
+Examples
+If the 
+List
+ is 
+9,80,1,9,20,1
+ then the returned 
+List No Duplicates
+ is 
+9, 80, 1, 20
+. The function returns only one instance of each number. The card doesn't consider the 
+Path
+ value in this example, as there's only one item in each object.
+As another example, consider the following elements in a list of defined objects:
+Copy
+[
+  {
+    "name": "Nicole",
+    "value": 10
+  },
+  {
+    "name": "Sarah",
+    "value": 20
+  },
+  {
+    "name": "Emily",
+    "value": 10
+  }
+]
+ If the input for the 
+Path
+ is 
+value
+, then the returned 
+List No Duplicates
+ has only one object with the value of 
+10
+:
+Copy
+[
+  {
+    "name": "Nicole",
+    "value": 10
+  },
+  {
+    "name": "Sarah",
+    "value": 20
+  }
+]
+ If the input for the 
+Path
+ is 
+name
+, then the returned 
+List No Duplicates
+ is unchanged:
+Copy
+[
+  {
+    "name": "Nicole",
+    "value": 10
+  },
+  {
+    "name": "Sarah",
+    "value": 20
+  },
+  {
+    "name": "Emily",
+    "value": 10
+  }
+]
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

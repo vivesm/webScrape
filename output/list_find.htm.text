@@ -1,0 +1,96 @@
+Find Custom | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Find Custom
+Calling a helper flow allows you to do tests of any complexity (for example, given a list of email addresses for a particular customer, you could look up to find the first one that already exists in your marketing database).
+To return all of the items that match a test, use 
+Filter
+ or 
+Filter Custom
+ instead.
+Input Fields
+Fill out the Find card as follows:
+list
+:
+: The list you want to search
+flow:
+ The helper flow (as described above) that will be called once for each item in the list, until a match is found
+with the following values
+(dynamically generated)
+:
+item:
+ (will have whatever name you chose when you created your helper flow) Click in the field that will hold the current item from the list and choose "Item." (Or, in some instances, you may also be able to select a specific path within an object if only that value is needed from each item.)
+You can have optional additional fields on the helper flow event card in helper flow you chose, and those will also show up as input fields.
+Output Fields
+item:
+ First item in the list that results in the helper flow returning 
+True
+. Make sure to set the type of 
+item
+ to match the type of the list.
+index:
+ Location of the found item in the original list, where 0 is the first item in the list. Returns 
+-1
+ if there is no match.
+Example
+If 
+list
+ is 
+[2,4,12,7,3,8]
+ and 
+flow
+ is set to a helper flow that returns 
+True
+ if a number is an odd number, and Item is passed to the helper flow's input, then the output 
+item
+ is 
+7
+ (the first item in the list where the helper flow returns 
+True
+) and 
+index
+ is 
+3
+.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

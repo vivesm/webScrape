@@ -1,0 +1,104 @@
+Lookup | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Lookup
+Convert one value to another using a lookup table. For example, convert one web service code to another web service code or a department name to a contact email.
+Input
+Field
+Definition
+Type
+Required
+Value
+Value you want to look up.
+String
+TRUE
+Lookup Table
+Click the bottom row to add new rows. Click the 
+x
+ at the left of a row to delete a row.
+When Value Is:
+ Possible input values.
+Then Result Is:
+ Corresponding results for each value. Same type as 
+Result
+ output.
+Various
+FALSE
+Otherwise Result Is
+The result to use if there are no matches in the lookup table. Same type as 
+Result
+ output.
+Various
+FALSE
+Output
+Result
+: The result of the lookup. If an exact match is found for 
+Value
+ in the 
+When Value Is
+ column, then 
+Result
+ is set to the corresponding value in the 
+Then Result Is
+ column; otherwise, 
+Result
+ is set to the 
+Other Result Is
+ value. Defaults to type text. If you change the type, then it also automatically changes the type for the 
+Then Result Is
+ column and the 
+Otherwise Result Is
+ input.
+Related topics
+Construct
+ and 
+Get
+ for lookup tables where the potential values for the result are not known in advance (that is, are set by outputs when the flow runs). Build the object at runtime using 
+Construct
+ and then use 
+Get
+ to do the lookup. Alternatively, you can also do this using nested 
+If/Else
+ or successively linked 
+Assign If
+ functions.
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

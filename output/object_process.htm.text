@@ -1,0 +1,99 @@
+Map | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Map
+The 
+Map
+ function iterates through each key in an object using a helper flow and creates an object as output.  
+For each key in the input object, the helper flow executes with the 
+key
+ name and the corresponding 
+value
+. After selecting a helper flow from the 
+Select Flow
+ dialog, you can pass the key and value fields using the dropdown choices in the 
+With the following values
+ section.
+The helper flow must output two values, 
+key
+ and 
+value
+, using a 
+Return
+ card. Each key and value pair creates one key in the new output object. 
+The helper flow can also filter out some keys using 
+Continue If
+ or similar branching logic. For example, if the helper flow completes without returning a key and value pair, then that iteration doesn't provide a key to the output object.
+Input Fields
+Field
+Definition
+Type
+Required
+For each item in this list
+object
+The object or a list of objects to process.
+Object
+TRUE
+Run this Flow
+Helper Flow
+Helper flow to process each key and value pair.
+Flow
+TRUE
+With these options
+concurrency
+Number of keys that are processed in parallel.
+Number
+FALSE
+With the following values
+Inputs
+Dynamically generated inputs defined by the helper flow. Use the dropdown list to specify which input receives the key and which receives the value.
+Various
+TRUE
+Output Fields
+Field
+Definition
+Type
+output
+The new object created from the key and value pairs from the helper flow.
+Object
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

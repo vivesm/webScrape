@@ -1,0 +1,65 @@
+Return | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Return
+This function card ends a flow and returns values to the caller of the flow.
+Input
+This card has no default input fields. To add input fields, create them manually on this card or drag and drop output fields from other cards.
+Output
+This card has no output fields. 
+This function card behaves differently when placed inside a 
+If/ElseIf
+ or 
+If/Error
+ block. 
+Consider those blocks as representing anonymous helper flows. Similar to when you call a helper flow, this function card returns you to the parent. Placing this function card inside one of those block sends you to the step immediately after the container. 
+Use a 
+Continue If
+ function after the 
+If/ElseIf
+ block to stop a flow under normal conditions. You can use a 
+Return Error
+ or 
+Return Error If
+ card instead, but those options generate an error when the flow halts.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,416 @@
+Social Login | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Amazon
+Loading...
+    On this page
+Loading...
+    Social Login
+Amazon
+This document explains how to configure 
+Amazon
+ as an 
+external social Identity Provider (IdP)
+ for your app by creating an app at 
+Amazon
+, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+Okta manages the connection to the IdP for your app, sitting between your app and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s 
+Amazon
+ account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
+Note:
+ Okta also supports other services such as directories and credential providers. See the 
+Okta Integration Network Catalog
+(opens new window)
+ to browse all integrations by use case.
+Learning outcomes 
+Configure a social Identity Provider so that your users can quickly sign up or sign in to your app by using their social Identity Provider account.
+What you need 
+Okta Developer Edition organization
+(opens new window)
+An OpenID Connect (OIDC) app integration in Okta for the app that you want to add authentication to. You can 
+create an OIDC app integration
+(opens new window)
+ or use an existing one.
+An account with 
+Amazon
+(opens new window)
+Create an app at the Identity Provider 
+Create and register an 
+app
+(opens new window)
+ at Amazon.
+When you create an application at the IdP, you need to provide a redirect URI for authentication.
+The redirect URI sent in the authorize request from the client needs to match the redirect URI set at the IdP. This URI is where the IdP sends the authentication response (the access token and the ID token). It must be a secure domain that you own. This URI has the same structure for most IdPs in Okta and is constructed using your Okta subdomain and the callback endpoint.
+For example, if your Okta subdomain is called 
+company
+, then the URI would be 
+https://company.okta.com/oauth2/v1/authorize/callback
+. If you configured a custom domain in your Okta org, use that value to construct your redirect URI, such as 
+https://login.company.com/oauth2/v1/authorize/callback
+.
+Include all base domains (Okta domain and custom domain) that your users will interact with in the allowed redirect URI list.
+Save the generated Amazon client ID and client secret values. You need them to configure your Identity Provider in Okta.
+Create the Identity Provider in Okta 
+To add 
+Amazon
+ as an Identity Provider in Okta:
+In the Admin Console, go to 
+Security
+ > 
+Identity Providers
+.
+Click 
+Add Identity Provider
+, and then select 
+Amazon
+ IdP
+. 
+Click 
+Next
+.
+In the 
+General Settings
+ section, define the following:
+Name
+: Enter a name for the Identity Provider in Okta.
+Client ID
+: Paste the generated client ID from your 
+Amazon
+ application.
+Client Secret
+: Paste the generated client secret from your 
+Amazon
+ application.
+Scopes
+: Leave the defaults for a simple sign-in flow. You can also add scopes. See 
+Customer Profile
+(opens new window)
+.
+In the optional 
+Authentication Settings
+ section:
+Account Link Policy
+: Specify whether Okta automatically links the user's IdP account with a matching Okta account. See 
+Account link
+.
+Click 
+Finish
+. A page appears that displays the IdP's configuration.
+Note:
+ If you want to use a specific 
+Redirect Domain
+ instead of the 
+Dynamic
+ default, you can use either 
+Org URL
+ or 
+Custom URL
+. See 
+issuerMode
+ in the 
+Identity Provider attributes
+ section.
+Note:
+ See the 
+Identity Providers API
+(opens new window)
+ for request and response examples when creating an IdP in Okta using the API.
+Account link 
+You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If 
+Account Link Policy
+ is set to Automatic (
+AUTO
+), Okta searches the Universal Directory for a user's profile to link. The user profile is found when the 
+IdP username
+ value (email) passed by the IdP matches the 
+Match against
+ value (username). See 
+Account Linking and JIT Provisioning
+.
+To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a 
+DELETE
+ call to the 
+/api/v1/idps/{idpId}/users/{userId}
+endpoint
+ to remove the link between the Okta user and the IdP user before authentication.
+If 
+Account Link Policy
+ is disabled, no account linking occurs. You can manually create an account link without a transaction by making a 
+POST
+ call to the 
+/api/v1/idps/{idps}/users/{userId}
+endpoint
+.
+See 
+Add an Identity Provider
+(opens new window)
+ for API examples of account linking JSON payloads.
+For security best practices, consider disabling account linking after all existing users from the external IdP have signed in to your Okta org. At this point, all links have been created. After you disable linking, and JIT provisioning is enabled, Okta adds new users that are created in the external IdP.
+Test the integration 
+You can test your integration by configuring a 
+routing rule
+(opens new window)
+ to use 
+Amazon
+ as the Identity Provider.
+Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with several blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+In the URL, replace 
+{yourOktaDomain}
+ with your org's base URL, and then replace the following values:
+client_id
+: Use the 
+client_id
+ value from your Okta app integration. This isn’t the 
+client_id
+ from the Identity Provider. For example, 
+0oawjqpb2wcUAWM8C0h7
+.
+response_type
+: Determines which flow is used. For the 
+Implicit
+ flow, use 
+id_token
+. For the 
+Authorization Code
+ flow, use 
+code
+.
+response_mode
+: Determines how the authorization response is returned. Use 
+fragment
+.
+scope
+: Determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each with a 
+%20
+ (space character). You need to include at least the 
+openid
+ scope. You can request any of the standard OpenID Connect scopes about users, such as 
+profile
+ and 
+email
+ and any custom scopes specific to your Identity Provider.
+redirect_uri
+: The location where Okta returns a browser after the user finishes authenticating with their Identity Provider. This URL must start with 
+https
+ and must match one of the redirect URIs that you configured in the previous section.
+state
+: Protects against cross-site request forgery (CSRF). This can be set to any value.
+nonce
+: A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. This can be set to any value.
+For a full explanation of all of these parameters, see: 
+/authorize request parameters
+(opens new window)
+.
+An example of a complete URL looks like this:
+https://
+{
+yourOktaDomain
+}
+/oauth2/v1/authorize?idp
+=
+{
+idp_id
+}
+&
+client_id
+=
+{
+client_id
+}
+&
+response_type
+=
+id_token
+&
+response_mode
+=
+fragment
+&
+scope
+=
+openid%20email
+&
+redirect_uri
+=
+https%3A%2F%2FyourAppUrlHere.com%2F
+&
+state
+=
+WM6D
+&
+nonce
+=
+YsG76jo
+To test your authorization URL, enter the complete authorization URL in a browser. Do this in your browser's privacy or incognito mode to avoid false positive or negative results.
+If everything is configured properly:
+The user is redirected to the Identity Provider's sign-in page.
+After successful authentication, the user is redirected to the redirect URI that you specified, along with an 
+#id_token=
+ fragment in the URL. The value of this parameter is your Okta OpenID Connect ID token.
+If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
+Add the Identity Provider to the embedded Okta Sign-In Widget 
+Note:
+ This section only applies to Classic Engine. 
+If you're using Identity Engine, the 
+Sign in with IdP
+ option is available on the widget after you 
+create the Identity Provider in your Okta org
+ and configure the 
+routing rule
+(opens new window)
+. No additional code is required. See 
+Identify your Okta solution
+(opens new window)
+ to determine your Okta version and 
+Upgrade your widget
+ for Identity Engine upgrade considerations.
+The 
+Okta Sign-In Widget
+(opens new window)
+ is an embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a 
+Sign in with 
+Amazon
+ button to the widget by adding the following code to your Okta Sign-In Widget configuration.
+    config
+.
+idps
+=
+[
+{
+type
+:
+'AMAZON'
+,
+id
+:
+'Your_IDP_ID'
+}
+]
+;
+    config
+.
+idpDisplay 
+=
+"SECONDARY"
+;
+Replace 
+Your_IDP_ID
+ with the Identity Provider ID from your Identity Provider that you created in Okta in the 
+Create the Identity Provider in Okta
+ section. To find your Identity Provider ID:
+In the Admin Console, go to 
+Security
+ > 
+Identity Providers
+.
+On the 
+Identity Providers
+ page, select the 
+Identity Provider
+ tab.
+Select your Identity Provider from the list. 
+IdP ID
+ contains your Identity Provider ID.
+Add the Identity Provider to the custom Okta-hosted sign-in page 
+Note:
+ This section only applies to Classic Engine. 
+If you're using Identity Engine, the 
+Sign in with IdP
+ option is available on the widget after you 
+create an Identity Provider in your Okta org
+ and configure the 
+routing rule
+(opens new window)
+. See 
+Identify your Okta solution
+(opens new window)
+ to determine your Okta version.
+If you configured a 
+custom Okta-hosted Sign-In Widget
+, you can add a 
+Sign in with 
+Amazon
+ button by adding the following code beneath the 
+var config = OktaUtil.getSignInWidgetConfig();
+ line in the 
+Sign-in page code editor
+ of the Admin Console.
+    config
+.
+idps
+=
+[
+{
+type
+:
+'AMAZON'
+,
+id
+:
+'Your_IDP_ID'
+}
+]
+;
+    config
+.
+idpDisplay 
+=
+"SECONDARY"
+;
+Replace 
+Your_IDP_ID
+ with the Identity Provider ID from your Identity Provider that you created in Okta in the 
+Create the Identity Provider in Okta
+ section.
+Next steps 
+You now understand how to add a social Identity Provider and have successfully added and tested the integration.
+To map Okta attributes to app attributes, use the 
+Profile Editor
+(opens new window)
+.
+To add another Identity Provider, start by choosing an 
+external Identity Provider
+.
+Edit This Page On GitHub
+      Instructions for
+Amazon
+Loading...
+        On this page
+Create an app at the Identity Provider
+Create the Identity Provider in Okta
+Account link
+Test the integration
+Add the Identity Provider to the embedded Okta Sign-In Widget
+Add the Identity Provider to the custom Okta-hosted sign-in page
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

@@ -1,0 +1,60 @@
+Upgraded and deprecated cards | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Upgraded and deprecated cards
+Action or event cards may need to be upgraded or retired due to API changes, major feature changes, or performance or reliability issues.
+Cards can be impacted in the following ways:
+Scenario
+Impact
+A card was upgraded with new functionality.
+                            Your current flows will likely be interrupted so long as they are using the card's old functionality.
+							To take advantage of the upgrade, you'll have to establish a new connection for that card's connector then remove and replace the existing card.
+							For some card upgrades, you may only have to reauthorize your current connection instead of establishing a new one.
+In Custom API Action cards, application API endpoints are no longer supported. 
+If your Custom API Action card uses any of the unsupported endpoints, then it won't work and your flows won't run.
+A card is being deprecated by Okta.
+                            You'll no longer be able to add this card to a flow.
+                            If you have existing flows with this card, they may remain functional.
+Related topics
+Cards in flows
+Workflows error messages
+Configure a connection
+Connections page
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

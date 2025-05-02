@@ -1,0 +1,80 @@
+Zip | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Zip
+Take two lists of equal length and combine them into a new list with paired items of the same position. 
+For example, if you combined 
+[1,2,3]
+ and 
+["a","b","c"]
+, this function card returns a new list: 
+[[1,"a"],[2,"b"],[3,"c"]]
+. The input lists can be lists of any type.
+Input
+Field
+Definition
+Type
+Required
+List 1
+                                First list of values.
+Click on an empty cell in each list to add a list item. A cell can contain only one list item. 
+Various
+FALSE
+List 2
+                                Second list of values.
+Click on an empty cell in each list to add a list item. A cell can contain only one list item.                                
+Various
+FALSE
+Output
+Field
+Definition
+Type
+list
+Combination of 
+list1
+ and 
+list2
+.
+List of Text
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

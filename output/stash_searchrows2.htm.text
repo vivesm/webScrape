@@ -1,0 +1,158 @@
+Search Rows | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Search Rows
+Find rows in a table that match a set of conditions.
+Options
+Field
+Definition
+Type
+Required
+Table ID (if the 
+provide table at runtime
+ option was selected)
+ID for table. To obtain the table ID, see 
+Provide a table ID at runtime
+.
+To select a table:
+Click 
+Choose Table,
+ select a table in the dialog box, or click 
+New Table
+ to create a table, then click 
+Choose
+.
+Click 
+Save
+ on the card.
+String
+TRUE
+Result Set
+Filter the results of your search:
+First matching row
+: Returns the first row that matches your search criteria. Use this option when searching for a specific row.
+All matching rows
+: Returns all matching rows as a list. Use this option when searching for the maximum amount of data that matches your search criteria.
+A result set is based on a match of a full or partial string. For example, if you use 
+joe
+ as a search value, the search results include all rows that include a value of 
+joe
+ in one of the columns.
+Dropdown
+TRUE
+Various
+To select the  fields (column names) returned in the search results:
+Click the checkboxes next to the available listed input fields.
+Click 
+Save
+.
+Input
+Field
+Definition
+Type
+Required
+Filter
+Where Expression
+Click 
+Filter
+ to build search conditions. 
+In the dialog box, select which table column to search. Optionally, drag and drop outputs from previous steps into the 
+Value
+ input if you want to search using a value  from earlier in your flow. 
+Click 
++ Add condition
+ to search based on more than one test, such as 
+Customer Type = Trial and Date > 1/1/18
+.
+The search expression is case sensitive.                             
+Dialog Box
+TRUE
+Sort
+Column
+Specific column used to sort results.
+Dropdown
+FALSE
+Direction
+Direction of the search. 
+Select 
+Ascending
+ (A to Z, 0-9) or 
+Descending
+ (Z to A, 9-0).
+Dropdown
+FALSE
+Limit
+Maximum number of records to return. 
+Regardless of the limit selected, the function card returns a maximum of 
+3,500 rows
+ from the selected table.
+Number
+FALSE
+Offset
+An offset value to specify at what record number the search should start. 
+0
+ is the first record.
+Number
+FALSE
+Table ID (if 
+provide table at runtime
+ option is selected)
+Select a table from which a row is read.
+String
+TRUE
+Output
+If you're returning a single result, the following outputs are returned:
+Field
+Definition
+Type
+Row
+Created
+Date and time when the row was created.
+Date & Time
+Updated
+Date and time when the row was last updated.
+Date & Time
+Fields
+The chosen fields (column names) from the table you selected. If the table is provided at runtime, you can manually add the field names and types.
+If you're returning multiple results, a list of rows is returned, where each row includes all of the above. If no results were found, the card returns an empty list.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

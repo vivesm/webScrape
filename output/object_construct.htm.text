@@ -1,0 +1,101 @@
+Construct | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Construct
+Creates an object based on a set of user-defined inputs.
+Input
+Field
+Definition
+Type
+Required
+(user created fields)
+Create one input for each key that you want to create in the output object. The input names become the key names in the constructed object. 
+You can set each input to any type, including object or list. The values are populated using the output fields dragged in from prior cards in your flow.
+Various
+TRUE
+Output
+Field
+Definition
+Type
+output
+The newly constructed object.
+Object
+Example
+Consider a situation where you want to create an object to represent a customer. This customer object has four keys:  
+First name
+, 
+Last name
+, 
+Age
+, and 
+Loyalty
+. The 
+Loyalty
+ key indicates if the customer is a member of your loyalty plan.
+Use the 
+Construct
+ function card to create inputs for each key name and set the input types. Both the 
+First name
+ and 
+Last name
+ fields are text fields. The 
+Age
+ field should be a number and 
+Loyalty
+ is a true or false value.
+Then you can add the 
+Construct
+ function to your flow and drag any fields to the card inputs. For example, when the flow runs for your customer named Jane Smith, age 29, who is a loyalty member, you get this output object:
+Copy
+Output object
+{ 
+  "First name": "Jane", 
+  "Last name": "Smith", 
+  "Age": 29,
+  "Loyalty": true
+ }
+You can build any object using this function card. You can set the inputs to any type, including lists.
+As an advanced use case, you might want to define one of the keys as an object that gets constructed at runtime. To do this, you can use two object 
+Construct
+ cards. First define the inner object and then define a second object with one of the keys as an object type. Finally, drag the output of the first card (which is an object) onto the object key of the second card.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

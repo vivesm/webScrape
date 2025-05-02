@@ -1,0 +1,90 @@
+Create and edit a table | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Create and edit a table
+Tables can be accessed by clicking on the Tables tab at the top of any folder view and can be used to store data across flows.
+A maximum of 100 tables are available in an org. See 
+Workflows system limits
+.
+ Click 
++ New Table
+  at the top-right of the page.
+Give the new table a name and description (default is 
+Unnamed
+), then click 
++ New Column
+ for each field you want to add. You can set fields to be any of the following:
+String
+Number
+Date
+Boolean
+Counter (for fields where the updates will all be adding to or subtracting from the current value. The advantage of using a counter field is that multiple flows can make updates to the same record at the same time without risk for conflicts or loss of data).
+Once a column is added, click the gear icon next to the column to edit it:
+You can resize columns by dragging the right border of the column header.
+Click a column header to sort by that column or click again to reverse the sort order.
+You can drag and drop column headers to re-order the columns.
+Use the 
+Columns 
+button to show and hide columns.
+Use the 
+Filter
+ button to view only those records that match criteria you provide.
+Use 
+Import
+ to read data into the table from a CSV file.
+Use 
+Export
+ to create a CSV file from the data. 
+To add or edit records, click in a row and then enter or edit the values.
+Click the red trash can button to delete the selected record. Fields that include 
+(Auto)
+ are automatically generated and cannot be edited. For example, the row ID or creation date.
+All changes to a table are saved immediately.
+To duplicate or delete a table, view it in whatever folder it lives in and choose the appropriate button when you move your cursor over the table name. If you want to share a table with other users in your organization, place it inside a shared tab.
+Access a table from a flow
+Once you've created a table, you can build one or more flows that reference that table.
+To use a table from a flow, add function cards from the Tables category when you click 
+Add Function
+. Function cards allow you to create, read, update, and delete records from one of your tables. See 
+Tables
+.
+Related topics
+Tables
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

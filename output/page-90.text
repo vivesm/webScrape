@@ -1,0 +1,470 @@
+Customize error pages | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            About error page customization
+Loading...
+    Customize error pages
+This guide explains how to customize error pages that can appear as part of a sign-in flow.
+Learning outcomes 
+Use the Brands API to style error pages.
+Use variables to customize the error pages.
+Add a stylesheet.
+What you need 
+Okta Developer Edition organization
+(opens new window)
+Custom domain
+, unless you're using the 
+Brands API
+Sample code 
+Customization examples
+About error page customization 
+When using redirect authentication, you can create a unique sign-in experience. First, set up a 
+custom domain
+. Then create a 
+Widget style
+ that matches your application's look and feel.
+If an error occurs during the sign-in flow, Okta needs to display an error page to the user. You can use the code editor to customize the error page.
+Note:
+ A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears when a critical error occurs, or you haven't properly configured an app. See 
+Okta deployment models—redirect vs. embedded
+ for more information on redirect functionality.
+Use the Brands API 
+The 
+Brands API
+(opens new window)
+ allows you to set icons, images, and colors across the following:
+Sign-in page (redirect authentication)
+Error pages
+Email templates
+Okta End-User Dashboard
+You don't need to set a customized Okta URL domain to use the API.
+Content Security Policy (CSP) for your custom domain 
+Set up a 
+custom domain
+ and customize your 
+CSP
+(opens new window)
+ if you also want to customize the sign-in page or error pages. CSP customizations only take effect on custom domains.
+To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use 
+Okta ThreatInsight
+(opens new window)
+.
+Known limitations 
+Avoid using 
+meta
+ tags to customize the CSP. 
+meta
+ tags impact the overall policy. It's easier to control CSP customizations by adding trusted external resources in the Admin Console. See 
+Customize the Content Security Policy (CSP) for a custom domain
+(opens new window)
+.
+See also 
+Multiple content security policies
+(opens new window)
+.
+If you add too many trusted external resources to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted external resources.
+You can have a maximum of 20 URIs.
+If you add a trusted origin URL that redirects to a different URL, you must include the redirect URL in the trusted origin list.
+Customize the default CSP 
+In the Admin Console, go to 
+Customizations
+ > 
+Brands
+, and then select the brand you want.
+On the 
+Pages
+ tab in the 
+Error Pages
+ section, click 
+Configure
+.
+Click 
+Settings
+.
+In the 
+Content Security Policy
+ panel, click 
+Edit
+. Set the following:
+Trusted external resources
+: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or mydomain.com/images. Click 
+Add
+.
+Note:
+ Okta adds these resources to all fetch-directives in the CSP.
+Report URI
+: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
+Enforcement
+:
+Select 
+Enforced
+ to block any resources that the CSP doesn't trust. The header is 
+content-security-policy
+.
+Use 
+Not enforced
+ to leave the customized CSP in the report-only header (
+content-security-policy-report-only
+). Use this option for testing and validation before enabling 
+Enforced
+ mode.
+Click 
+Save to draft
+.
+Make changes in the editor. See steps 4 and 5 in 
+Edit the error page
+.
+Edit the error page 
+Use the code editor to modify any HTML, CSS, or JavaScript on the error page. See 
+Customization examples
+ for snippets that you can update and use.
+In the Admin Console, go to 
+Customizations
+ > 
+Brands
+, and then select the brand you want.
+On the 
+Pages
+ tab in the 
+Error Pages
+ section, click 
+Configure
+.
+To open the code editor, turn on the toggle next to 
+Code editor
+.
+Note:
+ You can only enable the code editor if you configure a 
+custom domain
+.
+Make changes directly in the editor. If you enter 
+{
+, 
+(
+, or 
+.
+ you see a list of available variables that you can use. See 
+Use variables
+.
+Click 
+Preview
+ to see your changes in a new browser window before you publish.
+Select 
+Compare with published version
+ to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
+Note:
+ The console restores the previous published version of the code. To revert to the 0-state/default, toggle the code editor off.
+Click 
+Publish
+ to commit your changes.
+Use variables 
+The Okta error page template is written using 
+Mustache
+(opens new window)
+ and uses predefined variables to insert relevant values into the error page. To see the variables in a code sample, refer to the default code in the code editor. See 
+Edit the error page
+.
+Variables with double curly braces (
+{{
+) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, 
+<p>hello</p>
+ displays as a paragraph element and the 
+<p>
+ tags don't render. For the 
+<p>
+ tags to render, escape or replace the 
+<p>
+ tags by using 
+&lt;p&gt; hello &lt;/p&gt;
+. In this example, 
+&lt;p&gt;
+ escapes 
+<
+ and 
+&lt;/p&gt;
+ escapes 
+>
+.
+Triple curly braces (
+{{{
+) are only used for the 
+errorDescription
+ variable to return unescaped HTML.
+Variable
+Contains
+{{orgName}}
+The org name title
+{{errorSummary}}
+The error title text
+{{bgImageUrl}}
+The URL to the background image configured for your application. You can change this image by using the 
+Sign-in Configuration
+(opens new window)
+ option, but this changes the background image in all instances where the variable is used, including your custom sign-in page. If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable.
+{{orgLogo}}
+The logo image that has been configured for your application. You can change this logo by using the 
+Sign-in Configuration
+(opens new window)
+ option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page. If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable.
+{{{errorDescription}}}
+A detailed description of the error
+{{back}}
+The text "Go to Homepage". When the user clicks the button, they're returned to the sign-in page.
+{{technicalDetails}}
+Any additional messaging, if the error code has any. Here are sample technical details for an error code:
+"If you're using custom expressions like 
+\{0}
+, make sure that the field 
+customField
+ is present in the user profile. Review your attribute list and make the appropriate change."
+See 
+Okta Error Codes
+.
+{{buttonText}}
+Inserts the button text based on the page context. When the user selects the button, they're directed to the 
+buttonHref
+ URL. The 
+{{back}}
+ variable is also supported for the same purpose.
+{{buttonHref}}
+The hyperlink for the button
+{{themedStylesUrl}}
+The URL for the themed style sheet
+{{faviconUrl}}
+The URL for the favicon
+Customization examples 
+Use the following customization examples to help you personalize your error page by extending the look and feel of the page with your own style sheet (CSS).
+Add a style sheet 
+You can add your own style sheet to extend the look of your error page.
+In the code editor, add a link to your style sheet in the 
+<head>
+ section, below the  
+<link rel="stylesheet" type="text/css" href="/assets/css/sections/errors-v2.css">
+ line.
+Example:
+<
+head
+>
+<
+meta
+http-equiv
+=
+"
+Content-Type
+"
+content
+=
+"
+text/html; charset=UTF-8
+"
+>
+<
+meta
+name
+=
+"
+viewport
+"
+content
+=
+"
+width=device-width, initial-scale=1.0
+"
+/>
+<
+meta
+name
+=
+"
+robots
+"
+content
+=
+"
+none
+"
+/>
+<
+title
+>
+{{orgName}} - {{errorSummary}}
+</
+title
+>
+<
+link
+rel
+=
+"
+stylesheet
+"
+type
+=
+"
+text/css
+"
+href
+=
+"
+/assets/css/sections/errors-v2.css
+"
+>
+<
+link
+rel
+=
+"
+stylesheet
+"
+type
+=
+"
+text/css
+"
+href
+=
+"
+/assets/css/sections/yourstylesheet.css
+"
+>
+</
+head
+>
+Add styles inline 
+Alternatively, you can add styles inline for elements of your error page.
+Example:
+<
+head
+>
+<
+meta
+http-equiv
+=
+"
+Content-Type
+"
+content
+=
+"
+text/html; charset=UTF-8
+"
+>
+<
+meta
+name
+=
+"
+viewport
+"
+content
+=
+"
+width=device-width, initial-scale=1.0
+"
+/>
+<
+meta
+name
+=
+"
+robots
+"
+content
+=
+"
+none
+"
+/>
+<
+title
+>
+{{orgName}} - {{errorSummary}}
+</
+title
+>
+<
+link
+rel
+=
+"
+stylesheet
+"
+type
+=
+"
+text/css
+"
+href
+=
+"
+/assets/css/sections/errors-v2.css
+"
+>
+<
+style
+>
+.content
+{
+background
+:
+ yellow
+;
+font
+:
+ normal bold 20pt Tahoma
+;
+}
+</
+style
+>
+</
+head
+>
+Next steps 
+Read more about other customization options:
+Customize domain and email address
+Style the Okta-hosted Sign-In Widget
+Edit This Page On GitHub
+        On this page
+About error page customization
+Use the Brands API
+Content Security Policy (CSP) for your custom domain
+Known limitations
+Customize the default CSP
+Edit the error page
+Use variables
+Customization examples
+Add a style sheet
+Add styles inline
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

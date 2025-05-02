@@ -1,0 +1,357 @@
+Basic sign-in flow using the widget | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+ASP.NET
+Loading...
+    On this page
+            Configuration updates
+Loading...
+    Basic sign-in flow using the widget
+    Identity Engine
+Enable a password-only sign-in flow in your web app using the embedded Sign-In Widget.
+Note
+: Passwords are a security vulnerability because they can be easily stolen and are prone to phishing attacks. Give your users the ability to use other authenticators by replacing password-only sign-in experiences with either a 
+password-optional
+ or a multifactor experience.
+To learn about a sign-in use case where the password is optional, see 
+Sign in with email only
+.
+Learning outcomes 
+Enable Sign-In Widget support in your org and app.
+Add a sign-in flow to a server-side web app that uses the Sign-In Widget and requires only a password.
+What you need 
+An app that uses the embedded Widget and 
+Okta .NET Identity Engine SDK
+(opens new window)
+The Widget and Identity Engine SDK set up for your own app
+Sample code 
+ASP.NET Core & Embedded-Widget Login Page Example
+(opens new window)
+Configuration updates 
+The Sign-In Widget uses the 
+Interaction Code flow
+ to interact with the Okta Identity Engine.
+Ensure that the Interaction Code flow is enabled:
+In your org
+In your authorization server
+In your app integration
+To configure your app so it requires only a password, see 
+Set up your Okta org for a password factor-only use case
+.
+Ensure that the 
+Sign-In Redirect URI
+ that you set in your app integration and your app's config file are the same. If you're using the sample app, this should be 
+https://localhost:44314/interactioncode/callback
+. Where you see 
+{yourSignInRedirectUri}
+ in this guide, replace it with your sign-in redirect URI.
+Summary of steps 
+The sequence of steps to sign into the widget is illustrated below:
+Integration steps 
+Your app displays the sign-in page 
+Build a sign-in page that captures the user's name and password with the widget. Ensure that the page completes the steps described in 
+Load the widget
+ when the page loads.
+The user submits their username and password 
+When the user submits their credentials, the widget sends a request to Identity Engine to identify the user. This returns an interaction code to the sign-in redirect URI that you configured earlier.
+Your app handles an authentication success response 
+Handle the callback from Identity Engine to the sign-in redirect URI.
+Check for any errors returned from Identity Engine. If the user correctly supplies their password, there are no errors.
+Call 
+idxClient.RedeemInteractionCodeAsync()
+ to exchange the code for the user's ID and access tokens from the authorization server.
+Include the ID tokens when you call 
+AuthenticationHelper.GetIdentityFromTokenResponseAsync()
+ to retrieve the user's OIDC claims information, and then save the ID tokens for future use.
+Redirect the user to the default page after a successful sign-in attempt.
+The user has now signed in.
+public
+async
+Task
+<
+ActionResult
+>
+Callback
+(
+string
+ state 
+=
+null
+,
+string
+ interaction_code 
+=
+null
+,
+string
+ error 
+=
+null
+,
+string
+ error_description 
+=
+null
+)
+{
+try
+{
+IIdxContext
+ idxContext 
+=
+ Session
+[
+state
+]
+as
+IIdxContext
+;
+// error handling elided
+Okta
+.
+Idx
+.
+Sdk
+.
+TokenResponse
+ tokens 
+=
+await
+ idxClient
+.
+RedeemInteractionCodeAsync
+(
+            idxContext
+,
+ interaction_code
+)
+;
+ClaimsIdentity
+ identity 
+=
+await
+ AuthenticationHelper
+.
+GetIdentityFromTokenResponseAsync
+(
+            idxClient
+.
+Configuration
+,
+ tokens
+)
+;
+      authenticationManager
+.
+SignIn
+(
+new
+AuthenticationProperties
+{
+ IsPersistent 
+=
+false
+}
+,
+ identity
+)
+;
+return
+RedirectToAction
+(
+"Index"
+,
+"Home"
+)
+;
+}
+catch
+(
+Exception
+ ex
+)
+{
+return
+View
+(
+"Error"
+,
+new
+InteractionCodeErrorViewModel
+{
+            Error 
+=
+ ex
+.
+GetType
+(
+)
+.
+Name
+,
+ ErrorDescription 
+=
+ ex
+.
+Message 
+}
+)
+;
+}
+}
+Get the user profile information 
+After the user signs in successfully, request basic user information from the authorization server using the tokens that were returned in the previous step.
+public
+static
+async
+Task
+<
+IEnumerable
+<
+Claim
+>
+>
+GetClaimsFromUserInfoAsync
+(
+IdxConfiguration
+ configuration
+,
+string
+ accessToken
+)
+{
+Uri
+ userInfoUri 
+=
+new
+Uri
+(
+      IdxUrlHelper
+.
+GetNormalizedUriString
+(
+configuration
+.
+Issuer
+,
+"v1/userinfo"
+)
+)
+;
+HttpClient
+ httpClient 
+=
+new
+HttpClient
+(
+)
+;
+var
+ userInfoResponse 
+=
+await
+ httpClient
+.
+GetUserInfoAsync
+(
+new
+UserInfoRequest
+{
+         Address 
+=
+ userInfoUri
+.
+ToString
+(
+)
+,
+ Token 
+=
+ accessToken
+,
+}
+)
+.
+ConfigureAwait
+(
+false
+)
+;
+var
+ nameClaim 
+=
+new
+Claim
+(
+      ClaimTypes
+.
+Name
+,
+      userInfoResponse
+.
+Claims
+.
+FirstOrDefault
+(
+x 
+=>
+ x
+.
+Type 
+==
+"name"
+)
+?.
+Value
+)
+;
+return
+ userInfoResponse
+.
+Claims
+.
+Append
+(
+nameClaim
+)
+;
+}
+Edit This Page On GitHub
+      Instructions for
+ASP.NET
+Loading...
+        On this page
+Configuration updates
+Summary of steps
+Integration steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

@@ -1,0 +1,92 @@
+For Each | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+For Each
+The 
+For Each
+ function iterates through each key in an object using a helper flow. 
+For each key in the input object, the helper flow is called with the 
+key
+ name and the 
+value
+ for that key. The helper flow processes each key and value pair, along with any constants passed into the helper flow. 
+You can select these using the dropdown list in the 
+With the following values
+ field after selecting a helper flow from the 
+Select Flow
+ dialog.
+The 
+For Each
+ function card doesn't create any output. It simply performs the actions in the helper flow. 
+Input
+Field
+Definition
+Type
+Required
+For each item in this list
+object
+Object to process.
+Object
+TRUE
+Run this Flow
+Helper Flow
+Helper flow to process each key and value pair.
+Flow
+TRUE
+With these options
+concurrency
+Number of keys that are processed in parallel.
+Number
+FALSE
+With the following values
+Inputs
+Dynamically generated inputs defined by the helper flow. Use the dropdown list to specify which input receives the key and which receives the value.
+Various
+TRUE
+Output
+There are no output fields for this function card. If you need output values, consider 
+Map to List
+ or 
+Map
+.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

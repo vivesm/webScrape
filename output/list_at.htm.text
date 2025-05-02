@@ -1,0 +1,106 @@
+At | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+At
+Return an item at the specified position in a list, where the first item is in position 
+0
+.
+Input
+Field
+Definition
+Type
+Required
+list
+A list of items.
+List of Objects
+FALSE
+index
+Position of the specified item. In a list, items are always positioned as follows:
+First item is always located at index 
+0
+.
+Second item is at index 
+1
+.
+Third item is at index 
+2
+.
+Number
+FALSE
+Output
+Field
+Definition
+Type
+item
+The returned item, based on the specified position in the list.
+Both the specified item and the list must be of the same type.
+Object
+Example
+If 
+list
+ is 
+["one","two","three","four"]
+ and 
+index
+ is 
+0
+, then 
+item
+ is 
+"one"
+.
+If 
+list
+ is 
+[1,2,3,4,5]
+ and 
+index
+ is 
+2
+, then 
+item
+ is 
+3
+.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

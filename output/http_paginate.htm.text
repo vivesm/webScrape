@@ -1,0 +1,121 @@
+Paginate | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Paginate
+This function card is only available in 
+Connector Builder
+.
+Use a helper flow to paginate through multiple pages of an HTTP response.
+See the following topics for best practices and examples using the 
+Paginate
+ function card:
+Paginate: set a maximum page index
+Paginate: API endpoint
+Overview
+The internal paginate function acts like a "Do while" loop in that it checks for a condition to determine if a flow needs to stop looping.
+When the loop starts, an object is passed into the 
+object
+ field of the function. A helper flow then manages the values within that object. As the values in that object are updated, they're returned to the function. If the stop condition isn't met, the object passes back into the helper flow with the updated values.
+Proper use of the 
+path
+ field is important to the paginate function. If it isn't properly managed, the flow could run until it hits the maximum count of 5,000 iterations.
+To stop the iteration, your flow must remove the 
+path
+ field from the object.
+Input
+Field
+Definition
+Type
+Required
+object
+The object that passes through the helper flow.
+This can hold any number of key and value pairs, such as 
+offset
+, 
+page_index
+, 
+url
+, or a list object used to collect records.
+The object must contain a key that holds the break condition to tell the function when to stop iterating. The value of this key should be set to 
+FALSE
+ initially.
+Object
+TRUE
+path
+This field designates the key name within the 
+object
+ that the function must monitor so that it knows when to stop the loop.
+This key is commonly named 
+break
+ and should be set to 
+FALSE
+ inside the object.
+To stop the iteration, your helper flow must remove this 
+path
+ field  from the 
+object
+.
+Text
+TRUE
+Helper Flow
+A helper flow used to process the object passed into the 
+object
+ input.
+Flow
+TRUE
+Output
+Field
+Definition
+Type
+output
+The object that contains the new values.
+Object
+Example
+See 
+Paginate: set a maximum page index
+ for an example of using the 
+Paginate
+ function to iterate over an object a specific number of times.
+Related topics
+Paginate: set a maximum page index
+Paginate: API endpoint
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

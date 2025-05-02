@@ -1,0 +1,184 @@
+Paginate: set a maximum page index | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Paginate: set a maximum page index
+This function card is only available in 
+Connector Builder
+.
+When working with the 
+Paginate
+ function card, it's important to have control over how many times the function iterates. 
+Okta Workflows
+ limits this function to 5,000 iterations, so it's important to ensure that you don't exceed that count while testing flows.
+This example shows how to set a 
+max_page_index
+ of 
+10
+ and then halt pagination after reaching that index.
+See 
+Paginate
+ to get started with this function card and 
+Paginate: API endpoint
+ for other best practices when using this card.
+Using the 
+Construct
+ object card, create an object with three key value pairs, for example your keys might be:
+page_index
+: Current count of iterations.
+max_page_index
+: Maximum number of times that the helper flow should iterate.
+break
+: Value that the function checks to stop the loop.
+You can then pass the resulting 
+object
+ into the 
+Paginate
+ function card:
+Copy
+{
+  "page_index": 0,
+  "max_page_index": 10,
+  "break": false
+}
+Helper flow
+The 
+Paginate
+ function requires a helper flow. The inputs defined in the helper flow  need to match the keys you defined in the pagination 
+object
+:
+page_index
+max_page_index
+break
+When the helper flow executes, you need to manage the values passed into the flow. The goal is to track the number of iterations made by the pagination function, so you need to increase the 
+page_index
+ value with each iteration. You can accomplish this with the 
+Add
+ number function card. 
+Then you reconstruct the new pagination 
+object
+ so it can be returned to the 
+Paginate
+ function card.
+The values in the resulting 
+object
+ are now:
+Copy
+{
+  "page_index": 1,
+  "max_page_index": 10,
+  "break": false
+}
+As the flow iterates, the counter increases. To stop the 
+Pagination
+ function from iterating after 
+page_index
+ reaches 
+10
+ (to match the 
+max_page_index
+), you must remove the 
+break
+ from the 
+object
+: 
+Add an 
+If/Else
+ branching function inside the helper flow. For the 
+Compare
+ fields, enter that you want to check if 
+new_index
+ is equal to 
+max_page_index
+. 
+Click 
+Save
+. 
+In the 
+Run when FALSE
+ row, you can drag the updated object to an  
+Assign
+ card. The object leaves the 
+If/Else
+ card without changes.
+In the 
+Run when TRUE
+ row (that is triggered when the 
+page_index
+ equals the 
+max_page_index
+), add the  
+Unset
+ object function to remove the 
+break
+ key. When the resulting pagination 
+object
+ returns to the parent flow, the 
+Paginate
+ function checks for the 
+break
+ path. If that path isn't found in the updated 
+object
+, the function completes by stopping the pagination.
+Click 
+Create outputs
+ and drag the 
+Output
+ field to the 
+Return
+ flow control card.
+Drag the output 
+object
+ from each row to the 
+Outputs
+ field that corresponds to the true or false test result.
+When you run the parent flow, the final 
+object
+ looks like the following:
+Copy
+{
+  "page_index": 10,
+  "max_page_index": 10
+}
+Related topics
+Paginate
+Paginate: API endpoint
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

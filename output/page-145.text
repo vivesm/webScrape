@@ -1,0 +1,317 @@
+SDKs | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            Sign a user in from a web app
+Loading...
+Recommended Okta SDKs
+Okta provides SDKs for many languages and frameworks to add an Okta sign-in experience to your application, manage your users and groups, and more.
+Select the task that you want to perform to access more information on the Okta-recommended method, documentation, sample code, and SDK:
+Sign a user in from a web app
+Sign a user in from a mobile app
+Validate OAuth access tokens and ID tokens locally
+Enable machine-to-machine authentication between APIs and apps
+Enable your mobile apps to act as a custom Okta authenticator
+Manage your users, groups, apps, and other administrative tasks
+Tip:
+ All recommended methods assume the use of Okta Identity Engine.
+See 
+Alternate Sign-In SDKs
+ to discover which SDKs support alternate, unrecommended sign-in experiences with Identity Engine and which support sign-in experiences with Classic Engine.
+Sign a user in from a web app 
+Okta's recommended way to authenticate users from a web app is to redirect them to an Okta-hosted sign-in page.
+For single-page apps (SPA) 
+To handle the sign-in experience for any javascript-based SPA, use the Okta Auth JavaScript SDK (auth.js). Okta also maintains SDKs for React, Angular, and Vue developers that wrap auth.js for ease of use.
+Javascript
+Auth Javascript SDK (Auth.js)
+(opens new window)
+Guide
+React
+React SDK
+(opens new window)
+Sample App
+(opens new window)
+Guide
+Angular
+Angular SDK
+(opens new window)
+Sample App
+(opens new window)
+Guide
+Vue
+Vue SDK
+(opens new window)
+Sample App
+(opens new window)
+Guide
+Blazor
+WebAssembly
+Sample App
+(opens new window)
+Note:
+ All Okta JS libraries are hosted on 
+npm
+(opens new window)
+.
+For server-side web apps 
+When you redirect users to an Okta-hosted sign-in page from a server-side web app, you need an SDK for two tasks:
+To execute an OIDC exchange with Identity Engine that checks if the user signed in successfully.
+To validate user ID and access tokens locally after they’re retrieved from Okta. See 
+Validate tokens locally
+.
+To initiate the OIDC exchange, use your preferred OIDC library. The following table identifies the SDK used in the sample app and guide.
+ASP.NET
+Standard 2.0
+Okta ASP.NET middleware
+(opens new window)
+Sample App
+(opens new window)
+Guide
+Python
+Flask-login
+Sample App
+(opens new window)
+Guide
+Spring
+Okta Spring Boot Starter
+(opens new window)
+Sample App
+(opens new window)
+Guide
+node.js
+passport-openidconnect
+Sample App
+(opens new window)
+Sample App 2
+(opens new window)
+Guide
+ASP.NET
+Framework 4.8
+Okta ASP.NET middleware
+(opens new window)
+MVC Sample App
+(opens new window)
+Webforms Sample App
+(opens new window)
+Java
+Micronaut
+Sample App
+(opens new window)
+Blazor
+Okta ASP.NET middleware
+(opens new window)
+Sample App
+(opens new window)
+Go
+Gorilla
+Guide
+Note:
+Okta ASP.NET Middleware
+(opens new window)
+ is available for .NET Framework, .NET Core, and .NET 5+. The 
+samples-aspnetcore
+(opens new window)
+ repo contains sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
+Validate tokens locally 
+Okta provides token (JWT) verification libraries for server-side web apps to validate ID and access tokens locally after they’re retrieved from Okta. Use the Okta JWT verifiers in products that don't have existing OAuth 2.0 support. These libraries support validating Okta's OAuth 2.0 access and ID tokens.
+.NET
+Part of .NET 
+See Validate your JWTs Locally
+Validate ID tokens
+Validate access tokens
+Python
+Okta JWT verifier for Python
+(opens new window)
+Validate ID tokens
+Validate access tokens
+Javascript
+Okta JWT verifier for node.js
+(opens new window)
+Validate ID tokens
+Validate access tokens
+Java
+Okta JWT verifier for Java
+(opens new window)
+Validate ID tokens
+Validate access tokens
+Go
+Okta JWT verifier for Go
+(opens new window)
+Validate ID tokens
+Validate access tokens
+Sign a user in from a mobile app 
+To authenticate users from a mobile app, Okta recommends doing one of the following:
+Redirect them to an Okta-hosted sign-in page.
+Build a custom sign-in form in your app that interacts with Identity Engine directly.
+To authenticate users, Android and iOS developers should use the latest Okta Mobile SDKs.
+Android
+Okta Mobile SDK for Kotlin
+(opens new window)
+Sample App
+(opens new window)
+Guide
+iOS
+Okta Mobile SDK for Swift
+(opens new window)
+Sample App
+(opens new window)
+Guide
+To authenticate users with native forms in your app that call Okta directly, Android and iOS developers should use the Identity Engine SDKs.
+Android
+Okta Identity Engine SDK for Kotlin
+(opens new window)
+Sample App
+(opens new window)
+Guide
+iOS
+Okta Identity Engine SDK for Swift
+(opens new window)
+Sample App
+(opens new window)
+Guide
+Note:
+ The Mobile and Identity Engine SDKs share a 
+modular architecture
+(opens new window)
+.
+Note:
+ React Native developers may use 
+Okta React Native
+(opens new window)
+. However, it supports only a subset of the dedicated Android and iOS SDKs.
+Enable machine-to-machine authentication between APIs and apps 
+Background services and third-party APIs that access your APIs require the same levels of authentication and authorization as users who access your web apps. However, a machine-to-machine sign-in flow is silent and requires no user interaction. In this situation, you need an SDK to perform two tasks:
+Execute an 
+OIDC Client Credentials
+ exchange with Identity Engine and perform the authentication.
+Validate access tokens locally once they’re retrieved from Okta. See 
+Validate Tokens Locally
+.
+To initiate the OIDC exchange, use your preferred OIDC SDK. The following table names the SDK used in the sample app and guide.
+ASP.NET
+Standard 2.0
+Okta Identity Engine SDK for .NET
+(opens new window)
+Sample App
+(opens new window)
+Guide
+Python
+Flask-login
+Sample App
+(opens new window)
+Guide
+Spring Boot
+Okta Spring Boot Starter
+(opens new window)
+Sample App
+(opens new window)
+Guide
+Express
+Express
+Sample App
+(opens new window)
+Sample App 2
+(opens new window)
+Guide
+ASP.NET
+Framework 4.8
+Okta ASP.NET middleware
+(opens new window)
+Sample App
+(opens new window)
+Go
+Gin
+Sample App
+(opens new window)
+Guide
+Note:
+Okta ASP.NET Middleware
+(opens new window)
+ is available for .NET Framework, .NET Core, and .NET 5+. The 
+samples-aspnetcore
+(opens new window)
+ repo contains other sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
+Enable your mobile apps to act as a custom Okta authenticator 
+The Okta Devices SDK allows you to embed push notifications and biometrics directly into your mobile app. As a result, your mobile app can also be used as a factor in the authentication process.
+Android
+Okta Devices SDK for Kotlin
+(opens new window)
+Sample App
+(opens new window)
+Guide
+iOS
+Okta Devices SDK for Swift
+(opens new window)
+Sample App
+(opens new window)
+Guide
+Manage your users, groups, and apps 
+The 
+Okta Core Management APIs
+ allow you to manage your Okta objects: users, apps, sessions, policies, factors, devices, and more. Use the Okta Management SDK for your language to make interaction with the APIs easier.
+ASP.NET
+Standard 2.0
+Okta Management SDK for .NET
+(opens new window)
+Guide
+(opens new window)
+Python
+Okta Management SDK for Python
+(opens new window)
+Guide
+(opens new window)
+Java
+Okta Management SDK for Java
+(opens new window)
+Guide
+(opens new window)
+node.js
+Okta Management SDK for node.js
+(opens new window)
+Guide
+(opens new window)
+Go
+Okta Management SDK for Go
+(opens new window)
+Guide
+(opens new window)
+Edit This Page On GitHub
+        On this page
+Sign a user in from a web app
+For single-page apps (SPA)
+For server-side web apps
+Validate tokens locally
+Sign a user in from a mobile app
+Enable machine-to-machine authentication between APIs and apps
+Enable your mobile apps to act as a custom Okta authenticator
+Manage your users, groups, and apps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

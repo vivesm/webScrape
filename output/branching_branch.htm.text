@@ -1,0 +1,139 @@
+If/ElseIf | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+If/ElseIf
+Specify different actions to run based on multiple 
+if
+ and 
+else if
+ conditions (similar to 
+Switch
+ or 
+Case
+ in some programming languages). To specify different actions based on a single condition, you can use 
+If/Else
+ instead.
+This function card allows you to set the sections:
+Section
+Definition
+Conditions
+List of conditions (true/false statements) that determine which branch to run.
+Branches
+Actions and functions to execute based on which condition is first met; if the condition is not met, the Else branch runs.
+Outputs (optional)
+Output fields that can be used in subsequent steps of the flow. The value assigned to each output depends on which branch was run.
+Conditions
+When you create a new If/ElseIf, the first step is to define your Conditions. Conditions are true/false expressions, such as Sales > 1000. As with similar cards like 
+If/Else
+ and 
+Continue If
+, conditions are expressed using three inputs each: 
+value a
+, 
+comparison
+, and 
+value b
+. The values can be mapped fields (for example, an output from an action card) or constants that you enter. See below for a chart the different comparison choices.
+When your flow runs, the conditions are tested starting at the top and the corresponding Branch (a set of actions and functions that you provide) will run for the first (and only the first) condition that is true. If none are true, then the Else branch is run.
+When you're ready to define the actions for when a condition is met, click the 
++
+ icon to the right of that condition. Alternatively, you can navigate to different branches using the dropdown at the top left. Choose the condition that corresponds to the branch or click 
+Edit Conditions
+ to edit or add new conditions.
+Be sure to set the type of 
+value a
+ and 
+value b
+ to reflect how you would like the comparison to be done. For example, the operator 
+greater than
+ compares numbers based on numeric value but text based on alphabetical sort order. So the number comparison 
+80 > 9
+ is true, but the text comparison 
+"80" > "9"
+ is false.
+Table of Relational Operators
+Operator
+Use Case
+ equal to
+Compare two texts, numbers, dates or true/false to see if they have the same value.
+ not equal to
+Compare two texts, numbers, dates or true/false to see if they have different values.
+greater than or equal
+Compare two texts, numbers or dates to see if the first has the same or greater value than the second.
+ less than or equal
+Compare two texts, numbers or dates to see if the first has the same or lesser value than the second.
+greater than
+Compare two texts, numbers or dates to see if the first has a greater value than the second.
+less than
+Compare two texts, numbers or dates to see if the first has a lesser value than the second.
+ a multiple of
+Compare two numbers to see if value a is an exact multiple of value b. For example, 12, 0 and -4 are all multiples of 4, but 2, 3 and 7 are not.
+in
+Compare two texts to see if value a is a part of value b. For example, "test" is in "this is a test", but there is no "i" in "team".
+not in
+ Compare two texts to see if value a is not part of value b. 
+has key
+When value a is an object and value b is text, tests to see if the object has a key with the specified name. For example, true if value a is {"test":123} and value b is "test".
+doesn't have key
+When value a is an object and value b is text, tests to see if the object does not have a key with the specified name.
+is empty
+Checks to see if value a is empty; ignores value b. What defines "empty" varies by type. Note: Only works for Text and Object. Numbers, Dates, T/F, are viewed as empty.
+is not empty
+Checks to see if value a is not empty. Note: Only works for Text and Object. Numbers, Dates, T/F, are viewed as empty.
+Branches
+Each branch contains the actions and functions you wish to execute when its corresponding condition is true. Add cards to this container just as you would in a flow.
+Use the dropdown at the top left of the When container to navigate to a different branch or to edit or add new conditions.
+Return and Continue-If behave differently when inside an If/ElseIf branch as opposed to inside an If/Else branch. Think of If/ElseIf branches as anonymous helper flows -- and just as with a helper flow, a Return returns you to the parent rather than halting. A Return or Continue-If (when false) proceeds to the step immediately after the If/ElseIf.
+Output (Optional)
+You can drag outputs from cards that run before the If/ElseIf into a condition or branch inside the If/ElseIf, but you cannot drag outputs from inside a branch to cards that are run after the If/ElseIf. This is because an output from inside a branch will be undefined any time a different branch is run. The way to get around this is to use the optional Outputs feature.
+You access the Outputs by clicking 
+View Outputs
+, which can be found on the top-right of the If/ElseIf container. This opens up a pane that appears to the right of all branches. Click to add a new output -- you can type the name and choose the type. Beneath each output you define will be one input for each 
+If
+ or 
+Else If
+ condition you've defined for your If/ElseIf plus one for the 
+Else
+ condition. You specify a different value to use for each output by dropping in an output from the corresponding branch.
+The output fields in this pane can be mapped to subsequent steps in the flow.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

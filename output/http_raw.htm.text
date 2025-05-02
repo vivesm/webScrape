@@ -1,0 +1,175 @@
+Raw Request | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Raw Request
+This method performs a raw HTTP request, allowing you as a flow builder to control all aspects of the HTTP request. This allows a flow to call an XML service, call an HTML service, or various other advanced usages. 
+The other API Connector functions are optimized for ease-of-use with typical JSON-based services. The 
+Raw Request
+ function card is more flexible. 
+Any data flowing through this card (or any card) may be logged in your execution history and exposed to other Workflows admins. Sensitive information, such as access tokens, shouldn't be entered, read, or processed in plain text in a flow. Store this information securely in a connector.
+Here are a few of the use cases for this function card:
+Call an XML service: Use the XML 
+Build
+ function card to create an XML string containing your request and drag that into the 
+Body
+ input of the 
+Raw Request
+ function card. Then use the XML 
+Parse
+ function to parse the 
+Body
+ output and create a JSON response that you can then use in the rest of your flow. This also works  with an HTML service.
+Call a JSON API with a list: The API Connector Post function implicitly forces you to pass a JSON object in the body. Each input you create in the 
+Body
+ section becomes a key in the request body. If you want to pass something rather than an object, such as a list of objects, then you can do so using the 
+Raw Request
+ function card. Build the list that you want by using the List functions, then call the JSON 
+Stringify
+ function card to create a string, and drag that string to the 
+Body
+ input of the 
+Raw Request
+ function card.
+Build a query programmatically: You may have logic that determines your query string at runtime. Use the Object function cards to create a query object in your flow, then drag your object to the 
+Query
+ input of the 
+Raw Request
+ function card. The query object is converted to a URL query string: If your query object is 
+{ "x": "one", "y": "two"}
+, then the query string is:  
+?x=one&y=two
+.
+Build headers programmatically: The other API Connector functions implicitly force you to define your header field names at design time. The values can be dynamic, but the header field names are fixed. If you want to define them in the flow, use the Object function cards to create a 
+Headers
+ object in your flow, then drag your object to the 
+Headers
+ input of the 
+Raw Request
+ function card. For example if the headers object is 
+{ "Accept": "text/plain" }
+, then the header string for the request is 
+Accept: text/plain
+.
+Call a JSON API with dynamic keys: The  API Connectors 
+Post
+ function implicitly forces you to create the keys in the request body at design time. If you want to build this at runtime instead, based on input parameters, then build the object using the Object function cards, pass that to the  JSON 
+Stringify
+ function card, then drag that string into the 
+Body
+ input of the 
+Raw Request
+ function card.
+The 
+Raw Request
+ function card is flexible enough to form any HTTP call. If the other HTTP functions don't have the flexibility you need, use the 
+Raw Request
+ function card instead.
+Input
+Field
+Definition
+Type
+Required
+URL
+URL for the HTTP request.
+Text
+TRUE
+Method
+HTTP method. Options are 
+GET
+, 
+POST
+, 
+PUT
+, 
+PATCH
+, or 
+DELETE
+.
+Dropdown
+TRUE
+Headers
+An object representing the headers for the request. Each key of the header is parsed into a header string as 
+"key: value"
+. For example, 
+"Accept: text/plain"
+.
+Object
+FALSE
+Query
+An object representing the URL query string. Each key of the header is appended to the URL string as follows:  
+url?key1=value1&key2=value2&...
+Object
+FALSE
+Body
+HTTP request body.
+Text
+FALSE
+Output
+Field
+Definition
+Type
+Response
+Status Code
+Result of the operation. The connector returns an HTTP status code that indicates whether the action taken by the card succeeded or failed. For example:
+A 
+201 Created
+ status code indicates success where a new resource was created.
+A 
+403 Forbidden
+ error indicates that the HTTP request wasn't processed because the necessary permissions were missing.
+For a full list of possible status codes, see 
+HTTP status codes
+.
+Number
+Headers
+Detailed context for the status code, unrelated to the output body. Response headers depend on your selected HTTP request option. Not all headers are response headers. The header is similar to 
+{"Content-type":"application/json"}
+.
+Object
+Body
+Data returned from your selected HTTP request.
+For example, the data from a 
+GET
+ request.
+Text
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

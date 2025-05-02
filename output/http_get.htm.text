@@ -1,0 +1,64 @@
+Get | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Get
+Performs an API Connector GET request, returning the result of this request and the response headers. On input, takes a required URL input and optional auth, header, and query inputs. Each optional input can either be modeled by a singular object-typed input or by multiple keys with the appropriate group attribute. On output, returns an object with two keys, headers and output. The output key contains the response body, and the headers key contains the response header. More detailed information can be accessed about these by using multiple keys with the appropriate grouping. NOTE:
+If you are looking to submit data to a URL and then get data back, use the POST card instead as GET does not allow for body inputs.
+The 'Content-Type' header is implicitly set to 'application/json' for all API Connector functions (excluding Raw Request).
+Input
+URL
+(text): required URL for the API Connector GET request
+headers
+ (Section): If required for the API Connector GET request to the specified URL, create headers by specifying an input name equal to the key (e.g. "Authentication") and then specifying a value for the input. Information on headers required for your API Connector GET request should be specified by the provider of the URL.
+query
+ (Section): If necessary for the API Connector GET request to the specified URL, create query string parameters by specifying an input name equal to the key (e.g. "page") and then specifying a value for the input (e.g. "1"). Information on the query string parameters available for your API Connector GET request should be specified by the provider of the URL.
+Output
+statusCode
+ (Number): the status (200, 404, etc) associated with the GET request
+body
+(Section): using syntax similar to the outputs for 
+Get Multiple
+, specify optional paths that allow retrieving values from the response body directly on the API Connector GET action without using additional functions
+headers
+(Section): specify optional keys that allow retrieving values from the response headers directly on the API Connector GET action without using additional functions
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

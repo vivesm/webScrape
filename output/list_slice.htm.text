@@ -1,0 +1,91 @@
+Slice | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Slice
+Choose a subset of a list using start and end points.
+Input
+Field
+Definition
+Type
+Required
+list
+The list that you want to slice. 
+List
+TRUE
+start
+The position of the first item to include in the new list. Any list begins at position 
+0
+.
+Number
+TRUE
+end
+The position where the slice ends. The item in this position isn't included in the new list.
+Number
+TRUE
+Output
+Field
+Definition
+Type
+slice
+The new list.
+Set the type of this output list to be the same type as the input list.
+List
+Example
+If the 
+list
+ is the list of numbers: 
+[90,91,92,93,94,95]
+ and 
+start
+ is 
+1
+ and 
+end
+ is 
+4
+ then 
+slice
+ is the list of numbers: 
+[91,92,93]
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,85 @@
+Call Flow | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Call Flow
+This function card enables you to run another flow within the context of your current flow. Your flow  resumes when the called flow finishes. 
+If you don't need to  wait for the called  flow to finish, use the 
+Call Flow Async
+ function card instead.
+Input
+Field
+Definition
+Type
+Required
+Helper Flow
+Opens a dialog so you can select the flow to execute within the context of your current flow.
+Choose either an existing flow or create a flow.
+Dialog
+TRUE
+With these inputs
+The inputs that are defined on the helper flow. 
+These fields are automatically populated when you select the flow using the 
+Choose Flow
+ dialog.
+Various
+FALSE
+Output
+To get values back from the helper flow, you must manually create the 
+Output
+ fields for this card.
+Each output field must have the exact name and type as the value returned from the helper flow. For example, if the called helper flow  returns the two strings 
+city
+ and 
+state
+, then the 
+Output
+ fields on the 
+Call Flow
+ card must be named 
+city
+ and 
+state
+ and have a type of 
+Text
+.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

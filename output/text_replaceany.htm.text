@@ -1,0 +1,201 @@
+Replace Patterns | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Replace Patterns
+Find and replace multiple text patterns with a single value.
+For any find and replace that looks for a single text or pattern, use  
+Replace
+ instead.
+Input
+Field
+Definition
+Type
+Required
+look in
+Text within which a search for a string is performed.
+String
+TRUE
+replace with
+String with which input text is replaced or removed (by using a null value).
+String
+FALSE
+all instances
+Indicates whether all strings matching the value in 
+look for
+ are replaced. Default is 
+True
+.
+Boolean
+FALSE
+case sensitive
+Indicates whether all strings matching the string value and case in 
+look for
+ are replaced. Default is 
+True
+.
+For example, if 
+case sensitive
+ is set to 
+False
+, then a value of 
+Test
+ in 
+look for
+ would match 
+test
+, 
+TEST
+, and 
+tEsT
+.
+Boolean
+FALSE
+patterns
+Unlike the 
+Replace
+ function card that searches for a single text or pattern, this input section allows you to add multiple texts or patterns for a search. All such patterns are replaced with the same value from the 
+replace with
+ field. 
+ Add a new input to the 
+patterns
+ section for each additional pattern. The name of each input is ignored.
+String
+FALSE
+Output
+Field
+Definition
+Type
+result text
+String value after matching string values are replaced.
+If no instances of 
+look for 
+are found, then 
+result text
+ is the same as the original input value for the 
+look in
+ field.
+String
+Regular Expressions 
+Each pattern can be simple text to search for or can be a more complex pattern that uses regular expressions.
+Regular Expression
+Definition
+\w
+Finds any alphanumeric character (for example, a letter or number).
+\s
+ Finds any whitespace character (for example, a blank or tab).
+\d
+Finds any digit.
+[1-5]
+ Finds a number between 1 and 5.
+[aeiou]
+ Finds 
+a
+, 
+e
+, 
+i
+, 
+o
+, or 
+u
+.
+hello|test
+ Finds 
+hello
+ or 
+test
+. Either side of the 
+|
+ operator is a regular expression.
+colou?r
+Finds 
+color
+ or 
+colour
+. The 
+?
+ signifies that there can be zero or one of the preceding element.
+\d{5}
+Finds five consecutive digits. The 
+{number}
+ signifies a number of consecutive instances of the preceding element.
+[^\w]
+ Finds any character that is not an alphanumeric character. You can add the negative operator 
+^
+ before any other pattern. For example:
+[^a]
+ to find anything other than 
+a
+.
+[^\d{3}]
+ to find anything that is not three digits in a row.
+Some characters have special meaning in regular expressions, such as 
+.
+, 
++
+, 
+*
+, and 
+\
+. To search for any of those characters, place a 
+\
+ before the character. For example, 
+\.
+ finds a period.
+Combine any of the above patterns and static text. For example, 
+test\.\d{3}
+ finds the word 
+test
+ followed by a period followed by three consecutive digits.
+Example
+Use this function to strip out a set of characters from a longer string value in the 
+look in
+ field. To do so, add fields in the 
+patterns
+ section for each string that needs to be deleted and leave the 
+replace with
+ field blank.
+Also use this function to obscure certain characters in text by replacing them with an asterisk.
+Related topics
+Replace
+Find Pattern
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

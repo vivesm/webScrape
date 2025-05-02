@@ -1,0 +1,113 @@
+Fields | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Fields
+All input and output fields have a type. There are five basic types:
+Text
+Number
+True/False
+Date & Time
+File
+There are also two special types that are composites of those types:
+Object
+:  An object is a collection of keys and values where each value can be a different type. For example, a 
+Customer
+ object could consist of the text strings 
+First Name
+ and 
+Last Name
+, an 
+ID
+ number, and a 
+Sign Up
+ date and time.
+List
+: A list is a collection of items that are all the same type, such as a list of numbers or a list of objects.
+Field type errors
+If you're seeing errors in your flow, one of the first things to check is the types of your fields.
+For example, numbers sort differently if set as 
+Text
+ instead of using the 
+Number
+ type. For an input field, the card tries to automatically convert any incoming value to the type specified for the input field. 
+Type mismatches also occur when a function or action expects a certain type, but instead receives another type that it can't convert. For example, the 
+Math - Add
+ function accepts text as input and tries to convert to numbers. If you try to add 
+10
+ and 
+potato
+, it can convert the number 
+10
+ to 10 as a string. However, it doesn't know how to convert the string 
+potato
+ to a number.
+For custom output fields, you must set the type correctly or you may encounter errors. For example, don't define your output to accept numbers but then pass it an object.
+Custom fields
+Many cards allow you to create custom input and output fields. When available, there's is a disabled field that says 
+Click or drag to create
+ (for a custom output) or 
+Click or drop to create
+ (for a custom input). After clicking a field, you can give it a unique name.
+If you drag an output to an input, the custom field picks up the name and type of the origin or destination. For example, the 
+Math-Add
+ function comes with two inputs defined, but you can add extra inputs to add more than two numbers.
+Dynamic fields
+Some cards include dynamic fields. For example:
+Google Sheets
+ - 
+Read Row
+:  The output fields correspond to the column headers in the selected spreadsheet.
+Salesforce
+ - 
+Find Record
+:  The inputs depend on the record type that you search for.
+Common warnings for cards
+The fields below may change
+. This warning shows up on an event or action card when:
+You haven't  connected to the app, chosen an account, or if any required parameters are missing.
+The inputs or outputs on the card are based on the account and parameters that you choose.
+To clear this warning, you need to add or update the connection and resync the inputs and outputs. Open and close the 
+Choose Fields
+ settings menu accessed through the cog icon  the  corner of the card.
+Some fields failed to load
+. This warning can show up on an event or action card when:
+Your account is improperly configured.
+Network errors prevent the fields from being loaded.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

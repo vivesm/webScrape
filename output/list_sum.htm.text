@@ -1,0 +1,67 @@
+Sum | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Sum
+Calculate the sum of a list of numbers. This function accepts only a list of type number. If your numbers are formatted as a list of text, you can use the 
+Map
+ function to convert each item from text to a number. If your numbers are stored inside a list of objects, you can use the 
+Pluck
+ function to generate the list of numbers you need to pass into Sum.
+Input Fields
+list:
+ The list of numbers you want to add up.
+Output Fields
+sum
+:  The sum of the numbers in your list.
+Example
+If the 
+list
+ input is 
+[1,2,3]
+ then the 
+sum
+ output will be 
+6
+.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

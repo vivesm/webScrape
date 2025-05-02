@@ -1,0 +1,184 @@
+Date to Text | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Date to Text
+Convert a date and time into a provided format in a specified time zone.
+Input
+Field
+Definition
+Type
+Required
+start
+Date and time value to be formatted.
+Date & Time
+TRUE
+format
+The date format code of the desired output value, based on the 
+start
+ field.
+For example, use 
+M/D/Y
+ to produce 
+9/7/2016
+ or 
+hh:mm a
+ for a time like 
+09:05 am
+. See 
+Format Codes
+.
+Text
+TRUE
+zone
+A 
+TZ
+ time zone, such as 
+US/Pacific
+ or 
+Europe/Paris
+.
+Text
+TRUE
+Output
+Field
+Definition
+Type
+output
+The date string, in the chosen format and in the designated time zone.
+Text
+Format Codes
+Use any combination of these codes, along with fixed characters such as slashes and commas, to build the date or time format that you want.
+format codes
+output
+D
+For a day number (in the month), or use 
+DD
+ to always display the day using two digits.
+M
+For a single month number, or use 
+MM
+ to use two digits.
+MMM
+For a three letter month abbreviation, or use 
+MMMM
+ for the full month name.
+Y
+For a four-digit year number, or use 
+YY
+ for a two-digit year number.
+h
+For the hour number (1-12), or use 
+hh
+ to use two digits.
+H
+For the hour number (0-23), or use 
+HH
+ to use two digits.
+mm
+For the minutes.
+ss
+For the seconds. Add an 
+.S
+ to include milliseconds, for example, 
+ss.SSS
+.
+a
+For 
+am
+ or 
+pm
+ designation, or use 
+A
+ for 
+AM
+ or 
+PM
+.
+Z
+For the time zone in offset format, for example, 
+-07:00
+. You can also use 
+z
+ for code, for example, 
+PDT
+.
+d
+For the day of the week, where 
+1
+ is Monday. Use 
+ddd
+ for an abbreviated day format, for example, 
+Mon
+. Use 
+dddd
+ for the full day name, for example, 
+Monday
+.
+Examples
+If the ISO start date is 
+2016-09-07T00:01:25.670Z
+ and the time zone is 
+America/Pacific
+, then do the following:
+format
+output
+M/D/Y
+9/6/2016
+h:mm a z
+9:01 am PDT
+dddd, MMMM D, Y
+Wednesday, September 7, 2016
+D-MMM-YY HH:mm:ss.S z
+7-Sep-16 09:01:25.6 PDT
+If you want to format the current date and time, use a 
+Now
+ card. Drag and drop the 
+date
+ field from the 
+Now
+ card into the 
+start
+ field on the 
+Date To Text
+ card.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

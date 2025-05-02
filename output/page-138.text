@@ -1,0 +1,71 @@
+Find your Okta domain | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            Are you an end user?
+Loading...
+    Find your Okta domain
+This guide explains how you can find your Okta org domain.
+Are you an end user? 
+If you require assistance to sign in or access your organization's Okta org, see the 
+Okta end-user documentation
+(opens new window)
+. For Okta Verify information, see 
+Okta verify documentation
+(opens new window)
+. In general, find your organization's Okta domain URL from your IT administrators.
+Are you a developer? 
+If you're building an application by using one of our SDKs or client libraries, you may run into the following message:
+Note:
+ Your Okta URL is missing. Replace 
+{yourOktaDomain}
+ with your Okta domain. You can copy your domain from the Admin Console.
+Orgs host pages on subdomains and each org is assigned a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
+Find your Okta domain 
+To find your Okta URL (also called an Okta domain):
+Sign in to your Okta organization with your administrator account.
+Locate the Okta domain by clicking your username in the upper-right corner of the Admin Console. The domain appears in the dropdown menu.
+Your Okta domain looks like:
+example.oktapreview.com
+example.okta.com
+example.okta-emea.com
+See 
+Okta Organizations
+ for more information on the types of Okta orgs.
+Note:
+ Alternatively, find the welcome email in your inbox that you received when you signed up. The email contains your Okta URL.
+Edit This Page On GitHub
+        On this page
+Are you an end user?
+Are you a developer?
+Find your Okta domain
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

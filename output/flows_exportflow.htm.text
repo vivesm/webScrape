@@ -1,0 +1,107 @@
+Export Flow | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Export Flow
+Export all the elements of a flow as a JSON file. 
+Your Workflows subscription determines the maximum number of flows that you can export. Each flow inside a folder counts as one towards the maximum limit.
+The number of exported flows can't exceed the assigned limit. Otherwise the export fails and no flows are exported.
+Your org's export capacity resets every 15 minutes.
+If you only want another local copy of your flows, you can choose to 
+Duplicate a folder
+ instead.
+Input
+Field
+Definition
+Type
+Required
+Flow
+Identify the flow that you want to export:
+Click 
+Choose Flow
+. 
+In the 
+Select flow
+ dialog, open the folder that contains your flow.
+Select the flow that you want to export.
+Click 
+Choose
+.
+The selected flow is exported as a JSON file.
+Dialog
+TRUE
+JSON Pretty Print?
+Indicates whether the JSON output for the selected flow  should be structured or unstructured.
+If 
+True
+, the JSON output is structured with new lines and indents.
+If 
+False
+, the JSON file  is returned as an unformatted string.
+True/False
+FALSE
+Number of Indented Spaces
+For structured JSON output, the value specifies the number of spaces for each indent.
+The range is from 
+1
+ to 
+8
+. A value of 
+2
+ is recommended for easy viewing.
+Number
+FALSE
+Output
+Field
+Definition
+Type
+File Content
+JSON file that contains the exported flow.
+File
+Filename
+Name of the exported flow.
+Text
+Size
+Size, in bytes, of the exported flow.
+Number
+Related topics
+Export and import flows
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

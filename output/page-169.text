@@ -1,0 +1,2183 @@
+Customize email notifications | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            About email customization
+Loading...
+    Customize email notifications
+This guide explains how to customize and style the default Okta email notifications.
+Learning outcomes 
+Use the Brands API to style notifications.
+Edit templates to customize notifications.
+What you need 
+Okta Developer Edition organization
+(opens new window)
+Access to email template customization. Contact 
+Okta support
+(opens new window)
+ for help.
+Sample code 
+Customization example
+About email customization 
+You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for various reasons, such as:
+User activation
+Forgotten password
+Unknown device notification
+Okta bases email notifications on templates that Okta generates automatically. The templates are available in each Okta-supported language. You can use the default email templates or edit them to send custom messages to end users. End users receive the emails based on your settings.
+Note:
+ When you edit a template, Okta stops sending the default in other languages. You're responsible for adding translations of your customized message. See 
+Edit a default template
+.
+Multibrand customizations and emails 
+If you want to use the Admin Console to send a branded email, consider the following:
+If your org has two or more custom brands, domains, and email addresses:
+You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use. The Admin Console only works with the Okta subdomain.
+Use an Okta API to trigger the email. To send a User Activation email, send a request to the 
+Activate a User
+(opens new window)
+ endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change 
+subdomain.okta.com
+ to 
+custom.domain.one
+.
+If your org has one custom brand, domain, and email address:
+Okta doesn't use your custom email address. The Okta subdomain appears in the 
+From
+ line.
+Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
+If your org doesn't have a custom brand, domain, and email address, you can only trigger Okta-branded emails from the Admin Console.
+See 
+Brands
+.
+Use the Brands API 
+The 
+Brands API
+(opens new window)
+ allows you to customize the look and feel of pages and templates, including:
+The custom sign-in page
+Error pages
+Email templates
+The Okta End-User Dashboard
+You can brand these pages and templates without setting up a customized Okta URL domain.
+Note:
+ If you change any email code using the 
+Admin Console
+, your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
+See 
+Custom Email Templates
+(opens new window)
+ for details about email templates and the Brands API.
+Caveats 
+Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so Okta accepts fewer characters.
+Okta supports only inline CSS.
+The 
+Subject
+ can't exceed 128 characters.
+If you customize an email template, you need to manually create a translation for each additional language that you support in your org.
+Edit a default email template 
+Use these steps to add or edit a template in one of the Okta-supported languages.
+Note:
+ To access email customization with a free Okta Developer Edition org, contact 
+Okta support
+(opens new window)
+.
+In the Admin Console, go to 
+Customizations
+ > 
+Brands
+, and then select the brand you want.
+On the 
+Emails
+ tab, click an email template name:
+The code editor is in preview mode.
+Audience
+: Select the email audience: 
+All users
+, 
+Admin only
+, or 
+Disabled for all
+.
+Translations
+: Customize email template translations. See 
+Add translations
+.
+Language
+: Select the default language for the email template. See 
+Add translations
+.
+Subject
+: The subject line for the template in the default language. You can edit the subject line when the template is in read/write mode.
+In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See 
+Add translations
+.
+Click 
+Edit
+ to put the editor in read/write mode.
+Make changes directly in the editor. If you type 
+$
+, 
+#
+, or 
+{
+, the editor provides a list of available variables that you can use. See 
+Use Velocity Templating Language (VTL)
+.
+Click the code editor to full-screen mode.
+Click 
+Save changes
+, then click 
+Preview
+ to see your changes before you publish.
+Click 
+Reset template
+ to remove your customizations and restore the default HTML/CSS.
+Click 
+Save changes
+. The default language version of your edited message appears in the 
+Email Templates
+ table.
+Remember that Okta doesn't automatically translate the changes you make in one template to the other language templates. To add translations for this customization, proceed to step 3 in 
+Add translations
+.
+Use customizable email templates 
+The following table provides a list of all available email templates in an Okta org, including:
+The default subject line for the email template
+The corresponding API object reference (
+{templateName}
+) for the email template. See 
+Custom email templates
+(opens new window)
+.
+The required validation fields for templates created using the API
+A description of the template
+Note:
+ If you use the embedded Okta Sign-In Widget for authentication, don't use 
+{emailAuthenticationLink}
+ as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use 
+Custom password recovery
+.
+UI name
+Default subject line
+API object reference
+{templateName}
+Required validation fields
+Description
+User Activation
+Welcome to Okta!
+UserActivation
+Either 
+{activationLink}
+ or 
+{activationToken}
+Sent to new users who must follow the provided link to complete the Okta sign-up process
+Active Directory User Activation
+Welcome to Okta!
+ADUserActivation
+Sent to your new Active Directory users who must follow the provided link to complete the Okta sign-up process
+LDAP User Activation
+Welcome to Okta!
+LDAPUserActivation
+Sent to your new LDAP users who must follow the provided link to complete the Okta sign-up process
+Send Push Verify Activation Link
+Push Verify Activation Email
+OktaVerifyActivation
+{pushVerifyActivationLink}
+Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device
+Registration - Activation
+Activate Account
+RegistrationActivation
+Either 
+{registrationActivationLink}
+ or 
+{registrationActivationToken}
+Sent to users who must follow the provided link to complete their self-registration
+Registration - Email Verification
+Welcome to (
+instanceDisplayName
+)!
+RegistrationEmailVerification
+One of 
+{verificationLink}
+, 
+{verificationToken}
+, 
+[registrationEmailVerificationLink}
+, or 
+{registrationEmailVerificationToken}
+ (Identity Engine) Either 
+{registrationEmailVerificationLink}
+ or 
+{registrationEmailVerificationToken}
+ (Classic Engine)
+Sent to users who can follow the provided link to verify their email address
+Email Factor verification (Identity Engine) Email Verification (Classic Engine)
+Confirm your email address
+EmailFactorVerification
+One of 
+{verificationLink}
+, 
+{verificationToken}
+, 
+{registrationEmailVerificationLink}
+, or 
+{registrationEmailVerificationToken}
+ (Identity Engine)
+Sent to users who must follow the provided link to verify their email address
+Forgot Password Denied
+Account Password Reset
+ForgotPasswordDenied
+Sent to users who forgot their password but only their admin can reset it
+Password Reset by Admin
+Account Password Reset
+PasswordResetByAdmin
+Sent to users who had their password reset by an Okta system administrator and must follow the provided link to complete the password reset process
+Active Directory Password Reset Denied
+Forgotten Password
+ADForgotPasswordDenied
+Sent to Active Directory users who tried to reset their Active Directory password but don't have permission
+LDAP Forgot Password Denied
+Account password reset
+LDAPForgotPasswordDenied
+Sent to LDAP users who tried to reset their LDAP password but don't have permission
+LDAP Forgot Password
+Account password reset
+LDAPForgotPassword
+Either 
+{resetPasswordLink}
+ or 
+{recoveryToken}
+ (Identity Engine) Either 
+{resetPasswordLink}
+ or 
+{oneTimePassword}
+ (Classic Engine)
+Sent to LDAP users who forgot their password and must follow the provided link to reset their password
+Forgot Password
+Account password reset
+ForgotPassword
+Either 
+{resetPasswordLink}
+ or 
+{oneTimePassword}
+(Identity Engine and Classic Engine)
+Sent to users who must follow the provided link to reset their forgotten password
+Active Directory Password Reset
+Forgotten password (Identity Engine) Account password reset (Classic Engine)
+ADForgotPassword
+Either 
+{recoveryLink}
+ or 
+{recoveryToken}
+(Identity Engine and Classic Engine)
+Sent to users who want to reset their Active Directory account password. Users must follow the provided link to reset their password (Identity Engine). 
+Sent to users who have had their Active Directory account password reset. Users must follow the provided link to reset their password (Classic Engine).
+Password Changed
+Password Changed
+PasswordChanged
+Sent to users whenever their account password changes
+Self-Service Unlock when Account isn’t Locked
+Unlock Account
+SelfServiceUnlockOnUnlockedAccount
+Sent to users who tried to use self-service to unlock an account that isn't locked
+Active Directory Password Unlock
+Unlock Account
+ADSelfServiceUnlock
+Either 
+{unlockAccountLink}
+ or 
+{recoveryToken}
+ (Identity Engine)
+{unlockAccountLink}
+ (Classic Engine)
+Sent to Active Directory users who must follow the provided link to unlock their password
+Self-Service Unlock Account
+Unlock Account
+SelfServiceUnlock
+Either 
+{unlockAccountLink}
+ or 
+{recoveryToken}
+ (Identity Engine)
+{unlockAccountLink}
+ (Classic Engine)
+Sent to users who must follow the provided link to complete the self-service unlock account process
+LDAP Self-Service Unlock Account
+Unlock Account
+LDAPSelfServiceUnlock
+Either 
+{unlockAccountLink}
+ or 
+{recoveryToken}
+ (Identity Engine)
+{unlockAccountLink}
+ (Classic Engine)
+Sent to LDAP users who must follow the provided link to complete the self-service unlock account process
+Change Email confirmation
+Confirm email address change
+ChangeEmailConfirmation
+{verificationToken}
+Sent to users who must follow the provided link to confirm their email change request
+Email Change Notification
+Notice of pending email address change
+PendingEmailChange
+Sent to a user's old email address when they request to change their email address
+Email Change Confirmed Notification
+Notice of email address change
+EmailChangeConfirmation
+Sent when the request to change a user's email address is confirmed
+Email Challenge
+One-time Email Authentication Link
+EmailChallenge
+Either 
+{emailAuthenticationLink}
+ or 
+{verificationToken}
+Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta
+Account Lockout
+Account Lockout
+AccountLockout
+Sent to users with locked accounts. Users must follow the provided link to unlock their account or contact their admin.
+New Sign-On Notification
+New Sign-On Notification
+NewSignOnNotification
+{request.browser}
+, 
+{request.date}
+, 
+{request.time}
+, 
+{request.location}
+, and 
+{request.ipAddress}
+Sent to users who authenticated into Okta from an unknown device or browser. The user should contact the Okta system administrator if they don't recognize the sign-in details of the unknown device.
+Authenticator Enrolled (Identity Engine)
+MFA Factor Enrolled (Classic Engine)
+Security method enrolled (Identity Engine)
+MFA Factor Enrolled (Classic Engine)
+AuthenticatorEnrolled
+Either 
+{request.factor}
+ or 
+{request.authenticator}
+ (Identity Engine)
+{request.factor}
+, 
+{request.date}
+, 
+{request.time}
+, and 
+{request.location}
+ (Classic Engine)
+Sent to users when authenticators are reset (Identity Engine) 
+Sent to users with new MFA factor enrollment (Classic Engine)
+Authenticator Reset (Identity Engine)
+MFA Factor Reset (Classic Engine)
+Security method reset (Identity Engine)
+MFA Factor Reset (Classic Engine)
+AuthenticatorReset
+Either 
+{request.factors}
+ or 
+{request.authenticators}
+ (Identity Engine)
+{request.factors}
+, 
+{request.date}
+, 
+{request.time}
+, and 
+{request.location}
+ (Classic Engine)
+Sent to users when authenticators are reset (Identity Engine) Sent to users when MFA factors are reset (Classic Engine)
+Campaign Launched
+Access certification campaign: (
+campaignName
+)
+IGAReviewerNotification
+Sent to reviewers when they’re assigned reviews to complete in a newly launched campaign.
+Campaign Ended
+Access certification campaign: (
+campaignName
+)
+IGAReviewerEndNotification
+Sent to reviewers if they have pending reviews after a campaign ends.
+Campaign Reminder
+Access certification campaign: (
+campaignName
+)
+IGAReviewerPendingNotification
+Sent to reviewers to remind them of pending reviews.
+Reassigned Review
+Access certification campaign: (
+campaignName
+)
+IGAReviewerReassigned
+Sent to reviewers when an admin or a different reviewer assigns new reviews.
+IdP MyAccount Email Change Confirmation
+Confirm email address change
+MyAccountChangeConfirmation
+Sent to users who try to verify an email address using MyAccount APIs. The user must enter the provided code to confirm the change.
+Use Branding variables 
+After you create a theme for your org, select the 
+FULL_THEME
+ ("Solid Background") variant to use branding variables in your custom email templates.
+Note:
+ If you delete any of the following optional variables from the email code, you disconnect the theme object properties from the email template.
+Variable
+Asset Type
+{brand.theme.logo}
+URL
+{brand.theme.primaryColor}
+Hex code for the CTA button
+{brand.theme.secondaryColor}
+Hex code for the background color
+Use allowed HTML tags and elements 
+The following table provides a list of all allowed HTML tags and elements in customized templates. If you deviate from the allowed tags and elements, you receive error messages.
+HTML tags/elements
+Allowed attributes
+All tags
+id
+: Can be alphanumeric and contain 
+:
+, 
+-
+, 
+_
+, or 
+.
+class
+: Can be alphanumeric and contain 
+<space>
+, 
+,
+, 
+-
+, or 
+_
+lang
+: Can be uppercase or lowercase, and two to 20 characters long
+title
+: Can contain any letter from any language, any numeric character in any script, and 
+<space>
+, 
+-
+, 
+_
+, 
+'
+, 
+,
+, 
+:
+, 
+[
+, 
+]
+, 
+!
+, 
+.
+, 
+/
+, 
+\
+, 
+(
+, 
+)
+, or 
+&
+<style>
+-moz-border-radius
+, 
+-moz-border-radius-bottomleft
+, 
+-moz-border-radius-bottomright
+, 
+-moz-border-radius-topleft
+, 
+-moz-border-radius-topright
+, 
+-moz-box-shadow
+, 
+-moz-outline
+, 
+-moz-outline-color
+, 
+-moz-outline-style
+, 
+-moz-outline-width
+, 
+-o-text-overflow
+, 
+-webkit-border-bottom-left-radius
+, 
+-webkit-border-bottom-right-radius
+, 
+-webkit-border-radius
+, 
+-webkit-border-radius-bottom-left
+, 
+-webkit-border-radius-bottom-right
+, 
+-webkit-border-radius-top-left
+, 
+-webkit-border-radius-top-right
+, 
+-webkit-border-top-left-radius
+, 
+-webkit-border-top-right-radius
+, 
+-webkit-box-shadow
+, 
+azimuth
+, 
+background
+, 
+background-attachment
+, 
+background-color
+, 
+background-position
+, 
+background-repeat
+, 
+border
+, 
+border-bottom
+, 
+border-bottom-color
+, 
+border-bottom-left-radius
+, 
+border-bottom-right-radius
+, 
+border-bottom-style
+, 
+border-bottom-width
+, 
+border-collapse
+, 
+border-color
+, 
+border-left
+, 
+border-left-color
+, 
+border-left-style
+, 
+border-left-width
+, 
+border-radius
+, 
+border-right
+, 
+border-right-color
+, 
+border-right-style
+, 
+border-right-width
+, 
+border-spacing
+, 
+border-style
+, 
+border-top
+, 
+border-top-color
+, 
+border-top-left-radius
+, 
+border-top-right-radius
+, 
+border-top-style
+, 
+border-top-width
+, 
+border-width
+, 
+box-shadow
+, 
+caption-side
+, 
+color
+, 
+cue
+, 
+cue-after
+, 
+cue-before
+, 
+direction
+, 
+elevation
+, 
+empty-cells
+, 
+font
+, 
+font-family
+, 
+font-size
+, 
+font-stretch
+, 
+font-style
+, 
+font-variant
+, 
+font-weight
+, 
+height
+, 
+image()
+, 
+letter-spacing
+, 
+line-height
+, 
+linear-gradient()
+, 
+list-style
+, 
+list-style-image
+, 
+list-style-position
+, 
+list-style-type
+, 
+margin
+, 
+margin-bottom
+, 
+margin-left
+, 
+margin-right
+, 
+margin-top
+, 
+max-height
+, 
+max-width
+, 
+min-height
+, 
+min-width
+, 
+outline
+, 
+outline-color
+, 
+outline-style
+, 
+outline-width
+, 
+padding
+, 
+padding-bottom
+, 
+padding-left
+, 
+padding-right
+, 
+padding-top
+,
+pause
+, 
+pause-after
+, 
+pause-before
+, 
+pitch
+, 
+pitch-range
+, 
+quotes
+, 
+radial-gradient()
+, 
+rect()
+, 
+repeating-linear-gradient()
+, 
+repeating-radial-gradient()
+, 
+rgb()
+, 
+rgba()
+, 
+richness
+, 
+speak
+, 
+speak-header
+, 
+speak-numeral
+, 
+speak-punctuation
+, 
+speech-rate
+, 
+stress
+, 
+table-layout
+, 
+text-align
+, 
+text-decoration
+, 
+text-indent
+, 
+text-overflow
+, 
+text-shadow
+, 
+text-transform
+, 
+text-wrap
+, 
+unicode-bidi
+, 
+vertical-align
+, 
+voice-family
+, 
+volume
+, 
+white-space
+, 
+width
+, 
+word-spacing
+, 
+word-wrap
+,
+display
+, 
+float
+, 
+position
+, 
+right
+, 
+left
+,
+top
+, 
+bottom
+, 
+clear
+, 
+content
+, 
+cursor
+, 
+z-index
+, 
+overflow
+, 
+visibility
+, 
+zoom
+, 
+overflow-x
+, 
+overflow-y
+, 
+page-break-inside
+, 
+page-break-before
+, 
+page-break-after
+, 
+opacity
+, 
+-moz-opacity
+p
+align
+: Can be any of 
+middle
+, 
+center
+, 
+left
+, 
+right
+, 
+justify
+ or 
+char
+label
+for
+: Can be alphanumeric and contain 
+:
+, 
+-
+, 
+_
+, or 
+.
+font
+color
+: Can be from the color list or a color code.
+Color list: 
+aqua
+, 
+black
+, 
+blue
+, 
+fuchsia
+, 
+gray
+, 
+grey
+, 
+green
+, 
+lime
+, 
+maroon
+, 
+navy
+, 
+olive
+, 
+purple
+, 
+red
+, 
+silver
+, 
+teal
+, 
+white
+, or 
+yellow
+Color code: Can be HTML/CSS spec three- or six-digit hex
+face
+: Can be alphanumeric and contain 
+;
+, 
+,
+, or 
+-
+size
+: Can be a number
+URLs
+url
+: Can contain 
+http
+, 
+https
+, or 
+mailto
+a
+href
+nohref
+name
+: Can be alphanumeric with 
+-
+, 
+_
+, or 
+$
+img
+src
+: Can be one of the following:
+A string that represents an onsite URL that contains any letter from any language, any numeric character in any script, or 
+\
+, 
+dot
+, 
+#
+, 
+@
+, 
+$
+, 
+%
+, 
++
+, 
+&
+, 
+;
+, 
+-
+, 
+_
+, 
+~
+, 
+?
+, 
+=
+, 
+/
+, or 
+!
+A URL that contains 
+https
+, 
+ftps
+, or 
+mailto:
+name
+: Can be alphanumeric with 
+-
+, 
+_
+, 
+$
+alt
+: Can be a paragraph that contains any letter from any language, any numeric character in any script, or 
+{space}
+, 
+-
+, 
+_
+, 
+'
+, 
+,
+, 
+(
+, 
+)
+, 
+.
+, or 
+;
+border-radius
+border
+hspace
+: Must be a number
+vspace
+: Must be a number
+height
+: Can be a number or a percentage
+width
+: Can be a number or a percentage
+align
+: Can be any of 
+middle
+, 
+center
+, 
+left
+, 
+right
+, 
+justify
+, or 
+char
+table
+border-radius
+: Must be a number
+border
+: Must be a number
+cellpadding
+: Must be a number
+cellspacing
+: Must be a number
+bgcolor
+: Can be from the color list or a color code.
+Color list: 
+aqua
+, 
+black
+, 
+blue
+, 
+fuchsia
+, 
+gray
+, 
+grey
+, 
+green
+, 
+lime
+, 
+maroon
+, 
+navy
+, 
+olive
+, 
+purple
+, 
+red
+, 
+silver
+, 
+teal
+, 
+white
+, or 
+yellow
+Color code: Can be HTML/CSS spec three- or six-digit hex
+background
+: Can be a string representing an onsite URL that contains any letter from any language, any numeric character in any script, or 
+\
+, 
+dot
+, 
+#
+, 
+@
+, 
+$
+, 
+%
+, 
++
+, 
+&
+, 
+;
+, 
+-
+, 
+_
+, 
+~
+, 
+?
+, 
+=
+, 
+/
+, or 
+!
+align
+: Can be any of 
+middle
+, 
+center
+, 
+left
+, 
+right
+, 
+justify
+, or 
+char
+noresize
+: Must be 
+noresize
+ (case-insensitive)
+height
+: Can be a number or a percentage
+width
+: Can be a number or a percentage
+valign
+: Can be any of 
+baseline
+, 
+bottom
+, 
+middle
+, or 
+top
+td
+th
+background
+: Can be a string that represents an onsite URL that contains any letter from any language, any numeric character in any script, or 
+\
+, 
+dot
+, 
+#
+, 
+@
+, 
+$
+, 
+%
+, 
++
+, 
+&
+, 
+;
+, 
+-
+, 
+_
+, 
+~
+, 
+?
+, 
+=
+, 
+/
+, or 
+!
+bgcolor
+: Can be from the color list or a color code.
+Color list: 
+aqua
+, 
+black
+, 
+blue
+, 
+fuchsia
+, 
+gray
+, 
+grey
+, 
+green
+, 
+lime
+, 
+maroon
+, 
+navy
+, 
+olive
+, 
+purple
+, 
+red
+, 
+silver
+, 
+teal
+, 
+white
+, or 
+yellow
+Color code: Can be HTML/CSS spec three- or six-digit hex
+abbr
+: Can be a paragraph that contains any letter from any language, any numeric character in any script, or 
+{space}
+, 
+-
+, 
+_
+, 
+'
+, 
+,
+, 
+(
+, 
+)
+, 
+.
+, or 
+;
+axis
+: Can be alphanumeric with 
+-
+, 
+_
+, or 
+$
+headers
+: Can be alphanumeric with 
+-
+, 
+_
+, or 
+$
+scope
+: Must be 
+row
+, 
+col
+, 
+rowgroup
+, or 
+colgroup
+nowrap
+height
+: Can be a number or a percentage
+width
+: Can be a number or a percentage
+align
+: Can be any of 
+middle
+, 
+center
+, 
+left
+, 
+right
+, 
+justify
+, or 
+char
+valign
+: Can be any of 
+baseline
+, 
+bottom
+, 
+middle
+, or 
+top
+charoff
+: Can be a number or a percentage
+char
+: Can be any character, and any number of characters (from 0 on), including line terminators
+colspan
+: Must be a number
+rowspan
+: Must be a number
+tr
+background
+: Can be a string that represents an onsite URL that contains any letter from any language, any numeric character in any script, or 
+\
+, 
+dot
+, 
+#
+, 
+@
+, 
+$
+, 
+%
+, 
++
+, 
+&
+, 
+;
+, 
+-
+, 
+_
+, 
+~
+, 
+?
+, 
+=
+, 
+/
+, or 
+!
+bgcolor
+: Can be from the color list or a color code.
+Color list: 
+aqua
+, 
+black
+, 
+blue
+, 
+fuchsia
+, 
+gray
+, 
+grey
+, 
+green
+, 
+lime
+, 
+maroon
+, 
+navy
+, 
+olive
+, 
+purple
+, 
+red
+, 
+silver
+, 
+teal
+, 
+white
+, or 
+yellow
+Color code: Can be HTML/CSS spec three- or six-digit hex
+height
+: Can be a number or a percentage
+width
+: Can be a number or a percentage
+align
+: Can be any of 
+middle
+, 
+center
+, 
+left
+, 
+right
+, 
+justify
+, or 
+char
+valign
+: Can be any of 
+baseline
+, 
+bottom
+, 
+middle
+, or 
+top
+charoff
+: Can be a number or a percentage
+char
+: Can be any character, and any number of characters (from 0 on), including line terminators
+thead
+tbody
+tfoot
+align
+: Can be any of 
+middle
+, 
+center
+, 
+left
+, 
+right
+, 
+justify
+, or 
+char
+valign
+: Can be any of 
+baseline
+, 
+bottom
+, 
+middle
+, or 
+top
+charoff
+: Can be a number or a percentage
+char
+: Can be any character, and any number of characters (from 0 on), including line terminators
+colgroup
+col
+align
+: Can be any of 
+middle
+, 
+center
+, 
+left
+, 
+right
+, 
+justify
+, or 
+char
+valign
+: Can be any of 
+baseline
+, 
+bottom
+, 
+middle
+, or 
+top
+charoff
+: Can be a number or a percentage
+char
+: Can be any character, and any number of characters (from 0 on), including line terminators
+span
+: Can be a number or a percentage
+width
+: Can be a number or a percentage
+img
+Other allowed attributes
+noscript
+, 
+h1
+, 
+h2
+, 
+h3
+, 
+h4
+, 
+h5
+, 
+h6
+, 
+i
+, 
+b
+, 
+u
+, 
+strong
+, 
+em
+, 
+small
+, 
+big
+, 
+pre
+, 
+code
+, 
+cite
+, 
+samp
+, 
+sub
+, 
+sup
+, 
+strike
+, 
+center
+, 
+blockquote
+, 
+hr
+, 
+br
+, 
+col
+, 
+font
+, 
+map
+, 
+span
+, 
+div
+, 
+img
+, 
+ul
+, 
+ol
+, 
+li
+, 
+dd
+, 
+dt
+, 
+dl
+, 
+fieldset
+, 
+legend
+Add translations 
+You can edit the templates through the pencil icon. See 
+Edit a default email template
+.
+If you restore an email to default settings, you delete any customizations made to the email whether the customization is for the default language.
+After you customize a template in one language, you need to customize templates for other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
+The following settings determine the language for emails sent from Okta to a user, if the user hasn't selected a specific display language:
+The user's locale property value (if specified)
+The org's display language
+Supported languages 
+Language
+BCP 47 language tag
+Chinese (simplified)
+zh-CN
+Chinese (traditional)
+zh-TW
+Czech
+cs
+Danish
+da
+German
+de
+Greek
+el
+English
+en
+Spanish
+es
+Finnish
+fi
+French
+fr
+Haitian Creole
+ht
+Hungarian
+hu
+Indonesian
+id
+Italian
+it
+Japanese
+ja
+Korean
+ko
+Malaysian
+ms
+Norwegian
+nb
+Dutch
+nl-NL
+Polish
+pl
+Portuguese
+pt-BR
+Romanian
+ro
+Russian
+ru
+Swedish
+sv
+Thai
+th
+Turkish
+tr
+Ukrainian
+uk
+Vietnamese
+vi
+Enable other locales 
+ Early Access
+Use the 
+BCP 47 format
+(opens new window)
+ to enable more locales than Okta's 27 default languages.
+You can only create customizations using these other languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See 
+Create an Email Customization
+(opens new window)
+.
+Include 
+null
+ in the subject or body of the email customization. Okta replaces 
+null
+ with a default value based on the following order of priority:
+An existing default email customization, if one exists
+Okta-provided translated content for the specified language, if one exists
+Okta-provided translated content for the brand locale, if it's set
+Okta-provided content in English
+If you use functions while adding more locales, use the 
+getTimeDiffHoursNow
+ function instead of the 
+formatTimeDiffHoursNowInUserLocale
+ function. 
+getTimeDiffHoursNow
+ returns only the time value in the specified unit. See 
+Use functions for email templates
+.
+Use the Admin Console 
+In the Admin Console, go to 
+Customizations
+ > 
+Brands
+.
+Select a brand.
+Click 
+Emails
+.
+In the 
+Email Templates
+ box, select an email template that you’ve customized.
+The code editor is in preview mode and shows the default language version.
+Translations
+: Customize email template translations:
+Click 
+Edit
+.
+Under 
+Inactive Translations
+, next to the language that you want to customize, click 
+Customize
+.
+Make your translated edits, then click 
+Save changes
+.
+Language
+: Select the default language for the email template:
+Click 
+Edit
+.
+From the dropdown menu, select one of your existing translated customizations.
+Click 
+Update
+.
+Note:
+ This setting only applies to the current email. You must set the default language separately for each translated template.
+To delete all custom translations and revert to the Okta template, click 
+Reset to Default
+.
+Use Velocity Templating Language 
+Velocity Templating Language (VTL)
+(opens new window)
+ allows you to customize your org's email templates so that you can use the following:
+Enhanced conditional logic
+All attributes in the Okta 
+User Profile object
+(opens new window)
+Some of the org attributes in the VTL variables
+Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference subobjects. For example, reference the first name of a user with 
+${user.profile.firstName}
+.
+See 
+Use VTL variables
+ for available email template variables.
+Use conditional logic 
+In your email templates, you can use any conditional logic that VTL supports, such as 
+if
+, 
+elseif
+, or 
+else
+ constructs and 
+foreach
+ loops. See the 
+Velocity documentation
+(opens new window)
+.
+Customization example 
+The following example uses the 
+${app.name}
+ variable, which is only available in Identity Engine.
+#if(${app.name} == "Toys R' Fun")
+<
+img
+src
+=
+"
+https://cdn.toysrfun.com/logo
+"
+height
+=
+"
+37
+"
+>
+<
+a
+id
+=
+"
+support-link
+"
+href
+=
+"
+https://support.toysrfun.com/help/?language=en_US
+"
+style
+=
+"
+text-decoration
+:
+ none
+;
+"
+>
+ Contact Toy Support 
+</
+a
+>
+#elseif(${app.name} == "Fidget Spinners Unlimited")
+<
+img
+src
+=
+"
+https://cdn.fidgetsu.com/logo
+"
+height
+=
+"
+37
+"
+>
+<
+a
+id
+=
+"
+support-link
+"
+href
+=
+"
+https://support.fidgetsu.com/help/?language=en_US
+"
+style
+=
+"
+text-decoration
+:
+ none
+;
+"
+>
+ Contact Fidget SU Support 
+</
+a
+>
+#else
+<
+img
+src
+=
+"
+${parentLogoUrl}
+"
+height
+=
+"
+37
+"
+>
+#end
+Use VTL variables 
+You can reference any Okta User Profile attribute in your email templates.
+Note:
+ Some attributes are only available in Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and the Classic Engine.
+Variable
+Template availability
+${user.profile.login}
+Available in all templates
+${user.profile.email}
+Available in all templates
+${user.profile.secondEmail}
+Available in all templates
+${user.profile.firstName}
+Available in all templates
+${user.profile.lastName}
+Available in all templates
+${user.profile.locale}
+Available in all templates
+${user.profile.mobilePhone}
+Available in all templates
+${user.profile.primaryPhone}
+Available in all templates
+${user.profile.username}
+Available in all templates
+${user.profile.fullName}
+Available in all templates
+${user.profile.city}
+Available in all templates
+${user.profile.state}
+Available in all templates
+${user.profile.streetAddress}
+Available in all templates
+${user.profile.zipCode}
+Available in all templates
+${user.profile.countryCode}
+Available in all templates
+${user.groups.names}
+Available in all templates
+${user.groups.ids}
+Available in all templates
+${app.id}
+Available in all templates
+    Identity Engine
+${app.name}
+Available in all templates
+    Identity Engine
+${app.label}
+Available in all templates
+    Identity Engine
+${org.name}
+Available in all templates
+${org.locale}
+Available in all templates
+${org.subDomain}
+Available in all templates
+${org.activationTokenExpirationHours}
+Available in all templates
+${baseURL}
+Available in all templates
+${oktaLogoUrl}
+Available in all templates
+${activationLink}
+Available in these templates:
+User Activation
+Active Directory User Activation
+Registration - Activation
+${activationToken}
+Available in these templates:
+User Activation
+Active Directory User Activation
+Registration - Activation
+${samAccountName}
+Available in these templates:
+Active Directory User Activation
+Active Directory Password Reset
+Active Directory Self-Service Unlock Account
+Active Directory Password Unlock
+Active Directory Self-Service Unlock Account
+${technicalContact.login}
+Available in these templates:
+User Activation
+Password Reset by Admin
+${technicalContact.email}
+Available in these templates:
+User Activation
+Password Reset by Admin
+${technicalContact.secondEmail}
+Available in these templates:
+User Activation
+Password Reset by Admin
+${technicalContact.firstName}
+Available in these templates:
+User Activation
+Password Reset by Admin
+${technicalContact.lastName}
+Available in these templates:
+User Activation
+Password Reset by Admin
+${technicalContact.locale}
+Available in these templates:
+User Activation
+Password Reset by Admin
+${technicalContact.fullName}
+Available in Password Reset by Admin
+${pushVerifyActivationLink}
+Available in Send Push Verify Activation Link
+${androidOktaVerifyAppLink}
+Available in Send Push Verify Activation Link
+${iosOktaVerifyAppLink}
+Available in Send Push Verify Activation Link
+${registrationEmailVerificationLink}
+Available in these templates:
+Registration - Email Verification
+Registration - Activation
+${registrationEmailVerificationToken}
+Available in these templates:
+Registration - Email Verification
+Registration - Activation
+${instanceDisplayName}
+Available in these templates:
+Email Factor Verification
+Registration - Email Verification
+Registration - Activation
+${unlockAccountLink}
+Available in these templates:
+Self-Service Unlock Account
+Active Directory Self-Service Unlock Account
+Active Directory Password Unlock
+LDAP Self-Service Unlock Account
+LDAP Self-Service Unlock Account
+${recoveryLink}
+Available in these templates:
+Reset Factor
+Active Directory Password Reset
+Unlock Factor
+${factorDisplayName}
+Available in these templates:
+Reset Factor
+Active Directory Password Reset
+Unlock Factor
+${orgTechSupportEmail}
+Available in these templates:
+Reset Factor
+Active Directory Password Reset
+Unlock Factor
+${unlockAccountTokenExpirationDate}
+Available in these templates:
+Self-Service Unlock Account
+Active Directory Self-Service Unlock Account
+Active Directory Password Unlock
+LDAP Self-Service Unlock Account
+LDAP Self-Service Unlock Account
+${resetPasswordLink}
+Available in these templates:
+Forgot Password
+Forgot Password Denied
+Active Directory Reset Password
+LDAP Forgot Password
+LDAP Forgot Password Denied
+Password Reset by Admin
+${oneTimePassword}
+Available in these templates:
+Forgot Password
+Active Directory Password Reset
+LDAP Forgot Password
+Self-Service Unlock Account
+Active Directory Self-Service Unlock Account
+LDAP Self-Service Unlock Account
+${resetPasswordTokenExpirationDate}
+Available in these templates:
+Forgot Password
+Forgot Password Denied
+Active Directory Password Reset
+LDAP Forgot Password
+LDAP Forgot Password Denied
+${request.date}
+Available in Authenticator Enrolled
+${request.time}
+Available in these templates:
+Authenticator Enrolled
+Authenticator Reset
+Factor Enrolled
+Factor Reset
+Sign In From New Device
+${request.location}
+Available in Authenticator Enrolled
+${request.performedBySubject}
+Available in Authenticator Enrolled
+${request.factor}
+Available in Factor Enrolled
+${request.factors}
+Available in Factor Reset
+${request.ipAddress}
+Available in Sign In From New Device
+${request.reportSuspiciousActivityToken}
+Available in Authenticator Enrolled (with Report Suspicious Activity button)
+${request.browser}
+Available in Sign In From New Device
+${request.relayState}
+Available in these templates:
+Registration Activation
+Forgot Password
+Email Challenge
+Email Factor Verification
+Self-Service Unlock Account
+${request.verificationLink}
+Available in Email Factor Verification
+${verificationToken}
+Available in these templates:
+Email Challenge
+Activation
+Registration - Email Verification
+Change Email Confirmation
+${emailAuthenticationLink}
+Available in Email Challenge
+${email}
+Available in these templates:
+Email Challenge
+Email Factor Verification
+${campaign.campaignName}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.campaignID}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.approvedReviews}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.revokedReviews}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.pendingReviews}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.formattedEndDate}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.successfulRemediations}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.manualRemediations}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.relativeDue}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.assignedBy}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.justification}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.dueInDays}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+${campaign.endDate}
+Available in these templates:
+Campaign Launched
+Campaign Ended
+Campaign Reminder
+Campaign Overdue Reminder
+Campaign End Date Change Notification
+Reassigned Review
+Use functions for email templates 
+In addition to variables, you can use the following functions in each of the email templates. Functions normalize the dynamic output of variables. For example, you can lowercase a string or produce a localized date for the end user.
+Variables used for function parameters must match the function data type. For example, you can't use a string variable with the 
+formatTimeDiffHourNow()
+ function. The parameter data must be an integer.
+The format of the function must be as follows:
+${f.function()}
+Here are some examples:
+Replace function: This example replaces the word 
+User
+ with 
+John
+ resulting in 
+"Hello, John!"
+:
+${replace("Hello, User!", "User", "John")}
+Substring after function: This example returns the substring after the 
+@
+ character, resulting in 
+example.com
+:
+${substringAfter("user@example.com", "@")}
+To lower case function: This example converts the string 
+HELLO WORLD
+ to all lowercase, resulting in 
+hello world
+:
+${toLowerCase("HELLO WORLD")}
+Expression
+Definition
+${replace(String input, String matchString, String replacement)}
+Replaces all occurrences of the match string with the replacement string
+${substringAfter(String input, String matchString)}
+Returns the input substring after the occurrence of a given match string. Or returns an empty string if no occurrence of the match string exists in the input string.
+${substringBefore(String input, String matchString)}
+Returns the input substring before the occurrence of a given match string. Or returns an empty string if no occurrence of the match string exists in the input string.
+${toLowerCase(String input)}
+Converts the given input string to all lowercase
+${toUpperCase(String input)}
+Converts the given input string to all uppercase
+${substring(String input, int startIndex, int endIndex)}
+Extracts a range of characters from the given input string
+${formatTimeDiffHoursNow(int hours)}
+Produces a formatted duration string from the current time to the given number of hours
+${formatTimeDiffHoursNowInUserLocale(int hours)}
+Produces a localized formatted duration string for the given number of hours
+${formatTimeDiffDateNow(Date date)}
+Produces a formatted duration string for the given date
+${formatTimeDiffDateNowInUserLocale(Date date)}
+Produces a localized formatted duration string for the given date
+${escapeHtml(String html)}
+Escapes the characters in the provided string using HTML entities
+${escapeHtmlAttr(String html)}
+Encodes data for use in HTML attributes
+${getTimeDiffHoursNow(int hours, String timeUnit)}
+Produces a duration string for the given number of hours converted to the specified time units. Supported string values for the timeUnit argument are milliseconds, seconds, minutes, hours, days, and years.
+Test your custom email templates 
+You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template. You can see how the template renders in different email environments and avoid creating end-to-end workflows to test customizations. The primary email address of the admin that initiates the test receives the email.
+Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
+Click 
+Send test email
+.
+Known Issues 
+Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to 
+retry blocked
+(opens new window)
+ emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
+See also 
+Read more on customizing and styling various Okta assets to match your company's visual identity and branding:
+Customize a domain and email address
+Customize SMS messages
+Style the Okta sign-in page
+Edit This Page On GitHub
+        On this page
+About email customization
+Multibrand customizations and emails
+Use the Brands API
+Caveats
+Edit a default email template
+Use customizable email templates
+Use Branding variables
+Use allowed HTML tags and elements
+Add translations
+Supported languages
+Enable other locales
+Use the Admin Console
+Use Velocity Templating Language
+Use conditional logic
+Customization example
+Use VTL variables
+Use functions for email templates
+Test your custom email templates
+Known Issues
+See also
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

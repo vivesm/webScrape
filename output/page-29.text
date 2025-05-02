@@ -1,0 +1,2188 @@
+Upgrade your app to the Identity Engine SDK | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Why upgrade your app to the Identity Engine SDK
+Loading...
+    Upgrade your app to the Identity Engine SDK
+    Identity Engine
+Upgrade your app to use Identity Engine SDK methods after you update your project to the latest Identity Engine SDK. Also, make sure you have an Identity Engine org.
+Review the following sections, which detail Identity Engine SDK concepts. This guide discusses the differences between how the Classic Engine authentication SDK and APIs approach authentication compared to the Identity Engine approach. Mappings of Classic Engine authentication SDK method calls, and back-end APIs, to Identity Engine SDK methods are provided for some sample use cases.
+Learning outcomes 
+Understand why you should upgrade your app to use the Identity Engine SDK.
+Learn the differences between the Classic Engine authentication SDK and the Identity Engine SDK.
+Identify the mappings between Classic Engine authentication SDK methods and the Identity Engine SDK for your language.
+Identify the mappings between Classic Engine authentication APIs and the Identity Engine SDK for your language.
+What you need 
+An Identity Engine org
+The Interaction Code grant enabled
+The latest Classic Engine authentication SDK installed
+An app that uses the Classic Engine authentication SDK or back-end APIs
+Sample code 
+Okta Android Classic Engine samples
+(opens new window)
+Okta Android Identity Engine samples
+(opens new window)
+Why upgrade your app to the Identity Engine SDK 
+The Okta Identity Engine SDK provides your applications with greater flexibility to create and configure user access experiences. The SDK’s architecture achieves this flexibility by shifting the control of application configurations and authorization policies to the org administrator, rather than requiring the developer to make updates at the code level. The SDK’s recursive method call format is also designed for dynamic Identity Engine policies that may require more access or authorization steps for one user over another.
+If your application is a server-side, customized authentication solution, migrating to the Identity Engine SDK is the ideal path to benefit from Identity Engine features and configuration flexibility.
+The upgrade process is also designed to be non-disruptive and iterative over a period of time. Your Classic Engine Authentication SDK application code works with an Identity Engine configured org, and you can test and migrate use cases incrementally. Review the following SDK upgrade examples for detailed mapping suggestions:
+Map basic sign-in code to the Identity Engine SDK
+: Basic sign-in with username and password use case
+Map MFA code to the Identity Engine SDK
+: Basic sign-in with username, password and another email factor use case
+Map password recovery code to the Identity Engine SDK
+: Password recovery using email use case
+Map basic sign-out code to the Identity Engine SDK
+: Sign-out use case
+Classic Engine Authentication APIs and SDK vs Identity Engine SDK 
+For embedded Android applications deploying Classic Engine authentication flows, there are generally two implementation approaches: using the Okta backend APIs or using the 
+Okta Java Authentication (Auth) SDK
+(opens new window)
+. Some embedded apps use a combination of the two approaches to achieve their desired authentication flow. The Okta backend API is seen as a manual way of implementing authentication flows with Okta. Whereas, the Java Auth SDK encapsulates the API resources to a convenient client wrapper for apps to achieve the same Classic Engine authentication flows.
+No matter which approach that you use for your Classic Engine embedded Android app, to upgrade to an Identity Engine embedded Android app, you need to use an Identity Engine SDK. The upgrade process requires you to review your existing code and figure out the necessary mappings to transform API requests or Classic Engine SDK methods to Identity Engine SDK methods. In some instances, you need to modify the interaction structure of your code.
+The following table is a high-level mapping of the typical Classic Engine API requests and Java Auth SDK methods to Java Identity Engine SDK methods. Since there are a variety of combinations to achieve Classic Engine authentication flows, the mapping list isn’t exhaustive.
+Okta API endpoints
+Classic Engine Java Auth SDK methods
+(okta-auth-java)
+Java Identity Engine SDK methods
+(okta-idx-java)
+Description
+All methods begin with:
+AuthenticationClient
+(opens new window)
+All methods begin with:
+IDXAuthenticationWrapper
+(opens new window)
+/api/v1/authn
+/api/v1/sessions
+(opens new window)
+.authenticate()
+.authenticate()
+Authenticate a user with username and password credentials
+The following endpoints are
+shortened and begin with:
+/api/v1/auth/
+/factors/{factorId}/verify
+.challengeFactor()
+.verifyFactor()
+.selectAuthenticator()
+.verifyAuthenticator()
+Verify an authenticator/factor
+/recovery/password
+/recovery/token
+/recovery/answer
+/credentials/reset_password
+.recoverPassword()
+.verifyRecoveryToken()
+.answerRecoveryQuestion()
+.resetPassword()
+.recoverPassword()
+.selectAuthenticator()
+.verifyAuthenticator()
+Recover a user’s password
+/skip
+.skip()
+.skipAuthenticatorEnrollment()
+Skip an optional authenticator/factor during enrollment or verification
+/factors/{factorId}/lifecycle/activate
+/factors
+/factors/{factorId}/verify
+.activateFactor()
+.verifyFactor()
+.selectFactor()
+Activate a factor
+/cancel
+.cancel()
+.cancel()
+Cancel the current transaction during factor verification/enrollment (revokes the state token)
+/factors/{factorId}/lifecycle/activate/poll
+/factors/{factorId}/lifecycle/activate/email
+/factors/{factorId}/verify/resend
+/factors/{factorId}/lifecycle/resend
+.verifyActivation()
+.sendActivationEmail()
+.resendVerifyFactor()
+.resendActivateFactor()
+.verifyAuthenticator()
+.selectAuthenticator()
+.resend()
+Verify an authentication factor
+Map a basic sign-in code to the Identity Engine SDK 
+The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform authentication using Identity Engine's new features and workflows.
+Okta Authentication SDK authentication flow 
+Using the Classic Engine Java Auth SDK, a typical app starts the basic sign-in authentication flow by instantiating the 
+AuthenticationClient
+ object and calling the 
+authenticate()
+ method with the username and password parameters. This call returns an 
+AuthenticationResponse
+ object, which provides a session token if the status is 
+SUCCESS
+. If a success status isn’t returned, the app has to handle the returned error or a list of additional factors to verify.
+The following code snippet returns a client instance:
+public
+AuthenticationClient
+getAuthenticationClient
+(
+)
+{
+return
+AuthenticationClients
+.
+builder
+(
+)
+.
+setOrgUrl
+(
+BuildConfig
+.
+BASE_URL
+)
+.
+build
+(
+)
+;
+}
+Note:
+ Environment variables are used to configure the client object, see 
+Java Auth SDK configuration reference
+(opens new window)
+ for details.
+The following code snippet shows how the 
+authenticate()
+ method is handled with the Java Auth SDK:
+try
+{
+    authenticationResponse 
+=
+ authenticationClient
+.
+authenticate
+(
+username
+,
+            password
+.
+toCharArray
+(
+)
+,
+null
+,
+ authenticationStateHandler
+)
+;
+// handle factors, if any
+if
+(
+authenticationResponse 
+!=
+null
+&&
+            authenticationResponse
+.
+getFactors
+(
+)
+!=
+null
+&&
+!
+authenticationResponse
+.
+getFactors
+(
+)
+.
+isEmpty
+(
+)
+)
+{
+// proceedToVerifyView
+}
+}
+catch
+(
+final
+AuthenticationException
+ e
+)
+{
+// proceedToErrorView
+}
+Identity Engine SDK authentication flow 
+Note:
+ Before you implement your embedded Android app with the Java Identity Engine SDK, ensure that you have all the prerequisites. See 
+Add the Identity Engine SDK to your app
+(opens new window)
+.
+The basic sign-in flow is simple to implement using the Java Identity Engine SDK. The authentication flow starts when the app instantiates the 
+IDXAuthenticationWrapper
+ client object and calls the 
+begin()
+ method. After receiving the username and password from the user, the app passes them as arguments to the  
+authenticate()
+ method (similar to the Java Auth SDK’s 
+AuthenticationClient.authenticate()
+ method). This method returns the Identity Engine 
+AuthenticationResponse
+ object with an 
+AuthenticationStatus
+. If 
+AuthenticationStatus=SUCCESS
+, then the app calls the 
+AuthenticationResponse.getTokenResponse()
+ method to retrieve the required tokens for authenticated user activity. The app needs to handle all the other 
+AuthenticationStatus
+ options returned, including failed authentication.
+The following code snippet shows how the 
+IDXAuthenticationWrapper.authenticate()
+ method is called with the Java Identity Engine SDK:
+// begin transaction
+AuthenticationResponse
+ beginResponse 
+=
+ idxAuthenticationWrapper
+.
+begin
+(
+)
+;
+// get proceed context
+ProceedContext
+ proceedContext 
+=
+ beginResponse
+.
+getProceedContext
+(
+)
+;
+// trigger authentication
+AuthenticationResponse
+ authenticationResponse 
+=
+     idxAuthenticationWrapper
+.
+authenticate
+(
+new
+AuthenticationOptions
+(
+username
+,
+ password
+.
+toCharArray
+(
+)
+)
+,
+ proceedContext
+)
+;
+See 
+Basic sign-in flow example with the password factor
+ for further details on the Identity Engine password authentication flow.
+Map Classic Engine Authentication APIs to the Identity Engine SDK 
+If your app uses direct APIs for an authentication flow, your code may call the following Okta APIs:
+/api/v1/authn
+: Begin the primary authentication, which validates the password credentials and evaluates org policies
+If successful, call the 
+/api/v1/sessions
+ API with a 
+sessionToken
+ returned from the first call to create a session
+See the following sample calls and responses for this Basic Authentication flow:
+Call /api/v1/authn 
+curl
+--location
+--request
+ POST 
+'https://{yourOktaDomain}/api/v1/authn'
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--data-raw 
+'{
+  "username": "john.doe@example.com",
+  "password": "password123",
+  "options": {
+    "multiOptionalFactorEnroll": false,
+    "warnBeforePasswordExpired": false
+  }
+}'
+Receive a successful response with a sessionToken 
+{
+"expiresAt"
+:
+"2021-10-07T18:19:36.000Z"
+,
+"status"
+:
+"SUCCESS"
+,
+"sessionToken"
+:
+"20111KWCKiTgnNgeaFjw760VitvCy7y-9cYl8lvN65754GmBuo_PPE6"
+,
+"_embedded"
+:
+{
+"user"
+:
+{
+"id"
+:
+"00u8eyowx5GiJhqvj1d6"
+,
+"passwordChanged"
+:
+"2020-12-21T19:39:06.000Z"
+,
+"profile"
+:
+{
+"login"
+:
+"john.doe@example.com"
+,
+"firstName"
+:
+"John"
+,
+"lastName"
+:
+"Doe"
+,
+"locale"
+:
+"en_US"
+,
+"timeZone"
+:
+"America/Los_Angeles"
+}
+}
+}
+,
+"_links"
+:
+{
+"cancel"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/cancel"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+Use the sessionToken from the response to create a session 
+curl
+--location
+--request
+ POST 
+'https://{yourOktaDomain}/api/v1/sessions'
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--header
+'Authorization: SSWS 00igKrTNyNLHCw0wYSIsoDF28cN4B3KZPETBz9pqz0'
+\
+--header
+'Cookie: JSESSIONID=16DC4838820F919032FC7BF01A8FE3E8'
+\
+--data-raw 
+'{
+  "sessionToken": "20111MzxECyRs8sqQ8WG93-ftVtXQ_uBUbOqVt7RYbNFsZBAs1mw-Vl"
+}'
+Receive a successful authentication response from the call 
+{
+"id"
+:
+"102XV1tNvxsTm69-StW_BCU-Q"
+,
+"userId"
+:
+"00u8eyowx5GiJhqvj1d6"
+,
+"login"
+:
+"john.doe@example.com"
+,
+"createdAt"
+:
+"2021-10-07T18:22:07.000Z"
+,
+"expiresAt"
+:
+"2021-10-07T20:22:07.000Z"
+,
+"status"
+:
+"ACTIVE"
+,
+"lastPasswordVerification"
+:
+"2021-10-07T18:22:07.000Z"
+,
+"lastFactorVerification"
+:
+null
+,
+"amr"
+:
+[
+"pwd"
+]
+,
+"idp"
+:
+{
+"id"
+:
+"00o2di92cuwsnS0PS1d6"
+,
+"type"
+:
+"OKTA"
+}
+,
+"mfaActive"
+:
+true
+,
+"_links"
+:
+{
+"self"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/sessions/me"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"GET"
+,
+"DELETE"
+]
+}
+}
+,
+"refresh"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/sessions/me/lifecycle/refresh"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+,
+"user"
+:
+{
+"name"
+:
+"John Doe"
+,
+"href"
+:
+"https://example.okta.com/api/v1/users/me"
+,
+"hints"
+:
+"allow"
+:
+[
+"GET"
+]
+}
+}
+}
+}
+If your app implements these API calls and handles the responses shown, update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine. A successful response returns with access and ID tokens.
+See 
+Identity Engine SDK authentication flow
+.
+Map MFA code to the Identity Engine SDK 
+The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform multifactor authentication using Identity Engine's new features and workflows.
+Okta Authentication SDK authentication flow for MFA 
+For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the 
+AuthenticationClient
+ object and call the 
+authenticate()
+ method, similar to the 
+Map basic sign-in code to the Identity Engine SDK
+ use case.
+In this MFA scenario, there is an additional email factor to verify, therefore the 
+authenticate()
+ call returns an 
+AuthenticationResponse
+ object with a list of one additional factor to verify: the email factor. The 
+AuthenticationResponse.getFactors()
+ method is used to return the list of factors to verify.
+final
+String
+ factorId 
+=
+ authenticationResponse
+.
+getFactors
+(
+)
+.
+get
+(
+0
+)
+.
+getId
+(
+)
+;
+final
+FactorType
+ factorType 
+=
+ authenticationResponse
+.
+getFactors
+(
+)
+.
+get
+(
+0
+)
+.
+getType
+(
+)
+;
+final
+String
+ stateToken 
+=
+ authenticationResponse
+.
+getStateToken
+(
+)
+;
+// we only support Email factor for sample purpose
+if
+(
+factorType 
+==
+FactorType
+.
+EMAIL
+)
+{
+AuthenticationResponse
+ authResponse 
+=
+ authenticationClient
+.
+verifyFactor
+(
+factorId
+,
+ stateToken
+,
+ authenticationStateHandler
+)
+;
+// Show verify email view.
+}
+else
+{
+// Show error view.
+}
+For the email factor, the app has to verify a code that is sent to the user’s email. The 
+AuthenticationClient.challengeFactor()
+ is called to send the verify code email, then the 
+AuthenticationClient.verifyFactor()
+ method is used to verify the code from the email.
+Note:
+ If there is only one factor in the list, the app doesn’t need to call 
+challengeFactor()
+, as it is automatically triggered.
+try
+{
+VerifyPassCodeFactorRequest
+ verifyPassCodeFactorRequest 
+=
+            authenticationClient
+.
+instantiate
+(
+VerifyPassCodeFactorRequest
+.
+class
+)
+;
+    verifyPassCodeFactorRequest
+.
+setStateToken
+(
+stateToken
+)
+;
+    verifyPassCodeFactorRequest
+.
+setPassCode
+(
+passcode
+)
+;
+    verifyPassCodeFactorRequest
+.
+setRememberDevice
+(
+false
+)
+;
+    authenticationResponse 
+=
+ authenticationClient
+.
+verifyFactor
+(
+factorId
+,
+            verifyPassCodeFactorRequest
+,
+ authenticationStateHandler
+)
+;
+}
+catch
+(
+AuthenticationException
+ e
+)
+{
+// Go to error view.
+}
+If the 
+verifyFactor()
+ method is successful, an 
+AuthenticationResponse
+ object is returned with a session token and a 
+SUCCESS
+ status.
+Identity Engine SDK authentication flow for MFA 
+The Identity Engine MFA authentication flow is initially similar to implementing using the Classic Engine SDK, however, there are slight differences in handling the subsequent multifactors. The authentication flow starts when the app instantiates the 
+IDXAuthenticationWrapper
+ client object and calls the 
+begin()
+ method. After receiving the username and password from the user, the app passes them as arguments to the 
+authenticate()
+ method (similar to the Classic Engine 
+AuthenticationClient.authenticate()
+ method). This method returns the Identity Engine 
+AuthenticationResponse
+ object with an 
+AuthenticationStatus
+.
+Note:
+ Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
+If additional factors are required, then 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION
+ and a list of authenticators (
+AuthenticationResponse.getAuthenticators()
+) to be verified are returned in the 
+AuthenticationResponse
+. This is where the Identity Engine MFA differs from the Classic Engine MFA. The Identity Engine MFA flow has the following general pattern:
+AuthenticationResponse returns 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION
+ — implying that the app/user has to select the authenticator to verify. The app can provide the user with a selection of authenticators to verify (if there is more than one authenticator) or the app can choose to select the authenticator on behalf of the user and present the user with an appropriate message.
+The app calls 
+IDXAuthenticationWrapper.selectAuthenticator()
+ to select the authenticator to verify — this is synonymous with the Java Auth SDK’s 
+AuthenticationClient.challengeFactor()
+ method, where the authenticator challenge is triggered. In this case, an email is sent with the verify code.
+Note:
+ Unlike the Java Auth SDK’s 
+challengeFactor()
+, the single authenticator isn’t automatically selected. The app must call the 
+selectAuthenticator()
+ method to trigger the authenticator challenge.
+authenticationResponse 
+=
+ idxAuthenticationWrapper
+.
+selectAuthenticator
+(
+proceedContext
+,
+ authenticator
+)
+;
+AuthenticationResponse returns 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+ — implying that Okta is waiting for the authenticator verification from the user/app.
+The app calls 
+IDXAuthenticationWrapper.verifyAuthenticator()
+ to provide the authenticator verification — this is synonymous with the Java Auth SDK’s 
+AuthenticationClient.verifyFactor()
+ method, where the app provides the challenge verification. In this case, the code within the user’s email is provided as an argument.
+VerifyAuthenticatorOptions
+ verifyAuthenticatorOptions 
+=
+new
+VerifyAuthenticatorOptions
+(
+code
+)
+;
+AuthenticationResponse
+ authenticationResponse 
+=
+     idxAuthenticationWrapper
+.
+verifyAuthenticator
+(
+proceedContext
+,
+     verifyAuthenticatorOptions
+)
+;
+AuthenticationResponse returns either:
+AuthenticationStatus=SUCCESS
+ — the MFA process is successful and the app can call 
+AuthenticationResponse.getTokenResponse()
+ to retrieve the required tokens for authenticated user activity.
+OR
+-
+AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION
+ — additional authenticator verification is required, and the app can loop through the MFA remediation process again: 
+[AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION
+ -> 
+selectAuthenticator()
+ -> 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+ -> 
+verifyAuthenticator()
+ -> 
+check AuthenticationStatus]
+.
+The number of required/optional authenticators for MFA are configured in the Admin Console and in the authentication policies. The Identity Engine-enabled app is structured in a way that enables the MFA challenges to differ based on user, group, context, and available factors since the MFA process is driven by policies set in Okta and not hard-coded into the app.
+For further details on how this use case is implemented with the Java Identity Engine SDK, see 
+Sign in with password and email factors
+.
+Map Classic Engine Authn APIs to the Identity Engine SDK 
+If your app uses direct APIs for a multifactor authentication flow, your code may call the following Okta APIs:
+/api/v1/authn
+: Begin the MFA authentication with the password credentials, which sets the transaction state to 
+MFA_REQUIRED
+/api/authn/factors/{emailFactorId}/verify
+: Send the user an email with a sign-in code
+/api/authn/factors/{$emailFactorId}/verify
+: Call this a second time with the sign-in code from the email challenge
+Note:
+ If you call the direct 
+/api/v1/policies
+ API to manage or update MFA enrollment policies, you need to update these calls to use Identity Engine policies. See 
+Authentication policy
+(opens new window)
+ and 
+User profile policy
+(opens new window)
+.
+See the following sample calls and responses for the MFA authentication flow using the email factor:
+Call the /api/v1/authn endpoint 
+curl
+--location
+--request
+ POST 
+'https://{yourOktaDomain}/api/v1/authn'
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--data-raw 
+'{
+  "username": "john.doe@example.com",
+  "password": "password123",
+  "options": {
+    "multiOptionalFactorEnroll": false,
+    "warnBeforePasswordExpired": false
+  }
+}'
+Receive a successful response that requires MFA 
+{
+"stateToken"
+:
+"00kYBC0MrmG2kHSqYHrSzw7Y99_u9-MOcjEf-_B9Fa"
+,
+"expiresAt"
+:
+"2021-10-12T14:38:30.000Z"
+,
+"status"
+:
+"MFA_REQUIRED"
+,
+"_embedded"
+:
+{
+"user"
+:
+{
+"id"
+:
+"00u1ehs07qD6MhWk85d7"
+,
+"passwordChanged"
+:
+"2021-10-08T19:36:48.000Z"
+,
+"profile"
+:
+{
+"login"
+:
+"michael.john.smith27@gmail.com"
+,
+"firstName"
+:
+"Michael"
+,
+"lastName"
+:
+"Smith"
+,
+"locale"
+:
+"en"
+,
+"timeZone"
+:
+"America/Los_Angeles"
+}
+}
+,
+"factors"
+:
+[
+{
+"id"
+:
+"emf1ehtcpaFA0cQg95d7"
+,
+"factorType"
+:
+"email"
+,
+"provider"
+:
+"OKTA"
+,
+"vendorName"
+:
+"OKTA"
+,
+"profile"
+:
+{
+"email"
+:
+"m...7@gmail.com"
+}
+,
+"_links"
+:
+{
+"verify"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/factors/emf1ehtcpaFA0cQg95d7/verify"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+,
+{
+"id"
+:
+"sms1ehtiv4lzDd0MW5d7"
+,
+"factorType"
+:
+"sms"
+,
+"provider"
+:
+"OKTA"
+,
+"vendorName"
+:
+"OKTA"
+,
+"profile"
+:
+{
+"phoneNumber"
+:
+"+1 XXX-XXX-1502"
+}
+,
+"_links"
+:
+{
+"verify"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/factors/sms1ehtiv4lzDd0MW5d7/verify"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+]
+,
+"policy"
+:
+{
+"allowRememberDevice"
+:
+true
+,
+"rememberDeviceLifetimeInMinutes"
+:
+15
+,
+"rememberDeviceByDefault"
+:
+false
+,
+"factorsPolicyInfo"
+:
+{
+}
+}
+}
+,
+"_links"
+:
+{
+"cancel"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/cancel"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+Send email challenge (/api/v1/authn/factors/{emailFactorId}/verify) 
+curl
+--location
+--request
+ POST 
+'https://{yourOktaDomain}/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify'
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--header
+'Cookie: JSESSIONID=6B93EFE5B529BB1CCC437F33996F04AB'
+\
+--data-raw 
+'{
+  "stateToken": "00K3WvIsn4-P64LNEt5NW3yoXx-V6Kgi7H18yamJMi"
+}'
+Receive a response to challenge the factor 
+{
+"stateToken"
+:
+"00kYBC0MrmG2kHSqYHrSzw7Y99_u9-MOcjEf-_B9Fa"
+,
+"expiresAt"
+:
+"2021-10-12T14:40:23.000Z"
+,
+"status"
+:
+"MFA_CHALLENGE"
+,
+"factorResult"
+:
+"CHALLENGE"
+,
+"challengeType"
+:
+"FACTOR"
+,
+"_embedded"
+:
+{
+"user"
+:
+{
+"id"
+:
+"00u1ehs07qD6MhWk85d7"
+,
+"passwordChanged"
+:
+"2021-10-08T19:36:48.000Z"
+,
+"profile"
+:
+{
+"login"
+:
+"michael.john.smith27@gmail.com"
+,
+"firstName"
+:
+"Michael"
+,
+"lastName"
+:
+"Smith"
+,
+"locale"
+:
+"en"
+,
+"timeZone"
+:
+"America/Los_Angeles"
+}
+}
+,
+"factor"
+:
+{
+"id"
+:
+"emf1ehtcpaFA0cQg95d7"
+,
+"factorType"
+:
+"email"
+,
+"provider"
+:
+"OKTA"
+,
+"vendorName"
+:
+"OKTA"
+,
+"profile"
+:
+{
+"email"
+:
+"m...7@gmail.com"
+}
+}
+,
+"policy"
+:
+{
+"allowRememberDevice"
+:
+true
+,
+"rememberDeviceLifetimeInMinutes"
+:
+15
+,
+"rememberDeviceByDefault"
+:
+false
+,
+"factorsPolicyInfo"
+:
+{
+}
+}
+}
+,
+"_links"
+:
+{
+"next"
+:
+{
+"name"
+:
+"verify"
+,
+"href"
+:
+"https://example.okta.com/api/v1/authn/factors/emf1ehtcpaFA0cQg95d7/verify"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+,
+"resend"
+:
+[
+{
+"name"
+:
+"email"
+,
+"href"
+:
+"https://example.okta.com/api/v1/authn/factors/emf1ehtcpaFA0cQg95d7/verify/resend"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+]
+,
+"prev"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/previous"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+,
+"cancel"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/cancel"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+Verify code from challenge email (/api/v1/authn/factors/{emailFactorId}/verify) 
+curl
+--location
+--request
+ POST 
+'https://{yourOktaDomain}/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify'
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--header
+'Cookie: JSESSIONID=6B93EFE5B529BB1CCC437F33996F04AB'
+\
+--data-raw 
+'{
+  "stateToken": "00K3WvIsn4-P64LNEt5NW3yoXx-V6Kgi7H18yamJMi",
+  "passCode": "477420"
+}'
+Receive a success response after confirming the email code 
+{
+"expiresAt"
+:
+"2021-10-12T14:43:04.000Z"
+,
+"status"
+:
+"SUCCESS"
+,
+"sessionToken"
+:
+"20111BkbGDWXbtv6_qe0NeDzuIYfWttZu5m4xszO4LQPqrmQfUA3pqc"
+,
+"_embedded"
+:
+{
+"user"
+:
+{
+"id"
+:
+"00u1ehs07qD6MhWk85d7"
+,
+"passwordChanged"
+:
+"2021-10-08T19:36:48.000Z"
+,
+"profile"
+:
+{
+"login"
+:
+"john.doe@example.com"
+,
+"firstName"
+:
+"John"
+,
+"lastName"
+:
+"Doe"
+,
+"locale"
+:
+"en"
+,
+"timeZone"
+:
+"America/Los_Angeles"
+}
+}
+}
+,
+"_links"
+:
+{
+"cancel"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/cancel"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+If your app uses these API calls and handles the responses shown, update your code to use Identity Engine SDK methods. These methods use the authentication flow with recursive calls to Identity Engine. A successful response includes access and ID tokens.
+See 
+Identity Engine SDK authentication flow for MFA
+.
+Map password recovery code to the Identity Engine SDK 
+The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform a password reset by using Identity Engine's new features and workflows.
+Okta Authentication SDK authentication flow for password recovery 
+For a password recovery flow that uses the Classic Engine Java Auth SDK, a typical app has to first instantiate the 
+AuthenticationClient
+ object and then call the 
+recoverPassword()
+ method with the username. In this password recovery scenario, the email factor is used to recover the password, therefore the 
+FactorType.EMAIL
+ argument is also provided.
+try
+{
+    authenticationResponse 
+=
+ authenticationClient
+.
+recoverPassword
+(
+email
+,
+FactorType
+.
+EMAIL
+,
+null
+,
+ authenticationStateHandler
+)
+;
+}
+catch
+(
+AuthenticationException
+ e
+)
+{
+// Go to error view.
+}
+If the 
+recoverPassword()
+ method is successful, Okta sends an email to the user with a recovery token. The app receives the recovery token from the user and calls the 
+AuthenticationClient.verifyRecoveryToken()
+ method.
+try
+{
+    authenticationResponse 
+=
+            authenticationClient
+.
+verifyRecoveryToken
+(
+recoveryToken
+,
+ authenticationStateHandler
+)
+;
+}
+catch
+(
+AuthenticationException
+ e
+)
+{
+// Go to error view.
+}
+A successful response from 
+verifyRecoveryToken()
+ includes a state token and a security recovery question. The app presents the user with the recovery question and then passes the user’s recovery answer to the 
+AuthenticationClient.answerRecoveryQuestion()
+ method.
+try
+{
+    authenticationResponse 
+=
+ authenticationClient
+.
+answerRecoveryQuestion
+(
+secQnAnswer
+,
+            stateToken
+,
+ authenticationStateHandler
+)
+;
+}
+catch
+(
+AuthenticationException
+ e
+)
+{
+// Go to error view.
+}
+After a successful response from 
+answerRecoveryQuestion()
+, the app requests the user for a new password and sends the new password to the 
+AuthenticationClient.resetPassword()
+ method.
+try
+{
+    authenticationResponse 
+=
+ authenticationClient
+.
+resetPassword
+(
+newPassword
+.
+toCharArray
+(
+)
+,
+            stateToken
+,
+ authenticationStateHandler
+)
+;
+}
+catch
+(
+final
+AuthenticationException
+ e
+)
+{
+// Go to error view.
+}
+The user is authenticated after a successful response from 
+resetPassword()
+.
+Identity Engine SDK authentication flow for password recovery 
+To upgrade the previous Classic Engine password recovery flow, the recovery process is replaced with the Identity Engine remediation pattern of 
+[AuthenticationStatus -> selectAuthenticator()
+ -> 
+AuthenticationStatus
+ -> 
+verifyAuthenticator()
+ -> 
+AuthenticationStatus]
+.
+The flow starts when the app instantiates the 
+IDXAuthenticationWrapper
+ client object and calls the 
+begin()
+ method. Then the recovery flow continues with the following process:
+IDXAuthenticationWrapper.recoverPassword()
+ method is called with the username — this is similar to passing the username to the Java Auth SDK’s 
+AuthenticationClient.recoverPassword()
+ method.
+AuthenticationResponse
+ authenticationResponse 
+=
+      idxAuthenticationWrapper
+.
+recoverPassword
+(
+username
+,
+ proceedContext
+)
+;
+Okta returns a response with 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION
+ and a list of authenticators to verify (in this case, email is the only authenticator on the list) — unlike the Classic Engine authentication flow, the user (or the app) selects the recovery authenticator to use. This method makes the app’s code generic to handle any recovery authenticator that you configure.
+IDXAuthenticationWrapper.selectAuthenticator()
+ method is called with the authenticator selected (email) — this is synonymous with passing 
+FactorType.EMAIL
+ to the Java Auth SDK’s 
+AuthenticationClient.recoverPassword()
+ method. This method triggers Okta to send the recovery email to the user.
+Okta returns a response with 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+ — this status implies that Okta is waiting for the user and the app to submit the email verification code for recovery.
+IDXAuthenticationWrapper.verifyAuthenticator()
+ method is called with the email verification code obtained from the user — this method replaces the Java Auth SDK’s 
+AuthenticationClient.verifyRecoveryToken()
+ and 
+AuthenticationClient.answerRecoveryQuestion()
+ method. With Identity Engine, a recovery token isn’t required and the recovery question is replaced with a verification code.
+Okta returns a response with 
+AuthenticationStatus=AWAITING_PASSWORD_RESET
+ — this status implies that Okta is waiting for the app to submit a new password for the user.
+IDXAuthenticationWrapper.verifyAuthenticator()
+ method is called with the user’s new password value, which is synonymous with the Java Auth SDK’s 
+AuthenticationClient.resetPassword()
+ method.
+VerifyAuthenticatorOptions
+ verifyAuthenticatorOptions 
+=
+new
+VerifyAuthenticatorOptions
+(
+newPassword
+)
+;
+AuthenticationResponse
+ authenticationResponse 
+=
+     idxAuthenticationWrapper
+.
+verifyAuthenticator
+(
+proceedContext
+,
+     verifyAuthenticatorOptions
+)
+;
+If the password update is successful, a response of 
+AuthenticationStatus=SUCCESS
+ is returned and the app calls 
+AuthenticationResponse.getTokenResponse()
+ to retrieve the required tokens for authenticated user activity.
+For further details on how the password recovery with email use case is implemented with the Java Identity Engine SDK, see 
+User password recovery
+.
+Map password recovery APIs to Identity Engine 
+If your app uses direct APIs for a password recovery flow, your code may call the following APIs:
+/api/v1/authn/recovery/password
+: Initiate the password recovery process and set the transaction state to 
+RECOVERY_CHALLENGE
+/api/v1/authn/recovery/token
+: Challenge the factor code
+/api/v1/authn/credentials/reset_password
+: Reset the password if the challenge is successful
+See the following sample calls and responses for the password recovery flow using SMS as a factor:
+User clicks link to recover password (/api/v1/authn/recovery/password with factorType) 
+curl
+--location
+--request
+ POST 
+'https://{yourOktaDomain}/api/v1/authn/recovery/password'
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--header
+'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D'
+\
+--data-raw 
+'{
+  "username": "{username}",
+  "factorType": "SMS",
+  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
+}'
+The response requires an SMS code challenge 
+{
+"stateToken"
+:
+"00hdMzIhfXCfUeRYVjmiP9O6_l0A-ScgdiyucNw3e_"
+,
+"expiresAt"
+:
+"2021-10-12T19:05:34.000Z"
+,
+"status"
+:
+"RECOVERY_CHALLENGE"
+,
+"relayState"
+:
+"/myapp/some/deep/link/i/want/to/return/to"
+,
+"factorType"
+:
+"SMS"
+,
+"recoveryType"
+:
+"PASSWORD"
+,
+"_links"
+:
+{
+"next"
+:
+{
+"name"
+:
+"verify"
+,
+"href"
+:
+"https://example.okta.com/api/v1/authn/recovery/factors/SMS/verify"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+,
+"cancel"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/cancel"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+,
+"resend"
+:
+{
+"name"
+:
+"SMS"
+,
+"href"
+:
+"https://example.okta.com/api/v1/authn/recovery/factors/SMS/resend"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+The user verifies the SMS challenge (/api/v1/authn/recovery/factors/sms/verify) 
+curl
+--location
+--request
+ POST 
+'https://{yourOktaDomain}/api/v1/authn/recovery/factors/sms/verify'
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--header
+'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D'
+\
+--data-raw 
+'{
+  "stateToken": "00hdMzIhfXCfUeRYVjmiP9O6_l0A-ScgdiyucNw3e_",
+  "passCode": "926187"
+}'
+If successful, the transaction status moves to Password_Reset 
+{
+"stateToken"
+:
+"00hdMzIhfXCfUeRYVjmiP9O6_l0A-ScgdiyucNw3e_"
+,
+"expiresAt"
+:
+"2021-10-12T18:11:27.000Z"
+,
+"status"
+:
+"PASSWORD_RESET"
+,
+"relayState"
+:
+"/myapp/some/deep/link/i/want/to/return/to"
+,
+"recoveryType"
+:
+"PASSWORD"
+,
+"_embedded"
+:
+{
+"user"
+:
+{
+"id"
+:
+"00u276bb2cmQuiFhU5d7"
+,
+"passwordChanged"
+:
+"2021-10-12T17:12:45.000Z"
+,
+"profile"
+:
+{
+"login"
+:
+"john.doe@example.com"
+,
+"firstName"
+:
+"John"
+,
+"lastName"
+:
+"Doe"
+,
+"locale"
+:
+"en"
+,
+"timeZone"
+:
+"America/Los_Angeles"
+}
+}
+,
+"policy"
+:
+{
+"complexity"
+:
+{
+"minLength"
+:
+8
+,
+"minLowerCase"
+:
+1
+,
+"minUpperCase"
+:
+1
+,
+"minNumber"
+:
+1
+,
+"minSymbol"
+:
+0
+,
+"excludeUsername"
+:
+true
+}
+,
+"age"
+:
+{
+"minAgeMinutes"
+:
+0
+,
+"historyCount"
+:
+4
+}
+}
+}
+,
+"_links"
+:
+{
+"next"
+:
+{
+"name"
+:
+"resetPassword"
+,
+"href"
+:
+"https://example.okta.com/api/v1/authn/credentials/reset_password"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+,
+"cancel"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/cancel"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+Prompt the user to reset the password (/api/v1/authn/credentials/reset_password) 
+curl
+--location
+--request
+ POST 
+'https://{yourOktaDomain}/api/v1/authn/credentials/reset_password'
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--header
+'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D'
+\
+--data-raw 
+'{
+  "stateToken": "00hdMzIhfXCfUeRYVjmiP9O6_l0A-ScgdiyucNw3e_",
+  "newPassword": "new_password!"
+}'
+The app receives the response and the user can sign in 
+{
+"stateToken"
+:
+"00K3WvIsn4-P64LNEt5NW3yoXx-V6Kgi7H18yamJMi"
+,
+"expiresAt"
+:
+"2021-10-12T18:13:17.000Z"
+,
+"status"
+:
+"MFA_REQUIRED"
+,
+"relayState"
+:
+"/myapp/some/deep/link/i/want/to/return/to?type_hint=PASSWORD_RECOVERY&session_hint=AUTHENTICATED&login_hint=john.doe%40example.com"
+,
+"_embedded"
+:
+{
+"user"
+:
+{
+"id"
+:
+"00u276bb2cmQuiFhU5d7"
+,
+"passwordChanged"
+:
+"2021-10-12T18:08:17.000Z"
+,
+"profile"
+:
+{
+"login"
+:
+"john.doe@example.com"
+,
+"firstName"
+:
+"John"
+,
+"lastName"
+:
+"Doe"
+,
+"locale"
+:
+"en"
+,
+"timeZone"
+:
+"America/Los_Angeles"
+}
+}
+,
+"factors"
+:
+[
+{
+"id"
+:
+"sms276bje00iCLqHY5d7"
+,
+"factorType"
+:
+"sms"
+,
+"provider"
+:
+"OKTA"
+,
+"vendorName"
+:
+"OKTA"
+,
+"profile"
+:
+{
+"phoneNumber"
+:
+"+1 XXX-XXX-1502"
+}
+,
+"_links"
+:
+{
+"verify"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/factors/sms276bje00iCLqHY5d7/verify"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+,
+{
+"id"
+:
+"emf276bb2dP3no7Da5d7"
+,
+"factorType"
+:
+"email"
+,
+"provider"
+:
+"OKTA"
+,
+"vendorName"
+:
+"OKTA"
+,
+"profile"
+:
+{
+"email"
+:
+"m...7@gmail.com"
+}
+,
+"_links"
+:
+{
+"verify"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+]
+,
+"policy"
+:
+{
+"allowRememberDevice"
+:
+true
+,
+"rememberDeviceLifetimeInMinutes"
+:
+15
+,
+"rememberDeviceByDefault"
+:
+false
+,
+"factorsPolicyInfo"
+:
+{
+}
+}
+}
+,
+"_links"
+:
+{
+"cancel"
+:
+{
+"href"
+:
+"https://example.okta.com/api/v1/authn/cancel"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+If your code implements these API calls and handles the responses shown, you need to update your app to use Identity Engine SDK methods.
+These methods encapsulate the password recovery flow using recursive calls to Identity Engine. A success response returns with access and ID tokens.
+See 
+Identity Engine SDK authentication flow for password recovery
+.
+Map basic sign-out code to the Identity Engine SDK 
+Okta Authentication SDK basic sign-out flow 
+The sign-out flow for a Classic Engine Java Auth SDK app typically involves deleting any persistent session storage and redirecting the user to a sign-out page.
+Identity Engine SDK basic sign-out flow 
+The Identity Engine Java SDK contains a revoke option in the wrapper client to revoke the access token in Okta.
+Note:
+ In a mobile app, there is no session storage. You must store the tokens yourself, and then clear them when you use this method.
+This step is required since the user is authorized by an Okta authorization server. The following code snippet shows how the 
+IDXAuthenticationWrapper.revokeToken()
+ method is called:
+String
+ accessToken 
+=
+ tokenResponse
+.
+getAccessToken
+(
+)
+;
+// revoke access token
+idxAuthenticationWrapper
+.
+revokeToken
+(
+TokenType
+.
+ACCESS_TOKEN
+,
+ accessToken
+)
+;
+See 
+User sign-out flow (local app)
+ for further details on the Identity Engine user sign-out flow.
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Why upgrade your app to the Identity Engine SDK
+Classic Engine Authentication APIs and SDK vs Identity Engine SDK
+Map a basic sign-in code to the Identity Engine SDK
+Map Classic Engine Authentication APIs to the Identity Engine SDK
+Map MFA code to the Identity Engine SDK
+Map Classic Engine Authn APIs to the Identity Engine SDK
+Map password recovery code to the Identity Engine SDK
+Map password recovery APIs to Identity Engine
+Map basic sign-out code to the Identity Engine SDK
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

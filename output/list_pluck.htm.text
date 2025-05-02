@@ -1,0 +1,79 @@
+Pluck | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Pluck
+This function takes a list of objects, and produces a sub-list. It does that by plucking the key specified by 
+key
+ from each object in the input list, and putting those values into an output list. The 
+list
+ input must be a list of objects. The 
+key
+ input defines the key to pluck from each item; it can be a key name in the root of each item, or it can be a dot-delimited path that lets you specify keys in sub-objects. You must set the type of the 
+values
+ output list to be the type of the values at that key path; if you don't set the type correctly, you will very likely encounter type mismatch errors when you execute your flow.
+Input Fields
+list
+ (list of objects): The list to operate on. Must be a list of objects.
+key
+ (text):  The key to pluck from each input item. Can be a dot-delimited path.
+Output Fields
+values
+:  The output list. You must set the type of items in the list to match the type of the values at the key that 
+path
+ defines.
+Example
+If 
+list
+ is 
+[{"name":"Bob","gender":"male"}, {"name":"Sarah","gender":"female"}]
+ and 
+key
+ is 
+name
+, then 
+values
+ (which should be set to list of text) is: 
+["Bob","Sarah"]
+.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

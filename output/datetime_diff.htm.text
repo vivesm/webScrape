@@ -1,0 +1,138 @@
+Difference | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Difference
+Calculate the difference in time between two dates.
+Input
+Field
+Definition
+Type
+Required
+end date
+Later date and time against which an earlier date (
+start date
+) is compared.
+Date & Time
+TRUE
+start date
+Earlier date and time against which a later date (
+end date
+) is compared. If the value 
+start date
+ is later, then the output values will be negative, indicating that it is past the value of 
+end date
+.
+Date & Time
+TRUE
+Output
+All of the outputs express the full amount of time it will take to get to 
+end date
+ from 
+start date
+ in that unit.
+For example, if 
+end date
+ is exactly one day after 
+start date
+, then the output value for 
+days
+ will be 
+1
+ and 
+hours
+ will be 
+24
+.
+Field
+Definition
+Type
+days
+Difference in days between the values for 
+end date
+ and 
+start date
+, including partial days.
+Number
+months
+Difference in months between the values for 
+end date
+ and 
+start date
+, including partial months.
+Number
+years
+Difference in years between the values for 
+end date
+ and 
+start date
+, including partial years.
+Number
+hours
+Difference in hours between the values for 
+end date
+ and 
+start date
+, including partial hours.
+Number
+minutes
+Difference in minutes between the values for 
+end date
+ and 
+start date
+, including partial minutes.
+Number
+seconds
+Difference in seconds between the values for 
+end date
+ and 
+start date
+.
+Number
+milliseconds
+Difference in milliseconds between the values for 
+end date
+ and 
+start date
+.
+Number
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

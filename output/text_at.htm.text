@@ -1,0 +1,117 @@
+At | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+At
+Return the single character at a specified position in a text input, where 
+0
+ is the first position.
+To get a whole segment rather than a single character, use the 
+Text Segment
+ function. To search for a single character, use 
+Find
+.
+Input
+Field
+Definition
+Type
+Required
+text
+Input string value.
+String
+TRUE
+position
+Location of the character, where 
+0
+ is the first position.
+Number
+TRUE
+Output
+Field
+Definition
+Type
+character
+Character at a specified location in the input string value.
+String
+Example
+For the 
+text
+ input of 
+Hello, World!
+:
+If 
+position
+ is 
+0
+, then 
+character
+ returns 
+H
+.
+If 
+position
+ is 
+1
+, then 
+character
+ returns 
+e
+.
+If 
+position
+ is 
+5
+, then 
+character
+ returns 
+,
+.
+If 
+position
+ is 
+12
+, then 
+character
+ returns 
+!
+.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

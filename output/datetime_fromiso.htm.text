@@ -1,0 +1,167 @@
+Convert | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Convert
+Convert a date and time to various formats.
+Input
+Field
+Definition
+Type
+Required
+start
+Date and time text in ISO format, or a date and time object in one of the common date and time text formats that automatically convert.
+Text
+TRUE
+format
+Date format that indicates how to display the date or the time, such as 
+M/D/Y
+ to produce 
+9/7/2016
+, or 
+hh:mm a
+ to format a time as 
+09:05 am
+.
+See 
+Format Codes
+.
+Text
+FALSE
+zone
+A 
+TZ
+ time zone, such as 
+US/Pacific
+ or 
+Europe/Paris
+.
+See the 
+time zone descriptions
+ as specified by the IANA.
+Text
+FALSE
+Output
+Field
+Definition
+Type
+date
+Date and time object that corresponds to the 
+start
+ value.
+Date & Time
+iso
+Converted date and time in ISO format, but without fractional seconds.
+For example,  
+2016-09-07T16:55:25.670Z
+.
+Text
+epoch
+Date and time in epoch format. Seconds are counted since January 1, 1970, midnight UTC/GMT, not counting leap seconds.
+Text
+unix
+Date and time in milliseconds counted since January 1, 1970, midnight in the UTC/GMT time zone.
+Text
+human
+Human readable date and time, but not adjusted for local time zone.
+Text
+custom
+Text of the date in the format specified by the 
+format
+ and 
+zone
+ input fields.
+Text
+The input fields 
+format
+ and 
+zone
+ work only with the output field 
+custom
+.
+See the 
+Date to Text
+ function for details and examples of how to generate custom formatted dates and times as text. Using the 
+custom
+ output field is equivalent to using the 
+Date To Text
+ function.
+To convert a Unix time to a date, use the 
+Text to Date
+ function instead of 
+Convert
+.
+Example
+If the 
+start
+ is 
+2016-09-07T00:01:25.670Z
+, then:
+date
+ is 
+2016-09-07T00:01:25.670Z
+iso
+ is 
+2016-09-07T00:01:25Z
+epoch
+ is 
+1473206485
+unix
+ is 
+1473206485670
+human
+ is 
+Wed, September 7th at 12:01 AM
+See the 
+Date to Text
+ function for examples for the 
+custom
+ output field. The 
+custom
+ output with the 
+format
+ and 
+zone
+ inputs works the same as the 
+Date To Text
+ function.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

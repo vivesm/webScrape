@@ -1,0 +1,81 @@
+Epoch | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Epoch
+Convert a date and time to the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT) not counting leap seconds.
+See 
+UNIX
+ to use the number of milliseconds elapsed instead of seconds.
+Input 
+Field
+Definition
+Type
+Required
+start
+Date and time to be converted to epoch format.
+Date & Time
+TRUE
+Output
+Field
+Definition
+Type
+output
+Date and time in epoch format. Seconds are counted since January 1, 1970, midnight UTC/GMT, not counting leap seconds.
+Date & Time
+Example
+start
+output
+2016-09-07T00:01:25.670Z
+1473206485
+ If you need the epoch format for the current date and time, use a 
+Now
+ card and drag and drop the 
+date
+ field from the 
+Now
+ card into the 
+start
+ field on the 
+Epoch
+ function card.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

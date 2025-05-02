@@ -1,0 +1,178 @@
+Find Pattern | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Find Pattern
+Search text for the first match to a specified pattern using regular expressions.
+Input
+Field
+Definition
+Type
+Required
+look in
+String value within which a search for a text pattern is performed.
+String
+TRUE
+look for
+Specified text pattern. A pattern must use a regular expression.
+String
+TRUE
+Output
+Field
+Definition
+Type
+position
+Position of the first match found, where 
+0
+ is the first position.
+Returns 
+-1
+ if no match is found.
+Number
+Regular Expressions 
+Unlike the Find function card, Find Pattern supports regular expressions. 
+Regular Expression
+Definition
+\w
+Finds any alphanumeric character (for example, a letter or number).
+\s
+ Finds any whitespace character (for example, a blank or tab).
+\d
+Finds any digit.
+[1-5]
+ Finds a number between 1 and 5.
+[aeiou]
+ Finds 
+a
+, 
+e
+, 
+i
+, 
+o
+, or 
+u
+.
+hello|test
+ Finds 
+hello
+ or 
+test
+. Either side of the 
+|
+ operator is a regular expression.
+colou?r
+Finds 
+color
+ or 
+colour
+. The 
+?
+ signifies that there can be zero or one of the preceding element.
+\d{5}
+Finds five consecutive digits. The 
+{number}
+ signifies a number of consecutive instances of the preceding element.
+[^\w]
+ Finds any character that is not an alphanumeric character. You can add the negative operator 
+^
+ before any other pattern. For example:
+[^a]
+ to find anything other than 
+a
+.
+[^\d{3}]
+ to find anything that is not three digits in a row.
+Many characters have special meaning in regular expressions, such as 
+.
+, 
++
+, 
+*
+, and 
+\
+. To search for any such characters, place 
+\
+ before the character. For example, 
+\.
+ - finds a period.
+You can combine any of the above patterns and fixed text. For example, 
+test\.\d{3}
+ finds the word 
+test
+ followed by a period followed by three consecutive digits.
+Example
+For simple searches, the Find Pattern function card performs like the 
+Find
+.
+If the 
+look in
+ field contains 
+testing_123
+, the following input values in the 
+look for
+ produce these results:
+look for
+position
+Explanation
+test
+0
+String found at beginning of input value.
+ing
+4
+String appears after the 4th position and starts in the 5th position.
+hello
+-1
+No match found.
+\d
+8
+First digit found.
+\w_\d
+6
+Any character found that is followed by an underscore then a digit.
+esting_\d{3}
+1
+String "esting" followed by any three digits.
+The Find Pattern card is often used in combination with  
+Text Segment
+ to get the text that matched the pattern.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

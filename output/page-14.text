@@ -1,0 +1,1964 @@
+Sign in to your mobile app | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Set up Okta
+Loading...
+    Sign in to your mobile app
+Add authentication to your mobile app using the Okta 
+redirect model
+(opens new window)
+. This example uses Okta as the user store.
+Learning outcomes 
+Create an integration that represents your app in your Okta org.
+Add dependencies and configure your mobile app to use Okta.
+Add a browser-based sign-in flow that Okta controls (redirect authentication).
+Load the details of the signed in user and check for an existing authenticated session at app startup.
+Refresh tokens to keep the user signed in.
+Make server calls using an access token for the session.
+Test your integration by signing in as a user.
+Sample code 
+Quickstart sample app
+(opens new window)
+Set up Okta 
+Set up your 
+Okta org
+. The Okta command-line interface (CLI) is the quickest way to do this. If you don't want to install the CLI, you can 
+manually sign up for an org
+(opens new window)
+ instead.
+Install 
+Okta CLI
+(opens new window)
+.
+If you don't already have a free Okta developer account:
+Open your terminal.
+Run 
+okta register
+, and enter your first name, last name, email address, and country.
+Tap 
+Activate
+ in the account activation email that is sent to the email address that you gave.
+Tip
+: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from 
+noreply@okta.com
+Find your new domain and a link to set your password in the email:
+Your Okta Domain: https://dev-xxxxxxx.okta.com
+To set your password open this link:
+https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
+New Okta Account created!
+Your Okta Domain: https://dev-xxxxxxx.okta.com
+Make a note of your Okta domain. Use it wherever 
+${yourOktaDomain}
+ appears in this guide.
+Run 
+okta login
+ to connect to your org if you didn't create one in the previous step (successfully creating an Okta org also signs you in). You need the URL of your org, which is 
+https://
+ followed by your 
+Okta domain
+, and an 
+API/access token
+.
+Note
+: If you're using an existing org, verify that API Access Management is enabled: Open your Admin Console, go to 
+Security
+ > 
+API
+, and verify that an 
+Authorization Servers
+ tab is present. If not, choose one of the following:
+Create a developer account and org with Okta CLI.
+Contact your support team to enable the feature in your org.
+Use the Admin Console to create your app integrations instead of the CLI.
+All accounts created with the Okta CLI are developer accounts.
+Create an Okta integration for your app 
+An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+To create your app integration in Okta using the CLI:
+Create the app integration by running:
+okta apps create native
+Tip
+: If the Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see 
+Set up Okta
+.
+Enter 
+Quickstart
+ when prompted for the app name.
+Specify the required redirect URI values:
+Redirect URI
+: 
+com.okta.example:/callback
+Post Logout Redirect URIs
+: 
+com.okta.example:/logout
+Make note of the redirect URI, post logout redirect URI, and the app configuration printed to the terminal. You'll need these to configure your mobile app.
+At this point, you can move to the next step: 
+Creating your app
+. If you want to set up the integration manually, complete the following steps:
+Note:
+ These steps are the steps that the CLI performs when you create your app integration in Okta using the CLI.
+Sign in to your Okta organization
+(opens new window)
+ with your administrator account. Click 
+Admin
+ on the top right of the page.
+Open the apps configuration pane by selecting 
+Applications
+ > 
+Applications
+. Click 
+Create App Integration
+.
+Select a 
+Sign-in method
+ of 
+OIDC - OpenID Connect
+.
+Select an 
+Application type
+ of 
+Native Application
+, then click 
+Next
+.
+Note:
+ If you choose the wrong app type, it can break the sign-in or sign-out flows. Integrations require the verification of a client secret, which public clients don't have.
+Enter an 
+App integration name
+.
+Enter the callback routes.
+For the 
+Sign-in redirect URIs
+, enter the 
+full redirect URI
+ for your mobile app (for example, 
+com.okta.example:/callback
+).
+For the 
+Sign-out redirect URIs
+, enter the 
+full redirect URI
+ for your mobile app (for example, 
+com.okta.example:/logout
+).
+Click 
+Save
+ to update the Okta app settings.
+Create an app 
+In this section you create a sample mobile app and add redirect authentication using your new Okta app integration.
+Create a project 
+Note:
+ The guide requires Android Studio Chipmunk 2021.2.1
+Create a Kotlin Android project called 
+browser_sign_in
+ with an 
+Empty Activity
+ in Android Studio. For information on creating a project, see the 
+Android Studio documentation
+(opens new window)
+.
+Name: 
+browser_sign_in
+Package name: 
+com.okta.android.samples.browser_sign_in
+Language: 
+Kotlin
+Minimum SDK: 
+API 23: Android 6.0 (Marshmallow)
+Add the following to the 
+app/build.gradle
+ to enable features required by the Okta Android SDK:
+android 
+{
+    compileOptions 
+{
+        coreLibraryDesugaringEnabled 
+true
+}
+}
+dependencies
+{
+    coreLibraryDesugaring 
+'com.android.tools:desugar_jdk_libs:1.1.5'
+}
+Note
+: The Okta CLI can create a Kotlin app for Android that's pre-configured for an Okta org by using the command 
+okta start android-kotlin
+. This QuickStart uses a basic project to show you how to configure an app.
+Add packages 
+Add the required dependencies for using the Okta SDK with your app.
+Add the latest 
+Okta Mobile Kotlin library
+(opens new window)
+ to the 
+dependencies
+ block of the 
+app/build.gradle
+ file:
+// Ensure that all dependencies are compatible using the Bill of Materials (BOM).
+implementation
+(
+platform
+(
+'com.okta.kotlin:bom:1.0.0'
+)
+)
+// Add the web-authentication-ui SDK to the project.
+implementation
+(
+'com.okta.kotlin:auth-foundation-bootstrap'
+)
+implementation
+(
+'com.okta.kotlin:web-authentication-ui'
+)
+Configure your app 
+The app uses information from the Okta integration that you created earlier to communicate with the API:
+Redirect URI
+Post logout redirect URI
+Client ID
+Issuer
+Create a file called 
+okta.properties
+ in the root directory of your project:
+Add the configuration values that your app uses to interact with the Okta org. Replace the placeholders in the following code with the values from the Okta app that you created in 
+Create an Okta integration for your app
+.
+Properties:
+discoveryUrl
+=<DISCOVERY_URL>
+clientId
+=<CLIENT_ID>
+signInRedirectUri
+=<SIGN_IN_URI>
+signOutRedirectUri
+=<SIGN_OUT_REDIRECT_URI>
+Placeholder
+Value
+<DISCOVERY_URL>
+The domain of your registered Okta org followed by 
+/oauth2/default/.well-known/openid-configuration
+, such as 
+https://dev-1234567.okta.com/oauth2/default/.well-known/openid-configuration
+<CLIENT_ID>
+The client ID from the app integration that you created, such as 
+0ux3rutxocxFX9xyz3t9
+<SIGN_IN_URI>
+The sign-in redirect URI from the app integration that you created, such as 
+com.okta.dev-1234567:/callback
+<SIGN_OUT_REDIRECT_URI>
+The sign-out redirect URI from the app integration that you created, such as 
+com.okta.dev-1234567:/logout
+Add the following code to the bottom of the app's build file, 
+app/build.gradle
+:
+def
+ oktaProperties 
+=
+new
+Properties
+(
+)
+rootProject
+.
+file
+(
+"okta.properties"
+)
+.
+withInputStream 
+{
+ oktaProperties
+.
+load
+(
+it
+)
+}
+android
+.
+defaultConfig 
+{
+    buildConfigField 
+"String"
+,
+'DISCOVERY_URL'
+,
+"\"
+${
+oktaProperties
+.
+getProperty
+(
+'discoveryUrl'
+)
+}
+\""
+    buildConfigField 
+"String"
+,
+'CLIENT_ID'
+,
+"\"
+${
+oktaProperties
+.
+getProperty
+(
+'clientId'
+)
+}
+\""
+    buildConfigField 
+"String"
+,
+'SIGN_IN_REDIRECT_URI'
+,
+"\"
+${
+oktaProperties
+.
+getProperty
+(
+'signInRedirectUri'
+)
+}
+\""
+    buildConfigField 
+"String"
+,
+'SIGN_OUT_REDIRECT_URI'
+,
+"\"
+${
+oktaProperties
+.
+getProperty
+(
+'signOutRedirectUri'
+)
+}
+\""
+}
+Add the following code to the dependencies block of the app's build file, 
+app/build.gradle
+:
+dependencies 
+{
+// These packages are used in the Okta Mobile SDK code snippets.
+implementation
+(
+'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+)
+implementation
+(
+'androidx.activity:activity-ktx:1.5.1'
+)
+}
+Update Android Studio with the changes by performing a Gradle sync. For more information on performing a Gradle sync, see the 
+Android Studio Documentation
+(opens new window)
+.
+Find your config values 
+If you don't have your configuration values handy, you can find them in the Admin Console. Go to 
+Applications
+ > 
+Applications
+ and find the app integration that you created earlier:
+Sign-in redirect URI
+: Found on the 
+General
+ tab in the 
+Login
+ section.
+Sign-out redirect URI
+: Found on the 
+General
+ tab in the 
+Login
+ section.
+Client ID
+: Found on the 
+General
+ tab in the 
+Client Credentials
+ section.
+Issuer
+: Found in the 
+Issuer URI
+ field for the authorization server that appears by selecting 
+Security
+ > 
+API
+ from the left navigation pane.
+Define a callback route 
+To sign users in, your app opens a browser and displays an Okta-hosted sign-in page. Okta then redirects back to your app with information about the user. To achieve this you need to define how Okta can redirect back to your app. This is called a callback route or redirect URI.
+In mobile apps, use a custom scheme similar to 
+your-app:/callback
+ so that your app can switch back into the foreground after the user is done signing in through the browser. This should be the same value that you used for the sign-in and sign-out redirect URIs.
+Your mobile app is responsible for parsing the information Okta sends to the callback route. The Okta SDKs can help you with this task (covered later in the 
+Open the sign-in page
+ section). For now, define the route itself.
+Add the following code to the 
+app/build.gradle
+ to parse the scheme defined in 
+okta.properties
+ created earlier in 
+Configure your app
+ and define the 
+manifestPlaceholders
+:
+static 
+def
+parseScheme
+(
+String uri
+)
+{
+def
+ index 
+=
+ uri
+.
+indexOf
+(
+':/'
+)
+if
+(
+index 
+==
+-
+1
+)
+{
+        throw new 
+IllegalStateException
+(
+"Scheme is not in a valid format."
+)
+}
+    return uri
+.
+substring
+(
+0
+,
+ index
+)
+}
+android
+.
+defaultConfig
+.
+manifestPlaceholders 
+=
+[
+"webAuthenticationRedirectScheme"
+:
+parseScheme
+(
+oktaProperties
+.
+getProperty
+(
+'signInRedirectUri'
+)
+)
+]
+Open the sign-in page 
+The SDK signs in the user by opening an Okta-hosted web page. The app can send the SDK sign-in request when the following occurs:
+A user visits a protected route.
+A user taps a button.
+Create a class called 
+BrowserSignInApplication.kt
+ in 
+app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInApplication.kt
+.
+Replace the contents of the new file with the following code that initializes the SDK:
+class
+ BrowserSignInApplication 
+:
+Application
+(
+)
+{
+override
+fun
+onCreate
+(
+)
+{
+super
+.
+onCreate
+(
+)
+// Initializes Auth Foundation and Credential Bootstrap classes.
+        AuthFoundationDefaults
+.
+cache 
+=
+ SharedPreferencesCache
+.
+create
+(
+this
+)
+val
+ oidcConfiguration 
+=
+OidcConfiguration
+(
+            clientId 
+=
+ BuildConfig
+.
+CLIENT_ID
+,
+            defaultScope 
+=
+"openid email profile offline_access"
+,
+)
+val
+ client 
+=
+ OidcClient
+.
+createFromDiscoveryUrl
+(
+            oidcConfiguration
+,
+            BuildConfig
+.
+DISCOVERY_URL
+.
+toHttpUrl
+(
+)
+,
+)
+        CredentialBootstrap
+.
+initialize
+(
+client
+.
+createCredentialDataSource
+(
+this
+)
+)
+}
+}
+Update 
+app/src/main/AndroidManifest.xml
+ to use the newly defined 
+Application
+ subclass:
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.okta.android.samples.browser_sign_in">
+    <application
+        ...
+        android:name=".BrowserSignInApplication"
+        ...
+        >
+        ...
+    </application>
+</manifest>
+Add sign-in and sign-out buttons and a text view to the app's default layout file by adding the following code to 
+app/src/main/res/layout/activity_browser_sign_in.xml
+:
+<?xml version="1.0" encoding="utf-8"?>
+<
+LinearLayout
+xmlns:
+android
+=
+"
+http://schemas.android.com/apk/res/android
+"
+xmlns:
+tools
+=
+"
+http://schemas.android.com/tools
+"
+android:
+layout_width
+=
+"
+match_parent
+"
+android:
+layout_height
+=
+"
+match_parent
+"
+android:
+layout_margin
+=
+"
+8dp
+"
+android:
+orientation
+=
+"
+vertical
+"
+tools:
+context
+=
+"
+.BrowserSignInActivity
+"
+>
+<
+TextView
+android:
+id
+=
+"
+@+id/status_text_view
+"
+android:
+layout_width
+=
+"
+match_parent
+"
+android:
+layout_height
+=
+"
+wrap_content
+"
+android:
+layout_marginTop
+=
+"
+16dp
+"
+/>
+<
+Button
+android:
+id
+=
+"
+@+id/login_button
+"
+android:
+layout_width
+=
+"
+wrap_content
+"
+android:
+layout_height
+=
+"
+wrap_content
+"
+android:
+layout_marginTop
+=
+"
+16dp
+"
+android:
+text
+=
+"
+@string/login_button
+"
+/>
+<
+Button
+android:
+id
+=
+"
+@+id/logout_of_browser_button
+"
+android:
+layout_width
+=
+"
+wrap_content
+"
+android:
+layout_height
+=
+"
+wrap_content
+"
+android:
+layout_marginTop
+=
+"
+16dp
+"
+android:
+backgroundTint
+=
+"
+@android:color/holo_red_light
+"
+android:
+text
+=
+"
+@string/logout_of_browser_button
+"
+/>
+<
+ProgressBar
+android:
+layout_gravity
+=
+"
+center
+"
+android:
+id
+=
+"
+@+id/progress_bar
+"
+android:
+layout_width
+=
+"
+50dp
+"
+android:
+layout_height
+=
+"
+50dp
+"
+/>
+</
+LinearLayout
+>
+Add the following code to 
+app/src/main/res/values/strings.xml
+ to add the strings for the 
+text
+ values of the buttons:
+<
+resources
+>
+<
+string
+name
+=
+"
+app_name
+"
+>
+Browser sign in
+</
+string
+>
+<
+string
+name
+=
+"
+login_button
+"
+>
+Login
+</
+string
+>
+<
+string
+name
+=
+"
+logout_of_browser_button
+"
+>
+Logout of Browser
+</
+string
+>
+<
+string
+name
+=
+"
+have_account
+"
+>
+Have an account?
+</
+string
+>
+<
+string
+name
+=
+"
+welcome_user
+"
+>
+Welcome %1$s
+</
+string
+>
+</
+resources
+>
+Create 
+BrowserSignInViewModel.kt
+ in 
+app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInViewModel.kt
+:
+class
+ BrowserSignInViewModel 
+:
+ViewModel
+(
+)
+{
+private
+val
+ _state 
+=
+ MutableLiveData
+<
+BrowserState
+>
+(
+BrowserState
+.
+Loading
+)
+val
+ state
+:
+ LiveData
+<
+BrowserState
+>
+=
+ _state
+init
+{
+        viewModelScope
+.
+launch
+{
+            _state
+.
+value 
+=
+ BrowserState
+.
+currentCredentialState
+(
+)
+}
+}
+fun
+login
+(
+context
+:
+ Context
+)
+{
+        viewModelScope
+.
+launch
+{
+            _state
+.
+value 
+=
+ BrowserState
+.
+Loading
+val
+ result 
+=
+ CredentialBootstrap
+.
+oidcClient
+.
+createWebAuthenticationClient
+(
+)
+.
+login
+(
+                context 
+=
+ context
+,
+                redirectUrl 
+=
+ BuildConfig
+.
+SIGN_IN_REDIRECT_URI
+,
+)
+when
+(
+result
+)
+{
+is
+ OidcClientResult
+.
+Error 
+->
+{
+                    Timber
+.
+e
+(
+result
+.
+exception
+,
+"Failed to login."
+)
+                    _state
+.
+value 
+=
+ BrowserState
+.
+currentCredentialState
+(
+"Failed to login."
+)
+}
+is
+ OidcClientResult
+.
+Success 
+->
+{
+val
+ credential 
+=
+ CredentialBootstrap
+.
+defaultCredential
+(
+)
+                    credential
+.
+storeToken
+(
+token 
+=
+ result
+.
+result
+)
+                    _state
+.
+value 
+=
+ BrowserState
+.
+LoggedIn
+.
+create
+(
+)
+}
+}
+}
+}
+fun
+logoutOfBrowser
+(
+context
+:
+ Context
+)
+{
+        viewModelScope
+.
+launch
+{
+            _state
+.
+value 
+=
+ BrowserState
+.
+Loading
+val
+ result 
+=
+ CredentialBootstrap
+.
+oidcClient
+.
+createWebAuthenticationClient
+(
+)
+.
+logoutOfBrowser
+(
+                context 
+=
+ context
+,
+                redirectUrl 
+=
+ BuildConfig
+.
+SIGN_OUT_REDIRECT_URI
+,
+                CredentialBootstrap
+.
+defaultCredential
+(
+)
+.
+token
+?
+.
+idToken 
+?:
+""
+,
+)
+when
+(
+result
+)
+{
+is
+ OidcClientResult
+.
+Error 
+->
+{
+                    Timber
+.
+e
+(
+result
+.
+exception
+,
+"Failed to logout."
+)
+                    _state
+.
+value 
+=
+ BrowserState
+.
+currentCredentialState
+(
+"Failed to logout."
+)
+}
+is
+ OidcClientResult
+.
+Success 
+->
+{
+                    CredentialBootstrap
+.
+defaultCredential
+(
+)
+.
+delete
+(
+)
+                    _state
+.
+value 
+=
+ BrowserState
+.
+LoggedOut
+(
+)
+}
+}
+}
+}
+}
+/**
+ * Represents the current state of the [BrowserSignInViewModel].
+ */
+sealed
+class
+ BrowserState 
+{
+object
+ Loading 
+:
+BrowserState
+(
+)
+class
+LoggedOut
+(
+val
+ errorMessage
+:
+ String
+?
+=
+null
+)
+:
+BrowserState
+(
+)
+class
+ LoggedIn 
+private
+constructor
+(
+val
+ name
+:
+ String
+,
+val
+ errorMessage
+:
+ String
+?
+)
+:
+BrowserState
+(
+)
+{
+companion
+object
+{
+/**
+             * Creates the [LoggedIn] state using the [CredentialBootstrap.defaultCredential]s ID Token name claim.
+             */
+suspend
+fun
+create
+(
+errorMessage
+:
+ String
+?
+=
+null
+)
+:
+ BrowserState 
+{
+val
+ credential 
+=
+ CredentialBootstrap
+.
+defaultCredential
+(
+)
+val
+ name 
+=
+ credential
+.
+idToken
+(
+)
+?
+.
+name 
+?:
+""
+return
+LoggedIn
+(
+name
+,
+ errorMessage
+)
+}
+}
+}
+companion
+object
+{
+/**
+         * Creates the [BrowserState] given the [CredentialBootstrap.defaultCredential]s presence of a token.
+         *
+         * @return Either [LoggedIn] or [LoggedOut].
+         */
+suspend
+fun
+currentCredentialState
+(
+errorMessage
+:
+ String
+?
+=
+null
+)
+:
+ BrowserState 
+{
+val
+ credential 
+=
+ CredentialBootstrap
+.
+defaultCredential
+(
+)
+return
+if
+(
+credential
+.
+token 
+==
+null
+)
+{
+LoggedOut
+(
+errorMessage
+)
+}
+else
+{
+                LoggedIn
+.
+create
+(
+errorMessage
+)
+}
+}
+}
+}
+Add the following code that handles button clicks and browser state events to 
+app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.kt
+:
+class
+ BrowserSignInActivity 
+:
+AppCompatActivity
+(
+)
+{
+private
+val
+ viewModel 
+by
+ viewModels
+<
+BrowserSignInViewModel
+>
+(
+)
+override
+fun
+onCreate
+(
+savedInstanceState
+:
+ Bundle
+?
+)
+{
+super
+.
+onCreate
+(
+savedInstanceState
+)
+setContentView
+(
+R
+.
+layout
+.
+activity_browser_sign_in
+)
+val
+ progressBar 
+=
+ findViewById
+<
+View
+>
+(
+R
+.
+id
+.
+progress_bar
+)
+val
+ statusTextView 
+=
+ findViewById
+<
+TextView
+>
+(
+R
+.
+id
+.
+status_text_view
+)
+val
+ loginButton 
+=
+ findViewById
+<
+View
+>
+(
+R
+.
+id
+.
+login_button
+)
+val
+ logoutOfBrowserButton 
+=
+ findViewById
+<
+View
+>
+(
+R
+.
+id
+.
+logout_of_browser_button
+)
+        loginButton
+.
+setOnClickListener
+{
+            viewModel
+.
+login
+(
+this
+)
+}
+        logoutOfBrowserButton
+.
+setOnClickListener
+{
+            viewModel
+.
+logoutOfBrowser
+(
+this
+)
+}
+/**
+         * Update the user interface for changes in the sign-in flow.
+         *
+         * Use an observer to react to updates in [BrowserState]. Updates are asynchronous and are triggered both by user actions,
+         * such as button clicks, and completing the flow.
+         */
+        viewModel
+.
+state
+.
+observe
+(
+this
+)
+{
+ state 
+->
+when
+(
+state
+)
+{
+is
+ BrowserState
+.
+LoggedIn 
+->
+{
+                    progressBar
+.
+visibility 
+=
+ View
+.
+GONE
+                    loginButton
+.
+visibility 
+=
+ View
+.
+GONE
+                    logoutOfBrowserButton
+.
+visibility
+=
+ View
+.
+VISIBLE
+                    statusTextView
+.
+visibility 
+=
+ View
+.
+VISIBLE
+if
+(
+state
+.
+errorMessage 
+==
+null
+)
+{
+                        statusTextView
+.
+text 
+=
+getString
+(
+R
+.
+string
+.
+welcome_user
+,
+ state
+.
+name
+)
+}
+else
+{
+                        statusTextView
+.
+text 
+=
+ state
+.
+errorMessage
+}
+}
+is
+ BrowserState
+.
+LoggedOut 
+->
+{
+                    progressBar
+.
+visibility 
+=
+ View
+.
+GONE
+                    loginButton
+.
+visibility 
+=
+ View
+.
+VISIBLE
+                    logoutOfBrowserButton
+.
+visibility
+=
+ View
+.
+GONE
+                    statusTextView
+.
+visibility 
+=
+ View
+.
+VISIBLE
+if
+(
+state
+.
+errorMessage 
+==
+null
+)
+{
+                        statusTextView
+.
+text 
+=
+getString
+(
+R
+.
+string
+.
+have_account
+)
+}
+else
+{
+                        statusTextView
+.
+text 
+=
+ state
+.
+errorMessage
+}
+}
+                BrowserState
+.
+Loading 
+->
+{
+                    progressBar
+.
+visibility 
+=
+ View
+.
+VISIBLE
+                    loginButton
+.
+visibility 
+=
+ View
+.
+GONE
+                    logoutOfBrowserButton
+.
+visibility
+=
+ View
+.
+GONE
+                    statusTextView
+.
+visibility 
+=
+ View
+.
+GONE
+}
+}
+}
+}
+}
+Get info about the user 
+The ID token returned by Okta contains user information or claims that are based on the scopes requested by the app (see 
+Configure your app
+).
+This app includes the 
+profile
+ scope that includes the user's email address, name, and preferred username. You can use this information to update your UI, such as showing the customer's name.
+Use the Okta user information endpoints for items that aren't available in the ID token. For general information on requesting user info, see the 
+userinfo response example
+(opens new window)
+.
+To find information about the user, use the 
+idToken
+ method. The 
+Jwt
+ object contains information for the user.
+Print the users preferred username by creating the function 
+showPreferredUsername
+:
+suspend
+fun
+showPreferredUsername
+(
+)
+{
+val
+ idToken
+:
+ Jwt 
+=
+ CredentialBootstrap
+.
+defaultCredential
+(
+)
+.
+idToken
+(
+)
+?:
+return
+println
+(
+idToken
+.
+preferredUsername
+)
+}
+The method reads the user information from the local ID token. The available information depends on the scopes that are used to authenticate the user. You can also request information from the server with the 
+getUserInfo
+ method of the 
+Credential
+ class.
+Sign in a user 
+Test your integration by signing in a user using your mobile app.
+Configure an emulator
+(opens new window)
+ or 
+connect a physical device
+(opens new window)
+ in Android Studio.
+Run the app
+(opens new window)
+ in Android Studio.
+After the app opens, tap the 
+Login
+ button. The Okta sign-in browser opens over the app. After the user signs in, the browser closes and the app shows a welcome message and a 
+Logout of Browser
+ button.
+Check for a session at startup 
+Okta issues an access token when the user signs in. This token allows the user to access the services for a set amount of time. Check for an existing unexpired token when the app launches to find out if the user is still signed in.
+When you check for an existing session, it may take two steps:
+Check for an existing token.
+Refresh the token if it's expired.
+The 
+Credential
+ class manages the tokens for a user. Although there are methods available to check if a credential is expired and to request a refresh, this code uses 
+getValidAccessToken()
+ that only tries to refresh the token if it's expired.
+if
+(
+CredentialBootstrap
+.
+defaultCredential
+(
+)
+.
+getValidAccessToken
+(
+)
+==
+null
+)
+{
+// The user no longer has valid credentials.
+}
+else
+{
+// The user is still authorized.
+}
+Keep the user signed in 
+Access tokens are short-lived. Yet, for some types of apps users expect to remain signed in for a long time. Granting a refresh token in your app integration enables the client to request an updated access token.
+Enable a refresh token in your app integration by following these steps:
+Launch the Admin Console for your Okta org.
+Choose 
+Applications > Applications
+ to show the app integrations.
+Click the name of your integration to open the configuration manager.
+Click 
+Edit
+ in the 
+General Settings
+ section.
+Select 
+Refresh Token
+ in the 
+Application
+ section.
+Click 
+Save
+ at the bottom of the 
+General Settings
+ section.
+Use the 
+refreshToken()
+ method to get a new access token.
+if
+(
+CredentialBootstrap
+.
+defaultCredential
+(
+)
+.
+token 
+!=
+null
+&&
+ CredentialBootstrap
+.
+defaultCredential
+(
+)
+.
+getAccessTokenIfValid
+(
+)
+==
+null
+)
+{
+// The access_token expired, refresh the token.
+when
+(
+val
+ result 
+=
+ CredentialBootstrap
+.
+defaultCredential
+(
+)
+.
+refreshToken
+(
+)
+)
+{
+is
+ OidcClientResult
+.
+Error 
+->
+{
+// An error occurred. Access the error in `result.exception`.
+}
+is
+ OidcClientResult
+.
+Success 
+->
+{
+// Token refreshed successfully.
+}
+}
+}
+Use the access token 
+Your own server API (a resource server in OAuth 2.0) uses the Okta-generated access token for the following:
+To authenticate that the user is signed in.
+To ensure that the user is authorized to perform the action or access the information.
+Use the access token by adding it to the HTTP 
+Authorization
+ header of outgoing requests in your mobile or other client using this format:
+Authorization: Bearer ${token}
+Your API then checks incoming requests for valid tokens. To learn how to protect your API endpoints and require token authentication, see 
+Protect your API endpoints
+.
+To make authenticated requests to your resource server, add the access token interceptor to your 
+OkHttpClient
+ instance.
+private
+suspend
+fun
+callResourceServer
+(
+)
+{
+val
+ accessTokenInterceptor 
+=
+ CredentialBootstrap
+.
+defaultCredential
+(
+)
+.
+accessTokenInterceptor
+(
+)
+val
+ okHttpClient 
+=
+ OkHttpClient
+.
+Builder
+(
+)
+.
+addInterceptor
+(
+accessTokenInterceptor
+)
+.
+build
+(
+)
+val
+ request 
+=
+ Request
+.
+Builder
+(
+)
+.
+url
+(
+"https://
+${
+resourceUrl
+}
+"
+)
+.
+build
+(
+)
+    okHttpClient
+.
+newCall
+(
+request
+)
+.
+enqueue
+(
+object
+:
+ Callback 
+{
+override
+fun
+onFailure
+(
+call
+:
+ Call
+,
+ e
+:
+ IOException
+)
+{
+// An error occurred.
+}
+override
+fun
+onResponse
+(
+call
+:
+ Call
+,
+ response
+:
+ Response
+)
+{
+if
+(
+response
+.
+code 
+==
+200
+)
+{
+// Authenticated successfully.
+}
+else
+{
+// Invalid status code.
+}
+}
+}
+)
+}
+Credentials are internally refreshed when needed. An authorization header is added only if there's a valid access token.
+Next steps 
+This guide showed you how to sign users in with their username and password using an Okta themed sign-in page. Here are some ways to extend that functionality:
+Customize the sign-in page that Okta presents
+(opens new window)
+Share a sign-in session with native mobile apps
+(opens new window)
+Add a sign-in flow using biometrics
+(opens new window)
+Protect your servers' API endpoints
+(opens new window)
+Android-specific examples:
+Classic Engine Android samples
+(opens new window)
+Kotlin-based Identity Engine Android SDK and sample apps
+(opens new window)
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Set up Okta
+Create an Okta integration for your app
+Create an app
+Create a project
+Add packages
+Configure your app
+Define a callback route
+Open the sign-in page
+Get info about the user
+Sign in a user
+Check for a session at startup
+Keep the user signed in
+Use the access token
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

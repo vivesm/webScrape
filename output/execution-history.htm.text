@@ -1,0 +1,67 @@
+Flow execution history | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Flow execution history
+Saving and reviewing flow data is critical for operational success within 
+Okta Workflows
+. Preserving the records of your flow executions provides you with valuable insights:
+Identify and diagnose error conditions in new and existing flows to ensure seamless operations.
+Retrace and analyze executed flows to highlight potential bottlenecks and areas for optimization.
+Facilitate auditing of your flows to maintain compliance  to internal policies and external regulations.
+Understand flow execution history
+The history of each flow execution is comprised of two components:
+Flow input and output (IO) data: Within every flow, individual cards contain configurable settings along with input and output values. Opting to 
+Save flow data to execution history
+ allows 
+Okta
+ to record the specific data passing through each card during execution. After the flow  execution, you can review and analyze the  values for every card in your flow. 
+Flow metadata: 
+Okta
+ records metadata associated with each execution event. This includes vital information  such as the type of flow, the execution timestamp, and the final execution status.
+Access recorded 
+data
+The recorded data is available on the 
+Execution History
+ page of your flow. Anyone with the appropriate privileges can view these details for up to 30 days.
+Next steps: Managing execution history
+Save flow data to execution history
+View flow execution history
+Clear flow execution history
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

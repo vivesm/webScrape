@@ -1,0 +1,96 @@
+Set schedule options | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Set schedule options
+When you create a scheduled flow, 
+Okta Workflows
+ prompts you to provide a schedule. Polling monitors default to checking every five minutes.
+To change the flow schedule at any time, click the clock icon at the bottom of a 
+Scheduled Flow
+ event card.
+Frequency
+Choose a division of time for scheduling your flow.
+Minute
+: Choose a specific number of minutes from the dropdown list.
+For example, select 
+15
+ to run the flow every 15 minutes. You can optionally set a time range restriction, such as between 09:00 and 17:00. You can also specify which days of the week the flow is run.
+Hour
+: Choose a specific number of hours from the dropdown list.
+For example, select 
+2
+ to run the flow every 2 hours. The default is to run 
+on the hour
+ or you can specify an exact number of minutes after the hour.
+As with the 
+Minute
+ option, you can specify a time range restriction and specific days.
+Day
+: The flow runs once a day at the time specified.
+Week
+: Choose a time and which days to run the flow, over the course of a week.
+Month
+: Choose a monthly interval, a time of day, and a numerical day of the month to run the flow. 
+For example, you can set a quarterly report flow to run at 9:00 on the first day of a month in every three-month period.
+Advanced Options
+Specify extra options for the schedule of your flow.
+Exact
+: For granular control, select this option and use the dropdown list to specify the exact minutes to run the flow. The values in the dropdown list vary depending on the 
+Minute
+ frequency that you select.
+This option is only available when you select the 
+Minute
+ frequency.
+No earlier than
+: Specify that the event scheduler should start when the flow is turned on, or on a specific date.
+No later than
+: Specify that the event scheduler should end when the flow is turned on, or after a specific date.
+Timezone
+: Specify what timezone to use for the scheduled events.
+Summary
+: This field displays the selected scheduling options in sentence form.
+Click 
+Save
+ to confirm your changes.
+After the flow is turned on, a countdown timer appears in the flow header pane to indicate the time of the next execution.
+Related topics
+Parent flows and other flow types
+Polling monitor events
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

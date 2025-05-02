@@ -1,0 +1,98 @@
+Percentage | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Percentage
+Read and format the percentage of a value to a specified number of decimal places.
+This function card is only available in 
+Connector Builder
+.
+Input
+Field
+Definition
+Type
+Required
+percentage of
+Number based on which a calculation is performed.
+Number
+FALSE
+value
+Percentage amount to use in the calculation.
+Number
+FALSE
+precision
+Number of decimal places in the result.
+Number
+FALSE
+Output
+Field
+Definition
+Type
+percentage
+Result of the calculation.
+Number
+encoded
+Result of the calculation in percentage format.
+String
+Example
+For a 
+percentage of
+ of 
+50
+, 
+value
+ of 
+25
+, and a 
+precision
+ of 
+2
+, the 
+percentage
+ output is 
+12.5
+ and the 
+encoded
+ output is 
+12.50%
+.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

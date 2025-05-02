@@ -1,0 +1,125 @@
+Continue If | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Continue If
+Continue or halt the flow based on the result of a true or false conditional test. Use 
+Return Error If
+ instead if you want to halt the flow with an error when the condition is true.
+Input
+Field
+Definition
+Type
+Required
+value a
+Value to be compared.
+Various
+FALSE
+comparison
+Comparison to make (see table below).
+Various
+FALSE
+value b
+Value to compare against.
+Various
+FALSE
+message
+An optional value to return when the condition is false and the flow stops.
+Various
+FALSE
+Be sure to set the type of 
+value a
+ and 
+value b
+ to reflect how you would like the comparison to be done. For instance, the operator "greater than" compares numbers based on numeric value but text based on alphabetical sort order. So the number comparison 80 > 9 is true, but the text comparison "80" > "9" is false.
+Output
+Field
+Definition
+Type
+message
+An optional value to return when the condition is false and the flow stops.
+String
+This function card behaves differently when placed inside a 
+If/ElseIf
+ or 
+If/Error
+ block. 
+Consider those blocks as representing anonymous helper flows. Similar to when you call a helper flow, this function card returns you to the parent. Placing this function card inside one of those block sends you to the step immediately after the container. 
+Use a 
+Continue If
+ function after the 
+If/ElseIf
+ block to stop a flow under normal conditions. You can use a 
+Return Error
+ or 
+Return Error If
+ card instead, but those options generate an error when the flow halts.
+Table of Relational Operators
+Operator
+Use Case
+ equal to
+Compare two texts, numbers, dates or true/false to see if they have the same value.
+ not equal to
+Compare two texts, numbers, dates or true/false to see if they have different values.
+greater than or equal
+Compare two texts, numbers or dates to see if the first has the same or greater value than the second.
+ less than or equal
+Compare two texts, numbers or dates to see if the first has the same or lesser value than the second.
+greater than
+Compare two texts, numbers or dates to see if the first has a greater value than the second.
+less than
+Compare two texts, numbers or dates to see if the first has a lesser value than the second.
+ a multiple of
+Compare two numbers to see if value a is an exact multiple of value b. For example, 12, 0 and -4 are all multiples of 4, but 2, 3 and 7 are not.
+in
+Compare two texts to see if value a is a part of value b. For example, "test" is in "this is a test", but there is no "i" in "team".
+not in
+ Compare two texts to see if value a is not part of value b. 
+has key
+When value a is an object and value b is text, tests to see if the object has a key with the specified name. For example, true if value a is {"test":123} and value b is "test".
+doesn't have key
+When value a is an object and value b is text, tests to see if the object does not have a key with the specified name.
+is empty
+Checks to see if value a is empty; ignores value b. What defines "empty" varies by type. Note: Only works for Text and Object. Numbers, Dates, T/F, are viewed as empty.
+is not empty
+Checks to see if value a is not empty. Note: Only works for Text and Object. Numbers, Dates, T/F, are viewed as empty.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

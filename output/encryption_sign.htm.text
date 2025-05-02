@@ -1,0 +1,130 @@
+Sign | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Sign
+The 
+Sign
+ function card takes input text and  uses a cryptographic hash algorithm and a private key to create a digital signature. You can send the signature, along with your public key, so that external parties can validate that you sent the original message and it hasn't been altered.
+The format of the resulting hash can be Base64, hex, or binary, depending on the specified output parameter.
+Input
+Field
+Definition
+Type
+Required
+algorithm
+        Select the cryptographic hash algorithm to use:
+md5
+sha1
+sha256
+sha384
+sha512
+Dropdown
+FALSE
+data
+Your message that you want to have signed.
+String
+TRUE
+digest
+        Select the output formatting for the resulting hash:
+base64
+hex
+binary
+Dropdown
+FALSE
+privateKey
+key
+Your private key for the signature.
+This should be a PEM-formatted private key.
+You can generate a private key and a corresponding public key using OpenSSL commands. For example, to generate a passphrase-protected 2048-bit private PEM key:
+openssl genrsa -des3 -out key.pem 2048
+And for the corresponding public key
+openssl rsa -in key.pem -pubout -out pubkey.pem
+String
+TRUE
+passphrase
+If your private key is encrypted with a passphrase, enter that string. 
+Saving your private key and passphrase in plain text is a security risk. Okta recommends that you encrypt these entries and call them from separate locations.
+To mitigate risk, don't save the execution history for any flow that would call this function and then have your unencrypted fields in the saved data.
+String
+FALSE
+Output
+Field
+Definition
+Type
+output
+The digital signature  of your input text.
+String
+You can use the result of the 
+output
+ field wherever text can be sent.
+Example
+To confirm that a piece of content is valid, your recipient needs your digital signature and the  public key  generated from your private key. They also need to know the algorithm used to generate the digital signature and the formatting of the output hash.
+For example, Jane has sent the message 
+My secret message!
+ in a text file called 
+message.txt
+ to Bob.
+Bob wants to confirm that it was Jane who sent the message, and that it wasn't altered along the way. 
+Jane uses the 
+Sign
+ function to generate a digital signature file  using the 
+sha256
+ algorithm and a digest option of 
+base64
+. She copies the output of the function card into a text file called 
+signature.base64
+.
+To convert the Base64 output of the 
+Sign
+ function to a binary-formatted signature file, Jane runs the following on a command line:
+Copy
+base64 --decode signature.base64 > signature.bin
+She sends that 
+signature.bin
+ file, along with her 
+publicKey.pem
+ to Bob, and notes that her signature uses the SHA-256 algorithm and the hash is formatted in Base64.
+Bob uses the following command on his system to verify that the signature matches what was sent in the original file:
+Copy
+openssl dgst -sha256 -verify publicKey.pem -signature signature.bin message.txt
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

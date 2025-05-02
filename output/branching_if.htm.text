@@ -1,0 +1,127 @@
+If/Else | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+If/Else
+Use an If/Else conditional statement to determine the steps that should be followed by the flow.
+When the condition you specify is evaluated, depending on whether the result is true or false, the flow follows a specific sub-path of action and function cards prior to returning optional outputs, and then continues with the rest of the flow.
+The If/Else card has three sections:
+Section
+Definition
+Condition
+Specifies the comparison (a true/false statement)
+Branches
+Specifies the Actions and Functions to execute based on the result of the condition.
+Outputs (optional)
+Specifies the optional Outputs for the If/Else card, after the proper path has run.
+Condition: Defining a Comparison Statement on an If/Else Card
+Element
+Definition
+value a
+Value to be compared.
+comparison
+Comparison to make (see 
+Table of Relational Operators
+).
+value b
+Value to compare against.
+Click 
+Done
+ to advance to the next step, then click on the condition to return to this step.
+Be sure to set the type of 
+value a
+ and 
+value b
+ to reflect how you would like the comparison to be done. For example, the operator 
+greater than
+ compares numbers based on numeric value but text based on alphabetical sort order. So the number comparison 
+80 > 9
+ is true, but the text comparison 
+"80" > "9"
+ is false.
+Table of Relational Operators
+Operator
+Use Case
+ equal to
+Compare two texts, numbers, dates or true/false to see if they have the same value.
+ not equal to
+Compare two texts, numbers, dates or true/false to see if they have different values.
+greater than or equal
+Compare two texts, numbers or dates to see if the first has the same or greater value than the second.
+ less than or equal
+Compare two texts, numbers or dates to see if the first has the same or lesser value than the second.
+greater than
+Compare two texts, numbers or dates to see if the first has a greater value than the second.
+less than
+Compare two texts, numbers or dates to see if the first has a lesser value than the second.
+ a multiple of
+Compare two numbers to see if value a is an exact multiple of value b. For example, 12, 0 and -4 are all multiples of 4, but 2, 3 and 7 are not.
+in
+Compare two texts to see if value a is a part of value b. For example, "test" is in "this is a test", but there is no "i" in "team".
+not in
+ Compare two texts to see if value a is not part of value b. 
+has key
+When value a is an object and value b is text, tests to see if the object has a key with the specified name. For example, true if value a is {"test":123} and value b is "test".
+doesn't have key
+When value a is an object and value b is text, tests to see if the object does not have a key with the specified name.
+is empty
+ Checks to see if value a is empty; ignores value b. What defines "empty" varies by type. Note: This operator works only for text and objects.
+is not empty
+Checks to see if value a is not empty. Note: This operator works only for text and objects.
+Branches: Defining Branch Paths on an If/Else Card
+You can specify the Action and Function cards to execute based on the outcome of the comparison. The two branching paths are shown when you click 
+Done
+ after defining the Condition.
+Actions and Functions within the upper orange container in the Branches tab are executed in sequential order if the conditional statement provided by the Input Fields returns true. Likewise, Actions and Functions within the lower blue container are executed in sequential order if the conditional statement returns false.
+You can include any number of Actions within each container. It is also possible to nest an If/Else within another If/Else, which can enable you to create many different branching paths, all with their own set of Actions.
+Output: Adding Outputs to an If/Else Step
+The Create Outputs button allows you to add optional Output fields to the entire If/Else step. Their values are assigned after either of the two branches has completed, before moving onto the next action or function in the flow.
+To add a new output field:
+Click 
+Create outputs
+ if the box is not visible at the right.
+Type the desired name in the 
+Outputs
+ box at the right.
+Choose the proper type (for example, Text or Number) for the output.
+Provide the value for the output for the case where the true branch was run and for the case where the false branch was run. Drag/drop from the corresponding branch or click inside the box to choose from the outputs of the steps that ran within that branch.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

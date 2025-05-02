@@ -1,0 +1,70 @@
+Collapse | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Collapse
+Collapse a list of objects into a single object by merging each object in the order they appear in the list. If objects have overlapping keys subsequent values will take precedence over preceding values.
+Input
+Field
+Definition
+Type
+Required
+list
+ List of objects to be collapsed.
+Object
+TRUE
+Output
+Field
+Definition
+Type
+output
+ Collapsed set of objects.
+Object
+Example
+Input list
+Output object
+[{"item":1},{"item":2}]
+{"item":2}
+[{"valueA":"a"},{"valueB":"b"}]	
+{"valueA":"a","valueB":"b"}
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

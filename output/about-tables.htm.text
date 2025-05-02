@@ -1,0 +1,57 @@
+Tables | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Tables
+Tables are a convenient way to store data that flows can reference without requiring external services or other credentials. You can aggregate relevant data and ensure that it persists across your flows.
+Tables are intended to serve as a limited information caching mechanism. They aren't designed to be scalable information repositories like database tables. When using tables for data, periodically clearing out stale records and unused tables prevents you from hitting the 
+system limits
+ for tables.
+Use cases
+Tables can be used for various purposes:
+Track and report on data that passes through flows
+You can keep a running count of specific events or store individual transactions to include in a monthly report to management.
+Create a lookup table or share constants across flows
+Often with provisioning scenarios, you may need to map a user's department to a role needed for system access. Or you might need to keep a table of identifiers for different cloud services, so unrelated flows can reference a single source of truth. 
+Build flows with greater context
+You may have a flow that processes incoming customer requests and adds information to a table for customers that require follow-up action. A flow can check the table to see if a customer has made several requests this week and then notify your accounts team for immediate action. A different flow can run each Monday morning to assign the remaining customer requests.
+Related topics
+Create and edit a table
+Workflows system limits
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

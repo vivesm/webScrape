@@ -1,0 +1,157 @@
+Flows and tables | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Flows and tables
+From the 
+Flows
+ page, you can access all the folders, flows, and tables that are in your Workflows instance. 
+The 
+Flows
+ page uses a left-hand navigation bar to organize all available folders. After you select a folder in the navigation tree, the main page displays two tab-based panes: 
+Flows
+ and 
+Tables
+.
+Flows
+To create a flow and add it to the current folder, click 
++ New Flow
+. To search for a flow, enter your search text into the search field beside 
++ New Flow
+.
+You can view all the available flows inside a folder using either a list or tile view. 
+In the list view for the 
+Flows
+ tab, the following information is shown listed for each flow:
+TYPE
+: The type of flow. A flow can be triggered by an event, an API Endpoint, a schedule, or just be a helper flow for another flow. See 
+Parent flows and other flow types
+ and 
+Helper flows
+.
+ON/OFF
+: Turn a flow on or off. A flow can execute only after it is  turned on.
+NAME
+: A user-provided label for the flow.
+ACTIONS
+: A visual summary of the connectors that are used in the flow. 
+HISTORY
+: A visual summary of successful  and failed executions for the flow, along with the last time that the flow was executed. A green check indicates the number of successful executions. A red 'X' indicates the number of failed executions.
+When you duplicate a folder, this resets the history summary  for the flows inside the duplicated folder.
+AUTHOR
+: The username for the account that created the flow.
+For flows inside a duplicated folder, this field reflects the username of the account that ran the duplication.
+DATE CREATED
+ or 
+LAST EDITED
+: The date when the flow was created or last updated.
+For a duplicated folder, the flow creation date is set to  when the folder was duplicated.
+For each flow, you can edit the name and description of the flow. You can also run, duplicate, export, or delete the flow by clicking the matching icon (in tile view) or the action from the settings  menu (in list view).
+Move flows
+You can move flows  from one folder to another within the 
+Flows
+ page.
+Select the flow from the 
+Flows
+ tab on the main page.
+Drag the flow  and drop it onto an existing folder in the 
+Folders
+ navigation panel.
+When you drag and hold  the flow over a closed  folder, that target folder automatically expands by one level. You can drop your flow onto any of the nested folders inside, or repeat the hold action to continue inside any other closed subfolder.
+After moving the flow to the new folder, 
+Okta
+ shows a notification of the operation  with an option to undo the change.
+These flow changes are recorded in the 
+Okta
+ System Log.
+Sort flows
+In the list view for flows, you can click the column headers to sort the flows  in ascending or descending order. This is true for any of the column headers except 
+HISTORY
+.
+In the tile view, 
+Okta Workflows
+ presents flows as tiles including the flow's name and text description. Use the dropdown menu to sort the tiles using any of the available options, in either ascending or descending order.
+Tables
+To create a table and add it to the current folder, click 
++ New Table
+. To search for a table, enter your search text into the search field beside 
++ New Table
+.
+Similar to the flows tab, you can view all the available tables inside a folder in either a list or tile view. 
+In the list view for the 
+Tables
+ tab, the following information is shown for each table:
+NAME
+: A user-provided label for the table.
+RECORDS
+: The number of lines in the table. 
+AUTHOR
+: The username for the account used when the table was created.
+For tables inside a duplicated folder, this field reflects the username of the account that ran the duplication.
+DATE CREATED
+ or 
+LAST EDITED
+: The date when the table was created or last updated.
+For a duplicated folder, the table creation date is set to  when the folder was duplicated.
+For each table, you can edit the name or description, duplicate the  table, or delete it.
+Move tables
+You can move tables from one folder to another within the 
+Flows
+ page.
+Select the table from the 
+Tables
+ tab on the main page.
+Drag the table  and drop it onto an existing folder in the 
+Folders
+ navigation panel.
+When you drag and hold  the table over a closed folder, that target folder automatically expands by one level. You can drop your table onto any of the nested folders inside, or repeat the hold action to continue inside any other closed subfolder.
+After moving the table to the new folder, 
+Okta
+ shows a notification of the operation  with an option to undo the change.
+These table changes are recorded in the 
+Okta
+ System Log.
+Sort tables
+In either list view or tile view, you can sort tables  in ascending or descending order using any of the four criteria for tables.
+Related topics
+Folders and subfolders
+Parent flows and other flow types
+Helper flows
+Build flows
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

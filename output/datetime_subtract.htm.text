@@ -1,0 +1,106 @@
+Subtract | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Subtract
+Subtract a multiple of a unit of time (for example, seconds) from a starting date and time and return a new date value.
+Input
+Field
+Definition
+Type
+Required
+start date
+Date and time from which a unit of time will be subtracted.
+Date & Time
+TRUE
+subtract
+Amount that will be subtracted from a specified date and time.
+Number
+FALSE
+units
+Specific unit type (in scale) to subtract from the start date. Options are:
+milliseconds
+seconds
+minutes
+hours
+days weeks
+months
+years
+Dropdown
+TRUE
+Output
+Field
+Definition
+Type
+output
+Resulting date and time after a specified amount of time is subtracted. The output value is an earlier date and time.
+Date & Time
+Examples
+start date
+subtract
+units
+output
+19-Sept-2016
+2
+weeks
+5-Sept-2016
+19-Sept-2016 5:00pm
+8
+hours
+19-Sept-2016 9:00am
+If you want to start with the current date and time, use a 
+Now
+ card and drag and drop the 
+date
+ field from the 
+Now
+ card into the 
+start
+ field on the 
+Subtract
+ card.
+Results from Date & Time function cards are displayed and converted to text in ISO date format using UTC 
+Z
+ notation (not adjusted for local time zone). If you need to display a date and time in a specific time zone, use 
+Date to Text
+.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

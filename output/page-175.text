@@ -1,0 +1,1224 @@
+Sign users in to your web app using the redirect model | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+ASP.NET Core 3.x
+Loading...
+    On this page
+            Overview
+Loading...
+    Sign users in to your web app using the redirect model
+Add a user sign-in flow to a server-side web app with Okta's 
+redirect model
+(opens new window)
+.
+Learning outcomes 
+Implement a simple redirect to an Okta-hosted sign-in page.
+Configure a server-side web app to use Okta.
+Test that users can sign in and sign out.
+Define which parts of an app require authentication and which don't.
+What you need 
+An 
+Okta Developer Edition org
+(opens new window)
+A copy of Visual Studio Community, Professional or Enterprise 2019 version 16.4 or later
+Sample code 
+ASP.NET Core 3.1 & Okta-Hosted Sign-In Page Example
+(opens new window)
+Overview 
+The easiest and most secure way to add a user sign-in flow to your server-side web app is to use an Okta-hosted Sign-In Widget. When a user attempts to sign in, the app redirects them to the widget hosted on an Okta web page. After they've signed in successfully, Okta redirects them back to the app. This is known as the 
+redirect authentication deployment model
+.
+Note
+: To use the redirect model in a single-page application (SPA), see 
+Sign users in to your SPA using the redirect model
+. To use the redirect model in a mobile app, see 
+Sign users in to your mobile app using the redirect model
+.
+In this quickstart, you:
+Create an app integration in the Admin Console
+.
+Create and configure a new web app to use Okta
+.
+Test that a user can sign in and sign out
+.
+Configure different levels of access for specific areas of the site
+.
+Tip
+: You need your Okta org domain to follow this tutorial. It looks like 
+dev-123456.okta.com
+. See 
+Find your Okta domain
+. Where you see 
+{yourOktaDomain}
+ in this guide, replace it with your Okta domain.
+Create an app integration in the Admin Console 
+An 
+app integration
+ represents your app in your Okta org. Use it to configure how your app connects with Okta services.
+To create an app integration for your app:
+Open the Admin Console for your org.
+Sign in to your Okta organization
+(opens new window)
+ with your administrator account.
+Click 
+Admin
+ in the upper-right corner of the page.
+Go to 
+Applications
+ > 
+Applications
+ to view the current app integrations.
+Click 
+Create App Integration
+.
+Select 
+OIDC - OpenID Connect
+ as the 
+Sign-in method
+.
+Select 
+Web Application
+ as the 
+Application type
+, then click 
+Next
+.
+Note:
+ You can break the sign-in or sign-out flows for your app if you choose the wrong app type.
+Enter an 
+App integration name
+. For example, 
+My first web application
+.
+Enter the callback URLs for the local development of your app.
+Enter 
+https://localhost:44314/authorization-code/callback
+ for 
+Sign-in redirect URIs
+.
+Enter 
+https://localhost:44314/signout/callback
+ for 
+Sign-out redirect URIs
+.
+Note:
+ The values suggested here are those used in the sample app.
+Select 
+Allow everyone in your organization to access
+ for 
+Controlled access
+.
+Click 
+Save
+ to create the app integration.
+The configuration page for the new app integration appears. Keep this page open.
+Note:
+ For a complete guide to all the options not explained in this guide, see 
+Create OIDC app integrations
+(opens new window)
+.
+Note your client ID and client secret 
+Make a note of two values that you use to configure your web app. Both are in the configuration pane for the app integration that you've created:
+Client ID
+: Found on the 
+General
+ tab in the 
+Client Credentials
+ section.
+Client Secret
+: Found on the 
+General
+ tab in the 
+Client Credentials
+ section.
+Moving on, where you see 
+{clientId}
+ and 
+{clientSecret}
+ in this guide, replace them with your client ID and client secret.
+Create and configure a new web app to use Okta 
+Now that you have created the app integration and noted the configuration settings, complete the following steps:
+Create a web app
+.
+Add the required packages to your app
+Configure your app to use Okta
+Add the pages and logic for a user to sign in and sign out
+Create a web app 
+Create an empty web application project in Visual Studio using the ASP.NET Core Web App project template.
+Launch Visual Studio.
+Select 
+File
+ > 
+New
+ >  
+Project
+ > 
+ASP.NET Core Web App (Model-View-Controller)
+, and click 
+Next
+.
+Enter a 
+Project name
+, and click 
+Next
+.
+Select 
+.NET Core 3.1
+ as 
+Framework
+.
+Ensure that 
+Authentication
+ is set to 
+None
+ (don't worry, Okta handles this part)
+Ensure that 
+Configure for HTTPS
+ is selected.
+Click 
+Create
+.
+Add the required packages to your app 
+The 
+Okta.AspNetCore
+(opens new window)
+ library enables your application to validate Okta access tokens such as those used in the redirect authentication model. Install the latest version of 
+Okta.AspNetCore
+(opens new window)
+ in your project with the 
+NuGet Package Manager
+:
+Right-click your project in the 
+Solution Explorer
+ and select 
+Manage NuGet Packages
+.
+Click 
+Browse
+ and search for the package that you want to install: 
+Okta.AspNetCore
+.
+Select your package and click 
+Install
+.
+Or, you can install the dependency through the 
+dotnet CLI
+:
+dotnet 
+add
+ package Okta.AspNetCore
+Note:
+ All of Okta's .NET libraries are hosted on 
+NuGet
+(opens new window)
+.
+Configure your app to use Okta 
+Earlier you 
+noted the client ID and client secret
+ values generated for your app integration. Add these and your Okta domain to your app's configuration.
+Open 
+appsettings.json
+ and add the following as a top-level node, replacing the placeholders with your own values.
+"Okta"
+:
+{
+"OktaDomain"
+:
+"https://${yourOktaDomain}"
+,
+"ClientId"
+:
+"${clientId}"
+,
+"ClientSecret"
+:
+"${clientSecret}"
+,
+"AuthorizationServerId"
+:
+"default"
+}
+You also need to configure your MVC app to enable cookies and OpenID Connect as the default protocol for authentication.
+Open 
+Startup.cs
+ and add the following 
+using
+ statements at the top:
+using
+Microsoft
+.
+AspNetCore
+.
+Authentication
+.
+Cookies
+;
+using
+Microsoft
+.
+AspNetCore
+.
+Authentication
+.
+OpenIdConnect
+;
+using
+Okta
+.
+AspNetCore
+;
+Replace the existing 
+ConfigureServices
+ method with the following:
+public
+void
+ConfigureServices
+(
+IServiceCollection
+ services
+)
+{
+   services
+.
+ConfigureApplicationCookie
+(
+options 
+=>
+{
+      options
+.
+Cookie
+.
+HttpOnly 
+=
+true
+;
+      options
+.
+Cookie
+.
+SecurePolicy 
+=
+ Microsoft
+.
+AspNetCore
+.
+Http
+.
+CookieSecurePolicy
+.
+Always
+;
+}
+)
+.
+AddAuthentication
+(
+options 
+=>
+{
+         options
+.
+DefaultScheme 
+=
+ CookieAuthenticationDefaults
+.
+AuthenticationScheme
+;
+         options
+.
+DefaultChallengeScheme 
+=
+ OpenIdConnectDefaults
+.
+AuthenticationScheme
+;
+}
+)
+.
+AddCookie
+(
+)
+.
+AddOktaMvc
+(
+new
+OktaMvcOptions
+{
+      OktaDomain 
+=
+ Configuration
+.
+GetValue
+<
+string
+>
+(
+"Okta:OktaDomain"
+)
+,
+      AuthorizationServerId 
+=
+ Configuration
+.
+GetValue
+<
+string
+>
+(
+"Okta:AuthorizationServerId"
+)
+,
+      ClientId 
+=
+ Configuration
+.
+GetValue
+<
+string
+>
+(
+"Okta:ClientId"
+)
+,
+      ClientSecret 
+=
+ Configuration
+.
+GetValue
+<
+string
+>
+(
+"Okta:ClientSecret"
+)
+,
+      Scope 
+=
+new
+List
+<
+string
+>
+{
+"openid"
+,
+"profile"
+,
+"email"
+}
+,
+}
+)
+;
+   services
+.
+AddControllersWithViews
+(
+)
+;
+}
+In the 
+Configure
+ method, add the following line immediately above 
+app.UseAuthorization();
+:
+app
+.
+UseAuthentication
+(
+)
+;
+Add the pages and logic for a user to sign in and sign out 
+A user can start the sign-in process by:
+Clicking a sign-in link or button
+Trying to access a protected page, such as their profile page.
+In both cases, the app redirects the browser to the Okta-hosted sign-in page. See 
+Redirect to the sign-in page
+.
+After the user signs in, Okta redirects the browser to the sign-in redirect URI that you entered earlier. Similarly, after a user signs out, Okta redirects the browser to the sign-out redirect URI. Both sign-in and sign-out redirect URIs are called 
+callback routes
+. Users don't see callback routes, and they aren't the user's final destination. However, your app does need to implement them. See 
+Define a callback route
+.
+After the user signs in, Okta returns some of their profile information to your app. The default profile items (called 
+claims
+) returned by Okta include the user's email address, name, and preferred username. These are sent in an 
+ID token
+(opens new window)
+ as part of the redirect to the sign-in redirect URL. See 
+Get the user's information
+.
+Redirect to the sign-in page 
+Create a link for the user to start the sign-in process and be redirected to Okta.
+Open the 
+Views
+ > 
+Shared
+ > 
+_Layout.cshtml
+ file.
+Add the code for a sign-in link directly above 
+<ul class="navbar-nav flex-grow-1>
+:
+@if
+(
+User
+.
+Identity
+.
+IsAuthenticated
+)
+{
+<
+ul
+class
+=
+"
+nav navbar-nav navbar-right
+"
+>
+<
+li
+>
+<
+p
+class
+=
+"
+navbar-text
+"
+>
+Hello, 
+@
+User
+.
+Identity
+.
+Name
+</
+p
+>
+</
+li
+>
+<
+li
+>
+<
+a
+class
+=
+"
+nav-link
+"
+asp-controller
+=
+"
+Home
+"
+asp-action
+=
+"
+Profile
+"
+id
+=
+"
+profile-button
+"
+>
+            Profile
+</
+a
+>
+</
+li
+>
+<
+li
+>
+<
+form
+class
+=
+"
+form-inline
+"
+asp-controller
+=
+"
+Account
+"
+asp-action
+=
+"
+SignOut
+"
+method
+=
+"
+post
+"
+>
+<
+button
+type
+=
+"
+submit
+"
+class
+=
+"
+nav-link btn btn-link text-dark
+"
+id
+=
+"
+logout-button
+"
+>
+               Sign Out
+</
+button
+>
+</
+form
+>
+</
+li
+>
+</
+ul
+>
+}
+else
+{
+<
+ul
+class
+=
+"
+nav navbar-nav navbar-right
+"
+>
+<
+li
+>
+<
+a
+asp-controller
+=
+"
+Account
+"
+asp-action
+=
+"
+SignIn
+"
+id
+=
+"
+login-button
+"
+>
+            Sign In
+</
+a
+>
+</
+li
+>
+</
+ul
+>
+}
+Add code to handle the 
+Sign In
+ click.
+Create an empty MVC controller named 
+AccountController.cs
+ in the 
+Controllers
+ folder.
+Right-click the 
+Controllers
+ folder in 
+Solution Explorer
+ and select 
+Add
+ > 
+Controller...
+Select 
+MVC Controller - Empty
+, and then click 
+Add
+.
+Enter the name 
+AccountController.cs
+, and then click 
+Add
+.
+Add the following 
+using
+ statements to the top of the controller:
+using
+Microsoft
+.
+AspNetCore
+.
+Authentication
+;
+using
+Microsoft
+.
+AspNetCore
+.
+Authentication
+.
+Cookies
+;
+using
+Okta
+.
+AspNetCore
+;
+Add an 
+IActionResult
+ for 
+SignIn
+:
+public
+IActionResult
+SignIn
+(
+)
+{
+if
+(
+!
+HttpContext
+.
+User
+.
+Identity
+.
+IsAuthenticated
+)
+{
+return
+Challenge
+(
+OktaDefaults
+.
+MvcAuthenticationScheme
+)
+;
+}
+return
+RedirectToAction
+(
+"Index"
+,
+"Home"
+)
+;
+}
+Add another 
+IActionResult
+ right below it for 
+SignOut
+:
+[
+HttpPost
+]
+public
+IActionResult
+SignOut
+(
+)
+{
+return
+new
+SignOutResult
+(
+new
+[
+]
+{
+         OktaDefaults
+.
+MvcAuthenticationScheme
+,
+         CookieAuthenticationDefaults
+.
+AuthenticationScheme
+,
+}
+,
+new
+AuthenticationProperties
+{
+ RedirectUri 
+=
+"/Home/"
+}
+)
+;
+}
+Note:
+ To customize the Okta sign-in form, see 
+Style the Okta-hosted Sign-In Widget
+.
+Define a callback route 
+The Okta ASP.NET Core SDK configures and hosts both sign-in and sign-out callback routes for you in your web application. By default, the sign-in route is hosted at 
+/authorization-code/callback
+ and the sign-out route is hosted at 
+/signout/callback
+.
+Check that the redirect URIs of your Okta app integration match the development URLs that Visual Studio assigned to your app.
+Open the 
+Properties
+ > 
+launchSettings.json
+ file.
+Make note of the 
+sslPort
+ settings under 
+iisExpress
+. In the following code, that's 
+44314
+.
+"iisSettings"
+:
+{
+"windowsAuthentication"
+:
+false
+,
+"anonymousAuthentication"
+:
+true
+,
+"iisExpress"
+:
+{
+"applicationUrl"
+:
+"http://localhost:8080"
+,
+"sslPort"
+:
+44314
+}
+}
+If this differs from the SSL port used as part of the callback URLs you set earlier when 
+creating an app integration in the Admin Console
+, update the URLs to match the SSL port:
+Open the Admin Console for your org.
+Go to 
+Applications
+ > 
+Applications
+ to view the current app integrations.
+Select the entry for your application integration.
+Go to the 
+General Settings
+ section on the 
+General
+ tab and click 
+Edit
+.
+Update the 
+Sign-in redirect URIs
+ to use the 
+sslPort
+ that you made note of earlier. For example, 
+https://localhost:44314/authorization-code/callback
+.
+Update the 
+Sign-out redirect URIs
+ to use the 
+sslPort
+ that you made note of earlier. For example, 
+https://localhost:44314/signout/callback
+Click 
+Save
+.
+Get the user's information 
+The user information that Okta returns in an ID token after a user has signed in is saved automatically in 
+HttpContext.User
+. For example, you can check whether the user is signed in with 
+User.Identity.IsAuthenticated
+ in your actions or views and see all the user's claims in 
+User.Claims
+. In this section, you create a simple profile page that lists all the claims returned.
+Open the 
+Controllers
+ > 
+HomeController.cs
+ file.
+Add the following 
+using
+ statement to the top of the controller:
+using
+Microsoft
+.
+AspNetCore
+.
+Authorization
+;
+Add an 
+IActionResult
+ called 
+Profile
+ to hand the claim data over to a new view that you create next:
+[
+Authorize
+]
+public
+IActionResult
+Profile
+(
+)
+{
+return
+View
+(
+HttpContext
+.
+User
+.
+Claims
+)
+;
+}
+Create a razor view called 
+Profile
+ to display the user claims.
+Right-click the 
+Views
+ > 
+Home
+ folder in the 
+Solution Explorer
+ and select 
+Add
+ > 
+View...
+Select 
+Razor View - Empty
+, and then click 
+Add
+.
+Enter the name 
+Profile.cshtml
+, and then click 
+Add
+.
+Replace the contents of the new file with the following code:
+@model IEnumerable
+<
+System
+.
+Security
+.
+Claims
+.
+Claim
+>
+@
+{
+   ViewBag
+.
+Title 
+=
+"View claims"
+;
+}
+<
+h2
+>
+@ViewBag
+.
+Title
+<
+/
+h2
+>
+<
+dl 
+class
+=
+"dl-horizontal"
+>
+   @
+foreach
+(
+var
+ claim 
+in
+ Model
+)
+{
+<
+dt
+ title
+=
+"@claim.Type"
+>
+         @claim
+.
+Type
+<
+button
+ type
+=
+"button"
+class
+=
+"btn btn-link btn-xs"
+            aria
+-
+label
+=
+"Copy to clipboard"
+            title
+=
+"Copy to clipboard"
+            data
+-
+clipboard
+-
+text
+=
+"@claim.Value"
+>
+<
+span 
+class
+=
+"glyphicon glyphicon glyphicon-copy"
+ aria
+-
+hidden
+=
+"true"
+>
+<
+/
+span
+>
+<
+/
+button
+>
+<
+/
+dt
+>
+<
+dd
+ id
+=
+"claim-@String.Format("
+{
+0
+}
+", claim.Type)"
+>
+@claim
+.
+Value
+<
+/
+dd
+>
+}
+<
+/
+dl
+>
+Note:
+ The claims that you see may differ depending on the scopes requested by your app. See 
+Configure your app to use Okta
+ and 
+Scopes
+(opens new window)
+.
+Test that a user can sign in and sign out 
+Your site now has enough content to sign a user in with Okta, prove they've signed in, and sign them out. Test it by starting your server and signing a user in.
+Run the project from Visual Studio. The browser loads the welcome page for your new app.
+Click 
+Sign In
+. The browser redirects you to Okta to sign in using the Sign-In Widget.
+Click 
+Profile
+. The profile page displays the user information returned by Okta in the ID token.
+Click 
+Sign Out
+. The browser returns you to the home page.
+Note
+: If you're signed in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use.
+Configure different levels of access for specific areas of the site 
+Your app can require authentication for the entire site or just for specific routes. Routes that don't require authentication are accessible without signing in, which is also called anonymous access.
+Require authentication for everything 
+Some apps require user authentication for all routes, for example a company intranet.
+To require authentication for all actions, you can create an authorization policy in the 
+Startup.cs
+ class that you can use everywhere:
+public
+void
+ConfigureServices
+(
+IServiceCollection
+ services
+)
+{
+   services
+.
+AddMvc
+(
+o 
+=>
+{
+var
+ policy 
+=
+new
+AuthorizationPolicyBuilder
+(
+)
+.
+RequireAuthenticatedUser
+(
+)
+.
+Build
+(
+)
+;
+      o
+.
+Filters
+.
+Add
+(
+new
+AuthorizeFilter
+(
+policy
+)
+)
+;
+}
+)
+;
+}
+Require authentication for a specific route 
+Your website may have a protected portion that is only available to authenticated users.
+Use the 
+[Authorize]
+ attribute on controllers or actions to require a signed-in user:
+[
+Authorize
+]
+public
+IActionResult
+Protected
+(
+)
+{
+// Only for signed-in users!
+return
+View
+(
+)
+;
+}
+Allow anonymous access 
+Your website may enable anonymous access for some content but require a user to sign in for other content or to take some other action. For example, an ecommerce site might allow a user to browse anonymously and add items to a cart, but require a user to sign in for checkout and payment.
+You can grant anonymous access for specific URLs by using 
+[AllowAnonymous]
+ on your route:
+[
+AllowAnonymous
+]
+public
+IActionResult
+PublicAccess
+(
+)
+{
+// For all users, even anonymous ones!
+return
+View
+(
+)
+;
+}
+Next steps 
+Protect your API endpoints
+.
+Custom domain and email address
+Style the Okta-hosted Sign-In Widget
+.
+Sign users in to your mobile app using the redirect model
+Multi-tenant solutions
+If you need lower-level access to validate access tokens, see 
+JWT validation guide
+.
+Secure your ASP.NET Core app with OAuth 2.0
+Web Forms migration to Blazor in .NET Core
+Edit This Page On GitHub
+      Instructions for
+ASP.NET Core 3.x
+Loading...
+        On this page
+Overview
+Create an app integration in the Admin Console
+Note your client ID and client secret
+Create and configure a new web app to use Okta
+Create a web app
+Add the required packages to your app
+Configure your app to use Okta
+Add the pages and logic for a user to sign in and sign out
+Test that a user can sign in and sign out
+Configure different levels of access for specific areas of the site
+Require authentication for everything
+Require authentication for a specific route
+Allow anonymous access
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

@@ -1,0 +1,153 @@
+Stream matching records with a helper flow | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Stream matching records with a helper flow
+To use the streaming feature to pass data from a search or list card to a helper flow, perform the following steps:
+Select 
+Stream Matching Records
+ on the action card (for example, the 
+List Users with Filter
+ action card for the 
+Okta
+ connector).
+After selecting any desired input fields, click 
+Save
+.
+Click 
+Choose Flow
+ to open the 
+Select flow
+ dialog. Either select an existing helper flow from a folder, or click 
+New Flow
+ to create a helper flow.
+If you made a new helper flow, click 
+Add event
+ and select  
+Helper Flow
+.
+In the helper flow, create two input entries: 
+Record
+ and 
+State
+. Set the type for both fields to 
+Object
+.
+The helper flow requires the input fields to be named 
+Record
+ and 
+State
+.
+The 
+Record
+ object contains the current item that is being sent to the helper flow. You have access to all  properties that are contained in the object. 
+The 
+State
+ object contains any additional inputs that you want the parent flow to send to the helper flow. 
+There's no output field on any action card to display streamed records.
+Streamed record example
+In this simple example, the 
+Okta List Users with Filter
+ card executes a search for users and  then streams the records to a helper flow. The helper flow pulls the user's 
+ID
+ and 
+Email
+ fields and assigns a single manager's email address to the user.
+ To get the manager email  to the helper flow, add a field labeled 
+Manager Email
+ to the 
+Streaming
+ section of the parent flow. In the field, enter the value to be sent. Then you reference that 
+Manager Email
+ field in the 
+State
+ section inside your helper flow.
+The following diagram demonstrates the mappings of this specific example. The helper flow cards appear  show the 
+Record
+ and 
+State
+ objects and their subsequent mappings to an 
+Assign
+ card.
+Streamed data from the 
+Okta
+ user record is passed to the helper flow with the following structure:
+Copy
+{
+    "Record": {
+        "ID": "00u2unwcxjXHiqTES0g7",
+        "Last Name": "Hendrix",
+        "Activated": null,
+        "First Name": "James",
+        "Email": "jimihendrix@example.com",
+        "Created": "2021-09-27T22:23:55.000Z",
+        "Second Email": null,
+        "Raw Output": {
+            "id": "00u2unwcxjXHiqTES0g7",
+            "status": "ACTIVE",
+            "created": "2021-09-27T22:23:55.000Z",
+            "activated": null,
+            "statusChanged": "2021-09-27T22:25:36.000Z",
+            "lastLogin": "2023-11-14T17:51:00.000Z",
+            "lastUpdated": "2021-09-27T22:25:36.000Z",
+            "passwordChanged": "2021-09-27T22:25:36.000Z",
+            "type": {
+                "id": "00u2unwcxjXHiqTES0g7"
+            }
+        }
+    },
+    "State": {
+        "Manager email": "jessiedoe@example.com"
+    }
+For this user, the resulting 
+Assign
+ card in the helper flow has the following fields:
+ID
+: 
+00u2unwcxjXHiqTES0g7
+Email
+: 
+jimihendrix@example.com
+Manager
+: 
+jessiedoe@example.com
+Related topics
+Stream data with action cards
+Parent flows and other flow types
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

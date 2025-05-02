@@ -1,0 +1,64 @@
+Zip | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Zip
+Create an object from two lists, by mapping keys from the first lists to values from the second. This is particularly useful when creating an object that has keys with dots in the key names.  
+Because dots usually refer to sub-objects, it can be difficult to create objects that have key names with dots in them.
+For example, if you want to generate this object: 
+{"first.name":"John","last.name":"Doe"}
+, you could create it using Object - Zip with these two inputs:
+keys: 
+[ "first.name", "last.name" ]
+values: 
+[ "John", "Doe" ]
+Input Fields
+keys
+ (list of text): List of key names
+values
+ (list): List of values. This list should have the same number of items as 
+keys
+.
+Output Fields
+object
+ (object): Newly-created object using the keys and values provide
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

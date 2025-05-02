@@ -1,0 +1,89 @@
+Split | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Split
+Split a list at a specific index value.
+Input Fields
+List
+ (list of objects): The first of a list of values that will be split at a specified index value
+Click on an empty cell in each list to add a list item. A cell can contain only one list item. 
+Split after position 
+(number): The index value at which the list will be split. For example, for an index value of 
+2
+, the split will take place after the second object in the list. Index values begin with 
+1
+.
+Output Fields
+List 1
+ and 
+List 2
+: Resulting two lists of values.
+Example
+If the cells in 
+List 1
+ contain the items 
+{Alan}
+, 
+{Bob
+, 
+{Charles}
+, 
+{Alicia}
+, 
+{Brittany}
+, and 
+{Catherine}
+, and the value in the 
+Split after position
+ field is 
+2
+, then the resulting split and two lists will read:
+Copy
+{Alan},
+{Bob}
+Copy
+{Charles},
+{Alicia},
+{Brittany},
+{Catherine}
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,103 @@
+Reduce | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Reduce
+You can also include other inputs that your flow may need.  After defining your inputs, build the rest of the helper flow, ending with a 
+Return
+ card (found in the Control category) that returns the new accumulated value - to be passed along with the next item in the list to the next call of the helper flow, or if there are no more items in the list, this will be the result of the Reduce function. If the accumulated value is a type other than an object (for example, a number), there should be a single return field of that type and its name doesn't matter. If the accumulator is an object, then there should be one field for each of the keys of the object and the names of the fields must match the key names.
+Input Fields
+Fill out the Reduce card as follows:
+list:
+ The list to operate on
+flow:
+ The helper flow (as described above) that will be called once for each item in the list
+with the following values
+(dynamically generated):
+item:
+ (will have whatever name you chose when you created your helper flow) Click in the field that will hold the current item from the list and choose "Item." (Or, in some instances, you may also be able to select a specific path within an object.)
+memo:
+ Set the type of this field to be the type you want your final result to be (for example, if you're using Reduce to get a sum, then the type should be number). Provide the starting value (for example, for doing a sum, you'll want to start with zero.)
+You can have optional additional fields on the helper flow event card in helper flow you chose, and those will also show up as input fields.
+Output Fields
+item:
+ The resulting value after the helper flow has executed on each of the items. Make sure to set the type of item to match the type of the input memo.
+Examples
+Let's say you have a list of numbers and want to use Reduce to determine the largest of those numbers. First you'll need to create a helper flow. Start the flow with a 
+Helper Flow
+ event and add two fields: "current item" (a number) and "memo" (a number).
+The next card is a Control - 
+AssignIf
+ function that outputs the larger of those two numbers.
+The final card is a Control - 
+Return
+ function that returns the output from the AssignIf card as the new memo. Save that flow as "inner - max" and turn it on.
+Now, you can create a List 
+Reduce
+ card that accepts a list of number. Click 
+Choose Flow
+ and select the "inner-max" flow you just created. Click the "current item" input and select "Item" from the dropdown. Click the "memo" input and enter zero (as the start value).
+Here's what your Reduce card will look like:
+Here's what the helper flow looks like:
+Here's how the Reduce card will work for the above example:
+Let's say you passed it a list value of 
+[1, 7, 4, 19, 2]
+. The "inner-max" helper flow will get called 5 times -- once for each item in the list as follows:
+The first time, current item is 1 and memo is 0. The helper flow returns the larger of the two: 1.
+The next time, current item is 7 and memo is 1 (the return value from the previous step). The helper flow compares them and returns 7.
+The third time, current item is 4 and memo is 7.  The helper flow returns 7.
+The fourth time, current item is 19 and memo is 7. The helper flow returns 19.
+The final time, current item is 2 and memo is 19. The helper flow returns 19, and since there are no more items in the list, this becomes the final output.
+The above example involves simple math, but you can make your helper flow as complex as you need.
+It can contain 
+If/Else
+ conditions, complex calculations, or application actions.
+And it's not limited to numbers and math: it can build a different type, such as text (for example, using 
+Concatenate
+) or a list (for example, using List 
+Add to End
+).
+Just make sure that the types match for memo and item on the Reduce card and the memo field on the helper flow's event card. And the value returned by the helper flow on the 
+Return
+ card must also match unless the type is object, in which case there must be a field on the Return card that corresponds to each key of the object and they are named the same as the keys.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

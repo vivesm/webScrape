@@ -1,0 +1,440 @@
+Basic sign-in flow with the password factor | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Configuration updates
+Loading...
+    Basic sign-in flow with the password factor
+    Identity Engine
+Enable a password-only sign-in flow in your web app using the embedded SDK.
+Note:
+ Passwords are a security vulnerability because they can be easily stolen and are prone to phishing attacks. Give your users the ability to use other authenticators by replacing password-only sign-in experiences with either a 
+password-optional
+ or a 
+multifactor experience
+. 
+Learning outcomes 
+Add a password-only sign-in flow to a server-side web app.
+What you need 
+An app that uses the embedded 
+Okta Android Identity Engine SDK
+(opens new window)
+Identity Engine SDK set up for your own app
+Sample code 
+Android Identity Engine sample app
+(opens new window)
+Configuration updates 
+To configure your app so that it requires only a password, see 
+Set up your Okta org for a password factor only use case
+.
+Summary of steps 
+The following diagram summarizes the steps involved in a sign-in flow using only a password:
+Integration steps 
+The user launches the sign-in page 
+Build a sign-in page that captures both the user's name and their password.
+Begin the authentication process by calling 
+IDXAuthenticationWrapper.begin()
+ and getting a new 
+ProceedContext
+(opens new window)
+ object.
+val
+ beginResponse 
+=
+ idxAuthenticationWrapper
+.
+begin
+(
+)
+val
+ beginProceedContext 
+=
+ beginResponse
+.
+proceedContext
+The user submits their username and password 
+When the user submits their username and password, create an 
+AuthenticationOptions
+ object and assign its 
+Username
+ and 
+Password
+ properties to the values entered by the user. Pass this object as a parameter to 
+IDXAuthenticationWrapper.authenticate()
+.
+fun 
+signIn
+(
+)
+{
+if
+(
+!
+viewModel
+.
+isValid
+(
+)
+)
+return
+   formAction
+.
+proceed 
+{
+// Need to begin the transaction again, in case an error occurred.
+      val beginResponse 
+=
+ authenticationWrapper
+.
+begin
+(
+)
+handleTerminalTransitions
+(
+beginResponse
+)
+?
+.
+let 
+{
+return
+@proceed
+ it 
+}
+      val options 
+=
+AuthenticationOptions
+(
+         viewModel
+.
+username
+,
+ viewModel
+.
+password
+)
+      val response 
+=
+ authenticationWrapper
+.
+authenticate
+(
+         options
+,
+ beginResponse
+.
+proceedContext
+)
+handleKnownTransitions
+(
+response
+)
+}
+}
+Your app handles an authentication success response 
+IDXAuthenticationWrapper.authenticate()
+ returns an 
+AuthenticationResponse
+(opens new window)
+ object with an 
+AuthenticationStatus
+(opens new window)
+ property indicating the current state of the sign-in flow. Handle the returned 
+AuthenticationStatus
+ value accordingly:
+Success status 
+If the Java SDK returns an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=SUCCESS
+, then the user is successfully signed in. Use the 
+AuthenticationResponse.getTokenResponse()
+ method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+fun
+handleTerminalTransitions
+(
+response
+:
+ AuthenticationResponse
+)
+:
+ ProceedTransition
+?
+{
+if
+(
+response
+.
+tokenResponse 
+!=
+null
+)
+{
+return
+ ProceedTransition
+.
+TokenTransition
+(
+response
+.
+tokenResponse
+)
+}
+if
+(
+response
+.
+authenticationStatus 
+==
+ AuthenticationStatus
+.
+SKIP_COMPLETE
+)
+{
+return
+ ProceedTransition
+.
+TerminalTransition
+(
+         response
+.
+errors 
+?:
+emptyList
+(
+)
+)
+}
+if
+(
+response
+.
+errors
+.
+isNotEmpty
+(
+)
+)
+{
+return
+ ProceedTransition
+.
+ErrorTransition
+(
+response
+.
+errors
+)
+}
+return
+null
+}
+Other authentication statuses 
+Handle other returned 
+AuthenticationStatus
+(opens new window)
+ cases if there are other factors to verify. For example:
+fun
+handleKnownTransitions
+(
+   response
+:
+ AuthenticationResponse
+)
+:
+ ProceedTransition 
+{
+handleTerminalTransitions
+(
+response
+)
+?
+.
+let
+{
+return
+ it 
+}
+return
+when
+(
+response
+.
+authenticationStatus
+)
+{
+         AuthenticationStatus
+.
+AWAITING_PASSWORD_RESET 
+->
+{
+registerPasswordForm
+(
+response
+,
+"Reset my Password"
+)
+}
+         AuthenticationStatus
+.
+PASSWORD_EXPIRED 
+->
+{
+registerPasswordForm
+(
+response
+,
+"Password Expired"
+)
+}
+         AuthenticationStatus
+.
+AWAITING_AUTHENTICATOR_SELECTION 
+->
+{
+selectAuthenticatorForm
+(
+response
+,
+"Select Authenticator"
+)
+}
+         AuthenticationStatus
+.
+AWAITING_AUTHENTICATOR_VERIFICATION 
+->
+{
+verifyForm
+(
+response
+)
+}
+         AuthenticationStatus
+.
+AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION 
+->
+{
+selectAuthenticatorForm
+(
+response
+,
+"Enroll Authenticator"
+)
+}
+         AuthenticationStatus
+.
+AWAITING_AUTHENTICATOR_VERIFICATION_DATA 
+->
+{
+// This is possible when email is not required and
+// you're authenticating without verifying email.
+if
+(
+response
+.
+authenticators
+.
+size 
+==
+1
+)
+{
+selectFactorForm
+(
+                  response
+,
+                  response
+.
+authenticators
+.
+first
+(
+)
+.
+factors
+,
+"Select Factor"
+)
+}
+else
+{
+unsupportedPolicy
+(
+)
+}
+}
+else
+->
+unsupportedPolicy
+(
+)
+}
+}
+Failed authentication 
+There's no explicit failed status from 
+AuthenticationStatus
+. Check the response handler for an error in 
+AuthenticationResponse
+ for failed authentication and handle the flow accordingly. For example:
+if
+(
+response
+.
+errors
+.
+isNotEmpty
+(
+)
+)
+{
+return
+ ProceedTransition
+.
+ErrorTransition
+(
+response
+.
+errors
+)
+}
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Configuration updates
+Summary of steps
+Integration steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

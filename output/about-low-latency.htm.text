@@ -1,0 +1,67 @@
+Low-latency mode | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Low-latency mode
+Every workflow requires a certain duration to complete. The total time required depends on the time spent waiting for the flow to execute and  the actual  execution time. 
+While the execution time of the flow generally remains constant from one execution to the next, the queuing time depends on several factors:
+Latency that's inherited from the network and throughput limitations of the systems that execute the flow. 
+Latency that's inherited from sharing the standard execution mode with other flows. These other flows may be processing queries involving large amounts of data or complex flow configurations.
+Low-latency mode helps ensure that your flows have consistent execution times by running some separately from others. See
+Criteria for low-latency mode
+.
+When a flow has low-latency mode enabled, Okta routes it to an optimized processing queue with minimal wait times and increased resource availability. These flows execute at a higher velocity compared to flows that run in standard mode or flows that get throttled. See 
+Flow throttling
+.
+For example, the following graphic illustrates how flow  execution queues look before the release of the low-latency feature:
+In the previous configuration, large or throttled flows delay the flows that are eligible for low-latency mode.  The flows must wait until the longer-duration flows are complete.
+With the low-latency feature, the flow execution queues look like this:
+Okta
+ moves all  flows that are in low-latency mode into their own queue so they execute at a higher and more consistent velocity.
+ If 
+Okta
+ detects that a  flow no longer meets the criteria for low-latency mode, the flow  returns to  the regular flow queues. See 
+Criteria for low-latency mode
+.
+Related topics
+Criteria for low-latency mode
+Execution limits
+Workflows system limits
+Execution history details
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

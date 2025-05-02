@@ -1,0 +1,64 @@
+Back up flows and folders | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Back up flows and folders
+If you want to treat your flows like source code, you can perform regular backups, create versions, and restore flows.
+Several mechanisms are available to help back up your flows and folders:
+Duplicate a folder
+Export Flow
+ and  
+Export Folder
+ function cards
+Create Pull Request
+ action card for the 
+GitHub
+ connector, so you can make commits and create pull requests in 
+GitHub
+.
+Set up a template for flow backup
+ shows how you can import and use the 
+Versioning for Flows and Folders
+ template directly within your Workflows environment. 
+This template demonstrates how to back up flows using a direct commit to 
+GitHub
+ or a pull request. The template shows how to back up a single flow, but you can modify it to back up multiple flows within a folder.
+Next steps
+Set up a template for flow backup
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

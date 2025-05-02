@@ -1,0 +1,77 @@
+Sample | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Sample
+Generates a random sample from a list.
+Input Fields
+list
+ (
+list
+): a list you want to take a sample from -- be sure to set the type of the list
+amount
+ (
+number
+): the number of samples you wish to return.
+Output Fields
+samples
+: returns a random selection of the size specified from the list specified. Be sure to set the type of the output to match the type of the input list.
+Example
+Input 
+list
+: 
+[1,2,3,4,5]
+ and 
+amount
+ 2, would return 
+samples
+ like 
+[1,2]
+ or 
+[3,5]
+ -- a different random set of 2 each time it runs. (For the example, 
+list
+ and 
+samples
+ are both set in advance to be a list of numbers.)
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

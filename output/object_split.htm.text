@@ -1,0 +1,95 @@
+Split | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Split
+Split an object into a list of objects, each with key and value pairs. 
+This is the inverse of the  
+Collapse
+ function card.
+Input
+Field
+Definition
+Type
+Required
+object
+JSON containing key and value pairs that you want to split into a list of objects.
+Object
+TRUE
+Click the empty input field to add more JSON objects that you want to split.
+Output
+Field
+Definition
+Type
+list
+The resulting list of objects.
+List of Objects
+Example
+The 
+Split
+ function card takes the input object and splits it into two separate objects. 
+For this particular example, you need to put the example input through a 
+Parse
+ card. Then drag that output to the 
+object
+ input of the 
+Split
+ function card.
+Input
+Copy
+{
+  "name": "Jessie Doe",
+  "empno": "C45X13"
+}
+Output
+Copy
+[
+  {
+    "key": "name",
+    "value": "Jessie Doe"
+  },
+  {
+    "key": "empno",
+    "value": "C45X13"
+  }
+]
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

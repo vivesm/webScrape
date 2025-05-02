@@ -1,0 +1,885 @@
+Overview of the mobile Identity Engine SDK | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Introduction
+Loading...
+    Overview of the mobile Identity Engine SDK
+Design the implementation of the sign-in flow for your mobile app by understanding the representation of the flow and the associated objects.
+    Identity Engine
+Introduction 
+Integrate the Okta sign-in flow into your app in one of two ways:
+Redirect the request to Okta which handles the flow in its own window (the redirect model).
+Handle each step in the flow by building the appropriate user interface elements, capturing the information, and updating Okta (the embedded model).
+This guide is an overview of building your own user interface using the embedded model. For information on the redirect model, see 
+Sign users in to your mobile app using the redirect model
+.
+Sign-in flow 
+Okta supports many ways of authenticating the identity of a user during the sign-in flow. An Okta org administrator creates 
+policies
+, different mixes of 
+authenticators
+, or ways of verifying the identity of a user, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional, as well as the minimum number of authenticators required for a successful sign-on. Many flows require multiple 
+factors
+ (multifactor authentication), the category of an authenticator. Factors include biometrics, such as a fingerprint, knowledge, such as a password, and more. This results in a many of possible combinations of the different authenticators, the steps in the sign-in flow.
+The Android and iOS Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of your Okta org app integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
+Each sign-in step may include one or more possible user actions, such as:
+Choosing an authenticator, such as Okta Verify or security questions.
+Entering an OTP.
+Cancelling the sign-in flow.
+Sign-in objects 
+The SDK represents the sign-in flow using a number of different objects:
+Response:
+ The top-level object that represents a step and contains all the other objects. It includes a property that indicates a successful sign-in and functions for cancelling the sign-in flow, or retrieving the access token after the sign-in flow succeeds. A response may contain multiple authenticators and remediations.
+Remediation:
+ Represents the main user actions for a step, such as enrolling in an authenticator or entering an OTP. It includes a function for requesting the next step in the flow.
+Authenticator:
+ Represents an authenticator that's used to verify the identity of a user, such as Okta Verify.
+Method:
+ Represents a channel for an authenticator, such as using SMS or voice for an authenticator that uses a phone. An authenticator may have zero or more.
+Capability:
+ A user action associated with a remediation, authenticator, or method, such as requesting a new OTP or a password reset.
+Field:
+ Represents a UI element, either a static item, such as a label, or user input, such as a selection list. It includes properties for state information, such as whether the associated value is required. Properties also store the current value of user input field, such as the string for an OTP or the selected choice. Options, or lists of choices, are represented by a collection of fields. A field may contain a form that contains more fields.
+Form:
+ Contains the fields that represent the user action for a remediation.
+Configuration:
+ Contains the settings used by the SDK to connect to your Okta org app integration.
+Client:
+ Represents the session during the sign-in flow.
+Objects and the flow 
+The main objects associated with each step in the flow are:
+Sign-in step
+Objects
+Initialize SDK
+Configuration 
+ Client
+Request initial step
+Client
+Receive step
+Response
+Check completion, cancel, or error
+Response 
+ Remediation
+Gather user input
+Remediation 
+ Authenticator
+Send input
+Remediation
+Done
+Response
+Common parts of the flow 
+Some parts of the sign-in flow are the same:
+Add the SDK to your app.
+Configure the SDK.
+Initialize the client and start the flow.
+Process the response.
+Request a token.
+Sign the user out.
+Add the SDK 
+To add the SDK to your app, include the following dependency in your 
+app/build.gradle
+:
+implementation
+'com.okta.android:okta-idx-kotlin:$okta_sdk_version'
+Change 
+$okta.sdk.version
+ to the desired release version of the SDK. For a list of released versions, see 
+the list tags for the SDK releases
+(opens new window)
+.
+Create and manage configurations 
+The values for a configuration object are:
+Value
+Description
+Issuer
+The OAuth 2.0 URL for the Okta org, such as 
+https://oie-123456.oktapreview.com/oauth2/default
+.
+Client ID
+The ID of the Okta app integration from the Okta Admin Console.
+Redirect URI
+A callback URI for launching the mobile app, such as 
+com.example.oie-123456:/callback
+.
+Scopes
+A space separated list of the requested access scopes for the app. For more information, see 
+Scopes in OpenID Connect & OAuth 2.0 API
+(opens new window)
+.
+The configuration information in a shipping app is usually static. You can initialize the configuration values directly in the code or read them from a file. During development you may want to provide a way to edit configuration values.
+Create a configuration by calling 
+IdxClientConfiguration
+. This code shows loading the values from a property file in your project.
+First, create a property file, for example, 
+okta.properties
+ in the project root. Add the values for your Okta application integration to the file.
+issuer={yourIssuerUrl}
+clientId={yourClientId}
+scopes="openid","email","profile","offline_access"
+redirectUri=com.okta.sample.android:/login
+Add this configuration to the 
+defaultConfig
+ section of your 
+app/build.gradle
+ to make the properties available in the build configuration:
+defaultConfig 
+{
+...
+    buildConfigField 
+"String"
+,
+'ISSUER'
+,
+"\"
+${
+oktaProperties
+.
+getProperty
+(
+'issuer'
+)
+}
+\""
+    buildConfigField 
+"String"
+,
+'CLIENT_ID'
+,
+"\"
+${
+oktaProperties
+.
+getProperty
+(
+'clientId'
+)
+}
+\""
+    buildConfigField 
+"String[]"
+,
+'SCOPES'
+,
+"{
+${
+oktaProperties
+.
+getProperty
+(
+'scopes'
+)
+}
+}"
+    buildConfigField 
+"String"
+,
+'REDIRECT_URI'
+,
+"\"
+${
+oktaProperties
+.
+getProperty
+(
+'redirectUri'
+)
+}
+\""
+...
+}
+Create an 
+OktaIdxClientConfigurationProvider
+ class that returns an 
+IdxClientConfiguration
+ from the 
+BuildConfig
+.
+import
+ com
+.
+okta
+.
+android
+.
+samples
+.
+authenticator
+.
+BuildConfig
+import
+ com
+.
+okta
+.
+idx
+.
+kotlin
+.
+client
+.
+IdxClientConfiguration
+import
+ okhttp3
+.
+HttpUrl
+.
+Companion
+.
+toHttpUrl
+/**
+ * Return an Okta org configuration from the build configuration.
+ */
+internal
+object
+ OktaIdxClientConfigurationProvider 
+{
+fun
+get
+(
+)
+:
+ IdxClientConfiguration 
+{
+return
+IdxClientConfiguration
+(
+            issuer 
+=
+ BuildConfig
+.
+ISSUER
+.
+toHttpUrl
+(
+)
+,
+            clientId 
+=
+ BuildConfig
+.
+CLIENT_ID
+,
+            scopes 
+=
+ BuildConfig
+.
+SCOPES
+.
+toSet
+(
+)
+,
+            redirectUri 
+=
+ BuildConfig
+.
+REDIRECT_URI
+,
+)
+}
+}
+Start sign-in 
+Start the sign-in flow by creating an SDK client, and then requesting the first step.
+This example creates the client in the viewmodel 
+launch
+ coroutine. Start by calling 
+IdxClient.start()
+ and on success, request the first response by calling 
+resume()
+ on the result.
+@Volatile
+private
+var
+ client
+:
+ IdxClient
+?
+=
+null
+private
+fun
+createClient
+(
+)
+{
+    viewModelScope
+.
+launch
+{
+// Initialize the SDK client and start sign-in flow.
+when
+(
+val
+ clientResult 
+=
+ IdxClient
+.
+start
+(
+OktaIdxClientConfigurationProvider
+.
+get
+(
+)
+)
+)
+{
+is
+ IdxClientResult
+.
+Error 
+->
+{
+// Handle the error.
+}
+is
+ IdxClientResult
+.
+Success 
+->
+{
+                client 
+=
+ clientResult
+.
+result
+// Request the first response by calling resume and handle the asynchronous response.
+when
+(
+val
+ resumeResult 
+=
+ clientResult
+.
+result
+.
+resume
+(
+)
+)
+{
+is
+ IdxClientResult
+.
+Error 
+->
+{
+// Handle the error.
+}
+is
+ IdxClientResult
+.
+Success 
+->
+handleResponse
+(
+resumeResult
+.
+result
+)
+}
+}
+}
+}
+}
+private
+suspend
+fun
+handleResponse
+(
+response
+:
+ IdxResponse
+)
+{
+// Process the response.
+}
+Process the response 
+The steps for processing a response are:
+Check for a successful sign-in flow.
+Check for messages, such as an invalid password.
+Check for remediations.
+Process the remediations.
+Process the authenticators.
+After the user enters the required information, update the remediation and request the next step.
+The following code shows these steps in order:
+private
+suspend
+fun
+handleResponse
+(
+response
+:
+ IdxResponse
+)
+{
+// Check if the sign-in flow is successful.
+if
+(
+response
+.
+isLoginSuccessful
+)
+{
+// Get the access token and exit the flow.
+return
+}
+// Check for messages, such as entering an incorrect code and finish this step.
+if
+(
+response
+.
+messages
+.
+isNotEmpty
+(
+)
+)
+{
+// Handle the messages that may require updating the UI.
+return
+}
+// Finish the sign-in process if there are no remediations.
+if
+(
+response
+.
+remediations
+.
+isEmpty
+(
+)
+)
+{
+// Handle the error. For example, display an error and then go back to the sign-in view.
+return
+}
+// Handle the different sign-in steps (remediations) for a policy.
+for
+(
+remediation 
+in
+ response
+.
+remediations
+)
+{
+// Handle different types of remediations.
+// Call `proceed(remediation)` after the user completes the action for the remediation.
+}
+if
+(
+response
+.
+authenticators
+.
+isNotEmpty
+(
+)
+)
+{
+// Process authenticators.
+}
+}
+/**
+  * Proceed to the next step in the sign-in flow using the specified remediation.
+  */
+private
+fun
+proceed
+(
+remediation
+:
+ IdxRemediation
+)
+{
+    viewModelScope
+.
+launch
+{
+when
+(
+val
+ resumeResult 
+=
+ client
+?
+.
+proceed
+(
+remediation
+)
+)
+{
+is
+ IdxClientResult
+.
+Error 
+->
+{
+// Handle the error.
+}
+is
+ IdxClientResult
+.
+Success 
+->
+{
+handleResponse
+(
+resumeResult
+.
+result
+)
+}
+}
+}
+}
+Complete the sign-in flow 
+Check for a successful completion of the sign-in flow at each step, and in the case of success, exchange the remediation for an access token and exit the flow.
+import
+ com
+.
+okta
+.
+idx
+.
+kotlin
+.
+dto
+.
+IdxRemediation
+.
+Type
+.
+ISSUE
+import
+ com
+.
+okta
+.
+idx
+.
+kotlin
+.
+dto
+.
+IdxResponse
+import
+ com
+.
+okta
+.
+idx
+.
+kotlin
+.
+client
+.
+IdxClientResult
+private
+suspend
+fun
+handleResponse
+(
+response
+:
+ IdxResponse
+)
+{
+// Check if the sign-in flow is successful.
+if
+(
+response
+.
+isLoginSuccessful
+)
+{
+// Exchange the sign-in session token for a connection token.
+when
+(
+val
+ exchangeCodesResult 
+=
+ client
+?
+.
+exchangeInteractionCodeForTokens
+(
+response
+.
+remediations
+[
+ISSUE
+]
+!!
+)
+)
+{
+is
+ IdxClientResult
+.
+Error 
+->
+{
+// Handle the error.
+}
+is
+ IdxClientResult
+.
+Success 
+->
+{
+// Handle a successful sign-in flow.
+// The token is in `exchangeCodesResult.result`.
+// Store it securely for future use.
+}
+else
+->
+{
+// Handle the error.
+}
+}
+return
+}
+..
+.
+}
+Sign out a user 
+Sign out a user by revoking the access token granted when the user signed in, and by revoking a refresh token if one exists.
+This code assumes storing the access token after a successful sign-in flow:
+fun
+logout
+(
+)
+{
+    viewModelScope
+.
+launch
+(
+Dispatchers
+.
+IO
+)
+{
+try
+{
+// First load a refresh token if one exists.
+val
+ refreshToken 
+=
+ Storage
+.
+tokens
+.
+refreshToken
+if
+(
+refreshToken 
+!=
+null
+)
+{
+// Revoking the refresh token also revokes the access token.
+revokeToken
+(
+"refresh_token"
+,
+ refreshToken
+)
+}
+else
+{
+revokeToken
+(
+"access_token"
+,
+ Storage
+.
+tokens
+.
+accessToken
+)
+}
+// Sign-out successful. Redirect to a sign-in view.
+}
+catch
+(
+e
+:
+ Exception
+)
+{
+// Sign-out failed, handle the error.
+}
+}
+}
+private
+fun
+revokeToken
+(
+tokenType
+:
+ String
+,
+ token
+:
+ String
+)
+{
+// Create an API request to revoke the token.
+val
+ formBody 
+=
+ FormBody
+.
+Builder
+(
+)
+.
+add
+(
+"client_id"
+,
+ BuildConfig
+.
+CLIENT_ID
+)
+.
+add
+(
+"token_type_hint"
+,
+ tokenType
+)
+.
+add
+(
+"token"
+,
+ token
+)
+.
+build
+(
+)
+val
+ request 
+=
+ Request
+.
+Builder
+(
+)
+.
+url
+(
+"
+${
+BuildConfig
+.
+ISSUER
+}
+/v1/revoke"
+)
+.
+post
+(
+formBody
+)
+.
+build
+(
+)
+// Send the request to revoke the token.
+val
+ response 
+=
+ OktaIdxClientConfigurationProvider
+.
+get
+(
+)
+.
+okHttpCallFactory
+.
+newCall
+(
+request
+)
+.
+execute
+(
+)
+println
+(
+"Revoke Token Response: 
+$
+response
+"
+)
+}
+Sign-in flow UI 
+There are two general approaches for adding the sign-in flow to your app: add a fixed number of authentication methods, possibly in a fixed order, or generate the user interface dynamically based on the response at each step.
+For a fixed number of methods (a static UI), you create appropriate views and populate them from the response. Using a static UI introduces risk as both the authentication methods and the order may be changed at any time by an administrator of your Okta org. There are three requirements to reduce that risk:
+Update the code in the app before policy changes are enabled.
+Distribute the updated app to users before the policy changes are enabled.
+Ensure all your users' devices use the updated.
+The usual way to satisfy the last condition is with an enterprise-managed workforce app. Also note that there's additional risks as external events may require an immediate policy change that can result in the inability of mobile users to sign in.
+For consumer apps, and to reduce the risk for enterprise apps, a safer choice is building the user interface from the current sign-in step, by presenting a dynamic UI.
+For an example of implementing a dynamic UI, see 
+the 
+Android embedded authentication with SDK sample app
+(opens new window)
+.
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Introduction
+Sign-in flow
+Sign-in objects
+Objects and the flow
+Common parts of the flow
+Add the SDK
+Create and manage configurations
+Start sign-in
+Process the response
+Complete the sign-in flow
+Sign out a user
+Sign-in flow UI
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

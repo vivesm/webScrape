@@ -1,0 +1,117 @@
+Unique Custom | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Unique Custom
+Use custom logic to remove non-unique values from a list.
+To use this function, you need a helper flow that calculates some value to determine if an item in the list is unique or not. For example, you may have a list of available volunteers but you only want one person for each combination of job specialty and primary language. The specified helper flow gets invoked once for each item in the list and returns a value for each item. After all  items are assigned values, a new list is constructed with only one item for each unique value.
+On the card, define the fields  to use as the inputs for the helper flow to determine the unique value. Typically you include a field for each item of the list, for example, if the list is a list of text, then one of the inputs should be a string.  You can also include whatever other inputs your flow needs to calculate the sort value. If you need to know the position of the current item within the list, use the 
+Index
+ field from the context section of the helper flow card. Then build the rest of the helper flow, ending with a 
+Return
+ card that returns just a single value. The name for the value on the 
+Return
+ card doesn't matter.  Save the helper flow and turn it on.
+On the 
+Unique Custom
+ card in your main flow, input the list you want to evaluate, and then select the helper flow you built. The inputs are automatically populated so you can map data into them. To map an input to accept each item of the list, click in that input field to see an 
+Item
+ dropdown menu and select that item. Or, if your list is a list of objects, you may also see the schema of the object, that is, the keys that it contains. You can build your helper flow to accept those keys as inputs. In addition, you can drag in outputs from previous cards in the flow. In that scenario, the same value is used for each item in this list.
+Input
+Field
+Definition
+Type
+Required
+For each item in this list
+list
+The input list that contains the duplicates you want to remove.
+List of Objects
+TRUE
+Run this Flow
+Helper Flow
+The helper flow called once for each item in the list.
+Flow
+TRUE
+With these options
+concurrency
+The number of items in the list to process in parallel. 
+If it's important to process the items in sequence, use a value of 
+1
+.  Otherwise,  your flow completes faster if you use a higher number like 
+5
+ or 
+10
+.
+Number
+TRUE
+With the following values
+The inputs that the helper flow defines.
+These fields are populated when you select the helper flow using the 
+Choose Flow
+ dialog.
+Dynamically generated
+TRUE
+Output
+Field
+Definition
+Type
+list
+The output list, containing only one item for each unique value returned by the helper flow.
+The type of output list should match the type of the input list, for example, a list of text or a list of objects.
+List of Objects
+Example
+This example takes a list and removes any strings  that have the same length. It uses a helper flow that accepts a text input and returns the length of the text.
+The input is the following list of text: 
+["this","is","a","test"]
+.
+Helper flow
+Main flow
+For the text input to the helper flow, click and choose 
+Item
+ from the dropdown list.
+The output 
+list
+ contains only one word of each length: 
+["this","is","a"]
+.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

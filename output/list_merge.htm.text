@@ -1,0 +1,65 @@
+Merge | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Merge
+Merge objects from two or more lists at matching offsets. If an item with the same key exists in multiple lists for the same offset, the value from the later list will overwrite the value from an earlier list.
+Input Fields
+list1
+(list of objects)
+ - required: a list of objects to be merged
+list2
+(list of objects)
+ - required: a list of objects to be merged
+Output Fields
+output
+(list of objects)
+: the merged list of objects
+Example
+Input list 1: 
+[{"name":"Bob", "age":20}, {"name":"Jane", "age":25}]
+Input list 2: 
+[{"name":"Bob", "height":62}, {"name":"Jane", "height":65}]
+Output list: 
+[{"name":"Bob", "age":20, "height":62}, {"name":"Jane", "age":25, "height":65}]
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

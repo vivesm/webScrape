@@ -1,0 +1,95 @@
+Encrypt | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Encrypt
+The 
+Encrypt
+ function card encrypts input text into Base64 encoding using a key and specified encryption algorithm.
+Input
+Field
+Definition
+Type
+Required
+algorithm
+                                Select the encryption algorithm to use:
+aes-128-cbc
+aes-128-ecb
+aes-256-cbc
+aes-256-ecb
+des-cbc
+des-ecb
+Dropdown
+FALSE
+key
+ Text string to use as the encryption key. The same key is needed, along with the specific algorithm, to decrypt the text.
+String
+TRUE
+data
+Text string to be encrypted.
+String
+TRUE
+Output
+Field
+Definition
+Type
+output
+A Base64 encoding of the provided input string.
+String
+You can use the result of the 
+output
+ field wherever text can be sent. 
+To decrypt the output string, you need to have the correct algorithm and key.
+Example
+Input
+algorithm
+: 
+aes-256-cbc
+key
+: 
+my secret key
+data
+: 
+My secret message!
+Output
+hrDDPCtB0Cijc8EFAHhABiYEKdYBgt+e63RGV288SOI=
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

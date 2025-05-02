@@ -1,0 +1,111 @@
+Return Error If | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Return Error If
+Throw an error and halt the flow if a conditional test is true. If you want to conditionally stop a flow but under normal circumstances so it doesn't appear as an error, use 
+Continue If
+ instead.
+Input
+Field
+Definition
+Type
+Required
+value a
+Value to be compared.
+String
+FALSE
+comparison
+Method of comparison. See table.
+Dropdown
+FALSE
+value b
+Value to be compared against.
+String
+FALSE
+message
+Error message to return when the condition is true and the flow halts.
+String
+FALSE
+statusCode
+Status code number for the type of error thrown.
+Number
+FALSE
+The type of values for the 
+value a
+ and 
+value b
+ fields determine how a comparison is performed.  For example, the operator 
+greater than
+ compares numbers based on numeric value, but compares string values based on alphabetical sort order. Thus, the number comparison 80 > 9 is true, but the text comparison "80" > "9" is false.
+Table of Relational Operators
+Operator
+Use Case
+ equal to
+Compare two texts, numbers, dates or true/false to see if they have the same value.
+ not equal to
+Compare two texts, numbers, dates or true/false to see if they have different values.
+greater than or equal
+Compare two texts, numbers or dates to see if the first has the same or greater value than the second.
+ less than or equal
+Compare two texts, numbers or dates to see if the first has the same or lesser value than the second.
+greater than
+Compare two texts, numbers or dates to see if the first has a greater value than the second.
+less than
+Compare two texts, numbers or dates to see if the first has a lesser value than the second.
+ a multiple of
+Compare two numbers to see if value a is an exact multiple of value b. For example, 12, 0 and -4 are all multiples of 4, but 2, 3 and 7 are not.
+in
+Compare two texts to see if value a is a part of value b. For example, "test" is in "this is a test", but there is no "i" in "team".
+not in
+ Compare two texts to see if value a is not part of value b. 
+has key
+When value a is an object and value b is text, tests to see if the object has a key with the specified name. For example, true if value a is {"test":123} and value b is "test".
+doesn't have key
+When value a is an object and value b is text, tests to see if the object does not have a key with the specified name.
+is empty
+Checks to see if value a is empty; ignores value b. What defines "empty" varies by type. Note: Only works for Text and Object. Numbers, Dates, T/F, are viewed as empty.
+is not empty
+Checks to see if value a is not empty. Note: Only works for Text and Object. Numbers, Dates, T/F, are viewed as empty.
+Output
+No output fields.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

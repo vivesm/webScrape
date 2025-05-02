@@ -1,0 +1,283 @@
+Import Users with Inline Password Hooks | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            Migration Program Plan
+Loading...
+    Import Users with Inline Password Hooks
+This guide explains how to use password import inline hooks to migrate users into Okta as they authenticate.
+What you need 
+Okta Developer Edition organization
+(opens new window)
+Postman client to run API requests. See 
+Use Postman with the Okta REST APIs
+(opens new window)
+ for information on setting up Postman.
+Example or test source data to test user and group creation requests. (Don’t use real user data when testing.)
+A plan for migrating existing users to Okta
+Sample code 
+Creating users with password import inline hooks
+ for a curl request example
+Migration Program Plan 
+A migration program uses the Okta 
+password import inline hook
+(opens new window)
+ feature to seamlessly migrate users as they authenticate:
+Create all the users from the legacy system in Okta with a provider set to: 
+IMPORT
+. 
+NOTE:
+ This can be done in bulk and does NOT require individual user credentials.
+Optional: Create groups and apps in Okta. Assign users to groups and assign groups and users to apps.
+Create an app to service requests from Okta that can validate credentials against the legacy user system.
+Register an inline password hook with Okta that connects to the app created in step 3.
+Typically, you run a migration program like this for a set period, such as 60 days. At the end of that time, you delete the inline password hook. For any users that haven’t completed the migration on their own, you can issue a password reset using the Okta API. Those users receive an email to change their password and can then sign in using Okta.
+Create all the users in Okta 
+You can create users in Okta, without credentials, in a state ready for migration as outlined in the 
+Create user with password import inline hook
+ section of the 
+Users API documentation
+(opens new window)
+.
+Request Example 
+curl
+-v
+-X
+ POST 
+\
+-H
+"Accept: application/json"
+\
+-H
+"Content-Type: application/json"
+\
+-H
+"Authorization: SSWS {api_token}"
+\
+-d
+'{
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "password" : {
+      "hook": {
+        "type": "default"
+      }
+    }
+  }
+}'
+"https://{yourOktaDomain}/api/v1/users?activate=true"
+Response Example 
+{
+"id"
+:
+"00ub0oNGTSWTBKOLGLNR"
+,
+"status"
+:
+"ACTIVE"
+,
+"created"
+:
+"2013-07-02T21:36:25.344Z"
+,
+"activated"
+:
+null
+,
+"statusChanged"
+:
+null
+,
+"lastLogin"
+:
+null
+,
+"lastUpdated"
+:
+"2013-07-02T21:36:25.344Z"
+,
+"passwordChanged"
+:
+"2013-07-02T21:36:25.344Z"
+,
+"profile"
+:
+{
+"firstName"
+:
+"Isaac"
+,
+"lastName"
+:
+"Brock"
+,
+"email"
+:
+"isaac.brock@example.com"
+,
+"login"
+:
+"isaac.brock@example.com"
+,
+"mobilePhone"
+:
+"555-415-1337"
+}
+,
+"credentials"
+:
+{
+"password"
+:
+{
+}
+,
+"provider"
+:
+{
+"type"
+:
+"IMPORT"
+,
+"name"
+:
+"IMPORT"
+}
+}
+,
+"_links"
+:
+{
+"self"
+:
+{
+"href"
+:
+"https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+}
+}
+}
+Note
+: Notice that the user status is 
+ACTIVE
+, but the provider type and name are 
+IMPORT
+.
+For more on creating users for password import, see this 
+reference section
+(opens new window)
+.
+Create an Inline Password Hook Application 
+After configured, when a user with 
+credentials.provider.type=IMPORT
+ attempts to authenticate, Okta calls your app. Among other things, your app receives the username and plaintext password as submitted by the user. It's up to your app to validate the credentials against your legacy system.
+If your application determines the credentials are correct against the legacy system, it would return a response that includes a 
+"credential": "VERIFIED"
+ value. The full response looks like this:
+{
+"commands"
+:
+[
+{
+"type"
+:
+"com.okta.action.update"
+,
+"value"
+:
+{
+"credential"
+:
+"VERIFIED"
+}
+}
+]
+}
+Okta then sets the supplied password in its backend (properly hashed) and transitions the 
+credentials.provider.type
+ value from 
+IMPORT
+ to 
+OKTA
+. This user is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook is no longer called.
+For more information on the request from Okta and the types of responses your app can return, visit the 
+Password import inline hook reference
+(opens new window)
+.
+Register the inline password hook application 
+For Okta to use your app, you must register the external service endpoint.
+Note:
+ The external endpoint must be SSL protected and have a URL that starts with 
+https://
+. Okta doesn't make calls to endpoints that aren’t SSL protected.
+In the Admin Console, go to 
+Workflow
+ > 
+Inline Hooks
+. Click 
+Add Inline Hook
+.
+You can also accomplish this using the 
+Inline Hooks Management API
+(opens new window)
+.
+End the migration program 
+Typically, you leave the inline password hook endpoint in service for a fixed period, such as 60 days.
+During that time, a large percentage of your active users migrate over to Okta without them knowing or being disrupted in their usual workflow.
+At the end of the migration program time, you'd do the following to migrate the "stragglers":
+Use the 
+User Credentials API
+(opens new window)
+ to force a password reset for those users still with 
+credentials.provider.type
+ set to 
+IMPORT
+.
+Those users would receive an email to set their password with a link to follow.
+Most active users would set a new password in Okta, which would complete their migration.
+When you are in this phase of the migration, you can retire the legacy system from service.
+Edit This Page On GitHub
+        On this page
+Migration Program Plan
+Create all the users in Okta
+Request Example
+Response Example
+Create an Inline Password Hook Application
+Register the inline password hook application
+End the migration program
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

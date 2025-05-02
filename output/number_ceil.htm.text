@@ -1,0 +1,85 @@
+Round Up | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Round Up
+Round up to the nearest integer.
+You can also use 
+Round
+ (closest integer), 
+Round Down
+, or 
+Round Decimal Places
+.
+Input
+Field
+Definition
+Type
+Required
+number
+Value to be rounded up.
+Number
+TRUE
+Output
+Field
+Definition
+Type
+rounded up
+Calculated rounded up value.
+Number
+Example
+For an input value of 
+0.95
+, the output is 
+1
+.
+For an input value of 
+1.25
+, the output is 
+2
+.
+For an input value of 
+3.0001
+, the output is 
+4
+.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

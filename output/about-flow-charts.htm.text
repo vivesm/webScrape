@@ -1,0 +1,58 @@
+Flow charts | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Flow charts
+In the 
+Flow Chart
+ subtab, you can view a a high-level visual representation of a flow. Each icon represents an event, an action, or a function.
+Because any flow must be triggered by a trigger such as an application event, an API Endpoint, a scheduled event, or a child flow, the first icon in a chart always represents a designated event that monitors for a change in your cloud application. Each subsequent icon represents one specific step in a flow.
+To download a vector image file of the flow chart, click 
+SVG
+.
+Example
+This flow chart illustrates a scheduled flow that will perform the following actions:
+Read table rows that were updated after a specified date
+Construct a JSON object
+Perform an API action against a GitHub repository
+Reduce (pluck) the body that was returned by the Custom API Action card based on a specified key
+Use the Map function card to convert the output values from the List Pluck card into a new list by running a helper flow
+Return values to the caller of the flow
+Update a row in a table
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

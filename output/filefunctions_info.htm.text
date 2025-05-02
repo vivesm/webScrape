@@ -1,0 +1,80 @@
+Info | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Info
+Retrieve information about a file. To use the Info function card, set the input to the File Contents of a file you have downloaded previously in the flow. The output provides basic information about the file.
+Input
+Field
+Definition
+Type
+Required
+File Content
+ID of the file contents.
+File
+TRUE
+Output
+Field
+Definition
+Type
+Filename
+File name of the downloaded file.
+String
+Extension
+Extension of the file name, such as 
+.jpg
+, 
+.png
+, or 
+.csv
+.
+String
+Size
+Size of the file in bytes.
+Number
+Created
+Date and time when the file was created.
+Date & Time
+Updated
+Date and time when the file was last updated.
+Date & Time
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

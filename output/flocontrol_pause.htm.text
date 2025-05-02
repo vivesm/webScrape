@@ -1,0 +1,103 @@
+Pause | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Pause
+This function card pauses a flow and returns the inputs using the interface that initiated the flow, along with the 
+Execution ID
+ of the flow that is needed in the resume request.
+Resume a flow
+To resume the flow, follow these steps:
+Call the flow again with a specific URL endpoint, but append the 
+Execution ID
+ of the execution that needs to resume. The endpoint is similar to the one that invokes the flow.
+You can find the endpoint on the 
+API Endpoint
+ card's 
+Event Settings
+ page, but replace 
+invoke
+ with 
+resume
+.
+After you resume the flow, append 
+/{{EXECUTION_ID}}
+ to the URL.
+For example, if the API Endpoint is the following: 
+{{<api_endpoint>}}/flo/5f023d66e31808a8ce04954078fabc99/invoke
+, the endpoint that resumes the flow is 
+{{<api_endpoint>}}/flo/5f023d66e31808a8ce04954078fabc99/resume/1234SampleExecutionID0987
+.
+See 
+Resume a paused flow
+.
+The execution ID for a given execution can be found in two places:
+On the 
+API Endpoint
+ card. One of the default output fields for every monitor event is the 
+Execution ID
+. You can use this value as an input to another card. This is a good method for programmatically resuming the flow.
+In the response from the request to the API endpoint. The response includes the 
+Execution ID
+ in the headers, so you can also retrieve this ID from the service that originally called the flow.
+The 
+Pause
+ function card only works when it's used in flows that are resumed programmatically. If you want to pause a flow for a specific delay or until a specific time, use either a 
+Wait For
+ or 
+Wait Until
+ function card.
+Input
+Create a custom input field for each value that you want passed to the caller when the flow pauses.
+Output
+Create a custom output field that corresponds to each value that the caller passes back to the flow with the resume request.
+To pass data to these output keys, submit them as JSON key and value pairs in the body of the request.
+For example, if you have an output field with the name 
+X
+, then pass in 
+X:Y
+. This sends 
+Y
+ as the value returned by the 
+X
+ output key.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

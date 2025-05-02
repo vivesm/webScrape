@@ -1,0 +1,97 @@
+Format | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Format
+Construct a URL string from individual components.
+Input
+Field
+Definition
+Type
+Required
+protocol
+The URL protocol field. 
+For example, 
+http
+ or 
+https
+.
+Text
+FALSE
+host
+The fully qualified domain name.
+Text
+TRUE
+port
+The port number. 
+Typically, this value is 
+80
+ for 
+http
+ and 
+443
+ for 
+https
+.
+Number
+FALSE
+path
+The resource path within the 
+host
+.                                
+Text
+FALSE
+query
+The query string, without the 
+?
+ question mark.
+Text
+FALSE
+Output
+Field
+Definition
+Type
+url
+The formatted URL value.
+Text
+Related topics
+Functions
+Workflow elements
+Special characters and delimiters
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

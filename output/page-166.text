@@ -1,0 +1,416 @@
+Configure Direct Authentication | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+OTP (primary factor)
+Loading...
+    On this page
+            About the direct authentication  grant
+Loading...
+    Configure Direct Authentication
+    Identity Engine
+Use this guide to implement a direct authentication single-factor one-time passcode (OTP) flow for your app.
+Learning outcomes 
+Understand the OAuth 2.0 direct authentication OTP flow.
+Set up your app with the OTP grant type.
+Implement the OTP flow in Okta.
+What you need 
+Okta Developer Edition organization
+(opens new window)
+An app that you want to implement OAuth 2.0 direct authentication OTP with Okta
+A test user in your org that's enrolled in an authenticator like Google Authenticator
+The Direct Authentication feature enabled for your org. Contact 
+Okta Support
+(opens new window)
+ to enable this EA feature.
+The super admin role assigned to you. When you create an app, or update an existing app, you must have super admin permissions to enable direct authentication grant types.
+Note
+: 
+Okta's Developer Edition
+ makes most key developer features available by default for testing purposes. Okta's 
+API Access Management
+ product — a requirement to use 
+Custom Authorization Servers
+ — is an optional add-on in production environments.
+About the direct authentication 
+OTP
+ grant 
+Use direct authentication when you want your app to directly authenticate users. For example, you don't want to delegate authentication to an IdP or authorization server using an HTTP redirect in a web browser. While delegating authentication is preferred, use direct authentication in situations where there's a high degree of trust between the user and your app.
+Also, you can use direct authentication where usability constraints hinder the use of browser-based flows, such as mobile apps.
+Use the OTP flow when you want to use an OTP factor, such as Google time-based one-time passcode (TOTP) or Okta Verify, as a primary factor.
+Note:
+See 
+About MFA authenticators
+(opens new window)
+ for more information on authenticators, and primary and secondary factors.
+See 
+Configure a global session policy and authentication policies
+(opens new window)
+ for more information on configuring primary and secondary factor conditions.
+Grant-type flow 
+Direct Authentication OTP flow 
+At a high level, this flow has the following steps:
+Your client app prompts the user for their username and then an OTP.
+The user enters their username, opens the authenticator app on their device to get the OTP, and then enters the OTP in the app interface.
+Your app sends the following parameters in a 
+/token
+ request to the Okta authorization server:
+otp
+login_hint
+grant_type=urn:okta:params:oauth:grant-type:otp
+Note:
+ See the 
+OTP grant type
+(opens new window)
+ on the 
+/token
+ page. To view specific OTP grant information, select 
+urn:okta:params:oauth:grant-type:otp
+ from the 
+grant_type
+ dropdown list.
+Register your app so that Okta can accept the authorization request. See 
+Set up your app
+ to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See 
+Request for tokens
+.
+If the OTP and username are accurate, Okta responds with the requested tokens.
+Enable authenticators for your org 
+Direct authentication grant type flows use passwordless authentication, such as using Okta Verify and SMS. To use the direct authentication 
+OTP
+ flow, you must enable a non-password authenticator like 
+Google Authenticator
+.
+Open the Admin Console for your org.
+Go to 
+Security
+ > 
+Authenticators
+ to view the available authenticators.
+Do the following if 
+Google Authenticator
+ isn't in the list:
+Click 
+Add authenticator
+.
+Click 
+Add
+ on the authenticator tile, and then click 
+Add
+ in the next dialog.
+Verify the status of the authenticator.
+Select the 
+Enrollment
+ tab.
+Identify the authenticator and verify that the authenticator is set to either 
+Optional
+ or 
+Required
+ in the 
+Eligible authenticators
+ section of the Default Policy.
+If the authenticator is set to 
+Disabled
+, enable the authenticator.
+Click 
+Edit
+ for the Default Policy.
+Select 
+Optional
+ from the dropdown box for the authenticator.
+Click 
+Update Policy
+.
+Set up your authorization server 
+To use the 
+OTP
+ flow, both your client app and the 
+Okta authorization server
+ used with the app must have the 
+OTP
+ grant type enabled.
+If your Okta org uses Identity Engine, then the 
+OTP
+ grant type is automatically configured in your org authorization server. For custom authorization servers used with your app, you must enable 
+OTP
+:
+In the Admin Console, go to 
+Security
+ > 
+API
+.
+On the 
+Authorization Servers
+ tab, click the pencil icon next to the authorization server that you want to use.
+Select the 
+Access Policies
+ tab.
+Click the pencil icon from the 
+Actions
+ column for the 
+Default Policy Rule
+ to access the 
+Edit Rule
+ dialog.
+Note:
+ If you're using a different policy for your app, edit that policy instead.
+Click 
+Advanced
+ in the 
+IF Grant type is
+ section.
+Select 
+OTP
+ in the 
+Okta direct auth API grants
+ section (in addition to any other grant type that is already supported).
+Click 
+Update Rule
+.
+Set up your app 
+Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
+Note:
+ When you create or update an app, you must have super admin permissions to enable direct authentication grant types.
+Open the 
+Admin Console
+ for your org.
+Select 
+Applications
+ > 
+Applications
+ to view the current app integrations.
+Click 
+Create App Integration
+.
+Select 
+OIDC - OpenID Connect
+ as the 
+Sign-in method
+.
+Select 
+Native Application
+ as the 
+Application type
+, then click 
+Next
+.
+Specify the 
+App integration name
+.
+Click 
+Advanced
+ in the 
+Grant type
+ section and select the 
+OTP
+ grant type
+ in addition to the defaults.
+Select 
+Allow everyone in your organization to access
+, then click 
+Save
+. The 
+General
+ tab appears.
+Copy and save the generated 
+Client ID
+ value to implement your authorization flow.
+Set up the authentication policy 
+In direct authentication flows, the client specifies a grant type that indicates the type of authenticator being used. However, the server can't grant a token until the client’s authentication policy is satisfied.
+Note:
+ This example creates an app authentication policy with a 
+one-factor rule
+ for testing purposes.
+Go to your app’s 
+Sign On
+ tab, scroll to the bottom, and click 
+View policy details
+.
+Click 
+Actions
+ on the right of the Default Policy title and select 
+Clone policy
+.
+Click 
+Actions
+ again and select 
+Edit name and description
+.
+Name the policy (for example, 
+Direct Auth 1FA
+) and click 
+Save
+.
+Click 
+Add a rule
+, name it (for example, 
+1Factor
+).
+Specify your test user for 
+AND User is
+.
+Skip down to 
+AND User must authenticate with
+ and select 
+Any 1 factor type
+, and then click 
+Save
+.
+Open the app that you created and select the 
+Sign On
+ tab.
+Scroll to the 
+User authentication
+ section at the bottom and click 
+Edit
+.
+Select the authentication policy that you created and click 
+Save
+.
+Update the Global Session Policy 
+To use a one-factor direct auth grant, remove the Global Session Policy from the Global Session Policy.
+In the Admin Console, go to 
+Security
+ > 
+Global Session Policy
+.
+Click the pencil icon of the Default Rule.
+In the Edit Rule dialog, select 
+Any factor used to meet the Authentication Policy requirements
+ for 
+Establish the user session with
+.
+Click 
+Update rule
+.
+Flow specifics 
+The following section outlines the main request required to implement the OTP flow using direct calls to the Okta OIDC & OAuth 2.0 API.
+Request for tokens 
+Before you can begin this flow, collect the username and the OTP from the user in a manner of your choosing. Then, make a single API call to the Okta 
+authorization server
+/token
+ endpoint. Your request should look something like this:
+curl
+--request
+ POST 
+\
+--url
+ https://
+{
+yourOktaDomain
+}
+/oauth2/v1/token 
+\
+--header
+'accept: application/json'
+\
+--header
+'content-type: application/x-www-form-urlencoded'
+\
+--data
+'client_id={client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:otp&otp={123456}&login_hint={testuser%40example.com}'
+Note the parameters that are passed:
+client_id
+: Matches the client ID of the application that you created in the 
+Set up your app
+ section. You can find it at the top of your app's 
+General
+ tab.
+scope
+: Must be at least 
+openid
+. If you're using a custom authorization server, see the 
+Create Scopes
+ section of the 
+Create an authorization server guide
+.
+grant_type
+: 
+urn:okta:params:oauth:grant-type:otp
+, which indicates that you're using the direct authentication OTP grant type. Use this grant type for OTP factors (such as Google Authenticator) that you want to use as a primary factor.
+otp
+: The one-time passcode that your app obtained from the user.
+login_hint
+: The email username of a registered Okta user.
+For more information on these parameters, see the 
+/token
+endpoint
+(opens new window)
+.
+Response
+If the credentials are valid, Okta responds with the required tokens.
+{
+"access_token"
+:
+"eyJhb[...]56Rg"
+,
+"expires_in"
+:
+3600
+,
+"id_token"
+:
+"eyJhb[...]yosFQ"
+,
+"scope"
+:
+"openid profile"
+,
+"token_type"
+:
+"Bearer"
+}
+Validate access token 
+When your application passes a request with an access token, the resource server needs to validate it. See 
+Validate access tokens
+.
+Next steps 
+Explore other direct authentication flows, such as:
+OTP with MFA
+Okta Verify Push as a primary factor
+Okta Verify Push with MFA
+Phone authenticator using SMS or Voice as a primary factor
+Phone authenticator with MFA using SMS or Voice factors
+Edit This Page On GitHub
+      Instructions for
+OTP (primary factor)
+Loading...
+        On this page
+About the direct authentication  grant
+Grant-type flow
+Enable authenticators for your org
+Set up your authorization server
+Set up your app
+Set up the authentication policy
+Flow specifics
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

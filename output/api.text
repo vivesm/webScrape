@@ -1,0 +1,773 @@
+Reference overview
+Developer Documentation
+ Nothing Found 
+Developer Documentation
+Reference overview
+Release lifecycle
+OAuth 2.0 Scopes
+Postman
+Expression Languages
+OpenID Connect & OAuth 2.0
+SCIM Protocol
+Okta Admin Management
+MyAccount Management
+Sign-in Experience Management
+Okta Aerial
+Event Types
+Error Codes
+Rate Limits
+Okta Privileged Access
+Advanced Server Access
+Okta Identity Governance
+Welcome to Okta’s new API reference portal!
+Reference overview
+This topic contains information and details related to the design principles of the Okta API.
+Note:
+ For Classic Engine only APIs, see 
+Classic Engine APIs
+.
+URL namespace
+All URLs listed in the documentation should be preceded with your org's subdomain (tenant) or configured custom domain.
+Note:
+ All API requests must use the HTTPS scheme.
+API Versions
+The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or objects to the API without advance notice. These updates are considered non-breaking and the compatibility rules outlined in this topic should be followed to ensure your app remains operational. Breaking changes, such as removing or renaming a property, are released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
+The API version is included in the path. For example, the Users API currently uses version 
+v1
+:
+Copy
+Copied
+https
+:
+//{yourOktaDomain}/api/v1/users
+Warning
+Don't consume any Okta API not documented by this reference portal. All undocumented endpoints are considered private, subject to change without notice, and not covered by any agreements.
+Note
+: Identity Governance Access Requests for resource catalogs APIs use version 
+v2
+.
+Compatibility rules
+Input parameters
+Requests are compatible irrespective of the order in which the query parameters appear.
+Requests are compatible irrespective of the order in which the properties of the JSON parameters appear.
+New query parameters may be added to future versions of requests.
+Existing query parameters can’t be removed from future versions of requests.
+Existing properties can’t be removed from the JSON parameters in future versions of requests.
+JSON responses
+Responses are compatible irrespective of the order in which the properties appear.
+New properties may be added to future versions of the response.
+Existing properties can’t be removed from future versions of the response.
+Properties with null values may be omitted by responses.
+Media types
+Note:
+ JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
+The API currently supports only JSON as an exchange format. Be sure to set both the 
+Content-Type
+ and 
+Accept
+ headers for every request as 
+application/json
+.
+All Date objects are returned in 
+ISO 8601 format
+:
+Copy
+Copied
+YYYY-MM-DDTHH:mm:ss.SSSZ
+Character sets
+Okta supports a subset of the 
+UTF-8
+ specification. Specifically, this includes any character that can be encoded in three bytes or less. BMP characters and supplementary characters that must be encoded using four bytes aren't currently supported.
+Special characters
+Certain query parameters, such as when 
+filtering
+, require percent encoding to ensure correct interpretation of special characters. See 
+Percent Encoding
+.
+Consider the following example:
+Copy
+Copied
+filter=lastUpdated gt "2013-06-01T00:00:00.000Z"
+This is encoded to the following:
+Copy
+Copied
+filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22
+Note:
+ Don't encode delimiters, which are essential parts of the request structure. Common examples of this include the question mark before the query (like 
+?name
+) and 
+https://
+ at the start of a URL. Incorrectly encoding delimiters can result in an error. See 
+Encode Query
+ and 
+Special characters and delimiters
+ in the help documentation.
+HTTP verbs
+Where possible, the Okta API strives to use appropriate HTTP verbs for each action.
+Verb
+Description
+GET
+Used to retrieve objects
+PATCH
+Used to partially update objects. Where supported, Okta implements one or both of 
+JSON Patch
+ and 
+JSON Merge Patch
+. 
+Note:
+ Not all APIs implement PATCH for updates.
+POST
+Used to create objects or perform custom actions (such as user lifecycle operations). 
+ For POST requests without a 
+body
+ param, you must include a 
+Content-Length: 0
+ header.
+PUT
+Used to replace objects or collections. 
+ For PUT requests without a 
+body
+ param, you must include a 
+Content-Length: 0
+ header.
+DELETE
+Used to delete objects
+Note:
+ Okta API services may respond to PUT or POST requests with an HTTP 400 or 411 status code in a few situations:
+The request doesn't contain an entity body and there's no valid 
+Content-Length
+ header included
+The request includes the entity body, but doesn't use chunked transfer encoding, and doesn't include a valid 
+Content-Length
+ header
+Client request context
+Okta derives the client request context directly from the HTTP request headers and the client TCP socket. The request context is used to evaluate policies such as Global Session Policy and provide client information for troubleshooting and auditing purposes.
+User Agent
+Okta supports the standard 
+User-Agent
+ HTTP header to identify the user's browser or app. Always send a 
+User-Agent
+ string to uniquely identify your client app and version, for example: 
+Oktaprise/1.1
+.
+Note:
+ If your app is acting as a gateway or proxy, you should forward the 
+User-Agent
+ of the originating client with your API requests.
+Format a User-Agent string
+Ensure that the 
+User-Agent
+ string that your app constructs is in the correct format so that Okta can parse the 
+OS
+ and 
+Browser
+ fields. Okta can correctly parse 
+User-Agent
+ strings that contain browser and system information, platform details, and any extensions.
+Use a template to format the string
+Okta recommends that you use a template like the following to format the 
+User-Agent
+ string:
+Copy
+Copied
+User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>
+Okta recommends making test API calls, then checking for the related entries in the 
+System Log
+. Testing helps ensure that Okta can parse both the 
+OS
+ and 
+Browser
+ fields from the 
+User-Agent
+ header passed from your app.
+If the 
+OS
+ and/or 
+Browser
+ fields come back as 
+Unknown
+ in the System Log, ensure that certain string values are present in the 
+User-Agent
+ string so that the OS and browser are detected.
+Pass a hint about the browser
+Add browser information such as 
+chrome
+ or 
+safari
+ to the 
+User-Agent
+ string.
+Pass operating system information
+iOS: Include the words 
+apple
+ or 
+ios
+ and at least one of these values: 
+iphone
+, 
+ipad
+, 
+ipod
+, 
+ipad
+.
+Android: Include the word 
+android
+, which infers that Android is the operating system.
+IP address
+The public IP address of your app is automatically used as the client IP address for your request. Okta supports the standard 
+X-Forwarded-For
+ HTTP header to forward the originating client's IP address if your app is behind a proxy server or acting as a sign-in portal or gateway.
+Note:
+ The public IP address of your trusted web app must be a part of the allowlist in your 
+org's network security settings
+ as a trusted proxy to forward the user agent's original IP address with the 
+X-Forwarded-For
+ HTTP header.
+Accept Language
+The 
+Accept-Language
+ HTTP header advertises which languages the client is able to understand, for example 
+Accept-Language: en-US
+. Include the header if it's available.
+Device Fingerprint
+The 
+X-Device-Fingerprint
+ HTTP header supplies the device fingerprint used in an authentication request.
+Errors
+Note:
+ JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, ensure to properly escape all values before use in a browser or any HTML context.
+All successful requests return a 200 status if there’s content to return or a 204 status if there’s no content to return.
+All requests that result in an error return the appropriate 4xx or 5xx error code with a custom JSON error object:
+errorCode
+: A code that is associated with this error type
+errorLink
+: Currently returns the same value as the 
+errorCode
+errorSummary
+: A natural language explanation of the error
+errorId
+: An ID that identifies this request. These IDs are mapped to the internal error on the server side to assist in troubleshooting.
+Copy
+Copied
+{
+"errorCode"
+:
+"E0000001"
+,
+"errorSummary"
+:
+"Api validation failed"
+,
+"errorLink"
+:
+"E0000001"
+,
+"errorId"
+:
+"oaeHfmOAx1iRLa0H10DeMz5fQ"
+,
+"errorCauses"
+:
+[
+{
+"errorSummary"
+:
+"login: An object with this field already exists in the current organization"
+}
+]
+}
+See 
+Error Codes
+ for a list of API error codes.
+Note:
+ Only the 
+errorCode
+ property is supported for runtime error flow control. The 
+errorSummary
+ property is only intended for troubleshooting and may change over time.
+Conditional Requests and Entity Tags
+Conditional requests in HTTP enable you to check a request against a validator (such as an 
+ETag
+) to check the state of an object on a server, such as a user profile. Okta supports the 
+If-Match
+ header on select endpoints, which gives you concurrency control with our API. You can use this header to check if the underlying object hasn't changed since you read it. If the object has changed, the update request fails. See 
+HTTP conditional requests
+.
+An HTTP entity tag (
+ETag
+) is an identifier for a specific version of a resource. A new 
+ETag
+ is generated when the object changes. Use a conditional request with the 
+ETag
+ to check the object before updating it. The conditional request succeeds if the 
+ETag
+ listed in the header request matches the object on your server. See 
+ETag
+.
+For example, you can request a user and get an 
+ETag
+ in your response:
+Copy
+Copied
+HTTP/1.1
+200
+OK
+Content-Type
+:
+application/json
+ETag
+:
+"W/\"1234567890abcdef\""
+{
+"id"
+:
+"00ub0oNGTSWTBKOLGLNR"
+,
+"profile"
+:
+{
+"firstName"
+:
+"Isaac"
+,
+"lastName"
+:
+"Brock"
+,
+"email"
+:
+"isaac.brock@example.com"
+}
+}
+You can then use the 
+Etag
+ value in a conditional request to check if you're updating the same object or if it has changed:
+Copy
+Copied
+PUT
+/api/v1/users/00ub0oNGTSWTBKOLGLNR
+HTTP/1.1
+Host
+:
+example.okta.com
+Authorization
+:
+YOUR_API_KEY_HERE
+Content-Type
+:
+application/json
+If-Match
+:
+"W/\"1234567890abcdef\""
+{
+"profile"
+:
+{
+"email"
+:
+"isaac@example.com"
+}
+}
+If another request hasn't changed the profile since you read it, the endpoint saves the new profile and returns a 
+200 OK
+ status.
+Note:
+ This feature is currently only supported when creating and updating user profiles. See 
+Users API
+.
+Okta supports only weak entity tags, prefaced with a 
+"W/
+. That means that we only include fields from the entity that determine if it is semantically equivalent, not byte for byte identical. For instance, a user's name is included in the 
+ETag
+ calculation, but their lastLogin is not. Okta reserves the right to change the format of its entity tags. This means we may change the algorithm and format of the hash. If we do this, we will support both old and new 
+ETag
+ formats for seven days after the change. Any customer processing should not rely on long term storage of entity tags.
+Pagination
+Requests that return a list of objects may support pagination. Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the 
+before
+ or 
+after
+ query parameter. For some objects, you can also set a custom page size with the 
+limit
+ parameter.
+Param
+Description
+before
+The cursor that points to the start of the page of data that has been returned.
+after
+The cursor that points to the end of the page of data that has been returned.
+limit
+The number of individual objects that are returned in each page.
+Link header
+Pagination links are included in the 
+Link header
+ of responses. It's important to follow these Link header values instead of constructing your own URLs as query parameters or cursor formats may change without notice.
+Copy
+Copied
+HTTP/1.1
+200
+OK
+link
+:
+<https://{yourOktaDomain}/api/v1/logs?limit=20>; rel="self"
+link
+:
+<https://{yourOktaDomain}/api/v1/logs?limit=20&after=1627500044869_1>; rel="next"
+The possible 
+rel
+ values are:
+Link relation type
+Description
+self
+Specifies the URL of the current page of results
+next
+Specifies the URL of the immediate next page of results
+When you first make an API call and get a cursor-paged list of objects, the end of the list is the point where you don't receive another 
+next
+ link value with the response. This holds true for all cases, except for the 
+System Log
+ where the 
+next
+ link always exists in System Log polling queries. A polling query is defined as an 
+ASCENDING
+ query with an empty or absent 
+until
+ parameter, providing a stream of data.
+Filter
+Filtering allows a requestor to specify a subset of objects to return and is often needed for large collection objects such as 
+Users
+. While filtering semantics are standardized in the Okta API, not all objects in the Okta API support filtering. When filtering is supported for an object, the 
+filter
+ URL query parameter contains a filter expression.
+Expression Language that is used in the 
+filter
+ and 
+search
+ parameters supports references to JSON attributes and literals. The literal values can be strings enclosed in double quotes, numbers, date times enclosed in double quotes, and Boolean values (for example, 
+true
+ or 
+false
+). String literals must be valid JSON strings.
+The attribute names are case-sensitive while attribute operators are case-insensitive. For example, the following two expressions evaluate to the same logical value:
+filter=profile.firstName Eq "john"
+filter=profile.firstName eq "john"
+The filter and search parameters must contain at least one valid Boolean expression. Each expression must contain an attribute name followed by an attribute operator and an optional value. You can combine multiple expressions using two logical operators. Furthermore, you can group expressions together using 
+()
+. If your expression contains 
+special characters
+, make sure you encode the parameter.
+Note:
+ Each object in the Okta API defines what attributes and operators are supported for the expression. See object-specific documentation for more information.
+Operators
+The following operators from the 
+SCIM Protocol Specification
+ are supported:
+Operator
+Description
+Behavior
+eq
+equal
+Matches if the attribute and operand values are identical
+ge
+greater than or equal
+Matches if the attribute value is greater than or equal to the operand value. The actual comparison depends on the attribute type. 
+String
+ attribute types are a lexicographical comparison and 
+Date
+ types are a chronological comparison.
+gt
+greater than
+Matches if the attribute value is greater than the operand value. The actual comparison depends on the attribute type. 
+String
+ attribute types are a lexicographical comparison and 
+Date
+ types are a chronological comparison.
+le
+less than or equal
+Matches if the attribute value is less than or equal to the operand value. The actual comparison depends on the attribute type. 
+String
+ attribute types are a lexicographical comparison and 
+Date
+ types are a chronological comparison.
+lt
+less than
+Matches if the attribute value is less than the operand value. The actual comparison depends on the attribute type. 
+String
+ attribute types are a lexicographical comparison and 
+Date
+ types are a chronological comparison.
+ne
+not equal
+Matches if the attribute value doesn't match the operand value
+pr
+present (has value)
+Matches if the attribute has a non-empty value or if it contains a non-empty node for complex attributes
+sw
+starts with
+The entire operand value must be a substring of the attribute value that starts at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.
+ew
+ends with
+The entire operand value must be a substring of the attribute value that starts at the end of the attribute value. This criterion is satisfied if the two strings are identical. This operator is only usable with the 
+System Log API
+.
+co
+contains
+Matches if the operand value exists as a substring in the attribute value. This includes the case where the attribute and operand values are identical. See 
+Contains operator
+.
+Notes:
+Some objects don't support all the listed operators.
+The 
+ne
+ (not equal) operator isn't supported for some objects, but you can obtain the same result by using 
+lt ... or ... gt
+. For example, to see all user agents except for "iOS", use 
+(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")
+.
+All 
+Date
+ values use the ISO 8601 format 
+YYYY-MM-DDTHH:mm:ss.SSSZ
+.
+The 
+System Log
+ supports the contains (
+co
+) and ends with (
+ew
+) operators.
+Contains operator
+The contains (
+co
+) operator matches if the operand value exists as a substring in the attribute value. This includes the case where the attribute and operand values are identical. This operator differs in behavior, depending on which API you are using.
+The contains operator requires at least 3 characters in the operand and is case-sensitive for the following APIs. See each API for more information on which profile attributes are supported within the 
+search
+ parameter:
+Users API
+Groups API
+Devices API
+Realms API
+You can also use the 
+System Log API
+ with the 
+filter
+ parameter. This operator with System Log is case-sensitive and has no character limit.
+Other APIs do not support this operator.
+Attribute operators
+Operator
+Description
+Behavior
+and
+Logical AND
+The filter is only a match if both expressions evaluate to true.
+not
+Logical NOT
+The filter is a match if the expression evaluates to false.
+or
+Logical OR
+The filter is a match if either expression evaluates to true.
+Logical operators
+Operator
+Description
+Behavior
+()
+Precedence grouping
+Boolean expressions may be grouped by using parentheses to change the standard order of operations, for example, evaluate OR logical operators before logical AND operators.
+Filters must be evaluated using the standard order of operations. Attribute operators have the highest precedence, followed by the grouping operator (for example, parentheses), followed by the logical 
+AND
+ operator, followed by the logical 
+OR
+ operator.
+Hypermedia
+Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your app. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the 
+User API
+ governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
+The Okta API incorporates the 
+JSON Hypertext Application Language
+ or HAL formatting as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses that represent two simple concepts: Resources and Links.
+Note:
+ The HAL-specific media type 
+application/hal+json
+ isn't currently supported as a formal media type for content negotiation. Use the standard 
+application/json
+ media type instead.
+Links
+Objects with property names that are link relation types (as defined by 
+RFC8288
+) have values that are either a Link object or an array of Link objects. Link objects contain the following:
+A target URI
+The name of the link relation (
+rel
+)
+Other optional properties to help with deprecation, object state or lifecycle management, content negotiation, and so on
+Links are implicitly of media type 
+application/json
+. Other media types are only returned in cases where the link isn't an API endpoint.
+Note:
+ An object may have multiple links that share link relations. The following example shows this with a shared 
+"logo"
+ link:
+Copy
+Copied
+{
+"_links"
+:
+{
+"logo"
+:
+[
+{
+"name"
+:
+"medium"
+,
+"href"
+:
+"https://{yourOktaDomain}/assets/img/logos/groups/active_directory-medium.b3959116154f9d44bd4d0f6b2ae31ea6.png"
+,
+"type"
+:
+"image/png"
+}
+,
+{
+"name"
+:
+"large"
+,
+"href"
+:
+"https://{yourOktaDomain}/assets/img/logos/groups/active_directory-large.0e7a58559ac90c4bbc7b33fa14018c50.png"
+,
+"type"
+:
+"image/png"
+}
+]
+,
+"self"
+:
+{
+"href"
+:
+"/example_resource"
+}
+,
+"next"
+:
+{
+"href"
+:
+"/page=2"
+}
+}
+}
+Links in collections
+HAL links that are returned in a collection of resources may not reflect the total set of operations that are possible on that resource. For example, in a user collection, links to indicate that a given user can be unlocked may not be returned and, if returned, may not reflect the correct user state.
+Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 
+id
+ using the 
+self
+ link provided for that resource in the collection. This provides the full set of lifecycle links for that resource based on its most up-to-date state.
+Request debugging
+The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the 
+System Log
+ events.
+The following header is set in each response:
+X-Okta-Request-Id
+ - The unique identifier for the API request
+Copy
+Copied
+HTTP/1.1
+200
+OK
+X-Okta-Request-Id
+:
+reqVy8wsvmBQN27h4soUE3ZEnA
+Cross-Origin Resource Sharing (CORS)
+Cross-Origin Resource Sharing (CORS)
+ is a mechanism that allows a web page to make an AJAX call by using 
+XMLHttpRequest (XHR)
+ to a domain that is different from the one where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers, in accordance with the 
+same origin security policy
+. CORS defines a 
+standardized
+ way in which the browser and the server can interact to determine whether to allow the cross-origin request.
+In Okta, CORS allows JavaScript, which is hosted on your websites, to make an XHR to the Okta API with a token. See 
+OpenID Connect & OAuth 2.0
+.
+Every website origin must be explicitly permitted through the Admin Console for CORS. See 
+Enabling CORS
+ for more information on how to allow your website to make cross-origin requests.
+Caution:
+ Only grant access to specific origins (websites) that you control and trust to access the Okta API.
+CORS support
+The Okta API supports CORS on an API by API basis. If you're building an app that needs CORS, check that the specific operation supports CORS for your use case. APIs that support CORS are marked with the 
+CORS
+ icon.
+On this page
+URL namespace
+API Versions
+Compatibility rules
+Input parameters
+JSON responses
+Media types
+Character sets
+Special characters
+HTTP verbs
+Client request context
+User Agent
+Format a User-Agent string
+Use a template to format the string
+IP address
+Accept Language
+Device Fingerprint
+Errors
+Conditional Requests and Entity Tags
+Pagination
+Link header
+Filter
+Operators
+Contains operator
+Attribute operators
+Logical operators
+Hypermedia
+Links
+Links in collections
+Request debugging
+Cross-Origin Resource Sharing (CORS)
+CORS support
+Next to 
+Release lifecycle
+Questions? Ask us on the 
+forum
+.
+Copyright © 
+2025
+ Okta.
+Social
+GitHub
+Twitter
+YouTube
+Forum
+Blog RSS
+CONTACT & LEGAL
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+MORE INFORMATION
+Integrate with Okta
+Release Notes
+Pricing
+3rd-party notes
+Customer Identity Cloud
+okta.com
+Products, case studies, resources
+Help Center
+Knowledgebase, roadmaps, and more
+Trust
+System status, security, compliance

@@ -1,0 +1,56 @@
+Provide a table ID at runtime | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Provide a table ID at runtime
+To use the Table function cards (such as Create Row), you typically select the table that the function will operate on by clicking 
+Choose Table
+ on the card.
+However, you also have the option to run a flow using a table without specifying one in advance.  For example, you could be using a helper flow which gets the table ID from the parent flow when its running.
+For those cases, select 
+Provide table ID at runtime
+. When you choose this option, you will also need to add a value to the 
+Table ID
+ field.
+Related topics
+Tables
+Create and edit a table
+Create Row
+Search Rows
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

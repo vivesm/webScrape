@@ -1,0 +1,91 @@
+Statistics | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Statistics
+Read statistics for a list of numbers.
+Input Fields
+List
+ (list of objects): list of numbers
+Click on an empty cell in each list to add a list item. A cell can contain only one list item. Statistics will only be computed for list items that are numbers. 
+Output Fields
+Sum
+: Sum of all the numbers in the list
+Average
+: Average of all the numbers in the list
+Median
+: Median value for the numbers in the list, the value for which half the numbers are higher or lower
+Mode
+: Number which appears most often in the list
+Variance
+: Degree of spread in the list of numbers; variance is calculated by taking the average of squared deviations from the mean.
+Standard Deviation
+: Standard deviation for the list; standard deviation tells you how far each value lies from the mean; it's the square root of variance.
+Minimum
+: Minimum; the lowest number in the list.
+Maximum
+: Maximum; the highest number in the list.
+Count
+: Number of values in the list
+Example
+For the eight values in this list:
+1,2,4,1,8,16,32,1
+The resulting statistics are:
+Sum
+: 65
+Average
+: 8.12
+Median
+: 3
+Mode
+: 1
+Variance
+: 119.84
+Standard Deviation
+: 10.947113122384627
+Min
+: 1
+Max
+: 32
+Count
+: 8
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

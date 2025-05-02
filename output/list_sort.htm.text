@@ -1,0 +1,79 @@
+Sort Custom | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Sort Custom
+Sort Custom
+ allows you to do a custom sort of a list by calling another flow to generate the value used to sort each item. For simple sorts, use the 
+Sort
+ function instead.
+To use this function, you'll need another flow that calculates the sort value for an item. This helper flow will be invoked once for each item in the list. Define fields on the event card that will be the inputs that are required to determine the sort value. Typically you will include a field for the item of the list, i.e. if the list is a list of text then one of the inputs should be text. You can also include as other inputs whatever your flow will need to calculate the sort value. If you need to know the position of the current item inside the list, use the "Index" field from the Context section of the helper flow card. Then build the rest of the helper flow, ending with a 
+Return
+ card that returns a single value. The name for the value on the Return card doesn't matter. Save the flow and turn it on.
+Now go back to the Sort Custom card, input the list you want to sort, and then select the flow you just built.  The inputs will auto-populate, then you can map data into them. To map an input to accept each item of the list, click in that field and you will see a dropdown that includes 
+Item
+ - select that.  Or if your list is a list of objects, you may also see the schema of the object, i.e. the keys that it contains, and  you can also build your helper flow to accept those as inputs. In addition, you can drag in outputs from previous cards in the flow - in that case, the same value will be used for each item in this list.
+Input Fields
+list:
+ The input list that contains all of the items you want to sort
+flow
+:  The helper flow that will be called once for each item in the list
+with the following values
+(dynamically generated)
+:  The inputs defined by the helper flow - these will populate after you select the helper flow using the 
+Choose Flow
+ dialog
+concurrency
+:  The number of items in the list to process in parallel.  If it is important that the items are processed in sequence, use 1.  Otherwise a higher number like 5 or 10 will cause your flow to complete sooner.
+Output Fields
+list:
+ The output list that contains the items, sorted from smallest to largest using the values returned for each item by the provided helper flow. The type of output list should be set to match the type of the input list (for example, list of text).
+Example
+You have a list of text; for example, 
+["this","is","a","sample"]
+You create a helper flow that accepts a text input and returns the length of the text
+Using Sort Custom, provide the list input and choose the helper flow above. For the input to the helper flow, click and choose "Item" from the dropdown
+The output list of the Sort will be: 
+["a","is","this","sample"]
+ - sorted from shortest to longest
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

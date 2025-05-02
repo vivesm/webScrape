@@ -1,0 +1,412 @@
+Configure user-scoped account management | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            About user-scoped account management
+Loading...
+    Configure user-scoped account management
+This guide explains how to set up end user-driven account management in your org using the MyAccount API.
+Note:
+ This guide is for the enhanced MyAccount API, accessible at 
+/idp/myaccount
+. The 
+/api/v1/myaccount
+ endpoint is deprecated. See 
+MyAccount API (deprecated)
+ for the docs of the older API version.
+Note:
+ This guide is only for Okta Identity Engine. See 
+Identify your Okta solution
+(opens new window)
+ to determine your Okta version.
+Learning outcomes 
+Set up your org with the required scopes to call the MyAccount API.
+Allow your end users to call the API to update their profile and enroll another authenticator after they first sign in.
+What you need 
+Okta Developer Edition organization
+(opens new window)
+Access to the latest version of the MyAccount API: 
+/idp/myaccount
+An existing OpenID Connect client app in Okta for testing in Okta
+Postman client
+(opens new window)
+ to test requests. See 
+Get Started with the Okta APIs
+(opens new window)
+ for information on setting up Postman.
+The MyAccount API Postman Collection that allows you to test the API calls that are described in this guide. Click 
+Run in Postman
+ to add the collection to your Postman workspace.
+(opens new window)
+Note:
+ To run the Postman Collection, you need an end user access token. Use an 
+SDK
+ to get the token.
+About user-scoped account management 
+The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need a bearer token to update their profile, or email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator.
+About the Postman Collection 
+It’s up to you how you set up users to call the MyAccount API to manage their account. In this guide, Okta provides sample API calls using a Postman Collection to demonstrate them in a language/platform neutral way.
+Note:
+ To run the Postman Collection, you need an end user access token. Use an 
+SDK
+ to get the token.
+API versioning 
+A valid API version in the 
+Accept
+ header is required to access the API. Current version: V1.0.0
+Accept: application/json
+;
+ okta-version
+=
+1.0
+.0
+Grant the required scopes 
+Note:
+ If you have a custom authorization server, the MyAccount API-related scopes are granted by default. See 
+Create an authorization server
+.
+When you’re ready to grant the required scopes, follow these steps:
+Sign in to your Okta organization with your administrator account and go to 
+Applications
+ > 
+Applications
+.
+Open your OpenID Connect client app.
+On the 
+Okta API Scopes
+ tab, grant the following scopes:
+For access to both GET and POST/DELETE endpoints:
+okta.myAccount.email.manage
+okta.myAccount.phone.manage
+okta.myAccount.profile.manage
+For access to GET endpoints only:
+okta.myAccount.email.read
+okta.myAccount.phone.read
+okta.myAccount.profile.read
+Add a secondary email 
+      POST
+/idp/myaccount/emails
+In this use case, the end user adds a 
+SECONDARY
+ email address to their account. The new email address is in UNVERIFIED status.
+Required scope and role 
+Requires an Okta scope of 
+okta.myAccount.email.manage
+Request path parameters 
+N/A
+Request query parameters 
+N/A
+Request body 
+Requires a 
+My Email Request object
+ as its request body
+{
+"profile"
+:
+{
+"email"
+:
+"some.secondary.email@okta.com"
+}
+,
+"role"
+:
+"SECONDARY"
+,
+"sendEmail"
+:
+true
+}
+Response body 
+The requested 
+My Email object
+Error Responses 
+If an invalid email is passed to 
+profile
+ in the request body, the response returns a 400 BAD REQUEST with error code E0000001.
+If the email operation isn't enabled for the request 
+role
+ in the org, the response returns a 403 FORBIDDEN with error code E0000038.
+If the email exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
+Request 
+curl
+-v
+-X
+ POST 
+\
+-H
+"Authorization: Bearer 
+${token}
+"
+\
+-H
+"Accept: application/json; okta-version=1.0.0"
+\
+"https://
+${yourOktaDomain}
+/idp/myaccount/emails"
+Response 
+{
+"id"
+:
+"5a8de6071e1b94e0f4ec664b9e4869e8"
+,
+"status"
+:
+"UNVERIFIED"
+,
+"profile"
+:
+{
+"email"
+:
+"secondary.email@okta.com"
+}
+,
+"roles"
+:
+[
+"SECONDARY"
+]
+,
+"_links"
+:
+{
+"self"
+:
+{
+"href"
+:
+"https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"GET"
+]
+}
+}
+,
+"challenge"
+:
+{
+"href"
+:
+"https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8/challenge"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+Add a phone 
+      POST
+/idp/myaccount/phones
+Creates an UNVERIFIED status phone for either the 
+SMS
+ or 
+CALL
+ method to the user's MyAccount setting
+Required scope and role 
+Requires an Okta scope of 
+okta.myAccount.phone.manage
+Request path parameters 
+N/A
+Request body 
+Requires a 
+My Phone Request object
+ as its request body
+{
+"profile"
+:
+{
+"phoneNumber"
+:
+"+15555555555"
+}
+,
+"sendCode"
+:
+ true,
+"method"
+:
+"SMS"
+}
+Response body 
+The requested 
+My Phone object
+Error Responses 
+If an invalid phone number is passed to 
+profile
+ in the request body, the response returns a 400 BAD REQUEST with error code E0000001.
+If an invalid 
+method
+ is passed in the request body, the response returns a 400 BAD REQUEST with error code E0000001.
+If the phone authenticator isn't enabled for 
+method
+ in the org, the response returns a 403 FORBIDDEN with error code E0000038.
+If the number of phone factors for the current user already reaches the maximum allowed per user or the phone factor is failed to create, the response returns a 400 BAD REQUEST ERROR with error code E0000001.
+If the phone number exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
+If the call providers fail to send a challenge when 
+sendCode
+ is 
+true
+, the response returns a 500 with error code E0000138.
+Request 
+curl
+-v
+-X
+ POST 
+\
+-H
+"Authorization: Bearer 
+${token}
+"
+\
+-H
+"Accept: application/json; okta-version=1.0.0"
+\
+"https://
+${yourOktaDomain}
+/idp/myaccount/phones"
+Response 
+Returns an HTTP 201 status code response, with a location URL referring to the newly created phone in the response header
+{
+"id"
+:
+"sms1bueyI0w0HHwro0g4"
+,
+"status"
+:
+"UNVERIFIED"
+,
+"profile"
+:
+{
+"phoneNumber"
+:
+"+15555555555"
+}
+,
+"_links"
+:
+{
+"self"
+:
+{
+"href"
+:
+"https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"GET"
+,
+"DELETE"
+]
+}
+}
+,
+"challenge"
+:
+{
+"href"
+:
+"https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+,
+"verify"
+:
+{
+"href"
+:
+"https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge"
+,
+"hints"
+:
+{
+"allow"
+:
+[
+"POST"
+]
+}
+}
+}
+}
+See also 
+MyAccount API
+(opens new window)
+ reference documentation
+Edit This Page On GitHub
+        On this page
+About user-scoped account management
+About the Postman Collection
+API versioning
+Grant the required scopes
+Add a secondary email
+Required scope and role
+Request path parameters
+Request query parameters
+Request body
+Add a phone
+Required scope and role
+Response body
+Error Responses
+Request
+Response
+See also
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

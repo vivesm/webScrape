@@ -1,0 +1,326 @@
+Deprecated JavaScript methods in the widget | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            JavaScript sign-in method changes
+Loading...
+    Deprecated JavaScript methods in the widget
+    Identity Engine
+This guide covers the JavaScript method that is deprecated from the Okta Sign-In Widget and describes how to use 
+showSignIn
+ (and related methods) instead.
+Learning outcomes 
+Understand the 
+showSignIn
+ methods that are used in the widget so that you can set the redirect URI based on the sign-in policies that the administrator defines.
+What you need 
+Widget that is updated to the latest available release
+Sample code 
+Code samples using showSignIn
+JavaScript sign-in method changes 
+After you upgrade your org to Okta Identity Engine, the 
+setCookieAndRedirect
+(opens new window)
+ JavaScript method is deprecated from the widget. In Okta Classic Engine, your app integration calls the 
+setCookieAndRedirect
+ method, which means that your app integration sets the redirect URI. However, in Identity Engine, your app integration shouldn't assume that it sets the redirect URI as part of the flow. Administrators set the sign-on policies in the 
+Admin Console
+(opens new window)
+. Instead of the 
+setCookieAndRedirect
+ method, use the 
+showSignIn
+ method to resolve the returned promise or redirect it, based on the administrator's policy.
+Note:
+ In Classic Engine, the 
+setCookieAndRedirect
+ method is still available.
+Note:
+ For users of the 
+Okta Auth JavaScript SDK
+(opens new window)
+, the 
+setCookieAndRedirect
+ method is also deprecated. However, as part of the upgrade, you need to use the 
+idx.authenticate
+ method. See the Okta Auth JavaScript SDK 
+migration doc
+(opens new window)
+.
+About showSignIn methods 
+There are three similar methods in the widget. 
+showSignIn
+ applies to most use cases, but you might want to use 
+showSignInAndRedirect
+ or 
+showSignInAndGetTokens()
+. The following describes the methods and when to use them:
+showSignIn
+(opens new window)
+: Use this method for most use cases. On success, the Promise resolves. On error, the Promise is rejected. If the result is a redirect, the method redirects to Okta or another Identity Provider (IdP). The responses and errors are the same as those for 
+renderEl()
+(opens new window)
+.
+showSignInAndRedirect
+(opens new window)
+: Use this method to define the flow so that it always includes a redirect URI. This is the recommended method for server-side web apps.
+showSignInToGetTokens
+(opens new window)
+: Use this method to define the flow so that it never includes a redirect URI.
+Code samples using showSignIn 
+Sample for a token flow 
+var
+ oktaSignIn 
+=
+new
+OktaSignIn
+(
+{
+// Assumes there is an empty element on the page with an ID of 'osw-container'  el: `#osw-container`,
+el
+:
+'#osw-container'
+,
+clientId
+:
+`
+{clientId of your OIDC app integration}
+`
+,
+redirectUri
+:
+`
+{redirectUri configured in your OIDC app integration}
+`
+,
+baseUrl
+:
+`
+https://{yourOktaDomain}
+`
+,
+authParams
+:
+{
+issuer
+:
+`
+https://{yourOktaDomain}/oauth2/default
+`
+}
+}
+)
+;
+// Search for URL Parameters to see if a user is being routed to the app to recover password
+var
+ searchParams 
+=
+new
+URL
+(
+window
+.
+location
+.
+href
+)
+.
+searchParams
+;
+oktaSignIn
+.
+otp 
+=
+ searchParams
+.
+get
+(
+'otp'
+)
+;
+oktaSignIn
+.
+state 
+=
+ searchParams
+.
+get
+(
+'state'
+)
+;
+oktaSignIn
+.
+showSignIn
+(
+)
+.
+then
+(
+res
+=>
+{
+   oktaSignIn
+.
+authClient
+.
+handleLoginRedirect
+(
+res
+.
+tokens
+)
+;
+}
+)
+.
+catch
+(
+function
+(
+error
+)
+{
+// This function causes errors from which the widget can't recover.
+// Known errors: CONFIG_ERROR, UNSUPPORTED_BROWSER_ERROR
+   console
+.
+log
+(
+'login error'
+,
+ error
+)
+;
+}
+)
+;
+Note:
+ For response handling, use the 
+handleLoginRedirect
+ method. See 
+Okta Auth API reference
+(opens new window)
+.
+Sample for a basic redirect callback 
+if
+(
+authClient
+.
+isLoginRedirect
+(
+)
+)
+{
+const
+ res 
+=
+await
+ authClient
+.
+token
+.
+parseFromUrl
+(
+)
+;
+  authClient
+.
+tokenManager
+.
+setTokens
+(
+res
+.
+tokens
+)
+;
+}
+Sample for social authentication 
+if
+(
+authClient
+.
+isLoginRedirect
+(
+)
+)
+{
+if
+(
+authClient
+.
+isInteractionRequired
+(
+)
+)
+{
+return
+showWidget
+(
+)
+;
+// render the widget to continue the flow
+}
+const
+ res 
+=
+await
+ authClient
+.
+token
+.
+parseFromUrl
+(
+)
+;
+  authClient
+.
+tokenManager
+.
+setTokens
+(
+res
+.
+tokens
+)
+;
+}
+Edit This Page On GitHub
+        On this page
+JavaScript sign-in method changes
+About showSignIn methods
+Code samples using showSignIn
+Sample for a token flow
+Sample for a basic redirect callback
+Sample for social authentication
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

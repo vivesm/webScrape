@@ -1,0 +1,343 @@
+Implement authorization by grant type | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Authorization Code
+Loading...
+    On this page
+            Grant-type flow
+Loading...
+    Implement authorization by grant type
+This guide explains how to implement an Authorization Code flow for your app with Okta.
+Learning outcomes 
+Understand the OAuth 2.0 Authorization Code flow.
+Set up your app with the Authorization Code grant type.
+Implement the Authorization Code flow in Okta.
+What you need 
+Okta Developer Edition organization
+(opens new window)
+An app that you want to implement OAuth 2.0 authorization with Okta
+Note
+: 
+Okta's Developer Edition
+ makes most key developer features available by default for testing purposes. Okta's 
+API Access Management
+ product — a requirement to use 
+Custom Authorization Servers
+ — is an optional add-on in production environments.
+Sample code
+Web application examples
+About the Authorization Code grant 
+The Authorization Code flow is the recommended method for controlling access to web applications capable of securely storing secrets.
+Grant-type flow 
+Authorization Code flow 
+At a high level, this flow has the following steps:
+Your application (app) requests an authorization code from the authorization server (Okta).
+Before implementing this redirect request to the authorization server, you need to 
+set up your app
+ in Okta. See 
+Request an authorization code
+.
+Okta presents an authentication prompt (the Okta sign-in page) to the user's browser.
+The user authenticates with the authorization server and provides consent.
+For Okta to authenticate the user credentials, Okta needs user profile data.
+See 
+Add a user using Console
+(opens new window)
+, 
+Import Users
+, and the 
+Users API
+(opens new window)
+. Alternatively, you can 
+set up self-service registration
+ to allow users to register their membership with the app.
+The browser receives an authorization code from the authorization server (Okta) after the user is authenticated. The authorization code is passed to your app.
+Your app sends this code and the client secret to Okta. See 
+Exchange the code for tokens
+.
+Okta returns access and ID tokens, and optionally a refresh token.
+Your app can now use these tokens to call the resource server (for example an API) on behalf of the user.
+The resource server validates the token before responding to the request. See 
+Validate access token
+.
+Set up your app 
+Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
+Open the 
+Admin Console
+ for your org.
+Choose 
+Applications
+ > 
+Applications
+ to view the current app integrations.
+Click 
+Create App Integration
+.
+Select 
+OIDC - OpenID Connect
+ as the 
+Sign-in method
+.
+Select 
+Web Application
+ as the 
+Application type
+, then click 
+Next
+.
+Enter the 
+App integration name
+.
+Note:
+ When creating a web app, 
+Authorization Code
+ is selected as the default and isn't editable since it's a required 
+Grant type
+.
+In the 
+Sign-in redirect URIs
+ box, enter the callback location where Okta returns the browser (along with their authorization code).
+Fill in the remaining details for your app integration, then click 
+Save
+.
+From the 
+General
+ tab of your app integration, save the generated 
+Client ID
+ and 
+Client secret
+ values to implement your authorization flow.
+Use an SDK 
+Okta recommends using existing libraries and OAuth 2.0 helper methods to implement your authentication flow. You can use one of the Okta SDKs or an open-source library if an appropriate Okta SDK isn’t available. See 
+Recommended Okta SDKs
+ for a list of Okta SDKs that you can download to start using with your app.
+Refer to 
+Configure your app
+ for instructions on how to install and use Okta back-end framework SDKs. You can download Okta sample apps to see how the SDKs are used in your app's framework. See 
+Examples
+ for a list of sample apps.
+Flow specifics 
+The following sections outline the main requests required to implement the Authorization Code flow using direct calls to the 
+OIDC & OAuth 2.0 API
+(opens new window)
+. Typically, you don't need to make direct calls if you're using one of the Okta SDKs.
+Request an authorization code 
+To get an authorization code, your app redirects the user to your 
+authorization server's
+/authorize
+ endpoint. If you're using the org authorization server, then your request URL would look something like this:
+https://
+{
+yourOktaDomain
+}
+/oauth2/v1/authorize?
+client_id
+=
+0oabucvyc38HLL1ef0h7
+&
+response_type
+=
+code
+&
+scope
+=
+openid
+&
+redirect_uri
+=
+https%3A%2F%2Fexample.com
+&
+state
+=
+state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
+Note the parameters that are being passed:
+client_id
+: The client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's 
+General
+ tab.
+response_type
+: The value is 
+code
+, which indicates that you're using the Authorization Code grant type.
+scope
+: The value is 
+openid
+, which means that the 
+/token
+ endpoint returns an ID token. For custom scopes, see the 
+Create Scopes
+ section of the 
+Create an authorization server guide
+.
+redirect_uri
+: The callback location where the user agent is directed to along with the 
+code
+. This URI must match one of the 
+Sign-in redirect URIs
+ that you specified when you created your app integration earlier.
+state
+: An arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
+See 
+the OAuth 2.0 API reference
+(opens new window)
+ for more information on these parameters.
+If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, they arrive at the specified 
+redirect_uri
+ along with a 
+code
+. For example:
+http://www.example.com
+#code=P5I7mdxxdv13_JfXrCSq&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
+This code remains valid for 300 seconds, during which it can be exchanged for tokens.
+Exchange the code for tokens 
+To exchange this code for access and ID tokens, you pass it to your 
+authorization server's
+/token
+ endpoint. If you’re using the org authorization server, then your request would look something like this:
+curl
+--request
+ POST 
+\
+--url
+ https://
+{
+yourOktaDomain
+}
+/oauth2/v1/token 
+\
+--header
+'accept: application/json'
+\
+--header
+'authorization: Basic MG9hY...'
+\
+--header
+'content-type: application/x-www-form-urlencoded'
+\
+--data
+'grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&code=P59yPm1_X1gxtdEOEZjn'
+Important:
+ The call to the 
+/token
+ endpoint requires authentication. In this case, it's Basic Authentication with the client ID and secret 
+Base64-encoded
+. You can find the client ID and secret on your app integration's 
+General
+ tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. See 
+Client Authentication Methods
+(opens new window)
+.
+Note the parameters that are being passed:
+grant_type
+ is 
+authorization_code
+, indicating that you’re using the Authorization Code grant type.
+redirect_uri
+ is the URI that was used to get the authorization code.
+code
+ is the authorization code that you got from the 
+/authorize
+ endpoint.
+See the 
+OAuth 2.0 API reference
+(opens new window)
+ for more information on these parameters.
+If the code is still valid, your application receives back access and ID tokens:
+{
+"access_token"
+:
+"eyJhbG[...]9pDQ"
+,
+"token_type"
+:
+"Bearer"
+,
+"expires_in"
+:
+3600
+,
+"scope"
+:
+"openid"
+,
+"id_token"
+:
+"eyJhbG[...]RTM0A"
+}
+Validate access token 
+When your application passes a request with an 
+access_token
+, the resource server needs to validate it. See 
+Validate access tokens
+.
+Examples 
+The following examples present web apps implementing the Authorization Code flow to authenticate an end user and then create a local session for them. Each project can be cloned and run locally.
+Framework
+Example repository
+ASP.NET
+ASP.NET MVC & Okta-hosted Login Page Example
+(opens new window)
+ASP.NET Core 3.x
+ASP.NET Core & Okta-hosted Login Page Example
+(opens new window)
+Node Express
+Express & Okta-hosted Login Page Example
+(opens new window)
+Python
+Flask + Okta-hosted Login Example
+(opens new window)
+Spring Boot
+Okta Spring Security & Okta-hosted Login Page Example
+(opens new window)
+Next steps 
+Now that you have implemented authorization in your app, you can add features such as:
+Brand customization (
+custom domain
+, 
+custom SMS messages
+, 
+custom emails
+, and 
+custom error pages
+).
+Self-service enrollment
+Edit This Page On GitHub
+      Instructions for
+Authorization Code
+Loading...
+        On this page
+Grant-type flow
+Set up your app
+Flow specifics
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

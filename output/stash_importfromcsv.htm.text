@@ -1,0 +1,157 @@
+Import From CSV | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Import From CSV
+Import the contents of a comma-separated value (CSV) file into a table.
+After importing the file contents, you can process the data in various ways. For example, use the 
+Search Rows
+ function to retrieve a single row, a subset of rows, or all the rows. Or you could process each row using a List function, such as 
+For Each
+.
+Options
+Field
+Definition
+Type
+Required
+Table
+Table into which the card imports the CSV content.
+To select a table:
+Click 
+Choose Table
+, select a table in the dialog box, or click 
+New Table
+ to create a table, then click 
+Choose
+.
+Click 
+Save
+ on the card.
+If you want to include this card  in flows that operate on different tables, choose the 
+provide table at runtime
+ option. See 
+Provide a table ID at runtime
+.
+Dialog box
+TRUE
+Input
+Field
+Definition
+Type
+Required
+Destination
+Table ID
+ (if you selected the 
+provide table at runtime
+ option)
+ID for the table where the card imports the CSV data. To obtain the table ID, see 
+Provide a table ID at runtime
+.
+Text
+TRUE
+Source
+File Content
+ File ID of the source CSV file. The file must be correctly formatted CSV.
+File
+TRUE
+Options
+Select
+A list of column names to import directly into the table. Use this input when the CSV column names are exact matches of their counterparts inside the destination table.
+For example, if a CSV file has a column header 
+Column 1
+, and the destination column in the table is also named 
+Column 1
+, enter 
+Column 1
+. However, if the mappings between the CSV and the table are more complex, use the 
+Mapping
+ input and don't add any values to the 
+Select
+ input field.
+Text
+FALSE
+Mapping
+An object that describes the mapping between the column names of the CSV file and  the destination table.
+To build this object, each key is the name of the column header in the CSV file and the value is the destination table's column name.
+If a CSV column header isn't mapped, it won't be imported into the destination table.
+For example, consider a CSV source file with two column headers: 
+Column 1
+ and 
+Column 2
+. You want to map all data in 
+Column 1
+  to the destination table column 
+Column A
+. However, you don't want to include any information from 
+Column 2
+ in the destination table. The mapping object is 
+{"Column 1" : "Column A"}
+,  omitting 
+Column 2
+ entirely.
+Object
+FALSE
+Delimiter
+A custom delimiter for the source CSV file. For example, if you want to create a pipe-delimited CSV, then enter 
+|
+ as your delimiter. Defaults to 
+,
+.
+Text
+FALSE
+Clear Destination
+If all existing rows in the destination table must be deleted before importing data from the CSV file, set to 
+True
+.
+If set to 
+False
+, imported data is appended at the end of the destination table.
+True/False
+FALSE
+Output
+Field
+Definition
+Type
+New Rows
+Total number of rows imported from the source CSV file.
+Number
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

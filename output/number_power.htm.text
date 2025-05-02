@@ -1,0 +1,80 @@
+Power | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Power
+Calculate a base number raised to a specified power, or exponent.
+Input
+Field
+Definition
+Type
+Required
+base
+Numerical value raised to a specified exponent. 
+Number
+TRUE
+exponent
+Numerical value to which to raise a specified base number. An exponent specifies the number of times that a base number is multiplied by itself.
+Number
+TRUE
+Output
+Field
+Definition
+Type
+output
+Calculated result of a specified base and exponent.
+Number
+Example
+If 
+base
+ is 
+2
+ and 
+exponent
+ is 
+3
+, then the 
+output
+ is 
+8
+ (2 * 2 * 2 = 8).
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

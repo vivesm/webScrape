@@ -1,0 +1,143 @@
+Replace | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Replace
+Search and replace text.
+Input
+Field
+Definition
+Type
+Required
+look in
+Text within which a search for a string is performed.
+String
+FALSE
+look for
+String for which a search is performed. Value can be a pattern using regular expressions. See 
+Find Pattern
+.
+String
+FALSE
+replace with
+String with which input text is replaced.
+String
+FALSE
+all instances
+Indicates whether all strings matching the value in 
+look for
+ are replaced. Default is 
+False
+.
+Boolean
+FALSE
+case sensitive
+Indicates whether all strings matching the string value and case in 
+look for
+ are replaced. Default is 
+True
+.
+For example, if 
+case sensitive
+ is set to 
+False
+, then a value of 
+Test
+ in 
+look for
+ would match 
+test
+, 
+TEST
+, and 
+tEsT
+.
+Boolean
+FALSE
+Output
+Field
+Definition
+Type
+result text
+String value after matching string values are replaced.
+If no instances of 
+look for 
+are found, then 
+result text
+ is the same as the original input value for the 
+look in
+ field.
+String
+Example
+look in
+look for
+replace
+all instances
+result text
+Hello world
+Hello
+Goodbye
+False
+Goodbye world
+(206) 555-1234
+\d
+(regular expression for any digit)
+#
+True
+(###) ###-####
+Visa 123456780123
+\d{8}
+  (regular expression for 8 digits in a row)
+########
+False
+Visa ########0123
+A*B@C+D
+[^\w]
+ (regular expression 
+^
+ for not combined with 
+\w
+ for any alphanumeric character)
+Null
+True
+ABCD
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

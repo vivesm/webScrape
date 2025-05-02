@@ -1,0 +1,104 @@
+Add | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Add
+Add a multiple of a unit of time (for example, seconds) from a starting date and time and return a new date value.
+Input 
+Field
+Definition
+Type
+Required
+start date
+Start date and time.
+Date & Time
+TRUE
+add
+Amount to add to the start date and time.
+Number
+FALSE
+units
+Specific unit type (in scale) to add to the start date. Options are:
+milliseconds
+seconds
+minutes
+hours
+days weeks
+months
+years
+Dropdown
+TRUE
+Output
+Field
+Definition
+Type
+output
+Resulting date and time after the specified addition
+Date & Time
+Examples
+start date
+add
+units
+output
+5-Sept-2016
+2
+weeks
+19-Sept-2016
+19-Sept-2016 9:00am
+8
+hours
+19-Sept-2016 5:00pm
+If you want to start with the current date and time, use a 
+Now
+ card and drag/drop the 
+date
+ field from the 
+Now
+ card into the start date field on the 
+Add
+ card.
+Results for this card are displayed and converted to text in ISO date format using UTC 
+Z
+ notation (that is, not adjusted for local time zone). If you need to display a date and time in a specific time zone, use 
+Date to Text
+.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

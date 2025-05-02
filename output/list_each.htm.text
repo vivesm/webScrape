@@ -1,0 +1,101 @@
+For Each | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+For Each
+Process a list by calling a helper flow for each item.
+The 
+For Each
+ function card does not return any output values. Add this card to a flow when you want to take action against each item in a list but do not need any information in return. 
+Use a helper flow
+To use this function card, you must first build a helper flow that you will use to process each item. See 
+Helper flows
+. The helper flow is invoked each time an item is changed in a list. You must also define the input values for the flow on the flow's event card. Typically, include one input for the item that is in the list. For example, if the list contains text values, then one of the inputs should be of the type text. You can also include other inputs.
+If you need to know the position of the current item within a list, use the 
+Index
+ field on the 
+Helper Flow
+ card. 
+Update the For Each function card
+On the For Each function card,  add the list you want to use in the 
+list
+ field, and then select the flow you just built. The inputs will populate automatically, then you can map data into them.
+To map an input to accept each item of the list, click that field and select 
+item
+ from the dropdown. If your list is a list of objects where you can see the schema of the object, choose to have your helper flow accept those as inputs. 
+Additionally, you can drag outputs from previous cards in the flow, in which case the same value will be used for each item in this list.
+Input
+Field
+Definition
+Type
+Required
+For each item in this list
+list
+List whose values are processed in a flow.
+Object
+TRUE
+Run this Flow
+Helper Flow
+Specify the helper flow that will be called once for each item in the list.
+Flow
+TRUE
+With the following values
+concurrency
+Number of items in the list to process in parallel.  If it is important that the items are processed in sequence, enter 
+1
+.
+Otherwise, a higher number such as 
+5
+ or 
+10
+ will cause your flow to complete sooner.
+Number
+FALSE
+Various
+Input fields that are defined by the helper flow.
+These fields are dynamically generated when a helper flow is selected from the 
+Choose Flow
+ dialog.
+Various
+FALSE
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

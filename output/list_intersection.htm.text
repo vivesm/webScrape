@@ -1,0 +1,72 @@
+Intersection | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Intersection
+Given two or more input lists, this card creates a new list containing only the items that are included in all of the input lists.
+The lists can be of any type (for example text, number, or object) but all lists must be set to the same type.
+Input
+Field
+Definition
+Type
+Required
+list1
+The first list of items.
+List of any type
+TRUE
+list2
+The second list of items.
+List of any type
+TRUE
+(optional)
+Optional. You can provide additional input lists, using any field name.
+List of any type
+FALSE
+Output
+Field
+Definition
+Type
+list
+The list of items contained in all of the input lists.
+List of any type
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

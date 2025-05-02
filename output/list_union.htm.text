@@ -1,0 +1,71 @@
+Union (Combine Unique) | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Union (Combine Unique)
+Combine multiple lists into a single list of all unique values contained in the input lists. 
+The lists can be of any type if all lists are set to the same type, including the output list.
+This function can be used to remove duplicate values from two lists.
+Input
+Field
+Definition
+Type
+Required
+List 1
+The first list of items.
+List of Objects
+TRUE
+List 2
+The second list of items.
+You can define any number of extra input lists. The lists are combined in order.
+List of Objects
+TRUE
+Output
+Field
+Definition
+Type
+List Union
+The output list, containing only one item for each unique value in the provided lists.
+The type of the output list must match the types of the input list, for example, a list of text or a list of objects.
+List of Objects
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

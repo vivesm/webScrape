@@ -1,0 +1,91 @@
+List to Text | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+List to Text
+This function generates a single text output from a list using an optional separator. For example, if you have a list of product names, this function can create a comma-separated list of products to include in an email.
+The function works with the following types:
+List of Text
+Number
+True/False
+Date & Time
+If you send a List of Objects to this function, it results in an error. First, you need to convert it to a List of Text:
+Use the 
+Pluck
+ function to get a list of the 
+values
+ from a single 
+key
+ of the objects.
+On the 
+Pluck
+ card, change the 
+values
+ output type to 
+Text
+. This changes the output of the card into a List of Text.
+Pass that List of Text into this 
+List to Text
+ card.
+Input
+Field
+Definition
+Type
+Required
+list
+The list to operate on. 
+Various
+TRUE
+separator
+Specify the characters to insert in the output text between each item. 
+You can use a single character or more than one character, such as a comma or a comma followed by a space.
+Text
+FALSE
+Output
+Field
+Definition
+Type
+text
+The output text string, with the separator added between each item.
+Text
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

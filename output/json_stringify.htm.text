@@ -1,0 +1,81 @@
+Stringify | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Stringify
+This function card converts a typed value such as an object or a list into a JSON string. JSON is a standard format used by web developers to send data to and from RESTful web services.
+This function is the inverse of 
+Parse
+.
+Input
+Field
+Definition
+Type
+Required
+object
+Value to convert to a string. The object can be any JSON type such as a list of objects, a list of text, or just a number.
+Object
+TRUE
+Output
+Field
+Definition
+Type
+output
+String that contains the converted JSON value.
+String
+Example
+JSON object:
+Copy
+{
+    "id": "00un26wnom930KZKX0h7",
+    "created": "2019-08-19T16:52:35.000Z",
+    "lastUpdated": "2019-08-19T16:52:35.000Z",
+        "profile": 
+        {
+            "firstName": "John",
+            "lastName": "Smith",
+            "email": "john.smith@okta.com"
+        }
+}
+JSON string output:
+{"id":"00un26wnom930KZKX0h7","created":"2019-08-19T16:52:35.000Z","lastUpdated":"2019-08-19T16:52:35.000Z","profile":{"firstName":"John","lastName":"Smith","email":"john.smith@okta.com"}}
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

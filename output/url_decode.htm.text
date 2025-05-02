@@ -1,0 +1,100 @@
+Decode Query | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Decode Query
+Decode a URL-encoded query string into a query object.
+This function card is the inverse of the 
+Encode Query
+ function.
+Use the 
+Parse
+ function when you have a full URL that you want to separate into component parts, including the query string. Then, you can drag the 
+query
+ output from the 
+Parse
+ function into the 
+query
+ input of your 
+Decode Query
+ card.
+Input
+Field
+Definition
+Type
+Required
+query
+The encoded query string.
+Text
+TRUE
+Output
+After the query is an object, it's easier to extract particular query parameters, for example using the 
+Get
+ or 
+Get Multiple
+ function cards.
+Field
+Definition
+Type
+output
+This contains the query parameters split into a single object.
+Object
+Example
+The URL 
+https://www.example.com/searchcustomers?name=John%20Doe&region=North%20America
+ contains the query string: 
+name=John%20Doe&region=North%20America
+.
+The 
+Decode Query
+ function card converts this 
+query
+ text to the following 
+output
+ object:
+Copy
+{
+"name": "John Doe",
+"region": "North America"
+}
+Related topics
+Functions
+Workflow elements
+Special characters and delimiters
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

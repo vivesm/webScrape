@@ -1,0 +1,69 @@
+Events | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Events
+Events are occurrences that trigger flows to run. For example, a flow would run every time an issue is created in Jira. 
+There are three types of events:
+Application events
+: Monitor for changes within your cloud application. When a change has been detected, the flow will execute. 
+Scheduled events
+: Scheduled events allow you to execute a flow at a given interval.
+On demand events
+: On demand events allow you to activate a flow internally or externally.
+Application events
+Application events occur when something happens in Okta or an external application. For example:
+A user is added to an application in Okta
+A new customer is created in Salesforce
+A new row is added to a Google Sheet
+Many application events, including those from Okta, are triggered in response to an incoming webhook. The external system makes an HTTP call to Workflows immediately when the specified event occurs.
+Other application events check a given service for new or updated records on a recurring schedule. Most of these cards poll the connected application for new data every five minutes by default. But by using the event card options, you can change the polling schedule to a custom schedule. See 
+Set schedule options
+.
+Scheduled events
+Scheduled events allow you to execute a flow at a given interval. This type of event can be used to poll a web service for new or changed records, or to run a periodic process such as a nightly report.
+On demand flows
+On demand flows are executed in response to a customer or system calling an API endpoint. Within Okta, this is typically used when calling a flow from an Inline Hook. It can also be used to invoke flows from a third-party system that doesn't have an out-of-the-box event available in its connector.
+Event outputs
+Event cards have output fields that can be used to pass data from the event to other steps in the flow for further action. For example, if your flow's event is User Added to Application in Okta, then the flow will kick off once for each user that is added to the specified application. The outputs of the event card  are assigned values based on properties of the Okta event, such as the user's username, the application name, and the time when the event happened.  You can manipulate the data with built-in text, math, object and list functions and add custom logic and branching to handle different conditions through additional cards in the flow.
+Related topics
+Set data exchange options
+Action and function cards
+Cards in flows
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

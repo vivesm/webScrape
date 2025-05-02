@@ -1,0 +1,123 @@
+Encode Query | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Encode Query
+Encode a query object into a URL-encoded query string.
+This function card is the inverse of the 
+Decode Query
+ function.
+To use this card, build a query object with 
+Object
+ functions such as the 
+Construct
+, 
+Set
+, or 
+Zip
+ function cards. Using dynamic inputs from previous steps is the easiest way to prepare the object.
+Input
+Field
+Definition
+Type
+Required
+data
+The query object.
+Object
+TRUE
+Output
+Field
+Definition
+Type
+output
+The encoded string for your query.
+Text
+Delimiters and special characters
+When making API requests, it's essential to encode any special characters to ensure that the server interprets them correctly. However, don't encode any delimiters used in the URL. 
+Special characters include spaces, punctuation marks, and non-ASCII characters. These characters can cause issues in URLs if you don't properly encode them.
+Delimiters are essential parts of the URL structure, so don't encode them. The 
+?
+ delimiter for query strings is a literal character inside the URL. This delimiter is used so the web server knows where the path ends and where the query string begins.
+See 
+Special characters and delimiters
+.
+The following example demonstrates this concept further.
+Correctly encoded: 
+https://www.acme.com/api/product/?category=furniture&color=blue%2Fred
+Incorrectly encoded: 
+https://www.acme.com/api/product/%3Fcategory=furniture&color=blue%2Fred
+The 
+?
+ delimiter for query strings is a literal character in the first URL, but it's incorrectly encoded as 
+%3F
+ in the second URL. This delimiter is needed so the web server knows where the URL path ends and where the query string begins. 
+Notice, however, that the special slash character 
+/
+ is encoded as 
+%2F
+ within the query parameter value. Without this encoding, it could be misinterpreted as a path by web servers.
+Example
+This example shows how to create a search query for a URL from a user's name and region.
+You can create an encoded string using the 
+Encode Query
+ card and the following object as the 
+data
+ input:
+Copy
+{
+"name": "John Doe",
+"region": "North America"
+}
+After going through the 
+Encode Query
+ card, the input object is encoded to the following query string: 
+name=John%20Doe&region=North%20America
+.
+You can then combine this query string with your base URL in a 
+Concatenate
+ or 
+Format
+ function card to create the full URL, for example, 
+https://www.example.com/searchcustomers?name=John%20Doe&region=North%20America
+.
+Related topics
+Functions
+Workflow elements
+Special characters and delimiters
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

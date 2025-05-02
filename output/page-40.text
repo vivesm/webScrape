@@ -1,0 +1,776 @@
+Use redirect auth with the Identity Engine sample apps | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Use case scenarios
+Loading...
+    Use redirect auth with the Identity Engine sample apps
+    Identity Engine
+This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many setup options available with the Okta sample apps, the apps can redirect to the Okta Sign-In Widget for authentication. They can also redirect to a social Identity Provider like Facebook.
+Learning outcomes 
+Create, set up, and install an Okta OAuth 2.0 app.
+Enroll and authenticate a user.
+Enable self-service enrollment and enable a second factor for authentication.
+Use email and Okta Verify as recovery options.
+Add a profile attribute to the user profile policy.
+Route users to an external IdP.
+What you need 
+Sample app
+Use case scenarios 
+The following scenarios are included in this guide:
+Simple enrollment and authentication
+Enable self-service enrollment
+Add MFA with a mandatory second factor
+Authenticator recovery
+Progressive Profiling
+Identity Provider routing to Facebook
+Initial setup 
+To get started, you need to create an Okta OAuth app to represent the 
+Android
+ app and then install the 
+Android
+ sample app.
+Note:
+ These steps assume that you are using Android Studio to configure the sample app.
+Sign in to your 
+Admin Console
+(opens new window)
+.
+Go to 
+Applications
+ > 
+Applications
+, and then click 
+Create App Integration
+.
+In the dialog that appears, select 
+OIDC - OpenID Connect
+ as the 
+Sign-on method
+, 
+Native Application
+ as the 
+Application type
+, and then click 
+Next
+.
+Fill in the New 
+Native App
+ Integration fields that you need, and then click 
+Save
+:
+Be sure to add the following values (or leave the defaults if they match):
+Sign-in redirect URIs
+: 
+com.okta.example:/callback
+Sign-out redirect URIs
+: 
+com.okta.example:/logoutCallback
+Note:
+ Copy these values and store them temporarily. You need them in the next section.
+In the 
+Assignments
+ section, select 
+Allow everyone in your organization to access
+. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
+On the new Application page, click the "Copy to clipboard" icon to copy the 
+Client ID
+. Store this information temporarily for use when you 
+add it to the 
+okta_oidc_config.json
+ file
+ in the next section.
+Build your issuer URL, which is the URL of the authorization server that performs the authentication. This example uses the 
+default
+ custom authorization server. The issuer is a combination of your Okta domain (found by clicking your username in the upper-right corner of the Admin Console) and 
+/oauth2/default/.well-known/openid-configuration
+. For example: 
+https://example-1234.oktapreview.com/oauth2/default/.well-known/openid-configuration
+.
+Note:
+ If you’re using a custom domain to reference the issuer, make sure that you also configure the custom authorization server to 
+reflect the custom domain
+. Otherwise, there’s a mismatch between the issuer in the request and the tokens minted.
+Install the sample app 
+Install the sample app wherever you want using: 
+git clone https://github.com/okta/samples-android.git
+Open the 
+browser-sign-in
+ directory and navigate to the 
+okta_oidc_config.json
+ file in the app's 
+res/raw/
+ directory.
+Add the information that you copied in the previous steps:
+{
+"client_id"
+:
+"${clientId}"
+,
+"redirect_uri"
+:
+"${SigninredirectUri}"
+,
+"end_session_redirect_uri"
+:
+"${SignoutredirectUri}"
+,
+"scopes"
+:
+[
+"openid"
+,
+"profile"
+]
+,
+"Discovery_uri"
+:
+"https://${yourOktaDomain}/oauth2/default/.well-known/openid-configuration"
+}
+Note:
+ The 
+discovery_uri
+ is the issuer URL that you built earlier.
+To redirect back to your application from a web browser, you must specify a unique URI to your app. To do this, define a gradle manifest placeholder in your app's 
+build.gradle
+ file:
+android.defaultConfig.manifestPlaceholders 
+=
+[
+"appAuthRedirectScheme"
+:
+"com.okta.example"
+]
+Note:
+ Make sure that this value is consistent with the redirect URI that you added to the 
+okta_oidc_config.json
+ file. For example, if your redirect URI is 
+com.okta.example:/callback
+, then the 
+appAuthRedirectScheme
+ should be 
+com.okta.example
+.
+Verify that the correct Okta OIDC Library is defined: 
+implementation 'com.okta.android:oidc-androidx:1.0.18
+You have now created your App in Okta and installed the Okta 
+Android
+ sample app.
+Simple enrollment and authentication 
+This section walks you through enrolling a user and authenticating that user.
+Open and test the Sign-In Widget 
+From Android Studio, run the 
+Android
+ app.
+Open the emulator (if it doesn't automatically open). The emulator displays the Okta 
+Android
+ landing page.
+In the emulator, click 
+SIGN IN
+. You are redirected to the Okta Sign-In Widget. Note that there currently is no 
+Sign Up
+ option.
+Enter the 
+Username
+ and 
+Password
+ for an admin user in your Okta org. You're redirected to the success page.
+Note:
+ Which authenticators appear during sign-in depends on how your 
+authentication policy
+ is configured.
+Click 
+SIGN OUT
+ to sign out of the 
+Android
+ app.
+Enable self-service enrollment 
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+Note:
+ This section assumes that you followed the previous 
+Initial setup
+ and 
+Simple enrollment and authentication
+ sections. The steps may be different if you didn't.
+In the Admin Console, select 
+Security
+ > 
+User Profile Policies
+, and then select 
+Add user profile policy
+.
+Give your Policy a 
+Name
+ and then click 
+Save
+.
+On the Profile Enrollment page, select the pencil icon for your new Policy from the 
+Actions
+ column.
+On the Policy page, click 
+Manage Apps
+ and then click 
+Add an App to This Policy
+.
+Locate the 
+Android
+ app that you created earlier, click 
+Apply
+, and then 
+Close
+.
+Click 
+Back to User Profile Policy
+.
+Click 
+Edit
+ in the 
+Profile Enrollment
+ section.
+Set 
+Self-service registration
+ to 
+Allowed
+, and then click 
+Save
+.
+Note:
+ See 
+Configure user profile policies
+(opens new window)
+.
+Try enrollment 
+This section walks you through the self-service enrollment steps for a new user.
+From Android Studio, run the app.
+In the emulator, click 
+SIGN IN
+.
+In the Okta Sign-In Widget, click 
+Sign up
+ that follows the 
+Forgot password?
+ link.
+Enter the requested information, and then click 
+Sign Up
+.
+Set up the email and password authenticators. Don't set up any other authenticators.
+Note:
+ Be sure to copy the code from the email and paste it into the Sign-In Widget. This allows you to manually verify the email address rather than using the 
+Verify Email Address
+ button.
+After you complete the setup, click 
+Finish
+. You're redirected to the app's welcome page.
+Click 
+SIGN OUT
+ to sign out of the 
+Android
+ app.
+Enable self-service password-optional enrollment 
+To enable self-service password-optional enrollments in the Sign-In Widget, 
+Set up your Okta org for a password-optional use case
+. After completing the setup, try a password-optional enrollment with the following steps:
+From Android Studio, run the app.
+In the emulator, click 
+SIGN IN
+.
+In the Okta Sign-In Widget, click 
+Sign up
+.
+Enter the email, first and family name, and then click 
+Sign Up
+.
+Verify your email address by clicking 
+Verify Email Address
+ in the email sent by Okta.
+Note:
+ Alternatively, you can verify your email address by copying the one-time passcode from the email into the Sign-In Widget.
+Click 
+Set up later
+ for all the optional authenticators. The app redirects you to the home page.
+Click 
+SIGN OUT
+ to sign out of the 
+Android
+ app.
+Add MFA with a mandatory second factor 
+You can modify the app's authentication policy to require the user to have a second factor enabled for authentication. In this example, use the phone authenticator.
+Note:
+ Your Okta org may have different authenticators enabled by default.
+Enable multifactor authentication 
+Ensure that your org has the phone authenticator enabled by going to 
+Security
+ > 
+Authenticators
+ and checking that 
+Phone
+ is listed.
+If it isn't listed, add it:
+Click 
+Add Authenticator
+, and then click 
+Add
+ in the 
+Phone
+ authentication box.
+Set 
+This authenticator can be used for
+ to 
+Authentication and recovery
+, and click 
+Add
+.
+From the side navigation, select 
+Applications
+ > 
+Applications
+ and then select the app integration that you created earlier.
+Select the 
+Sign On
+ tab.
+Scroll down to the 
+User authentication
+ section and click 
+Edit
+.
+From the 
+Authentication policy
+ dropdown menu, select 
+Any two factors
+ and click 
+Save
+.
+Try multifactor authentication 
+From Android Studio, run the app.
+In the emulator, click 
+SIGN IN
+.
+Enter the credentials of the user that you enrolled with earlier. The Set up security methods page appears, prompting you to set up either the Okta Verify app or the phone authenticator.
+Under 
+Phone
+, click 
+Set up
+.
+Fill out the requested phone authentication information and verify your phone with a code.
+Under 
+Set up optional
+, click 
+Set up later
+. You're redirected to the 
+Android
+ welcome page.
+Click 
+SIGN OUT
+ to sign out of the 
+Android
+ app.
+Self-service Password Recovery 
+Password recovery with email magic link 
+Note:
+ In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
+Try the email magic link recovery flow:
+Select 
+Forgot password?
+ in the Sign-In Widget.
+Enter your email or username when prompted and click 
+Next
+.
+Click 
+Send me an email
+. A magic link is sent to your email address.
+Click 
+Sign In
+. A new window opens and you're automatically signed in.
+Password recovery with email OTP 
+Note:
+ In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
+Try out the email password recovery flow:
+Select 
+Forgot password?
+ in the Sign-In Widget.
+Enter your email or username when prompted and click 
+Next
+.
+Click 
+Select
+ for the email authenticator. An OTP code is sent to your email address. Manually copy the code from the email.
+In the Sign-In Widget, click 
+Enter a code from the email instead
+, paste the code, and click 
+Verify
+.
+Enter a new password.
+After you enter the new password successfully, you're prompted for the additional phone authentication that you set up in 
+Enable multifactor authentication
+. You’re then redirected to the 
+Android
+ welcome page.
+Click 
+SIGN OUT
+ to sign out of the 
+Android
+ app.
+Okta Verify recovery flow 
+In addition to recovering your password with an email, you can add Okta Verify as a recovery option.
+Go to 
+Security
+ > 
+Authenticators
+.
+Click 
+Actions
+ beside the password authenticator, and then click 
+Edit
+.
+In the 
+Add Rule
+ section, click the pencil icon for the Default Rule.
+In the 
+Recovery authenticators
+ section, locate 
+AND Users can initiate recovery with
+.
+Select 
+Okta Verify (Push notification only)
+ and click 
+Update Rule
+.
+Enroll a new user
+, ensuring that this time you also enroll Okta Verify.
+Sign in with your new user to confirm that you added the user correctly, and then click 
+SIGN OUT
+.
+Back on the welcome page of the 
+Android
+ app, click 
+SIGN IN
+.
+After you're redirected to the Sign-In Widget, click 
+Forgot password?
+.
+Enter the email address of the user that you created with Okta Verify as a factor, and then click 
+Next
+.
+On the next page, click 
+Select
+ beside 
+Get a push notification
+. You should receive a push notification in Okta Verify. Respond appropriately.
+Enter the answer to your Security Question, and then you're asked to reset your password.
+When you finish, the 
+Android
+ welcome page appears.
+Click 
+SIGN OUT
+ to sign out of the 
+Android
+ app.
+Progressive Profiling 
+Okta gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, add a required profile attribute, and the user you've already enrolled is asked for this information when they next authenticate.
+When you enrolled your test user, the user was only prompted for first and family name, as well as their email and a password. Now add an additional required property to the user profile policy.
+In the Admin Console, select 
+Security
+ > 
+User Profile Policies
+.
+Find the user profile policy that you created for self-service enrollment and click the pencil icon in the 
+Actions
+ column.
+In the 
+Enrollment Settings
+ section, click the 
+Actions
+ menu icon (⋮), and then select 
+Edit
+.
+For 
+Progressive Profiling
+, select 
+Enabled
+.
+From the side navigation, select 
+Directory
+ > 
+Profile Editor
+.
+Under 
+Filters
+, select 
+Okta
+, and then click the 
+User (default)
+ profile.
+Under 
+Attributes
+, click 
+Add Attribute
+, and then fill out the dialog box that appears with the following values. The other fields are optional and can be left blank. Click 
+Save
+ when you finish.
+Data type
+: 
+string
+Display name
+: 
+Region
+Variable name
+: 
+region
+Find the 
+Region
+ attribute that you created and click the pencil icon beside it.
+In the 
+Region
+ dialog box that appears, set 
+User permission
+ to 
+Read-Write
+, and then click 
+Save Attribute
+.
+Note:
+ You can check which user attributes are required for your directory by clicking the information icon beside each attribute. By default, 
+First name
+ and 
+Last name
+ are marked as required, in addition to what you specify in your enrollment policy.
+Return to user profile policies (
+Security
+ > 
+User Profile Policies
+). Find the user profile policy that you created for self-service enrollment and click the pencil icon in the 
+Actions
+ column.
+In the Profile enrollment form section, click 
+Add form input
+ and search for 
+Region (region)
+Select the 
+Required
+ checkbox, and then click 
+Save
+.
+Try to authenticate using one of the same users from the previous steps. You're prompted with a 
+Region
+ field and a 
+Sign Up
+ button. After you add a value, you can confirm that it's saved by accessing 
+Directory
+ > 
+People
+ in the Admin Console. Then, locate the correct user and select their 
+Profile
+ tab. If you try to register a new user, you see the 
+Region
+ field added to the sign-in page.
+Identity Provider routing to Facebook 
+Instead of signing in to Okta, it's possible to route users to an external Identity Provider (IdP) using the Okta IdP Routing Rules.
+Note:
+ For B2B scenarios, you may want to add a SAML 2.0 Identity Provider rather than a social Identity Provider. See 
+Add an external Identity Provider
+.
+Create a Facebook App 
+Go to 
+Facebook for Developers
+(opens new window)
+ and register for a developer account if you haven't already done so.
+Access the 
+Facebook App Dashboard
+(opens new window)
+.
+Create a Facebook app using these 
+instructions
+(opens new window)
+.
+Note:
+ When you create the app, select 
+Consumer
+ as the app type.
+After you create the app, on the Add Products to Your App page, click 
+Set Up
+ on the 
+Facebook Login
+ tile.
+On the first page of the Quickstart, select 
+Web
+.
+In the 
+Site URL
+ box, enter your Okta domain. The site URL can also be any URL that makes sense for your app. To locate your Okta domain, click your username in the upper-right corner of the Admin Console. Your Okta domain appears in the dropdown menu.
+Click 
+Save
+, click 
+Continue
+, and then click 
+Next
+ until you exit the Quickstart wizard.
+Note:
+ Normally, under the 
+Facebook Login
+ > 
+Settings
+ section, you would enter the 
+Valid OAuth Redirect URIs
+, but Facebook automatically adds 
+localhost
+ redirects so this isn't required for this example.
+On the App's Dashboard page, expand 
+Settings
+ on the left side of the page, and then click 
+Basic
+.
+Save the 
+App ID
+ and the 
+App Secret
+ values so that you can add them to the Okta configuration in the next section.
+Note:
+ There may be more settings on the 
+Facebook App Dashboard
+(opens new window)
+ that you can configure for the app. The steps in this guide address the quickest route to setting up Facebook as an Identity Provider with Okta. See the Facebook documentation for more information on other configuration settings.
+Create an Identity Provider in Okta 
+To connect your org to the IdP, add and configure that IdP in Okta.
+Note:
+ Be sure to assign your app to either the 
+Everyone
+ group or a custom group that you create so that profile enrollment functions correctly.
+From the Admin Console side navigation, select 
+Security
+ > 
+Identity Providers
+.
+Select 
+Add Identity Provider
+ and then select 
+Add Facebook
+.
+In the Add an Identity Provider dialog box, define the following:
+Name
+: Enter a name for the IdP configuration.
+Client ID
+: Paste the app ID that you obtained from the IdP in the previous section.
+Client Secret
+: Paste the secret that you obtained from the IdP in the previous section.
+Scopes
+: Leave the defaults.
+By default, Okta requires the 
+email
+ attribute for a user. The 
+email
+ scope is required to create and link the user to the Okta Universal Directory.
+Note:
+ For more information about these settings and the 
+Advanced Settings
+, see 
+Social Identity Provider Settings
+.
+Click 
+Add Identity Provider
+. The Identity Provider page appears.
+Locate the IdP that you just added and click the arrow next to the IdP name to expand.
+Copy the 
+Redirect URI
+ (ending in 
+/callback
+).
+On the page for your Facebook app, under 
+Facebook Login
+, select 
+Settings
+. Then paste the redirect URI that you copied into the 
+Valid OAuth Redirect URIs
+ box.
+Click 
+Save Changes
+.
+Create the Routing Rule 
+Note:
+ These steps assume that you have no other Routing Rules defined. The following steps may be different if you have existing Routing Rules for the Identity Provider.
+Create a Routing Rule that automatically routes all authentication requests to Facebook.
+On the Identity Providers page in the Admin Console, select the 
+Routing Rules
+ tab.
+Click 
+Add Routing Rule
+.
+Name the Rule, and then for the purposes of this example set two rule conditions:
+For 
+AND User is accessing
+, select 
+Any of the following applications
+, and then choose your Application. This routes any attempts to access the 
+Android
+ app to the Facebook IdP, but still allows you to access your Admin Console normally.
+For 
+THEN Use this identity provider
+, select the Facebook IdP that you added earlier, and then click 
+Create Rule
+.
+Click 
+Activate
+ in the dialog box that appears.
+Start the 
+Android
+ app in an incognito/private browser window and click ç. You are redirected to the Facebook site, where you can sign in.
+After successful authentication, you're returned to the 
+Android
+ app's welcome page.
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Use case scenarios
+Initial setup
+Install the sample app
+Simple enrollment and authentication
+Open and test the Sign-In Widget
+Enable self-service enrollment
+Try enrollment
+Enable self-service password-optional enrollment
+Add MFA with a mandatory second factor
+Enable multifactor authentication
+Try multifactor authentication
+Self-service Password Recovery
+Password recovery with email magic link
+Password recovery with email OTP
+Okta Verify recovery flow
+Progressive Profiling
+Identity Provider routing to Facebook
+Create a Facebook App
+Create an Identity Provider in Okta
+Create the Routing Rule
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

@@ -1,0 +1,186 @@
+Paginate: API endpoint | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Paginate: API endpoint
+This function card is only available in 
+Connector Builder
+.
+This example builds on the concepts and implementation introduced in 
+Paginate: set a maximum page index
+.
+The specific behaviors of paginating against an API endpoint vary depending on the API.  For this example, consider a simple link header that includes a URL for the next page of records. 
+To expand on the 
+Paginate: set a maximum page index
+ exercise, add some new key and value pairs to the pagination 
+object
+:
+url
+: This is the complete URL used to retrieve the first page of records. In many services, this contains both a limit and an offset value.
+limit
+: Determines how many records to retrieve, starting from the offset.
+offset
+: Position in the data set of the last record retrieved.
+results_list
+: This is an empty list of objects to which each page of new records is added.
+Connection
+: The connection information that is passed along to the helper flow. To include a connection, click 
+Add event
+ and select 
+Action
+.
+The resulting 
+object
+ looks like:
+Copy
+{
+  "page_index": 0,
+  "max_page_index": 10,
+  "url": "https://app.scaleft.com/v1/teams/demo/projects?limit=200&offset=0",
+  "results_list": [],
+  "break": false,
+   "Connection":{
+      "blob":{
+         "api_key":"<apikeystring>"
+      }
+   }
+}
+Helper flow
+The 
+Paginate
+ function requires a helper flow. The inputs defined in the helper flow  need to match the keys you defined in the pagination 
+object
+: 
+page_index
+max_page_index
+break
+url
+results_list
+Connection
+Use the 
+url
+ value to call the service using the 
+HTTP Raw Request
+ function.  After you receive a response, the helper flow manages the 
+url
+ and 
+results_list
+ to prepare for the next iteration of the pagination function.  
+Extract the 
+link
+ header from the 
+headers
+ object and the page of 
+results
+ from the 
+body
+ object using 
+Get
+ object cards.
+After a page of results has been extracted from the response, it needs to be added to any existing results from previous pagination iterations using the 
+List Union
+ function. Then rebuild the pagination object with the new values collected within the helper flow.
+The resulting 
+object
+ looks like:
+Copy
+{
+  "page_index": 1,
+  "max_page_index": 10,
+  "break": false,
+  "url": "https://app.scaleft.com/v1/teams/demo/projects?limit=200&offset=200",
+  "results_list": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "..."
+  ],
+  "Connection": {
+    "blob": {
+      "api_key": "<apikeystring>"
+    }
+  }
+}
+Finally, you need to determine how the API indicates that there are no more result pages  so the pagination should halt. For example,  the service might drop the 
+link
+ key from the header after the last page of results is sent.
+Therefore, if the 
+link
+ key is missing or empty, then the 
+break
+ key must be removed from the pagination object using the 
+Unset
+ object function.  When the pagination object is returned to the parent flow without the 
+break
+ key, the pagination stops.
+When you run the parent flow, the final 
+object
+ looks like the following:
+Copy
+{
+  "page_index":6,
+  "max_page_index":10,
+  "url": "",
+  "results_list":[
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "..."
+  ],
+  "Connection":{
+    "blob":{
+      "api_key":"<apikeystring>"
+    }
+  }
+}
+Related topics
+Paginate
+Paginate: set a maximum page index
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,544 @@
+Configure OAuth 2.0 Demonstrating Proof-of-Possession | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Non-Okta resource server
+Loading...
+    On this page
+            Overview
+Loading...
+    Configure OAuth 2.0 Demonstrating Proof-of-Possession
+This guide discusses how to create sender-constrained access tokens that are an app-level mechanism for preventing token replays at different endpoints.
+Learning outcomes 
+Understand the purpose of Demonstrating Proof-of-Possession
+Understand how to configure OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) for your org
+What you need 
+Okta Developer Edition organization
+(opens new window)
+Glitch
+(opens new window)
+ project or account
+An 
+OAuth 2.0 client app
+ that has the 
+Require Demonstrating Proof of Possession (DPoP) header in token requests
+ checkbox enabled.
+If you're using the API, add the 
+DPoP parameter
+(opens new window)
+ (
+dpop_bound_access_tokens: true
+) to 
+settings.oauthClient
+ to your app.
+Be able to 
+build a request
+ and obtain an access token for your app.
+Be able to create a 
+JSON Web Key
+(opens new window)
+. In a production environment, use your internal instance of a key pair generator to generate the JWK for use with DPoP. See this 
+key pair generator
+(opens new window)
+ for an example. For testing purposes only, you can use this 
+simple JWK generator
+(opens new window)
+ to generate a key pair for an example setup. Use only 
+asymmetric keys
+(opens new window)
+ with DPoP.
+Note:
+ The JWK that's used for DPoP authentication is separate from the JWK used for client authentication.
+Overview 
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) helps prevent unauthorized parties from using leaked or stolen access tokens. When you use DPoP, you create an app-level mechanism to sender-constrain both access and refresh tokens. This helps prevent token replays at different endpoints. Resource servers must require and track the incoming 
+DPoP proof JWT's
+jti
+ claim (in the HTTP request) and not accept that claim more than once. Every DPoP proof JWT should have a unique value.
+Note:
+ The Okta DPoP feature is based on the current 
+RFC
+(opens new window)
+.
+DPoP enables a client to prove possession of a public/private key pair by including a DPoP header in a 
+/token
+ endpoint request. The value of the DPoP header is a JSON Web Token (JWT) and is called a DPoP proof. This DPoP proof enables the authorization server to bind issued tokens to the public part of a client's key pair. Recipients of these tokens (such as an 
+API
+) can then verify that binding, which provides assurance that the client presenting the token also possesses the private key.
+OAuth 2.0 DPoP JWT flow 
+The client generates a public/private key pair for use with DPoP.
+The client adds the public key in the header of the JWT and signs the JWT with the private key.
+The client adds the JWT to the 
+DPoP
+ request header and sends the request to the 
+/token
+ endpoint for an access token.
+The authorization server observes no 
+nonce
+ in the DPoP proof, returns an error with the 
+dpop-nonce
+ header.
+The client adds the 
+nonce
+ and 
+jti
+ values to the JWT payload, updates the request header with the new JWT value, and sends the access token request again.
+The authorization server binds the public key to the access token and sends the response.
+The client sends the request for access to the resource and includes the DPoP-bound access token and the DPoP proof JWT in the header.
+The resource validates the DPoP-bound access token by verifying that the public key of the DPoP proof JWT in the 
+DPoP
+ header matches the public key that the access token is bound to. When validation is successful, the resource grants access.
+Before you configure DPoP 
+Create a 
+DPoP proof JWT
+(opens new window)
+. A DPoP proof JWT includes a header and payload with claims. Then, sign the JWT with the private key from 
+your JSON Web Key
+ (JWK). Use the DPoP proof JWT to obtain a DPoP-bound access token. To create a DPoP proof JWT, use your internal instance to sign the JWT for a production org. See this 
+JWT generator
+(opens new window)
+ for an example of how to make and use JWTs in Node.js apps. For testing purposes only, you can use this 
+JWT tool
+(opens new window)
+ to build, sign, and decode JWTs.
+DPoP proof parameters and claims 
+Include the following required parameters in the JWT header:
+typ
+: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. This must be 
+dpop+jwt
+.
+alg
+: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be 
+none
+ or an identifier for a symmetric algorithm. This example uses 
+RS256
+.
+jwk
+: JSON Web Key. Include the public key (in JWK string format). Okta uses this public key to verify the JWT signature. See the 
+Application JSON Web Key Response properties
+(opens new window)
+ for a description of the public key properties.
+Example JWT header
+{
+"typ"
+:
+"dpop+jwt"
+,
+"alg"
+:
+"RS256"
+,
+"jwk"
+:
+{
+"kty"
+:
+"RSA"
+,
+"e"
+:
+"AQAB"
+,
+"use"
+:
+"sig"
+,
+"kid"
+:
+"XUl71vpgPXgxSTCYHbvbEHDrtj-adpVcxXH3TKjKe7w"
+,
+"alg"
+:
+"RS256"
+,
+"n"
+:
+"4LuWNeMa7.....zLvDWaJsF0"
+}
+}
+Include the following required claims in the JWT payload:
+htm
+: HTTP method. The HTTP method of the request that the JWT is attached to. This value is always 
+POST
+.
+htu
+: HTTP URI. The 
+/token
+ endpoint URL for the Okta authorization server that you want to use. Example: 
+http://{yourOktaDomain}/oauth2/{authServerId}/v1/token
+.
+iat
+: Issued at. The time at which the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
+Configure DPoP 
+This section discusses the initial POST 
+/token
+request
+ that you need to make, the JWT payload update, and the second POST 
+/token
+ request that includes the updated JWT.
+Make the initial request. Include the additional 
+DPoP
+ header (
+--header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg'
+) in your 
+/token
+ request. The value for the DPOP header is the DPoP proof JWT from the 
+Before you configure DPoP
+ section.
+The 
+Okta custom
+ authorization server verifies the JWT in the request and sends back an "Authorization server requires nonce in DPoP proof" error. The 
+dpop-nonce
+ header and value are included in the headers of that response. The authorization server provides the 
+dpop-nonce
+ value to limit the lifetime of DPoP proof JWTs and renews the value every 24 hours. The old 
+dpop-nonce
+ value continues to work for three days after generation. Be sure to save the 
+dpop-nonce
+ value from the token response header and refresh it every 24 hours.
+Example response
+HTTP/ 
+1.1
+400
+ Bad Request
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Content-Type: application/json
+Server: nginx
+Date: Tue, 07 Mar 
+2023
+23
+:43:13 GMT
+dpop-nonce: 8NLZUUhVawx1ns8AjrC4F6j8D2phvaw7
+{
+"error"
+:
+"use_dpop_nonce"
+,
+"error_description"
+:
+"Authorization server requires nonce in DPoP proof."
+}
+Update the JWT payload.
+Add the 
+dpop-nonce
+ header value from the response as the 
+nonce
+ claim value.
+Include a 
+jti
+ claim, which is a unique 
+JWT identifier
+(opens new window)
+ for the request.
+Example payload:
+{
+"htm"
+:
+"POST"
+,
+"htu"
+:
+"https://{yourOktaDomain}/oauth2/default/v1/token"
+,
+"iat"
+:
+1516239022
+,
+"nonce"
+:
+"dsGuZVkXzEdbNb8yxI3Fi-cnuzkH_E0k"
+,
+"jti"
+:
+"123456788"
+}
+Copy the new DPoP proof and add it to the DPoP header in the second POST 
+/token
+ request for an access token. The 
+Okta custom
+ authorization server should return the access token.
+Example response
+Note:
+ Tokens are truncated for brevity.
+{
+"token_type"
+:
+"DPoP"
+,
+"expires_in"
+:
+3600
+,
+"access_token"
+:
+"eyJraWQiOiJRVX.....wt7oSakPDUg"
+,
+"scope"
+:
+"openid offline_access"
+,
+"refresh_token"
+:
+"3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw"
+,
+"id_token"
+:
+"eyJraWQiOiJRVXlG.....m5h5-NAtVFdwD1bg2JprEJQ"
+}
+Decode the access token 
+You can use the 
+JWT tool
+(opens new window)
+ to decode the access token to view the included claims. The decoded access token should look something like this:
+{
+"ver"
+:
+1
+,
+"jti"
+:
+"AT.pKoLFoM7X4P4DrJBRvXaJzj9g0-naK1ChGH_oTbStYE"
+,
+"iss"
+:
+"https://{yourOktaDomain}/oauth2/default"
+,
+"aud"
+:
+"api://default"
+,
+"iat"
+:
+1677530933
+,
+"exp"
+:
+1677534533
+,
+"cnf"
+:
+{
+"jkt"
+:
+"2HR2BW5-tan1aI6yIPHVOHwirAy4kQGWULoQHKUO0s4"
+}
+,
+"cid"
+:
+"0oa4dr9kzkykPrLhq0g7"
+,
+"uid"
+:
+"00u47ijy7sRLaeSdC0g7"
+,
+"scp"
+:
+[
+"openid"
+]
+,
+"auth_time"
+:
+1677521913
+,
+"sub"
+:
+"user@example.com"
+}
+Claims
+cnf
+: Confirmation. Claim that contains the confirmation method.
+jkt
+: JWK confirmation method. A base64url encoding of the JWK SHA-256 hash of the DPoP public key (in JWK format) to which the access token is bound.
+Note:
+ If your client has DPoP enabled, then you can't add or modify the 
+cnf
+ claim using token inline hooks.
+Make a request to a DPoP-protected resource 
+Now that you have a DPoP-bound access token, you can make requests to DPoP-protected resources.
+The following non-Okta resource request displays the DPoP-bound access token in the 
+Authorization
+ header and the DPoP proof JWT in the 
+DPoP
+ header. In this example, values are truncated for brevity.
+Example request
+curl
+-v
+-X
+ GET 
+\
+--header
+'Accept: application/json'
+\
+--header
+'Content-Type: application/json'
+\
+--header
+'Authorization: DPoP eyJraWQiOiJRVX.....wt7oSakPDUg'
+\
+--header
+'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg'
+\
+"https://resource.example.org"
+Validate token and DPoP header 
+The resource server must perform validation on the access token to complete the flow and grant access. When the client sends an access request with the access token, validation should verify that the 
+cnf
+ claim is present. Then validation should compare the 
+jkt
+ in the access token with the public key in the JWT value of the 
+DPoP
+ header.
+The following is a high-level overview of the validation steps that the resource server must perform.
+Note:
+ The resource server must not grant access to the resource unless all checks are successful.
+Read the value in the 
+DPoP
+ header and decode the DPoP JWT.
+Get the 
+jwk
+ (public key) from the header portion of the DPoP JWT.
+Verify the signature of the DPoP JWT using the public key and algorithm in the JWT header.
+Verify that the 
+htu
+ and 
+htm
+ claims are in the DPoP JWT payload and match with the current API request HTTP method and URL.
+Calculate the 
+jkt
+ (SHA-256 thumbprint of the public key).
+Extract the DPoP-bound access token from the 
+Authorization
+ header, verify it with Okta, and extract the claims. You can also use the 
+/introspect
+endpoint
+(opens new window)
+ to extract the access token claims.
+Validate the token binding by comparing 
+jkt
+ from the access token with the calculated 
+jkt
+ from the 
+DPoP
+ header.
+For instructional purposes, this guide provides example validation in a Node.js Express app using the third-party site Glitch.
+Glitch is a browser-based development environment that can build a full-stack web app online. Use the Glitch example to review and quickly implement the validation code. It includes all dependencies required to complete validation.
+Copy (remix on Glitch) the 
+Validation DPoP Tokens
+(opens new window)
+ Glitch project to have a functional code sample. The validation steps at the beginning of this section are included in the code for quick implementation.
+Note:
+ See 
+Libraries for Token Signing/Verification
+(opens new window)
+ to view other libraries/SDKs in different languages that you can use for JWT verification.
+Refresh an access token 
+To refresh your DPoP-bound access token, send a token request with a 
+grant_type
+ of 
+refresh_token
+. Then, include the same 
+DPoP
+ header value that you used to obtain the refresh token in the 
+DPoP
+ header for this request. Include the 
+openid
+ scope when you also want to refresh an ID token. In the following examples, tokens are truncated for brevity.
+Example request
+curl
+--request
+ POST
+--url
+'https://{yourOktaDomain}/oauth2/default/v1/token'
+\
+--header
+'Accept: application/json'
+\
+--header
+'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg'
+\
+--header
+'Content-Type: application/x-www-form-urlencoded'
+\
+--data
+'grant_type=refresh_token'
+\
+--data
+'redirect_uri={redirectUri}'
+\
+--data
+'client_id={clientId}'
+\
+--data
+'scope=offline_access openid'
+\
+--data
+'refresh_token=3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw'
+Example response
+{
+"token_type"
+:
+"DPoP"
+,
+"expires_in"
+:
+3600
+,
+"access_token"
+:
+"eyJraWQiOiJRVXlGdjB.....RxDhLJievVVN5WQrAZlw"
+,
+"scope"
+:
+"offline_access openid"
+,
+"refresh_token"
+:
+"3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw"
+,
+"id_token"
+:
+"eyJraWQiOiJRVX.....3SA6LTm7mA"
+}
+Edit This Page On GitHub
+      Instructions for
+Non-Okta resource server
+Loading...
+        On this page
+Overview
+OAuth 2.0 DPoP JWT flow
+Before you configure DPoP
+DPoP proof parameters and claims
+Configure DPoP
+Make a request to a DPoP-protected resource
+Validate token and DPoP header
+Refresh an access token
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

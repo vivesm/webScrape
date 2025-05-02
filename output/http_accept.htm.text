@@ -1,0 +1,98 @@
+API Endpoint | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+API Endpoint
+The 
+API Endpoint
+ card allows you to create a flow that can be invoked through a URL.
+The card only supports 
+GET
+ and 
+POST
+ request methods. Other request methods, such as 
+HEAD
+, aren't supported.
+The 
+Okta Workflows
+ API doesn't allow authenticated cross-origin resource sharing (CORS) for browser-initiated flow invocations. Any CORS preflight requests don't return the 
+Access-Control-Allow-Credentials: true
+ header, and therefore cause a failure for any browser requests that include credentials. If you need to invoke an authenticated 
+API Endpoint
+ through a browser, send the request through an external backend proxy.
+Input
+This card has no input fields.
+Output
+The user creates the output fields for the API Endpoint card, using the following three categories.
+Field
+Definition
+Type
+raw
+headers
+Create explicitly named output fields (for example 
+content-type
+) to access the values contained within the header of the HTTP request. 
+As headers are normally case insensitive,  enter the header keys you want to capture in all lowercase.
+Object
+body
+Create explicitly named output fields  to access values contained within the body of the HTTP request. 
+This is commonly used when activating a flow using a 
+POST
+ HTTP request.
+Text
+query
+Create explicitly named output fields  to access any parameters sent within the URL string after the query parameter in the HTTP request. 
+For example, if the invoking URL is 
+https://example.com/example?name=john
+, you can add a field called 
+name
+ to access to the value 
+john
+ contained within this field.
+Don't use parameters  with an 
+x-okta-workflows
+ prefix to pass data to the rest of a flow when calling an 
+API Endpoint
+, as this prefix isn't available.
+Text
+Related topics
+Functions
+Workflow elements
+Invoke a flow with an API endpoint
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

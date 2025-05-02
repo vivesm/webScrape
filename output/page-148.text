@@ -1,0 +1,338 @@
+Sign in with Facebook using the Widget | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+ASP.NET
+Loading...
+    On this page
+            Configuration updates
+Loading...
+    Sign in with Facebook using the Widget
+    Identity Engine
+This guide describes how to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
+Learning outcomes 
+Set up your app to support the sign-in flow with Facebook IdP use cases by using the Sign-In Widget.
+What you need 
+An app that uses the embedded Okta Sign-In Widget and Identity Engine SDK
+An 
+Okta org already set up for a social IdP use case
+A 
+Sign-In Widget and SDK set up for your own app
+Sample code 
+ASP.NET Identity Engine embedded Widget sample app
+(opens new window)
+Configuration updates 
+Before building the Facebook IdP sign-in flow using the widget, ensure that you've 
+set up your Okta org for a social IdP use case
+.
+After you've set up your Okta org for the social IdP use case, 
+download and configure the SDK, Sign-In Widget, and sample app
+. These steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app. They also identify the packages to install and describe other changes to the Okta org that are required for the widget.
+Summary of steps 
+The sequence of steps to sign into the widget is illustrated below:
+Integration steps 
+The user selects the Facebook Identity Provider 
+After you complete 
+Set up your Okta org for a social IdP use case
+, the 
+Sign in with Facebook
+ link appears automatically on the widget. You don't need to make any code changes to make the link appear.
+When the user clicks this link, they’re sent to the Facebook sign-in page.
+The user signs in to Facebook 
+The user enters their email and password, and clicks 
+Log In
+. The Facebook platform hosts this page. Use the user information from the test user you configured in 
+Set up your Okta org for a social IdP use case
+. You don't need to make any code changes in your app for this step.
+Redirect the request to the Okta org 
+After the user signs in to Facebook, Facebook routes them to the 
+Valid OAuth Redirect URIs
+ and 
+Site URL
+ values you configured in 
+Create a Facebook app in Facebook
+. The value has the following format: 
+https://{Okta org domain}/oauth2/v1/authorize/callback
+, for example, 
+https://dev-12345678.okta.com/oauth2/v1/authorize/callback
+.
+Redirect the request to the client 
+Facebook sends the success sign-in request to your Okta org. The org then redirects the request to your app through the app's 
+Sign-in redirect URIs
+ field.
+This step handles the callback from the widget that returns an 
+interaction_code
+. This code is redeemed in the next step for tokens. The callback URL must be identical and is defined in these two locations:
+The 
+RedirectURI
+ parameter in the configuration setting that is defined in 
+Download and set up the SDK and sample app
+.
+A URI defined in the 
+Sign-in redirect URIs
+ field in the Okta Application. The 
+Sign-in redirect URIs
+ field is described in 
+Create a new application
+.
+For the sample application, the 
+RedirectURI
+ should be set to 
+https://localhost:44314/interactioncode/callback
+.
+The sample application uses the MVC architecture and defines the following 
+Callback
+ function in the 
+InteractionCodeController
+ controller to handle the callback.
+public
+async
+Task
+<
+ActionResult
+>
+Callback
+(
+string
+ state 
+=
+null
+,
+string
+ interaction_code 
+=
+null
+,
+string
+ error 
+=
+null
+,
+string
+ error_description 
+=
+null
+)
+{
+}
+Get the tokens 
+The next step is to call 
+RedeemInteractionCodeAsync
+ inside the callback function for the 
+IdxClient
+. The Interaction Code is used to get the ID and access tokens that you can then use to pull user information.
+Okta
+.
+Idx
+.
+Sdk
+.
+TokenResponse
+ tokens 
+=
+await
+ _idxClient
+.
+RedeemInteractionCodeAsync
+(
+idxContext
+,
+ interaction_code
+)
+;
+Persist the tokens in a session 
+Persist the tokens in session for future use. The following code from the sample application uses 
+IAuthenticationManager
+ from 
+Microsoft.Owin.Security
+ to persist these tokens in session.
+ClaimsIdentity
+ identity 
+=
+await
+ AuthenticationHelper
+.
+GetIdentityFromTokenResponseAsync
+(
+_idxClient
+.
+Configuration
+,
+ tokens
+)
+;
+_authenticationManager
+.
+SignIn
+(
+new
+AuthenticationProperties
+{
+ IsPersistent 
+=
+false
+}
+,
+ identity
+)
+;
+Get user profile information 
+Depending on your implementation, you can choose to pull user information. When you use the tokens that are provided by the 
+RedeemInteractionCodeAsync
+ method, you can request the user profile information from the 
+v1/userinfo
+ endpoint.
+The following code from the sample app provides details on this call.
+public
+static
+async
+Task
+<
+IEnumerable
+<
+Claim
+>
+>
+GetClaimsFromUserInfoAsync
+(
+IdxConfiguration
+ configuration
+,
+string
+ accessToken
+)
+{
+Uri
+ userInfoUri 
+=
+new
+Uri
+(
+IdxUrlHelper
+.
+GetNormalizedUriString
+(
+configuration
+.
+Issuer
+,
+"v1/userinfo"
+)
+)
+;
+HttpClient
+ httpClient 
+=
+new
+HttpClient
+(
+)
+;
+var
+ userInfoResponse 
+=
+await
+ httpClient
+.
+GetUserInfoAsync
+(
+new
+UserInfoRequest
+{
+                Address 
+=
+ userInfoUri
+.
+ToString
+(
+)
+,
+                Token 
+=
+ accessToken
+,
+}
+)
+.
+ConfigureAwait
+(
+false
+)
+;
+var
+ nameClaim 
+=
+new
+Claim
+(
+ClaimTypes
+.
+Name
+,
+ userInfoResponse
+.
+Claims
+.
+FirstOrDefault
+(
+x 
+=>
+ x
+.
+Type
+==
+"name"
+)
+?.
+Value
+)
+;
+return
+ userInfoResponse
+.
+Claims
+.
+Append
+(
+nameClaim
+)
+;
+}
+Edit This Page On GitHub
+      Instructions for
+ASP.NET
+Loading...
+        On this page
+Configuration updates
+Summary of steps
+Integration steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

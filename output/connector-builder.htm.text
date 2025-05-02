@@ -1,0 +1,162 @@
+Connector Builder | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Connector Builder
+Okta Workflows
+Connector Builder
+ is a no-code development tool for creating connectors on the Workflows platform. It uses the same functionality used by 
+Okta
+ customers to turn their use cases into automated flows.
+Fundamentally, a connector is a collection of API endpoints and data manipulation functions sequenced as flows. 
+Connector Builder
+ packages these flows with authentication and branding. Customers can use these connectors in their own tenants, or submit them to the 
+Okta Integration Network
+ for inclusion in the public catalog for use by anyone using the 
+Okta Workflows
+ platform.
+Get started quickly with the basics
+Perform the basics to create a connector.
+Create a connector
+Connector settings
+Authentication
+Build basic authentication
+Build OAuth 2.0 authentication
+Build custom authentication
+Flow types in Connector Builder
+httpHelper
+authping
+Custom API action
+Revoke
+Webhook event
+Register a webhook event
+Deregister a webhook event
+Polling monitor event
+Deploy your connector
+If you're new to 
+Okta Workflows
+, consider working through 
+Workflows Foundations for Flowgrammers
+, a free, self-guided course from 
+Okta
+.
+Learn about 
+Connector Builder
+Read the introductory concepts on authentication and the components of event and action cards in 
+Okta Workflows
+.
+Building blocks of a connector
+Connections
+Connector settings
+Preview dialogs in Connector Builder
+Authentication
+Flow types in Connector Builder
+Dynamic dropdown, fields, and groups
+Extensible input fields
+Functions
+Custom API Action (CAPIA) cards
+Webhook events
+Polling monitor events
+Build connections
+Manage the branding basics of a new connector.
+Create a connector
+Rename or delete a project
+Create and edit connector settings
+Build authentication for your connector
+Authentication is where you define the parameters that are needed to create a connection to your service. Build basic, OAuth 2.0, or custom authentication for your service.
+Build basic authentication
+Build OAuth 2.0 authentication
+Build custom authentication
+Add parameters for connector authentication
+Test connections
+Build action cards for your connector
+Build the basic features of a card using the 
+Options
+, 
+Inputs
+, and 
+Outputs
+ dialogs.
+Add option fields to connector cards
+Add static values for a dropdown options field
+Add a dynamic dropdown field: HTTP example
+Add dependent options to an action card
+Add input and output fields to connector cards
+Add static values for a dropdown input field
+Add dynamic input fields: HTTP example
+Add selectable outputs to an action card
+Build common flows
+Build the flows commonly found in most connectors.
+Build an httpHelper flow
+Build an _authping flow
+Build a custom API action card
+Build a revoke flow
+Build a webhook event flow
+Register a webhook event
+Deregister a webhook event
+Enable run mode for webhooks
+Build a polling monitor event flow
+Enable run mode for polling monitors
+Add functions to flows
+Learn about all the function cards that are available in Connector Builder.
+Functions
+Test and deploy your connector
+Test and deploy a new connector, and learn about Connector Builder validation errors.
+Test your flows
+Check execution history
+Deploy your connector
+Deployment validation errors
+Best practices
+Follow best practices for creating connectors.
+Best practices: Action card names and descriptions
+Best practices: Choose between an API Connector and Connector Builder
+Best practices: Options fields
+Best practices: Object shapes
+Best practices: Error handling
+Best practices: Rate limits
+Paginate
+Paginate: set a maximum page index
+Paginate: API endpoint
+More resources for 
+Connector Builder
+Learn about feature limits and guidelines for submitting connectors.
+Connector Builder feature limits
+Connector Builder submission documentation
+Connector Builder submission testing
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,95 @@
+Log | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Log
+Calculate a logarithm (the exponent to which a base number must be raised) to produce a given number.
+Input
+Field
+Definition
+Type
+Required
+input
+Number for which to calculate a specified logarithm.
+Number
+TRUE
+base
+Base of the logarithm, usually 10.
+Number
+TRUE
+Output
+Field
+Definition
+Type
+output
+Power to which the base number must be raised to produce the value in the 
+input
+ field.
+Number
+Example
+If 
+input
+ is 
+100
+ and 
+base
+ is 
+10
+, then 
+output
+ is 
+2
+ (10^2 = 100).
+If 
+input
+ is 
+8
+ and 
+base
+ is 
+2
+, then 
+output
+ is 
+3
+ (2^3 = 8).
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

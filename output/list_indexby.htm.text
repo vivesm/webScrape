@@ -1,0 +1,66 @@
+Index By | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Index By
+This function is designed for a common API pattern, where a service returns a list of field values as a list of objects which each contain a field name as one key, and a field value as another key.
+In that case, this function can be useful in converting that list into an object that contains each field as a key-value pair. Index By solves this problem by letting you specify a keyPath and a valuePath.  For each item in the list, the function creates a new key-value pair in the output object.
+For example, if you have this list: 
+[{"fieldname":"x","myvalue":"one"},{"fieldname":"y","myvalue":"two"},{"fieldname":"z","myvalue":"three"}]
+ and use Index By with keyPath="fieldname" and valuePath="myvalue", then the output is the following object: 
+{"x":"one","y":"two","z":"three"}
+Input
+list
+ (list of objects)
+:  a list of objects
+keyPath
+(text)
+:  the key in the object that has the key names ("fieldname" in the above example)
+valuePath
+(text)
+:  the key that contains the values ("myvalue" in the above example)
+Output
+output
+ (object)
+:  an object containing the key/value pairs defined by the input list
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

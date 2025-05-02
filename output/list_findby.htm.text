@@ -1,0 +1,188 @@
+Find | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Find
+Find the first item in a list that meets a specified condition. To find based on more complex criteria, use 
+Find Custom
+Input
+Field
+Definition
+Type
+Required
+list
+List that is the target of the search performed by the Find function card.
+List of Objects
+TRUE
+operator
+Specific comparison to be performed on a list (see Table of Relational Operators below).
+Dropdown
+TRUE
+path
+When searching within a list of objects, 
+path
+ is the name of the key that holds the value you want to compare. Use a period to specify a path to an object inside another object (for example, 
+customer.id
+).
+Leave this field blank when searching within a list of text, numbers, or date/time.
+String
+FALSE
+comparison
+Value that is the target for comparison.
+String
+TRUE
+Be sure to set the 
+type
+ of the input list and comparison to dictate how the comparison is performed. For example, the operator 
+greater than
+ compares numbers based on numeric value, but text based on alphabetical sort order. Thus, the number comparison 80 > 9 is true, but the text comparison "80" > "9" is false.
+Use 
+Find Custom
+ if you require more options to determine if the item is a match. Use 
+Filter
+ or 
+Filter Custom
+ to find all of the elements in a list the match a criteria.
+Output
+Field
+Definition
+Type
+item
+First item in the list that meets the specified criteria.
+Object
+index
+ Location of the item in the original list, where 
+0
+ is the first item in the list. Returns 
+-1
+ if there is no match.
+Number
+Table of Relational Operators
+Operator
+Use Case
+equal to
+Compare two texts, numbers, dates or true/false to see if they have the same value.
+not equal 
+Compare two texts, numbers, dates or true/false to see if they have different values. To compare objects, use this option instead of 
+doesn't have key
+.
+greater than or equal
+Compare two texts, numbers or dates to see if the first has the same or greater value than the second.
+less than or equal
+Compare two texts, numbers or dates to see if the first has the same or lesser value than the second.
+greater than
+Compare two texts, numbers or dates to see if the first has a greater value than the second.
+less than
+Compare two texts, numbers or dates to see if the first has a lesser value than the second.
+a multiple of
+Compare two numbers to see if value a is an exact multiple of value b. For example, 12, 0 and -4 are all multiples of 4, but 2, 3 and 7 are not.
+in
+Compare two texts to see if value a is a part of value b. For example, "test" is in "this is a test", but there is no "i" in "team".
+not in
+Compare two texts to see if value a is not part of value b.
+has key
+When value a is an object and value b is text, tests to see if the object has a key with the specified name. For example, true if value a is {"test":123} and value b is "test".
+doesn't have key
+When value a is an object and value b is text, tests to see if the object does not have a key with the specified name.
+is empty
+Checks to see if value a is empty; ignores value b. Definition of "empty" varies by type. Note: Only works for Text and Object. Numbers, Dates, T/F, are viewed as empty.
+is not empty
+Checks to see if value a is not empty. Note: Only works for Text and Object. Numbers, Dates, T/F, are viewed as empty.
+Example 1
+Conditions
+Result
+list
+ is 
+[1,22,30,4,35,46]
+operator
+ is 
+greater than
+path
+ is left blank
+comparison
+ is 
+30
+item
+ is 
+35
+ (the first number in the list greater than 30) and 
+index
+ is 
+4
+.
+Example 2
+Conditions
+Result
+list
+ is 
+[{"name":"Bob","department":"Sales"}, {"name":"Sarah","department":"Engineering"}]
+operator
+ is 
+equal to
+path
+ is 
+department
+comparison
+ is  is 
+Engineering
+item
+ is 
+{"name":"Sarah","department":"Engineering"}
+index
+ is 
+1
+ (the first object in the list, in index position 1, where department is 
+Engineering
+)
+ If you ran the same check but with comparison 
+Marketing
+, then the result 
+item
+ would be 
+{}
+ and 
+index
+ is 
+-1
+ since no objects match.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,107 @@
+Smaller | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Smaller
+Return a Boolean value indicating whether a value is smaller than another.
+This function card is only available in 
+Connector Builder
+.
+Input
+Field
+Definition
+Type
+Required
+a
+Numerical value to which value 
+b
+ is compared to determine whether value 
+a
+ is smaller.
+Number
+TRUE
+b
+Numerical value to which value 
+a
+ is compared.
+Number
+TRUE
+Output
+Field
+Definition
+Type
+output
+If 
+a
+ is smaller than 
+b
+, output value is 
+True
+; otherwise, 
+False
+.
+Boolean
+Example
+If 
+a
+ is 
+215
+ and 
+b
+ is 
+64
+, then 
+output 
+is 
+False
+.
+If 
+a
+ is 
+5.2
+ and 
+b
+ is 
+21.7
+, then 
+output
+ is 
+True
+.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

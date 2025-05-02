@@ -40,6 +40,7 @@ from typing import List, Optional
 
 from web_scraper import WebScraper
 from rag_processor import RAGProcessor
+from ollama_processor import OllamaProcessor
 
 # Setup logging to both console and file
 logging.basicConfig(
@@ -147,6 +148,11 @@ async def main():
         action="append", 
         help="Regex pattern to exclude URLs (can be used multiple times)"
     )
+    parser.add_argument(
+        "--language", 
+        default="en",
+        help="Limit scraping to specific language content (e.g., 'en' for English)"
+    )
     
     # =====================================================================
     # RAG (Retrieval Augmented Generation) processing options
@@ -172,6 +178,31 @@ async def main():
         type=int,
         default=200,
         help="Overlap between text chunks for RAG processing (in characters)"
+    )
+    
+    # =====================================================================
+    # Ollama integration options
+    # =====================================================================
+    parser.add_argument(
+        "--ollama",
+        action="store_true",
+        default=True,
+        help="Process RAG data with local Ollama instance"
+    )
+    parser.add_argument(
+        "--ollama_url",
+        default="http://localhost:11434",
+        help="URL of Ollama API endpoint"
+    )
+    parser.add_argument(
+        "--ollama_model",
+        default="qwen3:32b",
+        help="Ollama model to use for processing"
+    )
+    parser.add_argument(
+        "--embedding_model",
+        default="nomic-embed-text",
+        help="Model to use for generating embeddings"
     )
     
     # =====================================================================
@@ -222,6 +253,17 @@ async def main():
             delay=args.delay,
             max_depth=args.max_depth
         )
+        
+        # Set language filter if specified
+        if hasattr(args, 'language') and args.language:
+            logging.info(f"Language filter enabled: {args.language}")
+            # Add language to URL patterns to filter
+            if args.language != "all":
+                lang_pattern = f"/{args.language}/"
+                if not args.include:
+                    args.include = []
+                args.include.append(lang_pattern)
+                logging.info(f"Added language pattern: {lang_pattern}")
         
         # Initialize the browser pool (creates browser instances)
         await scraper.initialize()
@@ -323,6 +365,43 @@ async def main():
             print(f"Chunk size: {args.chunk_size} characters with {args.chunk_overlap} overlap")
             print(f"Output directory: {args.rag_dir}/")
             print(f"{'='*60}")
+            
+            # Process RAG data with Ollama if requested
+            if args.ollama:
+                logging.info(f"Processing RAG data with Ollama model {args.ollama_model}...")
+                
+                # Initialize the Ollama processor
+                ollama_processor = OllamaProcessor(
+                    rag_dir=args.rag_dir,
+                    ollama_url=args.ollama_url,
+                    model=args.ollama_model,
+                    embedding_model=args.embedding_model
+                )
+                
+                # Process the RAG data
+                ollama_stats = await ollama_processor.process_rag_data()
+                
+                if ollama_stats.get("success", False):
+                    # Output a summary of the Ollama processing
+                    logging.info(f"Ollama processing completed: {ollama_stats['processed_chunks']} chunks processed")
+                    
+                    # Print user-friendly Ollama summary
+                    print(f"\n{'='*60}")
+                    print(f"Ollama Processing Complete")
+                    print(f"{'='*60}")
+                    print(f"Chunks processed: {ollama_stats['processed_chunks']}/{ollama_stats['total_chunks']}")
+                    print(f"Model: {ollama_stats['model']}")
+                    print(f"Embedding model: {ollama_stats['embedding_model']}")
+                    print(f"Output directory: {args.rag_dir}/")
+                    print(f"{'='*60}")
+                else:
+                    logging.error(f"Ollama processing failed: {ollama_stats.get('error', 'Unknown error')}")
+                    print(f"\n{'='*60}")
+                    print(f"Ollama Processing Failed")
+                    print(f"{'='*60}")
+                    print(f"Error: {ollama_stats.get('error', 'Unknown error')}")
+                    print(f"Make sure Ollama is running at {args.ollama_url}")
+                    print(f"{'='*60}")
             
     except KeyboardInterrupt:
         # Handle graceful shutdown on Ctrl+C

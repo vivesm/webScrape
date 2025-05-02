@@ -1,0 +1,69 @@
+Truncate | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Truncate
+Cut a list down to a specified length.
+This function can operate on lists of any type. To ensure this works correctly, you should make sure that the input and output lists are set to the same type.
+Input Fields
+list
+: the input list
+size
+: the size you want to cut the list down to
+Output Fields
+truncated list
+: a new list which is the original list cut down to the specified size.
+Example
+If 
+list
+ is 
+[1,2,3,4,5]
+ and 
+size
+ is 
+3
+ then 
+truncated list
+ will be 
+[1,2,3]
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

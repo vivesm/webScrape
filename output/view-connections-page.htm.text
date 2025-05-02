@@ -1,0 +1,92 @@
+Connections page | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Connections page
+You can create and manage connections for your flows on the 
+Connections
+ page of the Workflows console. 
+Create connections
+Click 
+New Connection
+ to create a connection. See 
+Configure a connection
+.
+Manage existing connections
+The 
+Connections
+ page lists  information for each of your connections.
+Application
+: The external service or application that is the target for the connection, for example, 
+Slack
+ or 
+Google Drive
+.
+Name
+: The specific name that you entered when creating this particular connection, for example, 
+Slack - Production
+ or 
+Google Drive - Developer Test Account
+. Click the 
+Name
+ field to change this connector name.
+Description
+: Details of the connection. This could include the email of the account owner, the purpose of the connector, or any restrictions for its use. Click the 
+Description
+ field to change this connector description.
+Added by
+: The user who added the connection.
+Created on
+: The dater when the user created the connection.
+To modify any existing connection, click the corresponding icon 
+ for the connection that you want to update.
+Test Connection
+: Validate that the connection is working.
+Usage
+: See which flows are using a particular connection.
+Reauthorize
+: If you update the password, API key, or another setting for an application, you need to reauthorize your application. Click the 
+Reauthorize
+ icon and follow the steps to update your connection. Be sure to reauthorize each connection to the same application. 
+Delete
+: Remove the connection. Any flows that use this connection must be updated to use a different connection.
+Related topics
+Connections
+Configure a connection
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,93 @@
+Delete Row | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Delete Row
+Delete a row in a table.
+Options
+Field
+Definition
+Type
+Required
+Table
+Table in which a row will be deleted.
+To select a table:
+Click 
+Choose Table, 
+select a table in the dialog box, or click 
+New Table
+ to create a new table, then click 
+Choose
+.
+Click 
+Save
+ on the card.
+If this card will be included in flows that will operate on different tables, choose the 
+provide table at runtime
+ option. See 
+Provide a table ID at runtime
+.
+Dialog box
+TRUE
+Input
+Field
+Definition
+Type
+Required
+Delete By
+Table ID (if the 
+provide table at runtime
+ option was selected)
+                                    ID for table in which a row will be deleted. To obtain the table ID, see 
+Provide a table ID at runtime
+.
+String
+TRUE
+Row ID
+ID for the row that will be deleted. To search for a row ID, see 
+Search Rows
+.
+String
+TRUE
+Output
+There are no output fields for this card.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,49 @@
+HTTP Errors | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+HTTP Errors
+An error in an API Connector function typically corresponds to a standard HTTP error code returned by the API that you called. For example, if the API returns the status code 400, you get a "Bad Request" error. If the status code is 401, the error is "Unauthorized." For a full list of possible status codes, see 
+HTTP status codes
+.
+In addition to the status code, the data returned by the API will often include additional error information that can help you determine the cause of the error. For example, if you used an API Connector Get card to call OpenWeatherMap's API with an invalid key, you will receive an "Unauthorized" error. You will also read the message "Invalid API key" along with a link for more information.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

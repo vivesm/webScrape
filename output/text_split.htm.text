@@ -1,0 +1,78 @@
+Split | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Split
+Split text into a list of text segments separated by a comma or another specified delimiter. 
+If there are spaces in between words separated by a comma such as 
+This, is, an, example
+, then be sure to include a space after the comma as the separator so that the 
+result set
+ output field doesn't return spaces at the beginning of words. If spaces are included inconsistently,  use the 
+Trim
+ function card to get rid of them.
+Input
+Field
+Definition
+Type
+Required
+text
+Target string value that will be converted to a list.
+For example: 
+one,two,three
+String
+TRUE
+separator
+Delimiter that determines where text will be split. This value can be any of the following:
+A single character, such as a comma
+A sequence of characters such as a comma followed by a space
+A line break
+String
+FALSE
+Output
+Field
+Definition
+Type
+result list
+Converted list of string values.
+List of Text
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

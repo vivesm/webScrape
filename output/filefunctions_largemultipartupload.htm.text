@@ -1,0 +1,171 @@
+Multipart Upload | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Multipart Upload
+Upload a file from the Workflows file system to a web service, using HTTP or HTTPS, using multipart form-data. 
+You may need to obtain the required input field data from a third-party service. 
+The output depends on the response from the service. To access a particular response properly, create an output with the same name as the key in the response object.
+File functions don't support shareable links such as those from 
+Box
+, 
+OneDrive
+, or 
+Google Drive
+.
+Options
+Field
+Definition
+Type
+Required
+Use Custom File Parameters
+Indicates whether to use custom file parameters
+Dropdown
+TRUE
+Input
+Field
+Definition
+Type
+Required
+File
+File Content
+ID of the file contents.
+File
+TRUE
+File Name
+Name of the file, including an extension.
+String
+FALSE
+Http
+URL
+URL of the request, including the protocol 
+http://
+ or 
+https://
+.
+String
+FALSE
+Method
+HTTP method to use (
+PUT
+ or 
+POST
+).
+Dropdown
+FALSE
+Headers
+ User-created fields that define headers to use in the file request.
+Object
+FALSE
+Data
+Input
+File attributes of the file, such as file ID and file name.
+String
+FALSE
+Output
+Field
+Definition
+Type
+Body
+ Parsed response body for JSON properties or values.
+String
+Raw Body
+body
+Raw response body passed at runtime.
+String
+Example
+Upload a file to 
+Box
+.
+In the 
+Use Custom File Parameter
+ dropdown, select 
+No
+. This option allows you to specify one or more custom inputs and define their names. The values can be passed at runtime, and these properties and values are included in the multipart body of the message.
+Drag the 
+File Content
+ field output from a 
+Download
+ card to the 
+Multipart Upload
+ card's 
+File Content
+ field.
+Drag the 
+File Name
+ field output from a 
+Download
+ card to the 
+Multipart Upload
+ card's 
+File Name
+ field.
+Add a URL as the destination of the uploaded file.
+In the URL input, include the 
+http://
+ or 
+https://
+ part and any query string parameters.
+From the 
+Method
+ dropdown, select 
+POST
+.
+Pass an authorization bearer token as a header into the 
+Header
+ field. For example, add a header 
+Authorization: Bearer my-token
+ by adding an authorization key to the 
+Headers
+ section and setting its value to 
+Bearer my-token
+. You can also set 
+Content-type: application/image
+ similarly.
+In the 
+Data
+ section, create a field and name it 
+attributes
+.
+Pass a JSON object that supplies the attributes of the file (folder ID and file name). The file must already be in the Workflows file system. For example: 
+{ "parent": { "id": "108297462713" }, "name": "humans.txt" }
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

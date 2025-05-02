@@ -1,0 +1,79 @@
+Build a delegated flow | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Build a delegated flow
+You can delegate a workflow to an 
+Okta
+ admin who can view and run it directly from the 
+Admin Console
+. This gives admins the ability to run automations without granting them direct access to 
+Okta Workflows
+.
+To build a delegated flow, use the 
+Delegated Flow
+ event card from the 
+Add event
+ dialog.
+Input
+This is a group of extensible fields that can only be of the type 
+Text
+, 
+Number
+, 
+True
+ or 
+False
+ or 
+Date & Time
+. 
+List
+ isn't an allowable type.
+Output
+Field
+Definition
+Type
+User Content
+Okta User ID
+                                Unique identifier of the user to whom the flow is delegated. The user is given the ability to view and run this flow by an admin user in Workflows. The delegated user may or may not have access to Workflows.
+String
+Related topics
+Delegated flows
+Run a delegated flow
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

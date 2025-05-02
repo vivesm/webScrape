@@ -1,0 +1,480 @@
+Bulk migration with credentials | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            Sample data
+Loading...
+    Bulk migration with credentials
+As part of your plan to migrate users to Okta, you gathered source data into a staging area like a secure database or CSV file. This guide explains how you can use that data to create users and groups in Okta with the 
+Okta Users API
+(opens new window)
+ and the 
+Okta Groups API
+(opens new window)
+.
+Learning outcomes 
+Perform a bulk migration of users into Okta by using Okta APIs.
+What you need 
+Okta Developer Edition organization
+(opens new window)
+Postman client to run API requests. See 
+Use Postman with the Okta REST APIs
+(opens new window)
+ for information on setting up Postman.
+Example or test source data to test user and group creation requests. (Don't use real user data when testing.)
+A plan for migrating existing users to Okta
+Sample code 
+Creating groups
+, 
+creating users with groups
+, and 
+creating users without groups
+ for cURL request examples
+Note:
+ The examples in this guide are presented by using cURL commands. Postman can generate request code for several programming languages that can help with development.
+Sample data 
+The 
+Okta Users API
+(opens new window)
+ provides several operations to create users. To keep things simple, this guide uses the 
+Create user without credentials
+(opens new window)
+ scenario.
+This guide uses the following sample data for one user:
+First name: John
+Last name: Smith
+Email address: john.smith@example.com
+Groups: All Employees, Sales, Northeast
+It's a good idea to use sample data that's similar to your real user data to identify any potential issues before implementation.
+Create groups 
+Suppose that you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta groups that are equivalent to the groups in your user data. You can create an Okta group for the sample data (in this case, "All Employees") using an 
+Add a group
+(opens new window)
+ request:
+Request example 
+curl
+-v
+-X
+ POST 
+\
+-H
+"Accept: application/json"
+\
+-H
+"Content-Type: application/json"
+\
+-H
+"Authorization: SSWS {api_token}"
+\
+-d
+'{
+  "profile": {
+    "name": "All Employees",
+    "description": "Every single one of our employees"
+  }
+}'
+"https://{yourOktaDomain}/api/v1/groups"
+The description property can be empty.
+Response example 
+{
+"id"
+:
+"00g40q3dfwN2l6Bju357"
+,
+"created"
+:
+"2020-05-26T21:29:25.000Z"
+,
+"lastUpdated"
+:
+"2020-05-26T21:29:25.000Z"
+,
+"lastMembershipUpdated"
+:
+"2020-05-26T21:29:25.000Z"
+,
+"objectClass"
+:
+[
+"okta:user_group"
+]
+,
+"type"
+:
+"OKTA_GROUP"
+,
+"profile"
+:
+{
+"name"
+:
+"All Employees"
+,
+"description"
+:
+"Every single one of our employees"
+}
+,
+"_links"
+:
+{
+"logo"
+:
+[
+{
+"name"
+:
+"medium"
+,
+"href"
+:
+"https://{yourOktaDomain}/img/logos/groups/okta-medium.png"
+,
+"type"
+:
+"image/png"
+}
+,
+{
+"name"
+:
+"large"
+,
+"href"
+:
+"https://{yourOktaDomain}/img/logos/groups/okta-large.png"
+,
+"type"
+:
+"image/png"
+}
+]
+,
+"users"
+:
+{
+"href"
+:
+"https://{yourOktaDomain}/api/v1/groups/00g40q3dfwN2l6Bju357/users"
+}
+,
+"apps"
+:
+{
+"href"
+:
+"https://{yourOktaDomain}/api/v1/groups/00g40q3dfwN2l6Bju357/apps"
+}
+}
+}
+You can obtain the new group ID (
+id
+) from the response to use when you create users in that group later. You can also list all groups in your org and obtain their IDs using a 
+List all groups
+(opens new window)
+ request.
+To create groups in your Admin Console, see 
+About groups
+(opens new window)
+ in the product documentation.
+Create users 
+After you create all the necessary Okta groups, you can create users and include their group memberships. As mentioned earlier, this example uses the 
+Create user without credentials
+(opens new window)
+ scenario to create our sample user. In this sample, the user's email address is the unique login. The group IDs are from the List all groups request in the previous step.
+Request example with groups 
+curl
+-v
+-X
+ POST 
+\
+-H
+"Accept: application/json"
+\
+-H
+"Content-Type: application/json"
+\
+-H
+"Authorization: SSWS {api_token}"
+\
+-d
+'{
+  "profile": {
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john.smith@example.com",
+    "login": "john.smith@example.com"
+  },
+  "groupIds": [
+    "00g40q3dfwN2l6Bju357",
+    "00g40qj7v5fn1AcOi357",
+    "00g40qkfmol5YWDUX357"
+  ]
+}'
+"https://{yourOktaDomain}/api/v1/users?activate=false"
+If you don't have any groups or want to add your users to groups later, use the same request but without the 
+groupIds
+ array.
+Request example without groups 
+curl
+-v
+-X
+ POST 
+\
+-H
+"Accept: application/json"
+\
+-H
+"Content-Type: application/json"
+\
+-H
+"Authorization: SSWS {api_token}"
+\
+-d
+'{
+  "profile": {
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "john.smith@example.com",
+    "login": "john.smith@example.com"
+  }
+}'
+"https://{yourOktaDomain}/api/v1/users?activate=false"
+Response example for both requests 
+{
+"id"
+:
+"00u40qykk8zaeeRfe357"
+,
+"status"
+:
+"STAGED"
+,
+"created"
+:
+"2020-05-26T22:33:44.000Z"
+,
+"activated"
+:
+null
+,
+"statusChanged"
+:
+null
+,
+"lastLogin"
+:
+null
+,
+"lastUpdated"
+:
+"2020-05-26T22:33:44.000Z"
+,
+"passwordChanged"
+:
+null
+,
+"type"
+:
+{
+"id"
+:
+"oty1lidmn8y5qtJc6357"
+}
+,
+"profile"
+:
+{
+"firstName"
+:
+"John"
+,
+"lastName"
+:
+"Smith"
+,
+"mobilePhone"
+:
+null
+,
+"secondEmail"
+:
+null
+,
+"login"
+:
+"john.smith@example.com"
+,
+"email"
+:
+"john.smith@example.com"
+}
+,
+"credentials"
+:
+{
+"emails"
+:
+[
+{
+"value"
+:
+"john.smith@example.com"
+,
+"status"
+:
+"VERIFIED"
+,
+"type"
+:
+"PRIMARY"
+}
+]
+,
+"provider"
+:
+{
+"type"
+:
+"OKTA"
+,
+"name"
+:
+"OKTA"
+}
+}
+,
+"_links"
+:
+{
+"schema"
+:
+{
+"href"
+:
+"https://{yourOktaDomain}/api/v1/meta/schemas/user/osc1lidmn8y5qtJc6357"
+}
+,
+"activate"
+:
+{
+"href"
+:
+"https://{yourOktaDomain}/api/v1/users/00u40qykk8zaeeRfe357/lifecycle/activate"
+,
+"method"
+:
+"POST"
+}
+,
+"self"
+:
+{
+"href"
+:
+"https://{yourOktaDomain}/api/v1/users/00u40qykk8zaeeRfe357"
+}
+,
+"type"
+:
+{
+"href"
+:
+"https://{yourOktaDomain}/api/v1/meta/types/user/oty1lidmn8y5qtJc6357"
+}
+}
+}
+User status and activation 
+The user status in the response when you create a user is set to 
+STAGED
+, which means that the user has been created but not activated yet. You can activate users with the API or in your Admin Console. For more information on account states and activation, see the following links:
+User status values
+(opens new window)
+ (API reference)
+Activate a user request
+(opens new window)
+ (API reference)
+About user account status
+(opens new window)
+ (product documentation)
+Activate user accounts
+(opens new window)
+ (product documentation)
+Rate limits 
+Remember that 
+rate limits
+ apply to API requests when performing bulk/batch user migration. Rate limits differ depending on the level of service that you’ve purchased from Okta. 
+You can check your rate limits
+ in your code using the Okta Rate Limit Headers.
+Next steps 
+At this point, you should understand how to use the Okta API to migrate legacy users and groups to Okta.
+Your next step is configuring the necessary integration and access to apps for your users. Be sure to read the product documentation for an 
+overview of application integration
+(opens new window)
+ and see 
+The Applications Page
+(opens new window)
+ for more on how to configure your apps.
+See also 
+API reference pages 
+Okta Users API
+(opens new window)
+Okta Groups API
+(opens new window)
+API error codes
+User profile attributes
+(opens new window)
+Rate limits
+Product help pages 
+Get started with Okta
+(opens new window)
+About profile sourcing
+(opens new window)
+Users, Groups, and Profiles
+(opens new window)
+Edit This Page On GitHub
+        On this page
+Sample data
+Create groups
+Request example
+Response example
+Create users
+Request example with groups
+Request example without groups
+Response example for both requests
+User status and activation
+Rate limits
+Next steps
+See also
+API reference pages
+Product help pages
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

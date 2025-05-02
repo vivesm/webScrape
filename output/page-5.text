@@ -1,0 +1,2008 @@
+Okta email (magic link/OTP) integration guide | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+ASP.NET
+Loading...
+    On this page
+            Overview
+Loading...
+    Okta email (magic link/OTP) integration guide
+    Identity Engine
+Learn how to integrate the Okta Email authenticator into your app with the embedded SDK.
+Learning outcomes 
+Configure your Okta org to use the email authenticator.
+Enroll and challenge a user with an email one-time passcode (OTP) and magic links.
+Enable OTP only for the email authenticator.
+What you need 
+The Embedded SDK set up in your app
+Sample code 
+Sample ASP.NET MVC Application using Embedded Authentication with the IDX SDK
+(opens new window)
+Overview 
+With the embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app and complete those flows using 
+magic links
+, a one-time passcode (OTP), or a combination of both.
+Get started 
+This guide discusses the email authenticator user journeys for both magic links and OTP. The guide also details how to integrate the email enrollment and challenge flows into your app. For more details, see the following sections in this guide:
+Configuration
+Update configurations
+: Set up your org to enable the email authenticator and magic links.
+Note:
+ This guide uses the 
+Email Verification Experience
+ setting to configure magic links. For an alternative solution, see 
+use custom email templates
+.
+Magic links
+Integrate email challenge with magic links
+: Integrate the email challenge using magic links with step-by-step instructions.
+Integrate different browser and device scenario with magic links
+: Integrate the different browser and device scenarios with step-by-step instructions.
+OTP
+Integrate email enrollment with OTP
+: Integrate email enrollment using OTP with step-by-step instructions.
+Enable only OTP for the email authenticator
+: Update the email templates to only support OTP.
+Advanced use cases
+Design considerations when customizing magic link for password recovery
+: Learn about recommended magic link implementations for specific customized password recovery solutions.
+Note:
+ This guide uses the sign-in with email use cases to describe how to integrate email enrollment and challenge.
+Update configurations 
+Before you can start using the email authenticator, you need to enable it in your Okta org and assign it an authentication policy that requires the email authenticator.
+Add the email authenticator to your org 
+First, add the email authenticator to your org and enable it for both authentication and recovery.
+Open the 
+Admin Console
+ for your org.
+Choose 
+Security > Authenticators
+ to show the available authenticators.
+If the 
+Email
+ authenticator isn't in the list:
+a. Click 
+Add Authenticator
+.
+b. Click 
+Add
+ on the 
+Email
+ tile.
+c. Select the 
+Authentication and recovery
+ option, and then click 
+Save
+.
+If the 
+Email
+ authenticator is in the list:
+a. Click the 
+Actions
+ menu for the 
+Email
+ authenticator.
+b. Click 
+Edit
+.
+c. Select the 
+Authentication and recovery
+ option, and then click 
+Save
+.
+Select the 
+Enrollment
+ tab.
+Check that 
+Email
+ is set to either 
+Optional
+ or 
+Required
+ in the 
+Eligible Authenticators
+ section of the Default Policy.
+a. If 
+Email
+ is set to 
+Disabled
+, click 
+Edit
+ for the Default Policy.
+b. Select 
+Optional
+ from the dropdown list for the 
+Email
+ authenticator, and then click 
+Update Policy
+.
+Set your app integration to use the email authenticator 
+New app integrations are automatically assigned the shared default 
+authentication policy
+(opens new window)
+. This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same app policy. In testing however, you should create a policy specifically for your test app.
+Open the 
+Admin Console
+ for your org and choose 
+Security > Authentication Policies
+ to show the available authentication policies.
+Click 
+Add a Policy
+, give the policy a name, and then click 
+Save
+.
+Locate the Catch-all Rule of the new policy and select 
+Actions
+ > 
+Edit
+.
+Select 
+Allowed after successful authentication
+, and then set 
+User must authenticate with
+ to 
+Password + Another factor
+.
+For 
+Possession factor constraints
+, do the following:
+a. Verify that 
+Device Bound
+ isn't selected.
+b. Verify that 
+Email
+ is listed in the box under 
+Additional factor types
+. If it isn't listed, verify that the authenticator is enabled using steps 4 and 5 of 
+Add the email authenticator to your org
+.
+c. Click 
+Save
+.
+Select the 
+Applications
+ tab for your newly created policy, and then click 
+Add App
+.
+Find your app in the list, click 
+Add
+ next to it, and click 
+Close
+.
+Verify that the app is now listed in the 
+Applications
+ tab of the new policy.
+Set up magic links 
+Enable magic links in your org.
+Open the 
+Admin Console
+ for your Okta org.
+Choose 
+Applications > Applications
+ to show the app integrations that you have already created.
+Click the application that you previously created.
+In the 
+General Settings
+ section on the 
+General
+ tab, click 
+Edit
+.
+Under 
+EMAIL VERIFICATION EXPERIENCE
+ enter a callback URI for your application. The sample application uses 
+https://localhost:44314/magiclink/callback
+.
+Click 
+Save
+ to save your changes.
+Integrate email challenge with magic links 
+The following instructions detail integrating the email challenge into your app.
+1. Build a sign-in page on the client 
+Build a sign-in page that captures the user's name and password, as shown in the following example.
+2. Authenticate the user credentials 
+After a user has initiated the sign-in process by entering the username and password and clicking 
+Sign In
+, create an 
+AuthenticationOptions
+ object in your 
+SignIn
+ method and set its 
+Username
+ and 
+Password
+ properties to the values set by the user. Pass this object as a parameter to the 
+AuthenticateAsync
+ method on the 
+IdxClient
+ that you have instantiated.
+var
+ _idxClient 
+=
+new
+Okta
+.
+Idx
+.
+Sdk
+.
+IdxClient
+(
+)
+;
+var
+ authnOptions 
+=
+new
+Okta
+.
+Idx
+.
+Sdk
+.
+AuthenticationOptions
+{
+  Username 
+=
+ model
+.
+UserName
+,
+  Password 
+=
+ model
+.
+Password
+,
+}
+;
+try
+{
+var
+ authnResponse 
+=
+await
+ _idxClient
+.
+AuthenticateAsync
+(
+authnOptions
+)
+.
+ConfigureAwait
+(
+false
+)
+;
+3. Handle the response from the sign-in flow 
+Query the 
+AuthenticationStatus
+ property of the 
+AuthenticationResponse
+ object returned by 
+AuthenticateAsync
+ to discover the current status of the authentication process.
+    Session
+[
+"idxContext"
+]
+=
+ authnResponse
+.
+IdxContext
+;
+switch
+(
+authnResponse
+?.
+AuthenticationStatus
+)
+{
+case
+ AuthenticationStatus
+.
+Success
+:
+                … your code …
+case
+ AuthenticationStatus
+.
+PasswordExpired
+:
+                … your code …
+If you configured your Okta org correctly, you need to respond to two specific authenticator statuses to handle this scenario:
+AwaitingChallengeAuthenticatorSelection
+ that is covered in this section
+AwaitingAuthenticatorEnrollment
+ that is covered in a later section
+You can find the names of the available authenticators for enrollment or challenge in the 
+AuthenticationResponse
+ object's 
+Authenticators
+ collection. You should redirect the user to an authenticator list page that displays all of the authenticators that the user has enrolled and are ready for use.
+case
+ AuthenticationStatus
+.
+AwaitingAuthenticatorEnrollment
+:
+            Session
+[
+"isChallengeFlow"
+]
+=
+false
+;
+            Session
+[
+"authenticators"
+]
+=
+ ViewModelHelper
+.
+ConvertToAuthenticatorViewModelList
+(
+authnResponse
+.
+Authenticators
+)
+;
+return
+RedirectToAction
+(
+"SelectAuthenticator"
+,
+"Manage"
+)
+;
+case
+ AuthenticationStatus
+.
+AwaitingChallengeAuthenticatorSelection
+:
+            Session
+[
+"authenticators"
+]
+=
+ ViewModelHelper
+.
+ConvertToAuthenticatorViewModelList
+(
+authnResponse
+.
+Authenticators
+)
+;
+            Session
+[
+"isChallengeFlow"
+]
+=
+true
+;
+return
+RedirectToAction
+(
+"SelectAuthenticator"
+,
+"Manage"
+)
+;
+default
+:
+return
+View
+(
+"Login"
+,
+ model
+)
+;
+}
+}
+catch
+(
+OktaException
+ exception
+)
+{
+    ModelState
+.
+AddModelError
+(
+string
+.
+Empty
+,
+$"Invalid login attempt: 
+{
+exception
+.
+Message
+}
+"
+)
+;
+return
+View
+(
+"Login"
+,
+ model
+)
+;
+}
+4. Display a list of available authenticators 
+The next step is to show a list of all the authenticators that the user has previously enrolled. Build a page to display the list of authenticators from the previous step. For example, in the sample application, a new 
+SelectAuthenticatorViewModel
+ is populated from the 
+Authenticators
+ collection contained in the 
+AuthenticationResponse
+.
+public
+ActionResult
+SelectAuthenticator
+(
+)
+{
+var
+ authenticators 
+=
+(
+IList
+<
+AuthenticatorViewModel
+>
+)
+Session
+[
+"authenticators"
+]
+??
+new
+List
+<
+AuthenticatorViewModel
+>
+(
+)
+;
+var
+ viewModel 
+=
+new
+SelectAuthenticatorViewModel
+{
+    Authenticators 
+=
+ authenticators
+,
+    AuthenticatorId 
+=
+ authenticators
+.
+FirstOrDefault
+(
+)
+?.
+AuthenticatorId
+,
+    PasswordId 
+=
+ authenticators
+.
+FirstOrDefault
+(
+        x 
+=>
+ x
+.
+Name
+.
+ToLower
+(
+)
+==
+"password"
+)
+?.
+AuthenticatorId
+,
+    PhoneId 
+=
+ authenticators
+.
+FirstOrDefault
+(
+        x 
+=>
+ x
+.
+Name
+.
+ToLower
+(
+)
+==
+"phone"
+)
+?.
+AuthenticatorId
+,
+    WebAuthnId 
+=
+ authenticators
+.
+FirstOrDefault
+(
+        x 
+=>
+ x
+.
+Name
+.
+ToLower
+(
+)
+==
+"security key or biometric"
+)
+?.
+AuthenticatorId
+,
+    TotpId 
+=
+ authenticators
+.
+FirstOrDefault
+(
+        x 
+=>
+ x
+.
+Name
+.
+ToLower
+(
+)
+==
+"google authenticator"
+)
+?.
+AuthenticatorId
+,
+    OktaVerifyId 
+=
+ authenticators
+.
+FirstOrDefault
+(
+        x 
+=>
+ x
+.
+Name
+.
+ToLower
+(
+)
+==
+"okta verify"
+)
+?.
+AuthenticatorId
+,
+    CanSkip 
+=
+ TempData
+[
+"canSkip"
+]
+!=
+null
+&&
+(
+bool
+)
+TempData
+[
+"canSkip"
+]
+}
+;
+return
+View
+(
+viewModel
+)
+;
+}
+This viewModel is then consumed in a Razor page.
+<
+section
+id
+=
+"
+selectAuthenticatorForm
+"
+>
+@using
+(
+Html
+.
+BeginForm
+(
+"SelectAuthenticatorAsync"
+,
+"Manage"
+,
+new
+{
+ ReturnUrl 
+=
+ ViewBag
+.
+ReturnUrl 
+}
+,
+ FormMethod
+.
+Post
+,
+new
+{
+ @
+class
+=
+"form-horizontal"
+,
+ role 
+=
+"form"
+}
+)
+)
+{
+    @Html
+.
+AntiForgeryToken
+(
+)
+<!-- Headings elided -->
+    @Html
+.
+ValidationSummary
+(
+true
+,
+""
+,
+new
+{
+ @
+class
+=
+"text-danger"
+}
+)
+    @Html
+.
+HiddenFor
+(
+m 
+=>
+ m
+.
+PasswordId
+)
+    @Html
+.
+HiddenFor
+(
+m 
+=>
+ m
+.
+PhoneId
+)
+    @Html
+.
+HiddenFor
+(
+m 
+=>
+ m
+.
+WebAuthnId
+)
+    @Html
+.
+HiddenFor
+(
+m 
+=>
+ m
+.
+OktaVerifyId
+)
+    @Html
+.
+HiddenFor
+(
+m 
+=>
+ m
+.
+TotpId
+)
+<
+ul
+>
+@foreach
+(
+var
+ authenticator 
+in
+ Model
+.
+Authenticators
+)
+{
+<
+div
+>
+<
+label
+>
+@
+Html
+.
+RadioButtonFor
+(
+m 
+=>
+ m
+.
+AuthenticatorId
+,
+ authenticator
+.
+AuthenticatorId
+)
+@
+authenticator
+.
+Name
+</
+label
+>
+</
+div
+>
+}
+</
+ul
+>
+    @Html
+.
+ValidationMessageFor
+(
+m 
+=>
+ m
+.
+AuthenticatorId
+,
+""
+,
+new
+{
+ @
+class
+=
+"text-danger"
+}
+)
+<
+div
+class
+=
+"
+form-group
+"
+>
+<
+div
+>
+<
+input
+type
+=
+"
+submit
+"
+value
+=
+"
+Submit
+"
+/>
+</
+div
+>
+</
+div
+>
+}
+</
+section
+>
+For example, if the user has previously enrolled the email authenticator, Google Authenticator, and Okta Verify, they see the following:
+5. Submit the email authenticator 
+When the user selects the Email Authenticator and clicks 
+Submit
+, the form posts back to the 
+SelectAuthenticatorAsync
+ method, which checks whether the user is in Challenge or enrollment flow.
+When in challenge flow, a call is made to 
+idxClient.SelectChallengeAuthenticatorAsync
+, using its 
+selectAuthenticatorOptions
+ parameter to pass in the Email Authenticator ID.
+var
+ selectAuthenticatorOptions 
+=
+new
+SelectAuthenticatorOptions
+{
+    AuthenticatorId 
+=
+ model
+.
+AuthenticatorId
+,
+}
+;
+selectAuthenticatorResponse 
+=
+await
+ _idxClient
+.
+SelectChallengeAuthenticatorAsync
+(
+selectAuthenticatorOptions
+,
+(
+IIdxContext
+)
+Session
+[
+"IdxContext"
+]
+)
+;
+If the call is successful, Identity Engine sends an email to the user and the returned 
+selectAuthenticatorResponse
+ object has an 
+AuthenticationStatus
+ of 
+AwaitingAuthenticatorVerification
+. This indicates that Identity Engine is waiting for the user to check their email and either click the magic link or enter the OTP.
+Session
+[
+"IdxContext"
+]
+=
+ selectAuthenticatorResponse
+.
+IdxContext
+;
+switch
+(
+selectAuthenticatorResponse
+?.
+AuthenticationStatus
+)
+{
+case
+ AuthenticationStatus
+.
+AwaitingAuthenticatorVerification
+:
+var
+ action 
+=
+(
+model
+.
+IsWebAuthnSelected
+)
+?
+"VerifyWebAuthnAuthenticator"
+:
+"VerifyAuthenticator"
+;
+if
+(
+model
+.
+IsWebAuthnSelected
+)
+{
+         Session
+[
+"currentWebAuthnAuthenticator"
+]
+=
+            selectAuthenticatorResponse
+.
+CurrentAuthenticatorEnrollment
+;
+}
+return
+RedirectToAction
+(
+action
+,
+"Manage"
+)
+;
+// other case statements
+default
+:
+return
+View
+(
+"SelectAuthenticator"
+,
+ model
+)
+;
+}
+6. Display OTP input page 
+Build a form that allows the user to enter the one-time passcode (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. 
+Integrate different browser and device scenario
+ covers the integration details for the different browser and device scenarios.
+<
+section
+id
+=
+"
+enterCodeForm
+"
+>
+@using
+(
+Html
+.
+BeginForm
+(
+"VerifyAuthenticatorAsync"
+,
+"Manage"
+,
+new
+{
+ ReturnUrl 
+=
+ ViewBag
+.
+ReturnUrl 
+}
+,
+ FormMethod
+.
+Post
+,
+new
+{
+ role 
+=
+"form"
+}
+)
+)
+{
+    @Html
+.
+AntiForgeryToken
+(
+)
+<
+h4
+>
+Verify authenticator.
+</
+h4
+>
+<
+h5
+>
+Enter the passcode to continue.
+</
+h5
+>
+<
+hr
+/>
+    @Html
+.
+ValidationSummary
+(
+true
+,
+""
+,
+new
+{
+ @
+class
+=
+"text-danger"
+}
+)
+<
+div
+>
+<
+div
+>
+<
+div
+>
+@
+Html
+.
+LabelFor
+(
+m 
+=>
+ m
+.
+Code
+)
+</
+div
+>
+<
+div
+>
+@
+Html
+.
+TextBoxFor
+(
+m 
+=>
+ m
+.
+Code
+,
+new
+{
+ @id
+=
+"passcodeInput"
+}
+)
+@
+Html
+.
+ValidationMessageFor
+(
+m 
+=>
+ m
+.
+Code
+,
+""
+,
+new
+{
+ @
+class
+=
+"text-danger"
+}
+)
+</
+div
+>
+</
+div
+>
+</
+div
+>
+<
+div
+>
+<
+div
+>
+<
+input
+type
+=
+"
+submit
+"
+value
+=
+"
+Submit
+"
+id
+=
+"
+submitBtn
+"
+/>
+</
+div
+>
+</
+div
+>
+}
+</
+section
+>
+<
+section
+id
+=
+"
+resendCodeForm
+"
+>
+@using
+(
+Html
+.
+BeginForm
+(
+"ResendAuthenticatorAsync"
+,
+"Manage"
+,
+new
+{
+ ReturnUrl 
+=
+ ViewBag
+.
+ReturnUrl 
+}
+,
+ FormMethod
+.
+Post
+,
+new
+{
+ @
+class
+=
+"form-horizontal"
+,
+ role 
+=
+"form"
+}
+)
+)
+{
+    @Html
+.
+AntiForgeryToken
+(
+)
+<
+div
+>
+<
+div
+>
+<
+input
+type
+=
+"
+submit
+"
+value
+=
+"
+Resend Code
+"
+id
+=
+"
+resendCodeBtn
+"
+/>
+</
+div
+>
+</
+div
+>
+}
+</
+section
+>
+7. Click the email magic link 
+Next, the user opens their email and clicks the magic link. The following screenshot shows the magic link in the email.
+The link points to your Okta org as in: 
+https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...
+When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the callback URI that you defined in 
+Update configurations
+ with the OTP and state parameters to produce a final callback URL for the user. For example, 
+https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32
+8. Handle the magic link redirect in your app 
+Create a callback handler method that checks if the user has opened the magic link in the same browser and on the same device that they used for the previous steps of the challenge flow. If this is true, take the 
+otp
+ parameter in the query string and pass it as a parameter to 
+IdxClient.VerifyAuthenticatorAsync()
+.
+Note
+: The sample code below demonstrates a very simple check, assuming a different browser or device if the context can't be recovered from a session variable. Use a more robust check in your final application.
+if
+(
+!
+string
+.
+IsNullOrEmpty
+(
+error
+)
+||
+!
+string
+.
+IsNullOrEmpty
+(
+error_description
+)
+)
+{
+return
+View
+(
+new
+MagicLinkCallbackModel
+{
+ Message 
+=
+$"
+{
+error
+}
+: 
+{
+error_description
+}
+"
+}
+)
+;
+}
+IIdxContext
+ idxContext 
+=
+ Session
+[
+state
+]
+as
+IIdxContext
+;
+if
+(
+idxContext 
+==
+null
+)
+{
+  idxContext 
+=
+ Session
+[
+"idxContext"
+]
+as
+IIdxContext
+;
+}
+if
+(
+idxContext 
+!=
+null
+)
+{
+var
+ verifyAuthenticatorOptions 
+=
+new
+VerifyAuthenticatorOptions
+{
+    Code 
+=
+ otp
+,
+}
+;
+var
+ authnResponse 
+=
+await
+ _idxClient
+.
+VerifyAuthenticatorAsync
+(
+verifyAuthenticatorOptions
+,
+ idxContext
+)
+;
+If any of the following conditions are true, advise the user to return to the original tab in the browser and enter the 
+otp
+ value to proceed:
+If the user hasn't opened the magic link in the same browser.
+If the 
+otp
+ value isn't valid.
+If an 
+AuthenticationStatus
+ is returned that isn't handled by your case statement.
+return
+View
+(
+new
+MagicLinkCallbackModel
+{
+   Message 
+=
+$"Please enter the OTP '
+{
+otp
+}
+' in the original browser tab to finish the flow."
+}
+)
+;
+9. Complete challenge and sign user in 
+If the 
+otp
+ value is valid, the 
+AuthenticationStatus
+ property of the 
+AuthenticationResponse
+ object returned by 
+VerifyAuthenticatorAsync
+ is 
+Success
+. In this case, call 
+AuthenticationHelper.GetIdentityFromTokenResponseAsync
+ to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+switch
+(
+authnResponse
+.
+AuthenticationStatus
+)
+{
+// other case statements
+case
+ AuthenticationStatus
+.
+Success
+:
+ClaimsIdentity
+ identity 
+=
+await
+ AuthenticationHelper
+.
+GetIdentityFromTokenResponseAsync
+(
+_idxClient
+.
+Configuration
+,
+ authnResponse
+.
+TokenInfo
+)
+;
+   _authenticationManager
+.
+SignIn
+(
+new
+AuthenticationProperties
+(
+)
+,
+ identity
+)
+;
+return
+RedirectToAction
+(
+"Index"
+,
+"Home"
+)
+;
+}
+Integrate different browser and device scenario with magic links 
+The Email Magic Links feature is designed with security in mind. It only works when there's complete assurance that the person who started the request is the same one who clicked the magic link.
+For example, a user who signed in to your app in a web browser must be in the same browser when they click the magic link. If the user's browser or device is different, the magic link is disabled. The user needs to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logic.
+The following step-by-step instructions detail integrating the different browser scenario using the email challenge.
+1 - 9. Sign in and get magic link email 
+First, the user attempts to sign in, initiating the email challenge flow. Next, they click the magic link that redirects them back to your app. These steps are identical to the steps 1 - 9 in 
+Integrate email challenge with magic links
+.
+10. Handle the magic link redirect in your app 
+Create a callback handler method that takes the 
+otp
+ parameters in the query string and passes it as a parameter to the 
+VerifyAuthenticatorAsync
+ method on the 
+IdxClient
+. More importantly, use the value of the state parameter to retrieve the current IDX context.
+IIdxContext
+ idxContext 
+=
+ Session
+[
+state
+]
+as
+IIdxContext
+;
+if
+(
+idxContext 
+==
+null
+)
+{
+  idxContext 
+=
+ Session
+[
+"idxContext"
+]
+as
+IIdxContext
+;
+}
+If your code can't retrieve the context using the state, assume that this is because the user is in a different browser. Advise the user to return to the original tab and enter the OTP value there.
+if
+(
+idxContext 
+!=
+null
+)
+{
+// Process magic link
+}
+return
+View
+(
+new
+MagicLinkCallbackModel
+{
+ Message 
+=
+$"Enter the OTP code in the originating client: 
+{
+otp
+}
+"
+}
+)
+;
+}
+Integrate email enrollment with OTP 
+With a one-time passcode (OTP), the user copies an automatically generated numeric string from their email to your application to verify their identity. The following flowchart, which uses the sign-in with email example, illustrates the OTP user journey.
+The following instructions detail how to integrate the OTP flow for email enrollment. Even though this is an enrollment example, the OTP integration portion is nearly identical for the email challenge.
+Note
+: If your org's Enrollment Policy requires an email to be supplied during user registration, the enrollment flow for the Email Authenticator is included in the registration process. The 
+self-service registration
+(opens new window)
+ guide details how this works.
+1 - 4. Start enrollment flow and display list of authenticators 
+The Enrollment flow follows the same first four steps as the 
+Challenge flow
+:
+Build a sign-in page on the client
+Authenticate the user credentials
+Handle the response from the sign-in flow
+Display a list of possible authenticator factors
+5. Check authenticator status and send email to the user 
+When the user selects the Email Authenticator and clicks 
+Submit
+, the form posts back to the 
+SelectAuthenticatorAsync
+ method. This checks whether the user is in Challenge or enrollment flow. When in enrollment flow, a call is made to 
+idxClient.SelectEnrollAuthenticatorAsync
+, using its 
+enrollAuthenticatorOptions
+ parameter to pass in the Email Authenticator ID.
+var
+ enrollAuthenticatorOptions 
+=
+new
+SelectEnrollAuthenticatorOptions
+{
+  AuthenticatorId 
+=
+ model
+.
+AuthenticatorId
+,
+}
+;
+var
+ enrollResponse 
+=
+await
+ _idxClient
+.
+SelectEnrollAuthenticatorAsync
+(
+    enrollAuthenticatorOptions
+,
+(
+IIdxContext
+)
+Session
+[
+"IdxContext"
+]
+)
+;
+If the call is successful, Okta sends an enrollment email to the user that contains the OTP. The server returns a status of 
+AwaitingAuthenticatorVerification
+ to indicate it is waiting for the user to check their email and either click the magic link in it or enter the OTP.
+switch
+(
+enrollResponse
+?.
+AuthenticationStatus
+)
+{
+case
+ AuthenticationStatus
+.
+AwaitingAuthenticatorVerification
+:
+{
+// Actions for other authenticator types elided
+return
+RedirectToAction
+(
+"VerifyAuthenticator"
+,
+"Manage"
+)
+;
+}
+// other statuses elided
+default
+:
+return
+View
+(
+"SelectAuthenticator"
+,
+ model
+)
+;
+}
+6. Display OTP input page 
+Build a form that allows the user to enter the One-Time Passcode (OTP) sent to them by email. This is exactly the same as Step 8 in the challenge flow instructions.
+7. Open email and copy OTP 
+Next, the user opens the email and copies the OTP. The following screenshot shows the OTP in an email generated from the 
+Email Factor Verification
+ template.
+8. Process the OTP 
+Create a 
+VerifyAuthenticatorOptions
+ object and set its 
+Code
+ property to the OTP entered by the user. Pass this object as a parameter to the 
+IdxClient.VerifyAuthenticatorAsync
+ method.
+var
+ verifyAuthenticatorOptions 
+=
+new
+VerifyAuthenticatorOptions
+{
+   Code 
+=
+ code
+,
+}
+;
+try
+{
+var
+ authnResponse 
+=
+await
+ _idxClient
+.
+VerifyAuthenticatorAsync
+(
+    verifyAuthenticatorOptions
+,
+(
+IIdxContext
+)
+Session
+[
+"idxContext"
+]
+)
+;
+Query the 
+AuthenticationStatus
+ property of the 
+AuthenticationResponse
+ object returned by 
+VerifyAuthenticatorAsync
+ to discover the current status of the authentication process. You should expect one of the following:
+Success
+ : All authenticators are enrolled and the user has signed in successfully.
+AwaitingPasswordReset
+ : The user needs to change their password.
+AwaitingAuthenticatorEnrollment
+ : The user has successfully enrolled the Email Authenticator and must now enroll other authenticators.
+switch
+(
+authnResponse
+.
+AuthenticationStatus
+)
+{
+case
+ AuthenticationStatus
+.
+AwaitingPasswordReset
+:
+return
+RedirectToAction
+(
+"ChangePassword"
+,
+"Manage"
+)
+;
+case
+ AuthenticationStatus
+.
+AwaitingAuthenticatorEnrollment
+:
+    Session
+[
+"authenticators"
+]
+=
+ ViewModelHelper
+.
+ConvertToAuthenticatorViewModelList
+(
+authnResponse
+.
+Authenticators
+)
+;
+    TempData
+[
+"canSkip"
+]
+=
+ authnResponse
+.
+CanSkip
+;
+    Session
+[
+"isChallengeFlow"
+]
+=
+false
+;
+return
+RedirectToAction
+(
+"SelectAuthenticator"
+,
+"Manage"
+)
+;
+case
+ AuthenticationStatus
+.
+Success
+:
+ClaimsIdentity
+ identity 
+=
+await
+ AuthenticationHelper
+.
+GetIdentityFromTokenResponseAsync
+(
+_idxClient
+.
+Configuration
+,
+ authnResponse
+.
+TokenInfo
+)
+;
+    _authenticationManager
+.
+SignIn
+(
+new
+AuthenticationProperties
+(
+)
+,
+ identity
+)
+;
+return
+RedirectToAction
+(
+"Index"
+,
+"Home"
+)
+;
+}
+return
+View
+(
+view
+,
+ model
+)
+;
+If the returned status is 
+Success
+, call 
+AuthenticationHelper.GetIdentityFromTokenResponseAsync
+ to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+Enable only OTP for the email authenticator 
+Magic links are a secure way to verify users' emails. However, you may want to use only OTP to provide an even higher level of security. Use only OTP to positively prove that the person starting the request is the same person reading the email.
+In this case, OTP may be a more compatible solution. For example, if you have a banking app, which shows account information and allows for money transfers, magic links may be too convenient, and OTP may provide a better solution.
+To disable magic link functionality, open the Admin Console and select 
+Customizations > Emails
+. Now remove the links from the following email templates:
+Other > Email Challenge
+Other > Email Factor Verification
+Password > Forgot password
+In each template, find the anchor tag and remove it from the template HTML. The following image identifies the magic link anchor tag (identified by the 
+email-authentication-button
+ ID) for the 
+Email Challenge
+ template.
+To learn more about customizing email templates and using the velocity template language, see 
+Customize an email template
+(opens new window)
+ in the Okta Help Center.
+Design considerations when customizing magic link for password recovery 
+Design overview 
+If you customize your self-service password recovery (SSPR) solution as described in the 
+Custom password recovery guide
+ and also initiate password recovery using the 
+/forgot_password
+ API
+(opens new window)
+, you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
+The magic link 
+href
+ attribute in the 
+Forgot Password
+ template is updated to replace the 
+${resetPasswordLink}
+ variable with a URL string that contains the 
+otp
+ and 
+state
+ parameters using the 
+${oneTimePassword}
+ and 
+${request.relayState}
+ variables. For example, 
+https://localhost:44314/magiclink/callback?otp=${oneTimePassword}&state=${request.relayState}
+ .
+Your system supports password recovery using methods other than self-service password recovery. These methods include calling the 
+/forgot_password
+ API
+(opens new window)
+ with the 
+sendEmail
+ parameter sent to 
+true
+ or enabling password recoveries using the embedded Sign-In Widget. These methods send an email to the user with a magic link that continues the password recovery.
+Considerations 
+In this design, you customize the 
+Forgot Password
+ email template to include the 
+${oneTimePassword}
+ variable per the 
+Custom password recovery guide
+.  When you use the 
+/forgot_password
+ API
+(opens new window)
+ and Sign-In Widget are used to initiate the password recovery, an email is sent to the user. When the user clicks the magic link, and the request is redirected back to your app, the 
+otp
+ value is missing. This is because password recovery wasn't initiated by the embedded SDK and doesn't have context. Since the 
+otp
+ value is missing, your app can't complete the password reset using the embedded SDK. Two options are available, however, to complete the password reset with this design.
+Use the 
+resetPasswordLink
+ variable 
+In this option, you set the magic link in the 
+Forgot Password
+ template to use the 
+${resetPasswordLink}
+ variable or include logic that sets it to 
+${resetPasswordLink}
+ if 
+${oneTimePassword}
+ is empty.
+#if
+(
+$
+{
+oneTimePassword
+}
+)
+<
+a
+id
+=
+"
+reset-password-link
+"
+href
+=
+"
+http://localhost:44314/magiclink/callback?otp=
+$
+{
+oneTimePassword
+}
+&state=
+$
+{
+request
+.
+relayState
+}
+"
+>
+    ...
+#else
+<
+a
+id
+=
+"
+reset-password-link
+"
+href
+=
+"
+$
+{
+resetPasswordLink
+}
+"
+style
+=
+"
+text-decoration
+:
+ none
+;
+"
+>
+    ...
+Note:
+ Using 
+${resetPasswordLink}
+ sends the user to an Okta-hosted page to sign in. If you're looking for a fully branded experience where you control the page experience, then the next option is a better alternative.
+Use your own infrastructure to send the password recovery email 
+In this recommended option, make a call to 
+/forgot_password
+ API
+(opens new window)
+ and use your infrastructure to notify the user to reset their password.
+Call 
+/forgot_password
+ API
+(opens new window)
+ with 
+sendEmail=false
+. Instead of sending a recovery email to the user, this returns a URL with a recovery token.
+{
+"resetPasswordUrl"
+:
+"https://{yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
+}
+In the above example, the recovery token is 
+XE6wE17zmphl3KqAPFxO
+.
+Parse the recovery token from the URL and send it using your infrastructure (through an out-of-band channel) to the end user's verified email address or SMS phone number. See 
+Authentication API - Recovery Token
+.
+See also 
+Sign in with password and email factors
+User password recovery with email factor
+Edit This Page On GitHub
+      Instructions for
+ASP.NET
+Loading...
+        On this page
+Overview
+Get started
+Update configurations
+Add the email authenticator to your org
+Set your app integration to use the email authenticator
+Set up magic links
+Integrate email challenge with magic links
+Integrate different browser and device scenario with magic links
+Integrate email enrollment with OTP
+Enable only OTP for the email authenticator
+Design considerations when customizing magic link for password recovery
+Design overview
+Considerations
+See also
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

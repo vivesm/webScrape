@@ -1,0 +1,78 @@
+Decode | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Decode
+Decode a JSON Web Token (JWT).
+This function card doesn't verify the signature of the JWT. Don't use this for messages from untrusted sources. Use 
+Verify
+ instead.
+Input
+Field
+Definition
+Type
+Required
+token
+The complete JSON Web Token (JWT), including the Base64-encoded header, and the payload and signature.
+Text
+TRUE
+Output
+Field
+Definition
+Type
+header
+The header includes the algorithm (
+alg
+) used to process the data contained in the JWT and the type (
+typ
+) of the token, usually JWT. For example:
+Copy
+{
+    "typ":"JWT",
+    "alg":"HS256"
+}
+Text
+payload
+Extensible outputs allow you to manually add an output field for each key that you expect to return with the payload.
+You can then drag these outputs to other inputs in the flow to process the data.
+Object
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

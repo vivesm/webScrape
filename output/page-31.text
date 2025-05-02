@@ -1,0 +1,627 @@
+Self-service registration | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Overview
+Loading...
+    Self-service registration
+    Identity Engine
+Note:
+ A request context for the browser client is required when a server-side web app uses an embedded SDK as a proxy between itself and Okta. This context contains values (geolocation, IP address, and user agent) that inform a secure response. However, these values are currently taken from the server rather than the client. As a result, network zones and behaviors that drive their conditions based on these request context values don’t currently work.
+Enable a self-registration flow in your app using the embedded SDK.
+Learning outcomes 
+Configure your Okta org for self-service registration.
+Set up the password, email, and/or phone authentication factors.
+Set up and send a verification email during new user registration.
+What you need 
+An app that uses the embedded Identity Engine SDK
+Okta org already configured for a multifactor use case
+Identity Engine SDK set up for your own app
+Sample code 
+Android Identity Engine sample app
+(opens new window)
+ (requires Android Studio 4.2 and JDK 8 or later)
+Overview 
+Self-service registration allows users to sign up to an app by themselves. In this use case, the user must register with a password, email, and/or phone factors. Enable self-service registration for the app in your Okta org and then build the self-service registration flow in your app.
+Configuration updates 
+Configure your Okta org to accept self-registration with the password, email, and/or phone factors.
+See 
+Set up your Okta org for a multifactor use case
+.
+Create a user profile policy
+Set the Email and Phone authenticators as optional enrollment factors
+Create a user profile policy 
+Create a policy for self-registration:
+Open the Admin Console for your org.
+Go to 
+Security
+ > 
+User Profile Policies
+, and click 
+Add user profile policy
+.
+Enter a policy 
+Name
+, and click 
+Save
+.
+Click the pencil icon next to your new policy.
+Ensure that 
+Self-service registration
+ is set to 
+Allowed
+.
+Click 
+Manage apps
+.
+Click 
+Add an App to This Policy
+.
+Click 
+Apply
+ next to your app, and then click 
+Close
+.
+Note:
+ See 
+configure user profile policies
+(opens new window)
+ for more user profile policy options.
+Set the email and phone authenticators as optional enrollment factors 
+Go to 
+Security
+ > 
+Authenticators
+ to view the available authenticators.
+Select the 
+Enrollment
+ tab.
+Click 
+Edit
+ under 
+Default Policy
+.
+Go to the 
+Effective factors
+ section of the 
+Edit Policy
+ dialog:
+Set 
+Email
+ to 
+Optional
+.
+Set 
+Phone
+ to 
+Optional
+.
+Click 
+Update Policy
+.
+Summary of steps 
+The sequence of steps for self-service registration is described in the following three sequence diagrams.
+Start a new user registration with the password authenticator 
+The following diagram illustrates the beginning of the registration process where the user initiates their sign-in flow and enrolls their password.
+Enroll and verify the email authenticator 
+After being shown the list of available authenticators, the customer continues the self-registration flow by selecting the email authenticator.
+Skip the optional remaining authenticators 
+After the password and email authenticators are verified, the user has the option to skip the phone authenticator.
+Enroll and verify the phone (SMS) authenticator 
+After the password and email authenticators are verified, the user has the option to enroll the phone authenticator.
+Note:
+ Based on the configuration described in 
+Set up your Okta org for a multifactor use case
+, the Okta app is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional.
+The following flow describes the steps when the user enrolls the optional phone authenticator.
+Integration steps 
+1: Register new users 
+The self-registration flow begins when the user clicks the 
+Sign up
+ link on your app's sign-in page. Create a 
+Sign up
+ link that directs the user to a Create Account form, similar to the following wireframe.
+You need to create a form to capture the user's new account details.
+Begin the authentication process by calling the Java SDK's 
+IDXAuthenticationWrapper.begin()
+(opens new window)
+ method.
+val
+ beginResponse 
+=
+ idxAuthenticationWrapper
+.
+begin
+(
+)
+After the authentication transaction begins, you need to call 
+getProceedContext()
+ to get the 
+ProceedContext
+(opens new window)
+ object that contains the current state of the authentication flow, and pass it as a parameter in an 
+IDXAuthenticationWrapper.fetchSignUpFormValues()
+ call to dynamically build the create account form:
+val
+ beginProceedContext 
+=
+ beginResponse
+.
+getProceedContext
+(
+)
+val
+ newUserRegistrationResponse 
+=
+ idxAuthenticationWrapper
+.
+fetchSignUpFormValues
+(
+beginProceedContext
+)
+Note:
+IDXAuthenticationWrapper.fetchSignUpFormValues()
+ allows you to build the create account form dynamically from the required form values using 
+AuthenticationResponse#getFormValues
+.
+2: The user enters their profile data 
+Enroll the user with basic profile information captured from the create account form by calling the 
+IDXAuthenticationWrapper.register()
+ method.
+val
+ userProfile 
+=
+UserProfile
+(
+)
+userProfile
+.
+addAttribute
+(
+"lastName"
+,
+ lastname
+)
+userProfile
+.
+addAttribute
+(
+"firstName"
+,
+ firstname
+)
+userProfile
+.
+addAttribute
+(
+"email"
+,
+ email
+)
+val
+ proceedContext 
+=
+ newUserRegistrationResponse
+.
+getProceedContext
+(
+)
+val
+ authenticationResponse 
+=
+ idxAuthenticationWrapper
+.
+register
+(
+proceedContext
+,
+ userProfile
+)
+3: Display the enrollment authenticators 
+After you've configured your org and app with instructions from 
+Set up your Okta org for a multifactor use case
+, your app is configured with 
+Password
+ authentication, and additional 
+Email
+ or 
+Phone
+ authenticators. Authenticators are the factor credentials, owned or controlled by the user, that can be verified during authentication.
+This step contains the request to enroll a password authenticator for the user.
+After the initial register request, 
+IDXAuthenticationWrapper.register()
+ returns an 
+AuthenticationResponse
+(opens new window)
+ object that contains the following properties:
+AuthenticationStatus
+ = 
+AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION
+This status indicates that there are required authenticators that need to be verified.
+Authenticators
+ = List of 
+authenticators
+(opens new window)
+ (in this case, there is only the password authenticator). 
+val
+ authenticators 
+=
+ authenticationResponse
+.
+authenticators
+After receiving the 
+AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION
+ status and the list of authenticators, you need to provide the user with a form to select the authenticator to enroll. In the following wireframe, there is only one password authenticator to enroll.
+4: The user selects the authenticator to enroll 
+Pass the user-selected authenticator (in this case, the password authenticator) to the 
+IDXAuthenticationWrapper.selectAuthenticator()
+ method.
+val
+ authenticationResponse 
+=
+ idxAuthenticationWrapper
+.
+selectAuthenticator
+(
+proceedContext
+,
+ authenticator
+)
+This request returns an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+. You need to build a form for the user to enter their password in this authenticator verification step.
+5: Verify the authenticator and display additional authenticators 
+After the user enters their new password, call the 
+IDXAuthenticationWrapper.verifyAuthenticator()
+ method with the user's password.
+val
+ verifyAuthenticatorOptions 
+=
+VerifyAuthenticatorOptions
+(
+newPassword
+)
+val
+ authenticationResponse 
+=
+ idxAuthenticationWrapper
+.
+verifyAuthenticator
+(
+proceedContext
+,
+ verifyAuthenticatorOptions
+)
+The request returns an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION
+ and an 
+Authenticators
+ list that contains the email and phone factors.
+6: The user selects the email authenticator 
+In this use case, the user selects the 
+Email
+ authenticator as the authenticator to verify. Pass this user-selected authenticator to the 
+IDXAuthenticationWrapper.selectAuthenticator()
+ method.
+val
+ authenticationResponse 
+=
+ idxAuthenticationWrapper
+.
+selectAuthenticator
+(
+proceedContext
+,
+ authenticator
+)
+If this request is successful, a code is sent to the user's email and 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+ is returned. You need to build a form to capture the code for this verification step.
+7: The user submits the email verification code 
+The user receives the verification code in their email and submits it in the verify code form. Use 
+VerifyAuthenticationOptions
+(opens new window)
+ to capture the code and send it to the 
+IDXAuthenticationWrapper.verifyAuthenticator()
+ method:
+val
+ verifyAuthenticatorOptions 
+=
+VerifyAuthenticatorOptions
+(
+code
+)
+val
+ authenticationResponse 
+=
+    idxAuthenticationWrapper
+.
+verifyAuthenticator
+(
+proceedContext
+,
+ verifyAuthenticatorOptions
+)
+If the request to verify the code is successful, the SDK returns an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION
+ property and an 
+Authenticators
+ list that contains the phone factor. Reuse the authenticator enrollment form from 
+3: Display enrollment factors
+ to display the list of authenticators to the user.
+Based on the configuration described in 
+Set up your Okta org for a multifactor use case
+, the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the 
+isSkipAuthenticatorPresent()
+ function returns 
+TRUE
+ for the phone authenticator. You can build a 
+Skip
+ button in your form to allow the user to skip the optional phone factor.
+If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See 
+Step 8, Option 1: The user skips the phone authenticator
+ for the skip authenticator flow. If the user decides to select the optional factor, see 
+Step 8, Option 2: The user selects the phone authenticator
+ for the optional phone authenticator flow.
+8: Handle the phone authenticator options 
+Option 1: The user skips the phone authenticator 
+If the user skips the phone authenticator enrollment, make a call to the 
+IDXAuthenticationWrapper.skipAuthenticatorEnrollment()
+ method. This method skips the authenticator enrollment.
+val
+ authenticationResponse 
+=
+ idxAuthenticationWrapper
+.
+skipAuthenticatorEnrollment
+(
+proceedContext
+)
+Note:
+ Ensure that 
+isSkipAuthenticatorPresent()=TRUE
+ for the authenticator before calling 
+skipAuthenticatorEnrollment()
+.
+If the request to skip the optional authenticator is successful, the SDK returns an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=SUCCESS
+ and the user is successfully signed in. Use the 
+AuthenticationResponse.getTokenResponse()
+ method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+Option 2: The user selects the phone authenticator 
+In this use case option, the user selects the optional 
+Phone
+ authenticator for verification. Pass this selected authenticator to the 
+IDXAuthenticationWrapper.selectAuthenticator()
+ method.
+val
+ authenticationResponse 
+=
+ idxAuthenticationWrapper
+.
+selectAuthenticator
+(
+proceedContext
+,
+ authenticator
+)
+The response from this request is an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA
+.
+This status indicates that the user needs to provide additional authenticator information. The user must then enter their phone number and the SMS verify method is sent automatically (1), or the user enters their phone number and selects either the SMS or the Voice Verify method (2).
+1. The user enters their phone number and the SMS verify method is sent automatically 
+This step assumes that the voice feature isn't enabled in your org. The phone verification code is sent through SMS automatically.
+When the user submits their phone number, capture this information and pass it to the 
+IDXAuthenticationWrapper.verifyAuthenticator()
+ method. In the following code example, the user phone number is encapsulated in the 
+verifyAuthenticatorOptions
+ object:
+val
+ authenticationResponse 
+=
+   idxAuthenticationWrapper
+.
+verifyAuthenticator
+(
+proceedContext
+,
+ verifyAuthenticatorOptions
+)
+The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+ to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
+You need to build a form to capture the user's SMS verification code.
+2. The user enters their phone number and selects either the SMS or the Voice Verify method 
+This step assumes that your org is enabled with the voice feature.
+You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
+Note:
+ The Java SDK requires the following phone number format: 
+{+}{country-code}{area-code}{number}
+. For example, 
++15556667777
+.
+When the user enters their phone number and selects a method to receive the verification code, capture this information and send it to the 
+IDXAuthenticationWrapper.submitPhoneAuthenticator()
+ method.
+val
+ authenticationResponse 
+=
+   idxAuthenticationWrapper
+.
+submitPhoneAuthenticator
+(
+proceedContext
+,
+ phone
+,
+ factor
+)
+The Java SDK sends the phone authenticator data to Okta. Otka processes the request and sends a code to the specified phone number. After the code is sent, Okta sends a response to the SDK that returns 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+ to your app. This status indicates that the user needs to provide the verification code for the phone authenticator.
+Note:
+ If the user selects 
+Voice
+ as the phone verification method, Okta sends an automated voice message with the verification code to the specified phone.
+You need to build a form to capture the user's verification code.
+The user submits the SMS verification code 
+The user receives the verification code as an SMS on their phone and submits it in the verify code form. Send this code to the 
+IDXAuthenticationWrapper.verifyAuthenticator()
+ method:
+val
+ verifyAuthenticatorOptions 
+=
+VerifyAuthenticatorOptions
+(
+code
+)
+val
+ authenticationResponse 
+=
+   idxAuthenticationWrapper
+.
+verifyAuthenticator
+(
+proceedContext
+,
+ verifyAuthenticatorOptions
+)
+If the request to verify the code is successful, the SDK returns an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=SUCCESS
+ and the user is successfully signed in. Use the 
+AuthenticationResponse.getTokenResponse()
+ method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+Resend the code 
+Sometimes the user needs to have the code resent. To implement that functionality, use the following:
+val
+ response 
+=
+ authenticationWrapper
+.
+resend
+(
+proceedContext
+)
+Send a confirmation email even if the email authenticator is disabled 
+Even when only the password factor is required for an Okta app, you can still send a confirmation email.
+To replicate this scenario:
+Configure your org following the steps described in 
+Set up your Okta org for a multifactor use case
+.
+Set your app's authentication policy to require only the password factor.
+In the Admin Console, go to 
+Applications
+ > 
+Applications
+.
+Select your app, and then go to the 
+Sign On
+ tab.
+In the 
+User authentication
+ section, click 
+Edit
+.
+Set 
+Authentication Policy
+ to 
+Password only
+, and click 
+Save
+.
+Set your app's 
+Initiate login URI
+ to its sign-in URI. By setting this value, the email verification link for new user enrollment redirects the user to the URL provided in the 
+Initiate login URI
+ field.
+Select the 
+General
+ tab.
+In the 
+General Settings
+ section, click 
+Edit
+.
+Set 
+Initiate login URI
+ to your 
+Sign-in Redirect URI
+, and click 
+Save
+.
+Make email verification mandatory in your default user profile policy.
+Go to 
+Security
+ > 
+User Profile Policies
+.
+Click the pencil icon next to the 
+Default policy
+.
+Ensure that 
+Required before access is granted
+ is selected for 
+Email Verification
+.
+During new user registration, there are no factors required other than the password. However, email verification is set to 
+Required
+ in the profile enrollment configuration. In this case, the user is sent an email using the 
+Registration - Activation
+ email template. The user clicks the link in the activation email and is redirected to the sample app's home page.
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Overview
+Configuration updates
+Create a user profile policy
+Set the email and phone authenticators as optional enrollment factors
+Summary of steps
+Integration steps
+Send a confirmation email even if the email authenticator is disabled
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

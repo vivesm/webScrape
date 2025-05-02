@@ -1,0 +1,213 @@
+Unset | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Unset
+Deletes a key and value pair from an object.
+Input
+Field
+Definition
+Type
+Required
+object
+The object containing the key and value pair you want to delete.
+Object
+TRUE
+path
+The key to delete. This can be a top-level key name, a dot-delimited path to a subkey, or a list of key names.
+Text
+TRUE
+Output
+Field
+Definition
+Type
+output
+The new object with the key and value pair removed.
+Object
+Examples
+Delete a top-level key
+For the simple case where you want to delete a top-level key and value pair, provide the key name as the 
+path
+. 
+Input
+object
+: 
+Copy
+{
+    "foo": 1,
+    "bar": 2
+}
+path
+: 
+foo
+Output
+output
+:
+Copy
+{
+  "bar": 2
+}
+Specify a dot-delimited path
+A path can also be used to specify a key within a subobject, using a dot to indicate the subobject.
+Input
+object
+: 
+Copy
+{
+  "a": "one",
+  "b": {
+    "foo": 1,
+    "bar": 2
+  }
+}
+path
+: 
+b.foo
+Output
+output
+:
+Copy
+{
+  "a": "one",
+  "b": {
+    "bar": 2
+  }
+}
+Use an index number
+You can also use an index number to indicate the path of a list element inside an object. List references begin with an index number of 
+0
+.
+To delete the 
+bar
+ key and value pair on the 7th element in a list found in the 
+foo
+ key, your path would be 
+foo.6.bar
+.
+The following example removes one  option for a bakery menu. The path specifies the second list element (index number 
+1
+) for the 
+topping
+ key inside the object.
+Input
+object
+: 
+Copy
+{
+  "type": "donut",
+  "name": "Raised",
+  "batters": {
+    "batter": [
+      {
+        "id": "1001",
+        "type": "Regular"
+      }
+    ]
+  },
+  "topping": [
+    {
+      "id": "5003",
+      "type": "Chocolate"
+    },
+    {
+      "id": "5004",
+      "type": "Maple"
+    }
+  ]
+}
+path
+: 
+topping.1
+Output
+output
+:
+Copy
+{
+  "type": "donut",
+  "name": "Raised",
+  "batters": {
+    "batter": [
+      {
+        "id": "1001",
+        "type": "Regular"
+      }
+    ]
+  },
+  "topping": [
+    {
+      "id": "5003",
+      "type": "Chocolate"
+    }
+  ]
+}
+Use a list of text as the path
+The dot-delimited path is simple and powerful, but it may not work if your key names are numbers or include the dot character.  In that case, you can control the path explicitly by using a list of text. Each item in the list is treated as a single key, without interpreting numbers or dots. 
+Input
+object
+: 
+Copy
+{
+  "a": "one",
+  "b.foo": {
+    "7": "bar",
+    "8": "baz"
+  }
+}
+path
+: use the dropdown menu to set the 
+path
+ as a list of text.
+First entry: 
+b.foo
+Second entry: 
+7
+Output
+output
+:
+Copy
+{
+  "a": "one",
+  "b.foo": {
+    "8": "baz"
+  }
+}
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

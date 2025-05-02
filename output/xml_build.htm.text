@@ -1,0 +1,125 @@
+Build | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Build
+Convert an object to an XML string.
+Input
+Field
+Definition
+Type
+Required
+object
+The object to be converted into an XML string.
+Object
+TRUE
+options
+rootName
+Name of the root element of the XML document.
+Text
+FALSE
+doctype
+The document type declaration of the XML document.
+Text
+FALSE
+renderOptions
+pretty
+Determines whether the XML document should be rendered into "pretty" style. The options are 
+True
+ and 
+False
+.
+True/False
+FALSE
+indent
+Used when the pretty field is set to 
+True
+. This value specifies the characters to use as indentation characters in the XML document.
+Text
+FALSE
+newline
+Used when the pretty field is set to 
+True
+. This value specifies the characters to use as newline characters in the XML document.
+Text
+FALSE
+declaration
+version
+Determines the version that's added to the XML declaration. The default is 
+1.0
+. Common values are 
+1.0
+ and 
+1.1
+, although any 
+1.x
+ values are accepted.
+Text
+FALSE
+encoding
+Adds a specified character encoding to the XML declaration, for example, 
+UTF-8
+.
+Text
+FALSE
+standalone
+Adds a standalone attribute to the XML declaration. 
+If this is set to 
+False
+, it adds the standalone attribute to the XML declaration as 
+standalone="no"
+. 
+If this is 
+True
+, it adds the standalone attribute to the XML declaration as 
+standalone="yes"
+.
+True/False
+FALSE
+Output
+Field
+Definition
+Type
+xml
+The assembled XML document.
+Text
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,292 @@
+Folders and subfolders | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Folders and subfolders
+In the 
+Okta
+Workflows Console
+, the 
+Flows
+ page uses folders and nested subfolders to organize your flows and tables. The structure provided by folders and subfolders helps you to create meaningful differentiation between your various projects. When you can quickly reference folders and their contents, you can better visualize the relationships between related flows and tables.
+Folders and subfolders are sorted alphabetically. Top-level folders and subfolders have the same basic attributes and functionality.
+There are several different tasks that you can perform on the folders and subfolders found on the 
+Flows
+ page of your 
+Okta
+Workflows Console
+:
+Create a folder
+Move a folder
+Rename a folder
+Duplicate a folder
+Export a folder
+Import a folder
+Delete a folder
+Before you begin
+Check the 
+Folders
+ table of the 
+Resource permissions
+ topic to ensure that you have the appropriate access control level to change the folders in your 
+Okta Workflows
+ org.
+Create a folder
+When naming your folders and subfolders, establish a system that aligns to your needs.
+Begin with project-level concepts for top-level folder names and then use more granular, task-specific names for subfolders. Capitalize folders consistently for readability.
+Create a top-level folder
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, click the 
+ button in your side navigation panel.
+In the 
+Create new folder
+ dialog, enter a name and an optional description for the folder.
+Click 
+Save
+ to confirm the folder creation or 
+Cancel
+ the action.
+Create a subfolder
+While there's no limit to the total number of subfolders you can create, the maximum folder depth (including the top-level folder) is five levels.
+After you create a top-level folder, select the new folder.
+Click the 
+Actions
+ dropdown menu and select 
+Create subfolder
+.
+You can also click the 
++
+ button on the folder in the side navigation panel.
+In the 
+Create new subfolder
+ dialog, enter a name and an optional description for the new folder.
+Click 
+Save
+ to confirm the folder creation or 
+Cancel
+ the action.
+Move a folder
+On the 
+Flows
+ page, folders and subfolders can be moved around within the 
+Folders
+ navigation panel to meet your organizational needs.
+All flows and tables, and any subfolders contained within the folder, are retained in the folder's new position.
+The  
+Okta
+ System Log records these folder changes.
+To move a folder, complete the following steps:
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, click and drag the folder you want to move on top of an existing folder.
+Release to add the moved folder as a subfolder.
+When you drag and hold over a closed target folder, the target folder automatically expands by one level. You can drop your folder onto any of the nested folders inside. Or, repeat the drag and hold action to continue down into another closed subfolder.
+The total depth of a folder and its subfolders can't exceed a maximum depth of five levels. This limit includes any subfolders contained in the folder being moved.
+After you move a folder, Okta shows a notification along with an option to undo the change. Folder changes are recorded in the 
+Okta
+ System Log.
+Move a subfolder to a higher level
+You can also move any subfolder up to a higher level, including to the top level.
+To move it up to a higher level, click and drag the subfolder to the new level and release.
+To move a subfolder to the top level, click and drag the subfolder to any white-space area outside of the existing folders.
+Okta
+ highlights the entire 
+Folders
+ navigation panel to show that the folder destination is the top level. Release the folder to complete the move.
+Rename a folder
+If your folder structure or naming conventions change at any point in the future, you can rename the folder.
+To rename a folder or edit the folder description, complete the following steps:
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, select the folder you want to rename or update.
+In the 
+Rename this folder
+ dialog, enter an updated name and an optional description for the folder. You can include details such as: flow testing status, deployment state, or anything useful about the flows and tables inside the folder.
+Click 
+Save
+ to confirm the folder rename or 
+Cancel
+ the action.
+Duplicate a folder
+You can duplicate any top-level folder or subfolder in your 
+Okta Workflows
+ org.
+Duplicating a folder copies all of its nested subfolders and flows - including their options, input fields, mappings, and connections - into a new folder. You don't need to reauthorize any of the copied connections.
+Duplicated flows are automatically set to 
+OFF
+ in the new folder, regardless of their original state.
+Any references or links between flows located within the same folder are updated to point to their duplicated versions. References or links that originally pointed to flows outside of the duplicated folder remain unchanged.
+Duplicating the folder also duplicates the table objects in that folder, including column names, types, and descriptions.
+Table data isn't copied to the new tables and must be manually transferred from the original tables.
+Ownership of the copied items is set to the user who duplicated the folder. The creation date for flows and tables is set to the date when the folder was duplicated, not the original date.
+To duplicate a folder or subfolder, complete the following steps:
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, select the folder you want to duplicate.
+From the folder's 
+Actions
+ dropdown menu, select 
+Duplicate
+.
+The 
+Duplicate Folder
+ dialog appears with a progress indicator.
+Factors such as the number of subfolders, connections, flows, or tables, the flow complexity, or even dependencies between flows can impact the time required for duplication. If duplication exceeds a preset time limit, it's canceled and all changes are rolled back.
+You can only have 100 tables in an org. If the folder duplication would exceed that limit, the action is halted until you reduce the overall number of tables in your org.
+After the folder is duplicated, you can click 
+View Folder
+ to open the folder on the 
+Flows
+ page. The duplicated folder has the same name as the original folder but with 
+(Copy)
+ added. Any nested subfolders keep their original names.
+If you need to copy table data, open the original table in the source folder and click 
+Export
+. In the new table, click 
+Import
+ and select the downloaded CSV file from the original table.
+Export a folder
+You can use the export and import actions to move flows, tables, and subfolders to a new 
+Okta
+ org or for backup purposes. See 
+Export and import flows
+.
+To export an entire folder, complete the following steps: 
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, select the folder you want to export.
+From the folder's 
+Actions
+ dropdown  menu, select 
+Export
+. 
+In the 
+Export folder
+ dialog, you can choose one of two options:
+Export the entire folder tree, including the content from all nested subfolders
+Export just the contents of the current folder
+Click 
+Export
+ to start the export process.
+Click 
+Download
+ to save the exported 
+.folder
+ file to your local filesystem. This file contains all exported flows, tables, and subfolders. 
+The export function removes all connection information and table data. If you import this file later, you must  recreate or assign connections to use the flows again. However, if you import the file into your original 
+Okta
+ org, you can reapply your existing connections to the cards in those flows.
+The export function does maintain links between objects referenced by the flows. 
+For example, if a flow calls a helper flow to process a list, the link between that parent and helper flows is kept. 
+However, if the exported folder contains references to objects that weren't included in the folder, 
+Okta
+ warns you that there are flows with missing references. When you import this file, 
+Okta
+ requires you to recreate the referenced objects for the flows.
+You can also use the
+Export Folder
+ function card to export a folder as a single JSON object.
+Import a folder
+Imported flows appear as new flows in a folder. Since the export action doesn't retain connection information, you need to restore all card connections after you import the flows.
+For tables, the export action doesn't include any of the original table data. The import action recreates all tables according to the table schema listed in the export file, but the tables are initially empty. The limit of 100 tables in a folder remains.
+If any of the imported flows refer to a flow that wasn't included in the export (for example, a helper flow called to handle  a list), you must specify a replacement flow to complete the import.
+To import an 
+Okta Workflows
+.folder
+ file, complete the following steps:
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, select the folder where you want to place the imported flows.
+Click the 
+Actions
+ dropdown menu for the folder and select 
+Import
+.
+Drag and drop your file into the dialog, or click 
+Choose file from computer
+ link to browse your local file system for the file.
+Click 
+OK
+.
+Okta
+ imports the content to the current folder, unless the import action would exceed the maximum folder depth of five levels. If this scenario arises, 
+Okta
+ provides the option to import the contents as a top-level folder instead.
+When importing, 
+Okta
+ preserves the export locations of any subfolders, along with their flows and tables.
+Delete a folder
+Deleting a folder removes all flows and tables for that folder, including any contained within subfolders.
+Deleting a folder is irreversible. Before you delete the folder, back up any flows, tables, table data, or other information that you want to keep.
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, select the folder that you want to remove.
+Turn off all flows in the folder, including helper flows.
+In the 
+Actions
+ dropdown menu of the folder, click 
+Delete
+.
+Enter the name of the folder to confirm your intention.
+Click 
+Delete
+.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

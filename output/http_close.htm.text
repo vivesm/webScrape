@@ -1,0 +1,89 @@
+Close | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Close
+This function sends a response back to the caller and closes the HTTP connection, similar to 
+Return
+ or 
+Return Raw
+, but also allows the flow to continue execution afterward. 
+This operation is useful for flows that might not complete before the connection times out. In this scenario, the caller might try to call the endpoint again with the same inputs and cause unintended duplicate executions.
+Input
+Field
+Definition
+Type
+Required
+statusCode
+Status code to return to the caller.
+A regular  
+Return
+ card would typically return the code 200.
+Valid values are 
+200
+ or any HTTP response code from 
+400
+ through 
+599
+.
+Number
+FALSE
+headers
+Create a field for each key/value pair that you want to include in the response header
+For example, a field called 
+Content-Type
+ with the value 
+text/plain
+. 
+You can create fields by clicking and then specifying a name and type, or by dragging and dropping outputs from other cards.
+Custom
+FALSE
+body
+ Similar to a 
+Return
+ card, create a field for each value that needs to be returned to the caller. 
+You can create fields by clicking and then specifying a name and type, or by dragging and dropping outputs from other cards.
+Custom
+FALSE
+Output 
+This card has no output fields.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

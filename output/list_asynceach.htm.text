@@ -1,0 +1,71 @@
+For Each - Ignore Errors | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+For Each - Ignore Errors
+Process a list by calling a helper flow for each item. This function is almost identical to the 
+For Each
+ function, with one important difference: For Each will stop processing more items if an error occurs when processing one of the items in the helper flow. On the other hand, this function continues to process all items even if some hit errors in the helper flow. Here's how to think about it:
+Use 
+For Each
+ if your flow is only successful when every helper item is processed successfully.
+Use 
+For Each - Ignore Errors
+ if some items are expected to have errors during normal operation.
+As an example of a flow where some items are expected to have errors - suppose you are sending an email out to a list of email addresses. Some of those email addresses will probably be out of date, so you may receive an error when trying to send to them. But that error shouldn't stop you from sending to the rest of the email addresses on your list. So in this case, For Each - Ignore Errors is a great fit. You can still replay the helper executions, for example, if you want to retry any of the errors. For more details on using this card, please see the 
+For Each
+ topic.
+Input Fields
+list
+ (List of Objects): List to operate on
+flow
+ (Object): Helper flow that will be called once for each item in the list
+with the following values
+ (dynamically generated): Inputs defined by the helper flow - these will populate when you select the helper flow using the 
+Choose Flow
+ dialog
+concurrency
+ (Number): Number of items in the list to process in parallel. If it is important that the items are processed in sequence, use 1. Otherwise a higher number like 5 or 10 will cause your flow to complete sooner.
+Output Fields
+There are no output fields in this card.
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

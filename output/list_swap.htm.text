@@ -1,0 +1,90 @@
+Swap | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Swap
+Swap two elements in a list.
+Input Fields
+list 
+ (list of objects): List of items in which two will swap positions
+Click on an empty cell in each list to add a list item. A cell can contain only one list item. 
+first position 
+(number): First of the two list items that will exchange positions; note that the first item in the list holds a position index value of 
+0
+second position 
+(number): Second of the two list items that will exchange positions
+Output Fields
+new list
+: Resulting list with swapped elements
+Example
+This is a list of six names:
+Alan
+Alicia
+Bethany
+Bob
+Catherine
+Charles
+Bethany
+ has a position index value of 
+2
+, and 
+Alan
+ has a position index value of 
+0
+. To swap their positions, enter the elements from this list in the 
+list
+ field, enter 
+0
+ in the 
+first position
+ field, and 
+2
+ in the 
+second position
+ field. This is the resulting list:
+Bethany
+Alicia
+Alan
+Bob
+Catherine
+Charles
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

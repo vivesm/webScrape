@@ -1,0 +1,94 @@
+Get Multiple | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Get Multiple
+Picks several values from an object at once. Similar to 
+Get
+, the Get Multiple card allows you to access values within an object by providing multiple keys and/or paths to values in an object. 
+Input Fields
+object
+ (required): the object or list of objects you want to pick values from
+Output Fields
+Add an output field for each value you want to get from the provided object. 
+Each field must be named as the single key name or path you want to get the value of, and must be an identical match to the key names used in the object. 
+Additionally, you must set each output field type to match the type of the return value.
+Example
+If the input 
+object
+ is:
+Copy
+{
+  "product": "a123",
+  "parts": [
+    {
+      "partno": 12
+    },
+    {
+      "partno": 16
+    },
+    {
+      "partno": 27
+    }
+  ],
+  "inventory": {
+    "instock": 12,
+    "ordered": 10
+  }
+}
+Then the following are valid output field names that could be added to a Get Multiple card along with their types and the values that would be returned:
+Output field
+Type
+Value
+product
+text
+a123
+parts.1.partno
+number
+16
+inventory
+object
+{"instock":12, "ordered":10}
+ inventory.ordered
+number
+10
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

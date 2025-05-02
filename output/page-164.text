@@ -1,0 +1,293 @@
+Sign in with password and phone factors | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Configuration updates
+Loading...
+    Sign in with password and phone factors
+    Identity Engine
+Note:
+ In proxy model architectures, where a server-side app using the embedded SDK is used as a proxy between client apps and Okta servers, a request context for the client apps is required. The expectation is that security enforcement is based on the client request context's IP address and user agent.
+However, since these values are currently derived from the server app rather than the client, this enforcement isn't available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) won't work until a solution to the issue is found.
+This guide covers the use case for a user sign-in flow with password and phone factors.
+Learning outcome 
+Configure your Okta org to use the password and phone factors.
+Challenge a user's identity with password and phone factors.
+What you need 
+An app that uses the embedded Identity Engine SDK
+Okta org already configured for a multifactor use case
+Identity Engine SDK set up for your own app
+Sample code 
+Android Identity Engine sample app
+(opens new window)
+Configuration updates 
+This sign-in use case requires the password and phone factors.
+Before you build a sign-in flow with password and phone factors, you need to configure the Okta org to accept both factors in your app. See 
+Set up your Okta org for a multifactor use case
+ to configure your app and Okta org for this use case.
+Set phone as optional for authentication enrollment 
+The instructions in 
+Set up your Okta org for a multifactor use case
+ enables both email and phone factors as optional for enrollment. For this use case, you need to enable the phone factor as optional and disable the email factor.
+In the Admin Console, go to 
+Security
+ > 
+Authenticators
+.
+On the 
+Authenticators
+ page, select the 
+Enrollment
+ tab.
+In 
+Default Policy
+, click 
+Edit
+.
+In the 
+Edit Policy
+ dialog box, under 
+Effective Factors
+:
+Set 
+Email Authentication
+ to 
+Disabled
+.
+Set 
+Phone Authentication
+ to 
+Optional
+.
+Click 
+Update Policy
+ if a value has changed.
+Summary of steps 
+The following graphic shows the steps for the sign-in flow with password and phone factors:
+The following diagram shows an alternative step with the voice feature enabled in your org:
+Integration steps 
+1: The user initiates the sign-in flow 
+Build a sign-in form for your app that captures both the username and password.
+Begin the authentication process by calling the Java SDK's 
+IDXAuthenticationWrapper.begin()
+ method and getting a new 
+ProceedContext
+(opens new window)
+ object.
+val
+ beginResponse 
+=
+ idxAuthenticationWrapper
+.
+begin
+(
+)
+val
+ proceedContext 
+=
+ beginResponse
+.
+proceedContext
+2: The user enters their credentials 
+After the user enters their credentials, call 
+IDXAuthenticationWrapper.authenticate()
+ with the credential values.
+val
+ authenticationResponse 
+=
+     idxAuthenticationWrapper
+.
+authenticate
+(
+AuthenticationOptions
+(
+username
+,
+ password
+)
+,
+ proceedContext
+)
+If the password is validated, the 
+IDXAuthenticationWrapper.authenticate()
+ method returns an 
+AuthenticationResponse
+(opens new window)
+ object with the following properties:
+AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION
+ — This status indicates that there are required authenticators that need to be enrolled.
+Authenticators
+ — List of 
+authenticators
+(opens new window)
+ to be enrolled (in this case, there is only the phone authenticator). 
+Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
+Note:
+ If the user already has the phone authenticator enrolled, then 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION
+ is returned (instead of 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION
+), and the user doesn't have to enroll the phone authenticator with a phone number, bypassing steps 
+3
+, 
+4
+, and 
+4 (voice feature alternative)
+.
+After receiving the 
+AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION
+ status and the list of authenticators to be enrolled, provide the user with a form to select the authenticator to enroll. In the following wireframe, phone is the only authenticator.
+Tip:
+ Build a generic authenticator selection form to handle single or multiple authenticators returned from the SDK.
+3: The user selects the phone authenticator 
+In this use case, the user selects 
+Phone
+ as the authenticator to enroll. Pass this selected authenticator to the 
+IDXAuthenticationWrapper.selectAuthenticator()
+ method.
+val
+ authenticationResponse 
+=
+ idxAuthenticationWrapper
+.
+selectAuthenticator
+(
+proceedContext
+,
+ authenticator
+)
+The response from this request is an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA
+. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number.
+You need to build a form to capture the user's phone number in your app, similar to the following wireframe.
+Note:
+ The Java SDK requires the following phone number format: 
+{+}{country-code}{area-code}{number}
+. For example, 
++15556667777
+.
+If your org is enabled with the voice feature, you need to add an additional form to select the voice or the SMS factor as the phone verification method. See 
+Step 4 (voice feature alternative)
+ for details.
+4: The user enters their phone number 
+This step assumes that the voice feature isn't enabled in your org. The phone verification code is sent through SMS automatically.
+When the user submits their phone number, capture this information and pass it to the 
+IDXAuthenticationWrapper.verifyAuthenticator()
+ method. In the following code example, the user's phone number is encapsulated in the 
+verifyAuthenticatorOptions
+ object:
+val
+ authenticationResponse 
+=
+    idxAuthenticationWrapper
+.
+verifyAuthenticator
+(
+proceedContext
+,
+ verifyAuthenticatorOptions
+)
+The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+ to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
+You need to build a form to capture the user's SMS verification code.
+4 (voice feature alternative): The user enters the phone number and selects the phone factor method 
+This step assumes that your org is enabled with the voice feature.
+You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
+After the user enters their phone number and selects a method to receive the verification code, capture this information and send it to the 
+IDXAuthenticationWrapper.submitPhoneAuthenticator()
+ method. For example:
+val
+ authenticationResponse 
+=
+   idxAuthenticationWrapper
+.
+submitPhoneAuthenticator
+(
+proceedContext
+,
+ phone
+,
+ factor
+)
+The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends a code to the specified phone number. After the code is sent, Okta sends a response to the SDK, which returns 
+AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION
+ to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
+Note:
+ If the user selects 
+Voice
+ as the phone verification method, Okta sends an automated voice message with the verification code to the specified phone.
+You need to build a form to capture the user's verification code.
+5: The user enters the verification code 
+The user receives the code on their phone and submits it in the verification code form. Send this code to the 
+IDXAuthenticationWrapper.verifyAuthenticator()
+ method:
+val
+ verifyAuthenticatorOptions 
+=
+VerifyAuthenticatorOptions
+(
+code
+)
+val
+ authenticationResponse 
+=
+   idxAuthenticationWrapper
+.
+verifyAuthenticator
+(
+proceedContext
+,
+ verifyAuthenticatorOptions
+)
+If the request to verify the code is successful, the SDK returns an 
+AuthenticationResponse
+ object with 
+AuthenticationStatus=SUCCESS
+, and the user is successfully signed in. Use the 
+AuthenticationResponse.getTokenResponse()
+ method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Configuration updates
+Set phone as optional for authentication enrollment
+Summary of steps
+Integration steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

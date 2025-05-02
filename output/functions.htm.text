@@ -1,0 +1,732 @@
+Functions in Workflows | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Functions
+You can use functions to interact with, change, and control your data in 
+Okta Workflows
+.
+API Connector
+Branching
+Functions
+Date & Time
+Encryption
+Error Handling
+File
+Flow Control
+Flows
+Folders
+JSON
+JWT
+List
+Number
+Object
+Tables
+Text
+True/False
+URL
+XML
+API Connector
+Function
+Description
+API Endpoint
+Invokes a flow by specifying a URL.
+Authenticate with API Connector cards
+This function uses the API Connector (HTTP) function cards to make authenticated basic, OAuth 2, or custom connections to third-party services.
+Close
+For use with API Endpoint flows only. See 
+API Endpoint
+.
+This function sends a response back to the caller and closes the HTTP connection, similar to 
+Return
+ or 
+Return Raw
+, but also allows the flow to continue execution afterward.
+This is useful for flows that might not complete before the connection times out. If  the caller queries the endpoint again with the same inputs, it can cause duplicate executions.
+Delete
+Performs an HTTP DELETE request, returning the result of this request and the response headers.
+On input, the card takes a required URL input and optional header, body, and query inputs.
+Get
+Performs an HTTP GET request, returning the result of this request and the response headers.
+On input, the card takes a required URL input and optional auth, header, and query inputs. You can model each optional input either as a single object-typed input, or with multiple keys with the appropriate group attribute.
+On output, the card returns an object with two keys, headers and output. The output key contains the response body, and the headers key contains the response header. More detailed information can be accessed about these by using multiple keys with the appropriate grouping.
+HTTP Errors
+An error in an HTTP function typically corresponds to a standard HTTP error code returned by the API that you called.
+For instance, if the API returns the status code 400, you get a 
+Bad Request
+ error. If the status code is 401, the error is 
+Unauthorized
+.
+For a full list of possible status codes, see 
+HTTP status codes
+.
+Paginate
+This function uses a helper flow to paginate through multiple pages of an HTTP response.
+Paginate: set a maximum page index
+Sets how many times the 
+Paginate
+ function card iterates.
+Paginate: API endpoint
+Uses the 
+Paginate
+ function card against an API endpoint.
+Post
+Performs an HTTP POST request, returning the result of this request and the response headers.
+On input, the card takes a required URL input and optional auth, header, body, and query inputs. You can model each optional input either as a single object-typed input, or with multiple keys with the appropriate group attribute.
+On output, the card returns an object with two keys, headers and output. The output key contains the response body, and the headers key contains the response header. More detailed information can be accessed about these by using multiple keys with the appropriate grouping.
+Put
+Performs an HTTP PUT request, returning the result of this request and the response headers.
+On input, the card takes a required URL input and optional auth, header, body, and query inputs. You can model each optional input either as a single object-typed input, or with multiple keys with the appropriate group attribute.
+On output, the card returns an object with two keys, headers and output. The output key contains the response body, and the headers key contains the response header. More detailed information can be accessed about these by using multiple keys with the appropriate grouping.
+Raw Request
+Advanced. This method performs a raw HTTP request, allowing the flow builder to control all aspects of the HTTP request. This allows a flow to call an XML service for example, or call an HTML service, or various other advanced use cases.
+While the other HTTP functions are optimized for ease-of-use with typical JSON-based services, the 
+Raw Request
+ function is more flexible, at the cost of being a bit harder to use.
+Branching
+Function
+Description
+Assign If
+Assigns a value based on the true or false result of a conditional statement. If there are more than two potential output values, see 
+Lookup
+.
+Continue If
+Continues or halts the flow based on the result of a true or false conditional test. Use 
+Return Error If
+ instead if you want to halt the flow with an error when the condition is true.
+If/Else
+Uses an 
+If/Else
+ conditional statement to determine the steps that the flow should follow.
+If/ElseIf
+Specifies different actions to run based on multiple  
+if 
+ and  
+else if 
+ conditions (similar to  
+Switch 
+ or  
+Case 
+ in some programming languages). To specify different actions based on a single condition, you can use 
+If/Else
+ instead.
+Lookup
+Converts one value to another using a lookup table. For example, change one web service code to another web service code, or a department name to a contact email.
+Date & Time
+Function
+Description
+Add
+Adds a multiple of a unit of time (for example, seconds) from a starting date and time and return a new date value.
+Convert
+Converts a date and time to various formats.
+Date to Text
+Converts a date and time into a provided format in a specified time zone.
+Difference
+Calculates the difference in time between any two dates.
+Epoch
+Converts a date and time to the number of seconds that have elapsed since January 1, 1970 (midnight UTC/GMT) not counting leap seconds.
+ISO
+Calculates the corresponding ISO8601 string using UTC 
+Z
+ notation for a given date and time (not adjusted for local time zone).
+Now
+Calculates the current date and time in various formats, all in UTC time (not adjusted for local time zone).
+Subtract
+Subtracts a multiple of a unit of time (for example, seconds) from a starting date and time and return a new date value.
+Text to Date
+Creates a date and time from the contents of a text string, according to a specified format.
+UNIX
+Converts a date and time to the UNIX standard format.
+Encryption
+Function
+Description
+AES
+Encrypts text using the AES algorithm and returns the encrypted text.
+Decrypt
+Decrypts text from a Base64 encoding using a key and specified algorithm.
+Encrypt
+Encrypts text into a Base64 encoding using a key and specified algorithm.
+Hash
+Hashes the input text and return a message digest as output with hex, binary, or Base64 encoding.
+HMAC
+Hashes the input text and returns the resulting hashed text.
+MD5
+Hashes the input text using the MD5 hash function, return the resulting hashed text.
+SHA1
+Hashes the input text using the SHA-1 hash function, return the resulting hashed text.
+SHA256
+Hashes the input text using the SHA-256 hash function, return the resulting hashed text.
+Sign
+Signs and hash input text with an input algorithm and a private key, and return a message digest as output with hex, binary, or Base64 encoding.
+Error Handling
+Function
+Description
+If Error
+Specifies alternate actions to handle an error without stopping your flow.
+Return Error
+Returns an error and end the flow.
+Return Error If
+Returns an error and halt the flow if a conditional test is true.
+If you want to conditionally stop a flow, but under normal circumstances so it doesn't appear as an error, use 
+Continue If
+ instead.
+File
+Function
+Description
+Download
+Downloads a file to the Workflows file system over HTTP or HTTPS.
+Use the Download function card in a flow
+Use the 
+Download
+ function to download any file, such as an image or document file, that you can access through a URL in your browser.
+Info
+Retrieves information about a file. To use the Info function card, set the input to the File Contents of a file downloaded previously in the flow. The output provides basic information about the file.
+Multipart Upload
+Uploads a file from the Workflows file system to a web service using HTTP or HTTPS and using multipart form-data.
+Upload
+Uploads a file from the Workflows file system to a web service using HTTP or HTTPS.
+Use the Upload function card in a flow
+Uses the 
+Upload
+ function card to upload any file, such as an image or document file, from the Workflows file system.
+Flow Control
+Function
+Description
+Assign
+Creates output fields based on the input supplied.
+Call Flow
+Runs another flow within the context of your current flow. Your flow resumes when the other flow finishes. If you don't care about waiting for the other flow to finish, you can use 
+Call Flow Async
+ instead.
+Call Flow Async
+Starts another flow then continue without waiting for that flow to finish. String together multiple Call Flow Async cards if you want to kick off different sets of actions to run at the same time (in parallel).
+Pause
+The Pause function currently only works when used in flows that are resumed programmatically.
+If you want to pause a flow for a specific delay or until a specific time, use a 
+Wait For
+ or 
+Wait Until
+ function.
+Pause Raw
+Pauses the running flow execution, returning raw HTTP data to the caller. Resume it by calling the resume API.
+Repeat
+Runs a helper flow a specified number of times.
+Return
+Ends a flow and returns values to the caller of the flow.
+Return Raw
+Returns the data to the caller, with full control over the HTTP Response.
+Type Of
+Returns the type of the data provided as input.
+Wait For
+Pauses the flow and wait for a specified amount of time before resuming the flow execution.
+Wait Until
+Pauses the flow and wait until a specific date and time to continue executing the flow.
+Flows
+Function
+Description
+Export Flow
+Exports all the elements of a single flow as a JSON file.
+Folders
+Function
+Description
+Export Folder
+Exports a folder containing one or more flows as a JSON file.
+JSON
+Function
+Description
+Parse
+Parses a JSON string into a typed field, such as an object or a list, that you can use in subsequent functions. It's the inverse of the 
+Stringify
+ function.
+Stringify
+Converts a typed value, such as an object or a list, into a JSON string. It's the inverse of the 
+Parse
+ function.
+JWT
+Function
+Description
+Decode
+Decodes a JWT without verifying the signature.
+Sign
+Encodes and sign a JWT.
+Verify
+Decodes and verify a JWT.
+List
+Function
+Description
+Add to End
+Adds an item to the end of a list. This is also known as a Push operation.
+Add to Front
+Adds an item to the start of a list. This is also known as an Unshift operation.
+At
+Returns an item at the specified position in a list, where the first item is in position 0.
+Collapse
+Collapses a list of objects into a single object by merging each object in the order that they appear in the list. If objects have overlapping keys, subsequent values take precedence over preceding values.
+Combine All
+Combines the contents of two or more lists.
+Construct
+Constructs a new list from a set of values.
+Difference
+Creates a list of items from one list that don't appear in another list.
+Filter
+Filters a list to include only those items that meet a specified condition. To filter based on more complex criteria, use 
+Filter Custom
+.
+Filter Custom
+Given a list, the 
+Filter Custom
+ function creates a list that contains only those items in the list that pass a test. The test is done by calling a helper flow once for each item. See 
+Parent flows and other flow types
+. 
+The flow returns either 
+True
+ or 
+False
+ to indicate if that item should be included in the output list.
+To filter using a simple comparison test, use the 
+Filter
+ function instead.
+Find
+Finds the first item in a list that meets a specified condition. To find based on more complex criteria, use 
+Find Custom
+.
+Find Custom
+Finds an item in a list by running a helper flow on the items, one at a time, and returning the first item where the flow returns True.
+For simple searches, use the 
+Find
+ function instead.
+Flatten
+Takes a list that contains multiple lists and convert it into a single list.
+For Each
+Processes a list by calling a helper flow for each item.
+For Each - Ignore Errors
+Processes a list by calling a helper flow for each item. This function is almost identical to the  
+For Each
+ function, with one important difference. For Each stops processing more items if an error occurs when processing one of the items in the helper flow. On the other hand, this function continues to process all items even if some hit errors in the helper flow.
+Get First Item
+Given a list, the card returns two outputs: the first item and the list with that item removed. This is also known as a Shift operation.
+Get Last Item
+Given a list, the card returns two outputs: the last item and the list with that item removed. This is also known as a Pop operation.
+Group By
+Reads a list and extract a list, grouped by the values in the original list at the specified path.
+Includes
+Checks whether a list contains a particular item. The output returns 
+True
+ if the list contains the item, or 
+False
+ if the item isn't found in the list.
+The list can be a list of any type of item; for example, a list of text, a list of numbers a list of objects. The value must be an item of that type.
+Index By
+This function is designed for a common API pattern, where a service returns a list of field values as a list of objects. These objects each contain a field name as one key, and a field value as another key.
+Intersection
+Given two or more input lists, creates a list that contains only those items that are included in all input lists. The lists can be of any type, as long as all lists are set to the same item type.
+Length
+Finds the number of items in a list.
+List to Text
+This function generates a single text output from a list, using an optional separator. For instance if you have a list of product names, you can use this function to create a comma-separated list of products to include in an email.
+Map
+The Map function converts a list to a new list. This is achieved by running a helper flow for each item in the list. See 
+Parent flows and other flow types
+.
+Merge
+Merges objects from two or more lists at matching offsets. If an item with the same key exists in multiple lists for the same offset, the value from the later list overwrites the value from an earlier list.
+Pluck
+This function takes a list of objects, and produces a sublist. It does that by plucking the key specified by 
+key
+ from each object in the input list, and putting those values into an output list. The 
+list
+ input must be a list of objects.
+Reduce
+This function produces a single cumulative value by running a helper flow for each item in a list.
+For example, you can find the largest number in a list of numbers, or count how many text items start with "A" in a list of text strings.
+The result can be any type, so you can also use 
+Reduce
+ to build a text string, date, Boolean, object, or a list of any of those.
+Remove Duplicates
+Removes duplicates from a list.
+Reverse
+Reverses the order of the items in a list.
+Sample
+Generates a random sample from a list.
+Slice
+Chooses a subset of a list using start and end points.
+Sort
+Sorts a list from smallest to largest.
+Sort Custom
+Sort Custom allows you to do a custom sort on a list by calling another flow to generate the value used to sort each item. For simple sorts, use the 
+Sort
+ function instead.
+Split
+Splits a list at a specific index value.
+Statistics
+Reads the statistics for a list of numbers.
+Sum
+Calculates the sum of a list of numbers. This function accepts only a list of type number.
+If your numbers are formatted as a list of text, you can use the 
+Map
+ function to convert each item from text to a number.
+ If your numbers are stored inside a list of objects, you can use the 
+Pluck
+ function to generate the list of numbers you need to pass into 
+Sum
+.
+Swap
+Swaps two elements in a list.
+Truncate
+Cuts a list down to a specified length.
+Union (Combine Unique)
+Combines multiple lists into a single list of all the unique values contained in any of the input lists. The lists can be of any type as long as all lists are set to the same type, including the output list.
+Unique Custom
+Uses custom logic to determine how to remove duplicates from a list.
+XOR
+Takes two input lists and generate a new list that contains all the items that are in one or the other input list but not both.
+Zip
+Takes two lists of equal length and combine them into a list of lists of each corresponding pair.
+Number
+Function
+Description
+Absolute Value
+Calculates the absolute value of a number. The absolute value is the size of the number regardless of its negative or positive state.
+Add
+Returns the sum of two or more input values. This card accepts two input values by default, but you can add more values.
+Divide
+Returns the quotient from the division of two values.
+Exponent
+Calculates Euler's number, 
+e
+ (approximately 2.718), raised to a specified power, or exponent.
+Factorial
+Calculates the factorial of a number, returning 0 if that number is less than 0. A factorial is the product of an integer and all the non-zero or non-negative integers less than it.
+Formula
+Builds a math expression by combining operators, functions, and numbers that you enter with fields that you drag and drop into the Formula card. You can place fields of the type 
+Number
+ anywhere in the expression where there can be a number.
+At runtime, the expression is evaluated using the values of the fields to generate a single output number.
+Increment
+Increases a numerical value by one.
+Larger
+Returns a Boolean value indicating whether a value is larger than another.
+Log
+Calculates a logarithm, which is the power to which a base number must be raised to produce a given number.
+Multiply
+Calculates the product of two or more values.
+Percentage
+Reads and format the percentage of a value to a specified number of decimal places.
+Power
+Calculates a base number raised to a specified power, or exponent.
+Random Integer
+Generates a random integer between two numbers.
+Remainder
+Finds the remainder after the division of one number by another.
+Round
+Rounds a number to the nearest integer.
+Round Decimal Places
+Rounds a numerical value to a specified number of decimal places.
+Round Down
+Rounds down to the nearest integer.
+Round Up
+Rounds up to the nearest integer.
+Sign
+Returns the sign of a number.
+Smaller
+Returns a Boolean value indicating whether a value is smaller than another.
+Square Root
+Calculates the square root of a number.
+Subtract
+Returns the difference between any two values.
+Object
+Function
+Description
+Clear Empty
+Removes keys with no values associated (for example, null, "", {}) from an object. Similar to the 
+Filter
+ function but with the added ability of choosing whether the filtering is recursive.
+Collapse
+Combines a list of objects with key and value properties into a single JSON object. This is the inverse of the 
+Split
+ function card.
+Construct
+Creates an object based on a set of user-defined inputs.
+Filter
+The Filter card removes keys with no values associated (for example, null, "", {}) from an object. If the object may contain other objects, use the 
+Clear Empty
+ card instead.
+For Each
+Iterates through an object key-by-key using a helper flow. For each key in the input object, the helper flow is called with the 
+key
+ name and 
+value
+ for that key.
+You can select those with the dropdown after selecting a helper flow using the 
+Choose Flow
+ button.
+Get
+Reads the value stored in an object at a given path. For example, if the object is: 
+{ "a":"one", "b":"two", "c": 17 }
+ then specifying a path of 
+b
+ returns the text string 
+two
+. To get more than one value at a time from an object, use 
+Get Multiple
+ instead.
+Get Multiple
+Picks several values from an object at once. Similar to 
+Get
+, the 
+Get Multiple
+ card allows you to access values within an object by providing multiple keys and/or paths to values in an object.
+Keys
+The 
+Keys
+ card generates a list of the keys within your object.
+Map
+Processes an object key-by-key using a helper flow, creating an object as output. For each key in the input object, the helper flow is called with the 
+key
+ name and 
+value
+ for that key.
+You can select those with the dropdown after selecting a helper flow using the 
+Choose Flow
+ button.
+Map to List
+Iterates through an object key-by-key using a helper flow, creating a list as output, with one item in the list per key in the object. For each key in the input object, the helper flow is called with the 
+key
+ name and 
+value
+ for that key.
+You can select those with the dropdown after selecting a helper flow using the 
+Choose Flow
+ button.
+Merge
+Merges multiple objects into a single object. The output object has all the keys (with their associated values) that appear in any of the input objects. If the same key appears in more than one of the input objects, only one value is taken. There are two inputs by default, but more can be added.
+Move
+Moves a value from one key to another key, which essentially renames the key while keeping the value the same.
+Set
+Sets a key of an object to a specified value, creating a key if it doesn't exist already.
+Size
+Returns the number of elements in an object.
+Split
+Split an object into a list of objects, each with key and value properties. This is the inverse of the 
+Collapse
+ card.
+Unset
+Deletes a key and value pair from an object.
+Unzip
+Converts an object to two lists, one with keys and the other with values.
+Values
+The 
+Values
+ card generates a list of the values within your object.
+Zip
+Creates an object from two lists, by mapping keys from the first lists to values from the second. This is useful when creating an object that has keys with dots in the key names.
+Tables
+Function
+Description
+Clear Table
+Deletes all rows in a table.
+Create Row
+Creates a row in a table.
+Delete Row
+Deletes a row in a table.
+Export to CSV
+Exports a table to a CSV file, including all rows or a filtered subset of rows.
+Import From CSV
+Imports the contents of a CSV file into a Table.
+Read Row
+Reads the values from a row in a table.
+Read Table
+Returns the column schema of a table, as identified by the table ID.
+Search Rows
+Finds rows in a table that match a set of conditions.
+Update Row
+Updates a row in a table.
+Text
+Function
+Description
+At
+Returns the single character at a specified position in a text input, where 0 is the first position.
+To get a whole segment rather than a single character, use the 
+Text Segment
+ function. To search for a single character, use 
+Find
+.
+Base64
+Returns the Base64 encoding of a string.
+Base64 Decode
+Returns text that is decoded from Base64.
+Compose
+Combines any text that you type and any fields you drag and drop in.
+At runtime, the text is combined with the values of the fields to generate a single text output.
+Concatenate
+Takes two or more string inputs and combine them without spaces into a single text output.
+Find Email
+Finds and returns the first instance of a valid email address in a text string.
+Find
+Finds the first instance of a string within another string.
+Find Last
+Searches for the last match inside a text string, where 
+0
+ is the first position.
+The function card returns 
+-1
+ if no match is found.
+Find Pattern
+Searches text for the first match to a specified pattern using regular expressions.
+Length
+Calculates the number of characters in a string of text.
+Random
+Returns random text of a specified length.
+Replace
+Searches and replaces text.
+Replace Patterns
+Finds and replaces any matched multiple patterns with a single value.
+For a find and replace function that looks for a single text or pattern, use 
+Replace
+.
+Split
+Splits text into a list of text segments separated by commas or another specified delimiter.
+Text Segment
+Extracts text from a string value.
+To Lower Case
+Converts all letters in a string into lowercase.
+To Upper Case
+Converts all letters in a string into uppercase.
+Trim
+Removes leading and trailing blank space from text.
+Unique ID
+Generates a random universally unique identifier (UUID), sometimes called a globally unique identified (GUID).
+The identifier consists of 32 hexadecimal (base 16) digits, displayed in five groups and separated by hyphens.
+True/False
+Function
+Description
+All False?
+Returns 
+True
+ if all inputs are false. Otherwise, it returns 
+False
+. This is also known as the Boolean operator NOR.
+And
+Returns 
+True
+ if all inputs are true. Otherwise, it returns 
+False
+.
+Any False?
+Returns 
+True
+ if any of the inputs are false. Otherwise, it returns 
+False
+. This is also known as the NAND operator.
+Compare
+Runs a simple true or false test.
+For instance, you might check to see if a 
+Type
+ field is equal to 
+Customer
+ or if a 
+Price
+ field is greater than 1000.
+Expression
+Builds a True or False expression by combining operators and values that you type with fields that you drag and drop in. Place fields anywhere in the expression where there can be a value.
+At runtime, the expression is evaluated using the values of the fields to generate a single output of 
+True
+ or 
+False
+.
+Number fields evaluate to 
+False
+ when 0; otherwise they return as 
+True
+. Text fields evaluate to 
+False
+ when null or 
+false
+. Otherwise, the return as 
+True
+. Date fields convert to a time stamp that works in comparisons.
+Not
+Takes a true or false input and returns the opposite value.
+Or
+Returns 
+True
+ if any inputs are true, otherwise 
+False
+.
+Or (Exclusive)
+The Exclusive Or True/False operator (also known as XOR) returns 
+True
+ if one, and only one, input is true. Otherwise, it returns 
+False
+.
+XNOR
+A True/False operator that returns 
+True
+ if both inputs are true or both inputs are false. Otherwise, it returns 
+False
+. This is the opposite of the Exclusive Or (or XOR) operation.
+URL
+Function
+Description
+Decode Component
+Decodes a URL-encoded component such as the value of a query parameter.
+This function card decodes all URL-encoded characters and outputs the decoded text.
+Decode Query
+Decodes a URL-encoded query string into a query object.
+Encode Component
+Encodes text into a URL-encoded text for use within a URL.
+Encode Query
+Encodes a query object into a URL-encoded query object.
+Format
+Constructs a URL string from its components.
+Parse
+Parses a URL string into its components with proper encoding.
+XML
+Function
+Description
+Build
+Converts an object to an XML string.
+Parse
+Converts an XML string to an object.
+Having an XML string as an object enables you to  use many of the built-in functions, for example, the 
+List
+ and 
+Object
+ functions, to process and use XML string values in the rest of your flow.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

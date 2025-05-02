@@ -1,0 +1,64 @@
+Delegated flows | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Delegated flows
+Delegating a workflow is an option to have a flow that an 
+Okta
+ admin can view and run  directly from the 
+Okta
+ Admin Console. 
+An admin can run a delegated flow  when the following conditions are met:
+The flow includes a 
+Delegated Flow
+ event card.
+There's a custom admin role with a resource set that contains the delegated flow.
+The admin role contains the 
+Run delegated flow
+ permission.
+The admin role is assigned to one or more admins.
+A delegated flow is useful when you want to allow an admin to run a workflow but don't want to grant them full access to 
+Okta Workflows
+.
+See also
+Overview
+Build a delegated flow
+Run a delegated flow
+Custom administrator roles
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

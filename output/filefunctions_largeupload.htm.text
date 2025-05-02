@@ -1,0 +1,106 @@
+Upload | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Upload
+Upload a file from the Workflows file system to a web service, using HTTP or HTTPS.
+To use this function card, see 
+Use the Upload function card in a flow
+.
+File functions don't support shareable links such as those from 
+Box
+, 
+OneDrive
+, or 
+Google Drive
+.
+Input
+Field
+Definition
+Type
+Required
+File
+File Content
+ID of the file contents.
+File
+TRUE
+Destination
+URL
+URL of the request, including the protocol 
+http://
+ or 
+https://
+.
+String
+FALSE
+Method
+HTTP method to use (
+PUT
+ or 
+POST
+).
+Dropdown
+FALSE
+Headers
+Input
+User-created fields that define headers to use in the file request.
+String
+FALSE
+Output
+Field
+Definition
+Type
+Body
+Parsed response body for JSON properties or values.
+String
+Raw Body
+body
+Raw response body passed at runtime.
+String
+Example
+Here's an example of accessing the Algorithmia file system. Algorithmia requires that you specify the full file path and file name of the destination file in the 
+URL
+ field. It also requires an authentication token and a specific input in the 
+Content-Type
+ field.
+Related topics
+Use the Upload function card in a flow
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

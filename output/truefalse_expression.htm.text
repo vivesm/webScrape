@@ -1,0 +1,85 @@
+Expression | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Expression
+Build a True or False expression by combining operators and values that you type with fields that you drag and drop in. Place fields anywhere in the expression where there can be a value. At runtime, the expression is evaluated using the values of the fields to generate a single output of true or false. (When using non-True/False inputs, number fields evaluate to false when 0; otherwise true. Text fields evaluate to false when null or "false"; otherwise true. Date fields convert to a timestamp that will work in comparisons.)
+Text comparisons are currently not supported inside a True/False Expression. We are working on fixing this, but for now use 
+Compare
+ to do text comparisons.
+Logical operators you can use are:
+and
+ - true only if all conditions are true
+or
+ - true if any condition is true
+not
+ - true if false; false if true
+xor
+ - true if only one condition is true
+Use parentheses to group operations so they calculate together first
+Comparison operators you can use include: 
+==
+ (equal), 
+!=
+ (not equal), 
+>
+ (greater than), 
+>=
+ (greater than or equal), 
+<
+ (less than), 
+<=
+ (less than or equal)
+#
+  allows you to add a comment to your expression (anything you type after the # is ignored when the expression is evaluated)
+You can also use math operators as part of your expressions. See 
+Formula
+ for details on the math operators and functions.
+You can combine multiple operations, such as: 
+true and (true or false) and (4>pi)
+Fields from earlier in your flow can be used in place of any of the values in the expression.
+Input Fields
+The function has one large input area that accepts a combination of values and operators that you type with number fields that you drag/drop in.
+Output Fields
+output
+ - the true or false result from evaluating the expression using the values of the fields at runtime.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

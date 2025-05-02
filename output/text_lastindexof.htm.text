@@ -1,0 +1,124 @@
+Find Last | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Find Last
+Search for the last match inside text, where 
+0
+ is the first position. The function card returns 
+-1
+ if no match is found.
+Input
+Field
+Definition
+Type
+Required
+look in
+Text within which a search for a string is performed.
+String
+TRUE
+look for
+String for which a search is performed.
+String
+TRUE
+right-most position
+Right-most position in a string value, where 
+0
+ is the first position.
+Number
+FALSE
+Output
+Field
+Definition
+Type
+position
+Position of the last match found, where 
+0
+ is the first position.
+Returns 
+-1
+ if no match is found.
+Number
+Example
+If the 
+look in
+ field contains 
+Mississippi
+, and:
+If 
+look for
+ contains 
+ss
+ and 
+right-most position
+ does not contain a value, then 
+position
+ returns 5 (the position of the second occurrence of 
+ss
+).
+If 
+look for
+ contains 
+ss
+ and 
+right-most position
+ contains 
+4
+, then 
+position
+ returns 
+2
+ (the search is only within 
+Missi
+ and stops at position 
+4
+).
+If 
+look for
+ contains 
+abc
+, then 
+position
+ returns 
+-1
+ (not found).
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

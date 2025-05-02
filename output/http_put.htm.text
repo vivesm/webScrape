@@ -1,0 +1,64 @@
+Put | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Put
+Performs an API Connector Put request, returning the result of this request and the response headers. On input, takes a required URL input and optional auth, header, body, and query inputs. Each optional input can either be modeled by a singular object-typed input or by multiple keys with the appropriate group attribute. On output, returns an object with two keys, headers and output. The output key contains the response body, and the headers key contains the response header. More detailed information can be accessed about these by using multiple keys with the appropriate grouping.
+Input
+URL
+ (text): required URL for Put request
+headers
+ (Section): If required for the Put request to the specified URL, create headers by specifying an input name equal to the key (e.g. "Content-Type") and then specifying a value for the input (e.g. "application/json"). Information on headers required for your Put request should be specified by the provider of the URL.
+query
+ (Section): If necessary for the Put request to the specified URL, create query string parameters by specifying an input name equal to the key (e.g. "page") and then specifying a value for the input (e.g. "1"). Information on the query string parameters available for your Put request should be specified by the provider of the URL.
+body
+ (Section): If required for the Put request to the specified URL, create a request body by specifying an input name equal to the key (e.g. "id") and then specifying a value for the input (e.g. "123"). Information on the request body required for your Put request should be specified by the provider of the URL.
+Output
+statusCode
+ (Number): the status (200, 404, etc) associated with the Put request
+body 
+(Section): using syntax similar to the outputs for 
+Get Multiple
+, specify optional paths that allow retrieving values from the response body
+headers
+ (Section): specify optional keys that allow retrieving values from the response headers
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,76 @@
+Decode Component | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Decode Component
+This function card decodes all URL-encoded characters from a string and outputs the decoded text.
+This function is the inverse of the  
+Encode Component
+ function.
+This card is useful to retrieve the value of a query parameter. If you need to decode a URL-encoded query string into a query object, use the 
+Decode Query
+ function card.
+Input
+Field
+Definition
+Type
+Required
+text
+A URL-encoded text string.
+Text
+TRUE
+Output
+Field
+Definition
+Type
+output
+The decoded text.
+Text
+Example
+The input 
+Sherlock%20Holmes%3A%20Detective
+ decodes to 
+Sherlock Holmes: Detective
+. 
+Related topics
+Functions
+Workflow elements
+Special characters and delimiters
+What is URL Encoding and How does it work?
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

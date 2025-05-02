@@ -1,0 +1,157 @@
+Configure a connection | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Configure a connection
+When you add a card to a flow, you need to select or create a connection to authenticate with that application or service. 
+After your remote account connection is configured, 
+Okta
+ saves your account information, so you can reuse the connection when you build any other flow that uses the same connector.
+You can create and save multiple connection configurations and share them with other Workflow admins in your org.
+New connections
+You can create connections for your flows using the 
+Connections
+ page of the Workflows console.
+To set up a new connection configuration, complete these steps:
+On the 
+Connections
+ page of the Workflows console, click 
+New Connection
+.
+From the 
+New Connection
+ selector pop-up, click the icon that corresponds to the application or service you want to connect.
+The next steps depend on how the connection is made to the external application or service.
+OAuth 2.0 connections
+This procedure covers setting up connections that use the OAuth 2.0 authorization protocol:
+On the 
+General
+ tab, fill out the fields as follows:
+In the 
+Name
+ field, enter a unique name for this specific connection. This is useful  if you have  multiple accounts connecting to the same application or service.
+Add a helpful 
+Description
+ to detail any other  information relevant to this connection. The description text appears on the 
+Connections
+ page of the Workflows console, along with the connection 
+Name
+.
+For an external application or service that uses OAuth 2.0 for connections,  you can click the 
+Permissions
+ tab to review which particular scopes are requested for this connection.
+Configurable scopes
+In some newer external applications or services that use OAuth 2.0, you can choose or modify the requested scopes.
+This is useful if you need to create multiple connections that call the same service, but need to specify different scopes.
+For example, one connection to an email service might include the 
+read-email
+ scope for simple administration. A more advanced  connection to the same service could also include the 
+delete-email
+ and 
+send-email
+ scopes.
+On the 
+Permissions
+ tab:
+Select 
+Use default scopes
+ to  create the connection using the pre-defined scopes. 
+Select 
+Customize scopes (advanced)
+ to select individual scopes. You can't clear any required scopes.
+If you remove a scope that isn't marked as required, but is used by the connector, then  your event and action cards may not function properly.
+You can use the search field to type in part of the scope name and filter the list of individual scopes.
+If supported by the connector, you can also manually add other scopes. Enter the scope names, either individually or as a list of space or comma-separated values, in the 
+Manually add scopes
+ field and click 
+Add
+.
+If the connector doesn't support adding other scopes, you can submit a request to add scopes to the connector through the 
+Okta
+ Ideas
+ site.
+Click 
+Create
+ to complete the configuration. If required, 
+Okta
+ prompts you to enter your sign-in credentials for the destination site.
+Other authentication protocols
+This procedure covers setting up connections that don't use the OAuth 2.0 authorization protocol:
+In the 
+Name
+ field, enter a unique name for this specific connection. This is useful  if you have  multiple accounts connecting to the same application or service.
+Add a helpful 
+Description
+ to detail any other  information relevant to this connection. The description text appears on the 
+Connections
+ page of the Workflows console, along with the connection 
+Name
+.
+If your connection requires any necessary credentials, enter these values in the additional fields. This may be a specific service domain, an API token, or a paired access key and secret. The security requirements depend on the external application or service.
+Click 
+Create
+ to complete the configuration. If required, 
+Okta
+ prompts you to enter your sign-in credentials for the destination site.
+Existing connections
+You can modify existing connections  using the 
+Connections
+ page of the Workflows console.
+Click the 
+Name
+ field to change this connector name.
+Click the 
+Description
+ field to change this connector description.
+Test Connection
+: Validate that the connection is working.
+Usage
+: See which flows are using a particular connection.
+Reauthorize
+: If you update the password, API key, or another setting for an application, you need to reauthorize your application. Click the 
+Reauthorize
+ icon and follow the steps to update your connection. Be sure to reauthorize each connection to the same application. 
+Delete
+: Remove the connection. Any flows that use this connection must be updated to use a different connection.
+For more details about managing existing connections, see 
+Connections page
+.
+Related topics
+Connections
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

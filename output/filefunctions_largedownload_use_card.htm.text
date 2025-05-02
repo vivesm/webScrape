@@ -1,0 +1,102 @@
+Use the Download function card in a flow | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Use the Download function card in a flow
+Use the 
+Download
+ function card to download any file, such as an image or document file, that you can access through a URL in your browser.
+To see the field inputs and outs for this function card, see 
+Download
+.
+File functions don't support shareable links such as those from 
+Box
+, 
+OneDrive
+, or 
+Google Drive
+.
+Enter the URL including the protocol, either 
+http://
+ or 
+https://
+, in the 
+URL
+ field.
+Optional. Use the 
+Query
+ section to build a query string.
+For example, if you wanted to download a file from 
+https://www.example.com/download?filename=foo.txt
+, then you can express this in one of two ways:
+Enter the entire string in the 
+URL
+ field.
+Set the URL to 
+https://www.example.com/download
+, then create an input file name in the 
+Query
+ section, and enter a value of 
+foo.txt
+. This method is easier when the value of the file name comes from a previous step in the flow. You can drag the field into the input.
+Optional. Set headers in the request. 
+For example, if the site requires authorization, then add an 
+Authorization: Bearer {my-token}
+ header 
+Add an authorization key to the 
+Headers
+ section.
+Set its value to 
+Bearer {my-token}
+.
+You can also set a 
+Content-type: application/image
+ header in a similar manner.
+Optional. Drag the ID value from the 
+File Content
+ output field to the 
+File
+ input of another card, such as a 
+Box
+ upload card.
+Related topics
+Download
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

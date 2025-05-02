@@ -1,0 +1,98 @@
+Hash | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Hash
+The 
+Hash
+ function card hashes input text using a cryptographic hash algorithm.
+The format of the resulting hash can be Base64, hex, or binary, depending on the specified output parameter.
+Input
+Field
+Definition
+Type
+Required
+algorithm
+        Select the cryptographic hash algorithm to use:
+md5
+sha1
+sha256
+sha384
+sha512
+Dropdown
+FALSE
+data
+Text string to be hashed.
+String
+TRUE
+digest
+        Select the output formatting for the resulting hash:
+base64
+hex
+binary
+Dropdown
+FALSE
+Output
+Field
+Definition
+Type
+output
+Encoded string of your input data.
+String
+You can use the result of the 
+output
+ field wherever text can be sent. 
+To validate the hash, you need to know the  algorithm  used for the hash.
+Example
+Input
+algorithm
+: 
+sha256
+data
+: 
+My secret message!
+digest
+: 
+base64
+Output
+KhyfFBt0DKFo4WcWbzrP+3FOAKe9Kp+c0BWZ3akwlE8=
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

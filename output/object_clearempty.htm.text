@@ -1,0 +1,75 @@
+Clear Empty | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Clear Empty
+The Clear Empty function card removes keys with no values associated (for example, null, "", {}) from an object. Similar to the Object - Filter function but with the added ability of choosing whether or not the filtering is recursive.
+Input Fields
+object
+:  the object you want to operate on
+recursive
+: indicates how to handle objects that have sub-objects (see example below)
+when false
+: the object is cleared of any keys that have empty values at the top level only
+when true
+: the object is cleared of any empty keys, at any level
+Output Fields
+output
+: your input object without the empty keys
+Examples
+If the input 
+object
+ is 
+{"Name":"Emily", "Age":"", "Settings": {"test":{ }, "test2":"value2"}}
+If 
+recursive
+ is false, then 
+output
+ is 
+{"Name":"Emily", "Settings":{"test":{ },"test2":"value2"}}
+If 
+recursive
+ is true, then 
+output
+ is 
+{"Name":"Emily", "Settings":{"test2":"value2"}}
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

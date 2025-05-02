@@ -1,0 +1,112 @@
+Find | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Find
+Find the first instance of a string within another string.
+To do a more complex search, such as looking for a string that matches a pattern, use the 
+Find Pattern
+ function card instead.
+Input
+Field
+Definition
+Type
+Required
+look in
+Text within which a search for a string is performed.
+String
+TRUE
+look for
+String for which a search is performed.
+String
+TRUE
+Output
+Field
+Definition
+Type
+position
+Position of the first match found, where 
+0
+ is the first position.
+Returns 
+-1
+ if no match is found.
+Number
+Example
+If the input 
+look in
+ field contains 
+This is a test
+, and:
+If 
+look for
+ contains 
+T
+, then 
+position
+ returns 
+0
+ (first position, where counting starts with 
+0
+).
+If 
+look for
+ contains 
+test
+, then 
+position
+ returns 
+10
+ (11th position of the first letter of a matching string).
+If 
+look for
+ contains 
+hello
+, then 
+position
+ returns 
+-1
+ (no match found).
+The Find card is often used in combination with  
+Text Segment
+ to get the text that matched the pattern.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,857 @@
+Set up your Okta org | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Overview of the embedded identity solutions
+Loading...
+    Set up your Okta org
+    Identity Engine
+This guide covers how to create and set up your Okta org. Then, you can 
+run the Identity Engine sample apps
+ or 
+integrate the SDK or Widget
+ into your own app.
+Learning outcomes 
+Get a new org set up and ready for various use cases.
+What you need 
+Okta Developer Edition organization
+Overview of the embedded identity solutions 
+Okta provides two embedded identity solutions:
+Embedded SDK only
+: A highly customizable solution that provides native language support for various identity use cases.
+Embedded Widget + SDK
+: A quick and easy to set up solution that moves most of the heavy lifting to Okta. The amount of code that you need to write is small. However, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
+This guide shows you how to set up your Okta org to support the embedded SDK or the embedded widget with SDK solutions. Ensure that you 
+get set up
+ with Okta and 
+set up your Okta org for your use case
+ before you 
+download and set up the SDK, widget, and sample app
+.
+Note:
+ You can use direct authentication with your apps in Identity Engine rather than an embedded SDK. This enables you to directly authenticate users rather than delegating authentication to Okta Identity Providers and authorization servers through an HTTP redirect in a browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. See the 
+/challenge
+endpoint
+(opens new window)
+, the 
+/oob-authenticate
+endpoint
+(opens new window)
+, and the new 
+grant_types
+ for the 
+/token
+endpoint
+(opens new window)
+ to help tailor authentication to your specific use cases. Also, for information on how to set up each new grant type, see 
+Implement by grant type
+.
+Get set up 
+Sample apps are provided for each solution to show you exactly how to integrate the SDK and the widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
+Create your Okta account
+.
+Verify that the Interaction Code grant type is enabled
+.
+Update the default custom authorization server
+.
+Create an application
+.
+After you've created your app, you need to 
+set up your Okta org for your use case
+.
+Create your Okta account 
+If you don't have an Okta Identity Engine org, you need to sign up for an Okta account and an Identity Engine org.
+Sign up
+(opens new window)
+ for an Okta account.
+After you sign up, Okta sends a verification email to the email address that you provide.
+Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the 
+Admin Console
+ of your new Identity Engine org.
+Update the default custom authorization server 
+Configure your default custom authorization server to enable the Interaction Code flow.
+Go to 
+Security
+ > 
+API
+ from your Okta org's 
+Admin Console
+.
+Select the pencil icon for the 
+default
+ custom authorization server.
+Select the 
+Access Policies
+ tab.
+Select the pencil icon from the 
+Actions
+ column for the 
+Default Policy Rule
+ to access the 
+Edit Rule
+ dialog.
+Click 
+Advanced
+ in the 
+IF Grant type is
+ section, and then select the 
+Interaction Code
+ checkbox.
+Note
+: If the 
+Interaction Code
+ checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to 
+Settings
+ > 
+Account
+ > 
+Embedded widget sign-in support
+. See 
+Verify that the Interaction Code grant type is enabled
+.
+Click 
+Update Rule
+.
+Create an application 
+Create an app integration that represents the application you want to add authentication to with Okta:
+Go to 
+Applications
+ > 
+Applications
+ in the Admin Console.
+Click 
+Create App Integration
+.
+Select 
+OIDC - OpenID Connect
+ as the 
+Sign-in method
+.
+Select 
+Native Application
+ as application type, and then click 
+Next
+.
+On the 
+New Native App Integration
+ page:
+Enter an application name.
+Select the 
+Refresh Token
+ checkbox.
+Click 
+Advanced
+ in the 
+Grant type
+ section and ensure that the 
+Interaction Code
+ checkbox is selected.
+Note
+: If the 
+Interaction Code
+ checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to 
+Settings
+ > 
+Account
+ > 
+Embedded widget sign-in support
+. See 
+Verify that the Interaction Code grant type is enabled
+.
+Set 
+Sign-in redirect URIs
+ to 
+a URI that is appropriate for your app or 
+com.okta.sample.android:/login
+ if you're using the sample app.
+Set 
+Controlled Access
+ to 
+Allow everyone in your organization to access
+.
+Click 
+Save
+.
+Note the 
+Client ID
+ value (and if applicable, the 
+Client secret
+ value) on the 
+General
+ tab. You need it later in your embedded solution.
+Note:
+ New apps are automatically assigned the default authentication policy, which requires a user to verify their identity with two factors. To view or change this policy, select the 
+Sign On
+ tab, and then locate the 
+User Authentication
+ section.
+Set up your Okta org for your use case 
+After you create your app integration in your Okta org, configure your app and org to support the use cases that you're implementing:
+For a basic password factor only use case, see 
+Set up your Okta org for a password factor only use case
+For a password-optional use case, see 
+Set up your Okta org for a password-optional use case
+For a multifactor use case, see 
+Set up your Okta org for a multifactor use case
+For a social sign-in use case, see 
+Set up your Okta org for a social IdP use case
+Set up your Okta org for a password factor only use case 
+This section shows you how to set up your Okta org and app to support password factor-only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the 
+Create an application
+ section, the app is assigned 
+Any two factors
+. This is the default policy for new apps that requires a user to verify their identity with any two enabled authentication factors.
+First, assign the 
+Password only
+ policy to your app:
+Got to 
+Applications
+ > 
+Applications
+ in the Admin Console, and then select your app.
+Select the 
+Sign On
+ tab.
+Click 
+Edit
+ in the 
+User Authentication
+ section.
+Select 
+Password only
+ for the 
+Authentication policy
+, and then click 
+Save
+.
+Next, check that the password authenticator doesn't require any additional verification:
+Go to 
+Security
+ > 
+Authenticators
+.
+Select 
+Edit
+ from the 
+Actions
+ menu on the 
+Password
+ authenticator row.
+Scroll down on the 
+Password
+ policy page to the rules section.
+Click the pencil icon next to the 
+Default Rule
+ to access the 
+Edit Rule
+ dialog.
+Select 
+Not required
+ in the 
+AND Additional verification is
+ section.
+Click 
+Update rule
+.
+Set up your Okta org for a password-optional use case 
+For password-optional authentication, you first need to:
+Set up the email authenticator for authentication and recovery
+.
+Create a separate group for password-optional users
+.
+To ensure that only specific app integrations can let users 
+sign up
+ without a password, do the following:
+Create a user profile policy for password-optional users
+ that adds them to the new group and assign your app to it.
+Place this group at the lowest priority (just above the default policy) in the authenticator enrollment policy.
+To ensure that only password-optional users can 
+sign in
+ without a password and everybody else is appropriately prompted for it, do the following:
+Create a new password-optional authenticator enrollment policy for the group
+.
+Add a global session policy for the group
+.
+Add an authentication policy for the group
+.
+Ensure that password-optional users never fall through to the default policy. The default policy should always have a password as a required authenticator.
+Explicitly exclude your main admin account from any further password-optional policies that you create.
+Note
+: See also 
+Set up password-optional sign-in experience
+(opens new window)
+.
+Common password-optional setup tasks 
+Set up the email authenticator 
+Open the 
+Admin Console
+ for your org.
+Choose 
+Security
+ > 
+Authenticators
+ to show the available authenticators.
+Locate the 
+Email
+ authenticator on the 
+Setup
+ tab, and then select 
+Actions
+ > 
+Edit
+.
+Set 
+This authenticator can be used for
+ to 
+Authentication and recovery
+.
+Click 
+Save
+.
+Create a group for password-optional users 
+Choose 
+Directory
+ > 
+Groups
+.
+Click 
+Add Group
+.
+Give the group a name, for example, "Password-optional Users."
+Click 
+Save
+.
+Enable password-optional user sign-up flow 
+To ensure that only specific app integrations can let users sign up without a password, do the following:
+Create a user profile policy for password-optional users 
+A user profile policy determines the minimum information required from a user to create an account. The policy also determines how the user should verify their identity before creating their account.
+Go to 
+Security
+ > 
+User Profile Policies
+ and click 
+Add user profile policy
+.
+Locate the 
+Profile Enrollment
+ section of the policy and click 
+Edit
+.
+Set 
+Self-service registration
+ to 
+Allowed
+.
+Verify that 
+Required before access is granted
+ is selected for 
+Email Verification
+.
+Set 
+Add the user to group
+ to the group that you made for password-optional users, and then click 
+Save
+.
+Click 
+Manage apps
+, and then click 
+Add an App to This Policy
+.
+Locate your app integration, click 
+Apply
+, and verify that the app is in the Apps list using the new user profile policy.
+Enable password-optional user sign-in flow 
+To ensure that only password-optional users can sign in without a password and everybody else is appropriately prompted for it, do the following:
+Create a password-optional authenticator enrollment policy 
+An authenticator enrollment policy determines which authenticators must challenge a user before they’re successfully signed in. In this case, email is set to 
+Required
+, while all the other authenticators are set to 
+Optional
+.
+Go to 
+Security
+ > 
+Authenticators
+.
+Select the 
+Enrollment
+ tab, and then click 
+Add A Policy
+.
+Give the new policy a name, for example, "Password-optional Sign-In Policy."
+Set 
+Assign to groups
+ to the group you just made for password-optional users.
+Do the following in the 
+Eligible Authenticators
+ section:
+Set 
+Email
+ to 
+Required
+.
+Set 
+Password
+ to 
+Optional
+.
+Verify that the remaining authenticators are set to 
+Optional
+.
+Click 
+Create Policy
+.
+Create a rule for the policy 
+Give the rule a name, for example, "Password-optional Sign-In Rule."
+Set 
+Exclude Users
+ to the names of your main admin accounts.
+Leave the other settings at their defaults, and then click 
+Create Rule
+.
+Move the new policy immediately above the Default Policy in the list of policies.
+Add a global session policy for password-optional users 
+A global session policy determines user session length and basic authentication rules for groups of users. In this case, the policy turns off MFA for all users in the password-optional user group. Therefore, they only need email authentication to sign in.
+Go to 
+Security
+ > 
+Global Session Policy
+, and click 
+Add policy
+.
+Give the policy a name, for example, "Global Password Optional Policy."
+Set 
+Assign to groups
+ to the group you just made for password-optional users.
+Click 
+Create Policy and Add Rule
+, and give the rule a name. Example: "Global Password Optional Rule."
+Verify that 
+Establish the user session with
+ is set to 
+Any factor used to meet the Authentication Policy requirements
+.
+Set 
+Multifactor authentication (MFA) is
+ to 
+Not required
+.
+Leave the other settings at their defaults, and then click 
+Create Rule
+.
+Add an authentication policy for password-optional users 
+Go to 
+Security
+ > 
+Authentication Policies
+, and click 
+Add a policy
+.
+Give the policy a name, such as "Authenticate with Email Only", and then click 
+Save
+.
+Locate the 
+Catch-all Rule
+ of the new policy and select 
+Actions
+ > 
+Edit
+.
+Set 
+User must authenticate with
+ to 
+Any 1 factor type
+, and in the 
+Possession factor constraints are
+ section:
+Verify that no options are selected.
+Verify that 
+Email
+ is listed in the box under 
+1 factor type
+.
+Click 
+Save
+, select the 
+Applications
+ tab for your newly created policy, and then click 
+Add app
+.
+Find your app in the list and click 
+Add
+ next to it.
+Click 
+Close
+, and then verify that the app is now listed in the 
+Applications
+ tab of the new policy.
+Set up your Okta org for a multifactor use case 
+This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configuration after you 
+create an app
+ to set up the email and phone factors in your Okta org:
+Set up the email authenticator for authentication and recovery
+Add the phone authenticator for authentication and recovery
+Update your authentication policy with multifactor authentication
+Note:
+ The multifactor use cases in this guide implement the password, email, and phone factors. However, there are more supported factors that you can use in your embedded authentication app. See 
+Multifactor Authentication
+(opens new window)
+.
+Set up the email authenticator for authentication and recovery 
+Go to 
+Security
+ > 
+Authenticators
+ in the Admin Console.
+Select 
+Edit
+ from the 
+Actions
+ dropdown menu on the 
+Email
+ authenticator row to access the 
+Email
+ dialog.
+Select 
+Authentication and recovery
+ in the 
+Used for
+ section, and click 
+Save
+.
+Add the phone authenticator for authentication and recovery 
+Note:
+ If your org already has the phone authenticator, ensure that 
+Authentication and recovery
+ appears in the 
+Used for
+ column on the 
+Setup tab
+.
+Go to 
+Security
+ > 
+Authenticators
+ in the Admin Console to add the phone authenticator.
+Click 
+Add Authenticator
+, and then click 
+Add
+ on the 
+Phone
+ authenticator tile.
+Select 
+SMS
+ for the 
+User can verify with
+ field.
+Note:
+ Some SDKs support only SMS with a phone authenticator.
+Select 
+Authentication and recovery
+ for 
+This authenticator can be used for
+.
+Click 
+Add
+.
+Update your authentication policy with multifactor authentication 
+Go to 
+Security
+ > 
+Authentication Policies
+ in the Admin Console.
+Select 
+Default Policy
+ as this is the policy that the 
+app you created
+ is assigned to.
+Select 
+Edit
+ from the 
+Actions
+ menu for the 
+Catch-all Rule
+ to access the 
+Edit Rule
+ dialog.
+Scroll down to the 
+AND User must authenticate with
+ dropdown menu and select 
+Password + Another Factor
+.
+Ensure that no options are selected for the 
+AND Possession factor constraints are
+ field.
+Click 
+Save
+.
+Note:
+ Because the default authentication policy is a shared policy, changes you make apply to both new and existing apps that are assigned to it.
+Set up your Okta org for a social IdP use case 
+Use this section to set up your Okta org and app to support Facebook IdP use cases that are available in this embedded authentication guide. If you want to implement a use case with another social IdP, see 
+Add an external Identity Provider
+ for the list of Okta-supported social IdPs and instructions on how to configure them for social login with Okta.
+Perform the following configurations after you 
+create an app
+ to set up the Facebook IdP and your Okta org:
+Create a Facebook app in Facebook
+Set up the Facebook test user
+(Optional) Switch your Facebook app to Live mode
+—this step isn't required if you want to remain in Facebook Development mode
+Create the Facebook Identity Provider in Okta
+Add an Identity Provider routing rule in Okta
+Create a Facebook app in Facebook 
+Go to 
+Facebook for Developers
+(opens new window)
+ and click the 
+Login
+ link. If you don't have an account, create one.
+Use these Facebook 
+instructions
+(opens new window)
+ as a guide to create a Facebook app. When you create the Facebook app, ensure that you select 
+None
+ as the app type.
+Select the app that you created from the Facebook 
+Apps
+(opens new window)
+ page.
+Scroll to the 
+Add a product
+ section on the App Dashboard page and click the 
+Set up
+ link in the 
+Facebook Login
+ tile.
+Select 
+Web
+ as the platform type on the first set up page.
+Set the value for 
+Site URL
+ to 
+https://{yourOktaDomain}/oauth2/v1/authorize/callback
+ (for example: 
+https://dev-12345678.okta.com/oauth2/v1/authorize/callback
+).
+Click 
+Save
+, 
+Continue
+, and then click 
+Next
+ until you finish.
+Configure Facebook settings 
+Click 
+Facebook Login
+ (under products) in the left navigation menu, and then click 
+Settings
+.
+Locate 
+Client OAuth Settings
+ on the 
+Settings
+ page and add the following URLs for the 
+Valid OAuth Redirect URIs
+ field:
+https://{yourOktaDomain}/oauth2/v1/authorize/callback
+ (for example, 
+https://dev-12345678.okta.com/oauth2/v1/authorize/callback
+).
+Click 
+Save Changes
+ at the bottom of the page.
+Expand 
+Settings
+ on the left side of the page, and then click 
+Basic
+.
+Save the 
+App ID
+ and the 
+App Secret
+ values so you can add them to your Okta org's Identity Provider settings.
+Set up the Facebook test user 
+A test account is required to test Facebook sign-in in Development mode. Facebook automatically creates one test user for you. Perform the following steps to find, set the password, and save this user's information.
+From the Facebook App Dashboard page, click 
+Roles
+ and then click 
+Test Users
+.
+Click 
+Edit
+ for the test user and select 
+Change the name or password for this test user
+.
+In the 
+Edit Test User
+ dialog box, set a password in the 
+New Password
+ and 
+Confirm New Password
+ fields.
+Click 
+Save
+.
+Save the test user's 
+email
+ and 
+password
+ for testing social IdP sign-in use cases with Okta and Facebook.
+Switch your Facebook app to Live mode 
+Note:
+ This section is optional.
+By default, your Facebook app is in Development mode and can only be used by the test user and the user that you used to sign in and create the Facebook app. As a result, you can only use these users when you test your Facebook sign-in use cases.
+If you would like to sign in any public Facebook user, you need to set the Facebook app to Live mode. To switch your Facebook app to Live mode, perform the following steps:
+From the Facebook App Dashboard page, click 
+Settings
+ and then click 
+Basic
+.
+Specify a value in the 
+Privacy Policy URL
+ field for your app. If you don't have a privacy URL, you can temporarily use: 
+https://www.okta.com/privacy-policy/
+.
+Click 
+Save Changes
+ at the bottom of the page.
+At the top of the App Dashboard page, use the 
+App Mode
+ toggle to switch the app from 
+In development
+ to 
+Live
+ mode.
+In the 
+Switch to Live Mode
+ dialog box, click 
+Switch Mode
+.
+Create the Facebook Identity Provider in Okta 
+To connect your org to Facebook, you need to add and configure the Facebook IdP in Okta. The following steps assume that you have already 
+created and configured your Facebook app
+ and that you have the Facebook 
+App ID
+ and 
+App Secret
+ values available.
+In the Admin Console, go to 
+Security
+ > 
+Identity Providers
+.
+Click 
+Add Identity Provider
+, and then select 
+Add Facebook
+.
+Enter a name (for example, Facebook IdP) on the 
+Add Identity Provider - Facebook
+ page.
+Keep the default 
+SSO Only
+ option for the 
+Idp Usage
+ field.
+Specify the Facebook 
+App ID
+ as the 
+Client ID
+, and the Facebook 
+App Secret
+ as the 
+Client Secret
+.
+Keep the default values for 
+public_profile
+ and 
+email
+ in the 
+Scopes
+ field, and click 
+Add Identity Provider
+.
+Add an Identity Provider routing rule in Okta 
+The final step is to add the 
+created Facebook IdP
+ to the routing rule.
+Go to 
+Security
+ > 
+Identity Providers
+ in the Admin Console.
+Click the 
+Routing Rules
+ tab on the Identity Providers page, and then click 
+Add Routing Rule
+.
+Specify the 
+Rule Name
+ (for example: Facebook and Okta Rule).
+Select the 
+Facebook Identity Provider that you just created
+ from the 
+THEN Use this identity provider
+ dropdown list. Since Okta is the default IdP, the two values should be:
+Okta
+Facebook Identity Provider (IdP)
+Click 
+Create Rule
+.
+Click 
+Activate
+ at the prompt. Your new rule appears above the 
+Default Rule
+ in the routing rule list. This top position signifies that the setting in your new rule overrides the 
+Default Rule
+.
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Overview of the embedded identity solutions
+Get set up
+Create your Okta account
+Update the default custom authorization server
+Create an application
+Set up your Okta org for your use case
+Set up your Okta org for a password factor only use case
+Set up your Okta org for a password-optional use case
+Set up your Okta org for a multifactor use case
+Set up your Okta org for a social IdP use case
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

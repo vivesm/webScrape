@@ -1,0 +1,62 @@
+Duplicate a card | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Duplicate a card
+ The duplicate card option creates exact replicas of existing cards in your flow. This is helpful when creating flows that require multiple similar cards - for example, long flows with repeated functions, or flows with branching.
+The duplicate card inherits the connection information and fields from the original card. Also, any changed label names, descriptions, or help text is copied, along with any error handling conditions from the original card.
+ This is useful when you want to copy a complex card that only requires a few different inputs, or for cards with multiple edited fields or options.
+Start this task
+Open your flow in the flow builder view.
+Click the 
+Duplicate
+ icon 
+ on the bottom pane of the card that you want to duplicate.
+A new copy of the card is added beside the existing card.
+Limitations
+Duplicate cards don't retain any mappings of fields from other cards that existed on the original card.
+You can't duplicate event or note cards.
+If/Else
+, 
+If/Elseif
+, or 
+If Error
+ cards that contain branching structures with action cards:
+You can't duplicate these cards directly. However, you can create parallel structures on separate branches inside  these cards. Simply duplicate the action cards inside one branch and drag the duplicates to the other branches and make your changes.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

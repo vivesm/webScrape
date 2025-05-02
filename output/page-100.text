@@ -1,0 +1,96 @@
+Change your primary email address | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+ASP.NET
+Loading...
+    On this page
+Loading...
+    Change your primary email address
+    Identity Engine
+Allowing a user to change their primary email is a critical task when they only use their username and email address to sign in to your app. A user must be able to change their email address, especially if it becomes compromised.
+Use 
+Okta .NET management SDK
+(opens new window)
+ to update the user's profile information with a new primary email address. Set the user's 
+Profile.Email
+ property to the new email address and then call 
+user.UpdateAsync()
+ to update it on the Okta servers.
+using
+Okta
+.
+Sdk
+;
+public
+async
+IUser
+UpdateUserEmail
+(
+IUser
+ user
+,
+string
+ newEmail
+)
+{
+    user
+.
+Profile
+.
+Email 
+=
+ newEmail
+;
+return
+await
+ user
+.
+UpdateAsync
+(
+)
+;
+}
+Note
+: The 
+Okta .NET management SDK
+(opens new window)
+ uses the 
+Users API
+(opens new window)
+ to update the user's profile information.
+Edit This Page On GitHub
+      Instructions for
+ASP.NET
+Loading...
+        On this page
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

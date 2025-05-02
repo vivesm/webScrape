@@ -1,0 +1,111 @@
+Set data exchange options | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Set data exchange options
+External services and apps can exchange data with your 
+Okta Workflows
+ cards using either polling or webhook methods.
+Polling monitors
+Poling monitor events query an external service or app for new data records on a defined schedule.
+To launch the polling options dialog, click 
+Run mode
+ from the 
+Other options
+ menu on any polling event card.
+You can choose from three options for when to execute the flow:
+Option
+Description
+Each record
+This is the default mode.
+Your flow executes once for each new record returned from the external service.
+For example, if your flow starts with a 
+Salesforce
+New Record
+ event card, it polls 
+Salesforce
+ according to the interval you set and checks for new records. If 
+Salesforce
+ added three new records since the last check, then the flow runs three separate times, once for each new record. However, if no new records were added, then the flow doesn't execute.
+No New Data
+Your flow executes only if your polling event returns no records that match your specified criteria.
+For example, you could set your flow to check daily at 9:00 to see if 
+Salesforce
+ has added any new leads since yesterday. If you select the 
+No New Data
+ option, the flow only executes if there are no new leads.
+Every time
+Your flow executes every time it checks the external service.
+For example, if your polling event checks a spreadsheet every hour for new rows, the flow executes every hour. While the 
+Each record
+ option returns and processes data for a single row, with the 
+Every time
+ option, your flow receives a list with the data for all new rows. If there are no new rows, the returned list is empty.
+This option gives you the most flexibility around actions to take. For example, your flow could execute different actions depending on the number of spreadsheet rows added during the elapsed hour, or what to do if there are no changes reported.
+Each flow tracks its own polling of the external service, independently from other flows. This means you can have multiple flows looking at the same events: 
+A flow that checks every 15 minutes for new items
+A flow that runs if there are no new items during the previous 24 hours
+A flow that runs at the end of every week to get all new items for that week
+Webhooks
+To launch the webhook options dialog, click 
+Run mode
+ from the 
+Options
+ menu on any webhook event card.
+You can run webhook events with two different options: 
+Option
+Description
+Each record
+This is the default mode.
+Your flow executes once for each new record received from the external service.
+For example, the 
+New Row - Webhook
+ event card for 
+Smartsheet
+ notifies the flow when a 
+Smartsheet
+ sheet is saved with new rows.
+List of records
+Your flow executes once using a batched list of all new records.
+For example, your flow would receive all 
+User Profile Updated
+ events from 
+Okta
+ as a single list of events, rather than having each event trigger a separate flow execution.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,133 @@
+Verify | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Verify
+Verify the signature of a JSON Web Token (JWT) and decode the payload using extensible outputs.
+Input
+Field
+Definition
+Type
+Required
+token
+The complete JSON Web Token (JWT), including the Base64-encoded header, and the payload and signature.
+Text
+TRUE
+key
+The private or public key required to verify the signature of the JWT.
+You can share private keys, but many algorithms can use the corresponding public key for decoding.
+Text
+TRUE
+options
+audience
+Identifies the intended recipients for the JWT.
+This is a case-sensitive text value that contains a string or a URI value.
+Use of the 
+audience
+ claim (
+aud
+) is optional.
+Text
+FALSE
+issuer
+Identifies the issuer of the JWT.
+This is a case-sensitive text value that contains a string or a URI value.
+Use of the 
+issuer
+ claim (
+iss
+) is optional.
+Text
+FALSE
+ignoreExpiration
+Indicates if the receiving party that decodes the token is allowed to ignore any expiration time (
+exp
+) set in the signature.
+The default is 
+False
+, meaning that the expiration field is honored.
+True/False
+FALSE
+subject
+Identifies the subject of the JWT.
+For example, if the token payload is information about an app user, you can use the 
+subject
+ field to pass a user ID.
+The 
+subject
+ should be locally or globally unique.
+This is a case-sensitive text value that contains a string or URI value.
+Use of the 
+subject
+ claim (
+sub
+) is optional.
+Text
+FALSE
+algorithm
+Okta Workflows
+ supports the following signature algorithms for JWT:
+HS256
+HS384
+HS512
+RS256
+RS384
+RS512
+ES256
+ES384
+ES512
+PS265
+PS384
+PS512
+HS256
+ is the default.
+Dropdown
+FALSE
+Output
+Field
+Definition
+Type
+decoded
+Extensible outputs allow you to manually add an output field for each key that you expect to return with the payload.
+You can then drag these outputs to other inputs in the flow to process the data.
+Object
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

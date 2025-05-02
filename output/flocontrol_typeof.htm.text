@@ -1,0 +1,139 @@
+Type Of | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Type Of
+This function card returns the type of any provided input.
+This card is useful if you don't know beforehand what data type might be returned from an API response or a card output. Detecting the type of a field allows you to go into nested API responses or card output objects and find matching property names that you can map to card outputs.
+Input
+Field
+Definition
+Type
+Required
+value
+The input value for which you want to determine the type. For example, 
+Text
+, 
+Number
+, 
+True/False
+, 
+Date & Time
+, or any other valid 
+Okta
+ field type.
+This  also determines if the input value is a list, returning the result in  the 
+collection
+ output field. 
+The 
+value
+ field accepts all field types as input. You don't have to specify a type for the field.
+Various
+TRUE
+Output
+Field
+Definition
+Type
+type
+The type of the 
+value
+, provided as a text string. Possible outputs:
+Text
+Number
+True/False
+Date & Time
+Object
+File
+Flow
+Text
+collection
+If 
+True
+, then the 
+value
+ contains a list of that type. Otherwise, 
+False
+.
+If the 
+value
+ is a list containing mixed types, then the returned 
+type
+ is the type of the first element in the list.
+True/False
+Examples
+value
+type
+collection
+True
+True/False
+False
+False
+True/False
+False
+sdfsdf
+Text
+False
+["sdfsdf"]
+Text
+True
+123
+Number
+False
+2025-01-10T04:49:42.920Z
+Date & Time
+False
+{null}
+Empty
+False
+[]
+Empty
+True
+[45, "asdasd", "gdfgdf"]
+Number
+True
+["sdfsdf", 12, 13]
+Text
+True
+{"input 1":"hbk"}
+Object
+False
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

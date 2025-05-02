@@ -1,0 +1,152 @@
+Formula | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Formula
+Build a math expression by combining operators, functions and numbers that you enter with fields that you drag and drop into the Formula card. You can place fields of the type 
+Number
+ anywhere in the expression where there can be a number. At runtime, the expression is evaluated using the values of the fields to generate a single; 
+output
+ number.
+You can use the following operators:
++
+ for addition
+-
+ for subtraction (or negative)
+*
+ for multiply
+/
+ for divide
+^
+ for power; for example, 
+10^2
+ returns 100
+%
+ for remainder; for example, 
+12%5
+ returns 2
+!
+ for factorial; for example, 
+3!
+ returns 6
+#
+ allows you to add a comment to your expression (anything you type after the # is ignored when the expression is evaluated)
+Use 
+parentheses
+ to group operations so they calculate together first.
+You can also use standard math functions (with arguments inside parentheses), including:
+abs
+ - absolute value; for example, 
+abs(-10)
+ returns 10
+ceil
+ - rounds up to the nearest integer
+floor
+ - rounds down to the nearest integer
+min
+ - the smallest of a comma separated list of numbers
+max -
+ the largest of a comma separated list of numbers
+round
+ - rounds to the nearest integer
+random
+ - a random number between 0 and a given value, or 1 if followed by empty parentheses; for example, 
+random(10)
+ or 
+random()
+exp
+ - 
+e
+ to the power of a given value
+log
+ - the logarithm using base e of a value
+log10
+ - the logarithm using base 10 of a value
+pow
+ - the first parameter to the power of the second parameter; for example, 
+pow(2,3)
+ returns 8
+sqrt
+ - the square root of a value
+pi
+ - the value for pi (use without parentheses)
+sin
+ - the sine of an provided angle in radians
+cos
+ - the cosine of an provided angle in radians
+tan
+ - the tangent of an provided angle in radians
+asin
+ - the arcsine of a value between -1 and 1
+acos
+ - the arccosine of a value between -1 and 1
+atan
+ - the arctangent of a value between -1 and 1
+sinh
+ - the hyperbolic sine of a value between -1 and 1
+cosh
+ - the hyperbolic cosine of a value between -1 and 1
+tanh
+ - the hyperbolic tangent of a value between -1 and 1
+You can combine multiple operations, such as:
+(pi*(max(10,11,12)^2))+round(random(5))
+And number fields (such as dropping an output from a previous card into the middle of a calculation) can be used in place of any number value.
+For 
+binary arithmetic
+, use 
+&
+ (bitwise and), 
+~
+ (bitwise not), 
+|
+ (bitwise or), 
+^|
+ (bitwise xor), 
+<<
+ (left shift), and 
+>>
+ (right shift).
+Input
+The function has one large input area that accepts a combination of numbers, operators, and math functions you type with number fields you drag/drop in.
+Output
+The calculation that results from evaluating the expression using the values of the fields at runtime.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

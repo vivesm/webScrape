@@ -1,0 +1,107 @@
+Set error handling for cards in flows | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Set error handling for cards in flows
+You can set values for error handling on most cards in Workflows.
+Retries for cards in flows only take place as a result of 
+HTTP 429 Too Many Requests
+ errors. You can't set error handling for other HTTP errors.
+Click the 
+Other options
+ gear icon on a card and select 
+Error handling
+.
+In the 
+Retry
+ dropdown, select a value for the number of times to re-execute a card if an error occurs. The default is 
+0 times
+.
+In the 
+After
+ dropdown, select a value for the amount of time that the card waits between retries. The default is 
+5 minutes
+.
+This option is useful if, for example, a card  produces an error because an application is unavailable and  needs to wait so the flow can resume without interruption. 
+In the 
+Then
+ dropdown, select an option for what the card must do if it fails to execute. The options are 
+Halt Flow
+, 
+Return Values
+, or 
+Run another Flow
+.
+Halt Flow
+: Stop the flow with an error.
+Return Values
+: Stop the flow with an error, but send a custom message to another flow. You can add fields and enter values, or drag and drop outputs from earlier stages in the flow.
+Run another Flow
+: Stop the flow with an error, but run a helper flow. If your helper flow accepts inputs, call a flow by clicking 
+Choose Flow
+ and selecting a helper flow from the 
+Select flow
+ dialog. The helper flow can get the error details using the 
+Error
+ output field on the helper flow card. See 
+Parent flows and other flow types
+.
+Exceptions to automatic retries
+If a card returns one of the following HTTP status codes, then the error handling doesn't trigger a retry. Generally if the card returns one of these status messages, extra attempts can't change the outcome of the request. See 
+HTTP status codes
+.
+Client errors
+400 - Bad Request
+401 - Unauthorized
+402 - Payment Required
+403 - Forbidden
+404 - Not Found
+405 - Method Not Allowed
+409 - Conflict
+413 - Payload Too Large
+421 - Misdirected Request
+422 - Unprocessable Entity
+Server errors
+500 - Internal Server Error
+503 - Service Unavailable
+504 - Gateway Timeout
+If you need to build a flow where retries must take place after one of these HTTP status codes is returned, see 
+If Error
+.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

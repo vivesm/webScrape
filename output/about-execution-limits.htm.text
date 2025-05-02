@@ -1,0 +1,86 @@
+Execution limits | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Execution limits
+Okta Workflows
+ operates on a multi-tenant system and is a powerful and flexible platform for automating identity processes. It's designed, tested, and optimized for a growing set of use cases for lifecycle management, data synchronization, and task automation.
+As a Workflows user, successfully deploying and executing your flows   relies on optimizing them within the recommended platform's limits. For information on overall  platform limits, see 
+Workflows system limits
+.
+Excessive usage of Workflows resources can result in latency spikes that can affect the execution of your flows. "Excessive" is defined as usage or spikes that create resource contention, which in turn, impacts overall infrastructure performance. As a result, some flows become eligible for the internal system limit analyzer to determine if a flow requires throttling.
+Flow executions
+Flow executions can be throttled due to excess usage of one or more of the following resources:
+Resource
+Definition
+Example
+CPU time
+Number of milliseconds that a flow takes to execute on engine worker threads.
+Flows that exceed CPU time limits may use highly nested child flow structures with nested iteration cards, such as 
+For Each
+, 
+Map
+, or 
+Reduce
+.
+Deeply nested iteration cards can exponentially grow the number of executions.
+Table requests
+Number of requests made against a Workflows table.
+Flows with highly active event cards that make requests through Tables function cards.
+Memory
+Quantity of bytes held in memory.
+Flows that process large amounts of data. For example, flows that read many users.
+Helper flows
+Number of invoked helper flows.
+Flows with deeply nested or recursive structures involving large numbers of helper flows.
+Flow throttling
+Flow throttling is a Workflows feature that automatically detects, limits, and notifies users when specific flows consume excessive resources during a defined window of time. Throttling helps to optimize overall performance  while minimizing service disruptions caused by resource-intensive flows. Flow throttling doesn't impact or prevent the completion of a flow.
+Customers on the following plans are subject to a lower throttling threshold:
+Workforce Identity Cloud
+ Free Trial
+Workflows Starter
+When a flow execution is throttled, a warning dialog appears with the following message: 
+Okta has identified that this flow has exceeded expected resource usage. This flow will complete, but the resource allocation for it has been limited.
+It's important to review the flow that caused this warning and make any necessary changes to improve the flow efficiency. After identifying such flows and making necessary modifications, you can execute flows successfully with more predictability, improved uptime, and optimized performance.
+For suggestions on how to optimize your flows to reduce throttling impacts, see 
+Low-latency mode
+ and 
+Criteria for low-latency mode
+.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

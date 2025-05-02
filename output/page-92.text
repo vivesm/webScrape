@@ -1,0 +1,314 @@
+Update a published integration with the OIN Wizard | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+OpenID Connect
+Loading...
+    On this page
+            Overview
+Loading...
+    Update a published integration with the OIN Wizard
+Learn how to update an OIDC, SAML 2.0, or SCIM 2.0 published integration in the Okta Integration Network (OIN) using the OIN Wizard.
+What you need 
+A published OIDC, SAML 2.0, or SCIM integration in the OIN
+The 
+Okta Developer Edition org
+(opens new window)
+ from where you originally submitted your published integration. The OIN Wizard is only available in Okta Developer Edition orgs.
+An admin user in the Okta Developer Edition org with either the super admin or the app and org admin roles
+Overview 
+If you have a published Single Sign-On (SSO) or lifecycle management integration in the 
+OIN catalog
+(opens new window)
+, you can update and resubmit it with the OIN Wizard.
+The OIN Wizard currently supports updates for integrations that use the following protocols:
+OpenID Connect (OIDC)
+(opens new window)
+Security Assertion Markup Language (SAML) 2.0
+(opens new window)
+System for Cross-domain Identity Management (SCIM) 2.0
+(opens new window)
+Note:
+ You can also update OIDC, SAML 2.0, and SCIM 2.0 integrations with the 
+OIN Wizard
+ that were originally submitted through the 
+OIN Manager
+.
+When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See 
+Update integration considerations
+ before you edit your published integration.
+After you successfully test the updated and published versions of your integration, resubmit your integration to the OIN team. Your integration goes through a 
+submission review process
+ before the updated version is published in the OIN catalog.
+Update integration considerations 
+For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available the OIN Wizard, contact 
+oin@okta.com
+.
+Note:
+ Some considerations on this page are specifically for the 
+OpenID Connect
+ protocol. 
+If you want to change the protocol details on this page, select the protocol from the 
+Instructions for
+ dropdown list on the right.
+When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
+If you modify the 
+Name
+ (
+name
+) property of your 
+integration variables
+, Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
+Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
+Published integrations can have more than three integration variables
+Published integrations can have variable names with uppercase letters
+Published integrations can use 
+http
+ (instead of enforced 
+https
+) in URLs and Expression Language-supported properties
+If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration.
+For example:
+Your integration update introduced a new variable (
+companyId
+), and you use it in your updated redirect URL. The redirect URL changed from 
+https://login.myapp.io
+ to 
+https://login.myapp.io?connection={app.companyId}
+. In this case, ensure that the dynamic redirect URL is also valid for existing instances where the 
+companyId
+ value isn't set.
+To handle empty 
+companyId
+ values, you can define the redirect URL as:
+https://
+{
+String.len
+(
+app.companyId
+)
+==
+0
+ ? 
+'login.myapp.io'
+:
+'login.myapp.io?connection='
+ + app.companyId
+}
+This expression handles both scenarios where 
+companyId
+ is populated or empty. See 
+Dynamic properties with Okta Expression Language
+.
+Update your integration 
+Note:
+ When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
+To update a previously published OIN integration:
+Sign in to your Okta Developer Edition org as a user with either app admin or super admin roles.
+Note:
+ Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
+In the Admin Console, go to 
+Applications
+ > 
+Your OIN Integrations
+.
+Note:
+ If you have a draft submission and want to go straight to testing, see 
+Navigate directly to test your integration
+.
+Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
+From the 
+This integration is read-only
+ information box, click 
+Edit integration
+.
+Note:
+ You can skip this step if your submission is in draft status. The 
+Edit integration
+ option isn't available for submissions in draft status because it's not in read-only mode.
+For SSO integrations, if the OIN Wizard doesn't detect an instance to test your published integration, an 
+Application instance not detected
+ dialog appears.
+Click 
+Generate instance
+ to create an app instance based on your published OIN integration. See 
+Add existing app integrations
+(opens new window)
+ to create an OIN-published instance for backwards-compatibility testing.
+If the 
+Application instance not detected
+ dialog appears and the 
+Generate instance
+ option is disabled, then you exceeded the maximum active instances in your org. 
+Deactivate instances
+ that you're not using before you generate new instances.
+If the OIN Wizard detects an instance based on your published integration, the 
+Application instance not detected
+ dialog doesn't appear. This is usually the case if you tested and submitted your published integration from the same org. You can use that existing published-version instance for backwards-compatiblity testing.
+Click 
+Configure your integration
+ to proceed to update your integration as required in the following sections of the OIN Wizard:
+OIN catalog properties
+Integration variables
+Note:
+ See 
+Update integration considerations
+ for backwards compatibility with integration variables.
+OIDC properties
+Enter test information
+Click 
+Test your integration
+ to save your updates and move to the testing section of the OIN Wizard.
+Test integration updates 
+The OIN Wizard journey includes the 
+Test integration
+ experience page to help you configure and test your updated integration within the same org before submission. These are the tasks that you need to complete:
+Generate app instances from your updated integration and assign test users. See 
+Generate instances for testing
+.
+Test the required flows for each of your SSO instances. See 
+Test your integration
+.
+See 
+Submit your updated integration
+ after all required tests are successful.
+Note:
+ Test steps on this page are specifically for the 
+OpenID Connect
+ protocol. 
+If you want to change the protocol details on this page, select the protocol from the 
+Instructions for
+ dropdown list on the right.
+Generate instances for testing 
+Generate instances for testing your updates directly from the OIN Wizard. See 
+Required app instances
+ in the OIN Wizard for the instances that you need to generate.
+Required app instances 
+The 
+Required app instances
+ section shows you the instances detected in your org that are required for the OIN Submission Tester:
+The 
+CURRENT VERSION
+ status indicates the instances that you need to test your current integration submission.
+The 
+PUBLISHED VERSION
+ status indicates the instances that you need to test backwards compatibility.
+Generate an instance
+ to test the specific protocol if 
+No instance detected
+ appears next to the protocol.
+Notes:
+Generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol per instance.
+You should already have an instance of your published integration for backwards-compatibility testing. If you don't have a published-version instance, exit the OIN Wizard and create the OIN-published instance. See 
+Add existing app integrations
+(opens new window)
+ to create an OIN-published instance for backwards-compatibility testing.
+Generate an instance 
+Create an instance for your updated OIDC integration. See 
+Generate an instance for OIDC
+.
+Assign test users for your generated instance. See 
+Assign test users to your integration instance
+.
+Next, go to 
+Test your integration
+.
+Test your integration 
+For an SSO integration, use the OIN Submission Tester to test the required flows on your generated test instance.
+Go to the 
+Application instance for testing
+ section on the 
+Test integration
+ page.
+Add your test instance to the OIN Submission Tester. See 
+Add to Tester
+.
+Run the required tests in the OIN Submission Tester. See 
+OIN Submission Tester
+.
+Submit your updates 
+After you successfully test your updated integration, you're ready to submit.
+The OIN Wizard checks the following for SSO submissions:
+All required instances are detected.
+All required instances are active.
+All required tests for the updated and backwards-compatible instances passed within the last 48 hours.
+Submit integration
+ is enabled after all these requirements are met.
+Select 
+I certify that I have successfully completed required tests
+.
+Click 
+Submit integration
+ to submit your integration.
+Click 
+Close wizard
+.
+The 
+Your OIN Integration
+ dashboard appears.
+After you submit your integration, your integration is queued for OIN initial review. Okta sends you an email with the expected initial review completion date.
+Check the status of your submission on the 
+Your OIN Integrations
+ dashboard. See 
+Understand the submission review process
+.
+Submission support 
+If you need help during your submission, Okta provides the following support:
+If you need help with the OIN Wizard, review this document or see 
+Publish an OIN integration
+.
+Submit your OIN Wizard question to 
+developers@okta.com
+ if you can't find an answer in the documentation.
+If you have issues during your integration testing phase, you can post a question on the 
+Okta Developer Forum
+(opens new window)
+ or submit your question to 
+developers@okta.com
+.
+If you have an integration status issue, contact 
+oin@okta.com
+.
+Edit This Page On GitHub
+      Instructions for
+OpenID Connect
+Loading...
+        On this page
+Overview
+Update integration considerations
+Update your integration
+Test integration updates
+Generate instances for testing
+Test your integration
+Submit your updates
+Submission support
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

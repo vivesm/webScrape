@@ -1,0 +1,118 @@
+Parse | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Parse
+Parse a URL string into its individual components with proper encoding.
+Input
+Field
+Definition
+Type
+Required
+url
+The formatted URL to parse.
+Text
+TRUE
+Output
+Field
+Definition
+Type
+protocol
+The URL protocol, returned in lower case. 
+For example, 
+http
+ or 
+https
+.
+Text
+host
+The URL fully qualified domain name, returned in lower case. 
+For example, 
+www.test.com
+.
+Text
+port
+The port specified in the URL, returned as a number. 
+Typically 
+80
+ for 
+http
+ and 
+443
+ for 
+https
+.
+If no port is specified, the card returns a null value. 
+Number
+path
+The entire string following the 
+host
+ and  
+port
+, but before the 
+query
+ portion of the URL.
+Text
+query
+The entire query string portion of the URL.
+Text
+Example
+For the input URL 
+http://www.test.com:8080/test url?value=example&value2=URL
+, this function card returns the following values:
+protocol
+: 
+http:
+host
+: 
+www.test.com
+port
+: 
+8080
+path
+: 
+/test url
+query
+: 
+value=example&value2=URL
+Related topics
+Functions
+Workflow elements
+Special characters and delimiters
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

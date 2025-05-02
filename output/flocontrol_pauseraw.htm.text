@@ -1,0 +1,87 @@
+Pause Raw | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Pause Raw
+This function card pauses the running flow execution and returns raw HTTP data to the caller. You can resume the flow by calling the resume API. See 
+Resume a paused flow
+.
+Input
+Field
+Definition
+Type
+Required
+statusCode
+A status code to return to the caller. 
+Valid values are 
+200
+ or any other HTTP response code from 
+400
+ through 
+599
+.
+Number
+FALSE
+headers
+An object representing the headers for the response.
+Each key of the header is parse into a header string as a 
+"key: value"
+ entry. For example, 
+"Content-Type: text/plain"
+.
+Object
+FALSE
+body
+The body of the HTTP response.
+Text
+FALSE
+Output
+Field
+Definition
+Type
+Headers
+The returned HTTP headers.
+Object
+Body
+The returned HTTP response body.
+Text
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

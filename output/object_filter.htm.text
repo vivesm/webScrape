@@ -1,0 +1,88 @@
+Filter | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Filter
+The Filter card removes keys that have no associated value (for example, 
+null
+, 
+""
+, 
+{}
+) from an object. 
+If the object might contain other objects, use the 
+Clear Empty
+ card instead.
+Input Fields
+object
+:  the object you want to operate on
+Output Fields
+output
+: your input object without empty keys
+Examples
+Input object
+Copy
+Input object
+{
+  "Name": "Emily",
+  "Age": "",
+  "Settings": {
+    "test": {},
+    "test2": "value2"
+  }
+}
+Output object
+Copy
+Output object
+{
+  "Name": "Emily",
+  "Settings": {
+    "test": {},
+    "test2": "value2"
+  }
+}
+Note that the 
+test
+ key remains because it is a sub-object. If you want to remove empty keys from sub-objects, use the 
+Clear Empty
+ function instead.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

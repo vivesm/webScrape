@@ -1,0 +1,81 @@
+Find your application credentials | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            Find your app integration credentials
+Loading...
+    Find your application credentials
+This guide explains how you can find your app integration credentials.
+If you're building an app integration by using one of our software development kits or client libraries, you may run into the following message:
+Note:
+ Your client ID is missing. Replace 
+{clientId}
+ with the client ID of your  application. You can copy it from the Okta Admin Console in the details for the application that you created.
+Or this one:
+Note:
+ Your client secret is missing. Replace 
+{clientSecret}
+ with the client secret of your application. You can copy it from the Okta Admin Console in the details for the application that you created.
+The first step in building an app integration with Okta is creating an Okta app resource that represents your project. Okta generates credentials for you (called a client ID and client secret) that you copy into your code to associate your project with the Okta app integration.
+Find your app integration credentials 
+To find the credentials for your app integration:
+Sign in to your Okta organization with your administrator account.
+In the Admin Console, go to 
+Applications
+ > 
+Applications
+.
+If you already have the app integration in your org, you can search for it here. Click the app integration to open the settings page.
+If you need to create a new Okta app integration to represent your project, click 
+Create App Integration
+ and follow the 
+instructions
+(opens new window)
+ to create a new app integration. Alternatively, you can search for a pre-existing app integration in the Okta catalog and add it to your org by clicking 
+Browse App Catalog
+.
+On the 
+General
+ tab, the 
+Client Credentials
+ section shows the client ID and client secret values for your app integration.
+You can copy the 
+Client ID
+ and 
+Client secret
+ values using the 
+Copy to Clipboard
+ button beside each text field.
+Edit This Page On GitHub
+        On this page
+Find your app integration credentials
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

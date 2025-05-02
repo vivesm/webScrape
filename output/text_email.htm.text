@@ -1,0 +1,80 @@
+Find Email | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Find Email
+Find and return the first instance of a valid email address in a string.
+Input
+Field
+Definition
+Type
+Required
+text
+Target of search for a properly formatted email address.
+String
+TRUE
+Output
+Field
+Definition
+Type
+email
+First instance of a properly formatted email address that is found in an input string. If the input value doesn't contain a valid email address, this output field remains empty.
+String
+Example 1
+If the input 
+text
+ field contains 
+You can reach me at fred@example.com or support@example.com
+, the output 
+email
+ field will return 
+fred@example.com
+.
+Example 2
+For use cases where the validation of an email submission is required, you can use the Find Email function card in combination with 
+Return Error
+, 
+Continue If
+, 
+If/Else
+, or other function cards. You can use the Find Email function card to validate an email submission, and if the input value isn't a valid email address, an error will be thrown by a Return Error card.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

@@ -1,0 +1,130 @@
+Sign users in overview | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+    On this page
+            Never used Okta before?
+Loading...
+    Sign users in overview
+Okta provides authentication solutions that integrate seamlessly into your apps across a wide variety of platforms, whether you are developing an app for your employees or customers, building a portal for your partners, or creating another solution that requires a sign-in flow. Our solutions are built on top of the 
+OAuth 2.0 / OpenID Connect
+ standard, and we also support other options such as 
+SAML
+.
+Never used Okta before? 
+Choose your app type and get started with signing users in.
+Server-side web app
+Front-end web app
+Mobile/native app
+Primary considerations 
+Every app you add authentication to has slightly different requirements, but there are some primary considerations that you need to think about regardless of which app you are dealing with.
+Authentication methods
+Assurance levels
+Policies
+Deployment models
+There are many different methods that you could choose to authenticate users — ranging from a simple challenge based on something they know like a password, to something more sophisticated involving a device they own (like an SMS or call) or a personal attribute (like biometrics).
+To guarantee that the user is who they say they are, you can combine different authentication methods for higher security requirements.
+Create policies in your Okta org to govern who needs to authenticate with which methods, and in which apps. If you are using Okta Identity Engine, you are able to create flexible apps that can change their authentication methods without having to alter a line of code. See 
+Configure a global session policy and authentication policies
+ for basic information. Our use cases contain information on what policies are required for each.
+Okta has multiple authentication solutions that provide trade-offs in terms of implementation complexity, maintenance, security, and degrees of customization. See 
+Choose your auth
+.
+After you have an idea of the above considerations, you can integrate Okta authentication with your app(s). Typically, you create an 
+Okta org
+ and an app integration to represent your app inside Okta, inside which you configure your policies. Then, connect your app to Okta using whatever mechanism makes sense for the deployment model that you choose.
+Other considerations
+: There are a number of other things that you need to consider, such as whether to use Single Sign-On, to add an external identity provider, and more. See 
+Next steps
+.
+Choose your auth 
+Okta-hosted Sign-In Widget
+Embedded Sign-In Widget
+Embedded SDK-driven sign-in flow
+Use the Okta-hosted Sign-in Widget to redirect your users to authenticate, then redirect back to your app. This is the recommended approach — most secure and fastest to implement.
+Embed the Okta Sign-In Widget into your own code base to host the authentication client on your servers. This provides a balance between complexity and customization.
+Use our SDKs to create a completely custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control.
+Effort
+Maintenance
+ No updates required
+ Requires updating widget packages
+ Requires updating SDK packages and adapting to changes
+Security
+The most secure option. No XSS attacks, Okta takes care of it all
+Responsibility shared with Okta
+Security is your responsibility
+Customization
+Managed branding and customization options for domains, emails, sign-in page, and more.
+Most substantial customization options
+Full customization
+Learn more
+Redirect auth for 
+web apps
+, 
+mobile apps
+, and 
+single-page apps
+Redirect auth use cases
+Customize the hosted widget
+Embedded widget fundamentals
+Sample app setup process
+Embedded widget use cases
+Customize the embedded widget
+Auth JS fundamentals
+Sample app setup process
+Embedded SDK use cases
+Okta SDKs reference
+For more background on the different deployment models, including basic flows and help with choosing between models, see 
+Okta deployment models — redirect vs. embedded
+.
+Note
+: Direct calls to the Identity Engine APIs that underpin much of the Identity Engine authentication pipeline aren't supported — use the Embedded SDKs instead.
+Note
+: We strongly advise against using WebViews for authentication on mobile apps as this practice exposes users to unacceptable security risks. See 
+OAuth 2.0 for Native Apps
+. Consider using Okta's native SDKs instead.
+Upgrade from Okta Classic Engine to Okta Identity Engine 
+If you are a Classic Engine customer who wants to upgrade their apps to use Identity Engine for authentication, go to 
+Identity Engine upgrade overview
+.
+Next steps 
+Add an external identity provider
+Configure an access policy
+Configure a global session policy and authentication policies
+Build a Single Sign-On (SSO) integration
+Edit This Page On GitHub
+        On this page
+Never used Okta before?
+Primary considerations
+Choose your auth
+Upgrade from Okta Classic Engine to Okta Identity Engine
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

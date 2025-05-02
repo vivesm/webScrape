@@ -1,0 +1,174 @@
+If Error | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+If Error
+This function allows you to specify alternate actions to handle an error without stopping your flow.
+The 
+If Error
+ function appears as a container in a flow where you can specify the following options:
+Try
+: Run one or more actions or functions.
+If Error
+: Specify alternate actions or functions to run if an error occurs in any of the steps in the 
+Try
+ section.
+Outputs
+: The flow can use the optional output fields  in subsequent steps. The value assigned to each output depends on whether an error occurred.
+Use the dropdown menu to switch between the 
+Try
+ steps and 
+If Error
+ steps.
+Try
+When you add a new 
+If Error
+ container to a flow, you must first define the steps in the 
+Try
+ section. These steps consist of one or more actions or functions to run. You can add cards to this container just as you would elsewhere in a flow.
+To add error handling to an existing set of steps in your flow, insert the 
+If Error
+ card into the flow after the cards that you want in your 
+Try
+ block. Then drag the existing cards in one by one, starting with the rightmost card.
+To retry a step in your flow automatically before manually fixing an error, see 
+Set error handling for cards in flows
+.
+If Error
+The 
+If Error
+ block contains the steps that you want to take to handle an error. You can add actions or functions just as you would elsewhere in a flow.
+To avoid parsing errors caused by complex error handling, 
+Okta
+ recommends a limit of no more than three nested 
+If Error
+ blocks.
+An error object is added to each 
+If Error
+ block.  This object contains the following details of the error in the 
+Try
+ block that results in a switch to the 
+If Error
+ block:
+message
+: Text of the error message, when available.
+code
+: Error code, for example, 
+500
+.
+method
+: ID for the step where the error occurred.
+flo
+: ID of the flow.
+execution
+: ID of a specific execution of the flow. You can use these values in your error handling steps. For example, you can send an email with details of the error. Or, if it's an expected error, conditionally check if the flow should proceed.
+Return
+ and 
+Continue If
+ cards typically end a flow but behave differently when inside a 
+Try
+ or 
+If Error
+ block. Think of 
+Try
+ or 
+If Error
+ blocks as anonymous helper flows. Just like when you call a helper flow, a 
+Return
+ card returns you to the parent. So, adding a 
+Return
+ or 
+Continue If
+ (when false) card inside a 
+Try
+ or 
+If Error
+ block proceeds to the step immediately after the 
+If Error
+ container. 
+If you want to halt the flow rather than continue, use a 
+Return Error
+, 
+Return Error If
+, or a 
+Continue If
+ card outside the 
+If Error
+ block.
+Outputs
+You can drag outputs from cards that run before the 
+If Error
+ function into a 
+Try
+ or 
+If Error
+ block. However, you can't drag outputs from inside the 
+Try
+ or 
+If Error
+ block to cards that are run after the 
+If Error
+ function. This is because a step from inside a 
+Try
+ or 
+If Error
+ may not always run. To avoid this, use the optional 
+Outputs
+ feature.
+To access the outputs, click 
+View Outputs
+ on the top-right of the 
+If Error
+ container. This opens up a pane to the right of the 
+Try
+ and 
+If Error
+ blocks.
+Click to add an output. You can type the name and choose the type. Two new fields appear beneath each output.
+Drag an output from the 
+Try
+ block to one of these  fields. This output is used when an error doesn't occur.
+Drag an output from the 
+If Error
+ block to the other field. This output is used when an error occurs.
+You can then map the outputs from this pane to subsequent steps in the flow.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

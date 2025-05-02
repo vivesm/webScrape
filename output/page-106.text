@@ -1,0 +1,845 @@
+Custom password recovery | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+ASP.NET
+Loading...
+    On this page
+            Overview
+Loading...
+    Custom password recovery
+    Identity Engine
+This guide shows you how to integrate 
+Email Magic Links (EML)
+ into the self-service password recovery flow of your apps using the Okta-embedded solutions.
+Learning outcomes 
+Understand the flows supported by password recovery
+Learn to customize your user's password recovery experience
+What you need 
+An Okta org configured for a password-only use case.
+An app that uses the embedded Sign-In Widget or SDK
+Sample code 
+Sample ASP.NET MVC application using embedded authentication with the Identity Engine SDK
+(opens new window)
+Sample ASP.NET Core & embedded Sign-In Widget example
+(opens new window)
+Overview 
+The Okta-embedded solutions allow you to customize your authentication use cases with full support for theming, branding, and extensive ways to control the user experience. This guide covers customizations for one particular use case, self-service password recovery, where an email authenticator is used to verify the user before they can reset their password.
+Note
+: The 
+Email Magic Links overview
+ explains the difference in user experience between using one-time passcodes and magic links.
+Before you begin 
+Before you begin you need to:
+Create and configure your Okta org as described in 
+Set up your Okta org for a password factor only use case
+.
+Set up the SDK and Sign-In Widget
+Build an app with the Embedded Sign-In Widget or SDK.
+For apps using the embedded Sign-In Widget, implement the 
+basic sign-in flow
+.
+For apps using the SDK, implement 
+user password recovery
+.
+To test the flows without creating an app yourself, use the sample apps. The apps provide support for password recovery and email customizations.
+Summary of changes 
+To give your users this customized experience, perform the following steps:
+Update your org to support the email authenticator with password recovery
+Update the Forgot Password email template to point to your app
+Depending on your embedded integration solution either:
+Update your Sign-In Widget based app
+Update your SDK-based app
+Update your org 
+Confirm that you have the email authenticator set up for password recovery by performing the following steps:
+In the Admin Console, go to 
+Security > Authenticators
+.
+On the 
+Authenticators
+ page, confirm you have the 
+Email
+ authenticator added to your org. If not present, add it by clicking 
+Add Authenticator
+ and locating 
+Email
+.
+Find the 
+Password
+ authenticator, click its 
+Actions
+ link, and then select 
+Edit
+ from the dropdown list.
+On the 
+Password
+ page, scroll down to the rules section. Edit the 
+Default Rule
+ (or currently active rule) by clicking its pencil icon.
+On the 
+Edit Rule
+ page, confirm that 
+Email
+ is checked for the 
+Users can initiate recovery with
+ field.
+If changes were made, click 
+Update Rule
+.
+Update the Forgot Password email template 
+Okta sends users an email based on the 
+Forgot Password
+ template when they start a password recovery. All Okta email templates are written using 
+Velocity Templating Language (VTL)
+(opens new window)
+ and use predefined variables to insert relevant values into that email. Okta defines three VTL variables specific to this template:
+Variable
+Contains
+{oneTimePassword}
+The one-time passcode Okta generated for the user
+{request.relayState}
+The current SAML 
+RelayState
+(opens new window)
+ value
+{resetPasswordLink}
+The Okta-hosted URL that continues the password recovery flow
+Note
+: The 
+{oneTimePassword}
+ and 
+{request.relayState}
+ variables aren't supported in the 
+Password Reset by Admin
+ template. As a result, you can't use this template in the custom password recovery flow described in this guide.
+By default, the magic link in the template is set to 
+{resetPasswordLink}
+. Update it to an endpoint in your app that expects 
+{oneTimePassword}
+ and 
+{request.relayState}
+ as query parameters and uses them to continue the password recovery flow:
+In the Admin Console, go to 
+Customizations > Emails
+.
+On the 
+Emails
+ page, find the 
+Password
+ category on the template menu.
+Under 
+Password
+, click 
+Forgot Password
+.
+On the 
+Forgot Password
+ email template page, click 
+Edit
+.
+Under 
+Default Email
+, click 
+Edit
+.
+In the 
+Message
+ field, locate the magic link in the field's HTML. The link is in the 
+href
+ attribute of an 
+<a>
+ tag with the 
+id
+ of 
+reset-password-link
+. It looks like this:
+<
+a
+id
+=
+"
+reset-password-link
+"
+href
+=
+"
+{resetPasswordLink}
+"
+style
+=
+"
+text-decoration
+:
+ none
+;
+"
+>
+<
+span
+style
+=
+"
+padding
+:
+ 9px ...
+;
+"
+>
+     Reset Password
+</
+span
+>
+</
+a
+>
+Replace the 
+{resetPasswordLink}
+ variable with the URL for the endpoint in your app that processes the magic link. Append the 
+{oneTimePassword}
+ and 
+{request.relayState}
+ variables as query parameter values. For example, if you're using one of the sample apps, the updated link is as follows:
+<
+a
+id
+=
+"
+reset-password-link
+"
+href
+=
+"
+https://localhost:44314/magiclink/callback?otp={oneTimePassword}&state={request.relayState}
+"
+style
+=
+"
+text-decoration
+:
+ none
+;
+"
+>
+<
+span
+style
+=
+"
+padding
+:
+ 9px ...
+;
+"
+>
+      Reset Password
+</
+span
+>
+</
+a
+>
+Click 
+Save
+ and close the dialog.
+Update your Sign-In Widget integration 
+Now to implement the endpoint that you linked to in the revised 
+Forgot Password
+ email template.
+If you're using the Sign-In Widget, execute the following steps. If your app uses the SDK, go to 
+Update your SDK integration
+.
+Summary of steps 
+The following diagram shows the steps for a customized password recovery in an app that uses the Sign-In Widget.
+Initiate password recovery 
+The user starts the password recovery flow by completing these steps:
+Click the 
+Forgot Password?
+ on the sign-in page.
+Enter their 
+Email or Username
+ in the dialog, and then click 
+Next
+.
+Choose 
+Email
+ as the authenticator that they want to use for password recovery and click 
+Submit
+.
+Okta then tells the user to either click the link in the email or enter the code to continue. Okta sends an email to their email address matching the Forgot Password template that was altered earlier.
+The email's 
+Reset Password
+ link includes the 
+otp
+ and 
+request.relayState
+ variables sent back as query parameters to the application. For instance, the URL in the email template,  
+http://localhost:8080/magic-link/callback?otp={oneTimePassword}&state={request.relayState}
+, might be rendered as 
+http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32
+ in the email sent to the user.
+Handle the otp and state parameters 
+Create a callback handler method that takes the 
+otp
+ and 
+state
+ parameters in the query string and passes them as session parameters to a page that contains the Sign-In Widget.
+public
+async
+Task
+<
+ActionResult
+>
+Callback
+(
+string
+ state
+,
+string
+ otp
+,
+string
+ error 
+=
+null
+,
+string
+ error_description 
+=
+null
+)
+{
+if
+(
+!
+string
+.
+IsNullOrEmpty
+(
+error
+)
+||
+!
+string
+.
+IsNullOrEmpty
+(
+error_description
+)
+)
+{
+return
+View
+(
+new
+MagicLinkCallbackModel
+{
+ Message 
+=
+$"
+{
+error
+}
+: 
+{
+error_description
+}
+"
+}
+)
+;
+}
+SignInWidgetConfiguration
+ siwConfig 
+=
+ Session
+[
+"siwConfig"
+]
+as
+SignInWidgetConfiguration
+;
+if
+(
+siwConfig 
+!=
+null
+)
+{
+        Session
+[
+"otp"
+]
+=
+ otp
+;
+        Session
+[
+"state"
+]
+=
+ state
+;
+return
+View
+(
+"SignInWidget"
+,
+ siwConfig
+)
+;
+}
+After clicking the link, it's possible that the 
+otp
+ and 
+state
+ values aren't valid or the user is in a different browser. In that scenario, advise the user to return to the original tab in the browser where they requested a password reset. Then, the user must enter the 
+otp
+ value to proceed.
+return
+View
+(
+new
+MagicLinkCallbackModel
+{
+ Message 
+=
+$"Please enter the OTP '
+{
+otp
+}
+' in the original browser tab to finish the flow."
+}
+)
+;
+}
+Set up and render Sign-In Widget with OTP and state 
+Consume the session 
+state
+ and 
+otp
+ values in a Razor page that contains the Sign-In Widget. In the code, use the 
+latest version
+(opens new window)
+ of the Sign-In Widget: 7.31.0
+@model
+SignInWidgetConfiguration
+@section
+head
+{
+<
+script
+src
+=
+"
+https://global.oktacdn.com/okta-signin-widget/7.31.0/js/okta-sign-in.min.js
+"
+type
+=
+"
+text/javascript
+"
+>
+</
+script
+>
+<
+link
+href
+=
+"
+https://global.oktacdn.com/okta-signin-widget/7.31.0/css/okta-sign-in.min.css
+"
+type
+=
+"
+text/css
+"
+rel
+=
+"
+stylesheet
+"
+/>
+}
+<
+div
+id
+=
+"
+okta-signin-widget-container
+"
+>
+</
+div
+>
+<
+script
+type
+=
+"
+text/javascript
+"
+>
+var
+ widgetConfig 
+=
+ @Html
+.
+Raw
+(
+JsonConvert
+.
+SerializeObject
+(
+Model
+)
+)
+;
+    @Html
+.
+Raw
+(
+$
+"widgetConfig.otp = '{Session["
+otp
+"]}';widgetConfig.state = '{Session["
+state
+"]}';"
+)
+;
+    console
+.
+log
+(
+widgetConfig
+.
+interactionHandle
+)
+;
+const
+ signIn 
+=
+new
+OktaSignIn
+(
+{
+el
+:
+'#okta-signin-widget-container'
+,
+...
+widgetConfig
+}
+)
+;
+    signIn
+.
+showSignInAndRedirect
+(
+)
+.
+catch
+(
+err
+=>
+{
+            console
+.
+log
+(
+'Error happen in showSignInAndRedirect: '
+,
+ err
+)
+;
+}
+)
+;
+</
+script
+>
+Display password reset page 
+After the Sign-In Widget is loaded, it checks whether the state and OTP are valid with Okta. Assuming they are, either the following reset page appears, or a prompt appears for the user to enter the OTP code. After the user enters the OTP code, the reset page appears. The user continues the password recovery flow described in the 
+User password recovery guide
+.
+Update your SDK integration 
+Now to implement the endpoint that you linked to in the revised 
+Forgot Password
+ email template. If you're using the SDK, execute the following steps. If your app uses the Sign-In Widget, go to 
+Update your Sign-In Widget integration
+.
+Summary of steps 
+The following diagram shows the steps for a customized password recovery in an app that uses the SDK.
+1: Initiate password recovery 
+The user starts the password recovery flow by completing these steps:
+Click the 
+Forgot Password?
+ link on the sign-in page.
+Enter their 
+Email or Username
+ in the dialog, and then click 
+Next
+.
+Choose 
+Email
+ as the authenticator that they want to use for password recovery and click 
+Submit
+.
+After the user completes these steps, Okta verifies that an account exists for the user using the information that they entered in step 2 above. If the account exists, Okta then sends a recovery email that matches the Forgot Password template that was altered earlier to the associated email address.
+The email's 
+Reset Password
+ link includes the 
+otp
+ and 
+request.relayState
+ variables sent back as query parameters to the application. For instance, the URL in the email template,  
+http://localhost:8080/magic-link/callback?otp={oneTimePassword}&state={request.relayState}
+, might be rendered as 
+http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32
+ in the email sent to the user.
+2: Handle the OTP and state parameters 
+Create a callback handler method that takes the 
+otp
+ and 
+state
+ parameters in the query string and passes them as parameters to the 
+VerifyAuthenticatorAsync
+ method on the 
+IdxClient
+.
+Note
+ : This implementation looks for the current IDX context in a session variable keyed either by the value of 
+state
+ or by the string 
+idxContext
+. Alternatively, you may choose to store the IDX context in a database or a file.
+public
+async
+Task
+<
+ActionResult
+>
+Callback
+(
+string
+ state
+,
+string
+ otp
+,
+string
+ error 
+=
+null
+,
+string
+ error_description 
+=
+null
+)
+{
+if
+(
+!
+string
+.
+IsNullOrEmpty
+(
+error
+)
+||
+!
+string
+.
+IsNullOrEmpty
+(
+error_description
+)
+)
+{
+return
+View
+(
+new
+MagicLinkCallbackModel
+{
+ Message 
+=
+$"
+{
+error
+}
+: 
+{
+error_description
+}
+"
+}
+)
+;
+}
+IIdxContext
+ idxContext 
+=
+ Session
+[
+state
+]
+as
+IIdxContext
+;
+if
+(
+idxContext 
+==
+null
+)
+{
+        idxContext 
+=
+ Session
+[
+"idxContext"
+]
+as
+IIdxContext
+;
+}
+if
+(
+idxContext 
+!=
+null
+)
+{
+var
+ verifyAuthenticatorOptions 
+=
+new
+VerifyAuthenticatorOptions
+{
+            Code 
+=
+ otp
+,
+}
+;
+var
+ authnResponse 
+=
+await
+ _idxClient
+.
+VerifyAuthenticatorAsync
+(
+verifyAuthenticatorOptions
+,
+ idxContext
+)
+;
+3: Handle the response from the recovery flow 
+If the 
+otp
+ and 
+state
+ values are valid, Okta verifies that there is a password recovery in progress and returns a status of 
+AwaitingPasswordReset
+. This indicates that you can redirect the user to your password reset page.
+switch
+(
+authnResponse
+.
+AuthenticationStatus
+)
+{
+case
+ AuthenticationStatus
+.
+AwaitingPasswordReset
+:
+return
+RedirectToAction
+(
+"ChangePassword"
+,
+"Manage"
+)
+;
+// other case statements
+}
+}
+If the 
+otp
+ and 
+state
+ values aren't valid or an 
+AuthenticationStatus
+ is returned that isn't handled by your case statement, you should advise the user to return to the original tab in the browser where they requested a password reset and enter the OTP value to proceed.
+return
+View
+(
+new
+MagicLinkCallbackModel
+{
+ Message 
+=
+$"Please enter the OTP '
+{
+otp
+}
+' in the original browser tab to finish the flow."
+}
+)
+;
+}
+4: Display password reset page and continue the password recovery flow 
+Display the password reset page and continue the password recovery flow described in the 
+User password recovery guide
+.
+See also 
+User Password Recovery
+Edit This Page On GitHub
+      Instructions for
+ASP.NET
+Loading...
+        On this page
+Overview
+Before you begin
+Summary of changes
+Update your org
+Update the Forgot Password email template
+Update your Sign-In Widget integration
+Summary of steps
+Update your SDK integration
+Summary of steps
+See also
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

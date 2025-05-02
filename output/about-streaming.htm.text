@@ -1,0 +1,68 @@
+Stream data with action cards | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Stream data with action cards
+In 
+Okta Workflows
+, you can handle large data sets efficiently using the streaming data feature in action cards. This approach is useful when dealing with data sets that exceed the limits of search results (10,000 records). Using pagination-enabled API endpoints and helper flows allows you to process up to 1 million records in a manageable way.
+Large numbers of records
+While  limits on search results help  system performance, other custom user properties or user data in the result set can cause a flow to exceed system limits  and result in out-of-memory errors. To avoid these system limitations or possible memory errors, the 
+Stream Matching Records
+ option is available on many cards with search or list options. 
+Many connectors offer action cards with a data streaming feature for handling larger data sets. Using data streaming means that the  data set isn't processed within your parent flow, but instead you specify a helper flow that's configured to handle many records. This shunting capability gives flow builders the ability to scale flows to handle large amounts of data, as it takes advantage of pagination-enabled API endpoints.
+This is most useful for action cards that search for or list records, such as the  
+Freshservice
+Search Tickets
+ card or the 
+Okta
+List Users With Filter
+ card.  The 
+Choose Flow
+ dialog allows you to choose a processing flow as an input to the card through which your requested records are searched and returned.
+Performance benchmarks
+With this option, an action card can read a larger set of records, and you can expect performance benchmarks close to the following times.
+Processing 500,000 records takes approximately 13 hours.
+Processing 1 million records takes approximately 25 hours.
+Limitations
+When using data streaming, there are some considerations to keep in mind. 
+You can't stop a flow once the execution begins. A helper flow that streams data from a search or list card runs until the API returns all records or the flow reaches the specified maximum number of records. Also, an in-progress flow doesn't stop running if you deactivate the flow. 
+Processing data records into a helper flow halts when it reaches a set page limit. You can specify the maximum number of records to request from a third-party API and returned by an action card. Many connectors also have built-in limits to prevent excessive data returns.
+The maximum limit of returned records is 1 million.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

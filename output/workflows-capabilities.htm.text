@@ -1,0 +1,87 @@
+Use cases | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Use cases
+Okta Workflows
+  offers powerful features geared towards efficient and automated account management.
+Provision and deprovision app accounts
+ When an employee joins your company, 
+Okta Workflows
+ simplifies the task of provisioning their account. 
+Automatically create their identity in your apps
+Set user and group entitlements
+Assign shared folder
+Send a message to their manager or a welcome message to the team 
+Slack
+ channel
+Similarly, when an employee leaves the company, 
+Okta Workflows
+ can deactivate the user account, transfer their digital assets to a manager, and then deactivate the user account three days later. See 
+Provision and deprovision
+. 
+Sequence actions with logic and timing
+Okta Workflows
+ can create non-activated accounts in all apps one week before a new employee's start date and then activate them on their first day. 
+ If an employee leaves your company, 
+Okta Workflows
+ can deactivate the user account, remove their access to all apps except payroll, and then delete the account after a year. See 
+Change time- and context-based identity entitlement
+.
+Send notifications for lifecycle events
+For a lifecycle event such as an app assignment or user suspension, 
+Okta Workflows
+ can notify your IT team through email or Slack. See 
+Send notifications for lifecycle activity
+.
+Log and share lifecycle events
+Okta Workflows
+ can query 
+Okta
+ APIs and System Log events, run logic, and even compile data into a CSV file. Then, 
+Okta Workflows
+ can email that file to your teams. See 
+Report lifecycle activity
+.
+Related topics
+Workflows Console
+Connect your applications
+Build and test a flow
+Workflows videos and tutorials
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

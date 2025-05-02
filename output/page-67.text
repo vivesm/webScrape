@@ -1,0 +1,991 @@
+Build a custom sign-in UI in your mobile app | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Android
+Loading...
+    On this page
+            Create an Okta app
+Loading...
+    Build a custom sign-in UI in your mobile app
+Note
+: This document is written for Okta Classic Engine. If you are using Okta Identity Engine, contact your Okta account team for guidance or ask on our 
+forum
+. See 
+Identify your Okta solution
+ to determine your Okta version.
+You can connect your mobile app to Okta and sign users in by 
+opening a browser
+. However, if you prefer that users not leave your app, build a custom sign-in UI with platform-specific controls and screens instead.
+Use this guide to build a customized sign-in experience inside your mobile app.
+Note
+: We strongly advise against using WebViews for authentication on mobile apps as this practice exposes users to unacceptable security risks. See 
+OAuth 2.0 for Native Apps
+. Consider using Okta's native SDKs instead.
+Note:
+ If the browser sign-in method works for your app, Okta recommends using that because building a custom sign-in UI takes more effort and development time.
+Learning outcome 
+Customize the sign-in experience with a mobile sign-in UI.
+What you need 
+An Okta Developer organization. Don't have one? 
+Create one for free
+(opens new window)
+.
+A mobile app with Okta authentication that you want to add a custom sign-in UI to. See 
+Sign users in to your mobile app using the redirect model
+.
+Sample code 
+See the Classic Engine sample 
+Android custom UI example
+(opens new window)
+ in the legacy branch.
+Create an Okta app 
+Before you can sign a user in, you need to create an Okta app that represents your mobile app.
+Use the Okta app that you created when you walked through the 
+Sign users into your mobile app using the redirect model
+ guide.
+Add and configure packages 
+To build the custom sign-in UI, you need to install and configure a platform-specific Okta SDK to your app.
+You should already have added and configured packages when you walked through the 
+Sign users into your mobile app using the redirect model
+ guide.
+In addition, you need to install the platform-specific Okta Authentication SDK. This SDK works together with the OpenID Connect SDK that you have already installed to make authentication requests to Okta.
+Add the following to your 
+build.gradle
+ file:
+dependencies 
+{
+    implementation 
+'com.okta.android:okta-oidc-android:1.0.19'
+    implementation 
+'com.okta.authn.sdk:okta-authn-sdk-api:2.0.0'
+implementation
+(
+'com.okta.authn.sdk:okta-authn-sdk-impl:2.0.0'
+)
+{
+        exclude group
+:
+'com.okta.sdk'
+,
+ module
+:
+'okta-sdk-httpclient'
+}
+    implementation 
+'com.okta.sdk:okta-sdk-okhttp:2.0.0'
+}
+Add the following to your 
+proguard-rules.pro
+-keep class com.okta.** { *; }
+Build the primary authentication form 
+The Okta Authentication SDK is built around a 
+state machine
+. Review the available states before you use this library.
+You can implement an authentication flow using one screen or using multiple screens. When you use multiple screens, you can split responsibilities across screens and then inject related data as a dependency.
+For example, multiple screens could handle:
+Sign-in/password input
+Multifactor enrollment
+Factor selection
+Multifactor verification
+Build a sign-in dialog box 
+To create a custom UI for user sign in, you need to first create a simple dialog box to prompt the user for their username and password:
+public
+class
+SignInDialog
+extends
+DialogFragment
+{
+private
+EditText
+ password
+;
+private
+EditText
+ username
+;
+private
+ExecutorService
+ executor 
+=
+Executors
+.
+newSingleThreadExecutor
+(
+)
+;
+private
+SignInDialogListener
+ signInListener
+;
+/**
+     * Instantiates a new sign-in dialog.
+     */
+public
+SignInDialog
+(
+)
+{
+//NO-OP
+}
+/**
+     * The interface dialog listener.
+     */
+public
+interface
+SignInDialogListener
+{
+/**
+         * On SignIn.
+         *
+         * @param username the username
+         * @param password the password
+         */
+void
+onSignIn
+(
+String
+ username
+,
+String
+ password
+)
+;
+}
+@Nullable
+@Override
+public
+View
+onCreateView
+(
+@NonNull
+LayoutInflater
+ inflater
+,
+@Nullable
+ViewGroup
+ container
+,
+@Nullable
+Bundle
+ savedInstanceState
+)
+{
+View
+ view 
+=
+ inflater
+.
+inflate
+(
+R
+.
+layout
+.
+signin_dialog
+,
+ container
+,
+false
+)
+;
+        password 
+=
+ view
+.
+findViewById
+(
+R
+.
+id
+.
+password
+)
+;
+        username 
+=
+ view
+.
+findViewById
+(
+R
+.
+id
+.
+username
+)
+;
+Button
+ signIn 
+=
+ view
+.
+findViewById
+(
+R
+.
+id
+.
+submit
+)
+;
+        signIn
+.
+setOnClickListener
+(
+v 
+->
+{
+if
+(
+signInListener 
+!=
+null
+)
+{
+                signInListener
+.
+onSignIn
+(
+username
+.
+getText
+(
+)
+.
+toString
+(
+)
+,
+ password
+.
+getText
+(
+)
+.
+toString
+(
+)
+)
+;
+}
+}
+)
+;
+return
+ view
+;
+}
+@Override
+public
+void
+onDestroyView
+(
+)
+{
+super
+.
+onDestroyView
+(
+)
+;
+        signInListener 
+=
+null
+;
+}
+/**
+     * Sets listener.
+     *
+     * @param listener the listener
+     */
+public
+void
+setListener
+(
+SignInDialogListener
+ listener
+)
+{
+        signInListener 
+=
+ listener
+;
+}
+}
+Configure the primary authentication 
+When you use the primary authentication flow (no MFA, no password management, and so on), 
+AuthClient
+ needs the username and password from the user.
+Initialize 
+AuthClient
+ and set up the dialog listener to get the username and password:
+public
+class
+SampleActivity
+extends
+AppCompatActivity
+implements
+SignInDialog
+.
+SignInDialogListener
+{
+private
+SignInDialog
+ signInDialog
+;
+private
+AuthClient
+ client
+;
+private
+SessionClient
+ sessionClient
+;
+private
+Button
+ signIn
+;
+private
+String
+ sessionToken
+;
+@Override
+protected
+void
+onCreate
+(
+Bundle
+ savedInstanceState
+)
+{
+super
+.
+onCreate
+(
+savedInstanceState
+)
+;
+setContentView
+(
+R
+.
+layout
+.
+sample_activity
+)
+;
+OIDCConfig
+ config 
+=
+new
+OIDCConfig
+.
+Builder
+(
+)
+.
+withJsonFile
+(
+this
+,
+R
+.
+id
+.
+okta_oidc_config
+)
+.
+create
+(
+)
+;
+        client 
+=
+new
+Okta
+.
+AuthBuilder
+(
+)
+.
+withConfig
+(
+config
+)
+.
+withContext
+(
+this
+)
+.
+withStorage
+(
+new
+SharedPreferenceStorage
+(
+this
+)
+)
+.
+create
+(
+)
+;
+        sessionClient 
+=
+ client
+.
+getSessionClient
+(
+)
+;
+        signIn 
+=
+findViewById
+(
+R
+.
+id
+.
+sign_in_custom
+)
+;
+        signIn
+.
+setOnClickListener
+(
+v 
+->
+{
+FragmentTransaction
+ ft 
+=
+getSupportFragmentManager
+(
+)
+.
+beginTransaction
+(
+)
+;
+Fragment
+ prev 
+=
+getSupportFragmentManager
+(
+)
+.
+findFragmentByTag
+(
+"signin"
+)
+;
+if
+(
+prev 
+!=
+null
+)
+{
+                ft
+.
+remove
+(
+prev
+)
+;
+}
+            ft
+.
+addToBackStack
+(
+null
+)
+;
+            signInDialog 
+=
+new
+SignInDialog
+(
+)
+;
+            signInDialog
+.
+setListener
+(
+this
+)
+;
+            signInDialog
+.
+show
+(
+ft
+,
+"signin"
+)
+;
+}
+)
+;
+}
+//dialog listener callback
+@Override
+public
+void
+onSignIn
+(
+String
+ username
+,
+String
+ password
+)
+{
+//Use Okta Authentication SDK
+}
+}
+Use the Okta Java Authentication SDK 
+After you initialize the 
+AuthClient
+ instance, obtain a one-time use 
+sessionToken
+ that you can exchange for tokens. Obtain a 
+sessionToken
+ using the 
+Okta Java Authentication SDK
+(opens new window)
+.
+Then implement the callback 
+onSignIn
+:
+@Override
+public
+void
+onSignIn
+(
+String
+ username
+,
+String
+ password
+)
+{
+    signInDialog
+.
+dismiss
+(
+)
+;
+AuthenticationClients
+ authenticationClient 
+=
+null
+;
+if
+(
+Build
+.
+VERSION
+.
+SDK_INT
+>=
+Build
+.
+VERSION_CODES
+.
+N
+)
+{
+        authenticationClient 
+=
+AuthenticationClients
+.
+builder
+(
+)
+.
+setOrgUrl
+(
+"https://{yourOrgDomain}"
+)
+.
+build
+(
+)
+;
+}
+    executor
+.
+submit
+(
+(
+)
+->
+{
+try
+{
+if
+(
+authenticationClient 
+==
+null
+)
+{
+return
+;
+}
+            authenticationClient
+.
+authenticate
+(
+username
+,
+ password
+.
+toCharArray
+(
+)
+,
+null
+,
+new
+AuthenticationStateHandlerAdapter
+(
+)
+{
+@Override
+public
+void
+handleUnknown
+(
+AuthenticationResponse
+ authenticationResponse
+)
+{
+//Handle response
+}
+@Override
+public
+void
+handleLockedOut
+(
+AuthenticationResponse
+ lockedOut
+)
+{
+//Handle response
+}
+@Override
+public
+void
+handleSuccess
+(
+AuthenticationResponse
+ successResponse
+)
+{
+                    sessionToken 
+=
+ successResponse
+.
+getSessionToken
+(
+)
+;
+}
+}
+catch
+(
+AuthenticationException
+ e
+)
+{
+//Handle exception
+}
+}
+)
+;
+}
+}
+After you have the 
+sessionToken
+, you can exchange it for tokens by using 
+AuthClient
+:
+client
+.
+signIn
+(
+sessionToken
+,
+null
+,
+new
+RequestCallback
+<
+Result
+,
+AuthorizationException
+>
+(
+)
+{
+@Override
+public
+void
+onSuccess
+(
+@NonNull
+Result
+ result
+)
+{
+try
+{
+//sessionClient instance is now authorized.
+Tokens
+ tokens 
+=
+ sessionClient
+.
+getTokens
+(
+)
+;
+}
+catch
+(
+AuthorizationException
+ e
+)
+{
+//Handle error
+}
+}
+@Override
+public
+void
+onError
+(
+String
+ error
+,
+AuthorizationException
+ exception
+)
+{
+//Handle error
+}
+}
+)
+;
+Handle authentication responses 
+Every authentication transaction starts with primary authentication, which validates a user's password. The password policy, MFA policy, and sign-on policy are evaluated during primary authentication. The policies are evaluated to determine if the user's password is expired, a factor should be enrolled, or additional verification is required. The 
+transaction state
+ of the response depends on the user's status, group memberships, and assigned policies.
+Note:
+ Custom sign-in only works with 
+Org MFA
+. This means that before you exchange the session token for an access token, you must ensure that 
+App-Level MFA
+(opens new window)
+ is disabled for the application.
+Note:
+ In Identity Engine, the MFA Enrollment Policy name has changed to 
+authenticator enrollment policy
+(opens new window)
+.
+Response handling 
+Once you have a username and password, you can pass it to the 
+authenticationClient
+. It requires a 
+AuthenticationStateHandlerAdapter
+ to handle the response:
+try
+{
+    authenticationClient
+.
+authenticate
+(
+username
+,
+ password
+.
+toCharArray
+(
+)
+,
+null
+,
+new
+AuthenticationStateHandlerAdapter
+(
+)
+{
+@Override
+public
+void
+handleUnknown
+(
+AuthenticationResponse
+ authenticationResponse
+)
+{
+//Handle response
+}
+@Override
+public
+void
+handleLockedOut
+(
+AuthenticationResponse
+ lockedOut
+)
+{
+//Handle response
+}
+@Override
+public
+void
+handleSuccess
+(
+AuthenticationResponse
+ successResponse
+)
+{
+            sessionToken 
+=
+ successResponse
+.
+getSessionToken
+(
+)
+;
+}
+}
+catch
+(
+AuthenticationException
+ e
+)
+{
+//Handle exception
+}
+}
+Success status handling 
+Once you have the 
+sessionToken
+, you can exchange it for tokens:
+client
+.
+signIn
+(
+sessionToken
+,
+null
+,
+new
+RequestCallback
+<
+Result
+,
+AuthorizationException
+>
+(
+)
+{
+@Override
+public
+void
+onSuccess
+(
+@NonNull
+Result
+ result
+)
+{
+try
+{
+//sessionClient instance is now authorized.
+Tokens
+ tokens 
+=
+ sessionClient
+.
+getTokens
+(
+)
+;
+}
+catch
+(
+AuthorizationException
+ e
+)
+{
+//Handle error
+}
+}
+@Override
+public
+void
+onError
+(
+String
+ error
+,
+AuthorizationException
+ exception
+)
+{
+//Handle error
+}
+}
+)
+;
+Next steps 
+When a user signs in, their profile information (stored in Okta) is made available to your application. Use this information to personalize your app's UI for the user. See 
+Get info about the user
+ for details.
+Edit This Page On GitHub
+      Instructions for
+Android
+Loading...
+        On this page
+Create an Okta app
+Add and configure packages
+Build the primary authentication form
+Handle authentication responses
+Next steps
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback

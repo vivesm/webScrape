@@ -1,0 +1,120 @@
+Now | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Now
+Calculate the current date and time in a variety of formats, all in UTC time (not adjusted for local time zone).
+Use the 
+Date to Text
+ function to adjust a date to a time zone.
+Output
+Field
+Definition
+Type
+date
+Full date and time in ISO date format using UTC 
+Z
+ notation. For example, 
+2016-09-07T16:55:25.670Z
+.
+Date & Time
+iso
+Full date and time in ISO format using offset notation. For example, 
+2016-09-07T16:55:25+00:00
+.
+String
+full
+Expanded date and time in UTC format. For example, 
+September 7, 2016 16:55:25.670
+.
+String
+minute
+Current minute as a number.
+Number
+hour
+Current hour as a number, in 24 hour time, UTC time.
+Number
+time
+Current time as a string, in 24 hour time, UTC time.
+String
+day
+Current day as a number, in UTC time.
+Number
+month
+Current month number, in UTC time.
+String
+year
+Current year as a number, in UTC time.
+Number
+second
+Current second as a number.
+Number
+millisecond
+ Current millisecond.
+Number
+Example
+For the time of 9:55 AM (and 25.670 seconds) in Los Angeles on September 9, 2016, the 
+Now
+ card outputs will have the following values:
+date
+: 2016-09-07T16:55:25.670Z
+iso
+: 2016-09-07T16:55:25+00:00
+full
+: September 7, 2016 16:55:25.670
+minute
+: 55
+hour
+: 16
+time
+: 16:55:25.670
+day
+: 9
+month
+: 7
+year
+: 2016
+second
+: 25
+millisecond
+: 670
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

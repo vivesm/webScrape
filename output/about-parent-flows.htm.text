@@ -1,0 +1,157 @@
+Parent flows and other flow types | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Parent flows and other flow types
+Parent and helper flows are the two primary types of flows that you can run on the Workflows platform.
+Parent flows
+A parent flow (the caller) can be one of the following:
+An event flow triggered by a third-party application event, such as the 
+Record Updated
+ event card for 
+Salesforce
+.
+A 
+Schedule
+ flow that runs at predetermined intervals.
+An 
+API Endpoint
+ flow that runs against a specified API endpoint.
+A delegated flow that can be assigned to and run by an admin user specified in the 
+Admin Console
+.
+Helper flows
+Helper flows were previously known as child flows. The functionality for such flows remains unchanged. 
+A helper flow can be called from any parent flow to perform a repeated action, such as querying a list. After the helper flow is called by the parent, it becomes active and runs. Otherwise, it remains inactive.
+The 
+Folder
+ view lists all the flows that belong to a particular folder. You can sort them by type, their active status, their name, their author, their creation date, or the last edited date. 
+Helper flows are especially useful to simplify complex flows, or for flows that use 
+List
+ functions, execute a common set of tasks, or handle flow errors.
+Application event flows
+Flows that run based on an application event are triggered when an action takes place in 
+Okta
+ or a third-party application. These are basic examples of such events:
+A user is added to an application in 
+Okta
+A new customer is created in 
+Salesforce
+A new row is added inside a 
+Google Sheets
+Many application events, including those from 
+Okta
+, can be triggered in response to an incoming webhook. The external system makes an HTTP call to 
+Okta Workflows
+ immediately when the specified event occurs, and that call triggers the event-based flow.
+Scheduled flows
+A scheduled flow  runs on a specified schedule. This could be once an hour, or 5pm on Fridays, or at 9am on the first day of every month.
+Adding a scheduled flow event prompts you to provide the schedule details. You can change the schedule by clicking the clock icon at the bottom of the card. For example, you can set the 
+New Record
+ event of the 
+Salesforce
+ connector to check for new records every Friday at 5pm.
+The schedule only goes into effect  after the flow has been turned on.
+Each scheduled flow card has the following outputs:
+Current Time
+: Date and time that the current instance of the flow was initiated (in ISO UTC format). This can be passed to any input that has a 
+Text
+ or 
+Date & Time
+ type.
+Execution ID
+: Unique ID of the flow instance.
+API endpoint flows
+An 
+API Endpoint
+ flow is a type of flow triggered by changes at an external source.
+Unlike flows that start with events associated with a connected app, these flows can be triggered at any time. When the external client calls the endpoint, the flow is executed and the client receives any output from that flow execution.
+The only requirement is that the external client calls the designated endpoint with valid security credentials. There are three ways of securing your API endpoint for 
+Okta Workflows
+:
+Secure with OAuth 2.0
+The API endpoint flow is secured using OAuth 2.0 protocols for authorization of scoped access tokens. An admin adds the appropriate scopes to any app integration that needs to call the API. This feature supports the OAuth client credentials grant type with the use of a 
+private JSON Web Token (JWT)
+. The flow is triggered after the 
+Okta
+ authorization server receives and approves the access token.
+Custom authorization servers aren't supported for this method.
+See 
+Invoke a flow with an API endpoint using OAuth 2.0
+.
+Secure with client token
+The API endpoint flow is registered as a webhook and is secured through a unique 
+client token
+. It's only accessible if the requesting service passes the proper client token through the invoke URL. The invoke URL is constructed using a 
+flow alias
+.
+See 
+Invoke a flow with an API endpoint using a Client Token
+.
+None (public service)
+The API endpoint flow is publicly available to anyone with the invoke URL. The invoke URL is constructed using a 
+flow alias
+.
+See 
+Invoke a flow with an API as a public service
+.
+Delegated flows
+Delegating a workflow is an option to have a flow that an 
+Okta
+ admin can view and run  directly from the 
+Okta
+ Admin Console. 
+An admin can run a delegated flow  when the following conditions are met:
+The flow includes a 
+Delegated Flow
+ event card.
+There's a custom admin role with a resource set that contains the delegated flow.
+The admin role contains the 
+Run delegated flow
+ permission.
+The admin role is assigned to one or more admins.
+A delegated flow is useful when you want to allow an admin to run a workflow but don't want to grant them full access to 
+Okta Workflows
+.
+See 
+Run a delegated flow
+.
+Related topics
+Build and test a flow
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

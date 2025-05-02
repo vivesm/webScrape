@@ -1,0 +1,92 @@
+Repeat | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Repeat
+This function card runs a helper flow a specified number of times.
+To use this function card, you must call a helper flow that contains the steps that you want to run repeatedly. Your helper flow can receive the current loop count through the 
+Index
+ field in the 
+Context
+ section of the helper flow card. For example, the first time the helper flow runs, the value of the 
+Index
+ field is 
+0
+. The second time the value is 
+1
+ and then 
+2
+ for the third time, incrementing after each execution of the helper flow.
+Input
+Field
+Definition
+Type
+Required
+Helper Flow
+Opens a dialog so you can select the helper flow that you want to execute a specific number of times.
+Choose either an existing flow or create a flow.
+Dialog
+TRUE
+With these options
+count
+The number of times to repeat the helper flow.
+The maximum value is 
+10000
+.
+Number
+FALSE
+concurrency
+The number of parallel instances of the helper flow to execute.
+If processing the executions in sequence is important, use a value of 
+1
+. Otherwise, using a higher concurrency value such as 
+5
+ or 
+10
+ allows your flow to complete sooner.
+Number
+FALSE
+Output
+This card has no output fields. To return values as outputs, see the 
+List
+ function cards for other options.
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

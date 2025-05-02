@@ -1,0 +1,102 @@
+Create Row | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Create Row
+Create a new row in a table.
+Options
+Field
+Definition
+Type
+Required
+Table
+Table to which a row will be added.
+To select a table:
+Click 
+Choose Table, 
+select a table in the dialog box, or click 
+New Table
+ to create a new table, then click 
+Choose
+.
+Click 
+Save
+ on the card.
+If this card will be included in flows that will operate on different tables, choose the 
+provide table at runtime
+ option. See 
+Provide a table ID at runtime
+.
+Dialog box
+TRUE
+Input
+Field
+Definition
+Type
+Required
+Various
+The input fields (column names) that will be updated for the new table row.
+To specify the input fields to which new values will be written:
+Click the check boxes next to the available listed input fields.
+Click 
+Save
+.
+The selected fields will be displayed as inputs on the card.
+Dialog box
+TRUE
+Table ID (if the 
+provide table at runtime
+ option was selected)
+                                    Enter the ID for a table. To obtain the table ID, see 
+Provide a table ID at runtime
+.
+String
+TRUE
+Output
+Field
+Definition
+Type
+Row ID
+ID of the row that was created.
+Number
+Related topics
+Provide a table ID at runtime
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

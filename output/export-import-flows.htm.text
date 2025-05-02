@@ -1,0 +1,155 @@
+Export and import flows | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Export and import flows
+You can export and import single flows, or a folder containing multiple flows. The export and import features enable you to share flows and tables between multiple 
+Okta
+ orgs, or share  them with other people outside your org.
+If you only want to make a copy of a folder or your  flows inside a folder, use the 
+Duplicate a folder
+ feature.
+Single flows
+To export or import a single flow within your org, complete the following steps:
+Export a flow
+In the 
+Workflows Console
+, select the folder containing the flow you want to export.
+Click the 
+Export
+ icon on the flow. 
+If your folder displays your flows in a list view, click the gear icon on the flow, and then click 
+Export
+. 
+When you click 
+Download
+, the flow is exported and saved to your local system as a 
+.flow
+ file.
+You can also use the 
+Export Flow
+ function card  to export a flow as a JSON object.
+Import a flow
+In the 
+Workflows Console
+, select the folder where you want to place the imported flow.
+From the folder's dropdown 
+Actions
+ menu, click 
+Import
+.
+Drag and drop your 
+.flow
+ file into the dialog, or click 
+Choose file from computer
+ to browse your local filesystem. The file import begins immediately.
+Folders
+To export or import a folder within your org, complete the following steps:
+Export a folder
+To export an entire folder, complete the following steps: 
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, select the folder you want to export.
+From the folder's 
+Actions
+ dropdown  menu, select 
+Export
+. 
+In the 
+Export folder
+ dialog, you can choose one of two options:
+Export the entire folder tree, including the content from all nested subfolders
+Export just the contents of the current folder
+Click 
+Export
+ to start the export process.
+Click 
+Download
+ to save the exported 
+.folder
+ file to your local filesystem. This file contains all exported flows, tables, and subfolders. 
+The export function removes all connection information and table data. If you import this file later, you must  recreate or assign connections to use the flows again. However, if you import the file into your original 
+Okta
+ org, you can reapply your existing connections to the cards in those flows.
+The export function does maintain links between objects referenced by the flows. 
+For example, if a flow calls a helper flow to process a list, the link between that parent and helper flows is kept. 
+However, if the exported folder contains references to objects that weren't included in the folder, 
+Okta
+ warns you that there are flows with missing references. When you import this file, 
+Okta
+ requires you to recreate the referenced objects for the flows.
+You can also use the
+Export Folder
+ function card to export a folder as a single JSON object.
+Import a folder
+Imported flows appear as new flows in a folder. Since the export action doesn't retain connection information, you need to restore all card connections after you import the flows.
+For tables, the export action doesn't include any of the original table data. The import action recreates all tables according to the table schema listed in the export file, but the tables are initially empty. The limit of 100 tables in a folder remains.
+If any of the imported flows refer to a flow that wasn't included in the export (for example, a helper flow called to handle  a list), you must specify a replacement flow to complete the import.
+To import an 
+Okta Workflows
+.folder
+ file, complete the following steps:
+On the 
+Flows
+ page of the 
+Okta
+Workflows Console
+, select the folder where you want to place the imported flows.
+Click the 
+Actions
+ dropdown menu for the folder and select 
+Import
+.
+Drag and drop your file into the dialog, or click 
+Choose file from computer
+ link to browse your local file system for the file.
+Click 
+OK
+.
+Okta
+ imports the content to the current folder, unless the import action would exceed the maximum folder depth of five levels. If this scenario arises, 
+Okta
+ provides the option to import the contents as a top-level folder instead.
+When importing, 
+Okta
+ preserves the export locations of any subfolders, along with their flows and tables.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

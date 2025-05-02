@@ -1,0 +1,65 @@
+Compose | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Compose
+Combine text and fields that you can drag and drop. At runtime, all of the text is combined with the values of the fields to generate a single text output.
+For example, this is the text of an email:
+Copy
+Dear ,
+This is a reminder to please pay the following bill:
+Invoice number:
+Date:
+Amount:
+Thank you.
+Insert fields from other cards in your flow whose fields return values for name, invoice number, date, and amount. Drag and drop each field to its proper location in the composed text.
+After you've inserted any field, you can drag and drop to move it within the Compose card. To delete a field, click to the right of the field and then use Delete or Backspace.
+The Compose function card will generate a single output. You can then pass this content, for example, as the input text of an action card that sends an email.
+The Compose function ensures that text fields process text inputs only.  For example, if you do a HTTP Get from an API that sometimes returns text and sometimes returns numbers, then that output field can lead to runtime errors in your flow. If you pass a field into a Compose function card that was incorrectly typed, the card will convert it to text without error.
+Output
+Field
+Definition
+Type
+output
+Returned text string based on a combination of manually-entered text and values mapped from other cards in the flow.
+String
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

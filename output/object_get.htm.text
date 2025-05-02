@@ -1,0 +1,133 @@
+Get | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Get
+Reads the value at a given path inside in an object. 
+For example, if the object is 
+{ "a":"one", "b":"two", "c": 17 }
+, then specifying a path of 
+b
+ retrieves the value 
+two
+.
+To get more than one value at a time from an object, use 
+Get Multiple
+ instead.
+The output type should match the actual type of the value at that path. If the types don't match, the flow  can fail at runtime.
+For example, if you specify a path of 
+c
+ inside the object 
+{ "a":"one", "b":"two", "c": 17 }
+, the 
+output
+ type should be number because 
+17
+ is a number, not text.
+Nested objects
+You can retrieve values from nested objects by using a 
+.
+ (period) character to separate the key names. For example, if the object is 
+{ "all": { "b": "banana", "c":"cucumber" } }
+ then a path of 
+all.c
+ indicates that the function should look for the key named 
+c
+ that is inside the key named 
+all
+. The function would return the value 
+cucumber
+.
+Objects with lists
+In addition, if the path contains a list, you can use the index number for the list item when you specify the path:
+Copy
+{
+  "all": [
+    {
+      "b": "banana"
+    },
+    {
+      "b": "blackberry"
+    },
+    {
+      "b": "breadfruit"
+    }
+  ]
+}
+ If you specify a path of 
+all.2.b
+, then the function looks inside the object for the key 
+all
+. It then retrieves the item at the index value of 
+2
+ (since indexes start at 
+0
+, this is the third value in the list) with a key named 
+b
+. The function would return the value 
+breadfruit
+ from this example.
+Input
+Field
+Definition
+Type
+Required
+object
+The object that you want to search for your selected key.
+Object
+TRUE
+path
+The key inside the object that identifies the selected value.
+Text
+TRUE
+Output
+Field
+Definition
+Type
+output
+ The value of the 
+object
+ identified by the specified 
+path
+.
+Text
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

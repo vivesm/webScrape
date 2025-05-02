@@ -1,0 +1,80 @@
+Unzip | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Unzip
+This function card is only available in 
+Connector Builder
+.
+Create two lists, one for keys and the other for values, from an object. This is the inverse of the function card 
+Zip
+.
+Input
+Field
+Definition
+Type
+Required
+object
+ Object from which key and value lists are derived
+Object
+TRUE
+Output
+Field
+Definition
+Type
+keys
+List of key names
+List
+values
+List of values. This list should have the same number of items as 
+keys
+.
+List
+Example:
+For the object 
+{"first.name":"John","last.name":"Doe"}
+ two lists are derived as outputs:
+keys: 
+[ "first.name", "last.name" ]
+values: 
+[ "John", "Doe" ]
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

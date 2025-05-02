@@ -1,0 +1,137 @@
+Export to CSV | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Export to CSV
+Export a table to a CSV file, including all rows or a filtered subset of rows. The CSV file will be created within the file system. 
+Options
+Field
+Definition
+Type
+Required
+Table
+Table that will be exported as a CSV file.
+To select a table and the specific columns for export:
+Click 
+Choose Table, 
+select a table in the dialog box, or click 
+New Table
+ to create a new table, then click 
+Choose
+.
+Click 
+Save
+ on the card.
+Click the check boxes next to the available listed input fields.
+Click 
+Save
+.
+If this card will be included in flows that will operate on different tables, choose the 
+provide table at runtime
+ option. See 
+Provide a table ID at runtime
+.
+Dialog box
+TRUE
+Input
+Field
+Definition
+Type
+Required
+File
+Filename
+Assign a name for the CSV output file. To allow a third-party CSV file editing tool to recognize the file type, make sure 
+.csv
+ is added to the file name as an extension.
+String
+TRUE
+Filter
+Where Expression
+To export a subset of rows, click 
+Filter
+ to build your criteria. To export all rows in the table, ignore this input.
+Dialog
+FALSE
+Options
+Delimiter
+A custom delimiter for the CSV file. For example, if you want to create a pipe delimited CSV, then enter 
+|
+ as your delimiter. Defaults to 
+,
+.
+String
+FALSE
+Limit
+Maximum number of rows exported to your CSV file. For example, a value of 
+100
+ will return a CSV file with a maximum of 100 rows.
+Number
+FALSE
+Offset
+Create a CSV starting at a specific row number in the table. For example, if you only wanted to export a CSV with all but the first 10 rows, then enter 
+10 
+ as the offset value.
+Number
+FALSE
+Columns
+A list of column names that will be exported into the CSV file. This allows specific columns from the table to be exported to the CSV. Use this field if you only want a specific subset of columns exported to the CSV.
+String
+FALSE
+Table ID (if the 
+provide table at runtime
+ option was selected)
+                                    ID for table which will be exported to as a CSV file. To obtain the table ID, see 
+Provide a table ID at runtime
+.
+String
+TRUE
+Output
+Field
+Definition
+Type
+CSV
+File Content
+File ID of the CSV output file.
+File
+Related topics
+Tables
+Provide a table ID at runtime
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

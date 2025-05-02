@@ -1,0 +1,66 @@
+Filter Custom | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Filter Custom
+Given a list, the Filter Custom function creates a new list that contains only those items in the list that pass a test. The test is done by calling a helper flow once for each item. The flow returns true or false, as to whether that item should be included in the output list. To filter using a simple comparison test, use the Filter function instead.
+To use this function, first build the helper flow that you will use to test each item. This helper flow will be invoked once for each item in the list. Define fields on the event card that will be the inputs that feed into the test. Typically you will include a field for the item of the list. You can also include other inputs that your flow will need to perform the test. Then build the rest of the helper flow, ending with a Return card that returns a single value of the true/false type -- either True (to include that item in the resulting list) or False (to not include it). The name of the true/false field on the Return card doesn't matter. Save the flow and turn it on.
+Now go back to the Filter Custom card and select the flow you just built. The inputs will auto-populate, then you can map data into them. To map an input to accept each item of the list, click in that field and you will see a drop down that includes 
+Item
+ - select that. Or if your list is a list of objects, you may also see the schema of the object, i.e. the keys that it contains, and you can also build your helper flow to accept those as inputs. In addition, you can drag in outputs from previous cards in the flow - in that case, the same value will be used for each item in this list.
+Input Fields
+list:
+ Input list that contains all of the items you will test
+flow
+: Helper flow that will be called once for each item in the list
+with the following values
+ (dynamically generated): Inputs defined by the helper flow - these will populate after you select the helper flow using the 
+Choose Flow
+ dialog
+concurrency
+: Number of items in the list to process in parallel. If it is important that the items are processed in sequence, use 1. Otherwise a higher number like 5 or 10 will cause your flow to complete sooner.
+Output Fields
+list:
+ Output list that contains only those items that passed the test, as determined by the provided helper flow.
+Related topics
+Parent flows and other flow types
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

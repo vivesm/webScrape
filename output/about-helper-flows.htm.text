@@ -1,0 +1,158 @@
+Helper flows | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Helper flows
+Helper flows allow for more efficient management and running of parent flows, such as an application event-driven or API Endpoint flow. 
+In the Workflows interface, a child flow is now referred to as a helper flow. The functionality for such flows remains unchanged. 
+Helper flows are useful in several scenarios:
+You reuse a series of steps multiple times in a single flow or across multiple flows. By moving that series of steps into their own helper flow, you only need to create one flow that can be called multiple times.  Run these steps from other flows by using the 
+Call Flow
+ or 
+Call Flow Async
+ functions. 
+You want to process a list one item at a time. For example, you can run a series of steps on each list item using the 
+For Each
+ function. Or, you can transform a list into a new list using the 
+Map
+ function.
+You want to break a large flow into smaller, more manageable parts.
+Use helper flows with list functions
+Helper flows are helpful for list functions because they enable you to process individual items in a list. 
+Helper flows can have:
+Inputs that correspond to the type of item in the list
+Functions that perform a task on each item
+A return (found in the 
+Control
+ category).
+For example, you can convert an object into a list of objects, where each pair of keys and values gets converted to an object that has both 
+propertyname
+ and 
+propertyvalue
+ keys. This pattern is common among cloud APIs. where you prefix the 
+propertyname
+ string with the 
+custom:
+ text string. You can do that with a helper flow. It accepts a 
+key
+, a 
+value
+, and a constant 
+prefix
+. The constant is the same across all iterations as the parent flow passes this constant to the helper flow. The helper flow returns back an object with two keys.
+That flow, when used with 
+object.map
+, can convert this simple object:
+Copy
+{"this":"that","up":"down","left":"right"}
+It returns the result in a more useful list:
+Copy
+[
+    {
+        "propertyname":"custom:this",
+        "propertyvalue":"that"
+    },
+    {
+        "propertyname":"custom:up",
+        "propertyvalue":"down"
+    },
+    {
+        "propertyname":"custom:left",
+        "propertyvalue":"right"
+    }
+]
+Outputs from helper flows
+Each helper flow card has the following outputs:
+Field
+Definition
+Inputs to this Flow
+Use the 
+Click or drag to create
+ option to add custom fields. Give each a name and data type (such as 
+Text
+ or 
+Number
+). Each custom field that you create corresponds to an expected input from any flow that calls your helper flow.
+context
+Outputs in this section are automatically assigned values whenever the flow runs.
+Index
+This number output is assigned a value when  a function that loops through the items of a list (such as the 
+For Each
+ or 
+Map
+ functions) calls the helper flow.  The value of 
+Index
+ corresponds to the item's position in the list (starting with zero) as this instance of the flow processes the list.
+Caller
+The keys of the 
+Caller
+ object tell you:
+Which flow called the helper flow (
+id
+ and 
+name
+)
+Which particular execution of the flow made the call (
+execution_id
+)
+Which particular step in the flow it was called (
+method
+, which is a unique ID). 
+When the helper flow is run manually, then 
+id
+ and 
+execution_id
+ are null. This fact is especially useful for debugging purposes.
+Error
+Object output is assigned a value when the flow is called for error handling. See 
+Set error handling for cards in flows
+.
+The value of 
+Error
+ corresponds to the raw error object returns by the application or action that caused the error. 
+For example, an object often has keys that include 
+message
+, 
+statusCode
+ and 
+execution
+. The last key is the unique identifier of the flow execution that caused the error. You can then use it  to construct a URL pointing to the execution history showing the flow details that led to the error.
+Execution ID
+Unique ID of the flow instance.
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

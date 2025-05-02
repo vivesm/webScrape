@@ -1,0 +1,98 @@
+Merge | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Merge
+The 
+Merge
+ function card merges two or more objects into a single object.
+The output object contains all  the keys and their assigned values that are present in the input objects. 
+If the same key appears in more than one input object, the only value retained in the output object is from the final object in the merge order.
+Input
+Field
+Definition
+Type
+Required
+object 1
+The first object to be merged.
+Object
+TRUE
+object 2
+The second object to be merged.
+Object
+TRUE
+To add objects to the merge card, click the gray placeholder input or drop an object into it. After adding the new object, a new placeholder appears so you can add more objects.
+Output
+Field
+Definition
+Type
+output
+The merged object.
+Object
+Example
+In this example, both objects have an 
+email
+ key, but contain different values. In the output object, the value for that duplicate key is taken from the last object in the merge order.
+Input
+object 1
+: 
+{ "email":"jane.doe@example.com", "id":123 }
+object 2
+: 
+{ "email":"john.doe@example.com", "first":"John", "last":"Doe" }
+Output
+output
+: 
+{ "email":"john.doe@example.com", "id":123, "first":"John", "last":"Doe" }
+If  the merge order of the same objects is reversed, the output object changes accordingly. For the email key, the value from the second object replaces the value from the first object.
+Input
+object 2
+: 
+{ "email":"john.doe@example.com", "first":"John", "last":"Doe" }
+object 1
+: 
+{ "email":"jane.doe@example.com", "id":123 }
+Output
+output
+: 
+{ "first":"John", "email":"jane.doe@example.com", "last":"Doe", "id":123 }
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

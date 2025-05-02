@@ -1,0 +1,145 @@
+Group By | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Group By
+This function takes a list and outputs an object that's grouped by the values in the original list at the specified path.
+The function returns an object that groups a list of items, for example, objects, strings, or numbers, according to the specified path value. Each unique value for the specified path in the input list has a corresponding key in the object. For each key in the returned object, this function returns a list of items from the input list that have a matching value to the key's specified path. 
+Input
+Field
+Definition
+Type
+Required
+list
+The list of objects that you want to group by the specified path. 
+List of Objects
+TRUE
+path
+The value or element to group the list by.
+Text
+FALSE
+Output
+Field
+Definition
+Type
+output
+The output object, where the keys are the unique values at the path from each element in the original list.
+Object
+Examples
+A simple example takes the following as inputs:
+Copy
+list = [{"a":1},{"a":2},{"a":3},{"a":3},{"a":3}]
+path = a
+This function takes the input list, groups it by the specified 
+path
+ and outputs the following:
+Copy
+{
+    "1": [ {"a": 1} ],
+    "2": [ {"a": 2} ],
+    "3": 
+        [ 
+            {"a": 3},
+            {"a": 3},
+            {"a": 3}
+        ]
+}
+A slightly more involved example takes the following inputs:
+Copy
+list = 
+[
+  {
+    "a": 1,
+    "b": {
+      "c": 2,
+      "d": 3
+    }
+  },
+  {
+    "a": 4,
+    "b": {
+      "c": 5,
+      "d": 6
+    }
+  },
+  {
+    "a": 7,
+    "b": {
+      "c": 8,
+      "d": 6
+    }
+  }
+]
+path = b.d
+For the preceding input, the function returns an object that's grouped around the values at the path 
+b.d
+:
+Copy
+{
+  "3": [
+    {
+      "a": 1,
+      "b": {
+        "c": 2,
+        "d": 3
+      }
+    }
+  ],
+  "6": [
+    {
+      "a": 4,
+      "b": {
+        "c": 5,
+        "d": 6
+      }
+    },
+    {
+      "a": 7,
+      "b": {
+        "c": 8,
+        "d": 6
+      }
+    }
+  ]
+}
+Related topics
+Lists
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

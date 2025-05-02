@@ -1,0 +1,132 @@
+Map to List | Okta Workflows
+Skip To Main Content
+Account
+Settings
+Logout
+placeholder
+Account
+Settings
+Logout
+Filter: 
+All Files
+Submit Search
+oktaproduction9ounvcxa
+https://platform.cloud.coveo.com/rest/search
+https://support.okta.com/help/s/global-search/%40uri
+https://support.okta.com/help/services/apexrest/PublicSearchToken?site=help
+oktanonproduction1il1gtac7
+https://qo2dt8ecve.execute-api.us-west-2.amazonaws.com/dev/token?site=help
+Documentation 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Release notes 
+Identity Engine
+Classic Engine
+Access Gateway
+Advanced Server Access
+Workflows
+Identity Security Posture Management
+Okta Developer
+Auth0
+Training
+Support
+Map to List
+The 
+Map to List
+ function iterates through each key in an object, creating a list as output. There's one item in the new list for each key in the input object. 
+For each key in the input object, the helper flow executes with the 
+key
+ name and the corresponding 
+value
+. After selecting a helper flow from the 
+Select Flow
+ dialog, you can pass the key and value fields using the dropdown choices in the 
+With the following values
+ section.
+The output of the helper flow should match whatever type is specified for the 
+new list
+ output field. 
+Input Fields
+Field
+Definition
+Type
+Required
+For each item in this list
+object
+The object to process.
+Object
+TRUE
+Run this Flow
+Helper Flow
+Helper flow to process each key and value pair.
+Flow
+TRUE
+With these options
+concurrency
+Number of keys that are processed in parallel.
+Number
+FALSE
+With the following values
+Inputs
+Dynamically generated inputs defined by the helper flow. Use the dropdown to specify which input receives the key and which receives the value.
+Various
+TRUE
+Output Fields
+There's one output list item for each key and value pair in the input object.
+Field
+Definition
+Type
+new list
+The new list formed by the key and value pairs from the helper flow.
+List
+Example
+You want to convert a single object into a list of objects, where each key and value pair converts to an object that has 
+propertyname
+ and 
+propertyvalue
+ keys. You also want to add a text prefix called 
+custom:
+ to the   
+propertyname
+ value.  
+You can do that with a helper flow that accepts 
+key,
+value
+, and a constant 
+prefix
+. The helper flow returns  an object with two keys and the prefix added.
+Parent flow
+Helper flow
+Input object
+Copy
+Input object
+{ "this": "that", "up": "down", "left": "right" }
+Output list
+Copy
+Output list
+[
+  {
+    "propertyname": "custom:this",
+    "propertyvalue": "that"
+  },
+  {
+    "propertyname": "custom:left",
+    "propertyvalue": "right"
+  },
+  {
+    "propertyname": "custom:up",
+    "propertyvalue": "down"
+  }
+]
+Related topics
+Functions
+Workflow elements
+©  
+2025
+Okta, Inc
+. All Rights Reserved. Various trademarks held by their respective owners.
+Feedback

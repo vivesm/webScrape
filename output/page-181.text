@@ -1,0 +1,1288 @@
+Sign in to your SPA with Auth JS | Okta Developer
+Community
+Forum
+Blog
+Pricing
+Okta Docs
+Okta.com
+Log in
+      Sign up
+      Instructions for
+Angular
+Loading...
+    On this page
+            About using Okta Auth JS with your SPA app
+Loading...
+    Sign in to your SPA with Auth JS
+    Identity Engine
+Note:
+ This document is only for Identity Engine. If you’re using Classic Engine, see 
+Sign in to SPA with Auth JS
+. See 
+Identify your Okta solution
+(opens new window)
+ to determine your Okta version.
+This guide discusses building a password sign-in Angular app that uses the Okta Auth JS and Angular libraries for Okta 
+embedded authentication
+.
+Learning outcomes 
+Understand the sequence of steps required to implement 
+embedded authentication
+ with Okta Auth JS and Angular libraries for your Angular app.
+What you need 
+Okta Developer Edition organization
+Okta Angular Identity Engine Sample App
+(opens new window)
+Note
+: Use the latest version of the Okta libraries for your Angular app.
+About using Okta Auth JS with your SPA app 
+You can retain authentication control of your Angular single-page app (SPA) without redirection to Okta by implementing 
+embedded authentication
+. Use embedded authentication with the Auth JS SDK. This library provides you with common, reusable OAuth 2.0 methods and properties to handle the interaction between the authorization server and your client app.
+You can customize the sign-in experience for your app with minimal use of low-level 
+Okta Authentication
+ and 
+Okta OpenID Connect (OIDC) and OAuth 2.0
+ APIs.
+The authentication interaction between the authorization server and your client app follows the 
+Interaction Code
+ flow. This flow is an extension to the 
+OAuth 2.0 and OIDC
+ standard. It allows you to customize the user authentication experience for your app without redirecting to an authentication component outside of your app. See 
+Implement authorization by Interaction Code grant type
+ to understand the Interaction Code flow and necessary interactions between the authorization server and your app.
+Note
+: You can use the 
+Okta Sign-In Widget
+ to embed authentication if you don't need full customization capabilities for your sign-in user experience. The Sign-In Widget handles the Interaction Code flow in authentication use cases offered by Okta. See 
+Sign in to your SPA with the embedded Okta Sign-In Widget
+.
+Create an Okta app integration 
+Before you integrate authentication into your Angular app, you need to register your app in your Okta org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an app integration through the 
+Okta CLI
+(opens new window)
+, the 
+Okta Apps API
+(opens new window)
+, or the 
+Admin Console
+ with the following steps:
+To create an app integration for your Angular app, sign in to 
+your Admin Console
+(opens new window)
+.
+Select 
+Applications
+ > 
+Applications
+, and then click 
+Create App Integration
+.
+In the dialog that appears, select 
+OIDC - OpenID Connect
+ as the 
+Sign-on method
+, 
+Single-Page Application
+ as the 
+Application type
+, and then click 
+Next
+.
+Fill in the following new app integration settings, and then click 
+Save
+:
+Setting
+Value/Description
+App integration name
+Specify a unique name for your app.
+Grant types
+Leave 
+Authorization Code
+ selected, and then select 
+Refresh Token
+. Click 
+Advanced
+ and select 
+Interaction Code
+.
+Sign-in redirect URIs
+Specify your app URI for the callback redirect from Okta. For example, 
+http://localhost:4200/login/callback
+.
+Sign-out redirect URIs
+Specify your app sign-out redirect URI. For example: 
+http://localhost:4200
+. Ensure that you add all your deployment URIs.
+Trusted Origins > Base URIs
+Specify your app base URI for CORS. For example: 
+http://localhost:4200
+. Ensure that you add trusted origins for all base URIs.
+Assignments
+Assign users to your app.
+Note:
+ Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI that you specified in the Admin Console. If you're using the 
+Okta CLI
+(opens new window)
+ to create your SPA Okta app integration, CORS is also automatically enabled for your base URI. You can verify that both 
+CORS
+ and 
+redirect
+ are enabled for your app by reviewing the 
+Security
+ > 
+API
+ > 
+Trusted Origins
+ page in the Admin Console.
+App integration settings 
+You need two pieces of information from your org and app integration for your Angular app:
+Client ID
+: From the 
+General
+ tab of your app integration, save the generated 
+Client ID
+ value.
+Issuer
+: From the 
+General
+ tab of your app integration, save the 
+Okta domain
+ value. Use your Okta domain value for the 
+issuer
+ setting, which represents the authorization server. Use 
+https://{yourOktaDomain}/oauth2/default
+ as the issuer for your app if you're using the Okta Developer Edition org. See 
+Issuer configuration
+ if you want to use another Okta custom authorization server.
+Install the SDK 
+Download the sample Angular application 
+To view a simple example of an Angular app, clone the Okta Angular Identity Engine sample app and follow the setup procedure:
+Clone the Angular sample repository 
+Clone the Okta Angular sample app repository and navigate to the top-level folder.
+git
+ clone git@github.com:okta-samples/okta-angular-oie-sample-quickstart.git
+cd
+ okta-angular-oie-sample-quickstart
+Install the dependencies 
+Install the dependencies in the 
+okta-angular-oie-sample-quickstart
+ folder:
+npm
+ ci
+Update the application configuration file 
+Update the configuration file of the sample app (
+src/app/okta-config.ts 
+) in the project root folder. The 
+okta-config.ts
+ file contains the configuration values for your app integration. See 
+Create an Okta app integration
+ for details on these values.
+const
+ oidcConfig 
+=
+{
+clientId
+:
+'{clientId}'
+,
+issuer
+:
+'https://{yourOktaDomain}/oauth2/default'
+,
+scopes
+:
+[
+'openid'
+,
+'offline_access'
+,
+'profile'
+,
+'email'
+]
+,
+pkce
+:
+true
+}
+;
+Run the sample application 
+Navigate to the project folder and run the sample application.
+cd
+ okta-angular-oie-sample-quickstart
+npm
+ start
+Open a new browser and navigate to the default local host port (
+http://localhost:4200
+). Click 
+Login
+ and sign in with a user from your org. After a successful authentication, the user's ID token appears on the page.
+Create an Angular app (optional) 
+To create an Angular app, open a terminal and install the Angular CLI:
+npm
+install
+-g
+ @angular/cli
+Now, create an app using the Angular CLI:
+ng new okta-app
+When asked 
+Would you like to add Angular routing?
+, press 
+y
+.
+After all prompts are answered, the Angular CLI creates a project in a folder named 
+okta-app
+ and installs all required dependencies.
+cd
+ okta-app
+Install the 
+Okta Auth SDK
+(opens new window)
+ using 
+npm
+:
+npm
+install
+ @okta/okta-auth-js
+Basic sign-in flow 
+Build a sign-in page that captures both the username and password. As an example, see the app component files such as 
+app.component.html
+ and 
+app.component.ts
+ that generate a dynamic form in the sample application.
+From the 
+app.component.html
+ file:
+<
+main
+>
+<
+app-menu
+[isAuthenticated]
+=
+"
+(isAuthenticated$ | async) ?? false
+"
+(startFlow)
+=
+"
+onFlow($event)
+"
+(logout)
+=
+"
+onLogout()
+"
+>
+</
+app-menu
+>
+<
+ng-container
+*ngIf
+=
+"
+idxMessages$ | async as messages
+"
+>
+<
+div
+>
+<
+p
+*ngFor
+=
+"
+let message of messages
+"
+>
+{{message.message}}
+</
+p
+>
+</
+div
+>
+</
+ng-container
+>
+<
+ng-container
+*ngIf
+=
+"
+nextStep$ | async as nextStep
+"
+>
+<
+app-okta-dynamic-form
+*ngIf
+=
+"
+!(isAuthenticated$ | async)
+"
+[nextStep]
+=
+"
+nextStep
+"
+(userInput)
+=
+"
+onInput($event)
+"
+>
+</
+app-okta-dynamic-form
+>
+</
+ng-container
+>
+<
+ng-container
+*ngIf
+=
+"
+isAuthenticated$ | async
+"
+>
+<
+div
+>
+<
+h3
+>
+ID Token
+</
+h3
+>
+<
+pre
+>
+{{idToken$ | async | json}}
+</
+pre
+>
+</
+div
+>
+</
+ng-container
+>
+</
+main
+>
+From the 
+app.component.ts
+ file:
+@
+Component
+(
+{
+  selector
+:
+'app-root'
+,
+  templateUrl
+:
+'./app.component.html'
+,
+  styleUrls
+:
+[
+'./app.component.scss'
+]
+}
+)
+export
+class
+AppComponent
+implements
+OnInit
+{
+public
+ nextStep$
+!
+:
+ Observable
+<
+NextStep
+|
+undefined
+>
+;
+public
+ authState$ 
+=
+this
+.
+oktaAuthService
+.
+authState$
+.
+pipe
+(
+shareReplay
+(
+)
+)
+;
+public
+ isAuthenticated$ 
+=
+this
+.
+authState$
+.
+pipe
+(
+map
+(
+authState 
+=>
+ authState
+?.
+isAuthenticated
+)
+)
+;
+public
+ idToken$ 
+=
+this
+.
+authState$
+.
+pipe
+(
+filter
+(
+authState 
+=>
+!
+!
+authState
+.
+idToken
+)
+,
+map
+(
+authState 
+=>
+ authState
+?.
+idToken
+)
+)
+;
+public
+ idxMessages$
+:
+ Observable
+<
+IdxMessage
+[
+]
+>
+=
+this
+.
+oktaAuthService
+.
+idxTransactionMessages$
+;
+private
+ flowSub$
+:
+ Subject
+<
+FLOW_TYPE
+>
+=
+new
+Subject
+<
+FLOW_TYPE
+>
+(
+)
+;
+private
+ inputSub$
+:
+ Subject
+<
+UserAction
+>
+=
+new
+Subject
+<
+UserAction
+>
+(
+)
+;
+constructor
+(
+private
+ oktaAuthService
+:
+ OktaAuthService
+)
+{
+}
+public
+ngOnInit
+(
+)
+:
+void
+{
+this
+.
+nextStep$ 
+=
+merge
+(
+this
+.
+oktaAuthService
+.
+handleRedirects
+(
+)
+,
+this
+.
+flowSub$
+.
+pipe
+(
+mergeMap
+(
+(
+flow
+:
+FLOW_TYPE
+)
+=>
+this
+.
+oktaAuthService
+.
+startIdxFlow
+(
+flow
+)
+)
+)
+,
+this
+.
+inputSub$
+.
+pipe
+(
+mergeMap
+(
+input 
+=>
+iif
+(
+(
+)
+=>
+ input
+.
+action 
+===
+'cancel'
+,
+this
+.
+oktaAuthService
+.
+cancelIdxFlow
+(
+)
+,
+this
+.
+oktaAuthService
+.
+proceedIdxFlow
+(
+input
+.
+values 
+as
+{
+}
+)
+)
+)
+,
+)
+)
+.
+pipe
+(
+catchError
+(
+ error 
+=>
+{
+console
+.
+log
+(
+error
+)
+;
+return
+of
+(
+undefined
+)
+}
+)
+,
+)
+;
+}
+The dynamic form works with the 
+Interaction code
+ flow to convert the 
+NextStep
+ response into appropriate form fields. Review the 
+dynamic-form.component
+ and 
+form-transformer.service.ts
+ files for code details. See also 
+Next Step
+(opens new window)
+.
+Note:
+ This guide only reviews the sign-in use case of the sample app.
+Review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app as the client:
+Review the Okta configuration settings 
+Review the 
+src/app/okta-config.ts
+ file that references the required 
+app integration settings
+ to initialize your Auth JS instance. The 
+okta-config.ts
+ file references the values from your app integration.
+import
+{
+ OktaAuth 
+}
+from
+'@okta/okta-auth-js'
+;
+import
+{
+ FactoryProvider
+,
+ InjectionToken 
+}
+from
+'@angular/core'
+;
+import
+{
+DOCUMENT
+}
+from
+'@angular/common'
+;
+import
+{
+ Router 
+}
+from
+'@angular/router'
+;
+const
+ oidcConfig 
+=
+{
+  clientId
+:
+'{clientId}'
+,
+  issuer
+:
+'https://{yourOktaDomain}/oauth2/default'
+,
+  scopes
+:
+[
+'openid'
+,
+'profile'
+,
+'email'
+]
+,
+  pkce
+:
+true
+}
+;
+Instantiate the Okta Auth JS client 
+Review the same Angular 
+src/app/okta-config.ts
+ file that imports required libraries and instantiates the Okta Auth JS client with values from the 
+oidcConfig
+ variable.
+import
+{
+ OktaAuth 
+}
+from
+'@okta/okta-auth-js'
+;
+import
+{
+ FactoryProvider
+,
+ InjectionToken 
+}
+from
+'@angular/core'
+;
+import
+{
+DOCUMENT
+}
+from
+'@angular/common'
+;
+import
+{
+ Router 
+}
+from
+'@angular/router'
+;
+const
+ oidcConfig 
+=
+{
+  clientId
+:
+'{clientId}'
+,
+  issuer
+:
+'https://{yourOktaDomain}/oauth2/default'
+,
+  scopes
+:
+[
+'openid'
+,
+'profile'
+,
+'email'
+]
+,
+  pkce
+:
+true
+}
+;
+export
+const
+OKTA_AUTH
+=
+new
+InjectionToken
+(
+'okta-auth'
+)
+;
+const
+oktaAuthFactory
+=
+(
+router
+:
+ Router
+,
+ doc
+:
+any
+)
+=>
+{
+const
+ params 
+=
+ router
+.
+parseUrl
+(
+doc
+.
+location
+.
+search
+)
+;
+const
+ state 
+=
+ params
+.
+queryParamMap
+.
+get
+(
+'state'
+)
+??
+undefined
+;
+const
+ recoveryToken 
+=
+ params
+.
+queryParamMap
+.
+get
+(
+'recoveryToken'
+)
+??
+undefined
+;
+const
+ redirectUri 
+=
+`
+{doc.location.origin}/login/callback
+`
+;
+return
+new
+OktaAuth
+(
+{
+...
+oidcConfig
+,
+ redirectUri
+,
+ state
+,
+ recoveryToken
+}
+)
+}
+;
+export
+const
+OKTA_PROVIDER
+:
+ FactoryProvider 
+=
+{
+  provide
+:
+OKTA_AUTH
+,
+  useFactory
+:
+ oktaAuthFactory
+,
+  deps
+:
+[
+Router
+,
+DOCUMENT
+]
+}
+To start the Okta Auth JS service, see this code snippet from the 
+okta-auth-service.ts
+ file:
+import
+{
+OKTA_AUTH
+}
+from
+'./okta-config'
+;
+constructor
+(
+@
+Inject
+(
+OKTA_AUTH
+)
+private
+ oktaAuth
+:
+ OktaAuth
+)
+{
+this
+.
+oktaAuth
+.
+start
+(
+)
+;
+}
+Handle the password authentication 
+Review the 
+okta-auth.service.ts
+ file for details on handling a successful password authentication by receiving the 
+SUCCESS
+ status, which also returns tokens. For example, for the simple authentication case:
+public
+authenticateFlow
+(
+)
+:
+ Observable
+<
+NextStep 
+|
+undefined
+>
+{
+return
+defer
+(
+(
+)
+=>
+this
+.
+oktaAuth
+.
+idx
+.
+authenticate
+(
+)
+.
+pipe
+(
+tap
+(
+ transaction 
+=>
+{
+if
+(
+transaction
+.
+status 
+===
+ IdxStatus
+.
+SUCCESS
+&&
+!
+!
+transaction
+.
+tokens
+)
+{
+this
+.
+oktaAuth
+.
+tokenManager
+.
+setToken
+(
+transaction
+.
+tokens
+)
+;
+}
+}
+)
+,
+map
+(
+ transaction 
+=>
+{
+const
+ status 
+=
+ transaction
+.
+status
+;
+if
+(
+status 
+===
+ IdxStatus
+.
+SUCCESS
+||
+ status 
+===
+ IdxStatus
+.
+CANCELED
+)
+{
+return
+undefined
+;
+}
+if
+(
+status 
+===
+ Idx
+.
+FAILURE
+)
+throw
+'Idx error'
+;
+return
+ transaction
+.
+nextStep
+;
+}
+)
+;
+}
+The sample app includes other flow states and authentication:
+...
+.
+export
+type
+FLOW_TYPE
+=
+'authenticate'
+|
+'recoverPassword'
+|
+'register'
+|
+'idp'
+;
+...
+.
+public
+startIdxFlow
+(
+flow
+:
+FLOW_TYPE
+)
+:
+ Observable
+<
+NextStep 
+|
+undefined
+>
+{
+return
+defer
+(
+(
+)
+=>
+ flow 
+===
+'idp'
+?
+this
+.
+oktaAuth
+.
+idx
+.
+startTransaction
+(
+)
+:
+this
+.
+oktaAuth
+.
+idx
+[
+flow
+]
+(
+)
+)
+.
+pipe
+(
+map
+(
+transaction 
+=>
+this
+.
+transactionStateHandler
+(
+transaction
+)
+)
+)
+;
+}
+...
+.
+private
+transactionStateHandler
+(
+transaction
+:
+ IdxTransaction
+)
+:
+ NextStep 
+|
+undefined
+{
+const
+ appState 
+=
+this
+.
+appAuthStateSub$
+.
+getValue
+(
+)
+;
+this
+.
+appAuthStateSub$
+.
+next
+(
+{
+...
+appState
+,
+ transaction
+}
+)
+;
+const
+ status 
+=
+ transaction
+.
+status
+;
+if
+(
+status 
+===
+ IdxStatus
+.
+SUCCESS
+||
+ status 
+===
+ IdxStatus
+.
+CANCELED
+)
+{
+return
+undefined
+;
+}
+if
+(
+transaction
+.
+status 
+===
+ IdxStatus
+.
+FAILURE
+)
+{
+throw
+'Idx error'
+;
+}
+return
+ transaction
+.
+nextStep
+;
+}
+Next steps 
+After you create a basic sign-in flow for your Angular app, you can extend your app's sign-in experience. You can add features such as Multifactor Authentication, self-registration, or social IdP authentication.
+For each of those features, ensure you understand the 
+Interaction Code flow
+ so that you can handle possible remediation steps of the interaction. In addition to implementing the remediation steps for those features in your app code, you need to configure authenticators and authentication policies for your app.
+To use the SDK to implement these features, see the 
+Okta Auth JS SDK Interaction Code reference
+(opens new window)
+.
+To set up your Okta org for these use cases, see:
+Set up your Okta org for a multifactor use case
+Set up your Okta org for a social IdP use case
+Note:
+ The Admin Console and the Okta API support the Identity Engine org configuration.
+See also 
+Basic sign-in flow example with the password factor
+Okta Auth JS SDK Interaction Code reference
+(opens new window)
+Edit This Page On GitHub
+      Instructions for
+Angular
+Loading...
+        On this page
+About using Okta Auth JS with your SPA app
+Create an Okta app integration
+Install the SDK
+Basic sign-in flow
+Next steps
+See also
+      Additional links
+          Questions? Ask us on the
+            forum.
+          Contact & Legal
+Contact our team
+Contact sales
+Developer Service terms
+Site terms
+Privacy policy
+Copyright & trademarks
+          More information
+Integrate with Okta
+Pricing
+3rd-party notes
+Auth0
+Archive
+OKTA.COM
+Products, case studies, resources
+HELP CENTER
+Knowledgebase, roadmaps, and more
+TRUST
+System status, security, compliance
+Copyright © 2025 Okta. All rights reserved.
+Feedback
